@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Constant Retail Suite">
+	
+	<parameter name="project" value="Constant Retail" />
+	<parameter name="browser" value="chrome" />
+	<parameter name="URL" value="http://my.staging.constantretail.com/" />
+	<parameter name="retryCount" value="0" />
+
+	       <test name="Test New User">
+		<classes>
+			<class name="com.qualitesoft.constantretail.testscripts.CreateNewUser" />
+		</classes>
+	</test>
+
+ 	<test name="Test Select And Activate Subscription">
+		<classes>
+			<class name="com.qualitesoft.constantretail.testscripts.SelectAndActivateSubscription" />
+		</classes>
+	</test> 
+
+	<test name="Test Create New Store">
+		<parameter name="existingbrand" value="AccuWipe" />
+		<parameter name="existingbrand" value="Abbyson Living" />
+		<parameter name="templateused" value="Template 1" />
+		<classes>
+			<class name="com.qualitesoft.constantretail.testscripts.CreateNewStore" />
+		</classes> 
+	</test>   
+ <!-- 	   <test name="Test Login">	
+		<parameter name="crusername" value="SeleniumzPPO@email.com" />
+		<parameter name="crpassword" value="Password" />
+		<classes>
+			<class name="com.qualitesoft.constantretail.testscripts.LoginCR" />
+		</classes>
+	</test>   -->   
+
+<!--     <test name="Test Add Product Static view">
+   <parameter name="keyword" value="bed" />
+		<classes>
+			<class name="com.qualitesoft.constantretail.testscripts.TestAddProductStatic" />
+		</classes>
+	</test>   -->
+		
+     <test name="Test Add Product">	
+    <parameter name="brandname" value="AccuWipe (3994)" />
+    <parameter name="brandname" value="Abbyson Living (1453)" />
+	<classes>
+			<class name="com.qualitesoft.constantretail.testscripts.TestAddNewProduct" />
+		</classes>
+	</test> 
+  
+      <test name="Test Edit Product">
+		<classes>
+			<class name="com.qualitesoft.constantretail.testscripts.TestEditProduct" />
+		</classes>
+	</test> 
+   
+       <test name="Test Export Product">
+		<classes>
+			<class name="com.qualitesoft.constantretail.testscripts.TestExportProduct" />
+		</classes>
+	</test> 
+	 
+     <test name="Add Dynamic Product">  
+	<parameter name="keyword" value="beds" />	
+		<classes>
+			<class name="com.qualitesoft.constantretail.testscripts.TestAddProductList" />
+		</classes>
+	</test>  
+
+  <test name="Test Add Product Static">
+   <parameter name="keyword" value="chair" />
+		<classes>
+			<class name="com.qualitesoft.constantretail.testscripts.TestAddProductStatic" />
+		</classes>
+	</test>
+
+     <test name="Test Add Shipping Address">
+		<classes>
+			<class name="com.qualitesoft.constantretail.testscripts.TestShipping" />
+		</classes>
+   </test> 
+   <test name="Test Tax">
+		<classes>
+			<class name="com.qualitesoft.constantretail.testscripts.TestTax" />
+		</classes>
+   </test> 
+   
+   	<test name="Test AddLocation">
+		<classes>
+			<class name="com.qualitesoft.constantretail.testscripts.TestLocation" />
+		</classes>
+   </test>  
+  
+    <test name="Test AddPayment">
+		<classes>
+			<class name="com.qualitesoft.constantretail.testscripts.TestPayment" />
+		</classes>
+   </test>
+	<test name="Test Checkout">
+   	<classes>
+			<class name="com.qualitesoft.constantretail.testscripts.TestCheckout" />
+		</classes>
+	</test> 
+ 	<test name="Test Order">
+		<classes>
+			<class name="com.qualitesoft.constantretail.testscripts.TestOrders" />
+		</classes>
+   </test> 
+   
+ 	<test name="Test Report">
+		<classes>
+			<class name="com.qualitesoft.constantretail.testscripts.TestReports" />
+		</classes>
+   </test> 
+	
+<!--  	<test name="Test Create New Product">
+			<parameter name="existingbrand" value="A-America (4652)" />
+			<parameter name="Category" value="Furniture / Living Room  / Accent Chairs	" />
+			
+			<classes>
+			<class name="com.qualitesoft.constantretail.testscripts.TestCreateNewProduct" />
+		</classes>
+	</test> -->
+	 
+	<!-- <test name="Test Website Navigation">
+		<classes>
+			<class name="com.qualitesoft.constantretail.testscripts.NavigateWebsite" />
+		</classes>
+	</test> -->
+	 
+<!-- 	<test name="Test Edit Website Content"> -->
+<!-- 		<classes> -->
+<!-- 			<class name="com.qualitesoft.constantretail.testscripts.EditWebsiteContent" /> -->
+<!-- 		</classes> -->
+<!-- 	</test> -->
+	
+<!-- 	<test name="Test Navigation Bar"> -->
+<!-- 		<classes> -->
+<!-- 			<class name="com.qualitesoft.constantretail.testscripts.NavigationBar" /> -->
+<!-- 		</classes> -->
+<!-- 	</test> -->
+
+</suite>

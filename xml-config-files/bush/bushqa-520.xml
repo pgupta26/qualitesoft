@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Bush Suite">
+
+	<parameter name="project" value="Bush" />
+	<parameter name="browser" value="chrome" />
+	<parameter name="URL"
+		value="http://qa-bushfurniturecollection.constantretail.com/" />
+	<parameter name="retryCount" value="0" />
+	<parameter name="plaquery" value="src=PLA" />
+
+	<test name="Checkout via Amazon - With Shipping">
+		<parameter name="Row" value="yes" />
+		<parameter name="fastShipping" value="Free"></parameter>
+		<parameter name="amazonTax" value="$34.04"></parameter>
+		<parameter name="tax" value="(approx.) $0.00"></parameter>
+		<classes>
+			<class name="com.qualitesoft.bush.testscripts.AddItemsToCart2">
+				<methods>
+					<include name="testAddItemsToCart"></include>
+					<!-- <include name="paidShipping"></include> -->
+				</methods>
+			</class>
+			<class name="com.qualitesoft.homesquare.testscripts.AmazonLogin">
+				<methods>
+					<include name="testAmazonLoginAsGuest"></include>
+				</methods>
+			</class>
+			<class name="com.qualitesoft.cymax.testscripts.PaymentInformation">
+				<methods>
+					<include name="testPaymentInformation" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.bush.testscripts.AmazonOrderConfirmation" />
+			<class name="com.qualitesoft.cymax.testscripts.LogOff" />
+		</classes>
+	</test>
+</suite>	

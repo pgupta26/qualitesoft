@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="FCsalesinquiryformsubmission Suite">
+	
+	<parameter name="project" value="FCsalesinquiryformsubmission" />
+	<parameter name="browser" value="chrome" />
+	<parameter name="URL" value="https://www.freightclub.com/" />
+	<parameter name="retryCount" value="0" />
+	<parameter name="plaquery" value="src=PLA"/>
+	
+    <test name="TestNavigateTheWebsite">
+		<classes>
+			<class name="com.qualitesoft.FCsalesinquiryformsubmission.testscripts.TestNavigateTheWebsite" />
+		</classes>
+	</test>  
+    <test name="TestContactUsLink">
+		<classes>
+			<class name="com.qualitesoft.FCsalesinquiryformsubmission.testscripts.TestContactUsLink" />
+		</classes>
+	</test> 
+	    <test name="TestContactourAgent">
+		<classes>
+			<class name="com.qualitesoft.FCsalesinquiryformsubmission.testscripts.TestContactourAgent" />
+		</classes>
+	</test> 
+	<!--     <test name="TestSendMessage">
+		<classes>
+			<class name="com.qualitesoft.FCsalesinquiryformsubmission.testscripts.TestSendMessage" />
+		</classes>
+	</test> 
+	    <test name="TestDisplaySuccessMessage">
+		<classes>
+			<class name="com.qualitesoft.FCsalesinquiryformsubmission.testscripts.TestDisplaySuccessMessage" />
+		</classes>
+	</test>  -->
+   	
+</suite>	

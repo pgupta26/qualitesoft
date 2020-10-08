@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="AllSuites">
+
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="com.qualitesoft.core.CustomTestListener" />
+	</listeners>
+	
+	<suite-files>
+		<suite-file path="xml-config-files//freightclub//freightclubsuite.xml" />
+	</suite-files>
+	
+	 <suite-files>
+		<suite-file path="xml-config-files//freightclub//freightclubsuitePh2.xml" />
+	</suite-files>
+	
+	<suite-files>
+		<suite-file path="xml-config-files//floatingcart//floatingcartsuite.xml" />
+	</suite-files>
+	
+	<suite-files>
+		<suite-file path="xml-config-files//freightclub_enhancement//qa517.xml" />
+	</suite-files>
+	
+	<suite-files>
+		<suite-file path="xml-config-files//freightclub_enhancement//qa537.xml" />
+	</suite-files>
+	
+	<suite-files>
+		<suite-file path="xml-config-files//freightclub_enhancement//qa538.xml" />
+	</suite-files>
+	
+	<suite-files>
+		<suite-file path="xml-config-files//SurePost//SurePost.xml" />
+	</suite-files>
+	
+
+	<!--
+	
+	
+	<suite-files> 
+		<suite-file path="xml-config-files//cymax//cymaxsuite.xml" /> 
+	</suite-files>
+	
+	<suite-files> 
+		<suite-file path="xml-config-files//bush//bushqa-520.xml" /> 
+	</suite-files>
+	
+	<suite-files> 
+		<suite-file path="xml-config-files//bush//bushsuite_purchase_order.xml" /> 
+	</suite-files>
+	
+	<suite-files> 
+		<suite-file path="xml-config-files//bush//bushsuite_Paypal.xml" /> 
+	</suite-files>
+	
+	<suite-files> 
+		<suite-file path="xml-config-files//bush//bushsuite.xml" /> 
+	</suite-files>
+	
+	<suite-files> 
+		<suite-file path="xml-config-files//homesquare//homesquaresuite.xml" /> 
+	</suite-files> -->
+	
+
+	<!-- <suite-files> <suite-file path="xml-config-files//AmazonScrapperProject//AmazonScrapperProjectsuite.xml" 
+		/> </suite-files> -->
+	<!-- <suite-files> <suite-file path="xml-config-files//googlemerchantpricebenchmarksimulator//googlemerchantpricebenchmarksimulatorsuite.xml" 
+		/> </suite-files> -->
+	<!-- <suite-files> <suite-file path="xml-config-files//testcymax//testcymaxsuite.xml" 
+		/> </suite-files> -->
+
+	<!-- <suite-files> <suite-file path="xml-config-files//ChannnelgateSip//channelgatesipsuite.xml" 
+		/> </suite-files> -->
+
+	<!-- <suite-files> <suite-file path="xml-config-files//MBShopify//MBShopifysuite.xml" 
+		/> </suite-files> -->
+	<!-- <suite-files> <suite-file path="xml-config-files//MBDesigner//MBDesignersuite.xml" 
+		/> </suite-files> -->
+
+	<!-- <suite-files> <suite-file path="xml-config-files//constantretail//constantretailsuite.xml" 
+		/> </suite-files> -->
+	<!-- <suite-files> <suite-file path="xml-config-files//vignettes//vignettessuite.xml" 
+		/> </suite-files> -->
+	<!-- <suite-files> <suite-file path="xml-config-files//americanmattress//americanmattresssuite.xml" 
+		/> </suite-files> -->
+	<!-- <suite-files> <suite-file path="xml-config-files//abbyson//abbysonsuite.xml" 
+		/> </suite-files> -->
+	<!-- <suite-files> <suite-file path="xml-config-files//cymax//cymaxsuite.xml" 
+		/> </suite-files> <suite-files> <suite-file path="xml-config-files//bush//bushsuite.xml" 
+		/> </suite-files> <suite-files> <suite-file path="xml-config-files//bush//bushqa-520.xml" 
+		/> </suite-files> <suite-files> <suite-file path="xml-config-files//homesquare//homesquaresuite.xml" 
+		/> </suite-files> -->
+	<!-- <suite-files> <suite-file path="xml-config-files//homesquare//muzeboardsuite.xml" 
+		/> </suite-files> -->
+	<!-- <suite-files> <suite-file path="xml-config-files//genericwebsite//genericwebsitesuite.xml" 
+		/> </suite-files> -->
+
+	<!-- <suite-files> -->
+	<!-- <suite-file path="xml-config-files//genericcatalog//genericcatalogsuite.xml" 
+		/> -->
+	<!-- </suite-files> -->
+	
+	<!-- <suite-files> <suite-file path="xml-config-files//FCsalesinquiryformsubmission//FCsalesinquiryformsubmissionsuite.xml" 
+		/> </suite-files> -->
+</suite>

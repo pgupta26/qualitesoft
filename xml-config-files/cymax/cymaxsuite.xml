@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Cymax Suite">
+	<parameter name="project" value="Cymax" />
+	<parameter name="browser" value="chrome" />
+	<parameter name="URL" value="http://qa.cymax.com/" />
+	<parameter name="retryCount" value="0" />
+	<parameter name="plaquery" value="src=PLA" />
+	
+	<test name="Checkout via Credit Card">
+		<parameter name="crusername" value="raj.cymax@gmail.com"></parameter>
+		<parameter name="crpassword" value="Welcome@2"></parameter>
+		<parameter name="tax" value="$0.00" />
+		<parameter name="tax1" value="(approx.) 
+		$0.00" />
+		<parameter name="shipping" value="$287.98" />
+		<classes>
+			<class name="com.qualitesoft.cymax.testscripts.CreateNewAccount" />
+			<class name="com.qualitesoft.cymax.testscripts.AddItemsToCart1" />
+			<class name="com.qualitesoft.cymax.testscripts.SignIn">
+				<methods>
+					<include name="testSignIn" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.cymax.testscripts.ShippingInformation" />
+			<class name="com.qualitesoft.cymax.testscripts.CartPages" />
+			<class name="com.qualitesoft.cymax.testscripts.OrderConfirmation" />
+			<class name="com.qualitesoft.cymax.testscripts.EmailVerification" />
+			<class name="com.qualitesoft.cymax.testscripts.LogOff" />
+		</classes>
+	</test>
+
+	<test name="Checkout via Purchase Order - New User">
+		<parameter name="crusername" value="raj.cymax@gmail.com"></parameter>
+		<parameter name="crpassword" value="Welcome@2"></parameter>
+		<parameter name="tax" value="$0.00" />
+		<parameter name="tax1" value="(approx.) 
+		$0.00" />
+		<parameter name="shipping" value="$287.98" />
+		<classes>
+			<class name="com.qualitesoft.cymax.testscripts.CreateNewAccount" />
+			<class name="com.qualitesoft.cymax.testscripts.AddItemsToCart1" />
+			<class name="com.qualitesoft.cymax.testscripts.SignIn">
+				<methods>
+					<include name="testSignIn" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.cymax.testscripts.ShippingInformation" />
+			<class name="com.qualitesoft.cymax.testscripts.PaymentInformation">
+				<methods>
+					<include name="testPurchaseOrder" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.cymax.testscripts.OrderConfirmation" />
+			<class name="com.qualitesoft.cymax.testscripts.EmailVerification" />
+			<class name="com.qualitesoft.cymax.testscripts.LogOff" />
+		</classes>
+	</test>
+
+	<test name="Checkout via Paypal - Existing User">
+		<parameter name="crusername" value="cymax20200217222523@yopmail.com"></parameter>
+		<parameter name="crpassword" value="CymaxQa1234"></parameter>
+		<parameter name="tax" value="$0.00" />
+		<parameter name="tax1" value="(approx.) $0.00" />
+		<parameter name="shipping" value="$287.98" />
+		<classes>
+			<class name="com.qualitesoft.cymax.testscripts.SignIn">
+				<methods>
+					<include name="testLogIn" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.cymax.testscripts.AddItemsToCart1" />
+			<class name="com.qualitesoft.cymax.testscripts.ShippingInformation" />
+			<class name="com.qualitesoft.cymax.testscripts.PaymentInformation">
+				<methods>
+					<include name="testPaypal" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.cymax.testscripts.OrderConfirmation" />
+			<class name="com.qualitesoft.cymax.testscripts.LogOff" />
+		</classes>
+	</test>
+
+	<test name="Checkout via Amazon - New User">
+		<parameter name="fastShipping" value="Free" />
+		<parameter name="amazonTax" value="$266.40" />
+		<parameter name="tax" value="(approx.) $0.00" />
+		<classes>
+			<class name="com.qualitesoft.cymax.testscripts.AddItemsToCart2">
+				<methods>
+					<include name="addItemToCart" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.homesquare.testscripts.AmazonLogin">
+				<methods>
+					<include name="testAmazonLoginAsGuest" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.cymax.testscripts.PaymentInformation">
+				<methods>
+					<include name="testPaymentInformation" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.bush.testscripts.AmazonOrderConfirmation" />
+			<class name="com.qualitesoft.cymax.testscripts.LogOff" />
+		</classes>
+	</test>
+
+	<test name="Checkout via Amazon - Shipping">
+		<parameter name="fastShipping" value="$287.98" />
+		<parameter name="amazonTax" value="$266.40" />
+		<parameter name="tax" value="(approx.) $0.00" />
+		<classes>
+			<class name="com.qualitesoft.cymax.testscripts.AddItemsToCart2" />
+			<class name="com.qualitesoft.homesquare.testscripts.AmazonLogin">
+				<methods>
+					<include name="testAmazonLoginOnCartPage" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.cymax.testscripts.PaymentInformation">
+				<methods>
+					<include name="testPaymentInformation" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.bush.testscripts.AmazonOrderConfirmation" />
+			<class name="com.qualitesoft.cymax.testscripts.LogOff" />
+		</classes>
+	</test>
+	
+	<test name="Checkout via Amazon - Existing User">
+		<parameter name="fastShipping" value="Free"></parameter>
+		<parameter name="amazonTax" value="$266.40"></parameter>
+		<parameter name="tax" value="(approx.) $0.00"></parameter>
+
+		<classes>
+			<class name="com.qualitesoft.homesquare.testscripts.AmazonLogin">
+				<methods>
+					<include name="testAmazonLoginOnMyAccountPage" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.cymax.testscripts.AddItemsToCart2">
+				<methods>
+					<include name="addItemToCart"></include>
+					<include name="testAmazonOnCartPage" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.cymax.testscripts.PaymentInformation">
+				<methods>
+					<include name="testPaymentInformation" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.bush.testscripts.AmazonOrderConfirmation" />
+			<class name="com.qualitesoft.cymax.testscripts.LogOff" />
+		</classes>
+	</test>
+
+	<test name="Test Create New Account">
+		<classes>
+			<class name="com.qualitesoft.cymax.testscripts.CreateNewAccount" />
+		</classes>
+	</test>
+
+	<test name="Product List Refinement">
+		<classes>
+			<class
+				name="com.qualitesoft.cymax.testscripts.TestProductListingRefinement" />
+		</classes>
+	</test>
+
+	<test name="Test Add Items to Cart">
+		<classes>
+			<class name="com.qualitesoft.cymax.testscripts.AddItemsToCart" />
+		</classes>
+	</test>
+
+	<test name="EnhancedCart Product">
+		<classes>
+			<class name="com.qualitesoft.cymax.testscripts.TestEnhancedCartPLA" />
+		</classes>
+	</test>
+	<test name="Shipping Page">
+		<classes>
+			<class name="com.qualitesoft.cymax.testscripts.AddPayment" />
+		</classes>
+	</test>
+	<test name="Checkout">
+		<classes>
+			<class name="com.qualitesoft.cymax.testscripts.CartPages" />
+		</classes>
+	</test>
+
+	<test name="Order Confirmation">
+		<classes>
+			<class name="com.qualitesoft.cymax.testscripts.OrderConfirmation" />
+		</classes>
+	</test>
+	<test name="Search Product">
+		<classes>
+			<class name="com.qualitesoft.cymax.testscripts.TestSearchProduct" />
+		</classes>
+	</test>
+	<test name="Log Out">
+		<classes>
+			<class name="com.qualitesoft.cymax.testscripts.LogOff" />
+		</classes>
+	</test>
+</suite>	

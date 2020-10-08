@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Vignettes">
+	
+	<parameter name="project" value="Vignettes" />
+	<parameter name="browser" value="chrome" />
+ <parameter name="URL" value="http://vignettes.staging.constantretail.com/" /> 
+<!-- 	<parameter name="URL" value="https://abbysontradeprogram.staging.constantretail.com"/> -->
+	<parameter name="retryCount" value="0" />
+	
+	<test name="Test CreateAccount">
+		<classes>
+			<class name="com.qualitesoft.vignettes.testscripts.TestCreateNewAccount" />
+		</classes>
+	</test>
+	<!-- <test name="Test Login">
+		<classes>
+			<class name="com.qualitesoft.vignettes.testscripts.TestLogin" />
+		</classes>
+	</test> -->
+	
+	 <test name="Test Add Items to Cart">
+		<classes>
+			<class name="com.qualitesoft.vignettes.testscripts.TestAddItemsToCart" />
+		</classes>
+	</test>
+	
+	<test name="Test Cart Pages">
+		<classes>
+			<class name="com.qualitesoft.vignettes.testscripts.TestCartPages" />
+		</classes>
+	</test>
+	
+	<test name="Test Checkout as Account Holder">
+		<classes>
+			<class name="com.qualitesoft.vignettes.testscripts.TestCheckoutAsAccountHolder" />
+		</classes>
+	</test>	 
+		<test name="Test Order Confirmation">
+		<classes>
+			<class name="com.qualitesoft.vignettes.testscripts.TestOrderConfirmation" />
+		</classes>
+	</test>
+	<test name="Test Logout">
+		<classes>
+			<class name="com.qualitesoft.vignettes.testscripts.TestLogOff" />
+		</classes>
+	</test>	 
+
+</suite>
