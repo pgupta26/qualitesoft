@@ -21,9 +21,12 @@ public class TestGetQuote extends InitializeTest{
 
 			//second time place an order
 			if(loginuser.equals("Mstore2") || loginuser.equals("Mstoreuser") || loginuser.equals("Mstore2")) {
-				WaitTool.sleep(10);
 				SeleniumFunction.clickAction(driver,quickQuote.quickquoteLink());
-				WaitTool.sleep(10);
+				WaitTool.sleep(2);
+				quickQuote.acceptPopup();
+				WaitTool.sleep(2);
+
+				SeleniumFunction.executeJS(driver, "window.scrollBy(0,-500)");
 				SeleniumFunction.click(quickQuote.LTLShipment());
 			}
 			
@@ -48,11 +51,7 @@ public class TestGetQuote extends InitializeTest{
 			
 			jse.executeScript("window.scrollBy(0,800)", "");
 			SeleniumFunction.selectByVisibleText(quickQuote.DropOffLocationType(), "Residential");
-			//SeleniumFunction.click(quickQuote.DropOffZipLocationTypeResfloating());
-
-			jse.executeScript("window.scrollBy(0,350)", "");
 			SeleniumFunction.selectByVisibleText(quickQuote.DropOffLocationType(), "Commercial");
-			//SeleniumFunction.click(quickQuote.PickUpZipLocationTypeCom());	
 			SeleniumFunction.sendKeys(quickQuote.PickUpZip(), "90001");
 			SeleniumFunction.sendKeys(quickQuote.DropOffZip(),"90002");	
 			jse.executeScript("window.scrollBy(0,350)", "");
@@ -78,9 +77,7 @@ public class TestGetQuote extends InitializeTest{
 			SeleniumFunction.click(quickQuote.Weight());
 			SeleniumFunction.sendKeys(quickQuote.Weight(), "40");
 			SeleniumFunction.sendKeys(quickQuote.DimensionL(), "40");
-
 			SeleniumFunction.sendKeys(quickQuote.DimensionW(), "40");
-
 			SeleniumFunction.sendKeys(quickQuote.DimensionH(), "40");
 			SeleniumFunction.sendKeys(quickQuote.DeclaredValue(), "200");
 			SeleniumFunction.sendKeys(quickQuote.Cartons(), "2");
@@ -98,11 +95,11 @@ public class TestGetQuote extends InitializeTest{
 			ScreenShot.takeFullScreenShot("Rates wih Carriers ");
 			SeleniumFunction.scrollDownUptoFooter(driver);
 			quickQuote.expandCarries();
-			if(loginuser.equals("new")) {
+			//if(loginuser.equals("new")) {
 				quickQuote.selectCarrier("Pilot Freight Services[Televisions new]");	
-			}else {
+			/*}else {
 				quickQuote.selectCarrier("Pilot Freight Services[Televisions]");
-			}	
+			}	*/
 			
 			WaitTool.sleep(20);
 			

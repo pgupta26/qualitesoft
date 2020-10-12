@@ -84,9 +84,6 @@ public class FloatingQuickQuote {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='OrderDate']"), 30);
 	}
 	public WebElement OrderDate1() {
-
-		//return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='datepicker-days']//td[@class='today day']"), 30);
-		//return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='datepicker-days']//td[contains(@class,'today')]/following-sibling::td[1]"), 30);
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='datepicker-days']//td[@class='day']"), 30);
 	}
 
@@ -517,7 +514,7 @@ public class FloatingQuickQuote {
 	}
 	
 	public WebElement DropLocationName() {		
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@placeholder='Search address book or type new label'])[2]"), 30);		
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@placeholder='Search address book or type new label']"), 30);		
 	} 
 
 	public WebElement DropAddress1() {		

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Homesquare Suite">
+	
+	<parameter name="project" value="testcymax" />
+	<parameter name="browser" value="chrome" />
+	<parameter name="URL" value="http://qa.cymax.com/" />
+	<parameter name="retryCount" value="0" />
+    <parameter name="plaquery" value="src=PLA" />
+   
+	
+   <test name="Test Cymax">
+		<classes>
+			<class name="com.qualitesoft.testcymax.testscripts.test" />
+		</classes>
+	</test> 
+ 	
+</suite>	

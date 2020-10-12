@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="MBDesigner suite">
+	
+	<parameter name="project" value="MBDesigner" />
+	<parameter name="browser" value="chrome" />
+	<!-- <parameter name="URL" value="http://my.qa.constantretail.com/auth/register?muzeboard=true" /> -->
+	<parameter name="URL" value="http://my.staging.constantretail.com/auth/register?muzeboard=true" />
+	<parameter name="retryCount" value="0" />
+
+	<test name="Test RegisterAccount">
+		<classes>
+			<class name="com.qualitesoft.MBDesigner.testscripts.TestRegisterAccount" />
+		</classes>
+	</test> 
+	<test name="Test CreateMuzeboard">
+		<classes>
+			<class name="com.qualitesoft.MBDesigner.testscripts.TestCreateMuzeboard" />
+		</classes>
+	</test>	
+		<test name="Test SaveBoard">
+		<classes>
+			<class name="com.qualitesoft.MBDesigner.testscripts.TestSaveBoard" />
+		</classes>
+	</test>	
+		<test name="Test PublishBoard">
+		<classes>
+			<class name="com.qualitesoft.MBDesigner.testscripts.TestPublishBoard" />
+		</classes>
+	</test>	
+		<test name="Test ViewBoard">
+		<classes>
+			<class name="com.qualitesoft.MBDesigner.testscripts.TestViewBoard" />
+		</classes>
+	</test>	
+		<test name="Test AddtoCart">
+		<classes>
+			<class name="com.qualitesoft.MBDesigner.testscripts.TestBoardList" />
+		</classes>
+	</test>	
+			<test name="Test Checkout">
+		<classes>
+			<class name="com.qualitesoft.MBDesigner.testscripts.TestCheckout" />
+		</classes>
+	</test>		
+				<test name="Test Order">
+		<classes>
+			<class name="com.qualitesoft.MBDesigner.testscripts.TestOrder" />
+		</classes>
+	</test>	
+				<test name="Test LogOff">
+		<classes>
+			<class name="com.qualitesoft.MBDesigner.testscripts.TestLogOff" />
+		</classes>
+	</test>		
+</suite>	
