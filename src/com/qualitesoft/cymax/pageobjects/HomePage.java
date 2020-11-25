@@ -13,6 +13,14 @@ public class HomePage {
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
 	}
+	
+	public WebElement cymaxPopup() {
+		WaitTool.sleep(5);
+		if(WaitTool.isElementPresentAndDisplay(driver, By.xpath("//div[@data-cc-state='cancelled']"))) {
+			return WaitTool.returnWebElement(driver, By.xpath("//div[@data-cc-state='cancelled']"));
+		}
+		return null;
+	}
 
 	public WebElement myAccountLink() {
 

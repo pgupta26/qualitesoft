@@ -35,6 +35,8 @@ public class TestGetQuote extends InitializeTest{
 			quickQuote.acceptPopup();
 			WaitTool.sleep(2);
 			
+			SeleniumFunction.scrollUPUptoHeader(driver);
+			SeleniumFunction.executeJS(driver, "window.scrollBy(0,-500)");
 			SeleniumFunction.click(quickQuote.OrderDate());
 			WaitTool.sleep(5);
 			SeleniumFunction.click(quickQuote.OrderDate1());
@@ -95,11 +97,11 @@ public class TestGetQuote extends InitializeTest{
 			ScreenShot.takeFullScreenShot("Rates wih Carriers ");
 			SeleniumFunction.scrollDownUptoFooter(driver);
 			quickQuote.expandCarries();
-			//if(loginuser.equals("new")) {
+			if(loginuser.equals("new")) {
 				quickQuote.selectCarrier("Pilot Freight Services[Televisions new]");	
-			/*}else {
+			}else {
 				quickQuote.selectCarrier("Pilot Freight Services[Televisions]");
-			}	*/
+			}	
 			
 			WaitTool.sleep(20);
 			

@@ -1,6 +1,7 @@
 package com.qualitesoft.cymax.testscripts;
 
 import java.text.NumberFormat;
+import java.text.ParseException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -26,10 +27,12 @@ import com.qualitesoft.homesquare.pageobjects.HomeSquareCartPage;
 public class AddItemsToCart2 extends InitializeTest{
 
 	@Test
-	public void  addItemToCart(){
-		try {
+	public void  addItemToCart() throws ParseException{
 			MyAccountPage myAccountPage = new MyAccountPage(driver);
 			HomePage homepage = new HomePage(driver);
+			if(homepage.cymaxPopup()!=null) {
+				SeleniumFunction.click(homepage.cymaxPopup());
+			}
 			ProductsPage productsPage = new ProductsPage(driver);
 			JavascriptExecutor jse = (JavascriptExecutor)driver;
 			jse.executeScript("window.scrollBy(0,-250)", "");
@@ -37,7 +40,9 @@ public class AddItemsToCart2 extends InitializeTest{
 			WaitTool.sleep(1);
 			SeleniumFunction.hoverAction(driver,furnitureLink);
 			myAccountPage.bedLink();
+			WaitTool.sleep(20);
 			myAccountPage.murphyBeds();
+			WaitTool.sleep(10);
 			ScreenShot.takeScreenShot(driver, "Beds category page");
 
 			ProductsPage productPage = new ProductsPage(driver);
@@ -59,37 +64,23 @@ public class AddItemsToCart2 extends InitializeTest{
 			ScreenShot.takeScreenShot(driver,"CartPage");
 			Assert.assertEquals(f.parse(cartPage.productPrice().replace("$", "")).doubleValue(), (productPrice * 2));
 			Assert.assertEquals(cartPage.tax(), tax);
-			}catch(Exception ex) {
-			ex.printStackTrace();
-		}
 	}
+	
 	@Test
 	public void paidShipping(){
-		try{
 			HomeSquareCartPage cartPage = new HomeSquareCartPage(driver);
 			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@value='2' and @class='shipping-radio']"), 60));
-			WebDriverWait wait = new WebDriverWait(driver, 60);
-			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@value='6' and @class='shipping-radio']")));
-			WaitTool.sleep(5);
+			WaitTool.sleep(10);
 			Assert.assertEquals(cartPage.shipping(), fastShipping);
-		}catch(Exception ex) {
-			ex.printStackTrace();
-		}
 	}
 	
 	@Test
 	public void testAmazonOnCartPage(){
-		try{
 			LoginPage loginPage =new LoginPage(driver);
 			HomeSquareCartPage cartPage = new HomeSquareCartPage(driver);
 			Assert.assertEquals(cartPage.shipping(), fastShipping);
 			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.id("AmazonPayButton"), 60));
 			Log.info("login successfully.");
-
 			SeleniumFunction.click(loginPage.continueButton());
-
-		}catch(Exception ex) {
-			ex.printStackTrace();
-		}
 	}
 }

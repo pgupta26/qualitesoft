@@ -25,7 +25,6 @@ public class AmazonLogin extends InitializeTest {
 	@Test
 	public void testAmazonLoginAsGuest(){
 		try{
-
 			LoginPage loginPage =new LoginPage(driver);
 			HomeSquareCartPage cartPage = new HomeSquareCartPage(driver);
 			Assert.assertEquals(cartPage.shipping(), fastShipping);
@@ -61,10 +60,11 @@ public class AmazonLogin extends InitializeTest {
 			LoginPage loginPage =new LoginPage(driver);
 			HomeSquareCartPage cartPage = new HomeSquareCartPage(driver);
 			Assert.assertEquals(cartPage.shipping(), fastShipping);
-			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.id("AmazonPayButton"), 60));
-			amazonLogin();
+			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.id("AmazonPayButton"), 30));
+			WaitTool.sleep(10);
+			/*amazonLogin();
 			SeleniumFunction.click(loginPage.amazonLoginBtn());
-			Log.info("login successfully.");
+			Log.info("login successfully.");*/
 
 			SeleniumFunction.click(loginPage.continueButton());
 
@@ -75,10 +75,10 @@ public class AmazonLogin extends InitializeTest {
 
 	@Test
 	public void testAmazonLoginOnMyAccountPage(){
-		try{
-			WebDriver driver = getDriver();
-			HomeSquareMyAccountPage myAccountPage = new HomeSquareMyAccountPage(driver);
 			HomePage homepage = new HomePage(driver);
+			if(homepage.cymaxPopup()!=null) {
+				SeleniumFunction.click(homepage.cymaxPopup());
+			}
 			LoginPage loginPage =new LoginPage(driver);
 			SeleniumFunction.click(homepage.HomeSqmyAccountLink());
 			WaitTool.sleep(3);
@@ -91,24 +91,19 @@ public class AmazonLogin extends InitializeTest {
 				if(!windowHandle.equals(parentWindow))
 				{
 					driver.switchTo().window(windowHandle);
-					amazonLogin();
-					SeleniumFunction.click(loginPage.amazonSignInBtn());
+					SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@type='submit']"), 20));
+					//amazonLogin();
+					//SeleniumFunction.click(loginPage.amazonSignInBtn());
 					Log.info("login successfully.");
 					driver.switchTo().window(parentWindow); 
-					WaitTool.sleep(5);//control to parent window
+					WaitTool.sleep(15);//control to parent window
 				}
 			}
-		}
-		catch(Exception e){
-
-		}
 	}
 	public static void amazonLogin(){
 		LoginPage loginPage =new LoginPage(driver);
 		SeleniumFunction.sendKeys(loginPage.amazonEmail(), "Raj.r@cymax.com");
 		SeleniumFunction.sendKeys(loginPage.amazonPassword(), "Welcome@2");
 		ScreenShot.takeScreenShot(driver, "Amazon login information entered");
-
-
 	}
 }

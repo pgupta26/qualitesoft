@@ -11,6 +11,7 @@ import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
+import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.cymax.pageobjects.CartPage;
 import com.qualitesoft.cymax.pageobjects.HomePage;
@@ -29,12 +30,12 @@ public class OrderConfirmation extends InitializeTest {
 		CartPage cartPage = new CartPage(driver);
 		NumberFormat f = NumberFormat.getInstance(); 
 		if(suiteName.contains("Homesquare")) {
-			Assert.assertEquals(f.parse(cartPage.productPrice().replace("$", "")).doubleValue(), (productPrice * 2));
+			UseAssert.assertEquals(f.parse(cartPage.productPrice().replace("$", "")).doubleValue(), (productPrice * 2));
 		} else {
-			Assert.assertEquals(f.parse(cartPage.productPrice().replace("$", "")).doubleValue(), (productPrice * 2));
+			UseAssert.assertEquals(f.parse(cartPage.productPrice().replace("$", "")).doubleValue(), (productPrice * 2));
 		}
-		Assert.assertEquals(cartPage.shipping(), shipping);
-		Assert.assertEquals(cartPage.tax(), tax);
+		UseAssert.assertEquals(cartPage.shipping(), shipping);
+		UseAssert.assertEquals(cartPage.tax(), tax);
 		WaitTool.sleep(15);
 
 		orderConfirmationPage.successMsg();

@@ -18,14 +18,15 @@ public class CreateNewAccount extends InitializeTest{
 	
 	@Test
 	public void testCreateNewAccount(){
-		
-		WebDriver driver = getDriver();
-		
+				
 		HomePage homePage = new HomePage(driver);
-		WebElement myAccountLink = homePage.myAccountLink();
+		if(homePage.cymaxPopup()!=null) {
+			SeleniumFunction.click(homePage.cymaxPopup());
+		}
+		//WebElement myAccountLink = ;
 		//SeleniumFunction.click(homePage.noThanks()); //to remove popup
 		//ScreenShot.takeScreenShot(driver, "HomePage");
-		SeleniumFunction.click(myAccountLink);
+		SeleniumFunction.click(homePage.myAccountLink());
 		
 		LoginPage loginPage = new LoginPage(driver);
 		WebElement createNewAccountLink = loginPage.createNewAccountLink();
@@ -38,7 +39,7 @@ public class CreateNewAccount extends InitializeTest{
 		SeleniumFunction.sendKeys(firstNameTextbox, "TestSelenium_First");
 		SeleniumFunction.sendKeys(createAccountPage.lastNameTextbox(), "TestSelenium_Last");
 		emailAddress = this.emailAddress();
-		System.out.println("*******************************************************8Email address Created: "+emailAddress);
+		System.out.println("*******************************************************Email address Created: "+emailAddress);
 		SeleniumFunction.sendKeys(createAccountPage.emailTextbox(), emailAddress());
 		SeleniumFunction.sendKeys(createAccountPage.passwordTextbox(), "CymaxQa1234");
 		SeleniumFunction.sendKeys(createAccountPage.confirmPasswordTextbox(), "CymaxQa1234");

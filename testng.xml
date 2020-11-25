@@ -9,7 +9,11 @@
 		<listener class-name="com.qualitesoft.core.CustomTestListener" />
 	</listeners>
 	
-	<suite-files>
+	<suite-files> 
+		<suite-file path="xml-config-files//cymax//cymaxsuite.xml" /> 
+	</suite-files>
+	
+	<!-- <suite-files>
 		<suite-file path="xml-config-files//freightclub//freightclubsuite.xml" />
 	</suite-files>
 	
@@ -19,7 +23,7 @@
 	
 	<suite-files>
 		<suite-file path="xml-config-files//floatingcart//floatingcartsuite.xml" />
-	</suite-files>
+	</suite-files> -->
 	
 	<!-- <suite-files>
 		<suite-file path="xml-config-files//freightclub_enhancement//qa517.xml" />
@@ -38,14 +42,7 @@
 	</suite-files> -->
 	
 
-	<!--
-	
-	
-	<suite-files> 
-		<suite-file path="xml-config-files//cymax//cymaxsuite.xml" /> 
-	</suite-files>
-	
-	<suite-files> 
+	<!-- <suite-files> 
 		<suite-file path="xml-config-files//bush//bushqa-520.xml" /> 
 	</suite-files>
 	

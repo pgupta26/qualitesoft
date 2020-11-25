@@ -7,13 +7,12 @@
 	<parameter name="URL" value="http://qa.cymax.com/" />
 	<parameter name="retryCount" value="0" />
 	<parameter name="plaquery" value="src=PLA" />
-	
-	<test name="Checkout via Credit Card">
+
+	<test name="Checkout via Credit Card - New User">
 		<parameter name="crusername" value="raj.cymax@gmail.com"></parameter>
 		<parameter name="crpassword" value="Welcome@2"></parameter>
 		<parameter name="tax" value="$0.00" />
-		<parameter name="tax1" value="(approx.) 
-		$0.00" />
+		<parameter name="tax1" value="TBD" />
 		<parameter name="shipping" value="$287.98" />
 		<classes>
 			<class name="com.qualitesoft.cymax.testscripts.CreateNewAccount" />
@@ -35,8 +34,7 @@
 		<parameter name="crusername" value="raj.cymax@gmail.com"></parameter>
 		<parameter name="crpassword" value="Welcome@2"></parameter>
 		<parameter name="tax" value="$0.00" />
-		<parameter name="tax1" value="(approx.) 
-		$0.00" />
+		<parameter name="tax1" value="TBD" />
 		<parameter name="shipping" value="$287.98" />
 		<classes>
 			<class name="com.qualitesoft.cymax.testscripts.CreateNewAccount" />
@@ -57,12 +55,12 @@
 			<class name="com.qualitesoft.cymax.testscripts.LogOff" />
 		</classes>
 	</test>
-
+	
 	<test name="Checkout via Paypal - Existing User">
 		<parameter name="crusername" value="cymax20200217222523@yopmail.com"></parameter>
 		<parameter name="crpassword" value="CymaxQa1234"></parameter>
 		<parameter name="tax" value="$0.00" />
-		<parameter name="tax1" value="(approx.) $0.00" />
+		<parameter name="tax1" value="TBD" />
 		<parameter name="shipping" value="$287.98" />
 		<classes>
 			<class name="com.qualitesoft.cymax.testscripts.SignIn">
@@ -82,10 +80,10 @@
 		</classes>
 	</test>
 
-	<test name="Checkout via Amazon - New User">
+	<test name="Checkout via Amazon - Free Shipping - Guest Customer Page">
 		<parameter name="fastShipping" value="Free" />
-		<parameter name="amazonTax" value="$266.40" />
-		<parameter name="tax" value="(approx.) $0.00" />
+		<parameter name="amazonTax" value="$273.60" />
+		<parameter name="tax" value="TBD" />
 		<classes>
 			<class name="com.qualitesoft.cymax.testscripts.AddItemsToCart2">
 				<methods>
@@ -103,16 +101,20 @@
 				</methods>
 			</class>
 			<class name="com.qualitesoft.bush.testscripts.AmazonOrderConfirmation" />
-			<class name="com.qualitesoft.cymax.testscripts.LogOff" />
 		</classes>
 	</test>
 
-	<test name="Checkout via Amazon - Shipping">
+	<test name="Checkout via Amazon - Shipping - Cart Page">
 		<parameter name="fastShipping" value="$287.98" />
-		<parameter name="amazonTax" value="$266.40" />
-		<parameter name="tax" value="(approx.) $0.00" />
+		<parameter name="amazonTax" value="$273.60" />
+		<parameter name="tax" value="TBD" />
 		<classes>
-			<class name="com.qualitesoft.cymax.testscripts.AddItemsToCart2" />
+			<class name="com.qualitesoft.cymax.testscripts.AddItemsToCart2">
+				<methods>
+					<include name="addItemToCart" />
+					<include name="paidShipping" />
+				</methods>
+			</class>
 			<class name="com.qualitesoft.homesquare.testscripts.AmazonLogin">
 				<methods>
 					<include name="testAmazonLoginOnCartPage" />
@@ -124,14 +126,13 @@
 				</methods>
 			</class>
 			<class name="com.qualitesoft.bush.testscripts.AmazonOrderConfirmation" />
-			<class name="com.qualitesoft.cymax.testscripts.LogOff" />
 		</classes>
 	</test>
-	
+
 	<test name="Checkout via Amazon - Existing User">
 		<parameter name="fastShipping" value="Free"></parameter>
-		<parameter name="amazonTax" value="$266.40"></parameter>
-		<parameter name="tax" value="(approx.) $0.00"></parameter>
+		<parameter name="amazonTax" value="$273.60"></parameter>
+		<parameter name="tax" value="TBD"></parameter>
 
 		<classes>
 			<class name="com.qualitesoft.homesquare.testscripts.AmazonLogin">
@@ -192,9 +193,9 @@
 
 	<test name="Order Confirmation">
 		<classes>
-			<class name="com.qualitesoft.cymax.testscripts.OrderConfirmation" />
+			<class name="com.qualitesoft.cymax.testscripts.OrderConfirmation1" />
 		</classes>
-	</test>
+	</test> 
 	<test name="Search Product">
 		<classes>
 			<class name="com.qualitesoft.cymax.testscripts.TestSearchProduct" />

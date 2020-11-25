@@ -1,6 +1,7 @@
 package com.qualitesoft.cymax.testscripts;
 
 import java.text.NumberFormat;
+import java.text.ParseException;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -8,6 +9,7 @@ import org.testng.annotations.Test;
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
+import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.cymax.pageobjects.CartPage;
 import com.qualitesoft.cymax.pageobjects.ShippingInformationPage;
@@ -15,8 +17,7 @@ import com.qualitesoft.cymax.pageobjects.ShippingInformationPage;
 public class ShippingInformation extends InitializeTest {
 
 	@Test
-	public void testShippingInformation() {
-		try{
+	public void testShippingInformation() throws ParseException {
 			CartPage cartPage = new CartPage(driver);
 			NumberFormat f = NumberFormat.getInstance(); 
 
@@ -27,13 +28,13 @@ public class ShippingInformation extends InitializeTest {
 			}
 			
 			if(suiteName.contains("Homesquare")) {
-				Assert.assertEquals(f.parse(cartPage.productPrice().replace("$", "")).doubleValue(), (productPrice * 2));
-				Assert.assertEquals(cartPage.tax(), tax1);
+				UseAssert.assertEquals(f.parse(cartPage.productPrice().replace("$", "")).doubleValue(), (productPrice * 2));
+				UseAssert.assertEquals(cartPage.tax(), tax1);
 			} else {
-				Assert.assertEquals(f.parse(cartPage.productPrice().replace("$", "")).doubleValue(), (productPrice * 2));
-				Assert.assertEquals(cartPage.tax(), tax);
+				UseAssert.assertEquals(f.parse(cartPage.productPrice().replace("$", "")).doubleValue(), (productPrice * 2));
+				UseAssert.assertEquals(cartPage.tax(), tax1);
 			}
-			Assert.assertEquals(cartPage.shipping(), shipping);
+			UseAssert.assertEquals(cartPage.shipping(), shipping);
 			
 			SeleniumFunction.sendKeys(cartPage.firstName(), "test");
 			SeleniumFunction.sendKeys(cartPage.lastName(), "one");
@@ -59,19 +60,13 @@ public class ShippingInformation extends InitializeTest {
 			WaitTool.sleep(5);
 			ScreenShot.takeFullScreenShot("Review Order page");
 			if(suiteName.contains("Homesquare")) {
-				Assert.assertEquals(f.parse(cartPage.productPrice().replace("$", "")).doubleValue(), (productPrice * 2));
+				UseAssert.assertEquals(f.parse(cartPage.productPrice().replace("$", "")).doubleValue(), (productPrice * 2));
 			} else {
-				Assert.assertEquals(f.parse(cartPage.productPrice().replace("$", "")).doubleValue(), (productPrice * 2));
+				UseAssert.assertEquals(f.parse(cartPage.productPrice().replace("$", "")).doubleValue(), (productPrice * 2));
 			}
-			Assert.assertEquals(cartPage.shipping(), shipping);
-			Assert.assertEquals(cartPage.tax(), tax);
+			UseAssert.assertEquals(cartPage.shipping(), shipping);
+			UseAssert.assertEquals(cartPage.tax(), tax);
 			SeleniumFunction.clickJS(driver,cartPage.reviewButton()); //continue payment		
-
-		}catch(Exception ex) {
-			ex.printStackTrace();
-			System.out.println("dfjd");
-		}
-
 	}
 
 

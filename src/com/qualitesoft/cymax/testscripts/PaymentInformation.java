@@ -1,6 +1,7 @@
 package com.qualitesoft.cymax.testscripts;
 
 import java.text.NumberFormat;
+import java.text.ParseException;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -18,9 +19,7 @@ import com.qualitesoft.cymax.pageobjects.PaypalCheckout;
 public class PaymentInformation extends InitializeTest {
 
 	@Test
-	public void testPurchaseOrder() {
-
-		try {
+	public void testPurchaseOrder() throws ParseException {
 			CartPage cartPage = new CartPage(driver);
 			NumberFormat f = NumberFormat.getInstance(); 
 			if(suiteName.contains("Homesquare")) {
@@ -37,14 +36,10 @@ public class PaymentInformation extends InitializeTest {
 			WaitTool.sleep(2);
 			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='cart-box-buttons margin-top-20 row']/descendant::button[@title='Place order']"), 10));
 			WaitTool.sleep(30);
-		}catch(Exception ex) {
-			ex.printStackTrace();
-		}
 	}
 
 	@Test
-	public void testPaymentInformation() {
-		try {
+	public void testPaymentInformation() throws ParseException {
 			CartPage cartPage = new CartPage(driver);
 			NumberFormat f = NumberFormat.getInstance(); 
 			Assert.assertEquals(f.parse(cartPage.productPrice().replace("$", "")).doubleValue(), (productPrice * 2));
@@ -52,14 +47,10 @@ public class PaymentInformation extends InitializeTest {
 			Assert.assertEquals(cartPage.tax(), amazonTax);
 			ScreenShot.takeFullScreenShot("Payment Information Page");
 			SeleniumFunction.click(cartPage.reviewButton());
-		}catch(Exception ex) {
-			ex.printStackTrace();
-		}
 	}
 
 	@Test
-	public void testPaypal() {
-		try{
+	public void testPaypal() throws ParseException {
 			CartPage cartPage = new CartPage(driver);
 			NumberFormat f = NumberFormat.getInstance(); 
 			if(suiteName.contains("Homesquare")) {
@@ -101,8 +92,5 @@ public class PaymentInformation extends InitializeTest {
 			payPalCheckOut.payNow();
 		    SeleniumFunction.getCurrentWindow(driver); 
 			WaitTool.sleep(40);	
-		}catch(Exception ex) {
-			ex.printStackTrace();
-		}
 	}
 }

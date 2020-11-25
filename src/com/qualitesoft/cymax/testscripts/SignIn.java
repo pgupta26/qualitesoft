@@ -16,7 +16,6 @@ public class SignIn extends InitializeTest{
 	
 	@Test
 	public void testSignIn() {	
-		try{
 			LoginPage loginPage =new LoginPage(driver);
 			if(loginPage.alreadyHaveAccountPresent()) {
 				loginPage.alreadyHaveAccount();
@@ -26,14 +25,10 @@ public class SignIn extends InitializeTest{
 				loginPage.signInButton();
 				Log.info("login successfully.");
 			}			
-		}catch(Exception ex) {
-			ex.printStackTrace();
-		}
 	}
 	
 	@Test
 	public void testHomeSquareSignIn() {	
-		try{
 			LoginPage loginPage =new LoginPage(driver);
 			if(loginPage.alreadyHaveAccountPresent()) {
 				loginPage.alreadyHaveAccount();
@@ -43,17 +38,15 @@ public class SignIn extends InitializeTest{
 				loginPage.signInButton();
 				Log.info("login successfully.");
 			}			
-		}catch(Exception ex) {
-			ex.printStackTrace();
-		}
 	}
 	
 	@Test
 	public void testLogIn() {	
-		try{
-			
 			WaitTool.sleep(5);
 			HomePage homePage = new HomePage(driver);
+			if(homePage.cymaxPopup()!=null) {
+				SeleniumFunction.click(homePage.cymaxPopup());
+			}
 			WebElement myAccountLink = homePage.myAccountLink();
 			SeleniumFunction.click(myAccountLink);
 			MyAccountPage myAccountPage = new MyAccountPage(driver);
@@ -65,8 +58,5 @@ public class SignIn extends InitializeTest{
 				SeleniumFunction.click(myAccountPage.Loginbutton());
 			}
 			Log.info("login successfully.");	
-		}catch(Exception ex) {
-			ex.printStackTrace();
-		}
 	}
 }

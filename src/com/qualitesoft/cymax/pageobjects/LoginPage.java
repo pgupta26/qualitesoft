@@ -49,7 +49,7 @@ public class LoginPage {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='signInSubmit']"), 60);
 	}
 	public WebElement amazonSignInBtn(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@type='submit']"), 60);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.id("signInSubmit"), 60);
 	}
 	public WebElement continueButton(){
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//span[@id='a-autoid-0']//input[@class='a-button-input']"), 60);

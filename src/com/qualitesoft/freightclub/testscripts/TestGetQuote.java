@@ -20,7 +20,7 @@ public class TestGetQuote extends InitializeTest{
 		int rcnt=xr.getRowCount("Input");
 
 		//clear existing data
-		for(int i=2; i<=rcnt; i++){
+		for(int i=4; i<=rcnt; i++){
 			xr.setCellData("Input","OrderId", i,"");
 		}
 

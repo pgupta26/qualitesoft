@@ -36,23 +36,15 @@ public class AmazonOrderConfirmation extends InitializeTest{
 		WebElement orderNumber = orderConfirmationPage.orderNumber();
 		String orderNumberString = SeleniumFunction.getText(orderNumber);
 		Log.info("Order Id on Order Confirmation page: " + orderNumberString);
-		
+
 		SeleniumFunction.click(orderConfirmationPage.cymaxLogoImg());
-		HomePage homePage = new HomePage(driver);
+		/*HomePage homePage = new HomePage(driver);
 		WebElement myAccountLink = homePage.myAccountLink();
 		ScreenShot.takeScreenShot(driver, "HomePage");
 		SeleniumFunction.click(myAccountLink);
 		WaitTool.sleep(5);
-		
+
 		MyAccountPage myAccountPage = new MyAccountPage(driver);
-		//enter username and id(GuestUser)
-/*		System.out.println("GuestEmailid:"+GuestEmailid);
-		SeleniumFunction.sendKeys(myAccountPage.emailTextbox(),GuestEmailid.trim());
-		SeleniumFunction.sendKeys(myAccountPage.passwordTextbox(),"12345689");
-		SeleniumFunction.click(myAccountPage.Loginbutton());
-		WaitTool.sleep(10);*/
-		
-		
 		WebElement orderId = myAccountPage.orderId();
 		ScreenShot.takeScreenShot(driver, "OrderOnMyAccount");
 		String orderIdString = SeleniumFunction.getText(orderId);
@@ -64,8 +56,8 @@ public class AmazonOrderConfirmation extends InitializeTest{
 		} else {
 			Log.error("Order Id did not matched on Order confirmation and My Account page");
 			Assert.fail();
-		}
+		}*/
 
 		}
 
-}
+	}

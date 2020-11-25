@@ -31,7 +31,7 @@ public class AddToCartPage {
 	}
 	public WebElement keepshoppingButton() {
 
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("/html/body/div[4]/div[1]/div[1]/a"), 30);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@class='btn-continue-shopping']"), 30);
 	}
 	
 }

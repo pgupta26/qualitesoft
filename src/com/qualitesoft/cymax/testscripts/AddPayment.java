@@ -25,14 +25,7 @@ public class AddPayment extends InitializeTest {
 
 		WebDriver driver = getDriver();
 		CartPage cartPage = new CartPage(driver);
-		//If user buy without login as a guest user
-/*		String Emailid=RandomStringUtils.randomAlphanumeric(3).toLowerCase();
-		 GuestEmailid ="test"+Emailid+"@g.com";
-		System.out.println("GuestEmailid:"+GuestEmailid.trim());
-		SeleniumFunction.sendKeys(cartPage.guestUserName(), GuestEmailid);
-		SeleniumFunction.click(cartPage.continueButton());*/
-		
-		
+
 		WaitTool.sleep(5);
 		SeleniumFunction.sendKeys(cartPage.firstName(), "test");
 		SeleniumFunction.sendKeys(cartPage.lastName(), "one");
@@ -44,14 +37,14 @@ public class AddPayment extends InitializeTest {
 		SeleniumFunction.select(cartPage.country(), "United States");
 		WaitTool.sleep(5);
 		SeleniumFunction.select(cartPage.state(), "Alabama");
-		
+
 		SeleniumFunction.sendKeys(cartPage.phone(), "4444444444");
 		SeleniumFunction.sendKeys(cartPage.SpecialDelivery(), "test");
 		WaitTool.sleep(5);
 		ScreenShot.takeScreenShot(driver, "shipping info");
 		SeleniumFunction.click(cartPage.reviewButton());
 		WaitTool.sleep(5);
-		SeleniumFunction.click(cartPage.reviewButton()); //continue payment		
-		
+		SeleniumFunction.click(cartPage.reviewButton()); // continue payment
+
 	}
 }

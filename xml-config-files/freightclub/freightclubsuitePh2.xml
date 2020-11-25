@@ -17,7 +17,7 @@
 	<parameter name="managequickorderfile" value="Quick_Order(1).xlsx" />
 	<parameter name="retryCount" value="0" />
 
-	<test name="Test Navigate Website">
+	<!-- <test name="Test Navigate Website">
 		<classes>
 			<class
 				name="com.qualitesoft.freightclubPh2.testscripts.TestNavigateTheWebsite" />
@@ -139,7 +139,7 @@
 		<classes>
 			<class name="com.qualitesoft.freightclubPh2.testscripts.TestCloneOrders" />
 		</classes>
-	</test>
+	</test> -->
 	<test name="Test Quick Quote Parcel-USPS">
 		<parameter name="Row" value="6" />
 		<classes>

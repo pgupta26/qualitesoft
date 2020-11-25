@@ -7,6 +7,7 @@ import org.apache.log4j.xml.DOMConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 //import org.openqa.selenium.firefox.FirefoxDriver;
 //import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -103,6 +104,7 @@ public class InitializeTest {
 		searchUser = context.getCurrentXmlTest().getParameter("searchUser");
 		enableOption = context.getCurrentXmlTest().getParameter("enableOption");
 		weight = context.getCurrentXmlTest().getParameter("weight");
+		Log.info("*****************************"+ testname + " started.");
 	}
 	
 
@@ -114,15 +116,10 @@ public class InitializeTest {
 		launchURL(URL);
 		return driver;
 	}
-	@BeforeTest
-	public void testName() {
-		Log.info("*****************************"+ testname + " started.");
-	}
 
 	@AfterSuite
 	public void tearDown() {
-
-		Log.info("*******************************Test Ended");
+		Log.info("******************Test Ended************************");
 		driver.quit();
 	}
 
@@ -131,7 +128,7 @@ public class InitializeTest {
 		try {
 			if (browser.equalsIgnoreCase("firefox")) {
 				System.setProperty("webdriver.gecko.driver", "binaries/geckodriver.exe");
-				//driver = new FirefoxDriver();
+				driver = new FirefoxDriver();
 			}
 
 			if (browser.equalsIgnoreCase("chrome")) {

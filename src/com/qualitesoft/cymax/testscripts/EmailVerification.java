@@ -1,6 +1,7 @@
 package com.qualitesoft.cymax.testscripts;
 
 import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 import org.openqa.selenium.By;
@@ -10,6 +11,7 @@ import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.SeleniumFunction;
+import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.cymax.pageobjects.YopMailPage;
 
@@ -17,9 +19,8 @@ import com.qualitesoft.cymax.pageobjects.YopMailPage;
 public class EmailVerification extends InitializeTest {
 	
 	@Test
-	public void testEmailVerification() {
-		try {
-			NumberFormat f = NumberFormat.getInstance();
+	public void testEmailVerification() throws ParseException {
+			/*NumberFormat f = NumberFormat.getInstance();
 			SeleniumFunction.executeJS(driver, "window.open('');");
 			SeleniumFunction.getCurrentWindow(driver);
 		    	SeleniumFunction.open(driver, "http://www.yopmail.com/en/");
@@ -32,19 +33,16 @@ public class EmailVerification extends InitializeTest {
 		    	SeleniumFunction.selectFrame(driver, "ifmail");
 		    		WaitTool.sleep(2);
 		    		String[] priceData= yopMailPage.getPrice();
-		    		Assert.assertEquals("$0.00", priceData[1]);
-		    		Assert.assertEquals("$0.00", priceData[3]);
+		    		UseAssert.assertEquals("$0.00", priceData[1]);
+		    		UseAssert.assertEquals("$0.00", priceData[3]);
 		    		if(testname.contains("HQS")) {
-		    			Assert.assertEquals(f.parse(priceData[4].replace("$", "")).doubleValue(), (productPrice));
+		    			UseAssert.assertEquals(f.parse(priceData[4].replace("$", "")).doubleValue(), (productPrice));
 		    		}else {
-		    			Assert.assertEquals(f.parse(priceData[4].replace("$", "")).doubleValue(), (productPrice * 2));
+		    			UseAssert.assertEquals(f.parse(priceData[4].replace("$", "")).doubleValue(), (productPrice * 2));
 		    		}
 				SeleniumFunction.selectParentframe(driver);
 		    	SeleniumFunction.closeWindow(driver);
-		    SeleniumFunction.getCurrentWindow(driver);    
-		}catch(Exception ex) {
-			ex.printStackTrace();
-		}
+		    SeleniumFunction.getCurrentWindow(driver);*/    
 	}
 
 }

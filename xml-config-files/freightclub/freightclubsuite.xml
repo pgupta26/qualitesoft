@@ -16,7 +16,7 @@
 	<parameter name="managefullorderfile" value="Import_Orders_V4.xlsx" />
 	<parameter name="managequickorderfile" value="Quick_Order(1).xlsx" />
 
-	<test name="Test Navigate Website">
+	<!-- <test name="Test Navigate Website">
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestNavigateTheWebsite" />
 		</classes>
@@ -47,7 +47,7 @@
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test>  
+	</test> -->  
 
 	<test name="Test SignIn as existing user">
 		<parameter name="fcusername" value="rodrigo.r@cymax.com" />
@@ -72,7 +72,7 @@
 		</classes>
 	</test> 
 	
-	<test name="Test Bill of Lading">
+	<!-- <test name="Test Bill of Lading">
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestBillofLading" />
 		</classes>
@@ -113,5 +113,5 @@
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test>
+	</test> -->
 </suite>	

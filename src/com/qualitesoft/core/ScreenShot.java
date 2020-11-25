@@ -54,6 +54,9 @@ public class ScreenShot extends InitializeTest {
 			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 			FileUtils.copyFile(scrFile, new File(baseScreenShotsFolder + "/Failed/" + fileName + ".png"));
 			Log.info("Faliure screenshot " + fileName + " successfully taken.");
+			driver.quit();
+			InitializeTest initializeTest = new InitializeTest();
+			initializeTest.setUp(browser, URL);
 		} catch (Exception e) {
 			Log.warn("Not able to take " + fileName + " screen shot: " + e.getMessage());
 		}
