@@ -2,6 +2,7 @@ package com.qualitesoft.cymax.pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
@@ -24,6 +25,14 @@ public class YopMailPage {
 	
 	public void selectCymaxStore() {
 		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//span[text()='Cymax Stores']/parent::span/following-sibling::span[contains(text(),'Order')])[1]"), 10));
+	}
+	
+	public WebElement selectEmail() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//span[text()='Cymax Stores']/parent::span/following-sibling::span[contains(text(),'My Account Login Credentials')])[1]"), 20);
+	}
+	
+	public WebElement resetPasswordLink() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//b[text()='Set Password Link:']/following-sibling::a"), 10);
 	}
 	
 	public String[] getPrice() {

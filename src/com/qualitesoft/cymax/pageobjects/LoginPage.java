@@ -54,6 +54,19 @@ public class LoginPage {
 	public WebElement continueButton(){
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//span[@id='a-autoid-0']//input[@class='a-button-input']"), 60);
 	}
+	
+	public WebElement recoveryEmail(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.id("UserNameRecovery"), 60);
+	}
+	
+	public WebElement sendPasswordResetRequest(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.id("Submit"), 60);
+	}
+	
+	public WebElement newPasswordSuccessMessage(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[text()='Return to the login page']/preceding-sibling::p"), 60);
+	}
+	
 	public void userName(String userName) {
 		SeleniumFunction.sendKeys(WaitTool.waitForElementPresentAndDisplay(driver, By.id("txtExistingEmailAddress"), 20), userName);
 	}
@@ -62,12 +75,25 @@ public class LoginPage {
 		SeleniumFunction.sendKeys(WaitTool.waitForElementPresentAndDisplay(driver, By.id("txtPassword"), 20), password);
 	}
 	
+	public WebElement newPassword() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.id("txtNew"), 20);
+	}
+	
+	public WebElement confirmNewPassword() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.id("txtConfirm"), 20);
+	}
+	
+	public WebElement newPasswordSubmit() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.id("btnReset"), 20);
+	}
+	
 	public void signInButton() {
 		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.id("btnHaveAnAccount"), 20));
 	}
 	public WebElement forgotPassword(){
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[contains(text(),'Forgot your password?')]"), 60);
-	}	
+	}
+	
 	public void guestUserName(String userName) {
 		SeleniumFunction.sendKeys(WaitTool.waitForElementPresentAndDisplay(driver, By.id("txtEmailAddress"), 20), userName);
 	}

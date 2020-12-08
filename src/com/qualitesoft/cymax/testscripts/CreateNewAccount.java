@@ -10,11 +10,26 @@ import org.testng.annotations.Test;
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
+import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.cymax.pageobjects.CreateAccountPage;
 import com.qualitesoft.cymax.pageobjects.HomePage;
 import com.qualitesoft.cymax.pageobjects.LoginPage;
 
-public class CreateNewAccount extends InitializeTest{
+public class CreateNewAccount extends InitializeTest {
+	
+	@Test
+	public void testSubscription() {
+		HomePage homePage = new HomePage(driver);
+		if(homePage.cymaxPopup()!=null) {
+			SeleniumFunction.click(homePage.cymaxPopup());
+		}
+		
+		SeleniumFunction.scrollDownUptoFooter(driver);
+		SeleniumFunction.sendKeys(homePage.subscriptionEmail(), "testuser301121@yopmail.com");
+		SeleniumFunction.click(homePage.subscriptionSignUp());
+		String actualMessage = SeleniumFunction.getText(homePage.subscriptionSuccessMessage());
+		UseAssert.assertEquals(actualMessage, "Thanks! Check your e-mail for exclusive Cymax Deals.");
+	}
 	
 	@Test
 	public void testCreateNewAccount(){
@@ -23,11 +38,8 @@ public class CreateNewAccount extends InitializeTest{
 		if(homePage.cymaxPopup()!=null) {
 			SeleniumFunction.click(homePage.cymaxPopup());
 		}
-		//WebElement myAccountLink = ;
-		//SeleniumFunction.click(homePage.noThanks()); //to remove popup
-		//ScreenShot.takeScreenShot(driver, "HomePage");
-		SeleniumFunction.click(homePage.myAccountLink());
 		
+		SeleniumFunction.click(homePage.myAccountLink());
 		LoginPage loginPage = new LoginPage(driver);
 		WebElement createNewAccountLink = loginPage.createNewAccountLink();
 		ScreenShot.takeFullScreenShot("LoginPage");
@@ -40,7 +52,7 @@ public class CreateNewAccount extends InitializeTest{
 		SeleniumFunction.sendKeys(createAccountPage.lastNameTextbox(), "TestSelenium_Last");
 		emailAddress = this.emailAddress();
 		System.out.println("*******************************************************Email address Created: "+emailAddress);
-		SeleniumFunction.sendKeys(createAccountPage.emailTextbox(), emailAddress());
+		SeleniumFunction.sendKeys(createAccountPage.emailTextbox(), emailAddress);
 		SeleniumFunction.sendKeys(createAccountPage.passwordTextbox(), "CymaxQa1234");
 		SeleniumFunction.sendKeys(createAccountPage.confirmPasswordTextbox(), "CymaxQa1234");
 		SeleniumFunction.sendKeys(createAccountPage.companyNameTextbox(), "Selenium_Cymax");
@@ -55,18 +67,14 @@ public class CreateNewAccount extends InitializeTest{
 		ScreenShot.takeFullScreenShot("Create Account Entered Detail");
 		SeleniumFunction.click(createAccountPage.registerButton());
 		
-		/*MyAccountPage myAccountPage = new MyAccountPage(driver);
-		WebElement kitchenAndDiningLink = myAccountPage.kitchenAndDiningLink();*/
-		//ScreenShot.takeScreenShot(driver, "MyAccountPage");
-		
 	} 
 	
 	private static String emailAddress() {
 
 		Date date = new Date();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("HH-mm-ss");
 		//String emailAddress = "Selenium_" + dateFormat.format(date).replaceAll("\\s", "_") + "@email.com";
-		String emailAddress1 = "cymax" + dateFormat.format(date).replaceAll(" ", "") + "@yopmail.com";
+		String emailAddress1 = "testuser" + dateFormat.format(date).replaceAll(" ", "") + "@yopmail.com";
 		emailAddress = emailAddress1.replaceAll("-", "") ;
 		return emailAddress;
 	}

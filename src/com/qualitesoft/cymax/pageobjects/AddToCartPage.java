@@ -34,4 +34,22 @@ public class AddToCartPage {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@class='btn-continue-shopping']"), 30);
 	}
 	
+	public WebElement moreDetails() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("More Details"), 30);	
+	}
+	
+	public WebElement closeShippingDetails() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@class='close float-right']"), 30);	
+	}
+	
+	public WebElement aboutTheBrand() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@aria-controls='cancelPanel']"), 30);	
+	}
+	
+	public WebElement brandLogo() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//img[@alt='Brand Logo']"), 30);	
+	}
+	
+	
+	
 }

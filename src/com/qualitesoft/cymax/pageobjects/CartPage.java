@@ -139,4 +139,26 @@ public class CartPage {
 		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[contains(text(),'Product Total')]/following-sibling::div[1]"), 60));
 	}
 
+	public WebElement haveACouponCode() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.partialLinkText("Have a coupon code?"), 30);
+	}
+	
+	public WebElement couponCode() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@placeholder='Enter Coupon Code']"), 30);
+	}
+	
+	public WebElement applyCouponCode() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@placeholder='Enter Coupon Code']/following-sibling::a"), 30);
+	}
+	
+	public WebElement couponResponse() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@placeholder='Enter Coupon Code']/following-sibling::p"), 30);
+	}
+	
+	public int cartItemCount() {
+		return WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//orderitemsserverdiv[@id='body_body_ucOrderItemGrid_ServerDiv']/div"), 30).size();
+	}
+	
+	
+	
 }

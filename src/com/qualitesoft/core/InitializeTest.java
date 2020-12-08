@@ -56,8 +56,8 @@ public class InitializeTest {
 	public static String fastShipping = null;
 	public static String carriername=null;
 	public static String baseRateRow=null;
-	public static String tax; //= "$0.00";
-	public static String tax1; //= "TBD";
+	public static String tax;
+	public static String tax1;
 	public static String emailAddress = null;
 	public static String menuSubMenu = null;
 	public static String searchUser = null;
@@ -67,7 +67,6 @@ public class InitializeTest {
 
 	@BeforeTest
 	public void initialize(ITestContext context) {
-
 		browser = context.getCurrentXmlTest().getParameter("browser");
 		URL = context.getCurrentXmlTest().getParameter("URL");
 		retryCount = context.getCurrentXmlTest().getParameter("retryCount");
@@ -124,7 +123,6 @@ public class InitializeTest {
 	}
 
 	public WebDriver launchBrowser(String browser) {
-
 		try {
 			if (browser.equalsIgnoreCase("firefox")) {
 				System.setProperty("webdriver.gecko.driver", "binaries/geckodriver.exe");
@@ -166,7 +164,6 @@ public class InitializeTest {
 	}
 
 	public void launchURL(String URL) {
-
 		try {
 			driver.get(URL);
 			Log.info(URL + "URL launched successfully.");
@@ -177,7 +174,6 @@ public class InitializeTest {
 	}
 
 	public static WebDriver getDriver() {
-
 		return driver;
 	}
 }

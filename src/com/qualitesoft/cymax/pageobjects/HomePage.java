@@ -190,5 +190,21 @@ public class HomePage {
 	public WebElement HomeSqbanquette() {
 		
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@href='dining-chairs--C635-4189-7830.htm']"), 10);
-	}	
+	}
+	
+	public WebElement subscriptionEmail() {	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.id("email-footer-input"), 10);
+	}
+	
+	public WebElement subscriptionSignUp() {	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.id("subscription-btn"), 10);
+	}
+	
+	public WebElement subscriptionSuccessMessage() {	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='message-area success']"), 10);
+	}
+	
+	
+	
+	
 }

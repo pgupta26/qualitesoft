@@ -13,6 +13,7 @@ import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.cymax.pageobjects.AddToCartPage;
+import com.qualitesoft.cymax.pageobjects.HomePage;
 import com.qualitesoft.cymax.pageobjects.MyAccountPage;
 import com.qualitesoft.cymax.pageobjects.ProductsPage;
 
@@ -20,6 +21,12 @@ public class AddItemsToCart extends InitializeTest {
 
 	@Test
 	public void testAddItemsToCart() {
+		
+		HomePage homepage = new HomePage(driver);
+		if(homepage.cymaxPopup()!=null) {
+			SeleniumFunction.click(homepage.cymaxPopup());
+		}
+		
 		MyAccountPage myAccountPage = new MyAccountPage(driver);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,-250)", "");
