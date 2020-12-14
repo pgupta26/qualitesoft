@@ -66,6 +66,10 @@ public class ShippingInformation extends InitializeTest {
 			}
 			UseAssert.assertEquals(cartPage.shipping(), shipping);
 			UseAssert.assertEquals(cartPage.tax(), tax);
+			
+			//Total Price Calculation
+			double totalPrice = (productPrice * 2) + f.parse(cartPage.shipping().replace("$", "")).doubleValue();
+			UseAssert.assertEquals(f.parse(cartPage.totalPrice().replace("$", "")).doubleValue(), totalPrice);
 			SeleniumFunction.clickJS(driver,cartPage.reviewButton()); //continue payment		
 	}
 

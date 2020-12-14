@@ -36,6 +36,9 @@ public class OrderConfirmation extends InitializeTest {
 		}
 		UseAssert.assertEquals(cartPage.shipping(), shipping);
 		UseAssert.assertEquals(cartPage.tax(), tax);
+		//Total Price Calculation
+		double totalPrice = (productPrice * 2) + f.parse(cartPage.shipping().replace("$", "")).doubleValue();
+		UseAssert.assertEquals(f.parse(cartPage.totalPrice().replace("$", "")).doubleValue(), totalPrice);		
 		WaitTool.sleep(15);
 
 		orderConfirmationPage.successMsg();

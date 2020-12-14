@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -42,6 +44,8 @@ public class TestFooterLinks extends InitializeTest {
 		for (Map.Entry<String, String> entry : pageTitles.entrySet()) {
 			SeleniumFunction
 					.click(WaitTool.waitForElementPresentAndDisplay(driver, By.partialLinkText(entry.getKey()), 30));
+			WebDriverWait wait = new WebDriverWait(driver,30);
+			wait.until(ExpectedConditions.titleIs( entry.getValue()));
 			String actualPageTitle = driver.getTitle();
 			Log.info("Page Title: " + actualPageTitle);
 			UseAssert.assertEquals(actualPageTitle, entry.getValue());
@@ -77,6 +81,8 @@ public class TestFooterLinks extends InitializeTest {
 		for (Map.Entry<String, String> entry : pageTitles.entrySet()) {
 			SeleniumFunction
 					.click(WaitTool.waitForElementPresentAndDisplay(driver, By.partialLinkText(entry.getKey()), 30));
+			WebDriverWait wait = new WebDriverWait(driver,30);
+			wait.until(ExpectedConditions.titleIs( entry.getValue()));
 			String actualPageTitle = driver.getTitle();
 			Log.info("Page Title: " + actualPageTitle);
 			UseAssert.assertEquals(actualPageTitle, entry.getValue());
@@ -119,6 +125,8 @@ public class TestFooterLinks extends InitializeTest {
 		for (Map.Entry<String, String> entry : pageTitles.entrySet()) {
 			SeleniumFunction
 					.click(WaitTool.waitForElementPresentAndDisplay(driver, By.partialLinkText(entry.getKey()), 30));
+			WebDriverWait wait = new WebDriverWait(driver,30);
+			wait.until(ExpectedConditions.titleIs( entry.getValue()));
 			String actualPageTitle = driver.getTitle();
 			Log.info("Page Title: " + actualPageTitle);
 			UseAssert.assertEquals(actualPageTitle, entry.getValue());

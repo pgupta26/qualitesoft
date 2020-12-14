@@ -63,6 +63,7 @@ public class InitializeTest {
 	public static String searchUser = null;
 	public static String enableOption = null;
 	public static String weight = null;
+	public static String couponValue=null;
 
 
 	@BeforeTest
@@ -103,6 +104,7 @@ public class InitializeTest {
 		searchUser = context.getCurrentXmlTest().getParameter("searchUser");
 		enableOption = context.getCurrentXmlTest().getParameter("enableOption");
 		weight = context.getCurrentXmlTest().getParameter("weight");
+		couponValue = context.getCurrentXmlTest().getParameter("couponValue");
 		Log.info("*****************************"+ testname + " started.");
 	}
 	
@@ -136,7 +138,7 @@ public class InitializeTest {
 				chromePrefs.put("download.default_directory", download);
 				ChromeOptions options = new ChromeOptions();
 				options.setExperimentalOption("prefs", chromePrefs);
-				options.setBinary("C://Program Files//Google//Chrome//Application//chrome.exe");
+				//options.setBinary("C://Program Files//Google//Chrome//Application//chrome.exe");
 				options.addArguments("--disable-notifications");
 				DesiredCapabilities cap = DesiredCapabilities.chrome();
 				options.addArguments("test-type");

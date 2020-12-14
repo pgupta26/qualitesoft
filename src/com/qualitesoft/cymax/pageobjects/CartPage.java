@@ -138,10 +138,19 @@ public class CartPage {
 	public String productPrice() {
 		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[contains(text(),'Product Total')]/following-sibling::div[1]"), 60));
 	}
+	
+	public String totalPrice() {
+		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//p[text()='Total:']/parent::div/following-sibling::div/p"), 60));
+	}
 
 	public WebElement haveACouponCode() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.partialLinkText("Have a coupon code?"), 30);
 	}
+	
+	public String couponCodeValue() {
+		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[text()='Coupon (CYMJBTEST)']/following-sibling::div"), 30));
+	}
+
 	
 	public WebElement couponCode() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@placeholder='Enter Coupon Code']"), 30);

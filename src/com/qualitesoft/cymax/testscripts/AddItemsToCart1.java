@@ -105,6 +105,10 @@ public class AddItemsToCart1 extends InitializeTest {
 		UseAssert.assertEquals(f.parse(cartPage.productPrice().replace("$", "")).doubleValue(), (productPrice * 2));
 		UseAssert.assertEquals(cartPage.shipping(), shipping);
 		UseAssert.assertEquals(cartPage.tax(), tax1);
+		
+		//Total Price Calculation
+		double totalPrice = (productPrice * 2) + f.parse(cartPage.shipping().replace("$", "")).doubleValue();
+		UseAssert.assertEquals(f.parse(cartPage.totalPrice().replace("$", "")).doubleValue(), totalPrice);
 		SeleniumFunction.click(cartPage.checkoutButton());
 	}
 
