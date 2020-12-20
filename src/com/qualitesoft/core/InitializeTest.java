@@ -64,7 +64,7 @@ public class InitializeTest {
 	public static String enableOption = null;
 	public static String weight = null;
 	public static String couponValue=null;
-
+	public static String taxRate;
 
 	@BeforeTest
 	public void initialize(ITestContext context) {
@@ -105,6 +105,7 @@ public class InitializeTest {
 		enableOption = context.getCurrentXmlTest().getParameter("enableOption");
 		weight = context.getCurrentXmlTest().getParameter("weight");
 		couponValue = context.getCurrentXmlTest().getParameter("couponValue");
+		taxRate = context.getCurrentXmlTest().getParameter("taxRate");
 		Log.info("*****************************"+ testname + " started.");
 	}
 	

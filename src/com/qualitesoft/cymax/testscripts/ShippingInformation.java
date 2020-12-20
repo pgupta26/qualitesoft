@@ -1,5 +1,6 @@
 package com.qualitesoft.cymax.testscripts;
 
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
 
@@ -72,6 +73,4 @@ public class ShippingInformation extends InitializeTest {
 			UseAssert.assertEquals(f.parse(cartPage.totalPrice().replace("$", "")).doubleValue(), totalPrice);
 			SeleniumFunction.clickJS(driver,cartPage.reviewButton()); //continue payment		
 	}
-
-
 }

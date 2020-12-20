@@ -13,7 +13,7 @@
 	<classpathentry kind="lib" path="C:/Users/pgupta/git/lib/log4j-1.2.17.jar"/>
 	<classpathentry kind="lib" path="C:/Users/pgupta/git/lib/mysql-connector-java-5.1.23-bin.jar"/>
 	<classpathentry kind="lib" path="C:/Users/pgupta/git/lib/mysql-database-1.8.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/pgupta/git/lib/poi-3.16.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pgupta/git/lib/poi-3.16.jar" sourcepath="C:/Users/pgupta/.m2/repository/org/apache/poi/poi/3.16/poi-3.16-sources.jar"/>
 	<classpathentry kind="lib" path="C:/Users/pgupta/git/lib/poi-examples-3.16.jar"/>
 	<classpathentry kind="lib" path="C:/Users/pgupta/git/lib/poi-excelant-3.16.jar"/>
 	<classpathentry kind="lib" path="C:/Users/pgupta/git/lib/poi-ooxml-3.16.jar" sourcepath="C:/Users/pgupta/.m2/repository/org/apache/poi/poi-ooxml/3.16/poi-ooxml-3.16-sources.jar"/>

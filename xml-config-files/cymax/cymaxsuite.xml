@@ -8,7 +8,7 @@
 	<parameter name="retryCount" value="0" />
 	<parameter name="plaquery" value="src=PLA" />
 
-	<!--  <test name="Checkout via Credit Card - New User">
+	 <test name="Checkout via Credit Card - Paid Shipping - New User">
 		<parameter name="crusername" value="raj.cymax@gmail.com"></parameter>
 		<parameter name="crpassword" value="Welcome@2"></parameter>
 		<parameter name="tax" value="$0.00" />
@@ -38,7 +38,7 @@
 		</classes>
 	</test>
 
- 	<test name="Checkout via Purchase Order - New User">
+ 	<test name="Checkout via Purchase Order - Paid Shipping - New User">
 		<parameter name="crusername" value="raj.cymax@gmail.com"></parameter>
 		<parameter name="crpassword" value="Welcome@2"></parameter>
 		<parameter name="tax" value="$0.00" />
@@ -72,7 +72,7 @@
 		</classes>
 	</test>
 	
-	<test name="Checkout via Paypal - Existing User">
+	<test name="Checkout via Paypal - Paid Shipping - Existing User">
 		<parameter name="crusername" value="cymax20200217222523@yopmail.com"></parameter>
 		<parameter name="crpassword" value="CymaxQa1234"></parameter>
 		<parameter name="tax" value="$0.00" />
@@ -192,7 +192,7 @@
 			<class name="com.qualitesoft.cymax.testscripts.TestSearchProduct" />
 			<class name="com.qualitesoft.cymax.testscripts.LogOff" />
 		</classes>
-	</test> -->
+	</test>
 	
 	<test name="Verify Subscription email success message">
 		<classes>
@@ -227,14 +227,52 @@
 	</test>
 	
 	<test name="Verify that user is able to apply coupon code">
-		<parameter name="crusername" value="raj.cymax@gmail.com"></parameter>
-		<parameter name="crpassword" value="Welcome@2"></parameter>
-		<parameter name="couponValue" value="($10.00)"></parameter>
-		<parameter name="tax" value="$0.00" />
-		<parameter name="tax1" value="TBD" />
-		<parameter name="shipping" value="$287.98" />
+		<parameter name="Row" value="2" />
+		<parameter name="shipping" value="Free" />
+		<parameter name="couponValue" value="($10.00)" />
+		<parameter name="tax" value="TBD" />
+		<parameter name="taxRate" value="9.5" />
 		<classes>
-			<class name="com.qualitesoft.cymax.testscripts.TestApplyCouponCode" />
+			<class name="com.qualitesoft.cymax.testscripts.CreateNewAccount">
+				<methods>
+					<include name="testCreateNewAccount" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.cymax.testscripts.TestApplyCouponCode" >
+				<methods>
+					<include name="testApplyCouponCode" />
+					<include name="testSignIn" />
+					<include name="testShippingInformation" />
+					<include name="testCartPages" />
+					<include name="testOrderConfirmation" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.cymax.testscripts.LogOff" />
+		</classes>
+	</test>
+	
+	<test name="Verify that user is able to apply coupon code">
+		<parameter name="Row" value="3" />
+		<parameter name="shipping" value="Free" />
+		<parameter name="couponValue" value="($10.00)" />
+		<parameter name="tax" value="TBD" />
+		<parameter name="taxRate" value="7.25" />
+		<classes>
+			<class name="com.qualitesoft.cymax.testscripts.CreateNewAccount">
+				<methods>
+					<include name="testCreateNewAccount" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.cymax.testscripts.TestApplyCouponCode" >
+				<methods>
+					<include name="testApplyCouponCode" />
+					<include name="testSignIn" />
+					<include name="testShippingInformation" />
+					<include name="testCartPages" />
+					<include name="testOrderConfirmation" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.cymax.testscripts.LogOff" />
 		</classes>
 	</test>
 	
