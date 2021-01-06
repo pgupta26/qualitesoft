@@ -13,12 +13,12 @@
 		<suite-file path="xml-config-files//cymax//cymaxsuite.xml" /> 
 	</suite-files>
 	
+	 <!-- <suite-files>
+		<suite-file path="xml-config-files//freightclub//freightclubsuitePh2.xml" />
+	</suite-files> -->
+	
 	<!-- <suite-files>
 		<suite-file path="xml-config-files//freightclub//freightclubsuite.xml" />
-	</suite-files>
-	
-	 <suite-files>
-		<suite-file path="xml-config-files//freightclub//freightclubsuitePh2.xml" />
 	</suite-files>
 	
 	<suite-files>

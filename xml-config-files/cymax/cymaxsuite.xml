@@ -286,4 +286,10 @@
 		</classes>
 	</test>
 	
+	<test name="Verify that list price of top selling product should not be $0.00">
+		<classes>
+			<class name="com.qualitesoft.cymax.testscripts.TestTopSellingProductListPrice" />
+		</classes>
+	</test>
+	
 </suite>	

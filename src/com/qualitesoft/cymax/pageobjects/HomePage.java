@@ -1,5 +1,7 @@
 package com.qualitesoft.cymax.pageobjects;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -86,6 +88,11 @@ public class HomePage {
     public WebElement furniturelink() {
 		
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath(".//*[@href='/Furniture--PC100078.htm']"), 10);
+	}
+    
+    public WebElement homeOfficeLink() {
+		
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath(".//*[@href='/home-office--p1.htm']"), 10);
 	}
 	
 	
@@ -203,8 +210,4 @@ public class HomePage {
 	public WebElement subscriptionSuccessMessage() {	
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='message-area success']"), 10);
 	}
-	
-	
-	
-	
 }
