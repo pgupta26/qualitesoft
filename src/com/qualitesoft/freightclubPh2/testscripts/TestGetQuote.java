@@ -23,7 +23,6 @@ public class TestGetQuote extends InitializeTest{
 
 		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/FCFile_Ph2.xlsx");
 		int i=Integer.parseInt(Row);
-		System.out.println("Data Row: " +Row);
 
 		//clear existing data
 		xr.setCellData("Input","OrderId", i,"");
@@ -47,7 +46,7 @@ public class TestGetQuote extends InitializeTest{
 
 		QuickQuote quickQuote = new QuickQuote(driver);
 		SeleniumFunction.clickJS(driver, quickQuote.manageOrdersLink());
-		
+
 		WaitTool.sleep(2);
 		quickQuote.acceptPopup();
 		WaitTool.sleep(2);
@@ -211,7 +210,11 @@ public class TestGetQuote extends InitializeTest{
 		if(Row.equalsIgnoreCase("8") || Row.equalsIgnoreCase("9")) {
 			SeleniumFunction.click(quickQuote.UPSSureButton());
 		}else {
-			SeleniumFunction.clickJS(driver, quickQuote.NextButton());
+			if(serviceLevel.equalsIgnoreCase("Ground")) {
+				SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplay(driver,By.xpath("//table[@id='table-quotes']//tbody//tr[1]//td[6]//button"), 60));
+			}else {
+				SeleniumFunction.clickJS(driver, quickQuote.NextButton());
+			}
 		}			
 		WaitTool.sleep(10);
 
@@ -245,21 +248,7 @@ public class TestGetQuote extends InitializeTest{
 		quickQuote.LocationName().sendKeys(Keys.chord("Auto"));
 		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Com10011']"), 10));	
 		jse.executeScript("window.scrollBy(0,350)", "");
-		
-		/*SeleniumFunction.sendKeys(quickQuote.Address1(), "Address1");
-		SeleniumFunction.sendKeys(quickQuote.Address2(), "Address2");
-		jse.executeScript("window.scrollBy(0,250)", "");
-		SeleniumFunction.sendKeys(quickQuote.FirstName(), "UserFirstName");
-		SeleniumFunction.sendKeys(quickQuote.LastName(), "UserLastName");
-		SeleniumFunction.sendKeys(quickQuote.Phone1(), "1234567890");
-		SeleniumFunction.sendKeys(quickQuote.Email(), "a@a.com");	
-		jse.executeScript("window.scrollBy(0,350)", "");
-		SeleniumFunction.sendKeys(quickQuote.DropAddress1(), "DropAddress1");
-		SeleniumFunction.sendKeys(quickQuote.DropAddress2(), "DropAddress2");
-		SeleniumFunction.sendKeys(quickQuote.DropFirstName(), "DropUserFirstName");
-		SeleniumFunction.sendKeys(quickQuote.DropLastName(), "DropUserLastName");
-		SeleniumFunction.sendKeys(quickQuote.DropPhone1(), "1234567890");
-		SeleniumFunction.sendKeys(quickQuote.DropEmail(), "Drop@a.com");*/
+
 		ScreenShot.takeScreenShot(driver, "Filled Shipment info "+" "+ Row +" "+shipmentType+" "+packageType);
 		SeleniumFunction.click(quickQuote.ReviewOrder());
 		WaitTool.sleep(10);

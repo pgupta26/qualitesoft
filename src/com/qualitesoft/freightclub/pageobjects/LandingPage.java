@@ -41,7 +41,7 @@ public class LandingPage {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@class='link-important']"), 30);
 	}	
 	public WebElement createproduct() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@class='btn btn-primary btn-sm']"), 30);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[contains(text(),'Create New Product')]"), 30);
 	}
 	public WebElement SKU() {
 

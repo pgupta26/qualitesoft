@@ -47,12 +47,10 @@ public class ScreenShot extends InitializeTest {
 		
 	}
 	public static void takeScreenShotOnFailure(String fileName) {
-
 		try {
-			WebDriver driver = getDriver();
 			WaitTool.sleep(2);
-			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(scrFile, new File(baseScreenShotsFolder + "/Failed/" + fileName + ".png"));
+			Screenshot scrFile=new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(driver);
+			ImageIO.write(scrFile.getImage(),"PNG",new File(baseScreenShotsFolder + "/" +fileName + "_failed.png"));
 			Log.info("Faliure screenshot " + fileName + " successfully taken.");
 			driver.quit();
 			InitializeTest initializeTest = new InitializeTest();

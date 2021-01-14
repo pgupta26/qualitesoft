@@ -17,8 +17,6 @@ public class TestManagePickupLocations extends InitializeTest{
 	@Test
 	public void testManagePickupLocations(){
 		ManagePickupLocationsPage managePickupLocationsPage = new ManagePickupLocationsPage(driver);
-		managePickupLocationsPage.managePickupLocLink();
-		//ScreenShot.takeScreenShot(driver, "LandingPage");
 		SeleniumFunction.clickJS(driver, managePickupLocationsPage.managePickupLocLink());
 		managePickupLocationsPage.addNewPickupLocButton();
 		ScreenShot.takeScreenShot(driver, "ManagePickupLocPage");
@@ -39,7 +37,6 @@ public class TestManagePickupLocations extends InitializeTest{
 	}
 	
 	private static String location() {
-
 		Date date = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
 		String emailAddress = "Selenium_Location" + dateFormat.format(date).replaceAll("\\s", "_");

@@ -3,12 +3,6 @@
 
 <suite name="Freight Club Suite">
 
-	<listeners>
-		<listener class-name="org.uncommons.reportng.HTMLReporter" />
-		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
-		<listener class-name="com.qualitesoft.core.CustomTestListener" />
-	</listeners>
-
 	<parameter name="project" value="Freight Club" />
 	<parameter name="browser" value="chrome" />
 	<parameter name="URL" value="https://qa.freightclub.com/" />
@@ -16,102 +10,83 @@
 	<parameter name="managefullorderfile" value="Import_Orders_V4.xlsx" />
 	<parameter name="managequickorderfile" value="Quick_Order(1).xlsx" />
 
-	<!-- <test name="Test Navigate Website">
-		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.TestNavigateTheWebsite" />
-		</classes>
-	</test>
-
-	<test name="Test SignIn as Admin">
+	<test name="Test manage green list and select onAccount payment method">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
-		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
-		</classes>
-	</test>
-
-	<test name="Test Manage Greenlist">
-		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.TestManageGreenlist" />
-		</classes>
-	</test>
-
-	<test name="Test Manage Profile">
 		<parameter name="Row" value="NO" />
 		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestNavigateTheWebsite" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestManageGreenlist" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestManageProfiles" />
-		</classes>
-	</test>
-
-	<test name="Test Log Off from Admin">
-		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test> -->  
+	</test>  
 
-	<test name="Test SignIn as existing user">
+	<test name="Test verify order is booked - Custom Pallet">
 		<parameter name="fcusername" value="rodrigo.r@cymax.com" />
 		<parameter name="fcpassword" value="Welcome@2" />
-		<!-- <parameter name="fcusername" value="prodtest@mailinator.com" />
-		<parameter name="fcpassword" value="@Test123" /> -->
+		<parameter name="Row" value="2" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
-		</classes>
-	</test>
-	
-	<test name="Test Manage Pickup Locations">
-		<classes>
-			<class
-				name="com.qualitesoft.freightclub.testscripts.TestManagePickupLocations" />
-		</classes>
-	</test> 
-	
-	<test name="Test Quick Quote">
-		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestGetQuote" />
-		</classes>
-	</test> 
-	
-	<!-- <test name="Test Bill of Lading">
-		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestBillofLading" />
-		</classes>
-	</test>
-
-	<test name="Test Order History">
-		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestOrderHistory" />
-		</classes>
-	</test> 
-
-	<test name="Test Manage Full Orders">
-		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestManageFullOrders" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
 	</test>
-	<test name="Test Log Off">
+	
+	<test name="Test verify order is booked - Standard Pallet2">
+		<parameter name="fcusername" value="rodrigo.r@cymax.com" />
+		<parameter name="fcpassword" value="Welcome@2" />
+		<parameter name="Row" value="3" />
 		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestGetQuote" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestBillofLading" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestOrderHistory" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestManageFullOrders" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+	
+	<test name="Test verify order is booked - Cardboard Box">
+		<parameter name="fcusername" value="rodrigo.r@cymax.com" />
+		<parameter name="fcpassword" value="Welcome@2" />
+		<parameter name="Row" value="4" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestGetQuote" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestBillofLading" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestOrderHistory" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestManageFullOrders" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+	
+	<test name="Test verify order is booked - Bagged or Unboxed Product">
+		<parameter name="fcusername" value="rodrigo.r@cymax.com" />
+		<parameter name="fcpassword" value="Welcome@2" />
+		<parameter name="Row" value="5" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestGetQuote" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestBillofLading" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestOrderHistory" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestManageFullOrders" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
 	</test>
 
-	<test name="Test SignIn2 as Admin">
+	<test name="Test verify tracking status of order id's">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
 		<classes>
-		
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
-		</classes>
-	</test>
-	<test name="Test Tracking Status">
-		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestTrackingStatus" />
-		</classes>
-	</test>
-
-	<test name="Test Log Off from Admin2">
-		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test> -->
+	</test>
+	
 </suite>	
