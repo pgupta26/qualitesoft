@@ -42,12 +42,10 @@ public class ProfileManagementPage {
 	}
 
 	public WebElement saveProfileButton() {
-		//return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@type='submit']"), 30);
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@class='btn btn-primary pull-right']"), 30);
 	}
 
 	public WebElement saveProfileButtonSurePost() {
-		//return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@type='submit']"), 30);
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[contains(text(),'Save Profile')]"), 30);
 	}
 
@@ -96,6 +94,10 @@ public class ProfileManagementPage {
 			}
 		}
 	}	
+	
+	public WebElement upsSetting(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("UPS Settings"), 60);	
+	}
 
 	//Add by Shubham
 	public WebElement selectGround(){
@@ -106,7 +108,7 @@ public class ProfileManagementPage {
 	}
 
 	public WebElement saveProfileBtn(){
-		return WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("(//button[@class='btn btn-primary pull-right'])[2]"), 60);
+		return WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//*[@id=\"upsTab\"]/div[3]/div[7]/div/button"), 60);
 	}
 	public WebElement selectInternational(){
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[contains(text(),'Can Book International Orders')]/input"), 60);
@@ -155,4 +157,6 @@ public class ProfileManagementPage {
 			 SeleniumFunction.click(element);
 		 }
 	}
+	
+	
 }

@@ -3,43 +3,77 @@
 
 <suite name="Freight Club Suite">
 
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="com.qualitesoft.core.CustomTestListener" />
+	</listeners>
+
 	<parameter name="project" value="Freight Club" />
 	<parameter name="browser" value="chrome" />
-	<parameter name="URL" value="https://qa.freightclub.com/" />
-	<parameter name="manageproductfile" value="Import_PIDs_Template_V4.xlsx" />
-	<parameter name="managefullorderfile" value="Import_Orders_V4.xlsx" />
-	<parameter name="managequickorderfile" value="Quick_Order(1).xlsx" />
-
+	<parameter name="URL" value="https://qa.freightclub.com/" /> 
+	
+	<!-- ************************************** Floating Cart ****************************************************** -->
+	<test name="Test new user able to quote and sign up">
+		<parameter name="loginuser" value="new" />
+		<parameter name="testData" value="FCFile.xlsx" />
+		<parameter name="Row" value="5" />
+		<parameter name="CarrierName" value="FC Test Carrier" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestLaunchQuickQuote" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="testEnterShipmentInformation" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+				<methods>
+					<include name="testVerifySelectedCarriers" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestCreateAccount" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestShipmentInfo" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestPayment" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+	
+	<!-- *************************** FC Phase 1 and 2 and Surepost ********************************** -->
+	
 	<test name="Test manage green list and select onAccount payment method">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
 		<parameter name="Row" value="NO" />
 		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.TestNavigateTheWebsite" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestNavigateTheWebsite" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestManageGreenlist" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestManageProfiles" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test>  
-
-	<test name="Test verify order is booked - Custom Pallet">
-		<parameter name="fcusername" value="rodrigo.r@cymax.com" />
-		<parameter name="fcpassword" value="Welcome@2" />
+	</test> 
+	
+	<test name="Test verify user is able to book and clone order - LTL-Search product ">
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
 		<parameter name="Row" value="2" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestManageProducts" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestGetQuote" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestBillofLading" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestOrderHistory" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestManageFullOrders" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestCloneOrders" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
 	</test>
 	
-	<test name="Test verify order is booked - Standard Pallet2">
-		<parameter name="fcusername" value="rodrigo.r@cymax.com" />
-		<parameter name="fcpassword" value="Welcome@2" />
+	
+	<test name="Test verify user is able to book and clone order - LTL-Standard pallet with added product">
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
 		<parameter name="Row" value="3" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
@@ -47,14 +81,76 @@
 			<class name="com.qualitesoft.freightclub.testscripts.TestBillofLading" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestOrderHistory" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestManageFullOrders" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestCloneOrders" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
 	</test>
 	
-	<test name="Test verify order is booked - Cardboard Box">
-		<parameter name="fcusername" value="rodrigo.r@cymax.com" />
-		<parameter name="fcpassword" value="Welcome@2" />
+	<test name="Test verify user is able to book and clone order - LTL-Non-Palletized">
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
 		<parameter name="Row" value="4" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestGetQuote" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestBillofLading" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestOrderHistory" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestManageFullOrders" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestCloneOrders" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+
+	 <test name="Test verify user is able to book and clone order - LTL with pallet and Non-Palletized">
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="5" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestGetQuote" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestBillofLading" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestOrderHistory" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestManageFullOrders" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestCloneOrders" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>  
+	
+	<test name="Test verify user is able to book and clone order - Parcel-USPS">
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="6" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestGetQuote" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestBillofLading" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestOrderHistory" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestManageFullOrders" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestCloneOrders" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test> 
+	
+	<test name="Test verify user is able to book and clone order - Parcel-Search product">
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="7" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestManageProducts" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestGetQuote" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestBillofLading" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestOrderHistory" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestManageFullOrders" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestCloneOrders" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+	
+	<test name="Test verify order is booked - Custom Pallet">
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="8" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestGetQuote" />
@@ -64,11 +160,25 @@
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
 	</test>
-	
+
+	<test name="Test verify order is booked - Standard Pallet2">
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="9" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestGetQuote" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestBillofLading" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestOrderHistory" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestManageFullOrders" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+
 	<test name="Test verify order is booked - Bagged or Unboxed Product">
-		<parameter name="fcusername" value="rodrigo.r@cymax.com" />
-		<parameter name="fcpassword" value="Welcome@2" />
-		<parameter name="Row" value="5" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="10" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestGetQuote" />
@@ -87,6 +197,1090 @@
 			<class name="com.qualitesoft.freightclub.testscripts.TestTrackingStatus" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
+	</test> 
+	
+	<test name="Test verify order is booked - Parcel - Cardboard Box - SurePost">
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="11" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestManageProducts" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestGetQuote" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestBillofLading" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestOrderHistory" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestManageFullOrders" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestCloneOrders" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test> 
+
+	<test name="Test verify order is booked - Parcel - AddedProduct - SurePost">
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="12" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestManageProducts" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestGetQuote" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestBillofLading" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestOrderHistory" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestManageFullOrders" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestCloneOrders" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
 	</test>
 	
+	<!-- ************************************** QA - 517 Tests ****************************************************** -->
+	
+	<test name="Test Enable Carrier and residential pickup and loose cartoon">
+		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
+		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="CarrierName"
+			value="ABF Freight,Ceva,FC Test Carrier,Pilot Freight Services[Televisions],Werner" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestProfileManagement">
+				<methods>
+					<include name="testEnabletCarriers" />
+				</methods>
+			</class>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestManageCarrier">
+				<methods>
+					<include name="testEnableResidentialPickup" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+
+	 <test name="Test Basic Threshold Not Visible When Residential to Commercial - ABF Freight">
+		<parameter name="loginuser" value="oldUser" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="2" />
+		<parameter name="CarrierName" value="ABF Freight" />
+		<parameter name="testData" value="QA_517.xlsx" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="testEnterShipmentInformation"></include>
+				</methods>
+			</class>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+				<methods>
+					<include name='testVerifySelectedCarriers' />
+				</methods>
+			</class>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterCompleteInformationDetail">
+				<methods>
+					<include name="testEnterCompleteInformationDetail"></include>
+				</methods>
+				</class>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestReviewAndBook">
+				<methods>
+					<include name="testReviewAndBook"></include>
+				</methods>
+			</class>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestManageOrders">
+				<methods>
+					<include name="testVerifyAppointmentFlagUnderBOLPdf"></include>
+				</methods>
+			</class>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestOrderDetails" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />	
+		</classes>
+	</test>
+
+	<test name="Test Basic Threshold Not Visible When Residential to Commercial - Ceva">
+		<parameter name="loginuser" value="oldUser" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="3" />
+		<parameter name="CarrierName" value="Ceva" />
+		<parameter name="testData" value="QA_517.xlsx" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="testEnterShipmentInformation"></include>
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+				<methods>
+					<include name='testVerifySelectedCarriers' />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestEnterCompleteInformationDetail">
+				<methods>
+					<include name="testEnterCompleteInformationDetail"></include>
+				</methods>
+				</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestReviewAndBook">
+				<methods>
+					<include name="testReviewAndBook"></include>
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestManageOrders">
+				<methods>
+					<include name="testVerifyAppointmentFlagUnderBOLPdf"></include>
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestOrderDetails" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test> 
+
+	<test
+		name="Test Basic Threshold Visible When Commercial to Residential - ABF Freight">
+		<parameter name="loginuser" value="oldUser" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="5" />
+		<parameter name="CarrierName" value="ABF Freight" />
+		<parameter name="testData" value="QA_517.xlsx" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="testEnterShipmentInformation"></include>
+				</methods>
+			</class>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+				<methods>
+					<include name='testVerifySelectedCarriers' />
+				</methods>
+			</class>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterCompleteInformationDetail">
+					<methods>
+					<include name="testEnterCompleteInformationDetail"></include>
+				</methods>
+				</class>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestReviewAndBook">
+				<methods>
+					<include name="testReviewAndBook"></include>
+				</methods>
+			</class>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestManageOrders">
+				<methods>
+					<include name="testVerifyAppointmentFlagUnderBOLPdf"></include>
+				</methods>
+			</class>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestOrderDetails" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+
+	<test
+		name="Test Basic Threshold Visible When Commercial to Residential - Ceva">
+		<parameter name="loginuser" value="oldUser" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="6" />
+		<parameter name="CarrierName" value="Ceva" />
+		<parameter name="testData" value="QA_517.xlsx" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="testEnterShipmentInformation"></include>
+				</methods>
+			</class>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+				<methods>
+					<include name='testVerifySelectedCarriers' />
+				</methods>
+			</class>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterCompleteInformationDetail">
+				<methods>
+					<include name="testEnterCompleteInformationDetail"></include>
+				</methods>
+				</class>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestReviewAndBook">
+				<methods>
+					<include name="testReviewAndBook"></include>
+				</methods>
+			</class>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestManageOrders">
+				<methods>
+					<include name="testVerifyAppointmentFlagUnderBOLPdf"></include>
+				</methods>
+			</class>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestOrderDetails" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+
+	<test
+		name="Test FC Test Carrier visible When Loose Cartoon Accepted - Non-Palletized with quantity = 1">
+		<parameter name="loginuser" value="oldUser" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="7" />
+		<parameter name="CarrierName" value="FC Test Carrier" />
+		<parameter name="testData" value="QA_517.xlsx" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="testEnterShipmentInformation"></include>
+				</methods>
+			</class>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+				<methods>
+					<include name="testFCTestCarriersVisible"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test
+		name="Test FC Test Carrier visible When Loose Cartoon Accepted - Palletized with quantity = 1">
+		<parameter name="loginuser" value="oldUser" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="9" />
+		<parameter name="CarrierName" value="FC Test Carrier" />
+		<parameter name="testData" value="QA_517.xlsx" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="selectPalletizedPackageType"></include>
+				</methods>
+			</class>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+				<methods>
+					<include name="testFCTestCarriersVisible"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test
+		name="Test FC Test Carrier visible When Loose Cartoon Accepted - Added Product with quantity = 1">
+		<parameter name="loginuser" value="oldUser" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="7" />
+		<parameter name="CarrierName" value="FC Test Carrier" />
+		<parameter name="testData" value="QA_517.xlsx" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="selectAddedProductPackageType"></include>
+				</methods>
+			</class>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+				<methods>
+					<include name="testFCTestCarriersVisible"></include>
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+
+	<test name="Test Uncheck Loose Cartoon Accepted">
+		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
+		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="CarrierName" value="FC Test Carrier" />
+		<parameter name="testData" value="QA_517.xlsx" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestManageCarrier">
+				<methods>
+					<include name="testDisableLooseCartoonAccepted" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+
+	<test
+		name="Test loose carton popup visible - Non-Palletized with quantity = 11">
+		<parameter name="loginuser" value="oldUser" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="8" />
+		<parameter name="CarrierName" value="FC Test Carrier" />
+		<parameter name="testData" value="QA_517.xlsx" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="testEnterShipmentInformation"></include>
+					<include name="looseCartoonPopup"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test
+		name="Test FC Test Carrier not visible - Non-Palletized with quantity = 1">
+		<parameter name="loginuser" value="oldUser" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="8" />
+		<parameter name="CarrierName" value="FC Test Carrier" />
+		<parameter name="testData" value="QA_517.xlsx" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+				<methods>
+					<include name="testFCTestCarriersNotVisible"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test
+		name="Test loose carton popup visible - Added Product with quantity = 11">
+		<parameter name="loginuser" value="oldUser" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="8" />
+		<parameter name="CarrierName" value="FC Test Carrier" />
+		<parameter name="testData" value="QA_517.xlsx" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="selectAddedProductPackageType"></include>
+					<include name="looseCartoonPopup"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test
+		name="Test FC Test Carrier not visible - Added Product with quantity = 1">
+		<parameter name="loginuser" value="oldUser" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="8" />
+		<parameter name="CarrierName" value="FC Test Carrier" />
+		<parameter name="testData" value="QA_517.xlsx" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+				<methods>
+					<include name="testFCTestCarriersNotVisible"></include>
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+
+	<test
+		name="Test FC Test Carrier visible When Loose Cartoon not accepted - Palletized with quantity = 1">
+		<parameter name="loginuser" value="oldUser" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="9" />
+		<parameter name="CarrierName" value="FC Test Carrier" />
+		<parameter name="testData" value="QA_517.xlsx" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="testEnterShipmentInformation"></include>
+				</methods>
+			</class>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+				<methods>
+					<include name="testFCTestCarriersVisible"></include>
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+	
+	<!-- ************************************** QA - 537 Tests ****************************************************** -->
+	
+	<test name="Test Enable Custom Order Option from Admin">
+		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
+		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="enableOption" value="Custom Orders"/>
+		<parameter name="searchUser" value="test1@test.com"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestNavigateTheWebsite" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestProfileManagement">
+				<methods>
+					<include name="testEnableCustomOrder" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test> 
+	
+	<test name="Custom Order not visible Weight less than 250 - LTL Non-Palletized">
+		<parameter name="loginuser" value="old" />
+		<parameter name="testData" value="QA_537.xlsx" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="2" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn"/>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="testEnterShipmentInformation" />
+					<include name="testVerifyRatesPage" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Custom Order visible Weight greater than 250 - LTL Non-Palletized">
+		<parameter name="Row" value="2" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="verifyCustomOrderPopupWithWeight251" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Custom Order visible Package Count greater than 4 - LTL Non-Palletized">
+		<parameter name="Row" value="2" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="verifyCustomOrderPopupWithMultilePackageType" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Custom Order not visible Weight less than 250 - LTL Standard">
+		<parameter name="loginuser" value="old" />
+		<parameter name="testData" value="QA_537.xlsx" />
+		<parameter name="Row" value="3" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="testEnterShipmentInformation" />
+					<include name="testVerifyRatesPage" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Custom Order visible Weight greater than 250 - LTL Standard">
+		<parameter name="Row" value="3" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="verifyCustomOrderPopupWithWeight251" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Custom Order visible Package Count greater than 4 - LTL Standard">
+		<parameter name="Row" value="3" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="verifyCustomOrderPopupWithMultilePackageType" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Custom Order not visible Weight less than 250 - LTL Added-Product">
+		<parameter name="loginuser" value="old" />
+		<parameter name="testData" value="QA_537.xlsx" />
+		<parameter name="Row" value="4" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestManageProducts" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="testEnterShipmentInformation" />
+					<include name="testVerifyRatesPage" />
+				</methods>
+			</class>
+		</classes>
+	</test> 
+	
+	<test name="Custom Order visible Weight greater than 250 - LTL  Added-Product">
+		<parameter name="loginuser" value="old" />
+		<parameter name="testData" value="QA_537.xlsx" />
+		<parameter name="Row" value="4" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestManageProducts" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="testEnterShipmentInformation" />
+					<include name="verifyCustomOrderPopupWithWeight251" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Custom Order visible Package Count greater than 4 - LTL  Added-Product">
+		<parameter name="Row" value="4" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="verifyCustomOrderPopupWithMultilePackageType" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+	
+	<test name="Test disable Custom Order Option from Admin">
+		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
+		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="enableOption" value="Custom Orders"/>
+		<parameter name="searchUser" value="test1@test.com"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestNavigateTheWebsite" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestProfileManagement">
+				<methods>
+					<include name="testDisableCustomOrder" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+	
+	<test name="Custom Order not visible Weight less than 250 - LTL Non-Palletized - 02">
+		<parameter name="loginuser" value="old" />
+		<parameter name="testData" value="QA_537.xlsx" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="2" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn"/>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="testEnterShipmentInformation" />
+					<include name="testVerifyRatesPage" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Custom Order visible Weight greater than 250 - LTL Non-Palletized - 02">
+		<parameter name="Row" value="2" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="verifyCustomOrderPopupWithWeight251" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Custom Order visible Package Count greater than 4 - LTL Non-Palletized - 02">
+		<parameter name="Row" value="2" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="verifyCustomOrderPopupWithMultilePackageType" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Custom Order not visible Weight less than 250 - LTL Standard - 02">
+		<parameter name="loginuser" value="old" />
+		<parameter name="testData" value="QA_537.xlsx" />
+		<parameter name="Row" value="3" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="testEnterShipmentInformation" />
+					<include name="testVerifyRatesPage" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Custom Order visible Weight greater than 250 - LTL Standard - 02">
+		<parameter name="Row" value="3" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="verifyCustomOrderPopupWithWeight251" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Custom Order visible Package Count greater than 4 - LTL Standard - 02">
+		<parameter name="Row" value="3" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="verifyCustomOrderPopupWithMultilePackageType" />
+				</methods>
+			</class>
+		</classes>
+	</test>   
+	
+	<test name="Custom Order not visible Weight less than 250 - LTL Added-Product - 02">
+		<parameter name="loginuser" value="old" />
+		<parameter name="testData" value="QA_537.xlsx" />
+		<parameter name="Row" value="4" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestManageProducts" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="testEnterShipmentInformation" />
+					<include name="testVerifyRatesPage" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Custom Order visible Weight greater than 250 - LTL  Added-Product - 02">
+		<parameter name="loginuser" value="old" />
+		<parameter name="testData" value="QA_537.xlsx" />
+		<parameter name="Row" value="4" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestManageProducts" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="testEnterShipmentInformation" />
+					<include name="verifyCustomOrderPopupWithWeight251" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Custom Order visible Package Count greater than 4 - LTL  Added-Product - 02">
+		<parameter name="Row" value="4" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="verifyCustomOrderPopupWithMultilePackageType" />
+				</methods>
+			</class>
+		</classes>
+	</test> 
+	
+	<test name="Test Submit Custom Order1 - LTL">
+		<parameter name="loginuser" value="old" />
+		<parameter name="testData" value="QA_537.xlsx" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="5" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn"/>
+			<class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name="testEnterShipmentInformation" />
+					<include name="customOrderPopupPresent" />
+					<include name="submitCustomOrderQuoteLTL" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test> 
+	
+	<test name="Test Submit Custom Order Quote as Admin">
+		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
+		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="Row" value="5" />
+		<parameter name="CarrierName" value="Custom Orders"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestNavigateTheWebsite" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestSubmitCustomQuote" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>   
+	
+	<!-- <test name="Test Order Ready For Booking Mail">
+		<parameter name="fcusername" value="testuser123@mailinator.com" />
+		<parameter name="fcpassword" value="@Test123" />
+		<parameter name="Row" value="5" />
+		<parameter name="CarrierName" value="Custom Orders"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" > 
+				<methods>
+						<include name="testVerifyReadyForBookingMail"></include>
+				</methods>
+			</class>
+		</classes>
+	</test> -->
+	
+	<test name="Test Verify Request Cancellation Button">
+		<parameter name="loginuser" value="new" />
+		<parameter name="testData" value="QA_537.xlsx" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="5" />
+		<parameter name="CarrierName" value="Custom Orders"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestBookCustomOrder" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+				<methods>
+					<include name='testVerifySelectedCarriers' />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestEnterCompleteInformationDetail"/>
+			<class name="com.qualitesoft.freightclub.testscripts.TestReviewAndBook">
+				<methods>
+					<include name="testReviewAndBookCustomOrder"></include>
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestManageOrders" > 
+				<methods>
+						<include name="testRequestCancellationAndCloneOrReQuoteButton"></include>
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>  
+	
+	<!-- <test name="Test Order Confirmation Mail">
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="5" />
+		<parameter name="CarrierName" value="Custom Orders"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" > 
+				<methods>
+						<include name="testOrderBooking"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>  -->
+	
+	<!-- ************************************** QA - 538 Tests ****************************************************** -->
+	
+	<test name="Test Enable Custom Order Option from Admin1">
+		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
+		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="enableOption" value="Custom Orders"/>
+		<parameter name="searchUser" value="test1@test.com"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestProfileManagement">
+				<methods>
+					<include name="testEnableCustomOrder" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test> 
+	
+	<test name="Test Quick Quote Custom Order - CO01">
+		<parameter name="loginuser" value="old" />
+		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="2" />
+		<parameter name="CarrierName" value="Custom Orders"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+				    <include name = "validateCustomerOrderRequiredFields"/>
+					<include name = "testEnterShipmentInformation"/>
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>   
+	
+	<test name="Test Submit Custom Order Quote as Admin - CO01">
+		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
+		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="Row" value="2" />
+		<parameter name="CarrierName" value="Custom Orders"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestSubmitCustomQuote1" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>  
+	
+	<!-- <test name="Test Order Ready For Booking Mail - CO01">
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="2" />
+		<parameter name="CarrierName" value="Custom Orders"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" > 
+				<methods>
+						<include name="testVerifyReadyForBookingMail"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>  --> 
+	
+	<test name="Test Verify Request Cancellation Button - CO01">
+		<parameter name="loginuser" value="new" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="Row" value="2" />
+		<parameter name="CarrierName" value="Custom Orders"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestBookCustomOrder" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+				<methods>
+					<include name='testVerifySelectedCarriers' />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestEnterCompleteInformationDetail"/>
+			<class name="com.qualitesoft.freightclub.testscripts.TestReviewAndBook">
+				<methods>
+					<include name="testReviewAndBook2" />
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestManageOrders" > 
+				<methods>
+						<include name="testRequestCancellationAndCloneOrReQuoteButton1"></include>
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>  
+	
+	<!-- <test name="Test Order Confirmation Mail - CO01">
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="2" />
+		<parameter name="CarrierName" value="Custom Orders"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" > 
+				<methods>
+						<include name="testOrderBooking"></include>
+				</methods>
+			</class>
+		</classes>
+	</test> --> 
+	
+	<test name="Test Quick Quote Custom Order - CO02">
+		<parameter name="loginuser" value="old" />
+		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="3" />
+		<parameter name="CarrierName" value="Custom Orders"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name = "testEnterShipmentInformation"/>
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+	
+	<test name="Test Submit Custom Order Quote as Admin - CO02">
+		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
+		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="Row" value="3" />
+		<parameter name="CarrierName" value="Custom Orders"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestSubmitCustomQuote1" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+	
+	<!-- <test name="Test Order Ready For Booking Mail - CO02">
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="3" />
+		<parameter name="CarrierName" value="Custom Orders"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" > 
+				<methods>
+						<include name="testVerifyReadyForBookingMail"></include>
+				</methods>
+			</class>
+		</classes>
+	</test> -->  
+	
+	<test name="Test Verify Functionality of Clone Button - CO02">
+		<parameter name="loginuser" value="new" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="Row" value="3" />
+		<parameter name="CarrierName" value="Custom Orders"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestBookCustomOrder" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+				<methods>
+					<include name='testVerifySelectedCarriers' />
+				</methods>
+			</class>
+			
+			<class name="com.qualitesoft.freightclub.testscripts.TestEnterCompleteInformationDetail"/>
+			<class name="com.qualitesoft.freightclub.testscripts.TestReviewAndBook">
+				<methods>
+					<include name="testReviewAndBook2"/>
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestManageOrders" > 
+				<methods>
+						<include name="testRequestCancellationAndCloneOrReQuoteButton1"></include>
+						<include name="verifyCloneButtonFunctionality"></include>
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+	
+	<!-- <test name="Test Order Confirmation Mail - CO02">
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="3" />
+		<parameter name="CarrierName" value="Custom Orders"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" > 
+				<methods>
+						<include name="testOrderBooking"></include>
+				</methods>
+			</class>
+		</classes>
+	</test> -->  
+	
+	<test name="Test Quick Quote Custom Order - CO03">
+		<parameter name="loginuser" value="old" />
+		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="4" />
+		<parameter name="CarrierName" value="Custom Orders"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name = "testEnterShipmentInformation"/>
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+	
+	<test name="Test Submit Custom Order Quote as Admin - CO03">
+		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
+		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="Row" value="4" />
+		<parameter name="CarrierName" value="Custom Orders"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestSubmitCustomQuote1" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+	
+	<!-- <test name="Test Order Ready For Booking Mail - CO03">
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="4" />
+		<parameter name="CarrierName" value="Custom Orders"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" > 
+				<methods>
+						<include name="testVerifyReadyForBookingMail"></include>
+				</methods>
+			</class>
+		</classes>
+	</test> -->
+	 
+	<test name="Test Verify Functionality of Re-Quote Button - CO03">
+		<parameter name="loginuser" value="new" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="Row" value="4" />
+		<parameter name="CarrierName" value="Custom Orders"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestBookCustomOrder" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestEnterCompleteInformationDetail"/>
+			<class name="com.qualitesoft.freightclub.testscripts.TestReviewAndBook">
+				<methods>
+					<include name="testReviewAndBook2"/>
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestManageOrders" > 
+				<methods>
+						<include name="testRequestCancellationAndCloneOrReQuoteButton1"></include>
+						<include name="verifyReQuoteFunctionFunctionality"></include>
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+	
+	<!-- <test name="Test Order Confirmation Mail - CO03">
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="4" />
+		<parameter name="CarrierName" value="Custom Orders"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" > 
+				<methods>
+						<include name="testOrderBooking"></include>
+				</methods>
+			</class>
+		</classes>
+	</test> -->
 </suite>	

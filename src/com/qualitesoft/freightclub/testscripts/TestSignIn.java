@@ -18,7 +18,6 @@ public class TestSignIn extends InitializeTest {
 			SeleniumFunction.sendKeys(signInPage.passowrdTextField(), fcpassword);
 			WaitTool.sleep(1);
 			if(!signInPage.usernameTextField().getAttribute("value").equals(fcusername)) {
-				System.out.println("Login detail not inserted in first attempt.");
 				SeleniumFunction.sendKeys(signInPage.usernameTextField(), fcusername);
 				SeleniumFunction.sendKeys(signInPage.passowrdTextField(), fcpassword);
 			}

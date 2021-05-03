@@ -15,6 +15,7 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
@@ -65,7 +66,10 @@ public class InitializeTest {
 	public static String weight = null;
 	public static String couponValue=null;
 	public static String taxRate;
+	public static String userType;
+	public static String testData;
 
+	
 	@BeforeTest
 	public void initialize(ITestContext context) {
 		browser = context.getCurrentXmlTest().getParameter("browser");
@@ -106,6 +110,8 @@ public class InitializeTest {
 		weight = context.getCurrentXmlTest().getParameter("weight");
 		couponValue = context.getCurrentXmlTest().getParameter("couponValue");
 		taxRate = context.getCurrentXmlTest().getParameter("taxRate");
+		userType = context.getCurrentXmlTest().getParameter("userType");
+		testData = context.getCurrentXmlTest().getParameter("testData");
 		Log.info("*****************************"+ testname + " started.");
 	}
 	

@@ -2,6 +2,7 @@ package com.qualitesoft.core;
 
 import static org.testng.Assert.assertThrows;
 
+import java.util.List;
 import java.util.Set;
 
 import org.openqa.selenium.JavascriptExecutor;
@@ -218,6 +219,18 @@ public class SeleniumFunction {
 			Log.error("Not able to run AutoIt script" + e.getMessage());
 		}
 	}
+	
+	public static void uploadFile(String fileName) {
+
+		try {
+			fileName = System.getProperty("user.dir") + "\\binaries\\FCfiles\\" + fileName;
+			Runtime.getRuntime().exec(System.getProperty("user.dir")+"\\autoit\\NewUploadChrome.exe"+" "+fileName+" "+"Open");
+			WaitTool.sleep(10);
+			Log.info(fileName+" successfully uploaded.");
+		} catch (Exception e) {
+			Log.error("Not able to run AutoIt script" + e.getMessage());
+		}
+	} 
 
 	public static void getCurrentWindow(WebDriver driver) {
 

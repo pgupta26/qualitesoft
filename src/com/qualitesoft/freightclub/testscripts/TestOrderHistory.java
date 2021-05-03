@@ -15,6 +15,10 @@ public class TestOrderHistory extends InitializeTest{
 	public void testOrderhistory(){
 		WaitTool.sleep(15);
 		LandingPage landingPage = new LandingPage(driver);
+		String classAttribute = landingPage.ExpandMenupage().getAttribute("class");
+		if(classAttribute.equals("active")) {
+			SeleniumFunction.click(landingPage.ExpandMenupage());
+		}
 		SeleniumFunction.click(landingPage.OrderHistoryLink());
 		WaitTool.sleep(5);
 		ScreenShot.takeScreenShot(driver, "OrderHistoryPage");

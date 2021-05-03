@@ -32,9 +32,8 @@ public class TestTrackingStatus extends InitializeTest{
 		ScreenShot.takeScreenShot(driver, "ManageOrdersPage");
 		
 		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/FCFile.xlsx");
-		int rowsCount = xr.getRowCount("Input");
 		
-		for(int i=2;i<=rowsCount;i++)
+		for(int i=8;i<=10;i++)
 		{
 			String orderid=xr.getCellData("Input","OrderId", i).trim();
 			String[] trackingStatus = {"In Transit","Delivered"};

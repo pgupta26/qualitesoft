@@ -1,10 +1,17 @@
 package com.qualitesoft.freightclub.testscripts;
 import com.qualitesoft.core.Xls_Reader;
+
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.HasInputDevices;
+import org.openqa.selenium.interactions.Keyboard;
 import org.testng.annotations.Test;
 import com.qualitesoft.freightclub.pageobjects.QuickQuote;
+import com.qualitesoft.freightclub.testscripts.TestManageProducts;
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
@@ -31,6 +38,7 @@ public class TestGetQuote extends InitializeTest{
 		String dropOffZip=xr.getCellData("Input","dropOffZip", i).trim();
 		String dropOffType=xr.getCellData("Input","dropOffType", i).trim();			
 		String packageType = xr.getCellData("Input", "packageType", i).trim();
+		String packageType2 = xr.getCellData("Input", "packageType2", i).trim();
 		String Weight=xr.getCellData("Input","Weight", i).trim();
 		String DimensionL=xr.getCellData("Input","DimensionL", i).trim();
 		String DimensionW=xr.getCellData("Input","DimensionW", i).trim();
@@ -42,7 +50,7 @@ public class TestGetQuote extends InitializeTest{
 		QuickQuote quickQuote = new QuickQuote(driver);
 		SeleniumFunction.clickJS(driver, quickQuote.manageOrdersLink());
 
-		WaitTool.sleep(2);
+		WaitTool.sleep(5);
 		quickQuote.acceptPopup();
 		WaitTool.sleep(2);
 
@@ -88,46 +96,93 @@ public class TestGetQuote extends InitializeTest{
 
 		SeleniumFunction.selectByVisibleText(quickQuote.PickUpLocationType(), pickUpType);
 		SeleniumFunction.selectByVisibleText(quickQuote.DropOffLocationType(), dropOffType);
+		
+		//Surepost doesn't support insurance
+		/*if (!suiteName.equals("Sure Post Suite")) {
+			if (Row.equalsIgnoreCase("8")) {
+				SeleniumFunction.click(quickQuote.insurance());
+			}
+		}*/
 
-		if(category1.equalsIgnoreCase("Other"))
-		{
+		if(category1.equalsIgnoreCase("Other")){
 			SeleniumFunction.selectByvalue(quickQuote.Category(), "347");
+			SeleniumFunction.click(quickQuote.popupCateogory());
+			WaitTool.sleep(2);
+			jse.executeScript("window.scrollBy(0,500)", "");
 		}
-		else
-		{
+		else {
 			SeleniumFunction.selectByvalue(quickQuote.Category(), "346");
 		}
-		WaitTool.sleep(2);
-		//Add popup on cateory 
-		quickQuote.acceptPopup();
-		WaitTool.sleep(2);
-		SeleniumFunction.click(quickQuote.popupCateogory());
-		WaitTool.sleep(2);
-		jse.executeScript("window.scrollBy(0,350)", "");
 
-		if (shipmentType.equalsIgnoreCase("LTL"))
-		{
+		SeleniumFunction.scrollDownByPixel(driver, "1000");
+		if (shipmentType.equalsIgnoreCase("LTL")){
 			SeleniumFunction.click(quickQuote.PackageType());			
 		}
 		else{
 			SeleniumFunction.click(quickQuote.PackageTypeParcel());
-
 		}
-		WaitTool.sleep(5);
-		quickQuote.PackageTypeOptions(packageType);
-		SeleniumFunction.click(quickQuote.Weight());
-		System.out.println("Weight" + Weight);
-		SeleniumFunction.sendKeys(quickQuote.Weight(), Weight);
-		SeleniumFunction.sendKeys(quickQuote.DimensionL(), DimensionL);
+		
+		if(Row.equalsIgnoreCase("2") || Row.equalsIgnoreCase("7") || Row.equalsIgnoreCase("12")) {
+			WaitTool.sleep(2);
+			Keyboard keyboard = ((HasInputDevices) driver).getKeyboard();
+			keyboard.pressKey(Keys.BACK_SPACE);
+			WaitTool.sleep(2);
+			SeleniumFunction.sendKeys(quickQuote.PackageValue(), TestManageProducts.Productname);
+			WaitTool.sleep(5);
+			SeleniumFunction.KeyBoradEnter(driver);
+			WaitTool.sleep(2);
+		} else {
+			WaitTool.sleep(5);
+			quickQuote.PackageTypeOptions(packageType);
+			SeleniumFunction.click(quickQuote.Weight());
+			SeleniumFunction.sendKeys(quickQuote.Weight(), Weight);
+			SeleniumFunction.sendKeys(quickQuote.DimensionL(), DimensionL);
 
-		SeleniumFunction.sendKeys(quickQuote.DimensionW(), DimensionW);
+			SeleniumFunction.sendKeys(quickQuote.DimensionW(), DimensionW);
 
-		SeleniumFunction.sendKeys(quickQuote.DimensionH(), DimensionH);
-		SeleniumFunction.sendKeys(quickQuote.DeclaredValue(), DeclaredValue);
+			SeleniumFunction.sendKeys(quickQuote.DimensionH(), DimensionH);
+			SeleniumFunction.sendKeys(quickQuote.DeclaredValue(), DeclaredValue);
+			if (shipmentType.equals("Parcel")) {}
+			else if(packageType.equals("Non-Palletized")) {}
+			else {
+				SeleniumFunction.sendKeys(quickQuote.Cartons(), Cartons);
+			}
+		}
+		
+		// LTL select 2 package type
+		if (packageType2.equalsIgnoreCase("Standard Pallet 2")) {
+			SeleniumFunction.click(quickQuote.addadditionalItem());
+			WaitTool.sleep(2);
+			SeleniumFunction.scrollDownUptoFooter(driver);
+			SeleniumFunction.click(quickQuote.PackageType2());
+			System.out.println("package selected: " + packageType2);
+			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver,
+					By.xpath("(//div[@class='selectize-dropdown single form-input']//div/div[@data-value='850'])[2]"),
+					30));
+			System.out.println("package selected" + packageType2);
+			SeleniumFunction.click(quickQuote.Weight2());
+			System.out.println("Weight" + Weight);
+			SeleniumFunction.sendKeys(quickQuote.Weight2(), Weight);
 
-		if (!shipmentType.equals("Parcel") && !packageType.equals("Boxed"))
-			SeleniumFunction.sendKeys(quickQuote.Cartons(), Cartons);
+			SeleniumFunction.sendKeys(quickQuote.DimensionH2(), DimensionH);
 
+			// Change by shubham
+			WaitTool.sleep(1);
+			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver,
+					By.xpath("//span[text()='Select categories']"), 30));
+			WaitTool.sleep(1);
+			SeleniumFunction.click(
+					WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@value='347'])[2]"), 30));
+
+			// Add popup on cateory Other
+			SeleniumFunction.click(quickQuote.popupCateogory2());
+
+			SeleniumFunction.sendKeys(quickQuote.DeclaredValue2(), DeclaredValue);
+			SeleniumFunction.sendKeys(quickQuote.Cartons2(), Cartons);
+			WaitTool.sleep(2);
+			jse.executeScript("window.scrollBy(0,350)", "");
+		}
+					
 		WaitTool.sleep(2);
 		ScreenShot.takeScreenShot(driver, "Shipmentinfo "+shipmentType+" "+packageType);
 		jse.executeScript("window.scrollBy(0,250)", "");
@@ -140,20 +195,43 @@ public class TestGetQuote extends InitializeTest{
 		SeleniumFunction.scrollUp(driver);
 		jse.executeScript("window.scrollBy(0,250)", "");
 		quickQuote.waitForQuotesToAppear();
-		jse.executeScript("return document.readyState").toString().equals("complete");
 		ScreenShot.takeScreenShot(driver, "Rates wih Carriers "+shipmentType+" "+packageType);
 		WaitTool.sleep(5);
-		if(serviceLevel.equalsIgnoreCase("Ground")) {
-			SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplay(driver,By.xpath("//table[@id='table-quotes']//tbody//tr[1]//td[6]//button"), 60));
-		}else {
-			SeleniumFunction.clickJS(driver, quickQuote.NextButton());
+		List<WebElement> oklist=driver.findElements(By.xpath("//button[@data-role='end']"));
+		if(oklist.size() >0) {
+			driver.findElement(By.xpath("//button[@data-role='end']")).click();
 		}
+		jse.executeScript("return document.readyState").toString().equals("complete");
+		
+		if(Row.equalsIgnoreCase("11") || Row.equalsIgnoreCase("12")) {
+			SeleniumFunction.click(quickQuote.UPSSureButton());
+		}else {
+			if(serviceLevel.equalsIgnoreCase("Ground")) {
+				SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplay(driver,By.xpath("//table[@id='table-quotes']//tbody//tr[1]//td[6]//button"), 60));
+			}else {
+				SeleniumFunction.clickJS(driver, quickQuote.NextButton());
+			}
+		}			
 		WaitTool.sleep(10);
+		
+		if(Row.equalsIgnoreCase("3")) {
+			jse.executeScript("window.scrollBy(0,-1000)", "");
+			SeleniumFunction.click(quickQuote.Addproduct());
+			SeleniumFunction.click(quickQuote.searchproduct());				
+			WaitTool.sleep(2);
+			Keyboard keyboard = ((HasInputDevices) driver).getKeyboard();
+			keyboard.pressKey(Keys.BACK_SPACE);
+			WaitTool.sleep(2);
+			SeleniumFunction.sendKeys(quickQuote.productvalue(), TestManageProducts.Productname);
+			WaitTool.sleep(2);
+			SeleniumFunction.KeyBoradEnter(driver);
+			ScreenShot.takeScreenShot(driver, "product added ") ;
+		}
 		
 		//Complete Information Tab 
 		jse.executeScript("window.scrollBy(0,-350)", "");
 		WaitTool.sleep(3);
-		SeleniumFunction.sendKeys(quickQuote.SpecialHandling(), "TestSpecialHandling");
+		SeleniumFunction.sendKeys(quickQuote.SpecialHandling(), "Test Special Handling Instructions");
 		jse.executeScript("window.scrollBy(0,400)", "");
 		WaitTool.sleep(15);
 		quickQuote.LocationName().sendKeys(Keys.chord("Auto"));
@@ -168,14 +246,12 @@ public class TestGetQuote extends InitializeTest{
 		//Review and Book Tab
 		SeleniumFunction.scrollDownUptoFooter(driver);
 		SeleniumFunction.click(quickQuote.Book());
-		WaitTool.sleep(15);
-		quickQuote.Okbutton();
+		WaitTool.sleep(30);
 		ScreenShot.takeScreenShot(driver, "Order Confirmation "+shipmentType+" "+packageType);
-		SeleniumFunction.click(quickQuote.Okbutton());
+		SeleniumFunction.click(quickQuote.Okbutton1());
 		WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='ag-body'])[1]/descendant::div[@row='0']/div[@colid='ID']"), 60);
 		WaitTool.sleep(10);
 		crorderId=SeleniumFunction.getText(driver.findElement(By.xpath("(//div[@class='ag-body'])[1]/descendant::div[@row='0']/div[@colid='ID']")));
-		System.out.println("crorderId:" + crorderId.trim());
 		
 		//set order id in excel
 		xr.setCellData("Input","OrderId", i,crorderId.trim());

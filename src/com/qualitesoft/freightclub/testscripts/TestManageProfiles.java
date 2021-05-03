@@ -12,6 +12,7 @@ import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.freightclub.pageobjects.HomePage;
 import com.qualitesoft.freightclub.pageobjects.LandingPage;
 import com.qualitesoft.freightclub.pageobjects.ProfileManagementPage;
+import com.qualitesoft.freightclub.pageobjects.QuickQuote;
 import com.qualitesoft.freightclub.pageobjects.SignInPage;
 
 public class TestManageProfiles extends InitializeTest{
@@ -20,13 +21,14 @@ public class TestManageProfiles extends InitializeTest{
 	public void testManageProfiles(){
 		
 		ProfileManagementPage profileManagementPage = new ProfileManagementPage(driver);
+		QuickQuote quickQuote = new QuickQuote(driver);
 		profileManagementPage.manageProfileLink();
 		SeleniumFunction.clickJS(driver, profileManagementPage.manageProfileLink());
+		WaitTool.sleep(1);
+		quickQuote.acceptPopup();
+		WaitTool.sleep(1);
 		ScreenShot.takeScreenShot(driver, "ProfileManagementPage");
-		//profileManagementPage.companyNameLink();	
-		//SeleniumFunction.click(profileManagementPage.companyNameLink());
-		//SeleniumFunction.click(profileManagementPage.profileListfilter());
-	    SeleniumFunction.sendKeys(profileManagementPage.profileListfilter(), "10534");//10685
+		SeleniumFunction.sendKeys(profileManagementPage.profileListfilter(), "10534");//10685
 	    JavascriptExecutor jse = (JavascriptExecutor) driver;
 	    WaitTool.sleep(9);
 	    jse.executeScript("window.scrollBy(0,550)", "");

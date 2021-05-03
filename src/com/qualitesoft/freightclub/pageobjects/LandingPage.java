@@ -22,12 +22,11 @@ public class LandingPage {
 
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[contains(@href,'/Order/Index')]"), 30);
 	}
+	
 	public WebElement OrderHistoryLink() {
-
-		//return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//i[@class='site-menu-icon fa fa-archive']//span"), 30);
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//span[contains(text(),'Manage Invoices')]"), 30);
-		 //return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//span[contains(text(),'Order History')]"), 30);
 	}
+	
 	public WebElement OrderHistoryLastpage() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//button[text()='Last'])[2]"), 30);
 		//return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@class='k-link k-pager-nav k-state-disabled k-pager-last']"), 30);
@@ -41,7 +40,7 @@ public class LandingPage {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@class='link-important']"), 30);
 	}	
 	public WebElement createproduct() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[contains(text(),'Create New Product')]"), 30);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[contains(text(),'Create New Product')]"), 60);
 	}
 	public WebElement SKU() {
 
@@ -62,19 +61,19 @@ public class LandingPage {
 	
 	public WebElement weight() {
 
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"createProductModal\"]/div/div/div[2]/div/form/div[2]/div/table/tbody/tr/td[2]/div[1]/input"), 30);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"product-cartons-table\"]/tbody/tr/td[2]/div[1]/input"), 30);
 	}
 	public WebElement length() {
 
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"createProductModal\"]/div/div/div[2]/div/form/div[2]/div/table/tbody/tr/td[3]/div[1]/input"), 30);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"product-cartons-table\"]/tbody/tr/td[3]/div[2]/input"), 30);
 	}
 	public WebElement width() {
 
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"createProductModal\"]/div/div/div[2]/div/form/div[2]/div/table/tbody/tr/td[3]/div[2]/input"), 30);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"product-cartons-table\"]/tbody/tr/td[3]/div[2]/input"), 30);
 	}
 	public WebElement height() {
 
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"createProductModal\"]/div/div/div[2]/div/form/div[2]/div/table/tbody/tr/td[3]/div[3]/input"), 30);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"product-cartons-table\"]/tbody/tr/td[3]/div[3]/input"), 30);
 	}
 	
 	public WebElement cartoonweight() {
