@@ -52,8 +52,8 @@ public class TestEnterShipmentInformation extends InitializeTest {
 	public void validateRequiredFields() {
 		ArrayList<String> expectedRequiredFields = new ArrayList<String>();
 		Collections.addAll(expectedRequiredFields, "Pickup date is required", "Customer PO Number is required"
-				, "Please select a Service Level", "Pick Up location is required", "Drop Off location is required"
-				, "You must select a handling unit", "Value is required"
+				, "Please select a Service Level", "Pick Up location is required","Company name is required" 
+				, "Address is required", "Drop Off location is required", "Address is required","You must select a handling unit", "Value is required"
 				, "Value is required", "Supply the details of the shipment.");
 		ArrayList<String> actualRequiredFields  = new ArrayList<String>();
 		List<WebElement> validationFields = driver.findElements(By.xpath("//span[@class='form-group-message']"));
@@ -71,7 +71,7 @@ public class TestEnterShipmentInformation extends InitializeTest {
 	@Test
 	public void validateCustomerOrderRequiredFields() {
 			QuickQuote quickQuote = new QuickQuote(driver);
-			Xls_Reader xr=new Xls_Reader("binaries/FCfiles/QA_538.xlsx");
+			Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
 			i=Integer.parseInt(Row);
 			
 			shipmentType=xr.getCellData("Input","shipmentType", i).trim();
@@ -133,7 +133,7 @@ public class TestEnterShipmentInformation extends InitializeTest {
 			WaitTool.sleep(2);
 			SeleniumFunction.scrollDownByPixel(driver, "2000");
 			WaitTool.sleep(2);
-			String productName= "testproduct";
+			String productName= "prodDNnz";
 			SeleniumFunction.click(quickQuote.addadditionalItem());
 			jse.executeScript("window.scrollBy(0,250)", "");
 			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.cssSelector(".btn-remove:nth-child(1)"), 10));
@@ -170,7 +170,7 @@ public class TestEnterShipmentInformation extends InitializeTest {
 			//Verify loose cartoon present when quantity = 11 with multiple package type
 			WaitTool.sleep(2);
 			for(int itemInformationCount =2; itemInformationCount <= 11; itemInformationCount++)
-				quickQuote.copyItemInformation();
+				quickQuote.copyItemInformation(0);
 			SeleniumFunction.executeJS(driver,"window.scrollBy(0,3000)");
 			WaitTool.sleep(2);
 			SeleniumFunction.click(quickQuote.SaveButton());
@@ -290,17 +290,12 @@ public class TestEnterShipmentInformation extends InitializeTest {
 		SeleniumFunction.selectByVisibleText(quickQuote.PickUpLocationType(), pickUpType);
 		SeleniumFunction.selectByVisibleText(quickQuote.DropOffLocationType(), dropOffType);
 
-		//surepost doesn't support insurance
-		if(!suiteName.equals("Sure Post Suite")) {
-			if(Row.equalsIgnoreCase("") ) {
-				SeleniumFunction.click(quickQuote.insurance());
-			}
-		}
-
-		/*if(testname.contains("QA - 838")) {
+		if(testname.contains("QA-538")) {
 			
-			SeleniumFunction.sendKeys(quickQuote.PickUpAddress1(), "Pick Up Address");
-			SeleniumFunction.sendKeys(quickQuote.DropAddress1(), "Drop Off Address");
+			SeleniumFunction.sendKeys(quickQuote.PickUpCompanyName(), "Pick Up Company");
+			SeleniumFunction.sendKeys(quickQuote.dropOffCompanyName(), "Drop Off Company");
+			SeleniumFunction.sendKeys(quickQuote.PickUpAddress1(), "Address Line1");
+			SeleniumFunction.sendKeys(quickQuote.DropAddress1(), "Address Line2");
 			
 			SeleniumFunction.select(quickQuote.handlingUnits(), handlingUnits);
 			SeleniumFunction.sendKeys(quickQuote.totalWeights(), totalWeight);
@@ -330,18 +325,18 @@ public class TestEnterShipmentInformation extends InitializeTest {
 			}
 			SeleniumFunction.sendKeys(quickQuote.regulatoryDetails(), regulatoryDetails);
 			
-		}else {*/
+		}else {
 			this.insertItemInformation();
-		//}
+		}
 		
-		if(testname.contains("Custom Order1")) {
+		if(testname.equals("Test Submit Custom Order - LTL")) {
 			i = 3;
 			packageType = xr.getCellData("Input", "packageType", i).trim();
 			DimensionH=xr.getCellData("Input","DimensionH", i).trim();
 			Cartons=xr.getCellData("Input","Cartons", i).trim();
 			
 			// Add standard pallet type
-			quickQuote.copyItemInformation();
+			quickQuote.copyItemInformation(0);
 			jse.executeScript("window.scrollBy(0,2500)", "");
 			SeleniumFunction.click(quickQuote.PackageType2());
 			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='selectize-dropdown single form-input']//div/div[@data-value='850'])[2]"), 30));
@@ -353,7 +348,7 @@ public class TestEnterShipmentInformation extends InitializeTest {
 			SeleniumFunction.click(quickQuote.addadditionalItem());
 			jse.executeScript("window.scrollBy(0,2500)", "");
 			
-			String productName= "Auto_S";
+			String productName= "prodDNnz";
 			WaitTool.sleep(2);
 			Keyboard keyboard = ((HasInputDevices) driver).getKeyboard();
 			keyboard.pressKey(Keys.BACK_SPACE);
@@ -369,7 +364,7 @@ public class TestEnterShipmentInformation extends InitializeTest {
 		jse.executeScript("window.scrollBy(0,250)", "");
 		SeleniumFunction.click(quickQuote.SaveButton());
 		
-		/*if(testname.contains("Custom Order")) {
+		if(testname.contains("QA-538")) {
 			WaitTool.sleep(5);
 			quickQuote.acceptPopup();
 			
@@ -380,7 +375,7 @@ public class TestEnterShipmentInformation extends InitializeTest {
 			//set order id in excel
 			xr.setCellData("Input","OrderId", i,crorderId.trim());
 			WaitTool.sleep(5);
-		}*/
+		}
 	}
 
 	public void insertItemInformation() {
@@ -540,18 +535,17 @@ public class TestEnterShipmentInformation extends InitializeTest {
 
 	@Test
 	public void verifyCustomOrderPopupWithMultilePackageType() {
-		try {
 			i=Integer.parseInt(Row);
 			quickQuote = new QuickQuote(driver);
 			SeleniumFunction.executeJS(driver, "window.scrollBy(0,-2500)");
 			SeleniumFunction.click(quickQuote.LTLShipment());
-
 			SeleniumFunction.executeJS(driver, "window.scrollBy(0,500)");
 			for(int itemInformationCount =0; itemInformationCount <= 3; itemInformationCount++) {
 				if(i == 4) {
 					SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"app-content\"]/div/div/div/section/section[2]/div/div[5]/div[1]/div[2]/div/div/table/tr/td[2]/div/ul/li/button[1]"), 30));
 				} else {
-					quickQuote.copyItemInformation();
+					quickQuote.copyItemInformation(itemInformationCount);
+					SeleniumFunction.scrollDownUptoFooter(driver);
 					WaitTool.sleep(1);
 				}
 			}
@@ -564,33 +558,31 @@ public class TestEnterShipmentInformation extends InitializeTest {
 			SeleniumFunction.click(quickQuote.getCustomQuoteButton());
 			SeleniumFunction.executeJS(driver, "window.scrollBy(0,2500)");
 			ScreenShot.takeScreenShot(driver, "Custom Order Present Verified.");
-		}catch(Exception ex) {
-			ex.printStackTrace();
-			throw ex;
-		}
 	}
 
 	@Test
 	public void submitCustomOrderQuoteLTL() {
-		try {
 			QuickQuote quickQuote = new QuickQuote(driver);
 
 			SeleniumFunction.click(quickQuote.getCustomQuoteButton());
 			SeleniumFunction.executeJS(driver, "window.scrollBy(0,2500)");
 
-			Xls_Reader xr=new Xls_Reader("binaries/FCfiles/QA_537.xlsx");
+			Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
 			i=Integer.parseInt(Row);
 			
 			String deliveryFrequency=xr.getCellData("Input","DeliveryFrequency", i).trim();
 			String regulatoryDetails = xr.getCellData("Input","RegulatoryDetails", i).trim();
 			String orderDetails=xr.getCellData("Input","OrderDetails", i).trim();
-
+			
 			SeleniumFunction.scrollUpByPixel(driver, "800");
 			
 			SeleniumFunction.sendKeys(quickQuote.PickUpCompanyName(), "Pick Up Company");
 			SeleniumFunction.sendKeys(quickQuote.dropOffCompanyName(), "Drop Off Company");
 			SeleniumFunction.sendKeys(quickQuote.PickUpAddress1(), "Address Line1");
 			SeleniumFunction.sendKeys(quickQuote.DropAddress1(), "Address Line2");
+			
+			SeleniumFunction.executeJS(driver, "window.scrollBy(0,400)");
+			
 			SeleniumFunction.sendKeys(quickQuote.deliveryFrequency(), deliveryFrequency);
 			SeleniumFunction.click(quickQuote.customOrderDetails(orderDetails));
 			SeleniumFunction.sendKeys(quickQuote.regulatoryDetails(), regulatoryDetails);
@@ -608,9 +600,5 @@ public class TestEnterShipmentInformation extends InitializeTest {
 			//set order id in excel
 			xr.setCellData("Input","OrderId", i,crorderId.trim());
 			WaitTool.sleep(5);
-		}catch(Exception ex) {
-			ex.printStackTrace();
-			throw ex;
-		}
 	}
 }

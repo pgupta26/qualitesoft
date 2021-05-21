@@ -18,6 +18,7 @@ import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
 import com.qualitesoft.freightclub.pageobjects.HomePage;
 import com.qualitesoft.freightclub.pageobjects.LandingPage;
+import com.qualitesoft.freightclub.pageobjects.QuickQuote;
 
 public class TestManageFullOrders extends InitializeTest{
 
@@ -25,26 +26,15 @@ public class TestManageFullOrders extends InitializeTest{
 	public void testManageFullOrders(){
 
 		LandingPage landingPage = new LandingPage(driver);
-		landingPage.manageOrdersLink();
+		QuickQuote quickQuote = new QuickQuote(driver);
+
 		SeleniumFunction.clickJS(driver, landingPage.manageOrdersLink());
 		ScreenShot.takeScreenShot(driver, "ManageOrderPage");
 
-		/*		landingPage.uploadFileFullOrderChrome();
-		SeleniumFunction.clickAction(driver, landingPage.uploadButton());
-		landingPage.OKButton();
-		landingPage.sucessMsgManageProducts();
-		SeleniumFunction.clickJS(driver, landingPage.OKButton());
-		ScreenShot.takeScreenShot(driver, "ManageOrdersUploaded");
-
-		SeleniumFunction.clickJS(driver, landingPage.bookFullOrdersButton());
-		landingPage.fullOrderOKButton();
-		ScreenShot.takeScreenShot(driver, "FullOrderBookingConformation");
-		SeleniumFunction.clickJS(driver, landingPage.fullOrderOKButton());
-		WaitTool.sleep(4);
-		ScreenShot.takeScreenShot(driver, "FullOrderBooked");
-		WaitTool.sleep(4);
-		SeleniumFunction.clickJS(driver, landingPage.exportOrdersinCSVFormatButton());*/
-
+		WaitTool.sleep(5);
+		quickQuote.acceptPopup();
+		WaitTool.sleep(2);
+		
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/FCFile.xlsx");
 		int i=Integer.parseInt(Row);
@@ -62,29 +52,6 @@ public class TestManageFullOrders extends InitializeTest{
 		ScreenShot.takeScreenShot(driver, "Order Info for order id "+orderid);
 		driver.close();
 		driver.switchTo().window(newTab.get(0));
-
-		/*			WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='modal-header']/h3[@class='pull-left']"), 60);
-			String vieworder1=SeleniumFunction.getText(driver.findElement(By.xpath("//div[@class='modal-header']/h3[@class='pull-left']")));
-			//System.out.println("vieworderbefore split:" + vieworder1);
-			String[] order = vieworder1.split("-");
-			String vieworder = order[1].trim(); // order id
-			//System.out.println("vieworder:" + vieworder);
-			if(vieworder.equals(orderid))
-			{
-				try {
-					Log.info("Order Id displayed correctly: " + vieworder);
-				} catch (Exception e) {
-					Log.warn("Incorrect Order Id: " + vieworder);
-					throw e;
-				}	
-			}
-
-			jse.executeScript("window.scrollBy(0,550)", "");//scroll down
-			ScreenShot.takeScreenShot(driver, "Order Info for order id "+orderid);
-			SeleniumFunction.click(landingPage.updatehistory());
-			SeleniumFunction.click(landingPage.Okbutton1());
-			WaitTool.sleep(10);
-			jse.executeScript("window.scrollBy(0,-450)", "");*/
 
 	}
 }

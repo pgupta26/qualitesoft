@@ -16,7 +16,7 @@ public class ShipmentReviewOrderPage {
 	}
 	
 	public WebElement customerPONumber() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"shipment-review\"]/div[1]/div[2]/div[1]/div/div[2]"), 30);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"shipment-review\"]/div[1]/div[2]/div[1]/div/div[1]/div/div[2]"), 30);
 	}
 	
 	public WebElement totalAmount() {
@@ -24,15 +24,15 @@ public class ShipmentReviewOrderPage {
 	}
 	
 	public WebElement totalWeight() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"shipment-review\"]/div[1]/div[7]/div/div/div/div/table/tbody/tr/td[1]"), 30);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"shipment-review\"]/div[1]/div[6]/div/div/div/div/table/tbody/tr/td[1]"), 30);
 	}
 	
 	public WebElement declaredValue() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"shipment-review\"]/div[1]/div[7]/div/div/div/div/table/tbody/tr/td[2]"), 30);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"shipment-review\"]/div[1]/div[6]/div/div/div/div/table/tbody/tr/td[2]"), 30);
 	}
 	
 	public WebElement handlingUnits() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"shipment-review\"]/div[1]/div[7]/div/div/div/div/table/tbody/tr/td[3]"), 30);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"shipment-review\"]/div[1]/div[6]/div/div/div/div/table/tbody/tr/td[3]"), 30);
 	}
 	
 	public WebElement shipmentInformation() {

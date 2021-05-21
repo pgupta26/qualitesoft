@@ -54,8 +54,6 @@ public class ProfileManagementPage {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath(".//*[@class='pull-right text-danger']/strong"), 30);
 	}
 	public WebElement paymentType() {
-
-		//return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='col-xs-12 col-lg-9']/div[8]/div[@class='col-xs-12 col-lg-6']//select[@class='form-control']"), 30);
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[text()='Payment Type']/following-sibling::select[@class='form-control']"), 30);
 	}
 	public WebElement selectParcel() {

@@ -34,7 +34,6 @@ public class TestCloneOrders extends InitializeTest{
 		SeleniumFunction.click(landingPage.ExpandMenupage());	
 		WaitTool.sleep(3);
 		SeleniumFunction.click(landingPage.ActionDropDown());
-		//SeleniumFunction.click(landingPage.ActionDropDown());
 		ScreenShot.takeScreenShot(driver, "Order");
 		SeleniumFunction.click(landingPage.CloneDropDown());
 		String CloneOrder="CloneOrder"+Row;
@@ -45,12 +44,32 @@ public class TestCloneOrders extends InitializeTest{
 		QuickQuote quickQuote = new QuickQuote(driver);
 		WaitTool.sleep(20);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		/*jse.executeScript("window.scrollBy(0,-500)", "");
+		jse.executeScript("window.scrollBy(0,-500)", "");
 		SeleniumFunction.click(quickQuote.OrderDate());
 		WaitTool.sleep(5);
-		SeleniumFunction.click(quickQuote.OrderDate1());*/
+		SeleniumFunction.click(quickQuote.OrderDate1());
 
-		//jse.executeScript("window.scrollBy(0,950)", "");
+		SeleniumFunction.clickAction(driver, quickQuote.ServiceLevel());
+		if(!shipmentType.equals("Parcel"))
+		{					
+			if (serviceLevel.contains("White Glove - Light Assembly")) {
+				SeleniumFunction.click(quickQuote.ServiceLevelWG());
+			} else if (serviceLevel.contains("Back Of Truck")) {
+				SeleniumFunction.click(quickQuote.ServiceLevelBOT());
+			} else if (serviceLevel.contains("Curbside")) {
+				SeleniumFunction.click(quickQuote.ServiceLevelCUR());
+			} else if (serviceLevel.contains("Threshold")) {
+				SeleniumFunction.click(quickQuote.ServiceLevelTHR());
+			} else if (serviceLevel.contains("Room of Choice")) {
+				SeleniumFunction.click(quickQuote.ServiceLevelROC());
+			} else if (serviceLevel.contains("White Glove - Packaging Removal")) {
+				SeleniumFunction.click(quickQuote.ServiceLevelWGPR());
+			}
+
+		}else {
+			SeleniumFunction.click(quickQuote.ServiceLevelGRND());
+		}
+		
 		SeleniumFunction.scrollDownUptoFooter(driver);
 
 		SeleniumFunction.click(quickQuote.SaveButton());

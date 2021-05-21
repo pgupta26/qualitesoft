@@ -43,7 +43,7 @@ public class TestCreateAccount extends InitializeTest {
 		ScreenShot.takeScreenShot(driver, "Create Account Details");
 		SeleniumFunction.scrollDownByPixel(driver, "500");
 		SeleniumFunction.click(account.createButton());
-		WaitTool.sleep(25);
+		WaitTool.sleep(60);
 		
 		QuickQuote quickQuote = new QuickQuote(driver);
 		WaitTool.sleep(2);
@@ -61,7 +61,9 @@ public class TestCreateAccount extends InitializeTest {
 		
 		ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
 		SeleniumFunction.click(manageOrderpage.manageOrdersLink());
+		WaitTool.sleep(2);
 		SeleniumFunction.click(manageOrderpage.openQuotes());
+		WaitTool.sleep(2);
 		SeleniumFunction.click(manageOrderpage.openQuotesActions());
 		WaitTool.sleep(2);
 		SeleniumFunction.click(manageOrderpage.openQuotesBook());	

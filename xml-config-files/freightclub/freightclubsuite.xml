@@ -25,6 +25,7 @@
 				<methods>
 					<include name="testEnterShipmentInformation" />
 				</methods>
+				
 			</class>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
 				<methods>
@@ -631,7 +632,7 @@
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
 		<parameter name="enableOption" value="Custom Orders"/>
-		<parameter name="searchUser" value="test1@test.com"/>
+		<parameter name="searchUser" value="test.automation@mailinator.com"/>
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestNavigateTheWebsite" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
@@ -774,7 +775,7 @@
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
 		<parameter name="enableOption" value="Custom Orders"/>
-		<parameter name="searchUser" value="test1@test.com"/>
+		<parameter name="searchUser" value="test.automation@mailinator.com"/>
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestNavigateTheWebsite" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
@@ -909,10 +910,11 @@
 					<include name="verifyCustomOrderPopupWithMultilePackageType" />
 				</methods>
 			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test> 
+	</test>
 	
-	<test name="Test Submit Custom Order1 - LTL">
+	<test name="Test Submit Custom Order - LTL">
 		<parameter name="loginuser" value="old" />
 		<parameter name="testData" value="QA_537.xlsx" />
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
@@ -929,26 +931,24 @@
 			</class>
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test> 
+	</test>
 	
 	<test name="Test Submit Custom Order Quote as Admin">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="testData" value="QA_537.xlsx" />
 		<parameter name="Row" value="5" />
 		<parameter name="CarrierName" value="Custom Orders"/>
 		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.TestNavigateTheWebsite" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestSubmitCustomQuote" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test>   
+	</test>      
 	
-	<!-- <test name="Test Order Ready For Booking Mail">
-		<parameter name="fcusername" value="testuser123@mailinator.com" />
-		<parameter name="fcpassword" value="@Test123" />
+	<test name="Test Order Ready For Booking Mail">
+		<parameter name="fcusername" value="billing.address@mailinator.com" />
 		<parameter name="Row" value="5" />
-		<parameter name="CarrierName" value="Custom Orders"/>
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" > 
 				<methods>
@@ -956,7 +956,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test> -->
+	</test>
 	
 	<test name="Test Verify Request Cancellation Button">
 		<parameter name="loginuser" value="new" />
@@ -989,8 +989,8 @@
 		</classes>
 	</test>  
 	
-	<!-- <test name="Test Order Confirmation Mail">
-		<parameter name="fcusername" value="test.automation@mailinator.com" />
+	<test name="Test Order Confirmation Mail">
+		<parameter name="fcusername" value="billing.address@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />
 		<parameter name="Row" value="5" />
 		<parameter name="CarrierName" value="Custom Orders"/>
@@ -1001,15 +1001,15 @@
 				</methods>
 			</class>
 		</classes>
-	</test>  -->
+	</test>
 	
 	<!-- ************************************** QA - 538 Tests ****************************************************** -->
 	
-	<test name="Test Enable Custom Order Option from Admin1">
+	<test name="Test Enable Custom Order Option from Admin - QA-538">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
 		<parameter name="enableOption" value="Custom Orders"/>
-		<parameter name="searchUser" value="test1@test.com"/>
+		<parameter name="searchUser" value="test.automation@mailinator.com"/>
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestProfileManagement">
@@ -1021,7 +1021,7 @@
 		</classes>
 	</test> 
 	
-	<test name="Test Quick Quote Custom Order - CO01">
+	 <test name="Test validate custom order fields">
 		<parameter name="loginuser" value="old" />
 		<parameter name="testData" value="QA_538.xlsx" />
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
@@ -1033,16 +1033,32 @@
 			<class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
 				<methods>
 				    <include name = "validateCustomerOrderRequiredFields"/>
+				</methods>
+			</class>
+		</classes>
+	</test>   
+	
+	<test name="Test Quick Quote Custom Order - One-Time Delivery - QA-538 - CO01">
+		<parameter name="loginuser" value="old" />
+		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="2" />
+		<parameter name="CarrierName" value="Custom Orders"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
 					<include name = "testEnterShipmentInformation"/>
 				</methods>
 			</class>
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test>   
+	</test>    
 	
-	<test name="Test Submit Custom Order Quote as Admin - CO01">
+	<test name="Test Submit Custom Order Quote as Admin - - One-Time Delivery - QA-538 - CO01">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="testData" value="QA_538.xlsx" />
 		<parameter name="Row" value="2" />
 		<parameter name="CarrierName" value="Custom Orders"/>
 		<classes>
@@ -1050,13 +1066,11 @@
 			<class name="com.qualitesoft.freightclub.testscripts.TestSubmitCustomQuote1" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test>  
+	</test>
 	
-	<!-- <test name="Test Order Ready For Booking Mail - CO01">
-		<parameter name="fcusername" value="test.automation@mailinator.com" />
-		<parameter name="fcpassword" value="Automation123!" />
+	<test name="Test Order Ready For Booking Mail - QA-538 - CO01">
+		<parameter name="fcusername" value="billing.address@mailinator.com" />
 		<parameter name="Row" value="2" />
-		<parameter name="CarrierName" value="Custom Orders"/>
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" > 
 				<methods>
@@ -1064,9 +1078,9 @@
 				</methods>
 			</class>
 		</classes>
-	</test>  --> 
+	</test>  
 	
-	<test name="Test Verify Request Cancellation Button - CO01">
+	<test name="Test Verify Request Cancellation Button - - One-Time Delivery - QA-538 - CO01">
 		<parameter name="loginuser" value="new" />
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />
@@ -1096,7 +1110,7 @@
 		</classes>
 	</test>  
 	
-	<!-- <test name="Test Order Confirmation Mail - CO01">
+	<test name="Test Order Confirmation Mail - QA-538 - CO01">
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />
 		<parameter name="Row" value="2" />
@@ -1108,9 +1122,9 @@
 				</methods>
 			</class>
 		</classes>
-	</test> --> 
+	</test>   
 	
-	<test name="Test Quick Quote Custom Order - CO02">
+	<test name="Test Quick Quote Custom Order - QA-538 -  CO02">
 		<parameter name="loginuser" value="old" />
 		<parameter name="testData" value="QA_538.xlsx" />
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
@@ -1128,7 +1142,7 @@
 		</classes>
 	</test>
 	
-	<test name="Test Submit Custom Order Quote as Admin - CO02">
+	<test name="Test Submit Custom Order Quote as Admin - QA-538 -  CO02">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
 		<parameter name="Row" value="3" />
@@ -1140,7 +1154,7 @@
 		</classes>
 	</test>
 	
-	<!-- <test name="Test Order Ready For Booking Mail - CO02">
+	<test name="Test Order Ready For Booking Mail - QA-538 - CO02">
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />
 		<parameter name="Row" value="3" />
@@ -1152,9 +1166,9 @@
 				</methods>
 			</class>
 		</classes>
-	</test> -->  
+	</test>  
 	
-	<test name="Test Verify Functionality of Clone Button - CO02">
+	<test name="Test Verify Functionality of Clone Button - QA-538 - CO02">
 		<parameter name="loginuser" value="new" />
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />
@@ -1186,7 +1200,7 @@
 		</classes>
 	</test>
 	
-	<!-- <test name="Test Order Confirmation Mail - CO02">
+	<test name="Test Order Confirmation Mail - QA-538 - CO02">
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />
 		<parameter name="Row" value="3" />
@@ -1198,9 +1212,9 @@
 				</methods>
 			</class>
 		</classes>
-	</test> -->  
+	</test>  
 	
-	<test name="Test Quick Quote Custom Order - CO03">
+	<!-- <test name="Test Quick Quote Custom Order - QA-538 - CO03">
 		<parameter name="loginuser" value="old" />
 		<parameter name="testData" value="QA_538.xlsx" />
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
@@ -1218,7 +1232,7 @@
 		</classes>
 	</test>
 	
-	<test name="Test Submit Custom Order Quote as Admin - CO03">
+	<test name="Test Submit Custom Order Quote as Admin - QA-538 - CO03">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
 		<parameter name="Row" value="4" />
@@ -1230,7 +1244,7 @@
 		</classes>
 	</test>
 	
-	<!-- <test name="Test Order Ready For Booking Mail - CO03">
+	<test name="Test Order Ready For Booking Mail - QA-538 - CO03">
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />
 		<parameter name="Row" value="4" />
@@ -1242,9 +1256,9 @@
 				</methods>
 			</class>
 		</classes>
-	</test> -->
+	</test>
 	 
-	<test name="Test Verify Functionality of Re-Quote Button - CO03">
+	<test name="Test Verify Functionality of Re-Quote Button - QA-538 - CO03">
 		<parameter name="loginuser" value="new" />
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />
@@ -1270,7 +1284,7 @@
 		</classes>
 	</test>
 	
-	<!-- <test name="Test Order Confirmation Mail - CO03">
+	<test name="Test Order Confirmation Mail - QA-538 - CO03">
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />
 		<parameter name="Row" value="4" />

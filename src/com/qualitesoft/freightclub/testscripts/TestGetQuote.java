@@ -56,8 +56,11 @@ public class TestGetQuote extends InitializeTest{
 
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,-500)", "");
-		if (shipmentType.equalsIgnoreCase("LTL"))
+		if (shipmentType.equalsIgnoreCase("LTL")) {
 			SeleniumFunction.click(quickQuote.LTLShipment());
+		} else {
+			SeleniumFunction.click(quickQuote.ParcelShipment());
+		}
 
 		WaitTool.sleep(2);
 		quickQuote.acceptPopup();

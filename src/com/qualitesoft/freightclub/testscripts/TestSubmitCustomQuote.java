@@ -21,7 +21,7 @@ public class TestSubmitCustomQuote extends InitializeTest {
 
 	public void verifyNonPalletizedDetail(String panelIndex) {
 
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/QA_537.xlsx");
+		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
 		int i=Integer.parseInt(Row);
 
 		String expectedPackageType = xr.getCellData("Input", "packageType", i).trim();
@@ -55,7 +55,7 @@ public class TestSubmitCustomQuote extends InitializeTest {
 
 	public void verifyPalletizedDetail(String panelIndex) {
 
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/QA_537.xlsx");
+		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
 		int i=6;
 
 		String expectedPackageType = xr.getCellData("Input", "packageType", i).trim();
@@ -94,8 +94,8 @@ public class TestSubmitCustomQuote extends InitializeTest {
 
 	public void verifyAddedProductDetail(String panelIndex) {
 
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/QA_537.xlsx");
-		int i=Integer.parseInt(Row);
+		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		int i=4;
 
 		String expectedWeight=xr.getCellData("Input","Weight", i).trim();
 		String DimensionL=xr.getCellData("Input","DimensionL", i).trim();
@@ -117,7 +117,7 @@ public class TestSubmitCustomQuote extends InitializeTest {
 		String actualCategory = notQuotedTab.getCellValueFromPackage(panelIndex, "4").getText();
 		String actualCartoon = notQuotedTab.getCellValueFromPackage(panelIndex, "1").getText();
 
-		Assert.assertEquals(actualPackageType, "1 x ProductName");
+		Assert.assertEquals(actualPackageType, "1 x prodDNnz");
 		Assert.assertEquals(actualWeight, expectedWeight);
 		Assert.assertEquals(actualDimentions, expectedDimension);
 		Assert.assertEquals(actualCategory, expectedCategory);
@@ -140,7 +140,7 @@ public class TestSubmitCustomQuote extends InitializeTest {
 		SeleniumFunction.click(notQuotedTab.notQuoted());
 		WaitTool.sleep(5);
 
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/QA_537.xlsx");
+		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
 		int i=Integer.parseInt(Row);
 		Log.info("Data Row: " +Row);
 
@@ -148,8 +148,8 @@ public class TestSubmitCustomQuote extends InitializeTest {
 		String regulatoryDetails = xr.getCellData("Input","RegulatoryDetails", i).trim();
 		String quoteId = xr.getCellData("Input","QuoteID", i).trim();
 		String COGS = xr.getCellData("Input","COGS", i).trim();
-		String deliveryFrequency1=xr.getCellData("Input","DeliveryFrequency1", i).trim();
 		String deliveryFrequency2=xr.getCellData("Input","DeliveryFrequency", i).trim();
+		String deliveryFrequency1=xr.getCellData("Input","DeliveryFrequency1", i).trim();
 
 
 		String orderid=xr.getCellData("Input","OrderId", i).trim();

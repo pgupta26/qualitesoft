@@ -70,20 +70,15 @@ public class ManageOrderNotQuotedTab {
 	}
 	
 	public WebElement totalWeight() {
-		try {
-			System.out.println(SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"shipment-review\"]/div[1]/div[6]/div/div/div/div/table/tbody/tr/td[1]"), 30)));
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"shipment-review\"]/div[1]/div[6]/div/div/div/div/table/tbody/tr/td[1]"), 30);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"shipment-review\"]/div[1]/div[7]/div/div/div/div/table/tbody/tr/td[1]"), 30);
 	}
 	
 	public WebElement declaredValue() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"shipment-review\"]/div[1]/div[6]/div/div/div/div/table/tbody/tr/td[2]"), 30);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"shipment-review\"]/div[1]/div[7]/div/div/div/div/table/tbody/tr/td[2]"), 30);
 	}
 	
 	public WebElement handlingUnits() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"shipment-review\"]/div[1]/div[6]/div/div/div/div/table/tbody/tr/td[3]"), 30);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"shipment-review\"]/div[1]/div[7]/div/div/div/div/table/tbody/tr/td[3]"), 30);
 	}
 	
 	public WebElement condition() {

@@ -13,7 +13,7 @@ public class Main {
 			DOMConfigurator.configure("log4j.xml");
 			TestNG testng = new TestNG();
 			List<String> suites = Lists.newArrayList();
-			suites.add("testng.xml");// path to xml..
+			suites.add("testng.xml");
 			testng.setTestSuites(suites);
 			testng.run();
 		} catch (Exception e) {

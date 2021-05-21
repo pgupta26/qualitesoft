@@ -40,7 +40,7 @@ public class EmailVerification extends InitializeTest {
 			SeleniumFunction.click(mailinator.goButton());
 			WaitTool.sleep(20);
 			SeleniumFunction.click(mailinator.firstMail());
-				SeleniumFunction.selectFrame(driver, "msg_body");
+				SeleniumFunction.selectFrame(driver, "html_msg_body");
 				Assert.assertEquals(mailinator.reviewedOrderMsg().getText(), expectedMsg);
 				ScreenShot.takeFullScreenShot("Review Order Mail");
 				SeleniumFunction.selectParentframe(driver);
@@ -79,8 +79,8 @@ public class EmailVerification extends InitializeTest {
 			WaitTool.sleep(2);
 			SeleniumFunction.click(mailinator.goButton());
 			WaitTool.sleep(20);
-			SeleniumFunction.click(mailinator.firstMail1());
-				SeleniumFunction.selectFrame(driver, "msg_body");
+			SeleniumFunction.click(mailinator.firstMail());
+				SeleniumFunction.selectFrame(driver, "html_msg_body");
 				System.out.println("Actual Message: "+mailinator.orderConfirmationMsg().getText());
 				Assert.assertTrue(mailinator.orderConfirmationMsg().getText().contains(expectedMsg));
 				ScreenShot.takeFullScreenShot("Order Confirmation Mail");

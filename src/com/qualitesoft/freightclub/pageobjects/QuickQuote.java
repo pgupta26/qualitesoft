@@ -329,8 +329,13 @@ public class QuickQuote {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//button[@class='btn btn-info btn-xs'])[1]"), 30);
 	}
 
-	public void copyItemInformation() {
-		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[contains(@class,'well well-white quote-item margin-right-10')]/descendant::button[1]"), 10));
+	public void copyItemInformation(int index) {
+		try {
+			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[contains(@class,'well well-white quote-item margin-right-10')]/descendant::button[1])["+(index+1)+"]"), 10));	
+		}catch(Exception ex) {
+			System.out.println("test");
+		}
+		
 	}
 
 	public void deleteItemInformation() {

@@ -20,9 +20,58 @@ import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
 import com.qualitesoft.freightclub.pageobjects.ManagerOrderPage;
 import com.qualitesoft.freightclub.pageobjects.QuickQuote;
-import com.qualitesoft.freightclub_enhancement.qa538.testPages.ShipmentReviewOrderPage;
+import com.qualitesoft.freightclub.pageobjects.ShipmentReviewOrderPage;
 
 public class TestManageOrders extends InitializeTest {
+	
+	@Test
+	public void testRequestCancellationAndCloneOrReQuoteButton() {
+			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
+						
+			Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+			int i=Integer.parseInt(Row);
+			Log.info("Data Row: " +Row);
+			String orderid=xr.getCellData("Input","OrderId", i).trim();
+
+			manageOrderpage.orderIDFilter(orderid);
+			SeleniumFunction.KeyBoradEnter(driver);
+			WaitTool.sleep(5);
+
+			if(!manageOrderpage.ExpandMenupage().getAttribute("class").equals("active")) {
+				SeleniumFunction.click(manageOrderpage.ExpandMenupage());
+			}
+			SeleniumFunction.clickJS(driver,manageOrderpage.ActionButton());
+
+			if(i==5) {
+				Assert.assertFalse(WaitTool.isElementPresentAndDisplay(driver, By.xpath("//a[text()='Request Cancellation']")));
+			}
+
+			if(i == 3) {
+				Long d = getDuration();
+				if (d == 0) {
+					System.out.println("Both Start time and End Time are equal");
+				} else if (d > 0) {
+					System.out.println("Start time is less than end time");
+					if(WaitTool.isElementPresentAndDisplay(driver, By.xpath("//a[text()='Re-Quote']"))) {
+						Assert.assertTrue(true);
+					} else {
+						Assert.assertFalse(true);
+					} 
+					ScreenShot.takeScreenShot(driver, "Request Cancellation and Re-Quote button presence");
+				} else {
+					System.out.println("Start time is greater than end time");
+					if(WaitTool.isElementPresentAndDisplay(driver, By.xpath("//a[text()='Clone']"))) {
+						Assert.assertTrue(true);
+					} else {
+						Assert.assertFalse(true);
+					} 
+					ScreenShot.takeScreenShot(driver, "Request Cancellation and Clone button presence");
+				}
+			}
+
+			ScreenShot.takeScreenShot(driver, "Request Cancellation button presence.");		
+	}
+	
 	
 	@Test
 	public void testVerifyAppointmentFlagUnderBOLPdf() {
@@ -31,7 +80,7 @@ public class TestManageOrders extends InitializeTest {
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
 			SeleniumFunction.click(manageOrderpage.manageOrdersLink());
 			
-			Xls_Reader xr=new Xls_Reader("binaries/FCfiles/QA_517.xlsx");
+			Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
 			int i=Integer.parseInt(Row);
 			Log.info("Data Row: " +Row);
 			String orderid=xr.getCellData("Input","OrderId", i).trim();
@@ -86,60 +135,6 @@ public class TestManageOrders extends InitializeTest {
 		return l;
 	}
 
-	@Test
-	public void testRequestCancellationAndCloneOrReQuoteButton() {
-		try{
-
-			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
-
-			Xls_Reader xr=new Xls_Reader("binaries/FCfiles/QA_537.xlsx");
-			int i=Integer.parseInt(Row);
-			Log.info("Data Row: " +Row);
-			String orderid=xr.getCellData("Input","OrderId", i).trim();
-
-			manageOrderpage.orderIDFilter(orderid);
-			SeleniumFunction.KeyBoradEnter(driver);
-			WaitTool.sleep(5);
-
-			if(!manageOrderpage.ExpandMenupage().getAttribute("class").equals("active")) {
-				SeleniumFunction.click(manageOrderpage.ExpandMenupage());
-			}
-			SeleniumFunction.clickJS(driver,manageOrderpage.ActionButton());
-
-			if(WaitTool.isElementPresentAndDisplay(driver, By.xpath("//a[text()='Request Cancellation']"))) {
-				Assert.assertTrue(true);
-			} else {
-				Assert.assertFalse(true);
-			}  
-
-			if(i == 3) {
-				Long d = getDuration();
-				if (d == 0) {
-					System.out.println("Both Start time and End Time are equal");
-				} else if (d > 0) {
-					System.out.println("Start time is less than end time");
-					if(WaitTool.isElementPresentAndDisplay(driver, By.xpath("//a[text()='Re-Quote']"))) {
-						Assert.assertTrue(true);
-					} else {
-						Assert.assertFalse(true);
-					} 
-					ScreenShot.takeScreenShot(driver, "Request Cancellation and Re-Quote button presence");
-				} else {
-					System.out.println("Start time is greater than end time");
-					if(WaitTool.isElementPresentAndDisplay(driver, By.xpath("//a[text()='Clone']"))) {
-						Assert.assertTrue(true);
-					} else {
-						Assert.assertFalse(true);
-					} 
-					ScreenShot.takeScreenShot(driver, "Request Cancellation and Clone button presence");
-				}
-			}
-
-			ScreenShot.takeScreenShot(driver, "Request Cancellation button presence.");		
-		}catch(Exception ex) {
-			ex.printStackTrace();
-		}
-	}
 
 	@Test
 	public void verifyCloneOrReQuoteFunctionFunctionality() {
@@ -210,8 +205,10 @@ public class TestManageOrders extends InitializeTest {
 				SeleniumFunction.click(manageOrderpage.ExpandMenupage());
 			}
 			SeleniumFunction.clickJS(driver,manageOrderpage.ActionButton());
+			
+			Assert.assertFalse(WaitTool.isElementPresentAndDisplay(driver, By.xpath("//a[text()='Request Cancellation']")));
 
-			Assert.assertTrue(WaitTool.isElementPresentAndDisplay(driver, By.xpath("//a[text()='Request Cancellation']")));
+			//Assert.assertTrue(WaitTool.isElementPresentAndDisplay(driver, By.xpath("//a[text()='Request Cancellation']")));
 			
 			/*if(i == 3) {
 				Long d = getDuration();
@@ -236,7 +233,7 @@ public class TestManageOrders extends InitializeTest {
 				}
 			}*/
 
-			ScreenShot.takeScreenShot(driver, "Request Cancellation button presence.");		
+			//ScreenShot.takeScreenShot(driver, "Request Cancellation button presence.");		
 		}catch(Exception | AssertionError ex) {
 			ex.printStackTrace();
 			throw ex;
@@ -270,8 +267,7 @@ public class TestManageOrders extends InitializeTest {
 			WaitTool.sleep(30);
 
 			QuickQuote quickQuote = new QuickQuote(driver);
-			quickQuote.Okbutton();
-			SeleniumFunction.click(quickQuote.Okbutton());
+			SeleniumFunction.click(quickQuote.Okbutton1());
 			WaitTool.sleep(20);
 
 			Assert.assertEquals(manageOrderpage.customerPO().getText(), orderReferenceID);

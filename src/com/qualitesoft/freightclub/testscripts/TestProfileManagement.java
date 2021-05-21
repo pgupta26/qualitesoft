@@ -22,7 +22,7 @@ public class TestProfileManagement extends InitializeTest {
 			quickQuote.acceptPopup();
 			WaitTool.sleep(2);
 			
-			SeleniumFunction.sendKeys(profileManagementPage.profileListfilter(), "test1@test.com");
+			SeleniumFunction.sendKeys(profileManagementPage.profileListfilter(), "test.automation@mailinator.com");
 			WaitTool.sleep(10);
 			ScreenShot.takeScreenShot(driver, "Search User details");
 			quickQuote.acceptPopup();
@@ -40,7 +40,7 @@ public class TestProfileManagement extends InitializeTest {
 			String[] carrierNames=carrierName.split(",");
 			ProfileManagementPage profileManagementPage = new ProfileManagementPage(driver);
 			SeleniumFunction.clickJS(driver, profileManagementPage.manageProfileLink());
-			SeleniumFunction.sendKeys(profileManagementPage.profileListfilter(), "test1@test.com");
+			SeleniumFunction.sendKeys(profileManagementPage.profileListfilter(), "test.automation@mailinator.com");
 			WaitTool.sleep(10);
 			ScreenShot.takeScreenShot(driver, "Search User details");
 			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@href='#carriersTab']"), 10));

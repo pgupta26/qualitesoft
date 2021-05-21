@@ -77,6 +77,7 @@ public class ScreenShot extends InitializeTest {
 			baseScreenShotsFolder = baseScreenShotsFolder + "/" + InitializeTest.project + "/" + testName + "/"
 					+ sdfmth.format(cal.getTime()).replaceAll("\\s", "_");
 			new File(baseScreenShotsFolder).mkdirs();
+			WaitTool.sleep(1);
 			return baseScreenShotsFolder;
 		} catch (Exception e) {
 			Log.warn("Not able to create scree-shot folder: " + e.getMessage());

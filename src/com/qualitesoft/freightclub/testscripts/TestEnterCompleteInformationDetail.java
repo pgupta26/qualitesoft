@@ -17,7 +17,9 @@ public class TestEnterCompleteInformationDetail extends InitializeTest {
 	
 	@Test
 	public void testEnterCompleteInformationDetail() {
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/FCFile.xlsx");
+		Xls_Reader xr;
+		String testDatasheet= "binaries/FCfiles/FCFile.xlsx";
+		xr=new Xls_Reader(testDatasheet);
 
 		String description=xr.getCellData("ShipmentInformation","Description", 2).trim();
 		String specialHandlingInstructions=xr.getCellData("ShipmentInformation","SpecialHandlingInstructions", 2).trim();
