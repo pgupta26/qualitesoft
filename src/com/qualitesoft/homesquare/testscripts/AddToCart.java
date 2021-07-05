@@ -15,12 +15,11 @@ import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
-import com.qualitesoft.cymax.pageobjects.MyAccountPage;
 import com.qualitesoft.homesquare.pageobjects.HomeSquareAddToCartPage;
 import com.qualitesoft.homesquare.pageobjects.HomeSquareCartPage;
 import com.qualitesoft.homesquare.pageobjects.HomeSquareHomePage;
-import com.qualitesoft.homesquare.pageobjects.HomeSquareMyAccountPage;
 import com.qualitesoft.homesquare.pageobjects.HomeSquareProductsPage;
+import com.qualitesoft.homesquare.pageobjects.MyAccountPage;
 
 
 public class AddToCart extends InitializeTest{

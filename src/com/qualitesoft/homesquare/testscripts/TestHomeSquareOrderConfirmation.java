@@ -10,9 +10,9 @@ import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
-import com.qualitesoft.cymax.pageobjects.HomePage;
-import com.qualitesoft.cymax.pageobjects.MyAccountPage;
-import com.qualitesoft.cymax.pageobjects.OrderConfirmationPage;
+import com.qualitesoft.homesquare.pageobjects.HomePage;
+import com.qualitesoft.homesquare.pageobjects.MyAccountPage;
+import com.qualitesoft.homesquare.pageobjects.OrderConfirmationPage;
 
 
 public class TestHomeSquareOrderConfirmation extends InitializeTest {

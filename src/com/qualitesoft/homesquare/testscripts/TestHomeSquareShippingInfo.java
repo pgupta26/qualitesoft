@@ -8,7 +8,7 @@ import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
-import com.qualitesoft.cymax.pageobjects.CartPage;
+import com.qualitesoft.homesquare.pageobjects.CartPage;
 
 public class TestHomeSquareShippingInfo extends InitializeTest {
 	@Test

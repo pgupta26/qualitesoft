@@ -3,8 +3,6 @@ package com.qualitesoft.homesquare.testscripts;
 import java.util.Set;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,13 +11,9 @@ import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
-import com.qualitesoft.cymax.pageobjects.CartPage;
-import com.qualitesoft.cymax.pageobjects.HomePage;
-import com.qualitesoft.cymax.pageobjects.LoginPage;
-import com.qualitesoft.cymax.pageobjects.MyAccountPage;
+import com.qualitesoft.homesquare.pageobjects.HomePage;
 import com.qualitesoft.homesquare.pageobjects.HomeSquareCartPage;
-import com.qualitesoft.homesquare.pageobjects.HomeSquareHomePage;
-import com.qualitesoft.homesquare.pageobjects.HomeSquareMyAccountPage;
+import com.qualitesoft.homesquare.pageobjects.LoginPage;
 
 public class AmazonLogin extends InitializeTest {
 	@Test

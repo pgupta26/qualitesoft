@@ -5,7 +5,6 @@ import java.awt.Robot;
 import java.awt.event.InputEvent;
 
 import org.openqa.selenium.Point;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;

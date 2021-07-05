@@ -7,9 +7,8 @@ import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
-import com.qualitesoft.cymax.pageobjects.HomePage;
-import com.qualitesoft.cymax.pageobjects.MyAccountPage;
-import com.qualitesoft.cymax.pageobjects.OrderConfirmationPage;
+import com.qualitesoft.homesquare.pageobjects.HomePage;
+import com.qualitesoft.homesquare.pageobjects.MyAccountPage;
 
 
 

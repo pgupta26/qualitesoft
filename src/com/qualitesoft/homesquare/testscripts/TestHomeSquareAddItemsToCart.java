@@ -1,28 +1,21 @@
 package com.qualitesoft.homesquare.testscripts;
 
-import java.net.URI;
 import java.text.NumberFormat;
 import java.text.ParseException;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.qualitesoft.bush.pageobjects.CartPage;
+
 import com.qualitesoft.core.InitializeTest;
-import com.qualitesoft.core.JavaFunction;
 import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
-import com.qualitesoft.cymax.pageobjects.AddToCartPage;
-import com.qualitesoft.cymax.pageobjects.HomePage;
-import com.qualitesoft.cymax.pageobjects.MyAccountPage;
-import com.qualitesoft.cymax.pageobjects.ProductsPage;
+import com.qualitesoft.homesquare.pageobjects.AddToCartPage;
+import com.qualitesoft.homesquare.pageobjects.CartPage;
+import com.qualitesoft.homesquare.pageobjects.MyAccountPage;
 import com.qualitesoft.homesquare.pageobjects.HomeSquareProductsPage;
 
 public class TestHomeSquareAddItemsToCart extends InitializeTest {

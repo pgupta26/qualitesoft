@@ -1,12 +1,11 @@
 package com.qualitesoft.homesquare.testscripts;
 
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
-import com.qualitesoft.cymax.pageobjects.CartPage;
+import com.qualitesoft.homesquare.pageobjects.CartPage;
 import com.qualitesoft.homesquare.pageobjects.HomeSquareCartPage;
 import com.qualitesoft.homesquare.pageobjects.HomeSquareCheckoutPage;
 
