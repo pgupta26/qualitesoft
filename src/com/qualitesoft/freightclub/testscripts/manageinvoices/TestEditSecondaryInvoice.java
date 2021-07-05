@@ -1,66 +1,72 @@
 package com.qualitesoft.freightclub.testscripts.manageinvoices;
 
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.JavaFunction;
+import com.qualitesoft.core.Log;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.UseAssert;
+import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
 import com.qualitesoft.freightclub.pageobjects.ManageInvoices;
 
 public class TestEditSecondaryInvoice extends InitializeTest {
+	
+	public void temp() {
+		try {
+			ManageInvoices  manageInvoices = new ManageInvoices(driver);
 
+			Actions actions = new Actions(driver);
+			actions.moveToElement(manageInvoices.backupDocumentation()).click().build().perform();
+			//actions.moveToElement(manageInvoices.backupDocumentation(), 10, -10).click().build().perform();
+		}catch(Exception e) {
+			System.out.println("test");
+		}
+	}
+	
 	@Test
 	public void testEditSecondaryInvoice() {
-		//Read data from sheet for selected row
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/Import_Overages.xlsx");
+		
+		Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageInvoiceTestData.xlsx");
 		int i=Integer.parseInt(Row);
-
+		
 		ManageInvoices  manageInvoices = new ManageInvoices(driver);
 
 		//Type comments
-		SeleniumFunction.sendKeys(manageInvoices.comments(), "Missing Data");
+		SeleniumFunction.sendKeys(manageInvoices.comments(), xr1.getCellData("EditSecondaryInvoice", "AdminComment", i));
 
 		//Click on save comment
 		SeleniumFunction.click(manageInvoices.saveComment());
 
 		//Verify saved comment
-		UseAssert.assertEquals(manageInvoices.savedComment().getText(), "Missing Data");
-		UseAssert.assertEquals(manageInvoices.savedUserName().getText(), "freightclubinfo@gmail.com");
+		UseAssert.assertEquals(manageInvoices.savedComment().getText(), xr1.getCellData("EditSecondaryInvoice", "AdminComment", i));
+		UseAssert.assertEquals(manageInvoices.savedUserName().getText(), xr1.getCellData("EditSecondaryInvoice", "AdminUserName", i));
 
 
 		//Click on bacuup documentation button
-		SeleniumFunction.click(manageInvoices.backupDocumentation());
+		WaitTool.sleep(2);
+		Actions actions = new Actions(driver);
+		actions.moveToElement(manageInvoices.backupDocumentation()).click().build().perform();
 
 		//Upload document
-		SeleniumFunction.uploadFile("Overage Sample Document.pdf");
+		SeleniumFunction.uploadFile(xr1.getCellData("EditSecondaryInvoice", "AdminDocumentName", i));
+		WaitTool.sleep(5);
 		
 		//Verify uploaded document detail
-		UseAssert.assertEquals(manageInvoices.uploadName().getText(), "Overage Sample Document.pdf");
-		Assert.assertTrue(manageInvoices.dateTime().getText().contains(JavaFunction.currentDate()));
-		Assert.assertTrue(manageInvoices.viewable().isDisplayed());
-		Assert.assertTrue(manageInvoices.downloadable().isDisplayed());
+		int backupDocumemtGridDataSize = manageInvoices.backupDocumentGridData().size();
+		UseAssert.assertEquals(manageInvoices.uploadName(backupDocumemtGridDataSize).getText(), xr1.getCellData("EditSecondaryInvoice", "AdminDocumentName", i));
+		//Assert.assertTrue(manageInvoices.dateTime(backupDocumemtGridDataSize).getText().contains(JavaFunction.currentDate()));
+		Assert.assertTrue(manageInvoices.viewable(backupDocumemtGridDataSize).isDisplayed());
+		Assert.assertTrue(manageInvoices.downloadable(backupDocumemtGridDataSize).isDisplayed());
 
 		//Admin able to remove document 
-		Assert.assertTrue(manageInvoices.removable().isDisplayed());
+		Assert.assertTrue(manageInvoices.removable(backupDocumemtGridDataSize).isDisplayed());
 		
 		//Click on save changes
 		SeleniumFunction.click(manageInvoices.saveChanges());
-
-		
-		/*if(userType.equals("Admin")) {	
-
-		}else if(userType.equals("User")) {
-
-			//Click on dispute button
-			SeleniumFunction.click(manageInvoices.dispute());
-
-			//Type overage contact email
-			SeleniumFunction.sendKeys(manageInvoices.contactEmail(), "overage123@mailinator.com");
-			SeleniumFunction.click(manageInvoices.dispute());
-		}*/
 	}
 }

@@ -30,7 +30,7 @@ public class JavaFunction {
 	public static String currentDate(){
 		
 		Date myDate=new Date();
-		SimpleDateFormat dateFormat=new SimpleDateFormat("mm/dd/yyyy");
+		SimpleDateFormat dateFormat=new SimpleDateFormat("MM/dd/yyyy");
 		String currentDate=dateFormat.format(myDate);
 		return currentDate;
 	}

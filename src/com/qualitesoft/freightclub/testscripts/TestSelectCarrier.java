@@ -49,8 +49,6 @@ public class TestSelectCarrier extends InitializeTest {
 	
 	@Test
 	public void testFCTestCarriersVisible() {
-
-		try{
 			QuickQuote quickQuote = new QuickQuote(driver);
 			JavascriptExecutor jse = (JavascriptExecutor) driver;
 			jse.executeScript("return document.readyState").toString().equals("complete");
@@ -61,11 +59,6 @@ public class TestSelectCarrier extends InitializeTest {
 			
 			Assert.assertTrue(quickQuote.verifyCarrier(carrierName));
 			ScreenShot.takeFullScreenShot("FC Test Carrier Present");
-
-		}catch(Exception | AssertionError ex) {
-			ex.printStackTrace();
-			throw ex;
-		}
 	}
 	
 	@Test

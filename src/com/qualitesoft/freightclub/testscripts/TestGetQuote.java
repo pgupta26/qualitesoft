@@ -19,6 +19,55 @@ import com.qualitesoft.core.WaitTool;
 
 
 public class TestGetQuote extends InitializeTest{
+	
+	public void searchPackageTypeProduct(String productName) {
+		QuickQuote quickQuote = new QuickQuote(driver);
+
+		WaitTool.sleep(2);
+		Keyboard keyboard = ((HasInputDevices) driver).getKeyboard();
+		keyboard.pressKey(Keys.BACK_SPACE);
+		WaitTool.sleep(2);
+		SeleniumFunction.sendKeys(quickQuote.productvalue(), productName);
+		WaitTool.sleep(2);
+	}
+
+	public void addSearchProduct() {
+		QuickQuote quickQuote = new QuickQuote(driver);
+
+		SeleniumFunction.scrollUpByPixel(driver, "1000");
+		SeleniumFunction.click(quickQuote.Addproduct());
+		SeleniumFunction.click(quickQuote.searchproduct());				
+		this.searchPackageTypeProduct("prodTBQW");
+		SeleniumFunction.KeyBoradEnter(driver);
+		ScreenShot.takeScreenShot(driver, "product added at shipment information page") ;
+	}
+
+	public void enterShipmentInformation(Xls_Reader xr) {
+		QuickQuote quickQuote = new QuickQuote(driver);
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		int i=Integer.parseInt(Row);
+
+		String shipmentType=xr.getCellData("Input","shipmentType", i).trim();
+		String packageType = xr.getCellData("Input", "packageType", i).trim();
+
+		if(Row.equalsIgnoreCase("5") || Row.equalsIgnoreCase("8") || Row.equalsIgnoreCase("9")) {
+			this.addSearchProduct();
+		}
+		
+		jse.executeScript("window.scrollBy(0,-350)", "");
+		WaitTool.sleep(3);
+		SeleniumFunction.sendKeys(quickQuote.SpecialHandling(), "Test Special Handling Instructions");
+		jse.executeScript("window.scrollBy(0,400)", "");
+		WaitTool.sleep(15);
+		quickQuote.LocationName().sendKeys(Keys.chord("Auto"));
+		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Com90001']"), 10));	
+		quickQuote.LocationName().sendKeys(Keys.chord("Auto"));
+		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Com10011']"), 10));	
+		jse.executeScript("window.scrollBy(0,350)", "");
+		ScreenShot.takeScreenShot(driver, "Filled Shipment info "+shipmentType+" "+packageType);
+		SeleniumFunction.click(quickQuote.ReviewOrder());
+		WaitTool.sleep(10);
+	}
 
 	@Test
 	public void testGetQuote() {
@@ -28,7 +77,7 @@ public class TestGetQuote extends InitializeTest{
 
 		//clear existing data
 		xr.setCellData("Input","OrderId", i,"");
-		
+
 		//Read data from sheet for selected row
 		String shipmentType=xr.getCellData("Input","shipmentType", i).trim();
 		String serviceLevel=xr.getCellData("Input","serviceLevel", i).trim();
@@ -99,7 +148,7 @@ public class TestGetQuote extends InitializeTest{
 
 		SeleniumFunction.selectByVisibleText(quickQuote.PickUpLocationType(), pickUpType);
 		SeleniumFunction.selectByVisibleText(quickQuote.DropOffLocationType(), dropOffType);
-		
+
 		//Surepost doesn't support insurance
 		/*if (!suiteName.equals("Sure Post Suite")) {
 			if (Row.equalsIgnoreCase("8")) {
@@ -124,16 +173,9 @@ public class TestGetQuote extends InitializeTest{
 		else{
 			SeleniumFunction.click(quickQuote.PackageTypeParcel());
 		}
-		
+
 		if(Row.equalsIgnoreCase("2") || Row.equalsIgnoreCase("7") || Row.equalsIgnoreCase("12")) {
-			WaitTool.sleep(2);
-			Keyboard keyboard = ((HasInputDevices) driver).getKeyboard();
-			keyboard.pressKey(Keys.BACK_SPACE);
-			WaitTool.sleep(2);
-			SeleniumFunction.sendKeys(quickQuote.PackageValue(), TestManageProducts.Productname);
-			WaitTool.sleep(5);
-			SeleniumFunction.KeyBoradEnter(driver);
-			WaitTool.sleep(2);
+			this.searchPackageTypeProduct(TestManageProducts.Productname);
 		} else {
 			WaitTool.sleep(5);
 			quickQuote.PackageTypeOptions(packageType);
@@ -151,7 +193,7 @@ public class TestGetQuote extends InitializeTest{
 				SeleniumFunction.sendKeys(quickQuote.Cartons(), Cartons);
 			}
 		}
-		
+
 		// LTL select 2 package type
 		if (packageType2.equalsIgnoreCase("Standard Pallet 2")) {
 			SeleniumFunction.click(quickQuote.addadditionalItem());
@@ -185,7 +227,7 @@ public class TestGetQuote extends InitializeTest{
 			WaitTool.sleep(2);
 			jse.executeScript("window.scrollBy(0,350)", "");
 		}
-					
+
 		WaitTool.sleep(2);
 		ScreenShot.takeScreenShot(driver, "Shipmentinfo "+shipmentType+" "+packageType);
 		jse.executeScript("window.scrollBy(0,250)", "");
@@ -205,7 +247,7 @@ public class TestGetQuote extends InitializeTest{
 			driver.findElement(By.xpath("//button[@data-role='end']")).click();
 		}
 		jse.executeScript("return document.readyState").toString().equals("complete");
-		
+
 		if(Row.equalsIgnoreCase("11") || Row.equalsIgnoreCase("12")) {
 			SeleniumFunction.click(quickQuote.UPSSureButton());
 		}else {
@@ -216,7 +258,7 @@ public class TestGetQuote extends InitializeTest{
 			}
 		}			
 		WaitTool.sleep(10);
-		
+
 		if(Row.equalsIgnoreCase("3")) {
 			jse.executeScript("window.scrollBy(0,-1000)", "");
 			SeleniumFunction.click(quickQuote.Addproduct());
@@ -230,22 +272,10 @@ public class TestGetQuote extends InitializeTest{
 			SeleniumFunction.KeyBoradEnter(driver);
 			ScreenShot.takeScreenShot(driver, "product added ") ;
 		}
-		
-		//Complete Information Tab 
-		jse.executeScript("window.scrollBy(0,-350)", "");
-		WaitTool.sleep(3);
-		SeleniumFunction.sendKeys(quickQuote.SpecialHandling(), "Test Special Handling Instructions");
-		jse.executeScript("window.scrollBy(0,400)", "");
-		WaitTool.sleep(15);
-		quickQuote.LocationName().sendKeys(Keys.chord("Auto"));
-		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Com90001']"), 10));	
-		quickQuote.LocationName().sendKeys(Keys.chord("Auto"));
-		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Com10011']"), 10));	
-		jse.executeScript("window.scrollBy(0,350)", "");
-		ScreenShot.takeScreenShot(driver, "Filled Shipment info "+shipmentType+" "+packageType);
-		SeleniumFunction.click(quickQuote.ReviewOrder());
-		WaitTool.sleep(10);
-		
+
+		//Shipment information tab 
+		this.enterShipmentInformation(xr);
+
 		//Review and Book Tab
 		SeleniumFunction.scrollDownUptoFooter(driver);
 		SeleniumFunction.click(quickQuote.Book());
@@ -255,7 +285,7 @@ public class TestGetQuote extends InitializeTest{
 		WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='ag-body'])[1]/descendant::div[@row='0']/div[@colid='ID']"), 60);
 		WaitTool.sleep(10);
 		crorderId=SeleniumFunction.getText(driver.findElement(By.xpath("(//div[@class='ag-body'])[1]/descendant::div[@row='0']/div[@colid='ID']")));
-		
+
 		//set order id in excel
 		xr.setCellData("Input","OrderId", i,crorderId.trim());
 		WaitTool.sleep(5);
