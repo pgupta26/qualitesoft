@@ -100,4 +100,9 @@ public class ManageOrderNotQuotedTab {
 	public WebElement unableToFulfil() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[text()='Unable to Fulfill']"), 30);
 	}
+	
+	public WebElement gridStatus() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//*[@id=\"center\"]/div/div[4]/div[3]/div/div/div[1]/div[5])[3]"), 30);
+
+	}
 }

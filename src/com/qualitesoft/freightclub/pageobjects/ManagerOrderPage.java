@@ -68,7 +68,7 @@ public class ManagerOrderPage {
 	}
 	
 	public WebElement customerPO_NotQuoted() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//*[@id=\"center\"]/div/div[4]/div[3]/div/div/div[1]/div[2])[3]"), 30);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//*[@id=\"center\"]/div/div[4]/div[3]/div/div/div[1]/div[3])[3]"), 30);
 	}
 	
 	public WebElement openQuotes() {

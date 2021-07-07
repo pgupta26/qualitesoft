@@ -38,13 +38,17 @@ public class ManageInvoices {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@ref='eColumnFloatingFilter'])[1]"), 30);
 	}
 	
+	public WebElement TotalBilledTextBox(int columnIndex) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@ref='eColumnFloatingFilter'])["+columnIndex+"]"), 30);
+	}
+	
 	public List<WebElement> gridHeaders() {
 		return WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//div[contains(@class,'ag-header-cell-sortable')]/descendant::span[@ref='eText']"), 10);
 	}
 	
 	public WebElement gridData(int rowIndex, int colIndex) {
 		colIndex = colIndex + 2;
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='ag-body']/descendant::div[@class='ag-body-container']/div["+rowIndex+"]/div["+colIndex+"]"), 10);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='ag-body']/descendant::div[@class='ag-body-container']/div["+rowIndex+"]/div["+colIndex+"]"), 30);
 	}
 	
 	public WebElement detail(int rowIndex) {
@@ -77,31 +81,35 @@ public class ManageInvoices {
 	}
 	
 	public WebElement savedComment() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='order-comments']/descendant::td[1]"), 10);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='order-comments']/descendant::tr[1]/td[1]"), 10);
 	}
 	
 	public WebElement savedUserName() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='order-comments']/descendant::td[2]/strong"), 10);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='order-comments']/descendant::tr[1]/td[2]/strong"), 10);
 	}
 	
-	public WebElement uploadName() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='invoiceModal']/descendant::h4[text()='Backup Documentation']/following-sibling::div/table/tbody/tr/td[1]"), 10);
+	public List<WebElement> backupDocumentGridData() {
+		return WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//div[@id='invoiceModal']/descendant::h4[text()='Backup Documentation']/following-sibling::div/table/tbody/tr"), 10);
 	}
 	
-	public WebElement dateTime() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='invoiceModal']/descendant::h4[text()='Backup Documentation']/following-sibling::div/table/tbody/tr/td[2]"), 10);
+	public WebElement uploadName(int rowIndex) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='invoiceModal']/descendant::h4[text()='Backup Documentation']/following-sibling::div/table/tbody/tr["+rowIndex+"]/td[1]"), 10);
 	}
 	
-	public WebElement viewable() {
-		return WaitTool.returnWebElement(driver, By.xpath("//div[@id='invoiceModal']/descendant::h4[text()='Backup Documentation']/following-sibling::div/table/tbody/tr/td[3]/a[1]"));
+	public WebElement dateTime(int rowIndex) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='invoiceModal']/descendant::h4[text()='Backup Documentation']/following-sibling::div/table/tbody/tr["+rowIndex+"]/td[2]"), 10);
 	}
 	
-	public WebElement downloadable() {
-		return WaitTool.returnWebElement(driver, By.xpath("//div[@id='invoiceModal']/descendant::h4[text()='Backup Documentation']/following-sibling::div/table/tbody/tr/td[3]/a[2]"));
+	public WebElement viewable(int rowIndex) {
+		return WaitTool.returnWebElement(driver, By.xpath("//div[@id='invoiceModal']/descendant::h4[text()='Backup Documentation']/following-sibling::div/table/tbody/tr["+rowIndex+"]/td[3]/a[1]"));
 	}
 	
-	public WebElement removable() {
-		return WaitTool.returnWebElement(driver, By.xpath("//div[@id='invoiceModal']/descendant::h4[text()='Backup Documentation']/following-sibling::div/table/tbody/tr/td[3]/i"));
+	public WebElement downloadable(int rowIndex) {
+		return WaitTool.returnWebElement(driver, By.xpath("//div[@id='invoiceModal']/descendant::h4[text()='Backup Documentation']/following-sibling::div/table/tbody/tr["+rowIndex+"]/td[3]/a[2]"));
+	}
+	
+	public WebElement removable(int rowIndex) {
+		return WaitTool.returnWebElement(driver, By.xpath("//div[@id='invoiceModal']/descendant::h4[text()='Backup Documentation']/following-sibling::div/table/tbody/tr["+rowIndex+"]/td[3]/i"));
 	}
 	
 	public WebElement dispute() {
@@ -128,7 +136,7 @@ public class ManageInvoices {
 	
 	//Upload Invoice Results Dialog
 	public WebElement successMessage() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='text-success']"), 10);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='text-success']"), 30);
 	}
 	
 	public WebElement ok() {

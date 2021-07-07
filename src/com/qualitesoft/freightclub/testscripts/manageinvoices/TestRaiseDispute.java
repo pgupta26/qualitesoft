@@ -15,7 +15,7 @@ public class TestRaiseDispute extends InitializeTest {
 	public void testRaiseDispute() {
 		
 		//Read data from sheet for selected row
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/Import_Overages.xlsx");
+		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
 		int i=Integer.parseInt(Row);
 		
 		ManageInvoices  manageInvoices = new ManageInvoices(driver);
@@ -31,6 +31,9 @@ public class TestRaiseDispute extends InitializeTest {
 		//Switch to overage window
 		SeleniumFunction.getCurrentWindow(driver);
 		UseAssert.assertEquals(driver.getTitle(), "Overage Details - Freight Club");
-		UseAssert.assertEquals(overageDetails.getLabel("Order ID:").getText().trim(), xr.getCellData("Input", "SECONDARY INV #", i).trim());
+		UseAssert.assertEquals(overageDetails.getLabel("Order ID:").getText().trim(), xr.getCellData("Sec invoice Master", "FC Order ID", i).trim());
+		SeleniumFunction.closeWindow(driver);
+		SeleniumFunction.getCurrentWindow(driver);
+		
 	}
 }

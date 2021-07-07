@@ -47,6 +47,18 @@ public class Mailinator {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("/html/body/p[2]"), 30);
 	}
 	
+	public WebElement customQuoteOrderMsg() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("/html/body/h2[2]/span"), 30);
+	}
+	
+	public WebElement customQuoteOrderDetails() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("/html/body/p[1]"), 30);
+	}
+	
+	public WebElement deleteEmail() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[contains(@class,'btn-delete')]"), 30);
+	}
+	
 	public WebElement orderConfirmationMsg() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("/html/body/p[3]"), 30);
 	}

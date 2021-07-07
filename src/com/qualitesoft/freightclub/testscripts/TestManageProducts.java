@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.JavaFunction;
+import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
@@ -19,7 +20,7 @@ public class TestManageProducts extends InitializeTest {
 	public void testManageProducts() {
 			QuickQuote quickQuote = new QuickQuote(driver);
 			Productname=JavaFunction.randomText("prod", 4);
-			System.out.println("Product Name: "+Productname);
+			Log.info("Product Name: "+Productname);
 			LandingPage landingPage = new LandingPage(driver);
 			SeleniumFunction.clickJS(driver, landingPage.manageProductLink());
 			WaitTool.sleep(15);

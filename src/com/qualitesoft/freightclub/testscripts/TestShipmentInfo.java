@@ -24,8 +24,6 @@ public class TestShipmentInfo extends InitializeTest {
 		String city=xr.getCellData("ShipmentInformation","City", 2).trim();
 		String zipCode=xr.getCellData("ShipmentInformation","ZipCode", 2).trim();
 		String email=xr.getCellData("ShipmentInformation","Email", 2).trim();
-		String phoneNumber=xr.getCellData("ShipmentInformation","PhoneNumber", 2).trim();
-		String extension=xr.getCellData("ShipmentInformation","Extension", 2).trim();
 		String pickUpAddressLine1=xr.getCellData("ShipmentInformation","PickUpAddressLine1", 2).trim();
 		String pickUpFirstName=xr.getCellData("ShipmentInformation","PickUpFirstName", 2).trim();
 		String pickUpLastName=xr.getCellData("ShipmentInformation","PickUpLastName", 2).trim();
@@ -69,21 +67,9 @@ public class TestShipmentInfo extends InitializeTest {
 		SeleniumFunction.scrollDownUptoFooter(driver);
 		SeleniumFunction.click(quickQuote.ReviewOrder());
 		WaitTool.sleep(5);
-		SeleniumFunction.click(quickQuote.ReviewOrder());
 		
 		ScreenShot.takeScreenShot(driver, "Shipment Review");
 		SeleniumFunction.click(quickQuote.ReviewOrder());
 		WaitTool.sleep(15);
-		
-		/*ScreenShot.takeScreenShot(driver, "Order Confirmation");
-		SeleniumFunction.click(quickQuote.Okbutton());
-		WaitTool.sleep(10);
-		WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='ag-body'])[1]/descendant::div[@row='0']/div[@colid='ID']"), 60);
-		WaitTool.sleep(10);
-		crorderId=SeleniumFunction.getText(driver.findElement(By.xpath("(//div[@class='ag-body'])[1]/descendant::div[@row='0']/div[@colid='ID']")));
-		
-		//set order id in excel
-		xr.setCellData("Input","OrderId", 4,crorderId.trim());
-		WaitTool.sleep(5);*/
 	}
 }
