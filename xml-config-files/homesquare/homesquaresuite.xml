@@ -32,28 +32,6 @@
 		</classes>
 	</test>
 	
-	<!-- <test name="Verify that user is able to apply coupon code 2">
-		<parameter name="Row" value="3" />
-		<parameter name="shipping" value="Free" />
-		<parameter name="couponValue" value="($10.00)" />
-		<parameter name="tax" value="TBD" />
-		<parameter name="taxRate" value="7.25" />
-		<classes>
-			<class name="com.qualitesoft.homesquare.testscripts.TestHomeSquareCreateNewAccount" />
-
-			<class name="com.qualitesoft.homesquare.testscripts.TestApplyCouponCode" >
-				<methods>
-					<include name="testApplyCouponCode" />
-					<include name="testSignIn" />
-					<include name="testShippingInformation" />
-					<include name="testCartPages" />
-					<include name="testOrderConfirmation" />
-				</methods>
-			</class>
-			<class name="com.qualitesoft.homesquare.testscripts.LogOff" />
-		</classes>
-	</test> -->
-	
 	<test name="Checkout via Purchase Order - New User">
 		<parameter name="crusername" value="raj.cymax@gmail.com"></parameter>
 		<parameter name="crpassword" value="Welcome@2"></parameter>
