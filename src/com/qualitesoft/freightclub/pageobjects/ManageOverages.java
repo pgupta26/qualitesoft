@@ -24,6 +24,10 @@ public class ManageOverages {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@ref='eColumnFloatingFilter'])[1]"), 30);
 	}
 	
+	public WebElement TotalBilledTextBox(int columnIndex) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@ref='eColumnFloatingFilter'])["+columnIndex+"]"), 30);
+	}
+	
 	public List<WebElement> gridHeaders() {
 		return WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//div[contains(@class,'ag-header-cell-sortable')]/descendant::span[@ref='eText']"), 10);
 	}

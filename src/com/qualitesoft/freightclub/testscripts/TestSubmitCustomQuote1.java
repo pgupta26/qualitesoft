@@ -25,48 +25,33 @@ import com.qualitesoft.freightclub.pageobjects.Admin.ManageOrderNotQuotedTab;
 
 
 public class TestSubmitCustomQuote1 extends InitializeTest {
-	
-	public void testValidateRequiredFields() {
-			ManageOrderNotQuotedTab notQuotedTab = new ManageOrderNotQuotedTab(driver);
-		    SeleniumFunction.scrollDownUptoFooter(driver);
-		    SeleniumFunction.click(notQuotedTab.submitQuote());
 
-			ArrayList<String> expectedRequiredFields = new ArrayList<String>();
-			/*Collections.addAll(expectedRequiredFields, "Value is required"
-					, "Value is required", "Value is required");*/
-			Collections.addAll(expectedRequiredFields, "Not a valid value");
-			ArrayList<String> actualRequiredFields  = new ArrayList<String>();
-			List<WebElement> validationFields = driver.findElements(By.xpath("//span[@class='form-group-message']"));
-			for(WebElement validationField :validationFields) {
-				System.out.println(validationField.getText());
-				if(validationField.getCssValue("display").equals("block")){
-					actualRequiredFields.add(validationField.getText());
-				}
-			}
-			
-			Log.info("Actual Required Fields:"+actualRequiredFields);
-			Assert.assertEquals(actualRequiredFields, expectedRequiredFields);
+	public void testValidateRequiredFields() {
+		ManageOrderNotQuotedTab notQuotedTab = new ManageOrderNotQuotedTab(driver);
+		SeleniumFunction.scrollDownUptoFooter(driver);
+		SeleniumFunction.click(notQuotedTab.submitQuote());
+		ScreenShot.takeScreenShot(driver, "Custom Quote Required Fields Admin");
 	}
-	
+
 	@Test
 	public void testSubmitCustomQuote() {
 
 		ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
 		SeleniumFunction.click(manageOrderpage.manageOrdersLink());
-		
+
 		QuickQuote quickQuote = new QuickQuote(driver);
 		WaitTool.sleep(20);
 		quickQuote.acceptPopup();
 		WaitTool.sleep(5);
-		
+
 		ManageOrderNotQuotedTab notQuotedTab = new ManageOrderNotQuotedTab(driver);
 		SeleniumFunction.click(notQuotedTab.notQuoted());
 		WaitTool.sleep(5);
-		
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/QA_538.xlsx");
+
+		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
 		int i=Integer.parseInt(Row);
 		Log.info("Data Row: " +Row);
-		
+
 		String orderDetails=xr.getCellData("Input","OrderDetails", i).trim();
 		String updatedOrderDetails=xr.getCellData("Input","updatedOrderDetails", i).trim();	
 		String serviceLevel=xr.getCellData("Input","serviceLevel", i).trim();
@@ -81,95 +66,109 @@ public class TestSubmitCustomQuote1 extends InitializeTest {
 		String deliveryFrequency=xr.getCellData("Input","DeliveryFrequency", i).trim();
 		String requiredTemp=xr.getCellData("Input","RequiredTemp", i).trim();
 		String updatedRequiredTemp=xr.getCellData("Input","UpdatedRequiredTmp", i).trim();
+		String fulfillmentCarrier=xr.getCellData("Input","Fulfillment Carrier", i).trim();
+		String fulfillmentCarrierId=xr.getCellData("Input","Fulfillment Carrier Id", i).trim();
+		String fulfillmentCarrier1=xr.getCellData("Input","Fulfillment Carrier1", i).trim();
+		String fulfillmentCarrierId1=xr.getCellData("Input","Fulfillment Carrier Id1", i).trim();
 
-		
+
 		String orderid=xr.getCellData("Input","OrderId", i).trim();
 		System.out.println("Order Id: "+orderid);
 		SeleniumFunction.sendKeys(notQuotedTab.orderIDFilter(), orderid);
 		WaitTool.sleep(5);
 		SeleniumFunction.KeyBoradEnter(driver);
-	    WaitTool.sleep(5);
-	    
-	    SeleniumFunction.click(notQuotedTab.complete());
-	    WaitTool.sleep(5);
-	    
-	    /*if(i == 2) {
-	    	this.testValidateRequiredFields();
-	    }*/
-	    		    
-	    //Verify Details
-	    Assert.assertTrue(quickQuote.customOrderDetails(orderDetails).isSelected());
-	    if(orderDetails.equals("Requires refrigeration")) { 
-	    	Assert.assertEquals(quickQuote.requiredTemp().getAttribute("value"), requiredTemp);
+		WaitTool.sleep(5);
+
+		SeleniumFunction.click(notQuotedTab.complete());
+		WaitTool.sleep(5);
+
+		if(i == 2) {
+			this.testValidateRequiredFields();
+		}
+
+		//Verify Details
+		Assert.assertTrue(quickQuote.customOrderDetails(orderDetails).isSelected());
+		if(orderDetails.equals("Requires refrigeration")) { 
+			Assert.assertEquals(quickQuote.requiredTemp().getAttribute("value"), requiredTemp);
 			SeleniumFunction.sendKeys(quickQuote.requiredTemp(), updatedRequiredTemp);
-	    }
+		}
 		Assert.assertEquals(notQuotedTab.serviceLevel().getText(), serviceLevel);	
-	    
+
 		Select deliveryFrequencyDropDown = new Select(driver.findElement(By.xpath("//*[@id=\"shipment-review\"]/div[1]/div[3]/div/div[3]/div[1]/select")));
 		if(i == 2) {
-		    Assert.assertEquals("One Time Shipment", deliveryFrequencyDropDown.getFirstSelectedOption().getText().trim());
+			Assert.assertEquals("One Time Shipment", deliveryFrequencyDropDown.getFirstSelectedOption().getText().trim());
 		} else if(i == 3){
-		    Assert.assertEquals(deliveryFrequencyDropDown.getFirstSelectedOption().getText().trim(),deliveryFrequency);
+			Assert.assertEquals(deliveryFrequencyDropDown.getFirstSelectedOption().getText().trim(),deliveryFrequency);
 		}
-	    
+
 		Assert.assertTrue(SeleniumFunction.getText(notQuotedTab.totalWeight()).contains(totalWeight.substring(0, 1)));
-	    Assert.assertTrue(SeleniumFunction.getText(notQuotedTab.declaredValue()).contains(declareValue.substring(0, 1)));
-	    Assert.assertTrue(SeleniumFunction.getText(notQuotedTab.handlingUnits()).contains(handlingUnits));   		   		    
-	    Assert.assertEquals(notQuotedTab.regulatoryDetails().getAttribute("value"), regulatoryDetails);
-	    ScreenShot.takeScreenShot(driver, "Verify details at submit quote page");
-	    
-	    //Enter new Details
-	    SeleniumFunction.executeJS(driver, "window.scrollBy(0,-3000)");
-	    SeleniumFunction.click(notQuotedTab.fulfillmentCarrier());
-	    
-	    WaitTool.sleep(2);
-	    SeleniumFunction.sendKeys(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@placeholder='Select Carrier']"), 20), "FC Test");
-	    SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@data-value='222']"), 10));
-	    
-	    SeleniumFunction.sendKeys(notQuotedTab.carrierQuoteID(), quoteId);
-	    SeleniumFunction.sendKeys(notQuotedTab.COGS(), COGS);
-	    
-	    if(i == 3 || i==4) {
-	    	String formatDate;
-	    	SeleniumFunction.executeJS(driver, "window.scrollBy(0,-400)");
-	    	SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
+		Assert.assertTrue(SeleniumFunction.getText(notQuotedTab.declaredValue()).contains(declareValue.substring(0, 1)));
+		Assert.assertTrue(SeleniumFunction.getText(notQuotedTab.handlingUnits()).contains(handlingUnits));   		   		    
+		Assert.assertEquals(notQuotedTab.regulatoryDetails().getAttribute("value"), regulatoryDetails);
+		ScreenShot.takeScreenShot(driver, "Verify details at submit quote page");
+
+		//Enter new Details
+		SeleniumFunction.executeJS(driver, "window.scrollBy(0,-3000)");
+		SeleniumFunction.click(notQuotedTab.fulfillmentCarrier());
+
+		WaitTool.sleep(2);
+		SeleniumFunction.sendKeys(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@placeholder='Select Carrier']"), 20), fulfillmentCarrier);
+		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@data-value='"+fulfillmentCarrierId+"']"), 10));
+		SeleniumFunction.sendKeys(notQuotedTab.carrierQuoteID(), quoteId);
+		SeleniumFunction.sendKeys(notQuotedTab.COGS(), COGS);
+		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//i[@class='fa fa-check-circle fa-lg']"), 10));
+
+
+		if(!fulfillmentCarrier1.equals("")) {
+			SeleniumFunction.click(notQuotedTab.fulfillmentCarrier());
+			SeleniumFunction.sendKeys(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@placeholder='Select Carrier']"), 20), fulfillmentCarrier1);
+			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@data-value='"+fulfillmentCarrierId1+"']"), 10));
+			SeleniumFunction.sendKeys(notQuotedTab.carrierQuoteID(), "102");
+			SeleniumFunction.sendKeys(notQuotedTab.COGS(), COGS);
+			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//i[@class='fa fa-check-circle fa-lg'])[2]"), 10));
+		} 
+
+		if(i == 3 || i==4) {
+			String formatDate;
+			SeleniumFunction.executeJS(driver, "window.scrollBy(0,-400)");
+			SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
 			Date date = new Date();
-			//if(i==4) {
+			if(i==4) {
 				Calendar c = Calendar.getInstance();
 				c.setTime(date);
 				c.add(Calendar.DAY_OF_MONTH, 1);
 				formatDate = sdf.format(c.getTime()); 
-			/*} else {
+			} else {
 				formatDate = sdf.format(date);
-			}*/
+			}
 			Log.info("Current Date Created: "+formatDate);
 			xr.setCellData("Input","RecurringExpiry", i,formatDate);
 			SeleniumFunction.executeJS(driver, "arguments[0].removeAttribute('readonly', 'readonly')", notQuotedTab.recurringExpiry());
-	    	notQuotedTab.recurringExpiry().clear();
+			notQuotedTab.recurringExpiry().clear();
 			SeleniumFunction.sendKeys(notQuotedTab.recurringExpiry(), formatDate);
-	    }
-	   
-	    SeleniumFunction.executeJS(driver, "window.scrollBy(0,800)");
-	    notQuotedTab.shipmentInformation().clear();
-	    notQuotedTab.regulatoryDetails().clear();
-	    SeleniumFunction.sendKeys(notQuotedTab.shipmentInformation(), updatedShipmentInformation);
+		}
+
+		SeleniumFunction.executeJS(driver, "window.scrollBy(0,800)");
+		notQuotedTab.shipmentInformation().clear();
+		notQuotedTab.regulatoryDetails().clear();
+		SeleniumFunction.sendKeys(notQuotedTab.shipmentInformation(), updatedShipmentInformation);
 		WaitTool.sleep(2);
-	    //SeleniumFunction.click(quickQuote.customOrderDetails(updatedOrderDetails));
+		//SeleniumFunction.click(quickQuote.customOrderDetails(updatedOrderDetails));
 		SeleniumFunction.scrollDownByPixel(driver, "400");
-	    SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"shipment-review\"]/div[1]/div[9]/div[3]/div[2]/div[1]/div[2]/span/input"), 20));
+		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"shipment-review\"]/div[1]/div[9]/div[3]/div[2]/div[1]/div[2]/span/input"), 20));
 		SeleniumFunction.sendKeys(notQuotedTab.regulatoryDetails(), updatedRegulatoryDetails);
-	    
-	    WaitTool.sleep(5);
-	    SeleniumFunction.executeJS(driver, "window.scrollBy(0,-1000)");
-	    WebElement markupPercentage = notQuotedTab.markupPercentage();
-	    markupPercentage.clear();
-	    SeleniumFunction.sendKeys(markupPercentage, "6");
-	    WaitTool.sleep(5);
-	    
-	    //Submit Information
-	    SeleniumFunction.executeJS(driver, "window.scrollBy(0,1000)");
-	    ScreenShot.takeScreenShot(driver, "Submit quote details");
-	    SeleniumFunction.click(notQuotedTab.submitQuote());
+
+		WaitTool.sleep(5);
+		SeleniumFunction.executeJS(driver, "window.scrollBy(0,-1000)");
+		WebElement markupPercentage = notQuotedTab.markupPercentage();
+		markupPercentage.clear();
+		SeleniumFunction.sendKeys(markupPercentage, "6");
+		WaitTool.sleep(5);
+
+		//Submit Information
+		SeleniumFunction.executeJS(driver, "window.scrollBy(0,1000)");
+		ScreenShot.takeScreenShot(driver, "Submit quote details");
+		SeleniumFunction.click(notQuotedTab.submitQuote());
 		WaitTool.sleep(10);
 
 	}

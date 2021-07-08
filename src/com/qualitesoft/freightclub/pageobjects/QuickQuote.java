@@ -206,61 +206,6 @@ public class QuickQuote {
 		
 		SeleniumFunction.executeJS(driver, "arguments[0].click();", driver.findElement
 				(By.xpath("//div[@data-group='packaging']/div[contains(text(),'"+packageType+"')]")));
-
-		/*try {
-			if(packageType.equalsIgnoreCase("Standard Pallet 1")){
-				SeleniumFunction.click(driver.findElement
-						(By.xpath("//div[@class='selectize-dropdown single form-input']//div/div[@data-value='850']")));
-			}
-			else if(packageType.equalsIgnoreCase("Standard Pallet 2")){
-				SeleniumFunction.click(driver.findElement
-						(By.xpath("//div[@class='selectize-dropdown single form-input']//div/div[@data-value='851']")));
-			}
-			else if(packageType.equalsIgnoreCase("Standard Pallet 3")){
-				SeleniumFunction.click(driver.findElement
-						(By.xpath("//div[@class='selectize-dropdown single form-input']//div/div[@data-value='852']")));
-			}
-			else if(packageType.equalsIgnoreCase("Custom Pallet (enter dimensions)")){
-				
-				SeleniumFunction.executeJS(driver, "arguments[0].click();", driver.findElement
-						(By.xpath("//div[@data-group='packaging']/div[text()='Custom Pallet (enter dimensions)']")));
-				SeleniumFunction.click(driver.findElement
-						(By.xpath("//div[@data-group='packaging']/div[text()='Custom Pallet (enter dimensions)']")));
-			}
-			else if(packageType.equalsIgnoreCase("Boxed")){
-				SeleniumFunction.click(driver.findElement
-						(By.xpath("//div[@class='selectize-dropdown single form-input']//div/div[@data-value='854']")));
-			}
-			else if(packageType.equalsIgnoreCase("Non-Palletized")){
-				SeleniumFunction.click(driver.findElement
-						(By.xpath("//div[@class='selectize-dropdown single form-input']//div/div[@data-value='854']")));
-			}
-			else if(packageType.equalsIgnoreCase("My Own Package")){
-				SeleniumFunction.click(driver.findElement
-						(By.xpath("//div[@class='selectize-dropdown single form-input']//div/div[@data-value='854']")));
-			}
-			else if(packageType.equalsIgnoreCase("USPS Flat Rate Envelope")){
-				SeleniumFunction.click(driver.findElement
-						(By.xpath("//div[@class='selectize-dropdown single form-input']//div/div[@data-value='870']")));
-			}	
-			else if(packageType.equalsIgnoreCase("Other Box")){
-				SeleniumFunction.click(driver.findElement
-						(By.xpath("//div[@class='selectize-dropdown single form-input']//div/div[@data-value='875']")));
-			}	
-			else if(packageType.equalsIgnoreCase("Cardboard Box")){
-				SeleniumFunction.click(driver.findElement(By.xpath("//div[text()='Cardboard Box']")));
-			}	
-		}
-
-		catch (Exception e) {
-			Log.error("Not able to select package: " + e.getMessage());
-			try {
-				throw e;
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		}*/
 	}
 
 	public void selectPackageType2(String packageType) {
@@ -465,6 +410,10 @@ public class QuickQuote {
 			isPresent = WaitTool.isElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/302.png']"));
 		}else if(carrierName.equals("FC Test Carrier")) {
 			isPresent = WaitTool.isElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/222.png']"));
+		}else if(carrierName.equals("YRC")) {
+			isPresent = WaitTool.isElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/9.png']"));
+		}else if(carrierName.equals("ESTES")) {
+			isPresent = WaitTool.isElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/22.png']"));
 		}
 		
 		System.out.println("Is Carrier Present: "+isPresent);
@@ -606,7 +555,7 @@ public class QuickQuote {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//textarea[@name='text-contents']"), 60);		
 	}
 	public WebElement Addproduct() {		
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"app-content\"]/div/div/div/section/article/div/div[2]/div[1]/div/div[3]/div/button"), 60);		
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[text()=' Add Product to Pallet']"), 20);		
 	}
 	public WebElement searchproduct() {		
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"app-content\"]/div/div/div/section/article/div/div[2]/div[1]/div/div[3]/div[1]/div/div[1]"), 60);		

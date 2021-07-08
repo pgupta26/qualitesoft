@@ -36,6 +36,24 @@ public class ManageCarrierPage {
 		}
 	}
 	
+	public WebElement carrierDetailsOptions(String optionName) {
+		if(optionName.equals("Residential Pickup Supported")) {
+			return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id='optionsTab']/div[1]/div/input"), 10);
+		}else if(optionName.equals("Loose carton accepted")) {
+			return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id='optionsTab']/div[2]/div/input"), 10);
+		}else if(optionName.equals("Fulfilled By Amazon Approved")) {
+			return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id='optionsTab']/div[3]/div/input"), 10);
+		}else if(optionName.equals("Requires email address to book")) {
+			return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id='optionsTab']/div[4]/div/input"), 10);		
+		}else if(optionName.equals("Full Truck Load Supported")) {
+			return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id='optionsTab']/div[5]/div/input"), 10);
+		}else if(optionName.equals("Custom Quotes Supported")) {
+			return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id='optionsTab']/div[6]/div/input"), 10);	
+		}else {
+			return null;
+		}
+	}
+	
 	public void selectResidentialPickUp() {
 		WebElement residentialPickUP = WaitTool.returnWebElement(driver, By.xpath("//*[@id='optionsTab']/div[1]/div/input"));
 		if(!residentialPickUP.isSelected()) {

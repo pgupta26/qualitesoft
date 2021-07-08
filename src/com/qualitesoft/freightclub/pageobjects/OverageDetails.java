@@ -15,11 +15,11 @@ public class OverageDetails {
 	}
 	
 	public WebElement getLabel(String label) {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[text()='"+label+"']/following-sibling::span | //label[text()='"+label+"']/following-sibling::input"), 10);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[text()='"+label+"']/following-sibling::span | //label[text()='"+label+"']/following-sibling::input"), 30);
 	}
 	
 	public WebElement getSelect(String label) {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[text()='"+label+"']/following-sibling::div/descendant::div[contains(@class,'has-item')]"), 10);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[text()='"+label+"']/following-sibling::div/descendant::div[contains(@class,'has-item')]"), 30);
 	}
 	
 	public WebElement setSelect(String label, String value) {
@@ -42,32 +42,36 @@ public class OverageDetails {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[contains(text(),'Save Changes')]"), 10);
 	}
 	
-	public WebElement savedComment() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='details-area']/descendant::div[@class='col-xs-4']/descendant::td[1]"), 10);
+	public WebElement savedComment(int rowIndex) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='details-area']/descendant::div[@class='col-xs-4']/descendant::tr["+rowIndex+"]/td[1]"), 10);
 	}
 	
-	public WebElement savedUserName() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='details-area']/descendant::div[@class='col-xs-4']/descendant::td[2]/strong"), 10);
+	public WebElement savedUserName(int rowIndex) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='details-area']/descendant::div[@class='col-xs-4']/descendant::tr["+rowIndex+"]/td[2]/strong"), 10);
 	}
 	
-	public WebElement uploadName() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='details-area']/descendant::label[text()='Documents to support dispute:']/following-sibling::table/tbody/tr/td[1]"), 10);
+	public java.util.List<WebElement> documentsGrid() {
+		return WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//div[@id='details-area']/descendant::label[text()='Documents to support dispute:']/following-sibling::table/tbody/tr"), 10);
 	}
 	
-	public WebElement dateTime() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='details-area']/descendant::label[text()='Documents to support dispute:']/following-sibling::table/tbody/tr/td[2]"), 10);
+	public WebElement uploadName(int rowIndex) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='details-area']/descendant::label[text()='Documents to support dispute:']/following-sibling::table/tbody/tr["+rowIndex+"]/td[1]"), 10);
 	}
 	
-	public WebElement viewable() {
-		return WaitTool.returnWebElement(driver, By.xpath("//div[@id='details-area']/descendant::label[text()='Documents to support dispute:']/following-sibling::/table/tbody/tr/td[3]/a[1]"));
+	public WebElement dateTime(int rowIndex) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='details-area']/descendant::label[text()='Documents to support dispute:']/following-sibling::table/tbody/tr["+rowIndex+"]/td[2]"), 10);
 	}
 	
-	public WebElement downloadable() {
-		return WaitTool.returnWebElement(driver, By.xpath("//div[@id='details-area']/descendant::label[text()='Documents to support dispute:']/following-sibling::/table/tbody/tr/td[3]/a[2]"));
+	public WebElement viewable(int rowIndex) {
+		return WaitTool.returnWebElement(driver, By.xpath("//div[@id='details-area']/descendant::label[text()='Documents to support dispute:']/following-sibling::table/tbody/tr["+rowIndex+"]/td[3]/a[1]"));
+	}
+	
+	public WebElement downloadable(int rowIndex) {
+		return WaitTool.returnWebElement(driver, By.xpath("//div[@id='details-area']/descendant::label[text()='Documents to support dispute:']/following-sibling::table/tbody/tr["+rowIndex+"]/td[3]/a[2]"));
 	}
 	
 	public WebElement removable() {
-		return WaitTool.returnWebElement(driver, By.xpath("//div[@id='details-area']/descendant::label[text()='Documents to support dispute:']/following-sibling::/table/tbody/tr/td[3]/i"));
+		return WaitTool.returnWebElement(driver, By.xpath("//div[@id='details-area']/descendant::label[text()='Documents to support dispute:']/following-sibling::table/tbody/tr/td[3]/i"));
 	}
 	
 	public WebElement submitForReview() {
@@ -75,13 +79,19 @@ public class OverageDetails {
 	}
 	
 	//Sent to carrier popup
-	public WebElement getLabelFromModal(String modal, String label) {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='"+modal+"']/descendant::label[text()='"+label+"']/following-sibling::input | //div[@id='sentToCarrierModal']/descendant::label[text()='"+label+"']/following-sibling::textarea"), 10);
+	public WebElement getLabelFromModal(String modalId, String label) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='"+modalId+"']/descendant::label[text()='"+label+"']/following-sibling::input | //div[@id='sentToCarrierModal']/descendant::label[text()='"+label+"']/following-sibling::textarea"), 10);
 	}
 	
-	public WebElement sendEmail(String modal) {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='"+modal+"']/descendant::button[contains(text(),'Send Email')]"), 10);
+	public WebElement sendEmail(String modalId) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='"+modalId+"']/descendant::button[contains(text(),'Send Email')]"), 10);
 	}
+	
+	//More Information Popup
+	public WebElement body(String modalId) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='"+modalId+"']/descendant::textarea"), 10);
+	}
+
 	
 
 }

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Freight Club Suite">
+
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="com.qualitesoft.core.CustomTestListener" />
+	</listeners>
+
+	<parameter name="project" value="Freight Club" />
+	<parameter name="browser" value="chrome" />
+	<parameter name="URL" value="https://qa.freightclub.com/" /> 
+	
+	<!-- ************************************** QA - 538 Tests ****************************************************** -->
+	<test name="Test Order Ready For Booking Mail to User - QA-538 - CO02">
+		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="fcusername" value="billing.address@mailinator.com" />
+		<parameter name="notificationType" value="Order Ready For Booking" />
+		<parameter name="Row" value="3" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" > 
+				<methods>
+						<include name="testEmailNotifications"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>    
+	
+	<test name="Test Verify Functionality of Clone Button - QA-538 - CO02">
+		<parameter name="loginuser" value="new" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="Row" value="3" />
+		<parameter name="CarrierName" value="Custom Orders"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestBookCustomOrder" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+				<methods>
+					<include name='testVerifySelectedCarriers' />
+				</methods>
+			</class>
+			
+			<class name="com.qualitesoft.freightclub.testscripts.TestEnterCompleteInformationDetail"/>
+			<class name="com.qualitesoft.freightclub.testscripts.TestReviewAndBook">
+				<methods>
+					<include name="testReviewAndBook2"/>
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestManageOrders" > 
+				<methods>
+						<include name="testRequestCancellationAndCloneOrReQuoteButton1"></include>
+						<include name="verifyCloneButtonFunctionality"></include>
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+	
+	<test name="Test Order Confirmation Mail to Admin - QA-538 - CO02">
+		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="fcusername" value="8march1@mailinator.com" />
+		<parameter name="Row" value="3" />
+		<parameter name="notificationType" value="Order Confirmation Mail - Admin" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" /> 
+		</classes>
+	</test>   
+	
+	<test name="Test Order Confirmation Mail to User - QA-538 - CO02">
+		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="fcusername" value="billing.address@mailinator.com" />
+		<parameter name="Row" value="3" />
+		<parameter name="notificationType" value="Order Confirmation Mail - User" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" > 
+				<methods>
+						<include name="testEmailNotifications"></include>
+				</methods>
+			</class>
+		</classes>
+	</test> 
+	
+	<test name="Test Quick Quote Custom Order - Weekly - QA-538 -  CO03">
+		<parameter name="loginuser" value="old" />
+		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="4" />
+		<parameter name="CarrierName" value="Custom Orders"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+				<methods>
+					<include name = "testEnterShipmentInformation"/>
+				</methods>
+			</class>
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+	
+	<test name="Test Verify Functionality of Unable to fulfill button">
+		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
+		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="Row" value="4" />
+		<parameter name="CarrierName" value="Custom Orders"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.customorders.TestUnableToFulfillFunctionality" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+	
+	<test name="Test verify that user will get email notification for unable to fulfill ordrs - QA-538 - CO03">
+		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="fcusername" value="billing.address@mailinator.com" />
+		<parameter name="Row" value="4" />
+		<parameter name="notificationType" value="Custom Order Cannot Be Fulfilled" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" /> 
+		</classes>
+	</test> 
+	
+</suite>	

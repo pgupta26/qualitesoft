@@ -94,7 +94,7 @@ public class TestProfileManagement extends InitializeTest {
 			SeleniumFunction.sendKeys(profileManagementPage.profileListfilter(), searchUser);
 			WaitTool.sleep(15);
 			ScreenShot.takeScreenShot(driver, "Search User details");
-			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Contact Name:']"), 10));
+			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Contact Name:']"), 30));
 			WaitTool.sleep(5);
 			SeleniumFunction.executeJS(driver, "window.scrollBy(0,2500)");
 			profileManagementPage.disableTruckLoad(enableOption);

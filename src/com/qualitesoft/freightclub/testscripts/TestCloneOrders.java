@@ -5,6 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
+import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
@@ -92,25 +93,6 @@ public class TestCloneOrders extends InitializeTest{
 			}
 		}			
 		
-		
-		/*//select carrier
-		SeleniumFunction.scrollUp(driver);
-		jse.executeScript("window.scrollBy(0,250)", "");
-		WaitTool.sleep(30);
-		jse.executeScript("return document.readyState").equals("complete");
-		jse.executeScript("window.scrollBy(0,250)", "");
-		if(Row.equalsIgnoreCase("8") || Row.equalsIgnoreCase("9")) {
-			SeleniumFunction.clickJS(driver, quickQuote.UPSSureButton());
-		}
-		else {
-			if(quickQuote.NextButton().isDisplayed()) {
-				SeleniumFunction.click(quickQuote.NextButton());
-			}
-			else {
-				jse.executeScript("window.scrollBy(950,0)", "");
-				SeleniumFunction.click(quickQuote.NextButton());
-			}
-		}*/
 		WaitTool.sleep(15);
 		quickQuote.acceptPopup();
 		WaitTool.sleep(2);
@@ -130,13 +112,12 @@ public class TestCloneOrders extends InitializeTest{
 
 		SeleniumFunction.click(quickQuote.Okbutton1());
 
-		WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='ag-body']//div[3]//div[1]//div[1]//div[1]/div[2]"), 60);
+		WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='ag-body'])[1]/descendant::div[@row='0']/div[@colid='ID']"), 60);
 		WaitTool.sleep(5);
-		String id=SeleniumFunction.getText(driver.findElement(By.xpath("//div[@class='ag-body']//div[3]//div[1]//div[1]//div[1]/div[2]")));
-		System.out.println("crorderId:" + id.trim());
+		String id=SeleniumFunction.getText(driver.findElement(By.xpath("(//div[@class='ag-body'])[1]/descendant::div[@row='0']/div[@colid='ID']")));
+		Log.info("crorderId:" + id.trim());
 		//set order id in excel
 		xr.setCellData("Input","OrderId", i,id.trim());
-		WaitTool.sleep(5);
 		WaitTool.sleep(5);
 		if(Row.equalsIgnoreCase("5")) {
 			ScreenShot.takeScreenShot(driver, "Clone Order Status with LTL pallet and non pallet"+"  "+id);

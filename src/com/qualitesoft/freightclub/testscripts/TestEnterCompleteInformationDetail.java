@@ -21,13 +21,11 @@ public class TestEnterCompleteInformationDetail extends InitializeTest {
 		String testDatasheet= "binaries/FCfiles/FCFile.xlsx";
 		xr=new Xls_Reader(testDatasheet);
 
-		String description=xr.getCellData("ShipmentInformation","Description", 2).trim();
 		String specialHandlingInstructions=xr.getCellData("ShipmentInformation","SpecialHandlingInstructions", 2).trim();
 	
 		QuickQuote quickQuote = new QuickQuote(driver);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		
-		//SeleniumFunction.sendKeys(quickQuote.PalletDesc(), description);
 		SeleniumFunction.sendKeys(quickQuote.SpecialHandling(), specialHandlingInstructions);
 		
 		jse.executeScript("window.scrollBy(0,400)", "");

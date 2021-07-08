@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.imageio.ImageIO;
 
@@ -29,7 +30,7 @@ public class ScreenShot extends InitializeTest {
 		try {
 			WaitTool.sleep(2);
 			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(scrFile, new File(baseScreenShotsFolder + "/" + fileName + ".png"));
+			FileUtils.copyFile(scrFile, new File(baseScreenShotsFolder +File.separator+ fileName + ".png"));
 			Log.info("Screenshot " + fileName + " successfully taken.");
 		} catch (Exception e) {
 			Log.warn("Not able to take " + fileName + " screen shot: " + e.getMessage());
@@ -71,11 +72,10 @@ public class ScreenShot extends InitializeTest {
 	}
 	public static String createScreenshotFolder(String testName) {
 		try {
-			baseScreenShotsFolder = System.getProperty("user.dir") + "/screen-shots/";
+			baseScreenShotsFolder = System.getProperty("user.dir") +File.separator+"screen-shots"+File.separator;
 			SimpleDateFormat sdfmth = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
-			Calendar cal = Calendar.getInstance();
-			baseScreenShotsFolder = baseScreenShotsFolder + "/" + InitializeTest.project + "/" + testName + "/"
-					+ sdfmth.format(cal.getTime()).replaceAll("\\s", "_");
+			baseScreenShotsFolder = baseScreenShotsFolder +InitializeTest.project+File.separator+testName+File.separator
+					+ sdfmth.format(new Date());
 			new File(baseScreenShotsFolder).mkdirs();
 			WaitTool.sleep(1);
 			return baseScreenShotsFolder;

@@ -367,7 +367,9 @@ public class TestEnterShipmentInformation extends InitializeTest {
 		if(testname.contains("QA-538")) {
 			WaitTool.sleep(5);
 			quickQuote.acceptPopup();
-			
+			WaitTool.sleep(1);
+			quickQuote.acceptPopup();
+			WaitTool.sleep(1);
 			WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//*[@id=\"center\"]/div/div[4]/div[3]/div/div/div[1]/div[2])[3]"), 30);
 			crorderId=SeleniumFunction.getText(driver.findElement(By.xpath("(//*[@id=\"center\"]/div/div[4]/div[3]/div/div/div[1]/div[2])[3]")));
 			System.out.println("crorderId:" + crorderId.trim());

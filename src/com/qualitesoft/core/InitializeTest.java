@@ -68,6 +68,7 @@ public class InitializeTest {
 	public static String taxRate;
 	public static String userType;
 	public static String testData;
+	public static String carrierDetailsOptions=null;
 
 	
 	@BeforeTest
@@ -112,6 +113,8 @@ public class InitializeTest {
 		taxRate = context.getCurrentXmlTest().getParameter("taxRate");
 		userType = context.getCurrentXmlTest().getParameter("userType");
 		testData = context.getCurrentXmlTest().getParameter("testData");
+		carrierDetailsOptions=context.getCurrentXmlTest().getParameter("CarrierDetailsOptions");
+
 		Log.info("*****************************"+ testname + " started.");
 	}
 	
