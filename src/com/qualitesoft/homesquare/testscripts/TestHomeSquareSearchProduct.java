@@ -11,7 +11,7 @@ import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
-import com.qualitesoft.homesquare.pageobjects.HomePage;
+import com.qualitesoft.homesquare.pageobjects.HomeSquareHomePage;
 
 
 public class TestHomeSquareSearchProduct extends InitializeTest {
@@ -22,7 +22,7 @@ public class TestHomeSquareSearchProduct extends InitializeTest {
 	public void testSearchProduct( String product,String value) {
 	   
 	    WebDriver driver = getDriver();
-	    HomePage homePage = new HomePage(driver);
+	    HomeSquareHomePage homePage = new HomeSquareHomePage(driver);
 	    WaitTool.sleep(5); 
 	 /*   if(driver.findElements(By.xpath("//div[@class='frel_button-close']")).size() != 0)
 	    {
@@ -53,10 +53,10 @@ public class TestHomeSquareSearchProduct extends InitializeTest {
 
         return new Object[][] {
 
-        	{ "Product1", "chairs" },
+        	{ "Product1", "Sofas" },
             { "Product2", "wall clock" },
-            { "Product3", "Digital wall clock" },
-            { "Product4", "rectangular wood dining tables" },
+            { "Product3", "pillow" },
+            { "Product4", "Canvas" },
             { "Product5", "367581" }
 
             };

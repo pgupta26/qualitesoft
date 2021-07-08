@@ -1,0 +1,4736 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="3" ignored="85" total="130" passed="42">
+  <reporter-output>
+    <line>
+      <![CDATA[chrome browser launched successfully.]]>
+    </line>
+    <line>
+      <![CDATA[http://qa.homesquare.com/URL launched successfully.]]>
+    </line>
+    <line>
+      <![CDATA[*****************************Verify that user is able to apply coupon code started.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //*[@id="my-account-btn"] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //a[@class='btn btn-secondary negative width-100-pct'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@placeholder='First Name'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot CreateAccountPage successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@placeholder='Last Name'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@id='signup-modal-email'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@id='signup-modal-password'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@id='signup-modal-pwconfirm'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot CreateAccountPageFilled successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //*[@id="btn-create-account-submit"] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//a[@href='/patio-furniture-outdoor-furniture--PC991.htm'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@href='/outdoor-sofas--C1344.htm'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: (//img[@class='product-item-img'])[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot Product list Page successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //h3[@itemprop='price'] found.]]>
+    </line>
+    <line>
+      <![CDATA[**************************************************Product Price : 713.99]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot Product detail page successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //select[@class='form-control qty cb-qty'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@data-eventmessage='Add To Cart'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Elements by By.xpath: //orderitemsserverdiv[@id='body_body_ucOrderItemGrid_ServerDiv']/div found.]]>
+    </line>
+    <line>
+      <![CDATA[Cart Item Count: 1]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot CartPage successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[1427.98] matched with [1427.98]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[Free] matched with [Free]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[TBD] matched with [TBD]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.partialLinkText: Have a coupon code? found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@placeholder='Enter Coupon Code'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@placeholder='Enter Coupon Code']/following-sibling::a found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@placeholder='Enter Coupon Code']/following-sibling::p found.]]>
+    </line>
+    <line>
+      <![CDATA[[Your coupon has been applied.] matched with [Your coupon has been applied.]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Coupon (HSQJBTEST)']/following-sibling::div found.]]>
+    </line>
+    <line>
+      <![CDATA[[($10.00)] matched with [($10.00)]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //p[text()='Total:']/parent::div/following-sibling::div/p found.]]>
+    </line>
+    <line>
+      <![CDATA[[1417.98] matched with [1417.98]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: (//a[@class='proceed-to-checkout-btn next-page cymax-click-event cymax-click-event']) found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element (By.xpath: //a[@href='#loginFormDiv']) not found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[1427.98] matched with [1427.98]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[Free] matched with [Free]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Coupon (HSQJBTEST)']/following-sibling::div found.]]>
+    </line>
+    <line>
+      <![CDATA[[($10.00)] matched with [($10.00)]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[TBD] matched with [TBD]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //p[text()='Total:']/parent::div/following-sibling::div/p found.]]>
+    </line>
+    <line>
+      <![CDATA[[1417.98] matched with [1417.98]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='first-name'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='last-name'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='address-1'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='address-2'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='zipcode'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='city'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //select[@id='ddlCountry'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Value from the dropdown selected: United States]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //select[@id='ddlState'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Value from the dropdown selected: California]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='phone'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[value from the dropdown selected: Education]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //textarea[@class='form-control no-resize'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot shipping info successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: (//button[@class='primary-checkout-btn next-page btn-checkout cymax-click-event col-xs-12'])[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[1427.98] matched with [1427.98]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[Free] matched with [Free]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Coupon (HSQJBTEST)']/following-sibling::div found.]]>
+    </line>
+    <line>
+      <![CDATA[[($10.00)] matched with [($10.00)]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[134.71] matched with [134.71]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //p[text()='Total:']/parent::div/following-sibling::div/p found.]]>
+    </line>
+    <line>
+      <![CDATA[[1552.69] matched with [1552.69]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: (//button[@class='primary-checkout-btn next-page btn-checkout cymax-click-event col-xs-12'])[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[1427.98] matched with [1427.98]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[Free] matched with [Free]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Coupon (HSQJBTEST)']/following-sibling::div found.]]>
+    </line>
+    <line>
+      <![CDATA[[($10.00)] matched with [($10.00)]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[134.71] matched with [134.71]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //p[text()='Total:']/parent::div/following-sibling::div/p found.]]>
+    </line>
+    <line>
+      <![CDATA[[1552.69] matched with [1552.69]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@id='txtCreditCardNumber'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@id='ddlExpiryMonth'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Value from the dropdown selected: 01 (Jan)]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@id='ddlExpiryYear'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Value from the dropdown selected: 2030]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@id='txtSecurityCode'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@id='txtNameOnCard'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot Payment info successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: (//button[@class='primary-checkout-btn next-page btn-checkout cymax-click-event col-xs-12'])[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element (By.xpath: //div[@alt='Close']) not found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[1427.98] matched with [1427.98]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[Free] matched with [Free]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Coupon (HSQJBTEST)']/following-sibling::div found.]]>
+    </line>
+    <line>
+      <![CDATA[[($10.00)] matched with [($10.00)]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[134.71] matched with [134.71]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //p[text()='Total:']/parent::div/following-sibling::div/p found.]]>
+    </line>
+    <line>
+      <![CDATA[[1552.69] matched with [1552.69]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[@class='row']//div[@class='col-sm-8']//div[@class='row confirmation-message cymax-load-event']//div[@class='col-sm-6']//p[@class='order-number']//bold found.]]>
+    </line>
+    <line>
+      <![CDATA[Order Id on Order Confirmation page: VRC121-19141072]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //img[@id='cymaxLogo'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot HomePage successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //*[@id="my-account-btn"] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //a[@href='/MyAccount/Default.aspx?ti=0'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@id='tcAccount_tp0_orderList_List_row_0']/td[1]/a found.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot OrderOnMyAccount successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Order Id on My Account page: VRC121-19141072]]>
+    </line>
+    <line>
+      <![CDATA[Order Id matched on Order confirmation and My Account page]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //*[@id="my-account-btn"] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //a[@id='btn-logout'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot LogOffPage successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[*****************************Checkout via Purchase Order - New User started.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //*[@id="my-account-btn"] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //a[@class='btn btn-secondary negative width-100-pct'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@placeholder='First Name'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot CreateAccountPage successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@placeholder='Last Name'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@id='signup-modal-email'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@id='signup-modal-password'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@id='signup-modal-pwconfirm'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot CreateAccountPageFilled successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //*[@id="btn-create-account-submit"] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@href='/kitchen-dining--PC588.htm'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@href='/dining-chairs--C635.htm'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: (//img[@class='product-item-img'])[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot Product list Page successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //h3[@itemprop='price'] found.]]>
+    </line>
+    <line>
+      <![CDATA[**************************************************Product Price : 138.99]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //select[@class='form-control qty cb-qty'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot Product page1 successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Value from the dropdown selected: Quantity: 2]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@data-eventmessage='Add To Cart'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot CartPage successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: (//a[@class='proceed-to-checkout-btn next-page cymax-click-event cymax-click-event']) found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element (By.xpath: //a[@href='#loginFormDiv']) not found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[277.98] matched with [277.98]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[TBD] matched with [TBD]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[$10.00] matched with [$10.00]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='first-name'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='last-name'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='address-1'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='address-2'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='zipcode'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='city'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //select[@id='ddlCountry'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Value from the dropdown selected: United States]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //select[@id='ddlState'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Value from the dropdown selected: Alabama]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='phone'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[value from the dropdown selected: Education]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //textarea[@class='form-control no-resize'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot shipping info successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: (//button[@class='primary-checkout-btn next-page btn-checkout cymax-click-event col-xs-12'])[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[277.98] matched with [277.98]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[$10.00] matched with [$10.00]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[$0.00] matched with [$0.00]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //p[text()='Total:']/parent::div/following-sibling::div/p found.]]>
+    </line>
+    <line>
+      <![CDATA[[287.98] matched with [287.98]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: (//button[@class='primary-checkout-btn next-page btn-checkout cymax-click-event col-xs-12'])[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@value='purchaseorder'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[@class='cart-box-buttons margin-top-20 row']/descendant::button[@title='Place order'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element (By.xpath: //div[@alt='Close']) not found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[277.98] matched with [277.98]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[$10.00] matched with [$10.00]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[$0.00] matched with [$0.00]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //p[text()='Total:']/parent::div/following-sibling::div/p found.]]>
+    </line>
+    <line>
+      <![CDATA[[287.98] matched with [287.98]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[@class='row']//div[@class='col-sm-8']//div[@class='row confirmation-message cymax-load-event']//div[@class='col-sm-6']//p[@class='order-number']//bold found.]]>
+    </line>
+    <line>
+      <![CDATA[Order Id on Order Confirmation page: VRC121-19141073]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //img[@id='cymaxLogo'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //*[@id="my-account-btn"] found.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot HomePage successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //a[@href='/MyAccount/Default.aspx?ti=0'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@id='tcAccount_tp0_orderList_List_row_0']/td[1]/a found.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot OrderOnMyAccount successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Order Id on My Account page: VRC121-19141073]]>
+    </line>
+    <line>
+      <![CDATA[Order Id matched on Order confirmation and My Account page]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //*[@id="my-account-btn"] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //a[@id='btn-logout'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot LogOffPage successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[*****************************Checkout via Paypal - Existing User started.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@href='/kitchen-dining--PC588.htm'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@href='/dining-chairs--C635.htm'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: (//img[@class='product-item-img'])[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot Product list Page successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //h3[@itemprop='price'] found.]]>
+    </line>
+    <line>
+      <![CDATA[**************************************************Product Price : 138.99]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //select[@class='form-control qty cb-qty'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot Product page1 successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Value from the dropdown selected: Quantity: 2]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@data-eventmessage='Add To Cart'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot CartPage successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: (//a[@class='proceed-to-checkout-btn next-page cymax-click-event cymax-click-event']) found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //a[@href='#loginFormDiv'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.id: txtExistingEmailAddress found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.id: txtPassword found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot login information entered successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.id: btnHaveAnAccount found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[login successfully.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[277.98] matched with [277.98]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[TBD] matched with [TBD]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[$10.00] matched with [$10.00]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='first-name'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='last-name'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='address-1'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='address-2'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='zipcode'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='city'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //select[@id='ddlCountry'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Value from the dropdown selected: United States]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //select[@id='ddlState'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Value from the dropdown selected: Alabama]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='phone'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[value from the dropdown selected: Education]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //textarea[@class='form-control no-resize'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot shipping info successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: (//button[@class='primary-checkout-btn next-page btn-checkout cymax-click-event col-xs-12'])[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[277.98] matched with [277.98]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[$10.00] matched with [$10.00]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[$0.00] matched with [$0.00]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //p[text()='Total:']/parent::div/following-sibling::div/p found.]]>
+    </line>
+    <line>
+      <![CDATA[[287.98] matched with [287.98]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: (//button[@class='primary-checkout-btn next-page btn-checkout cymax-click-event col-xs-12'])[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@value='paypal'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[contains(@id,'zoid-paypal-buttons')] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Switch to Window Title: PayPal Checkout]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.linkText: Log In found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.id: email found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.id: btnNext found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.id: password found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.id: btnLogin found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //span[contains(text(),'Change')]//parent::button found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //span[contains(text(),'Change')]//parent::button found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //span[@data-testid='ship-to-not-allowed-content'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.id: payment-submit-btn found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Test]]>
+    </line>
+    <line>
+      <![CDATA[Switch to Window Title: ]]>
+    </line>
+    <line>
+      <![CDATA[Element (By.xpath: //div[@alt='Close']) not found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[277.98] matched with [277.98]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[$10.00] matched with [$10.00]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[[$0.00] matched with [$0.00]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //p[text()='Total:']/parent::div/following-sibling::div/p found.]]>
+    </line>
+    <line>
+      <![CDATA[[287.98] matched with [287.98]]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[@class='row']//div[@class='col-sm-8']//div[@class='row confirmation-message cymax-load-event']//div[@class='col-sm-6']//p[@class='order-number']//bold found.]]>
+    </line>
+    <line>
+      <![CDATA[Order Id on Order Confirmation page: VRC121-19141074]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //img[@id='cymaxLogo'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //*[@id="my-account-btn"] found.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot HomePage successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //a[@href='/MyAccount/Default.aspx?ti=0'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@id='tcAccount_tp0_orderList_List_row_0']/td[1]/a found.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot OrderOnMyAccount successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Order Id on My Account page: VRC121-19141074]]>
+    </line>
+    <line>
+      <![CDATA[Order Id matched on Order confirmation and My Account page]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //*[@id="my-account-btn"] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //a[@id='btn-logout'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot LogOffPage successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[*****************************Checkout via Amazon - As Guest with Free Shipping started.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@href='/kitchen-dining--PC588.htm'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@href='/dining-chairs--C635.htm'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot Beds category page successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='Search'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //button[@id='btn-top-search'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element (By.xpath: (//div[contains(@id,'pop-section')]//a)[1]) not found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //*[@id='productListDiv']/div[1]/div/div/a/img found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //h3[@itemprop='price'] found.]]>
+    </line>
+    <line>
+      <![CDATA[**************************************************Product Price : 1439.99]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot Product detail page successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //select[@class='form-control qty cb-qty'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@data-eventmessage='Add To Cart'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot CartPage successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: (//a[@class='proceed-to-checkout-btn next-page cymax-click-event cymax-click-event']) found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.id: AmazonPayButton found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Switch to Window Title: Amazon Sign in using our secure server]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@id='ap_email'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@id='ap_password'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot Amazon login information entered successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@id='signInSubmit'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[login successfully.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //span[@id='a-autoid-0']//input[@class='a-button-input'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Switch to Window Title: ]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: (//button[@class='primary-checkout-btn next-page btn-checkout cymax-click-event col-xs-12'])[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[@class='row']//div[@class='col-sm-8']//div[@class='row confirmation-message cymax-load-event']//div[@class='col-sm-6']//p[@class='order-number']//bold found.]]>
+    </line>
+    <line>
+      <![CDATA[Order Id on Order Confirmation page: VRC121-19141075]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //img[@id='cymaxLogo'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //*[@id="my-account-btn"] found.]]>
+    </line>
+    <line>
+      <![CDATA[not able to find element by (By.xpath: //a[@href='/Portal/Account/Logout.aspx']) in '30' seconds]]>
+    </line>
+    <line>
+      <![CDATA[*****************************Checkout via Amazon - As Existing User With Shipping started.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@href='/kitchen-dining--PC588.htm'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@href='/dining-chairs--C635.htm'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot Beds category page successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='Search'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //button[@id='btn-top-search'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element (By.xpath: (//div[contains(@id,'pop-section')]//a)[1]) not found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //*[@id='productListDiv']/div[1]/div/div/a/img found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //h3[@itemprop='price'] found.]]>
+    </line>
+    <line>
+      <![CDATA[**************************************************Product Price : 1439.99]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot Product detail page successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //select[@class='form-control qty cb-qty'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@data-eventmessage='Add To Cart'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot CartPage successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@value='2' and @class='shipping-radio'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.id: AmazonPayButton found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Switch to Window Title: Amazon Pay Checkout]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@id='ap_email'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@id='ap_password'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot Amazon login information entered successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@id='signInSubmit'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[login successfully.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //span[@id='a-autoid-0']//input[@class='a-button-input'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Switch to Window Title: ]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: (//button[@class='primary-checkout-btn next-page btn-checkout cymax-click-event col-xs-12'])[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[@class='row']//div[@class='col-sm-8']//div[@class='row confirmation-message cymax-load-event']//div[@class='col-sm-6']//p[@class='order-number']//bold found.]]>
+    </line>
+    <line>
+      <![CDATA[Order Id on Order Confirmation page: VRC121-19141076]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //img[@id='cymaxLogo'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //*[@id="my-account-btn"] found.]]>
+    </line>
+    <line>
+      <![CDATA[not able to find element by (By.xpath: //a[@href='/Portal/Account/Logout.aspx']) in '30' seconds]]>
+    </line>
+    <line>
+      <![CDATA[*****************************Test Create New Account started.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //*[@id="my-account-btn"] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //a[@class='btn btn-secondary negative width-100-pct'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@placeholder='First Name'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot CreateAccountPage successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@placeholder='Last Name'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@id='signup-modal-email'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@id='signup-modal-password'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@id='signup-modal-pwconfirm'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot CreateAccountPageFilled successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //*[@id="btn-create-account-submit"] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[*****************************Product List Refinement started.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@href='/kitchen-dining--PC588.htm'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@href='/dining-chairs--C635.htm'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //select[@id='filter-dropdown'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Value from the dropdown selected: Lowest Price]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot Lowest Price successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //select[@id='filter-dropdown'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Value from the dropdown selected: Highest Price]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot Highest Price successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //*[@id='list'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //*[@id='grid'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot listview successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot gridview successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[*****************************Test Add Items to Cart started.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@href='/kitchen-dining--PC588.htm'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@href='/dining-chairs--C635.htm'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: (//img[@class='product-item-img'])[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot Product list Page successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //h3[@itemprop='price'] found.]]>
+    </line>
+    <line>
+      <![CDATA[**************************************************Product Price : 138.99]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //select[@class='form-control qty cb-qty'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot Product page1 successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Value from the dropdown selected: Quantity: 2]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@data-eventmessage='Add To Cart'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot CartPage successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[*****************************EnhancedCart Product started.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@class='btn-continue-shopping'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot Product page successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Current URL: https://qa.homesquare.com/Baxton-Studio-Longford-Dark-Walnut-Wood-and-Black-Metal-Vintage-Industrial-Dining-Arm-Chair-CDC271-DA2-BBXX.htm]]>
+    </line>
+    <line>
+      <![CDATA[https://qa.homesquare.com/Baxton-Studio-Longford-Dark-Walnut-Wood-and-Black-Metal-Vintage-Industrial-Dining-Arm-Chair-CDC271-DA2-BBXX.htm?src=PLA]]>
+    </line>
+    <line>
+      <![CDATA[URL opened: https://qa.homesquare.com/Baxton-Studio-Longford-Dark-Walnut-Wood-and-Black-Metal-Vintage-Industrial-Dining-Arm-Chair-CDC271-DA2-BBXX.htm?src=PLA]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot PLA-Productpage successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //a[@class='btn btn-add-to-cart'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@data-eventmessage='Add To Cart'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot AddToCartPage successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: (.//*[@class='cart-remove-link cymax-click-event' or @data-eventmessage='Delete Cartrow'])[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot ProductRemoved successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: (.//*[@class='cart-quantity']) found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: (.//*[@class='cart-update-link cymax-click-event' or @data-eventmessage='Update Cartrow']) found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot QuantityUpdated successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: (//a[@class='proceed-to-checkout-btn next-page cymax-click-event cymax-click-event']) found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[*****************************Shipping Info started.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot CheckOut Page successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='first-name'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='last-name'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='address-1'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='address-2'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='zipcode'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='city'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //select[@id='ddlCountry'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Value from the dropdown selected: United States]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //select[@id='ddlState'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Value from the dropdown selected: Alabama]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[@name='phone'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //textarea[@class='form-control no-resize'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot shipping info successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: (//button[@class='primary-checkout-btn next-page btn-checkout cymax-click-event col-xs-12'])[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot review order successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: (//button[@class='primary-checkout-btn next-page btn-checkout cymax-click-event col-xs-12'])[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[*****************************Checkout Cart started.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@id='txtCreditCardNumber'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@id='ddlExpiryMonth'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Value from the dropdown selected: 01 (Jan)]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@id='ddlExpiryYear'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Value from the dropdown selected: 2023]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@id='txtSecurityCode'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@id='txtNameOnCard'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot CheckoutPageFilled successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: (//button[@class='primary-checkout-btn next-page btn-checkout cymax-click-event col-xs-12'])[1] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[*****************************Order Confirmation started.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //div[@class='row']//div[@class='col-sm-8']//div[@class='row confirmation-message cymax-load-event']//div[@class='col-sm-6']//p[@class='order-number']//bold found.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot OrderConfirmationPage successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Order Id on Order Confirmation page: VRC121-19141077]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //img[@id='cymaxLogo'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //*[@id="my-account-btn"] found.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot HomePage successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //a[@href='/MyAccount/Default.aspx?ti=0'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: .//*[@id='tcAccount_tp0_orderList_List_row_0']/td[1]/a found.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot OrderOnMyAccount successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Order Id on My Account page: VRC121-19141077]]>
+    </line>
+    <line>
+      <![CDATA[Order Id matched on Order confirmation and My Account page]]>
+    </line>
+    <line>
+      <![CDATA[*****************************Search Product started.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[contains(@name,'Search')] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //i[@class='pe-7s-search'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot Sofas successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[contains(@name,'Search')] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //i[@class='pe-7s-search'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot wall clock successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[contains(@name,'Search')] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //i[@class='pe-7s-search'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot pillow successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[contains(@name,'Search')] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //i[@class='pe-7s-search'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot Canvas successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //input[contains(@name,'Search')] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //i[@class='pe-7s-search'] found.]]>
+    </line>
+    <line>
+      <![CDATA[Text send.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot 367581 successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[*****************************Log Out started.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //*[@id="my-account-btn"] found.]]>
+    </line>
+    <line>
+      <![CDATA[Element by By.xpath: //a[@href='/Portal/Account/Logout.aspx'] found.]]>
+    </line>
+    <line>
+      <![CDATA[WebElement clicked.]]>
+    </line>
+    <line>
+      <![CDATA[Screenshot LogOffPage successfully taken.]]>
+    </line>
+    <line>
+      <![CDATA[******************Test Ended************************]]>
+    </line>
+  </reporter-output>
+  <suite name="Homesquare Suite" duration-ms="1688049" started-at="2021-07-08T06:45:38Z" finished-at="2021-07-08T07:13:46Z">
+    <groups>
+    </groups>
+    <test name="Verify that user is able to apply coupon code" duration-ms="234018" started-at="2021-07-08T06:45:38Z" finished-at="2021-07-08T06:49:32Z">
+      <class name="com.qualitesoft.homesquare.testscripts.TestApplyCouponCode">
+        <test-method status="PASS" signature="testApplyCouponCode()[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestApplyCouponCode@4abdb505]" name="testApplyCouponCode" duration-ms="80387" started-at="2021-07-08T06:45:57Z" finished-at="2021-07-08T06:47:18Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: .//a[@href='/patio-furniture-outdoor-furniture--PC991.htm'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@href='/outdoor-sofas--C1344.htm'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: (//img[@class='product-item-img'])[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot Product list Page successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //h3[@itemprop='price'] found.]]>
+            </line>
+            <line>
+              <![CDATA[**************************************************Product Price : 713.99]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot Product detail page successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //select[@class='form-control qty cb-qty'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@data-eventmessage='Add To Cart'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Elements by By.xpath: //orderitemsserverdiv[@id='body_body_ucOrderItemGrid_ServerDiv']/div found.]]>
+            </line>
+            <line>
+              <![CDATA[Cart Item Count: 1]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot CartPage successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[1427.98] matched with [1427.98]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[Free] matched with [Free]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[TBD] matched with [TBD]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.partialLinkText: Have a coupon code? found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@placeholder='Enter Coupon Code'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@placeholder='Enter Coupon Code']/following-sibling::a found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@placeholder='Enter Coupon Code']/following-sibling::p found.]]>
+            </line>
+            <line>
+              <![CDATA[[Your coupon has been applied.] matched with [Your coupon has been applied.]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Coupon (HSQJBTEST)']/following-sibling::div found.]]>
+            </line>
+            <line>
+              <![CDATA[[($10.00)] matched with [($10.00)]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //p[text()='Total:']/parent::div/following-sibling::div/p found.]]>
+            </line>
+            <line>
+              <![CDATA[[1417.98] matched with [1417.98]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: (//a[@class='proceed-to-checkout-btn next-page cymax-click-event cymax-click-event']) found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testApplyCouponCode -->
+        <test-method status="PASS" signature="testSignIn()[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestApplyCouponCode@4abdb505]" name="testSignIn" duration-ms="204" started-at="2021-07-08T06:47:18Z" finished-at="2021-07-08T06:47:18Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element (By.xpath: //a[@href='#loginFormDiv']) not found.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testSignIn -->
+        <test-method status="PASS" signature="testShippingInformation()[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestApplyCouponCode@4abdb505]" name="testShippingInformation" duration-ms="46520" started-at="2021-07-08T06:47:18Z" finished-at="2021-07-08T06:48:04Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[1427.98] matched with [1427.98]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[Free] matched with [Free]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Coupon (HSQJBTEST)']/following-sibling::div found.]]>
+            </line>
+            <line>
+              <![CDATA[[($10.00)] matched with [($10.00)]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[TBD] matched with [TBD]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //p[text()='Total:']/parent::div/following-sibling::div/p found.]]>
+            </line>
+            <line>
+              <![CDATA[[1417.98] matched with [1417.98]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='first-name'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='last-name'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='address-1'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='address-2'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='zipcode'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='city'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //select[@id='ddlCountry'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Value from the dropdown selected: United States]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //select[@id='ddlState'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Value from the dropdown selected: California]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='phone'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[value from the dropdown selected: Education]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //textarea[@class='form-control no-resize'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot shipping info successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: (//button[@class='primary-checkout-btn next-page btn-checkout cymax-click-event col-xs-12'])[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[1427.98] matched with [1427.98]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[Free] matched with [Free]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Coupon (HSQJBTEST)']/following-sibling::div found.]]>
+            </line>
+            <line>
+              <![CDATA[[($10.00)] matched with [($10.00)]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[134.71] matched with [134.71]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //p[text()='Total:']/parent::div/following-sibling::div/p found.]]>
+            </line>
+            <line>
+              <![CDATA[[1552.69] matched with [1552.69]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: (//button[@class='primary-checkout-btn next-page btn-checkout cymax-click-event col-xs-12'])[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testShippingInformation -->
+        <test-method status="PASS" signature="testCartPages()[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestApplyCouponCode@4abdb505]" name="testCartPages" duration-ms="8575" started-at="2021-07-08T06:48:04Z" finished-at="2021-07-08T06:48:13Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[1427.98] matched with [1427.98]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[Free] matched with [Free]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Coupon (HSQJBTEST)']/following-sibling::div found.]]>
+            </line>
+            <line>
+              <![CDATA[[($10.00)] matched with [($10.00)]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[134.71] matched with [134.71]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //p[text()='Total:']/parent::div/following-sibling::div/p found.]]>
+            </line>
+            <line>
+              <![CDATA[[1552.69] matched with [1552.69]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@id='txtCreditCardNumber'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@id='ddlExpiryMonth'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Value from the dropdown selected: 01 (Jan)]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@id='ddlExpiryYear'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Value from the dropdown selected: 2030]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@id='txtSecurityCode'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@id='txtNameOnCard'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot Payment info successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: (//button[@class='primary-checkout-btn next-page btn-checkout cymax-click-event col-xs-12'])[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testCartPages -->
+        <test-method status="PASS" signature="testOrderConfirmation()[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestApplyCouponCode@4abdb505]" name="testOrderConfirmation" duration-ms="67494" started-at="2021-07-08T06:48:13Z" finished-at="2021-07-08T06:49:20Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element (By.xpath: //div[@alt='Close']) not found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[1427.98] matched with [1427.98]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[Free] matched with [Free]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Coupon (HSQJBTEST)']/following-sibling::div found.]]>
+            </line>
+            <line>
+              <![CDATA[[($10.00)] matched with [($10.00)]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[134.71] matched with [134.71]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //p[text()='Total:']/parent::div/following-sibling::div/p found.]]>
+            </line>
+            <line>
+              <![CDATA[[1552.69] matched with [1552.69]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[@class='row']//div[@class='col-sm-8']//div[@class='row confirmation-message cymax-load-event']//div[@class='col-sm-6']//p[@class='order-number']//bold found.]]>
+            </line>
+            <line>
+              <![CDATA[Order Id on Order Confirmation page: VRC121-19141072]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //img[@id='cymaxLogo'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot HomePage successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //*[@id="my-account-btn"] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //a[@href='/MyAccount/Default.aspx?ti=0'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@id='tcAccount_tp0_orderList_List_row_0']/td[1]/a found.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot OrderOnMyAccount successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Order Id on My Account page: VRC121-19141072]]>
+            </line>
+            <line>
+              <![CDATA[Order Id matched on Order confirmation and My Account page]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testOrderConfirmation -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.TestApplyCouponCode -->
+      <class name="com.qualitesoft.homesquare.testscripts.TestHomeSquareCreateNewAccount">
+        <test-method status="PASS" signature="initialize(org.testng.ITestContext)[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareCreateNewAccount@26a7b76d]" name="initialize" is-config="true" duration-ms="1132" started-at="2021-07-08T06:45:38Z" finished-at="2021-07-08T06:45:39Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@5df417a7]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[*****************************Verify that user is able to apply coupon code started.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testshippinginfo()[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareCreateNewAccount@26a7b76d]" name="testshippinginfo" duration-ms="18088" started-at="2021-07-08T06:45:39Z" finished-at="2021-07-08T06:45:57Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //*[@id="my-account-btn"] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //a[@class='btn btn-secondary negative width-100-pct'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@placeholder='First Name'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot CreateAccountPage successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@placeholder='Last Name'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@id='signup-modal-email'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@id='signup-modal-password'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@id='signup-modal-pwconfirm'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot CreateAccountPageFilled successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //*[@id="btn-create-account-submit"] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testshippinginfo -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.TestHomeSquareCreateNewAccount -->
+      <class name="com.qualitesoft.homesquare.testscripts.LogOff">
+        <test-method status="PASS" signature="testLogOff()[pri:0, instance:com.qualitesoft.homesquare.testscripts.LogOff@7ce6a65d]" name="testLogOff" duration-ms="11522" started-at="2021-07-08T06:49:20Z" finished-at="2021-07-08T06:49:32Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //*[@id="my-account-btn"] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //a[@id='btn-logout'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot LogOffPage successfully taken.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testLogOff -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.LogOff -->
+    </test> <!-- Verify that user is able to apply coupon code -->
+    <test name="Checkout via Purchase Order - New User" duration-ms="227032" started-at="2021-07-08T06:49:32Z" finished-at="2021-07-08T06:53:20Z">
+      <class name="com.qualitesoft.homesquare.testscripts.ShippingInformation">
+        <test-method status="PASS" signature="testShippingInformation()[pri:0, instance:com.qualitesoft.homesquare.testscripts.ShippingInformation@462d5aee]" name="testShippingInformation" duration-ms="36908" started-at="2021-07-08T06:50:52Z" finished-at="2021-07-08T06:51:29Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[277.98] matched with [277.98]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[TBD] matched with [TBD]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[$10.00] matched with [$10.00]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='first-name'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='last-name'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='address-1'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='address-2'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='zipcode'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='city'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //select[@id='ddlCountry'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Value from the dropdown selected: United States]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //select[@id='ddlState'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Value from the dropdown selected: Alabama]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='phone'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[value from the dropdown selected: Education]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //textarea[@class='form-control no-resize'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot shipping info successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: (//button[@class='primary-checkout-btn next-page btn-checkout cymax-click-event col-xs-12'])[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[277.98] matched with [277.98]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[$10.00] matched with [$10.00]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[$0.00] matched with [$0.00]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //p[text()='Total:']/parent::div/following-sibling::div/p found.]]>
+            </line>
+            <line>
+              <![CDATA[[287.98] matched with [287.98]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: (//button[@class='primary-checkout-btn next-page btn-checkout cymax-click-event col-xs-12'])[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testShippingInformation -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.ShippingInformation -->
+      <class name="com.qualitesoft.homesquare.testscripts.EmailVerification">
+        <test-method status="PASS" signature="testEmailVerification()[pri:0, instance:com.qualitesoft.homesquare.testscripts.EmailVerification@4a87761d]" name="testEmailVerification" duration-ms="12" started-at="2021-07-08T06:53:06Z" finished-at="2021-07-08T06:53:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEmailVerification -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.EmailVerification -->
+      <class name="com.qualitesoft.homesquare.testscripts.SignIn">
+        <test-method status="PASS" signature="testSignIn()[pri:0, instance:com.qualitesoft.homesquare.testscripts.SignIn@6a1aab78]" name="testSignIn" duration-ms="48" started-at="2021-07-08T06:50:52Z" finished-at="2021-07-08T06:50:52Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element (By.xpath: //a[@href='#loginFormDiv']) not found.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testSignIn -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.SignIn -->
+      <class name="com.qualitesoft.homesquare.testscripts.OrderConfirmation">
+        <test-method status="PASS" signature="testOrderConfirmation()[pri:0, instance:com.qualitesoft.homesquare.testscripts.OrderConfirmation@757942a1]" name="testOrderConfirmation" duration-ms="52703" started-at="2021-07-08T06:52:14Z" finished-at="2021-07-08T06:53:06Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element (By.xpath: //div[@alt='Close']) not found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[277.98] matched with [277.98]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[$10.00] matched with [$10.00]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[$0.00] matched with [$0.00]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //p[text()='Total:']/parent::div/following-sibling::div/p found.]]>
+            </line>
+            <line>
+              <![CDATA[[287.98] matched with [287.98]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[@class='row']//div[@class='col-sm-8']//div[@class='row confirmation-message cymax-load-event']//div[@class='col-sm-6']//p[@class='order-number']//bold found.]]>
+            </line>
+            <line>
+              <![CDATA[Order Id on Order Confirmation page: VRC121-19141073]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //img[@id='cymaxLogo'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //*[@id="my-account-btn"] found.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot HomePage successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //a[@href='/MyAccount/Default.aspx?ti=0'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@id='tcAccount_tp0_orderList_List_row_0']/td[1]/a found.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot OrderOnMyAccount successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Order Id on My Account page: VRC121-19141073]]>
+            </line>
+            <line>
+              <![CDATA[Order Id matched on Order confirmation and My Account page]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testOrderConfirmation -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.OrderConfirmation -->
+      <class name="com.qualitesoft.homesquare.testscripts.TestHomeSquareAddItemsToCart">
+        <test-method status="PASS" signature="testAddItemsToCart()[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareAddItemsToCart@74ad1f1f]" name="testAddItemsToCart" duration-ms="63531" started-at="2021-07-08T06:49:48Z" finished-at="2021-07-08T06:50:52Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@href='/kitchen-dining--PC588.htm'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@href='/dining-chairs--C635.htm'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: (//img[@class='product-item-img'])[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot Product list Page successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //h3[@itemprop='price'] found.]]>
+            </line>
+            <line>
+              <![CDATA[**************************************************Product Price : 138.99]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //select[@class='form-control qty cb-qty'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot Product page1 successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Value from the dropdown selected: Quantity: 2]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@data-eventmessage='Add To Cart'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot CartPage successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: (//a[@class='proceed-to-checkout-btn next-page cymax-click-event cymax-click-event']) found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testAddItemsToCart -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.TestHomeSquareAddItemsToCart -->
+      <class name="com.qualitesoft.homesquare.testscripts.PaymentInformation">
+        <test-method status="PASS" signature="testPurchaseOrder()[pri:0, instance:com.qualitesoft.homesquare.testscripts.PaymentInformation@69b0fd6f]" name="testPurchaseOrder" duration-ms="44600" started-at="2021-07-08T06:51:29Z" finished-at="2021-07-08T06:52:14Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@value='purchaseorder'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[@class='cart-box-buttons margin-top-20 row']/descendant::button[@title='Place order'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testPurchaseOrder -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.PaymentInformation -->
+      <class name="com.qualitesoft.homesquare.testscripts.TestHomeSquareCreateNewAccount">
+        <test-method status="PASS" signature="initialize(org.testng.ITestContext)[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareCreateNewAccount@491cc5c9]" name="initialize" is-config="true" duration-ms="1013" started-at="2021-07-08T06:49:32Z" finished-at="2021-07-08T06:49:33Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@7c041b41]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[*****************************Checkout via Purchase Order - New User started.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testshippinginfo()[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareCreateNewAccount@491cc5c9]" name="testshippinginfo" duration-ms="14920" started-at="2021-07-08T06:49:34Z" finished-at="2021-07-08T06:49:48Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //*[@id="my-account-btn"] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //a[@class='btn btn-secondary negative width-100-pct'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@placeholder='First Name'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot CreateAccountPage successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@placeholder='Last Name'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@id='signup-modal-email'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@id='signup-modal-password'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@id='signup-modal-pwconfirm'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot CreateAccountPageFilled successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //*[@id="btn-create-account-submit"] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testshippinginfo -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.TestHomeSquareCreateNewAccount -->
+      <class name="com.qualitesoft.homesquare.testscripts.LogOff">
+        <test-method status="PASS" signature="testLogOff()[pri:0, instance:com.qualitesoft.homesquare.testscripts.LogOff@66d1af89]" name="testLogOff" duration-ms="13203" started-at="2021-07-08T06:53:06Z" finished-at="2021-07-08T06:53:19Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //*[@id="my-account-btn"] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //a[@id='btn-logout'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot LogOffPage successfully taken.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testLogOff -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.LogOff -->
+    </test> <!-- Checkout via Purchase Order - New User -->
+    <test name="Checkout via Paypal - Existing User" duration-ms="330041" started-at="2021-07-08T06:53:20Z" finished-at="2021-07-08T06:58:50Z">
+      <class name="com.qualitesoft.homesquare.testscripts.ShippingInformation">
+        <test-method status="PASS" signature="testShippingInformation()[pri:0, instance:com.qualitesoft.homesquare.testscripts.ShippingInformation@7cbd213e]" name="testShippingInformation" duration-ms="41558" started-at="2021-07-08T06:54:24Z" finished-at="2021-07-08T06:55:06Z">
+          <reporter-output>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[277.98] matched with [277.98]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[TBD] matched with [TBD]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[$10.00] matched with [$10.00]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='first-name'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='last-name'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='address-1'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='address-2'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='zipcode'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='city'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //select[@id='ddlCountry'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Value from the dropdown selected: United States]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //select[@id='ddlState'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Value from the dropdown selected: Alabama]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='phone'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[value from the dropdown selected: Education]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //textarea[@class='form-control no-resize'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot shipping info successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: (//button[@class='primary-checkout-btn next-page btn-checkout cymax-click-event col-xs-12'])[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[277.98] matched with [277.98]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[$10.00] matched with [$10.00]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[$0.00] matched with [$0.00]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //p[text()='Total:']/parent::div/following-sibling::div/p found.]]>
+            </line>
+            <line>
+              <![CDATA[[287.98] matched with [287.98]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: (//button[@class='primary-checkout-btn next-page btn-checkout cymax-click-event col-xs-12'])[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testShippingInformation -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.ShippingInformation -->
+      <class name="com.qualitesoft.homesquare.testscripts.SignIn">
+        <test-method status="PASS" signature="testHomeSquareSignIn()[pri:0, instance:com.qualitesoft.homesquare.testscripts.SignIn@52f759d7]" name="testHomeSquareSignIn" duration-ms="4592" started-at="2021-07-08T06:54:20Z" finished-at="2021-07-08T06:54:24Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //a[@href='#loginFormDiv'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.id: txtExistingEmailAddress found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.id: txtPassword found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot login information entered successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.id: btnHaveAnAccount found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[login successfully.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testHomeSquareSignIn -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.SignIn -->
+      <class name="com.qualitesoft.homesquare.testscripts.OrderConfirmation">
+        <test-method status="PASS" signature="testOrderConfirmation()[pri:0, instance:com.qualitesoft.homesquare.testscripts.OrderConfirmation@3ecd23d9]" name="testOrderConfirmation" duration-ms="54609" started-at="2021-07-08T06:57:43Z" finished-at="2021-07-08T06:58:38Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element (By.xpath: //div[@alt='Close']) not found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[277.98] matched with [277.98]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[$10.00] matched with [$10.00]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[[$0.00] matched with [$0.00]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //p[text()='Total:']/parent::div/following-sibling::div/p found.]]>
+            </line>
+            <line>
+              <![CDATA[[287.98] matched with [287.98]]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[@class='row']//div[@class='col-sm-8']//div[@class='row confirmation-message cymax-load-event']//div[@class='col-sm-6']//p[@class='order-number']//bold found.]]>
+            </line>
+            <line>
+              <![CDATA[Order Id on Order Confirmation page: VRC121-19141074]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //img[@id='cymaxLogo'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //*[@id="my-account-btn"] found.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot HomePage successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //a[@href='/MyAccount/Default.aspx?ti=0'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@id='tcAccount_tp0_orderList_List_row_0']/td[1]/a found.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot OrderOnMyAccount successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Order Id on My Account page: VRC121-19141074]]>
+            </line>
+            <line>
+              <![CDATA[Order Id matched on Order confirmation and My Account page]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testOrderConfirmation -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.OrderConfirmation -->
+      <class name="com.qualitesoft.homesquare.testscripts.TestHomeSquareAddItemsToCart">
+        <test-method status="PASS" signature="initialize(org.testng.ITestContext)[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareAddItemsToCart@42eca56e]" name="initialize" is-config="true" duration-ms="1183" started-at="2021-07-08T06:53:20Z" finished-at="2021-07-08T06:53:21Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@7f69d591]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[*****************************Checkout via Paypal - Existing User started.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testAddItemsToCart()[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareAddItemsToCart@42eca56e]" name="testAddItemsToCart" duration-ms="58830" started-at="2021-07-08T06:53:21Z" finished-at="2021-07-08T06:54:20Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@href='/kitchen-dining--PC588.htm'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@href='/dining-chairs--C635.htm'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: (//img[@class='product-item-img'])[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot Product list Page successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //h3[@itemprop='price'] found.]]>
+            </line>
+            <line>
+              <![CDATA[**************************************************Product Price : 138.99]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //select[@class='form-control qty cb-qty'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot Product page1 successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Value from the dropdown selected: Quantity: 2]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@data-eventmessage='Add To Cart'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot CartPage successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: (//a[@class='proceed-to-checkout-btn next-page cymax-click-event cymax-click-event']) found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testAddItemsToCart -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.TestHomeSquareAddItemsToCart -->
+      <class name="com.qualitesoft.homesquare.testscripts.PaymentInformation">
+        <test-method status="PASS" signature="testPaypal()[pri:0, instance:com.qualitesoft.homesquare.testscripts.PaymentInformation@192d3247]" name="testPaypal" duration-ms="157405" started-at="2021-07-08T06:55:06Z" finished-at="2021-07-08T06:57:43Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@value='paypal'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[contains(@id,'zoid-paypal-buttons')] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Switch to Window Title: PayPal Checkout]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.linkText: Log In found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.id: email found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.id: btnNext found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.id: password found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.id: btnLogin found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //span[contains(text(),'Change')]//parent::button found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //span[contains(text(),'Change')]//parent::button found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //span[@data-testid='ship-to-not-allowed-content'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.id: payment-submit-btn found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Test]]>
+            </line>
+            <line>
+              <![CDATA[Switch to Window Title: ]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testPaypal -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.PaymentInformation -->
+      <class name="com.qualitesoft.homesquare.testscripts.LogOff">
+        <test-method status="PASS" signature="testLogOff()[pri:0, instance:com.qualitesoft.homesquare.testscripts.LogOff@569cfc36]" name="testLogOff" duration-ms="11842" started-at="2021-07-08T06:58:38Z" finished-at="2021-07-08T06:58:50Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //*[@id="my-account-btn"] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //a[@id='btn-logout'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot LogOffPage successfully taken.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testLogOff -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.LogOff -->
+    </test> <!-- Checkout via Paypal - Existing User -->
+    <test name="Checkout via Amazon - As Guest with Free Shipping" duration-ms="181716" started-at="2021-07-08T06:58:50Z" finished-at="2021-07-08T07:01:51Z">
+      <class name="com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff">
+        <test-method status="FAIL" signature="testLogOff()[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff@51c8530f]" name="testLogOff" duration-ms="31314" started-at="2021-07-08T07:01:20Z" finished-at="2021-07-08T07:01:51Z">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Timed out after 30 seconds waiting for presence of element located by: By.xpath: //a[@href='/Portal/Account/Logout.aspx']
+Build info: version: '2.52.0', revision: '4c2593c', time: '2016-02-11 19:06:42'
+System info: host: 'DESKTOP-H4389BG', ip: '10.50.0.244', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73), userDataDir=C:\Users\ACER\AppData\Local\Temp\scoped_dir7012_9099}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=91.0.4472.124, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=false, acceptInsecureCerts=false, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=}]
+Session ID: 0007c9794e6ec7db994cb86c228bcff2]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Timed out after 30 seconds waiting for presence of element located by: By.xpath: //a[@href='/Portal/Account/Logout.aspx']
+Build info: version: '2.52.0', revision: '4c2593c', time: '2016-02-11 19:06:42'
+System info: host: 'DESKTOP-H4389BG', ip: '10.50.0.244', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73), userDataDir=C:\Users\ACER\AppData\Local\Temp\scoped_dir7012_9099}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=91.0.4472.124, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=false, acceptInsecureCerts=false, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=}]
+Session ID: 0007c9794e6ec7db994cb86c228bcff2
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+at com.qualitesoft.core.WaitTool.waitForElementPresentAndDisplay(WaitTool.java:19)
+at com.qualitesoft.homesquare.pageobjects.HomeSquareMyAccountPage.HomeSqlogoLoggOff(HomeSquareMyAccountPage.java:91)
+at com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff.testLogOff(TestHomeSquareLogOff.java:29)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//a[@href='/Portal/Account/Logout.aspx']"}
+  (Session info: chrome=91.0.4472.124)
+  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.19042 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 40 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.52.0', revision: '4c2593c', time: '2016-02-11 19:06:42'
+System info: host: 'DESKTOP-H4389BG', ip: '10.50.0.244', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73), userDataDir=C:\Users\ACER\AppData\Local\Temp\scoped_dir7012_9099}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=91.0.4472.124, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=false, acceptInsecureCerts=false, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=}]
+Session ID: 0007c9794e6ec7db994cb86c228bcff2
+*** Element info: {Using=xpath, value=//a[@href='/Portal/Account/Logout.aspx']}
+at sun.reflect.GeneratedConstructorAccessor22.newInstance(Unknown Source)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:911)
+at org.openqa.selenium.support.ui.ExpectedConditions.access$0(ExpectedConditions.java:909)
+at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:181)
+at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:1)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+... 28 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //*[@id="my-account-btn"] found.]]>
+            </line>
+            <line>
+              <![CDATA[not able to find element by (By.xpath: //a[@href='/Portal/Account/Logout.aspx']) in '30' seconds]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testLogOff -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff -->
+      <class name="com.qualitesoft.homesquare.testscripts.AmazonLogin">
+        <test-method status="PASS" signature="testAmazonLoginAsGuest()[pri:0, instance:com.qualitesoft.homesquare.testscripts.AmazonLogin@1d371b2d]" name="testAmazonLoginAsGuest" duration-ms="39053" started-at="2021-07-08T06:59:58Z" finished-at="2021-07-08T07:00:37Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: (//a[@class='proceed-to-checkout-btn next-page cymax-click-event cymax-click-event']) found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.id: AmazonPayButton found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Switch to Window Title: Amazon Sign in using our secure server]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@id='ap_email'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@id='ap_password'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot Amazon login information entered successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@id='signInSubmit'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[login successfully.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //span[@id='a-autoid-0']//input[@class='a-button-input'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Switch to Window Title: ]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testAmazonLoginAsGuest -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.AmazonLogin -->
+      <class name="com.qualitesoft.homesquare.testscripts.AmazonOrderConfirmation">
+        <test-method status="PASS" signature="testOrderConfirmation()[pri:0, instance:com.qualitesoft.homesquare.testscripts.AmazonOrderConfirmation@13eb8acf]" name="testOrderConfirmation" duration-ms="38627" started-at="2021-07-08T07:00:41Z" finished-at="2021-07-08T07:01:20Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[@class='row']//div[@class='col-sm-8']//div[@class='row confirmation-message cymax-load-event']//div[@class='col-sm-6']//p[@class='order-number']//bold found.]]>
+            </line>
+            <line>
+              <![CDATA[Order Id on Order Confirmation page: VRC121-19141075]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //img[@id='cymaxLogo'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testOrderConfirmation -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.AmazonOrderConfirmation -->
+      <class name="com.qualitesoft.homesquare.testscripts.AddToCart">
+        <test-method status="PASS" signature="initialize(org.testng.ITestContext)[pri:0, instance:com.qualitesoft.homesquare.testscripts.AddToCart@4e718207]" name="initialize" is-config="true" duration-ms="1061" started-at="2021-07-08T06:58:50Z" finished-at="2021-07-08T06:58:51Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@403132fc]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[*****************************Checkout via Amazon - As Guest with Free Shipping started.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="addToCart()[pri:0, instance:com.qualitesoft.homesquare.testscripts.AddToCart@4e718207]" name="addToCart" duration-ms="66883" started-at="2021-07-08T06:58:51Z" finished-at="2021-07-08T06:59:58Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@href='/kitchen-dining--PC588.htm'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@href='/dining-chairs--C635.htm'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot Beds category page successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='Search'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //button[@id='btn-top-search'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element (By.xpath: (//div[contains(@id,'pop-section')]//a)[1]) not found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //*[@id='productListDiv']/div[1]/div/div/a/img found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //h3[@itemprop='price'] found.]]>
+            </line>
+            <line>
+              <![CDATA[**************************************************Product Price : 1439.99]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot Product detail page successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //select[@class='form-control qty cb-qty'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@data-eventmessage='Add To Cart'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot CartPage successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- addToCart -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.AddToCart -->
+      <class name="com.qualitesoft.homesquare.testscripts.PaymentInformation">
+        <test-method status="PASS" signature="testPaymentInformation()[pri:0, instance:com.qualitesoft.homesquare.testscripts.PaymentInformation@543c6f6d]" name="testPaymentInformation" duration-ms="4615" started-at="2021-07-08T07:00:37Z" finished-at="2021-07-08T07:00:41Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: (//button[@class='primary-checkout-btn next-page btn-checkout cymax-click-event col-xs-12'])[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testPaymentInformation -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.PaymentInformation -->
+    </test> <!-- Checkout via Amazon - As Guest with Free Shipping -->
+    <test name="Checkout via Amazon - As Existing User With Shipping" duration-ms="234482" started-at="2021-07-08T07:01:51Z" finished-at="2021-07-08T07:05:46Z">
+      <class name="com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff">
+        <test-method status="FAIL" signature="testLogOff()[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff@78ac1102]" name="testLogOff" duration-ms="30654" started-at="2021-07-08T07:05:15Z" finished-at="2021-07-08T07:05:46Z">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Timed out after 30 seconds waiting for presence of element located by: By.xpath: //a[@href='/Portal/Account/Logout.aspx']
+Build info: version: '2.52.0', revision: '4c2593c', time: '2016-02-11 19:06:42'
+System info: host: 'DESKTOP-H4389BG', ip: '10.50.0.244', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73), userDataDir=C:\Users\ACER\AppData\Local\Temp\scoped_dir7012_9099}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=91.0.4472.124, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=false, acceptInsecureCerts=false, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=}]
+Session ID: 0007c9794e6ec7db994cb86c228bcff2]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Timed out after 30 seconds waiting for presence of element located by: By.xpath: //a[@href='/Portal/Account/Logout.aspx']
+Build info: version: '2.52.0', revision: '4c2593c', time: '2016-02-11 19:06:42'
+System info: host: 'DESKTOP-H4389BG', ip: '10.50.0.244', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73), userDataDir=C:\Users\ACER\AppData\Local\Temp\scoped_dir7012_9099}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=91.0.4472.124, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=false, acceptInsecureCerts=false, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=}]
+Session ID: 0007c9794e6ec7db994cb86c228bcff2
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+at com.qualitesoft.core.WaitTool.waitForElementPresentAndDisplay(WaitTool.java:19)
+at com.qualitesoft.homesquare.pageobjects.HomeSquareMyAccountPage.HomeSqlogoLoggOff(HomeSquareMyAccountPage.java:91)
+at com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff.testLogOff(TestHomeSquareLogOff.java:29)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//a[@href='/Portal/Account/Logout.aspx']"}
+  (Session info: chrome=91.0.4472.124)
+  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.19042 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 37 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.52.0', revision: '4c2593c', time: '2016-02-11 19:06:42'
+System info: host: 'DESKTOP-H4389BG', ip: '10.50.0.244', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73), userDataDir=C:\Users\ACER\AppData\Local\Temp\scoped_dir7012_9099}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=91.0.4472.124, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=false, acceptInsecureCerts=false, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=}]
+Session ID: 0007c9794e6ec7db994cb86c228bcff2
+*** Element info: {Using=xpath, value=//a[@href='/Portal/Account/Logout.aspx']}
+at sun.reflect.GeneratedConstructorAccessor22.newInstance(Unknown Source)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:911)
+at org.openqa.selenium.support.ui.ExpectedConditions.access$0(ExpectedConditions.java:909)
+at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:181)
+at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:1)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+... 28 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //*[@id="my-account-btn"] found.]]>
+            </line>
+            <line>
+              <![CDATA[not able to find element by (By.xpath: //a[@href='/Portal/Account/Logout.aspx']) in '30' seconds]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testLogOff -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff -->
+      <class name="com.qualitesoft.homesquare.testscripts.AmazonLogin">
+        <test-method status="PASS" signature="testAmazonLoginOnCartPage()[pri:0, instance:com.qualitesoft.homesquare.testscripts.AmazonLogin@22eeefeb]" name="testAmazonLoginOnCartPage" duration-ms="85642" started-at="2021-07-08T07:03:08Z" finished-at="2021-07-08T07:04:34Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.id: AmazonPayButton found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Switch to Window Title: Amazon Pay Checkout]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@id='ap_email'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@id='ap_password'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot Amazon login information entered successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@id='signInSubmit'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[login successfully.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //span[@id='a-autoid-0']//input[@class='a-button-input'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Switch to Window Title: ]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testAmazonLoginOnCartPage -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.AmazonLogin -->
+      <class name="com.qualitesoft.homesquare.testscripts.AmazonOrderConfirmation">
+        <test-method status="PASS" signature="testOrderConfirmation()[pri:0, instance:com.qualitesoft.homesquare.testscripts.AmazonOrderConfirmation@3891771e]" name="testOrderConfirmation" duration-ms="36990" started-at="2021-07-08T07:04:38Z" finished-at="2021-07-08T07:05:15Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[@class='row']//div[@class='col-sm-8']//div[@class='row confirmation-message cymax-load-event']//div[@class='col-sm-6']//p[@class='order-number']//bold found.]]>
+            </line>
+            <line>
+              <![CDATA[Order Id on Order Confirmation page: VRC121-19141076]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //img[@id='cymaxLogo'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testOrderConfirmation -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.AmazonOrderConfirmation -->
+      <class name="com.qualitesoft.homesquare.testscripts.AddToCart">
+        <test-method status="PASS" signature="initialize(org.testng.ITestContext)[pri:0, instance:com.qualitesoft.homesquare.testscripts.AddToCart@289d1c02]" name="initialize" is-config="true" duration-ms="1044" started-at="2021-07-08T07:01:51Z" finished-at="2021-07-08T07:01:53Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@71c5b236]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[*****************************Checkout via Amazon - As Existing User With Shipping started.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="addToCart()[pri:0, instance:com.qualitesoft.homesquare.testscripts.AddToCart@289d1c02]" name="addToCart" duration-ms="69537" started-at="2021-07-08T07:01:53Z" finished-at="2021-07-08T07:03:02Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@href='/kitchen-dining--PC588.htm'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@href='/dining-chairs--C635.htm'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot Beds category page successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='Search'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //button[@id='btn-top-search'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element (By.xpath: (//div[contains(@id,'pop-section')]//a)[1]) not found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //*[@id='productListDiv']/div[1]/div/div/a/img found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //h3[@itemprop='price'] found.]]>
+            </line>
+            <line>
+              <![CDATA[**************************************************Product Price : 1439.99]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot Product detail page successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //select[@class='form-control qty cb-qty'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@data-eventmessage='Add To Cart'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot CartPage successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- addToCart -->
+        <test-method status="PASS" signature="paidShipping()[pri:0, instance:com.qualitesoft.homesquare.testscripts.AddToCart@289d1c02]" name="paidShipping" duration-ms="6348" started-at="2021-07-08T07:03:02Z" finished-at="2021-07-08T07:03:08Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@value='2' and @class='shipping-radio'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- paidShipping -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.AddToCart -->
+      <class name="com.qualitesoft.homesquare.testscripts.PaymentInformation">
+        <test-method status="PASS" signature="testPaymentInformation()[pri:0, instance:com.qualitesoft.homesquare.testscripts.PaymentInformation@17d0685f]" name="testPaymentInformation" duration-ms="4246" started-at="2021-07-08T07:04:34Z" finished-at="2021-07-08T07:04:38Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Tax: ']/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: (//button[@class='primary-checkout-btn next-page btn-checkout cymax-click-event col-xs-12'])[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testPaymentInformation -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.PaymentInformation -->
+    </test> <!-- Checkout via Amazon - As Existing User With Shipping -->
+    <test name="Test Create New Account" duration-ms="21212" started-at="2021-07-08T07:05:46Z" finished-at="2021-07-08T07:06:07Z">
+      <class name="com.qualitesoft.homesquare.testscripts.TestHomeSquareCreateNewAccount">
+        <test-method status="PASS" signature="initialize(org.testng.ITestContext)[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareCreateNewAccount@18bf3d14]" name="initialize" is-config="true" duration-ms="1053" started-at="2021-07-08T07:05:46Z" finished-at="2021-07-08T07:05:47Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@2cab9998]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[*****************************Test Create New Account started.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testshippinginfo()[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareCreateNewAccount@18bf3d14]" name="testshippinginfo" duration-ms="20153" started-at="2021-07-08T07:05:47Z" finished-at="2021-07-08T07:06:07Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //*[@id="my-account-btn"] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //a[@class='btn btn-secondary negative width-100-pct'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@placeholder='First Name'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot CreateAccountPage successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@placeholder='Last Name'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@id='signup-modal-email'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@id='signup-modal-password'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@id='signup-modal-pwconfirm'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot CreateAccountPageFilled successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //*[@id="btn-create-account-submit"] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testshippinginfo -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.TestHomeSquareCreateNewAccount -->
+    </test> <!-- Test Create New Account -->
+    <test name="Product List Refinement" duration-ms="94460" started-at="2021-07-08T07:06:07Z" finished-at="2021-07-08T07:07:42Z">
+      <class name="com.qualitesoft.homesquare.testscripts.TestHomeSquareProductListingRefinement">
+        <test-method status="PASS" signature="initialize(org.testng.ITestContext)[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareProductListingRefinement@7276c8cd]" name="initialize" is-config="true" duration-ms="1141" started-at="2021-07-08T07:06:07Z" finished-at="2021-07-08T07:06:08Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@2f7a7219]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[*****************************Product List Refinement started.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testProductListingRefinement()[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareProductListingRefinement@7276c8cd]" name="testProductListingRefinement" duration-ms="93314" started-at="2021-07-08T07:06:08Z" finished-at="2021-07-08T07:07:42Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@href='/kitchen-dining--PC588.htm'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@href='/dining-chairs--C635.htm'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //select[@id='filter-dropdown'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Value from the dropdown selected: Lowest Price]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot Lowest Price successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //select[@id='filter-dropdown'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Value from the dropdown selected: Highest Price]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot Highest Price successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //*[@id='list'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //*[@id='grid'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot listview successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot gridview successfully taken.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testProductListingRefinement -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.TestHomeSquareProductListingRefinement -->
+    </test> <!-- Product List Refinement -->
+    <test name="Test Add Items to Cart" duration-ms="49274" started-at="2021-07-08T07:07:42Z" finished-at="2021-07-08T07:08:31Z">
+      <class name="com.qualitesoft.homesquare.testscripts.TestHomeSquareAddItemsToCart">
+        <test-method status="PASS" signature="initialize(org.testng.ITestContext)[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareAddItemsToCart@1786f9d5]" name="initialize" is-config="true" duration-ms="1019" started-at="2021-07-08T07:07:42Z" finished-at="2021-07-08T07:07:43Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@669513d8]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[*****************************Test Add Items to Cart started.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="FAIL" signature="testAddItemsToCart()[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareAddItemsToCart@1786f9d5]" name="testAddItemsToCart" duration-ms="48252" started-at="2021-07-08T07:07:43Z" finished-at="2021-07-08T07:08:31Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [Free] but found [$10.00]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [Free] but found [$10.00]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+at org.testng.Assert.assertEquals(Assert.java:118)
+at org.testng.Assert.assertEquals(Assert.java:453)
+at org.testng.Assert.assertEquals(Assert.java:463)
+at com.qualitesoft.homesquare.testscripts.TestHomeSquareAddItemsToCart.testAddItemsToCart(TestHomeSquareAddItemsToCart.java:50)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@href='/kitchen-dining--PC588.htm'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@href='/dining-chairs--C635.htm'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: (//img[@class='product-item-img'])[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot Product list Page successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //h3[@itemprop='price'] found.]]>
+            </line>
+            <line>
+              <![CDATA[**************************************************Product Price : 138.99]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //select[@class='form-control qty cb-qty'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot Product page1 successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Value from the dropdown selected: Quantity: 2]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@data-eventmessage='Add To Cart'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot CartPage successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[contains(text(),'Product Total')]/following-sibling::div[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //div[text()='Shipping']/following-sibling::div[1] found.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testAddItemsToCart -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.TestHomeSquareAddItemsToCart -->
+    </test> <!-- Test Add Items to Cart -->
+    <test name="EnhancedCart Product" duration-ms="79207" started-at="2021-07-08T07:08:31Z" finished-at="2021-07-08T07:09:50Z">
+      <class name="com.qualitesoft.homesquare.testscripts.TestHomeSquareEnhancedCartPLA">
+        <test-method status="PASS" signature="initialize(org.testng.ITestContext)[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareEnhancedCartPLA@10a035a0]" name="initialize" is-config="true" duration-ms="1107" started-at="2021-07-08T07:08:31Z" finished-at="2021-07-08T07:08:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@3a1d593e]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[*****************************EnhancedCart Product started.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testEnhancedCartPLA()[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareEnhancedCartPLA@10a035a0]" name="testEnhancedCartPLA" duration-ms="78094" started-at="2021-07-08T07:08:32Z" finished-at="2021-07-08T07:09:50Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@class='btn-continue-shopping'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot Product page successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Current URL: https://qa.homesquare.com/Baxton-Studio-Longford-Dark-Walnut-Wood-and-Black-Metal-Vintage-Industrial-Dining-Arm-Chair-CDC271-DA2-BBXX.htm]]>
+            </line>
+            <line>
+              <![CDATA[https://qa.homesquare.com/Baxton-Studio-Longford-Dark-Walnut-Wood-and-Black-Metal-Vintage-Industrial-Dining-Arm-Chair-CDC271-DA2-BBXX.htm?src=PLA]]>
+            </line>
+            <line>
+              <![CDATA[URL opened: https://qa.homesquare.com/Baxton-Studio-Longford-Dark-Walnut-Wood-and-Black-Metal-Vintage-Industrial-Dining-Arm-Chair-CDC271-DA2-BBXX.htm?src=PLA]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot PLA-Productpage successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //a[@class='btn btn-add-to-cart'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@data-eventmessage='Add To Cart'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot AddToCartPage successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: (.//*[@class='cart-remove-link cymax-click-event' or @data-eventmessage='Delete Cartrow'])[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot ProductRemoved successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: (.//*[@class='cart-quantity']) found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: (.//*[@class='cart-update-link cymax-click-event' or @data-eventmessage='Update Cartrow']) found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot QuantityUpdated successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: (//a[@class='proceed-to-checkout-btn next-page cymax-click-event cymax-click-event']) found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testEnhancedCartPLA -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.TestHomeSquareEnhancedCartPLA -->
+    </test> <!-- EnhancedCart Product -->
+    <test name="Shipping Info" duration-ms="43829" started-at="2021-07-08T07:09:50Z" finished-at="2021-07-08T07:10:34Z">
+      <class name="com.qualitesoft.homesquare.testscripts.TestHomeSquareShippingInfo">
+        <test-method status="PASS" signature="initialize(org.testng.ITestContext)[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareShippingInfo@646007f4]" name="initialize" is-config="true" duration-ms="1087" started-at="2021-07-08T07:09:50Z" finished-at="2021-07-08T07:09:51Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@4a8a60bc]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[*****************************Shipping Info started.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testCreateNewAccount()[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareShippingInfo@646007f4]" name="testCreateNewAccount" duration-ms="42738" started-at="2021-07-08T07:09:51Z" finished-at="2021-07-08T07:10:34Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Screenshot CheckOut Page successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='first-name'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='last-name'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='address-1'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='address-2'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='zipcode'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='city'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //select[@id='ddlCountry'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Value from the dropdown selected: United States]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //select[@id='ddlState'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Value from the dropdown selected: Alabama]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //input[@name='phone'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //textarea[@class='form-control no-resize'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot shipping info successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: (//button[@class='primary-checkout-btn next-page btn-checkout cymax-click-event col-xs-12'])[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot review order successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: (//button[@class='primary-checkout-btn next-page btn-checkout cymax-click-event col-xs-12'])[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testCreateNewAccount -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.TestHomeSquareShippingInfo -->
+    </test> <!-- Shipping Info -->
+    <test name="Checkout Cart" duration-ms="6451" started-at="2021-07-08T07:10:34Z" finished-at="2021-07-08T07:10:41Z">
+      <class name="com.qualitesoft.homesquare.testscripts.TestHomeSquareCartPages">
+        <test-method status="PASS" signature="initialize(org.testng.ITestContext)[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareCartPages@4c762604]" name="initialize" is-config="true" duration-ms="1026" started-at="2021-07-08T07:10:34Z" finished-at="2021-07-08T07:10:35Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@361c294e]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[*****************************Checkout Cart started.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testCartPages()[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareCartPages@4c762604]" name="testCartPages" duration-ms="5421" started-at="2021-07-08T07:10:35Z" finished-at="2021-07-08T07:10:41Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@id='txtCreditCardNumber'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@id='ddlExpiryMonth'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Value from the dropdown selected: 01 (Jan)]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@id='ddlExpiryYear'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Value from the dropdown selected: 2023]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@id='txtSecurityCode'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@id='txtNameOnCard'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot CheckoutPageFilled successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: (//button[@class='primary-checkout-btn next-page btn-checkout cymax-click-event col-xs-12'])[1] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testCartPages -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.TestHomeSquareCartPages -->
+    </test> <!-- Checkout Cart -->
+    <test name="Order Confirmation" duration-ms="38150" started-at="2021-07-08T07:10:41Z" finished-at="2021-07-08T07:11:19Z">
+      <class name="com.qualitesoft.homesquare.testscripts.TestHomeSquareOrderConfirmation">
+        <test-method status="PASS" signature="initialize(org.testng.ITestContext)[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareOrderConfirmation@319b92f3]" name="initialize" is-config="true" duration-ms="1016" started-at="2021-07-08T07:10:41Z" finished-at="2021-07-08T07:10:42Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@7859e786]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[*****************************Order Confirmation started.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testOrderConfirmation()[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareOrderConfirmation@319b92f3]" name="testOrderConfirmation" duration-ms="37124" started-at="2021-07-08T07:10:42Z" finished-at="2021-07-08T07:11:19Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //div[@class='row']//div[@class='col-sm-8']//div[@class='row confirmation-message cymax-load-event']//div[@class='col-sm-6']//p[@class='order-number']//bold found.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot OrderConfirmationPage successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Order Id on Order Confirmation page: VRC121-19141077]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //img[@id='cymaxLogo'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //*[@id="my-account-btn"] found.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot HomePage successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //a[@href='/MyAccount/Default.aspx?ti=0'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: .//*[@id='tcAccount_tp0_orderList_List_row_0']/td[1]/a found.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot OrderOnMyAccount successfully taken.]]>
+            </line>
+            <line>
+              <![CDATA[Order Id on My Account page: VRC121-19141077]]>
+            </line>
+            <line>
+              <![CDATA[Order Id matched on Order confirmation and My Account page]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testOrderConfirmation -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.TestHomeSquareOrderConfirmation -->
+    </test> <!-- Order Confirmation -->
+    <test name="Search Product" duration-ms="133441" started-at="2021-07-08T07:11:19Z" finished-at="2021-07-08T07:13:32Z">
+      <class name="com.qualitesoft.homesquare.testscripts.TestHomeSquareSearchProduct">
+        <test-method status="PASS" signature="initialize(org.testng.ITestContext)[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareSearchProduct@5d11346a]" name="initialize" is-config="true" duration-ms="1109" started-at="2021-07-08T07:11:19Z" finished-at="2021-07-08T07:11:20Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@285d851a]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[*****************************Search Product started.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testSearchProduct(java.lang.String, java.lang.String)[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareSearchProduct@5d11346a]" name="testSearchProduct" duration-ms="29336" started-at="2021-07-08T07:11:20Z" data-provider="SearchProvider" finished-at="2021-07-08T07:11:49Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Product1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Sofas]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //input[contains(@name,'Search')] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //i[@class='pe-7s-search'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot Sofas successfully taken.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testSearchProduct -->
+        <test-method status="PASS" signature="testSearchProduct(java.lang.String, java.lang.String)[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareSearchProduct@5d11346a]" name="testSearchProduct" duration-ms="30286" started-at="2021-07-08T07:11:49Z" data-provider="SearchProvider" finished-at="2021-07-08T07:12:20Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Product2]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[wall clock]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //input[contains(@name,'Search')] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //i[@class='pe-7s-search'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot wall clock successfully taken.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testSearchProduct -->
+        <test-method status="PASS" signature="testSearchProduct(java.lang.String, java.lang.String)[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareSearchProduct@5d11346a]" name="testSearchProduct" duration-ms="21685" started-at="2021-07-08T07:12:20Z" data-provider="SearchProvider" finished-at="2021-07-08T07:12:41Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Product3]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[pillow]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //input[contains(@name,'Search')] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //i[@class='pe-7s-search'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot pillow successfully taken.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testSearchProduct -->
+        <test-method status="PASS" signature="testSearchProduct(java.lang.String, java.lang.String)[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareSearchProduct@5d11346a]" name="testSearchProduct" duration-ms="30020" started-at="2021-07-08T07:12:41Z" data-provider="SearchProvider" finished-at="2021-07-08T07:13:11Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Product4]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Canvas]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //input[contains(@name,'Search')] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //i[@class='pe-7s-search'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot Canvas successfully taken.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testSearchProduct -->
+        <test-method status="PASS" signature="testSearchProduct(java.lang.String, java.lang.String)[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareSearchProduct@5d11346a]" name="testSearchProduct" duration-ms="20976" started-at="2021-07-08T07:13:11Z" data-provider="SearchProvider" finished-at="2021-07-08T07:13:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Product5]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[367581]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //input[contains(@name,'Search')] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //i[@class='pe-7s-search'] found.]]>
+            </line>
+            <line>
+              <![CDATA[Text send.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot 367581 successfully taken.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testSearchProduct -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.TestHomeSquareSearchProduct -->
+    </test> <!-- Search Product -->
+    <test name="Log Out" duration-ms="13745" started-at="2021-07-08T07:13:32Z" finished-at="2021-07-08T07:13:46Z">
+      <class name="com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff">
+        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String)[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff@6fb0d3ed]" name="setUp" is-config="true" duration-ms="39076" started-at="2021-07-08T06:44:59Z" finished-at="2021-07-08T06:45:38Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[http://qa.homesquare.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[chrome browser launched successfully.]]>
+            </line>
+            <line>
+              <![CDATA[http://qa.homesquare.com/URL launched successfully.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="initialize(org.testng.ITestContext)[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff@6fb0d3ed]" name="initialize" is-config="true" duration-ms="1058" started-at="2021-07-08T07:13:32Z" finished-at="2021-07-08T07:13:33Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@314b8f2d]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[*****************************Log Out started.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method status="PASS" signature="testLogOff()[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff@6fb0d3ed]" name="testLogOff" duration-ms="12684" started-at="2021-07-08T07:13:33Z" finished-at="2021-07-08T07:13:46Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Element by By.xpath: //*[@id="my-account-btn"] found.]]>
+            </line>
+            <line>
+              <![CDATA[Element by By.xpath: //a[@href='/Portal/Account/Logout.aspx'] found.]]>
+            </line>
+            <line>
+              <![CDATA[WebElement clicked.]]>
+            </line>
+            <line>
+              <![CDATA[Screenshot LogOffPage successfully taken.]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testLogOff -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff@6fb0d3ed]" name="tearDown" is-config="true" duration-ms="4877" started-at="2021-07-08T07:13:46Z" finished-at="2021-07-08T07:13:51Z">
+          <reporter-output>
+            <line>
+              <![CDATA[******************Test Ended************************]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff -->
+    </test> <!-- Log Out -->
+  </suite> <!-- Homesquare Suite -->
+</testng-results>

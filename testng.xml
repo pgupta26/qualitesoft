@@ -10,6 +10,8 @@
 	</listeners>
 	
 	<suite-files> 
-		<suite-file path="xml-config-files//freightclub//freightclubsuite.xml" /> 
+		<!-- <suite-file path="xml-config-files//freightclub//freightclubsuite.xml" />  -->
+		<suite-file path="xml-config-files//homesquare//homesquaresuite.xml" /> 
+		
 	</suite-files>
 </suite>

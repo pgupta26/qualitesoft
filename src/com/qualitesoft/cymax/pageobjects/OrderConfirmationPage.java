@@ -27,7 +27,7 @@ public class OrderConfirmationPage {
 	}
 	
 	public void close() {
-		if(WaitTool.isElementPresentAndDisplay(driver, By.xpath("//div[@alt='Close']"))) {
+		if(WaitTool.isElementPresentAndDisplay(driver, By.xpath("//div[@alt='Close']")) == true) {
 			SeleniumFunction.click(driver.findElement(By.xpath("//div[@alt='Close']")));
 		}
 	}

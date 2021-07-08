@@ -59,7 +59,7 @@ public class OrderConfirmation extends InitializeTest {
 			ScreenShot.takeScreenShot(driver, "HomePage");
 			SeleniumFunction.click(myAccountLink);
 		}
-		
+			
 		WaitTool.sleep(5);
 		
 		MyAccountPage myAccountPage = new MyAccountPage(driver);

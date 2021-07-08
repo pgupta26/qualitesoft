@@ -6,7 +6,7 @@ import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.homesquare.pageobjects.BoardApprovalPage;
-import com.qualitesoft.homesquare.pageobjects.HomePage;
+import com.qualitesoft.homesquare.pageobjects.HomeSquareHomePage;
 
 public class TestLogoffAsAdmin extends InitializeTest{
 	
@@ -15,7 +15,7 @@ public class TestLogoffAsAdmin extends InitializeTest{
 		
 		BoardApprovalPage boardApprovalPage = new BoardApprovalPage(driver);
 		SeleniumFunction.click(boardApprovalPage.logoutButton());
-		HomePage homePage = new HomePage(driver);
+		HomeSquareHomePage homePage = new HomeSquareHomePage(driver);
 		homePage.emailSigninTextbox();
 		ScreenShot.takeScreenShot(driver, "LoginPage");
 	}

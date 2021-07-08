@@ -1,0 +1,79 @@
+package com.qualitesoft.homesquare.testscripts;
+
+import java.text.NumberFormat;
+import java.text.ParseException;
+
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import com.qualitesoft.core.InitializeTest;
+import com.qualitesoft.core.Log;
+import com.qualitesoft.core.ScreenShot;
+import com.qualitesoft.core.SeleniumFunction;
+import com.qualitesoft.core.UseAssert;
+import com.qualitesoft.core.WaitTool;
+import com.qualitesoft.homesquare.pageobjects.HomeSquareCartPage;
+import com.qualitesoft.homesquare.pageobjects.HomeSquareHomePage;
+import com.qualitesoft.homesquare.pageobjects.HomeSquareMyAccountPage;
+import com.qualitesoft.homesquare.pageobjects.HomeSquareOrderConfirmationPage;
+
+public class OrderConfirmation extends InitializeTest {
+
+	@Test
+	public void testOrderConfirmation() throws ParseException {
+
+		HomeSquareOrderConfirmationPage orderConfirmationPage = new HomeSquareOrderConfirmationPage(driver);
+		orderConfirmationPage.close();
+		WaitTool.sleep(2);
+		ScreenShot.takeFullScreenShot("OrderConfirmationPage");
+		HomeSquareCartPage cartPage = new HomeSquareCartPage(driver);
+		NumberFormat f = NumberFormat.getInstance(); 
+		if(suiteName.contains("Homesquare")) {
+			UseAssert.assertEquals(f.parse(cartPage.productPrice().replace("$", "")).doubleValue(), (productPrice * 2));
+		} else {
+			UseAssert.assertEquals(f.parse(cartPage.productPrice().replace("$", "")).doubleValue(), (productPrice * 2));
+		}
+		UseAssert.assertEquals(cartPage.shipping(), shipping);
+		UseAssert.assertEquals(cartPage.tax(), tax);
+		//Total Price Calculation
+		double totalPrice = (productPrice * 2) + f.parse(cartPage.shipping().replace("$", "")).doubleValue();
+		UseAssert.assertEquals(f.parse(cartPage.totalPrice().replace("$", "")).doubleValue(), totalPrice);		
+		WaitTool.sleep(15);
+
+		orderConfirmationPage.successMsg();
+		WebElement orderNumber = orderConfirmationPage.orderNumber();
+		String orderNumberString = SeleniumFunction.getText(orderNumber);
+		Log.info("Order Id on Order Confirmation page: " + orderNumberString);
+
+		SeleniumFunction.click(orderConfirmationPage.cymaxLogoImg());
+		HomeSquareHomePage homePage = new HomeSquareHomePage(driver);
+		if(suiteName.contains("Homesquare")) {
+			WebElement myAccountLink = homePage.HomeSqmyAccountLink();
+			ScreenShot.takeScreenShot(driver, "HomePage");
+			SeleniumFunction.click(myAccountLink);
+			SeleniumFunction.click(homePage.HomeSqmyOrder());
+
+		} else {
+			WebElement myAccountLink = homePage.HomeSqmyAccountLink();
+			ScreenShot.takeScreenShot(driver, "HomePage");
+			SeleniumFunction.click(myAccountLink);
+		}
+
+		WaitTool.sleep(5);
+
+		HomeSquareMyAccountPage myAccountPage = new HomeSquareMyAccountPage(driver);
+		WebElement orderId = myAccountPage.orderId();
+		ScreenShot.takeScreenShot(driver, "OrderOnMyAccount");
+		String orderIdString = SeleniumFunction.getText(orderId);
+		System.out.println("Orderid account :" + orderIdString);
+		Log.info("Order Id on My Account page: " + orderIdString);
+
+		if (orderNumberString.equalsIgnoreCase(orderIdString)) {
+			Log.info("Order Id matched on Order confirmation and My Account page");
+		} else {
+			Log.error("Order Id did not matched on Order confirmation and My Account page");
+			Assert.fail();
+		}
+	}
+}

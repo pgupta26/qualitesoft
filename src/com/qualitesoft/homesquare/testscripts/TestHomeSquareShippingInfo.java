@@ -8,14 +8,14 @@ import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
-import com.qualitesoft.homesquare.pageobjects.CartPage;
+import com.qualitesoft.homesquare.pageobjects.HomeSquareCartPage;
 
 public class TestHomeSquareShippingInfo extends InitializeTest {
 	@Test
 	public void testCreateNewAccount() {
 
 		WebDriver driver = getDriver(); 
-		CartPage cartPage = new CartPage(driver);
+		HomeSquareCartPage cartPage = new HomeSquareCartPage(driver);
 		//If user buy without login as a guest user
 /*		String Emailid=RandomStringUtils.randomAlphanumeric(3).toLowerCase();
 		 GuestEmailid ="test"+Emailid+"@g.com";

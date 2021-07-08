@@ -1,0 +1,2395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Freight Club Suite]">
+  <parameter name="browser" value="chrome"/>
+  <parameter name="project" value="Freight Club"/>
+  <parameter name="URL" value="https://qa.freightclub.com/"/>
+  <listeners>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    <listener class-name="com.qualitesoft.core.CustomTestListener"/>
+  </listeners>
+  <test thread-count="5" name="Test new user able to quote and sign up(failed)">
+    <parameter name="loginuser" value="new"/>
+    <parameter name="testData" value="FCFile.xlsx"/>
+    <parameter name="CarrierName" value="FC Test Carrier"/>
+    <parameter name="Row" value="5"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestLaunchQuickQuote">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testLaunchQuickQuote"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLaunchQuickQuote -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="testEnterShipmentInformation"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestPayment">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testPayment"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestPayment -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestCreateAccount">
+        <methods>
+          <include name="initialize"/>
+          <include name="testCreateAccount"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestCreateAccount -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+        <methods>
+          <include name="initialize"/>
+          <include name="testVerifySelectedCarriers"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSelectCarrier -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestShipmentInfo">
+        <methods>
+          <include name="initialize"/>
+          <include name="testShipmentInfo"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestShipmentInfo -->
+    </classes>
+  </test> <!-- Test new user able to quote and sign up(failed) -->
+  <test thread-count="5" name="Test manage green list and select onAccount payment method(failed)">
+    <parameter name="fcusername" value="freightclubinfo@gmail.com"/>
+    <parameter name="fcpassword" value="Welcome@1"/>
+    <parameter name="Row" value="NO"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageGreenlist">
+        <methods>
+          <include name="testManagegreenlist"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageGreenlist -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestNavigateTheWebsite">
+        <methods>
+          <include name="testNavigateTheWebsite"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestNavigateTheWebsite -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageProfiles">
+        <methods>
+          <include name="testManageProfiles"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageProfiles -->
+    </classes>
+  </test> <!-- Test manage green list and select onAccount payment method(failed) -->
+  <test thread-count="5" name="Test verify user is able to book and clone order - LTL-Search product (failed)">
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageProducts">
+        <methods>
+          <include name="initialize"/>
+          <include name="testManageProducts"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageProducts -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestOrderHistory">
+        <methods>
+          <include name="testOrderhistory"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestOrderHistory -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestCloneOrders">
+        <methods>
+          <include name="testCloneOrders"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestCloneOrders -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestGetQuote">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testGetQuote"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestGetQuote -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageFullOrders">
+        <methods>
+          <include name="initialize"/>
+          <include name="testManageFullOrders"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageFullOrders -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestBillofLading">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testBillofLading"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestBillofLading -->
+    </classes>
+  </test> <!-- Test verify user is able to book and clone order - LTL-Search product (failed) -->
+  <test thread-count="5" name="Test verify user is able to book and clone order - LTL-Standard pallet with added product(failed)">
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="3"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestOrderHistory">
+        <methods>
+          <include name="testOrderhistory"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestOrderHistory -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestCloneOrders">
+        <methods>
+          <include name="testCloneOrders"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestCloneOrders -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestGetQuote">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testGetQuote"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestGetQuote -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageFullOrders">
+        <methods>
+          <include name="initialize"/>
+          <include name="testManageFullOrders"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageFullOrders -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestBillofLading">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testBillofLading"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestBillofLading -->
+    </classes>
+  </test> <!-- Test verify user is able to book and clone order - LTL-Standard pallet with added product(failed) -->
+  <test thread-count="5" name="Test verify user is able to book and clone order - LTL-Non-Palletized(failed)">
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="4"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestOrderHistory">
+        <methods>
+          <include name="testOrderhistory"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestOrderHistory -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestCloneOrders">
+        <methods>
+          <include name="testCloneOrders"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestCloneOrders -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestGetQuote">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testGetQuote"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestGetQuote -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageFullOrders">
+        <methods>
+          <include name="initialize"/>
+          <include name="testManageFullOrders"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageFullOrders -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestBillofLading">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testBillofLading"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestBillofLading -->
+    </classes>
+  </test> <!-- Test verify user is able to book and clone order - LTL-Non-Palletized(failed) -->
+  <test thread-count="5" name="Test verify user is able to book and clone order - LTL with pallet and Non-Palletized(failed)">
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="5"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestOrderHistory">
+        <methods>
+          <include name="testOrderhistory"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestOrderHistory -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestCloneOrders">
+        <methods>
+          <include name="testCloneOrders"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestCloneOrders -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestGetQuote">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testGetQuote"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestGetQuote -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageFullOrders">
+        <methods>
+          <include name="initialize"/>
+          <include name="testManageFullOrders"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageFullOrders -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestBillofLading">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testBillofLading"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestBillofLading -->
+    </classes>
+  </test> <!-- Test verify user is able to book and clone order - LTL with pallet and Non-Palletized(failed) -->
+  <test thread-count="5" name="Test verify user is able to book and clone order - Parcel-USPS(failed)">
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="6"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestOrderHistory">
+        <methods>
+          <include name="testOrderhistory"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestOrderHistory -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestCloneOrders">
+        <methods>
+          <include name="testCloneOrders"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestCloneOrders -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestGetQuote">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testGetQuote"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestGetQuote -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageFullOrders">
+        <methods>
+          <include name="initialize"/>
+          <include name="testManageFullOrders"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageFullOrders -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestBillofLading">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testBillofLading"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestBillofLading -->
+    </classes>
+  </test> <!-- Test verify user is able to book and clone order - Parcel-USPS(failed) -->
+  <test thread-count="5" name="Test verify user is able to book and clone order - Parcel-Search product(failed)">
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="7"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageProducts">
+        <methods>
+          <include name="initialize"/>
+          <include name="testManageProducts"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageProducts -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestOrderHistory">
+        <methods>
+          <include name="testOrderhistory"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestOrderHistory -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestCloneOrders">
+        <methods>
+          <include name="testCloneOrders"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestCloneOrders -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestGetQuote">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testGetQuote"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestGetQuote -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageFullOrders">
+        <methods>
+          <include name="initialize"/>
+          <include name="testManageFullOrders"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageFullOrders -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestBillofLading">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testBillofLading"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestBillofLading -->
+    </classes>
+  </test> <!-- Test verify user is able to book and clone order - Parcel-Search product(failed) -->
+  <test thread-count="5" name="Test verify order is booked - Custom Pallet(failed)">
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="8"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestOrderHistory">
+        <methods>
+          <include name="testOrderhistory"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestOrderHistory -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestGetQuote">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testGetQuote"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestGetQuote -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageFullOrders">
+        <methods>
+          <include name="initialize"/>
+          <include name="testManageFullOrders"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageFullOrders -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestBillofLading">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testBillofLading"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestBillofLading -->
+    </classes>
+  </test> <!-- Test verify order is booked - Custom Pallet(failed) -->
+  <test thread-count="5" name="Test verify order is booked - Standard Pallet2(failed)">
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="9"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestOrderHistory">
+        <methods>
+          <include name="testOrderhistory"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestOrderHistory -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestGetQuote">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testGetQuote"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestGetQuote -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageFullOrders">
+        <methods>
+          <include name="initialize"/>
+          <include name="testManageFullOrders"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageFullOrders -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestBillofLading">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testBillofLading"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestBillofLading -->
+    </classes>
+  </test> <!-- Test verify order is booked - Standard Pallet2(failed) -->
+  <test thread-count="5" name="Test verify order is booked - Bagged or Unboxed Product(failed)">
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="10"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestOrderHistory">
+        <methods>
+          <include name="testOrderhistory"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestOrderHistory -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestGetQuote">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testGetQuote"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestGetQuote -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageFullOrders">
+        <methods>
+          <include name="initialize"/>
+          <include name="testManageFullOrders"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageFullOrders -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestBillofLading">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testBillofLading"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestBillofLading -->
+    </classes>
+  </test> <!-- Test verify order is booked - Bagged or Unboxed Product(failed) -->
+  <test thread-count="5" name="Test verify tracking status of order id&#039;s(failed)">
+    <parameter name="fcusername" value="freightclubinfo@gmail.com"/>
+    <parameter name="fcpassword" value="Welcome@1"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestTrackingStatus">
+        <methods>
+          <include name="testTrackingStatus"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestTrackingStatus -->
+    </classes>
+  </test> <!-- Test verify tracking status of order id's(failed) -->
+  <test thread-count="5" name="Test verify order is booked - Parcel - Cardboard Box - SurePost(failed)">
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="11"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageProducts">
+        <methods>
+          <include name="initialize"/>
+          <include name="testManageProducts"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageProducts -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestOrderHistory">
+        <methods>
+          <include name="testOrderhistory"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestOrderHistory -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestCloneOrders">
+        <methods>
+          <include name="testCloneOrders"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestCloneOrders -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestGetQuote">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testGetQuote"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestGetQuote -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageFullOrders">
+        <methods>
+          <include name="initialize"/>
+          <include name="testManageFullOrders"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageFullOrders -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestBillofLading">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testBillofLading"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestBillofLading -->
+    </classes>
+  </test> <!-- Test verify order is booked - Parcel - Cardboard Box - SurePost(failed) -->
+  <test thread-count="5" name="Test verify order is booked - Parcel - AddedProduct - SurePost(failed)">
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="12"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageProducts">
+        <methods>
+          <include name="initialize"/>
+          <include name="testManageProducts"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageProducts -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestOrderHistory">
+        <methods>
+          <include name="testOrderhistory"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestOrderHistory -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestCloneOrders">
+        <methods>
+          <include name="testCloneOrders"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestCloneOrders -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestGetQuote">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testGetQuote"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestGetQuote -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageFullOrders">
+        <methods>
+          <include name="initialize"/>
+          <include name="testManageFullOrders"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageFullOrders -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestBillofLading">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testBillofLading"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestBillofLading -->
+    </classes>
+  </test> <!-- Test verify order is booked - Parcel - AddedProduct - SurePost(failed) -->
+  <test thread-count="5" name="Test Enable Carrier and residential pickup and loose cartoon(failed)">
+    <parameter name="fcusername" value="freightclubinfo@gmail.com"/>
+    <parameter name="CarrierName" value="ABF Freight,Ceva,FC Test Carrier,Pilot Freight Services[Televisions],Werner"/>
+    <parameter name="fcpassword" value="Welcome@1"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestProfileManagement">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="testEnabletCarriers"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestProfileManagement -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageCarrier">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testEnableResidentialPickup"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageCarrier -->
+    </classes>
+  </test> <!-- Test Enable Carrier and residential pickup and loose cartoon(failed) -->
+  <test thread-count="5" name="Test Basic Threshold Not Visible When Residential to Commercial - ABF Freight(failed)">
+    <parameter name="loginuser" value="oldUser"/>
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="CarrierName" value="ABF Freight"/>
+    <parameter name="testData" value="QA_517.xlsx"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageOrders">
+        <methods>
+          <include name="testVerifyAppointmentFlagUnderBOLPdf"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageOrders -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterCompleteInformationDetail">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testEnterCompleteInformationDetail"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterCompleteInformationDetail -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestOrderDetails">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testBasicThreshold"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestOrderDetails -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestReviewAndBook">
+        <methods>
+          <include name="initialize"/>
+          <include name="testReviewAndBook"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestReviewAndBook -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="testEnterShipmentInformation"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+        <methods>
+          <include name="initialize"/>
+          <include name="testVerifySelectedCarriers"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSelectCarrier -->
+    </classes>
+  </test> <!-- Test Basic Threshold Not Visible When Residential to Commercial - ABF Freight(failed) -->
+  <test thread-count="5" name="Test Basic Threshold Not Visible When Residential to Commercial - Ceva(failed)">
+    <parameter name="loginuser" value="oldUser"/>
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="CarrierName" value="Ceva"/>
+    <parameter name="testData" value="QA_517.xlsx"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="3"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageOrders">
+        <methods>
+          <include name="testVerifyAppointmentFlagUnderBOLPdf"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageOrders -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterCompleteInformationDetail">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testEnterCompleteInformationDetail"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterCompleteInformationDetail -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestOrderDetails">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testBasicThreshold"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestOrderDetails -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestReviewAndBook">
+        <methods>
+          <include name="initialize"/>
+          <include name="testReviewAndBook"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestReviewAndBook -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="testEnterShipmentInformation"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+        <methods>
+          <include name="initialize"/>
+          <include name="testVerifySelectedCarriers"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSelectCarrier -->
+    </classes>
+  </test> <!-- Test Basic Threshold Not Visible When Residential to Commercial - Ceva(failed) -->
+  <test thread-count="5" name="Test Basic Threshold Visible When Commercial to Residential - ABF Freight(failed)">
+    <parameter name="loginuser" value="oldUser"/>
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="CarrierName" value="ABF Freight"/>
+    <parameter name="testData" value="QA_517.xlsx"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="5"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageOrders">
+        <methods>
+          <include name="testVerifyAppointmentFlagUnderBOLPdf"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageOrders -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterCompleteInformationDetail">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testEnterCompleteInformationDetail"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterCompleteInformationDetail -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestOrderDetails">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testBasicThreshold"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestOrderDetails -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestReviewAndBook">
+        <methods>
+          <include name="initialize"/>
+          <include name="testReviewAndBook"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestReviewAndBook -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="testEnterShipmentInformation"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+        <methods>
+          <include name="initialize"/>
+          <include name="testVerifySelectedCarriers"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSelectCarrier -->
+    </classes>
+  </test> <!-- Test Basic Threshold Visible When Commercial to Residential - ABF Freight(failed) -->
+  <test thread-count="5" name="Test Basic Threshold Visible When Commercial to Residential - Ceva(failed)">
+    <parameter name="loginuser" value="oldUser"/>
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="CarrierName" value="Ceva"/>
+    <parameter name="testData" value="QA_517.xlsx"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="6"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageOrders">
+        <methods>
+          <include name="testVerifyAppointmentFlagUnderBOLPdf"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageOrders -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterCompleteInformationDetail">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testEnterCompleteInformationDetail"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterCompleteInformationDetail -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestOrderDetails">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testBasicThreshold"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestOrderDetails -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestReviewAndBook">
+        <methods>
+          <include name="initialize"/>
+          <include name="testReviewAndBook"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestReviewAndBook -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="testEnterShipmentInformation"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+        <methods>
+          <include name="initialize"/>
+          <include name="testVerifySelectedCarriers"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSelectCarrier -->
+    </classes>
+  </test> <!-- Test Basic Threshold Visible When Commercial to Residential - Ceva(failed) -->
+  <test thread-count="5" name="Test FC Test Carrier visible When Loose Cartoon Accepted - Non-Palletized with quantity = 1(failed)">
+    <parameter name="loginuser" value="oldUser"/>
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="CarrierName" value="FC Test Carrier"/>
+    <parameter name="testData" value="QA_517.xlsx"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="7"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="testEnterShipmentInformation"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+        <methods>
+          <include name="testFCTestCarriersVisible"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSelectCarrier -->
+    </classes>
+  </test> <!-- Test FC Test Carrier visible When Loose Cartoon Accepted - Non-Palletized with quantity = 1(failed) -->
+  <test thread-count="5" name="Test FC Test Carrier visible When Loose Cartoon Accepted - Palletized with quantity = 1(failed)">
+    <parameter name="loginuser" value="oldUser"/>
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="CarrierName" value="FC Test Carrier"/>
+    <parameter name="testData" value="QA_517.xlsx"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="9"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="selectPalletizedPackageType"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+        <methods>
+          <include name="testFCTestCarriersVisible"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSelectCarrier -->
+    </classes>
+  </test> <!-- Test FC Test Carrier visible When Loose Cartoon Accepted - Palletized with quantity = 1(failed) -->
+  <test thread-count="5" name="Test FC Test Carrier visible When Loose Cartoon Accepted - Added Product with quantity = 1(failed)">
+    <parameter name="loginuser" value="oldUser"/>
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="CarrierName" value="FC Test Carrier"/>
+    <parameter name="testData" value="QA_517.xlsx"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="7"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="selectAddedProductPackageType"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+        <methods>
+          <include name="testFCTestCarriersVisible"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSelectCarrier -->
+    </classes>
+  </test> <!-- Test FC Test Carrier visible When Loose Cartoon Accepted - Added Product with quantity = 1(failed) -->
+  <test thread-count="5" name="Test Uncheck Loose Cartoon Accepted(failed)">
+    <parameter name="fcusername" value="freightclubinfo@gmail.com"/>
+    <parameter name="CarrierName" value="FC Test Carrier"/>
+    <parameter name="testData" value="QA_517.xlsx"/>
+    <parameter name="fcpassword" value="Welcome@1"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageCarrier">
+        <methods>
+          <include name="testDisableLooseCartoonAccepted"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageCarrier -->
+    </classes>
+  </test> <!-- Test Uncheck Loose Cartoon Accepted(failed) -->
+  <test thread-count="5" name="Test loose carton popup visible - Non-Palletized with quantity = 11(failed)">
+    <parameter name="loginuser" value="oldUser"/>
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="CarrierName" value="FC Test Carrier"/>
+    <parameter name="testData" value="QA_517.xlsx"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="8"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="initialize"/>
+          <include name="looseCartoonPopup"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="testEnterShipmentInformation"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+    </classes>
+  </test> <!-- Test loose carton popup visible - Non-Palletized with quantity = 11(failed) -->
+  <test thread-count="5" name="Test FC Test Carrier not visible - Non-Palletized with quantity = 1(failed)">
+    <parameter name="loginuser" value="oldUser"/>
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="CarrierName" value="FC Test Carrier"/>
+    <parameter name="testData" value="QA_517.xlsx"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="8"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+        <methods>
+          <include name="testFCTestCarriersNotVisible"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSelectCarrier -->
+    </classes>
+  </test> <!-- Test FC Test Carrier not visible - Non-Palletized with quantity = 1(failed) -->
+  <test thread-count="5" name="Test loose carton popup visible - Added Product with quantity = 11(failed)">
+    <parameter name="loginuser" value="oldUser"/>
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="CarrierName" value="FC Test Carrier"/>
+    <parameter name="testData" value="QA_517.xlsx"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="8"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="selectAddedProductPackageType"/>
+          <include name="initialize"/>
+          <include name="looseCartoonPopup"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+    </classes>
+  </test> <!-- Test loose carton popup visible - Added Product with quantity = 11(failed) -->
+  <test thread-count="5" name="Test FC Test Carrier not visible - Added Product with quantity = 1(failed)">
+    <parameter name="loginuser" value="oldUser"/>
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="CarrierName" value="FC Test Carrier"/>
+    <parameter name="testData" value="QA_517.xlsx"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="8"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+        <methods>
+          <include name="testFCTestCarriersNotVisible"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSelectCarrier -->
+    </classes>
+  </test> <!-- Test FC Test Carrier not visible - Added Product with quantity = 1(failed) -->
+  <test thread-count="5" name="Test FC Test Carrier visible When Loose Cartoon not accepted - Palletized with quantity = 1(failed)">
+    <parameter name="loginuser" value="oldUser"/>
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="CarrierName" value="FC Test Carrier"/>
+    <parameter name="testData" value="QA_517.xlsx"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="9"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="testEnterShipmentInformation"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+        <methods>
+          <include name="testFCTestCarriersVisible"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSelectCarrier -->
+    </classes>
+  </test> <!-- Test FC Test Carrier visible When Loose Cartoon not accepted - Palletized with quantity = 1(failed) -->
+  <test thread-count="5" name="Test Enable Custom Order Option from Admin(failed)">
+    <parameter name="fcusername" value="freightclubinfo@gmail.com"/>
+    <parameter name="searchUser" value="test.automation@mailinator.com"/>
+    <parameter name="fcpassword" value="Welcome@1"/>
+    <parameter name="enableOption" value="Custom Orders"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestProfileManagement">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testEnableCustomOrder"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestProfileManagement -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestNavigateTheWebsite">
+        <methods>
+          <include name="testNavigateTheWebsite"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestNavigateTheWebsite -->
+    </classes>
+  </test> <!-- Test Enable Custom Order Option from Admin(failed) -->
+  <test thread-count="5" name="Custom Order not visible Weight less than 250 - LTL Non-Palletized(failed)">
+    <parameter name="loginuser" value="old"/>
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="testData" value="QA_537.xlsx"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="initialize"/>
+          <include name="testVerifyRatesPage"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="testEnterShipmentInformation"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+    </classes>
+  </test> <!-- Custom Order not visible Weight less than 250 - LTL Non-Palletized(failed) -->
+  <test thread-count="5" name="Custom Order visible Weight greater than 250 - LTL Non-Palletized(failed)">
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="verifyCustomOrderPopupWithWeight251"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+    </classes>
+  </test> <!-- Custom Order visible Weight greater than 250 - LTL Non-Palletized(failed) -->
+  <test thread-count="5" name="Custom Order visible Package Count greater than 4 - LTL Non-Palletized(failed)">
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="verifyCustomOrderPopupWithMultilePackageType"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+    </classes>
+  </test> <!-- Custom Order visible Package Count greater than 4 - LTL Non-Palletized(failed) -->
+  <test thread-count="5" name="Custom Order not visible Weight less than 250 - LTL Standard(failed)">
+    <parameter name="loginuser" value="old"/>
+    <parameter name="testData" value="QA_537.xlsx"/>
+    <parameter name="Row" value="3"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="initialize"/>
+          <include name="testVerifyRatesPage"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="testEnterShipmentInformation"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+    </classes>
+  </test> <!-- Custom Order not visible Weight less than 250 - LTL Standard(failed) -->
+  <test thread-count="5" name="Custom Order visible Weight greater than 250 - LTL Standard(failed)">
+    <parameter name="Row" value="3"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="verifyCustomOrderPopupWithWeight251"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+    </classes>
+  </test> <!-- Custom Order visible Weight greater than 250 - LTL Standard(failed) -->
+  <test thread-count="5" name="Custom Order visible Package Count greater than 4 - LTL Standard(failed)">
+    <parameter name="Row" value="3"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="verifyCustomOrderPopupWithMultilePackageType"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+    </classes>
+  </test> <!-- Custom Order visible Package Count greater than 4 - LTL Standard(failed) -->
+  <test thread-count="5" name="Custom Order not visible Weight less than 250 - LTL Added-Product(failed)">
+    <parameter name="loginuser" value="old"/>
+    <parameter name="testData" value="QA_537.xlsx"/>
+    <parameter name="Row" value="4"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageProducts">
+        <methods>
+          <include name="initialize"/>
+          <include name="testManageProducts"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageProducts -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="initialize"/>
+          <include name="testVerifyRatesPage"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="testEnterShipmentInformation"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+    </classes>
+  </test> <!-- Custom Order not visible Weight less than 250 - LTL Added-Product(failed) -->
+  <test thread-count="5" name="Custom Order visible Weight greater than 250 - LTL  Added-Product(failed)">
+    <parameter name="loginuser" value="old"/>
+    <parameter name="testData" value="QA_537.xlsx"/>
+    <parameter name="Row" value="4"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageProducts">
+        <methods>
+          <include name="initialize"/>
+          <include name="testManageProducts"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageProducts -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="verifyCustomOrderPopupWithWeight251"/>
+          <include name="tearDown"/>
+          <include name="testEnterShipmentInformation"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+    </classes>
+  </test> <!-- Custom Order visible Weight greater than 250 - LTL  Added-Product(failed) -->
+  <test thread-count="5" name="Custom Order visible Package Count greater than 4 - LTL  Added-Product(failed)">
+    <parameter name="Row" value="4"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="verifyCustomOrderPopupWithMultilePackageType"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+    </classes>
+  </test> <!-- Custom Order visible Package Count greater than 4 - LTL  Added-Product(failed) -->
+  <test thread-count="5" name="Test disable Custom Order Option from Admin(failed)">
+    <parameter name="fcusername" value="freightclubinfo@gmail.com"/>
+    <parameter name="searchUser" value="test.automation@mailinator.com"/>
+    <parameter name="fcpassword" value="Welcome@1"/>
+    <parameter name="enableOption" value="Custom Orders"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestProfileManagement">
+        <methods>
+          <include name="initialize"/>
+          <include name="testDisableCustomOrder"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestProfileManagement -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestNavigateTheWebsite">
+        <methods>
+          <include name="testNavigateTheWebsite"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestNavigateTheWebsite -->
+    </classes>
+  </test> <!-- Test disable Custom Order Option from Admin(failed) -->
+  <test thread-count="5" name="Custom Order not visible Weight less than 250 - LTL Non-Palletized - 02(failed)">
+    <parameter name="loginuser" value="old"/>
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="testData" value="QA_537.xlsx"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="initialize"/>
+          <include name="testVerifyRatesPage"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="testEnterShipmentInformation"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+    </classes>
+  </test> <!-- Custom Order not visible Weight less than 250 - LTL Non-Palletized - 02(failed) -->
+  <test thread-count="5" name="Custom Order visible Weight greater than 250 - LTL Non-Palletized - 02(failed)">
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="verifyCustomOrderPopupWithWeight251"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+    </classes>
+  </test> <!-- Custom Order visible Weight greater than 250 - LTL Non-Palletized - 02(failed) -->
+  <test thread-count="5" name="Custom Order visible Package Count greater than 4 - LTL Non-Palletized - 02(failed)">
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="verifyCustomOrderPopupWithMultilePackageType"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+    </classes>
+  </test> <!-- Custom Order visible Package Count greater than 4 - LTL Non-Palletized - 02(failed) -->
+  <test thread-count="5" name="Custom Order not visible Weight less than 250 - LTL Standard - 02(failed)">
+    <parameter name="loginuser" value="old"/>
+    <parameter name="testData" value="QA_537.xlsx"/>
+    <parameter name="Row" value="3"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="initialize"/>
+          <include name="testVerifyRatesPage"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="testEnterShipmentInformation"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+    </classes>
+  </test> <!-- Custom Order not visible Weight less than 250 - LTL Standard - 02(failed) -->
+  <test thread-count="5" name="Custom Order visible Weight greater than 250 - LTL Standard - 02(failed)">
+    <parameter name="Row" value="3"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="verifyCustomOrderPopupWithWeight251"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+    </classes>
+  </test> <!-- Custom Order visible Weight greater than 250 - LTL Standard - 02(failed) -->
+  <test thread-count="5" name="Custom Order visible Package Count greater than 4 - LTL Standard - 02(failed)">
+    <parameter name="Row" value="3"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="verifyCustomOrderPopupWithMultilePackageType"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+    </classes>
+  </test> <!-- Custom Order visible Package Count greater than 4 - LTL Standard - 02(failed) -->
+  <test thread-count="5" name="Custom Order not visible Weight less than 250 - LTL Added-Product - 02(failed)">
+    <parameter name="loginuser" value="old"/>
+    <parameter name="testData" value="QA_537.xlsx"/>
+    <parameter name="Row" value="4"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageProducts">
+        <methods>
+          <include name="initialize"/>
+          <include name="testManageProducts"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageProducts -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="initialize"/>
+          <include name="testVerifyRatesPage"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="testEnterShipmentInformation"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+    </classes>
+  </test> <!-- Custom Order not visible Weight less than 250 - LTL Added-Product - 02(failed) -->
+  <test thread-count="5" name="Custom Order visible Weight greater than 250 - LTL  Added-Product - 02(failed)">
+    <parameter name="loginuser" value="old"/>
+    <parameter name="testData" value="QA_537.xlsx"/>
+    <parameter name="Row" value="4"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageProducts">
+        <methods>
+          <include name="initialize"/>
+          <include name="testManageProducts"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageProducts -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="verifyCustomOrderPopupWithWeight251"/>
+          <include name="tearDown"/>
+          <include name="testEnterShipmentInformation"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+    </classes>
+  </test> <!-- Custom Order visible Weight greater than 250 - LTL  Added-Product - 02(failed) -->
+  <test thread-count="5" name="Custom Order visible Package Count greater than 4 - LTL  Added-Product - 02(failed)">
+    <parameter name="Row" value="4"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="verifyCustomOrderPopupWithMultilePackageType"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+    </classes>
+  </test> <!-- Custom Order visible Package Count greater than 4 - LTL  Added-Product - 02(failed) -->
+  <test thread-count="5" name="Test Submit Custom Order - LTL(failed)">
+    <parameter name="loginuser" value="old"/>
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="testData" value="QA_537.xlsx"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="5"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="customOrderPopupPresent"/>
+          <include name="tearDown"/>
+          <include name="submitCustomOrderQuoteLTL"/>
+          <include name="testEnterShipmentInformation"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+    </classes>
+  </test> <!-- Test Submit Custom Order - LTL(failed) -->
+  <test thread-count="5" name="Test Submit Custom Order Quote as Admin(failed)">
+    <parameter name="fcusername" value="freightclubinfo@gmail.com"/>
+    <parameter name="testData" value="QA_537.xlsx"/>
+    <parameter name="CarrierName" value="Custom Orders"/>
+    <parameter name="fcpassword" value="Welcome@1"/>
+    <parameter name="Row" value="5"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSubmitCustomQuote">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testSubmitCustomQuote"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSubmitCustomQuote -->
+    </classes>
+  </test> <!-- Test Submit Custom Order Quote as Admin(failed) -->
+  <test thread-count="5" name="Test Order Ready For Booking Mail(failed)">
+    <parameter name="fcusername" value="billing.address@mailinator.com"/>
+    <parameter name="Row" value="5"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testVerifyReadyForBookingMail"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.EmailVerification -->
+    </classes>
+  </test> <!-- Test Order Ready For Booking Mail(failed) -->
+  <test thread-count="5" name="Test Verify Request Cancellation Button(failed)">
+    <parameter name="loginuser" value="new"/>
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="testData" value="QA_537.xlsx"/>
+    <parameter name="CarrierName" value="Custom Orders"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="5"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageOrders">
+        <methods>
+          <include name="initialize"/>
+          <include name="testRequestCancellationAndCloneOrReQuoteButton"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageOrders -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterCompleteInformationDetail">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testEnterCompleteInformationDetail"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterCompleteInformationDetail -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestReviewAndBook">
+        <methods>
+          <include name="testReviewAndBookCustomOrder"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestReviewAndBook -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+        <methods>
+          <include name="initialize"/>
+          <include name="testVerifySelectedCarriers"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSelectCarrier -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestBookCustomOrder">
+        <methods>
+          <include name="testBookCustomOrder"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestBookCustomOrder -->
+    </classes>
+  </test> <!-- Test Verify Request Cancellation Button(failed) -->
+  <test thread-count="5" name="Test Order Confirmation Mail(failed)">
+    <parameter name="fcusername" value="billing.address@mailinator.com"/>
+    <parameter name="CarrierName" value="Custom Orders"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="5"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification">
+        <methods>
+          <include name="initialize"/>
+          <include name="testOrderBooking"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.EmailVerification -->
+    </classes>
+  </test> <!-- Test Order Confirmation Mail(failed) -->
+  <test thread-count="5" name="Test Enable Custom Order Option from Admin - QA-538(failed)">
+    <parameter name="fcusername" value="freightclubinfo@gmail.com"/>
+    <parameter name="searchUser" value="test.automation@mailinator.com"/>
+    <parameter name="fcpassword" value="Welcome@1"/>
+    <parameter name="enableOption" value="Custom Orders"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestProfileManagement">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testEnableCustomOrder"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestProfileManagement -->
+    </classes>
+  </test> <!-- Test Enable Custom Order Option from Admin - QA-538(failed) -->
+  <test thread-count="5" name="Test validate custom order fields(failed)">
+    <parameter name="loginuser" value="old"/>
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="testData" value="QA_538.xlsx"/>
+    <parameter name="CarrierName" value="Custom Orders"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="validateCustomerOrderRequiredFields"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+    </classes>
+  </test> <!-- Test validate custom order fields(failed) -->
+  <test thread-count="5" name="Test Quick Quote Custom Order - One-Time Delivery - QA-538 - CO01(failed)">
+    <parameter name="loginuser" value="old"/>
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="testData" value="QA_538.xlsx"/>
+    <parameter name="CarrierName" value="Custom Orders"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="testEnterShipmentInformation"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+    </classes>
+  </test> <!-- Test Quick Quote Custom Order - One-Time Delivery - QA-538 - CO01(failed) -->
+  <test thread-count="5" name="Test Submit Custom Order Quote as Admin - - One-Time Delivery - QA-538 - CO01(failed)">
+    <parameter name="fcusername" value="freightclubinfo@gmail.com"/>
+    <parameter name="testData" value="QA_538.xlsx"/>
+    <parameter name="CarrierName" value="Custom Orders"/>
+    <parameter name="fcpassword" value="Welcome@1"/>
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestSubmitCustomQuote1">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSubmitCustomQuote"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSubmitCustomQuote1 -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+    </classes>
+  </test> <!-- Test Submit Custom Order Quote as Admin - - One-Time Delivery - QA-538 - CO01(failed) -->
+  <test thread-count="5" name="Test Order Ready For Booking Mail - QA-538 - CO01(failed)">
+    <parameter name="fcusername" value="billing.address@mailinator.com"/>
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testVerifyReadyForBookingMail"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.EmailVerification -->
+    </classes>
+  </test> <!-- Test Order Ready For Booking Mail - QA-538 - CO01(failed) -->
+  <test thread-count="5" name="Test Verify Request Cancellation Button - - One-Time Delivery - QA-538 - CO01(failed)">
+    <parameter name="loginuser" value="new"/>
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="testData" value="QA_538.xlsx"/>
+    <parameter name="CarrierName" value="Custom Orders"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageOrders">
+        <methods>
+          <include name="initialize"/>
+          <include name="testRequestCancellationAndCloneOrReQuoteButton1"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageOrders -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterCompleteInformationDetail">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testEnterCompleteInformationDetail"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterCompleteInformationDetail -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestReviewAndBook">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testReviewAndBook2"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestReviewAndBook -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+        <methods>
+          <include name="initialize"/>
+          <include name="testVerifySelectedCarriers"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSelectCarrier -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestBookCustomOrder">
+        <methods>
+          <include name="testBookCustomOrder"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestBookCustomOrder -->
+    </classes>
+  </test> <!-- Test Verify Request Cancellation Button - - One-Time Delivery - QA-538 - CO01(failed) -->
+  <test thread-count="5" name="Test Order Confirmation Mail - QA-538 - CO01(failed)">
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="CarrierName" value="Custom Orders"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification">
+        <methods>
+          <include name="initialize"/>
+          <include name="testOrderBooking"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.EmailVerification -->
+    </classes>
+  </test> <!-- Test Order Confirmation Mail - QA-538 - CO01(failed) -->
+  <test thread-count="5" name="Test Quick Quote Custom Order - QA-538 -  CO02(failed)">
+    <parameter name="loginuser" value="old"/>
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="testData" value="QA_538.xlsx"/>
+    <parameter name="CarrierName" value="Custom Orders"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="3"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="testEnterShipmentInformation"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterShipmentInformation -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+    </classes>
+  </test> <!-- Test Quick Quote Custom Order - QA-538 -  CO02(failed) -->
+  <test thread-count="5" name="Test Submit Custom Order Quote as Admin - QA-538 -  CO02(failed)">
+    <parameter name="fcusername" value="freightclubinfo@gmail.com"/>
+    <parameter name="CarrierName" value="Custom Orders"/>
+    <parameter name="fcpassword" value="Welcome@1"/>
+    <parameter name="Row" value="3"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestSubmitCustomQuote1">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSubmitCustomQuote"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSubmitCustomQuote1 -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+    </classes>
+  </test> <!-- Test Submit Custom Order Quote as Admin - QA-538 -  CO02(failed) -->
+  <test thread-count="5" name="Test Order Ready For Booking Mail - QA-538 - CO02(failed)">
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="CarrierName" value="Custom Orders"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="3"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testVerifyReadyForBookingMail"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.EmailVerification -->
+    </classes>
+  </test> <!-- Test Order Ready For Booking Mail - QA-538 - CO02(failed) -->
+  <test thread-count="5" name="Test Verify Functionality of Clone Button - QA-538 - CO02(failed)">
+    <parameter name="loginuser" value="new"/>
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="testData" value="QA_538.xlsx"/>
+    <parameter name="CarrierName" value="Custom Orders"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="3"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestManageOrders">
+        <methods>
+          <include name="initialize"/>
+          <include name="testRequestCancellationAndCloneOrReQuoteButton1"/>
+          <include name="setUp"/>
+          <include name="verifyCloneButtonFunctionality"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestManageOrders -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestEnterCompleteInformationDetail">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testEnterCompleteInformationDetail"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestEnterCompleteInformationDetail -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestReviewAndBook">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testReviewAndBook2"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestReviewAndBook -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="initialize"/>
+          <include name="testSignIn"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testlogoff"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestLogOff -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+        <methods>
+          <include name="initialize"/>
+          <include name="testVerifySelectedCarriers"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSelectCarrier -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestBookCustomOrder">
+        <methods>
+          <include name="testBookCustomOrder"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestBookCustomOrder -->
+    </classes>
+  </test> <!-- Test Verify Functionality of Clone Button - QA-538 - CO02(failed) -->
+  <test thread-count="5" name="Test Order Confirmation Mail - QA-538 - CO02(failed)">
+    <parameter name="fcusername" value="test.automation@mailinator.com"/>
+    <parameter name="CarrierName" value="Custom Orders"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="3"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification">
+        <methods>
+          <include name="initialize"/>
+          <include name="testOrderBooking"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.EmailVerification -->
+    </classes>
+  </test> <!-- Test Order Confirmation Mail - QA-538 - CO02(failed) -->
+</suite> <!-- Failed suite [Freight Club Suite] -->

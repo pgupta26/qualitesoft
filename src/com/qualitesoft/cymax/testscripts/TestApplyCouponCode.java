@@ -236,7 +236,8 @@ public class TestApplyCouponCode extends InitializeTest {
 		ScreenShot.takeScreenShot(driver, "HomePage");
 		SeleniumFunction.click(homePage.myAccountLink());
 		WaitTool.sleep(5);
-
+		SeleniumFunction.click(homePage.HomeSqmyOrder());//click on order link
+		
 		MyAccountPage myAccountPage = new MyAccountPage(driver);
 		WebElement orderId = myAccountPage.orderId();
 		ScreenShot.takeScreenShot(driver, "OrderOnMyAccount");

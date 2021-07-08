@@ -88,5 +88,36 @@ public class HomeSquareCreateAccountPage {
 
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath(".//*[@id='Register']"), 10);
 	}
+	
+	//*********************Copied from cymax
+	public WebElement HomeSqfirstNameTextbox() {
+
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath(".//*[@placeholder='First Name']"), 10);
+	}	
+	
+	public WebElement HomeSqlastNameTextbox() {
+
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath(".//*[@placeholder='Last Name']"), 10);
+	}	
+	
+	public WebElement HomeSqemailTextbox() {
+
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath(".//*[@id='signup-modal-email']"), 30);
+	}	
+	
+	public WebElement HomeSqpasswordTextbox() {
+
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath(".//*[@id='signup-modal-password']"), 10);
+	}	
+	
+	public WebElement HomeSqconfirmPasswordTextbox() {
+
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath(".//*[@id='signup-modal-pwconfirm']"), 10);
+	}	
+	
+	public WebElement HomeSqregisterButton() {
+
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"btn-create-account-submit\"]"), 20);
+	}
 
 }

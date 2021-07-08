@@ -45,9 +45,7 @@ public class MyAccountPage {
 
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath(".//*[@href='/Dining-Chairs--C635.htm' ]"), 10);
 	}
-	public WebElement HomeSqdiningChairsLink() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath(".//*[@href='/dining-chairs--C635.htm']"), 30);
-	}
+	
 	public WebElement orderId() {
 
 		return WaitTool.waitForElementPresentAndDisplay(driver,By.xpath(".//*[@id='tcAccount_tp0_orderList_List_row_0']/td[1]/a"), 50);
