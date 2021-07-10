@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Test verify user is able to book and clone order - LTL-Search product "
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="1"
+           time="0.000">
+  <properties />
+  
+            <testcase name="testOrderhistory" time="0.0" classname="com.qualitesoft.freightclub.testscripts.TestOrderHistory">
+          <skipped />
+    </testcase>
+  
+  
+</testsuite>

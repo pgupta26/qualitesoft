@@ -12,10 +12,9 @@ import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
-import com.qualitesoft.cymax.pageobjects.CreateAccountPage;
-import com.qualitesoft.cymax.pageobjects.HomePage;
-import com.qualitesoft.cymax.pageobjects.LoginPage;
-import com.qualitesoft.cymax.pageobjects.MyAccountPage;
+import com.qualitesoft.homesquare.pageobjects.HomeSquareCreateAccountPage;
+import com.qualitesoft.homesquare.pageobjects.HomeSquareHomePage;
+import com.qualitesoft.homesquare.pageobjects.HomeSquareLoginPage;
 
 
 public class TestHomeSquareCreateNewAccount extends InitializeTest{
@@ -25,18 +24,18 @@ public class TestHomeSquareCreateNewAccount extends InitializeTest{
 		
 		WebDriver driver = getDriver();
 		
-		HomePage homePage = new HomePage(driver);
+		HomeSquareHomePage homePage = new HomeSquareHomePage(driver);
 		//SeleniumFunction.click(homePage.HomeSqcloseButton());	
 		WebElement myAccountLink = homePage.HomeSqmyAccountLink();
 		//ScreenShot.takeScreenShot(driver, "HomePage");
 		SeleniumFunction.click(myAccountLink);
 		
-		LoginPage loginPage = new LoginPage(driver);
+		HomeSquareLoginPage loginPage = new HomeSquareLoginPage(driver);
 		WebElement createNewAccountLink = loginPage.HomeSqcreateNewAccountLink();
 		//ScreenShot.takeScreenShot(driver, "LoginPage");
 		SeleniumFunction.click(createNewAccountLink);
 		
-		CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+		HomeSquareCreateAccountPage createAccountPage = new HomeSquareCreateAccountPage(driver);
 		WebElement firstNameTextbox = createAccountPage.HomeSqfirstNameTextbox();
 		ScreenShot.takeScreenShot(driver, "CreateAccountPage");
 		SeleniumFunction.sendKeys(firstNameTextbox, "Selenium_First");

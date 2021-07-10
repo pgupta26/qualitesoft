@@ -8,7 +8,6 @@ import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.homesquare.pageobjects.MuzeboardBoardPage;
 import com.qualitesoft.homesquare.pageobjects.MuzeboardCreatePage;
-import com.qualitesoft.homesquare.pageobjects.MuzeboardDetailsPage;
 
 public class MuzeboardPublish extends InitializeTest{
 	

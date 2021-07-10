@@ -30,5 +30,10 @@ public class HomeSquareAddToCartPage {
 		//return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@href='/Liberty-Furniture-Nostalgia-Arrow-Back-Windsor-Dining-Chair-10-C553S.htm']"), 60);
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@class='btn btn-add-to-cart']"), 60);
 	}
-	
+
+	public WebElement quantityDropdownHome() {
+
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//select[@class='form-control qty cb-qty']"),10);
+
+	}
 }

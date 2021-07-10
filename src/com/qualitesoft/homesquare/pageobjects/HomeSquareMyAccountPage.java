@@ -13,7 +13,7 @@ public class HomeSquareMyAccountPage {
 	public HomeSquareMyAccountPage(WebDriver driver) {
 		this.driver = driver;
 	}
-	
+
 	public WebElement bedroomLink() {
 
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath(".//*[@href='/bedroom-furniture--PC330.htm']"),
@@ -35,6 +35,13 @@ public class HomeSquareMyAccountPage {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath(".//*[@href='/Dining-Chairs--C635.htm']"), 10);
 	}
 
+	public WebElement outdoorLink() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath(".//a[@href='/patio-furniture-outdoor-furniture--PC991.htm']"), 30);
+	}
+	public WebElement outdoorSofaLink() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath(".//*[@href='/outdoor-sofas--C1344.htm']"), 30);
+	}
+
 	public WebElement orderId() {
 
 		return WaitTool.waitForElementPresentAndDisplay(driver,
@@ -45,10 +52,44 @@ public class HomeSquareMyAccountPage {
 
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@href='Logout.aspx']"), 10);
 	}
+	
+	public WebElement logOutLink() {
+
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@id='btn-logout']"), 10);
+	}
 
 	public WebElement logoutText() {
 
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//b[text()='Logout']"), 10);
+	}
+
+	public WebElement HomeSqdiningChairsLink() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath(".//*[@href='/dining-chairs--C635.htm']"), 30);
+	}
+
+	//***************Copied from cymax
+	public WebElement emailTextbox() {
+
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath(".//*[@id='UserName']"), 90);
+	}
+
+	public WebElement passwordTextbox() {
+
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath(".//*[@id='Password']"), 60);
+	}
+	public WebElement Loginbutton() {
+
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@type='submit']"), 60);
+	}
+
+	public WebElement Loginbutton1() {
+
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.id("Login1"), 60);
+	}
+
+	public WebElement HomeSqlogoLoggOff() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@href='/Portal/Account/Logout.aspx']"),30);
+		//return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"form1\"]/div[3]/div[2]/div/div/div[1]/a"), 90);
 	}
 
 }

@@ -6,14 +6,14 @@ import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.homesquare.pageobjects.BoardApprovalPage;
-import com.qualitesoft.homesquare.pageobjects.HomePage;
+import com.qualitesoft.homesquare.pageobjects.HomeSquareHomePage;
 
 public class TestLoginAsAdmin extends InitializeTest{
 	
 	@Test
 	public void testLoginAsAdmin(){
 		
-		HomePage homePage = new HomePage(driver);
+		HomeSquareHomePage homePage = new HomeSquareHomePage(driver);
 		
 		SeleniumFunction.sendKeys(homePage.emailSigninTextbox(), "mbadmin@homesquare.com");
 		SeleniumFunction.sendKeys(homePage.passowrdSigninTextbox(), "Slainte");

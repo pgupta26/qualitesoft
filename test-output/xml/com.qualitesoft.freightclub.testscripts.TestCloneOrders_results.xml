@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Test verify order is booked - Parcel - Cardboard Box - SurePost"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="1"
+           time="0.000">
+  <properties />
+  
+            <testcase name="testCloneOrders" time="0.0" classname="com.qualitesoft.freightclub.testscripts.TestCloneOrders">
+          <skipped />
+    </testcase>
+  
+  
+</testsuite>

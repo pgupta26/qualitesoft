@@ -1,7 +1,5 @@
 package com.qualitesoft.homesquare.testscripts;
 
-
-
 import java.net.URI;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,7 +10,6 @@ import com.qualitesoft.core.JavaFunction;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
-import com.qualitesoft.cymax.pageobjects.CartPage;
 import com.qualitesoft.homesquare.pageobjects.HomeSquareAddToCartPage;
 import com.qualitesoft.homesquare.pageobjects.HomeSquareCartPage;
 

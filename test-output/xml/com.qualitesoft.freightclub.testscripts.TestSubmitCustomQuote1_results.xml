@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Test Submit Custom Order Quote as Admin - - One-Time Delivery - QA-538 - CO01"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="1"
+           time="0.000">
+  <properties />
+  
+            <testcase name="testSubmitCustomQuote" time="0.0" classname="com.qualitesoft.freightclub.testscripts.TestSubmitCustomQuote1">
+          <skipped />
+    </testcase>
+  
+  
+</testsuite>

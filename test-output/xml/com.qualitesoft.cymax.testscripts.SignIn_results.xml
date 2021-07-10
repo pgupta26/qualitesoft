@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Checkout via Paypal - Existing User"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="5.166">
+  <properties />
+  
+  
+            <testcase name="testHomeSquareSignIn" time="5.166" classname="com.qualitesoft.cymax.testscripts.SignIn" />
+      
+</testsuite>

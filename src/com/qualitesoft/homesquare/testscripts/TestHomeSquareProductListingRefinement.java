@@ -9,8 +9,7 @@ import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
-import com.qualitesoft.cymax.pageobjects.HomePage;
-import com.qualitesoft.cymax.pageobjects.MyAccountPage;
+import com.qualitesoft.homesquare.pageobjects.HomeSquareHomePage;
 
 public class TestHomeSquareProductListingRefinement extends InitializeTest  {
 	
@@ -19,7 +18,7 @@ public class TestHomeSquareProductListingRefinement extends InitializeTest  {
 	{
 		 WebDriver driver = getDriver();
 		 
-		 HomePage homePage = new HomePage(driver);
+		 HomeSquareHomePage homePage = new HomeSquareHomePage(driver);
 
 		//SeleniumFunction.click(homePage.HomeSqcloseButton());			 
 		 //WebElement hsqHomeLink=homePage.hsqHomeLink();
@@ -50,7 +49,7 @@ public class TestHomeSquareProductListingRefinement extends InitializeTest  {
 		 jse.executeScript("window.scrollBy(0,250)", "");
 		 ScreenShot.takeScreenShot(driver, "Highest Price");	
 		
-		 //Filter options
+	/*	 //Filter options
 		 SeleniumFunction.click(homePage.homePrice());
          SeleniumFunction.click(homePage.HomeSqunder$250Filter());
          WaitTool.sleep(5);
@@ -70,7 +69,7 @@ public class TestHomeSquareProductListingRefinement extends InitializeTest  {
 	     SeleniumFunction.click(homePage.HomeSqbanquette());
         // WaitTool.sleep(1);
 	     jse.executeScript("window.scrollBy(0,250)", "");
-	     ScreenShot.takeScreenShot(driver, "Multiple Selection");
+	     ScreenShot.takeScreenShot(driver, "Multiple Selection");*/
 	     //wait///
 		 
 	     //List View and Grid View

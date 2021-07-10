@@ -15,19 +15,18 @@ import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
-import com.qualitesoft.cymax.pageobjects.MyAccountPage;
 import com.qualitesoft.homesquare.pageobjects.HomeSquareAddToCartPage;
 import com.qualitesoft.homesquare.pageobjects.HomeSquareCartPage;
 import com.qualitesoft.homesquare.pageobjects.HomeSquareHomePage;
-import com.qualitesoft.homesquare.pageobjects.HomeSquareMyAccountPage;
 import com.qualitesoft.homesquare.pageobjects.HomeSquareProductsPage;
+import com.qualitesoft.homesquare.pageobjects.HomeSquareMyAccountPage;
 
 
 public class AddToCart extends InitializeTest{
 	@Test
 	public void  addToCart(){
 		try {
-			MyAccountPage myAccountPage = new MyAccountPage(driver);
+			HomeSquareMyAccountPage myAccountPage = new HomeSquareMyAccountPage(driver);
 			HomeSquareHomePage homepage = new HomeSquareHomePage(driver);
 			HomeSquareProductsPage productsPage = new HomeSquareProductsPage(driver);
 			JavascriptExecutor jse = (JavascriptExecutor)driver;
@@ -39,12 +38,19 @@ public class AddToCart extends InitializeTest{
 			ScreenShot.takeScreenShot(driver, "Beds category page");
 			SeleniumFunction.sendKeys(homepage.searchField(), "1652636");
 			SeleniumFunction.click(homepage.searchButton1());
+			WaitTool.sleep(5);
+			if(homepage.closePopupWrapperStatus() == true){
+				SeleniumFunction.clickJS(driver, homepage.closePopupWrapper());
+				WaitTool.sleep(2);
+			}
+			
 			SeleniumFunction.click(productsPage.firstProductInListing());	
 			WaitTool.sleep(10);
 			NumberFormat f = NumberFormat.getInstance(); 
 			productPrice = f.parse(productsPage.productPrice().replace("$", "")).doubleValue(); 
 			Log.info("**************************************************Product Price : "+productPrice);
-			ScreenShot.takeScreenShot(driver,"Product detail page");	         
+			ScreenShot.takeScreenShot(driver,"Product detail page");	
+			
 			HomeSquareAddToCartPage addToCartPage = new HomeSquareAddToCartPage(driver);
 			WebElement quantityDropdown = addToCartPage.quantityDropdown();
 			jse.executeScript("arguments[0].value='2';", quantityDropdown);

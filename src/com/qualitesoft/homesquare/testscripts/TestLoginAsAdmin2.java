@@ -7,14 +7,14 @@ import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.homesquare.pageobjects.BoardApprovalPage;
-import com.qualitesoft.homesquare.pageobjects.HomePage;
+import com.qualitesoft.homesquare.pageobjects.HomeSquareHomePage;
 
 public class TestLoginAsAdmin2 extends InitializeTest{
 	
 	@Test
 	public void testLoginAsAdmin2(){
 		
-		HomePage homePage = new HomePage(driver);
+		HomeSquareHomePage homePage = new HomeSquareHomePage(driver);
 		WebElement signUpLink = homePage.signUpLink();
 		ScreenShot.takeScreenShot(driver, "HomePage");
 		SeleniumFunction.click(signUpLink);

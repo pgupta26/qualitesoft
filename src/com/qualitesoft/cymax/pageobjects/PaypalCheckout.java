@@ -36,19 +36,19 @@ public class PaypalCheckout {
 	
 	public void changeLink() {
 		try {
-			WaitTool.waitForElementToBeClickable(driver, By.linkText("Change"), 20);
-			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("Change"), 20));	
+			WaitTool.waitForElementToBeClickable(driver, By.xpath("//span[contains(text(),'Change')]//parent::button"), 20);
+			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//span[contains(text(),'Change')]//parent::button"), 20));	
 		}catch(Exception ex) {
 			ex.printStackTrace();
 		}
 	}
 	
 	public String infoMessage() {
-		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='infoMessages']/ul/li"), 10));
+		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//span[@data-testid='ship-to-not-allowed-content']"), 10));
 	}
 	
 	public void payNow() {
-		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.id("confirmButtonTop"), 10));
+		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.id("payment-submit-btn"), 10));
 		Log.info("Test");
 	}
 	

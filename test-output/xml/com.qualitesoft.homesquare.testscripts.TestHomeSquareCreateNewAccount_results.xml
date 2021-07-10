@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Checkout via Purchase Order - New User"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="20.208">
+  <properties />
+  
+  
+            <testcase name="testshippinginfo" time="20.208" classname="com.qualitesoft.homesquare.testscripts.TestHomeSquareCreateNewAccount" />
+      
+</testsuite>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Test FC Test Carrier visible When Loose Cartoon Accepted - Added Product with quantity = 1"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="1"
+           time="0.000">
+  <properties />
+  
+            <testcase name="testFCTestCarriersVisible" time="0.0" classname="com.qualitesoft.freightclub.testscripts.TestSelectCarrier">
+          <skipped />
+    </testcase>
+  
+  
+</testsuite>

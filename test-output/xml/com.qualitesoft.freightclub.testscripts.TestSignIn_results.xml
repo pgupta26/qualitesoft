@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Test verify user is able to book and clone order - Parcel-Search product"
+           tests="2"
+           failures="0"
+           errors="0"
+           skipped="2"
+           time="0.000">
+  <properties />
+  
+            <testcase name="initialize" time="0.0" classname="com.qualitesoft.freightclub.testscripts.TestSignIn">
+          <skipped />
+    </testcase>
+            <testcase name="testSignIn" time="0.0" classname="com.qualitesoft.freightclub.testscripts.TestSignIn">
+          <skipped />
+    </testcase>
+  
+  
+</testsuite>

@@ -9,7 +9,7 @@ import com.qualitesoft.core.JavaFunction;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
-import com.qualitesoft.homesquare.pageobjects.HomePage;
+import com.qualitesoft.homesquare.pageobjects.HomeSquareHomePage;
 import com.qualitesoft.homesquare.pageobjects.MuzeboardBasicInfoPage;
 import com.qualitesoft.homesquare.pageobjects.MuzeboardDetailInfoPage;
 import com.qualitesoft.homesquare.pageobjects.MuzeboardOverviewPage;
@@ -21,7 +21,7 @@ public class MuzeboardSignUp extends InitializeTest {
 
 		WebDriver driver = getDriver();
 
-		HomePage homePage = new HomePage(driver);
+		HomeSquareHomePage homePage = new HomeSquareHomePage(driver);
 		WebElement signUpLink = homePage.signUpLink();
 		ScreenShot.takeScreenShot(driver, "HomePage");
 		SeleniumFunction.click(signUpLink);
