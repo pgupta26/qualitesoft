@@ -18,11 +18,11 @@ public class CustomTestListener extends InitializeTest implements IAnnotationTra
 	public void transform(ITestAnnotation testannotation, Class testClass, Constructor testConstructor,
 			Method testMethod) {
 
-		IRetryAnalyzer retry = testannotation.getRetryAnalyzer();
-
-		if (retry == null) {
-			testannotation.setRetryAnalyzer(Retry.class);
-		}
+		/*
+		 * IRetryAnalyzer retry = testannotation.getRetryAnalyzer();
+		 * 
+		 * if (retry == null) { testannotation.setRetryAnalyzer(Retry.class); }
+		 */
 
 	}
 

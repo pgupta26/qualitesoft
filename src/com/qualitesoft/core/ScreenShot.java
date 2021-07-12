@@ -53,7 +53,7 @@ public class ScreenShot extends InitializeTest {
 			Screenshot scrFile=new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(driver);
 			ImageIO.write(scrFile.getImage(),"PNG",new File(baseScreenShotsFolder + "/" +fileName + "_failed.png"));
 			Log.info("Faliure screenshot " + fileName + " successfully taken.");
-			driver.quit();
+			driver.close();
 			InitializeTest initializeTest = new InitializeTest();
 			initializeTest.setUp(browser, URL);
 		} catch (Exception e) {
