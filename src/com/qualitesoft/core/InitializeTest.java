@@ -60,6 +60,7 @@ public class InitializeTest {
 	public static String tax;
 	public static String tax1;
 	public static String emailAddress = null;
+	public static String password = null;
 	public static String menuSubMenu = null;
 	public static String searchUser = null;
 	public static String enableOption = null;
@@ -114,7 +115,8 @@ public class InitializeTest {
 		userType = context.getCurrentXmlTest().getParameter("userType");
 		testData = context.getCurrentXmlTest().getParameter("testData");
 		carrierDetailsOptions=context.getCurrentXmlTest().getParameter("CarrierDetailsOptions");
-
+		emailAddress = context.getCurrentXmlTest().getParameter("emailAddress");
+		password = context.getCurrentXmlTest().getParameter("password");
 		Log.info("*****************************"+ testname + " started.");
 	}
 	

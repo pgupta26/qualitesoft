@@ -1,54 +1,134 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Homesquare Suite]">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [ChannelGate SIP]">
+  <parameter name="emailAddress" value="kamalpreet.kaur@qualitesoft.com"/>
+  <parameter name="password" value="cymaxcom"/>
   <parameter name="retryCount" value="0"/>
   <parameter name="browser" value="chrome"/>
-  <parameter name="project" value="Homesquare"/>
-  <parameter name="plaquery" value="src=PLA"/>
-  <parameter name="URL" value="http://qa.homesquare.com/"/>
-  <test thread-count="5" name="Checkout via Amazon - As Guest with Free Shipping(failed)">
-    <parameter name="tax" value="TBD"/>
-    <parameter name="fastShipping" value="Free"/>
-    <parameter name="amazonTax" value="$273.60"/>
+  <parameter name="project" value="ChannelGate SIP"/>
+  <parameter name="crusername" value="channelgate09072021@mailinator.com"/>
+  <parameter name="URL" value="https://stagingapps.channelgate.io"/>
+  <test thread-count="5" name="Test Login(failed)">
     <classes>
-      <class name="com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff">
+      <class name="com.qualitesoft.channelgatesip.testscripts.TestLogin">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="verifyInvalidEmailsValidation" invocation-numbers="2"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.channelgatesip.testscripts.TestLogin -->
+    </classes>
+  </test> <!-- Test Login(failed) -->
+  <test thread-count="5" name="TestInstance(failed)">
+    <classes>
+      <class name="com.qualitesoft.channelgatesip.testscripts.TestInstance">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testInstance"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.channelgatesip.testscripts.TestInstance -->
+    </classes>
+  </test> <!-- TestInstance(failed) -->
+  <test thread-count="5" name="TestAdminPortal(failed)">
+    <classes>
+      <class name="com.qualitesoft.channelgatesip.testscripts.TestAdminPortal">
+        <methods>
+          <include name="testAdminPortal"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.channelgatesip.testscripts.TestAdminPortal -->
+    </classes>
+  </test> <!-- TestAdminPortal(failed) -->
+  <test thread-count="5" name="TestSelectBrand(failed)">
+    <classes>
+      <class name="com.qualitesoft.channelgatesip.testscripts.TestSelectBrand">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testSelectBrand"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.channelgatesip.testscripts.TestSelectBrand -->
+    </classes>
+  </test> <!-- TestSelectBrand(failed) -->
+  <test thread-count="5" name="TestNavigation(failed)">
+    <classes>
+      <class name="com.qualitesoft.channelgatesip.testscripts.TestNavigation">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testSelectBrand"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.channelgatesip.testscripts.TestNavigation -->
+    </classes>
+  </test> <!-- TestNavigation(failed) -->
+  <test thread-count="5" name="TestInviteUser(failed)">
+    <classes>
+      <class name="com.qualitesoft.channelgatesip.testscripts.TestInviteUser">
+        <methods>
+          <include name="testInstance"/>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.channelgatesip.testscripts.TestInviteUser -->
+    </classes>
+  </test> <!-- TestInviteUser(failed) -->
+  <test thread-count="5" name="Test Logout(failed)">
+    <classes>
+      <class name="com.qualitesoft.channelgatesip.testscripts.LogOff">
         <methods>
           <include name="initialize"/>
           <include name="testLogOff"/>
           <include name="setUp"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff -->
+      </class> <!-- com.qualitesoft.channelgatesip.testscripts.LogOff -->
     </classes>
-  </test> <!-- Checkout via Amazon - As Guest with Free Shipping(failed) -->
-  <test thread-count="5" name="Checkout via Amazon - As Existing User With Shipping(failed)">
-    <parameter name="tax" value="TBD"/>
-    <parameter name="fastShipping" value="$287.98"/>
-    <parameter name="amazonTax" value="$273.60"/>
+  </test> <!-- Test Logout(failed) -->
+  <test thread-count="5" name="Test SignUpNew(failed)">
     <classes>
-      <class name="com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff">
+      <class name="com.qualitesoft.channelgatesip.testscripts.TestSignUpNew">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testInstance"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.channelgatesip.testscripts.TestSignUpNew -->
+    </classes>
+  </test> <!-- Test SignUpNew(failed) -->
+  <test thread-count="5" name="Test Logout User(failed)">
+    <classes>
+      <class name="com.qualitesoft.channelgatesip.testscripts.LogOff">
         <methods>
           <include name="initialize"/>
           <include name="testLogOff"/>
           <include name="setUp"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff -->
+      </class> <!-- com.qualitesoft.channelgatesip.testscripts.LogOff -->
     </classes>
-  </test> <!-- Checkout via Amazon - As Existing User With Shipping(failed) -->
-  <test thread-count="5" name="Test Add Items to Cart(failed)">
-    <parameter name="tax1" value="TBD"/>
-    <parameter name="shipping" value="Free"/>
-    <parameter name="Row" value="yes"/>
+  </test> <!-- Test Logout User(failed) -->
+  <test thread-count="5" name="Test Forgot Password(failed)">
     <classes>
-      <class name="com.qualitesoft.homesquare.testscripts.TestHomeSquareAddItemsToCart">
+      <class name="com.qualitesoft.channelgatesip.testscripts.TestForgotPassword">
         <methods>
           <include name="initialize"/>
-          <include name="testAddItemsToCart"/>
           <include name="setUp"/>
+          <include name="testForgotPassword"/>
+          <include name="verifyUnregisteredEmailValidation"/>
+          <include name="verifyInvalidEmailsValidation" invocation-numbers="0 1 2 3 4 5 6 7 8 9"/>
+          <include name="verifyRequiredFieldValidation"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- com.qualitesoft.homesquare.testscripts.TestHomeSquareAddItemsToCart -->
+      </class> <!-- com.qualitesoft.channelgatesip.testscripts.TestForgotPassword -->
     </classes>
-  </test> <!-- Test Add Items to Cart(failed) -->
-</suite> <!-- Failed suite [Homesquare Suite] -->
+  </test> <!-- Test Forgot Password(failed) -->
+</suite> <!-- Failed suite [ChannelGate SIP] -->

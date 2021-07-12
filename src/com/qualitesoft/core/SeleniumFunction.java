@@ -109,6 +109,17 @@ public class SeleniumFunction {
 			throw e;
 		}
 	}
+	
+	public static String getAttribute(WebElement element, String attribute) {
+
+		try {
+			String text = element.getAttribute(attribute);
+			return text;
+		} catch (Exception e) {
+			Log.warn("Not able to get text from the: " + element + e.getMessage());
+			throw e;
+		}
+	}
 
 	public static void select(WebElement element, String text) {
 
