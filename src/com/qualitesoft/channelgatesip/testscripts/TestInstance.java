@@ -1,9 +1,7 @@
 package com.qualitesoft.channelgatesip.testscripts;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-import com.qualitesoft.americanmattress.pageobjects.ShoppingCartPage;
 import com.qualitesoft.channelgatesip.pageobjects.LoginPage;
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.ScreenShot;
