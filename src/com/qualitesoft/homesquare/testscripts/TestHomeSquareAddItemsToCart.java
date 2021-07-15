@@ -15,6 +15,7 @@ import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.homesquare.pageobjects.HomeSquareAddToCartPage;
 import com.qualitesoft.homesquare.pageobjects.HomeSquareCartPage;
+import com.qualitesoft.homesquare.pageobjects.HomeSquareHomePage;
 import com.qualitesoft.homesquare.pageobjects.HomeSquareMyAccountPage;
 import com.qualitesoft.homesquare.pageobjects.HomeSquareProductsPage;
 
@@ -24,10 +25,17 @@ public class TestHomeSquareAddItemsToCart extends InitializeTest {
 	public void testAddItemsToCart() throws ParseException {
 
 		HomeSquareMyAccountPage myAccountPage = new HomeSquareMyAccountPage(driver);
+		HomeSquareHomePage homepage = new HomeSquareHomePage(driver);
+
 		WebElement diningChairsLink = myAccountPage.kitchenAndDiningLink();
 		SeleniumFunction.hoverAction(driver, diningChairsLink);
 		WaitTool.sleep(2);
 		SeleniumFunction.click(myAccountPage.HomeSqdiningChairsLink());
+
+		if(homepage.closePopupWrapperStatus() == true){
+			SeleniumFunction.clickJS(driver, homepage.closePopupWrapper());
+			WaitTool.sleep(2);
+		}	
 
 		HomeSquareProductsPage productsPage = new HomeSquareProductsPage(driver);
 		WebElement diningChair = productsPage.diningChair();
@@ -36,7 +44,7 @@ public class TestHomeSquareAddItemsToCart extends InitializeTest {
 		NumberFormat f = NumberFormat.getInstance(); 
 		productPrice = f.parse(productsPage.productPrice().replace("$", "")).doubleValue(); 
 		Log.info("**************************************************Product Price : "+productPrice);
-		
+
 
 		HomeSquareAddToCartPage addToCartPage = new HomeSquareAddToCartPage(driver);
 		WebElement quantityDropdown = addToCartPage.quantityDropdownHome();
@@ -51,5 +59,6 @@ public class TestHomeSquareAddItemsToCart extends InitializeTest {
 		Assert.assertEquals(cartPage.getTax(), tax1);
 		if(Row.equals("yes"))
 			SeleniumFunction.click(cartPage.checkoutButton());
+		WaitTool.sleep(5);
 	}
 }

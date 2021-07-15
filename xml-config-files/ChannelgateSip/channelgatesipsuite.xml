@@ -11,12 +11,12 @@
 	<parameter name="password" value="cymaxcom" />
 	<parameter name="crusername" value="channelgate09072021@mailinator.com"></parameter>
 
-	<test name="Test Forgot Password">
+	<!-- <test name="Test Forgot Password">
 		<classes>
 			<class
 				name="com.qualitesoft.channelgatesip.testscripts.TestForgotPassword" />
 		</classes>
-	</test>
+	</test> -->
 	<test name="Test Login">
 		<classes>
 			<class name="com.qualitesoft.channelgatesip.testscripts.TestLogin" />

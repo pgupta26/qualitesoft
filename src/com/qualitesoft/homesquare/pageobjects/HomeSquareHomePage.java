@@ -87,12 +87,12 @@ public class HomeSquareHomePage {
 
 
 	//*****************Random CC popup***********
-	public WebElement closePopupWrapper(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[contains(@id,'pop-section')]//a)[1]") , 10);
+	public boolean closePopupWrapperStatus(){
+		return WaitTool.waitForElementBoolean(driver, By.xpath("(//div[contains(@id,'pop-section')]//a)[1]") , 60);
 	}
 
-	public boolean closePopupWrapperStatus(){
-		return WaitTool.isElementPresentAndDisplay(driver,  By.xpath("(//div[contains(@id,'pop-section')]//a)[1]"));
+	public WebElement closePopupWrapper(){
+		return WaitTool.waitForElementPresentAndDisplay(driver,  By.xpath("(//div[contains(@id,'pop-section')]//a)[1]"), 60);
 	}
 	//*****************Copied from cymax***********
 	public WebElement HomeSqmyAccountLink() {
@@ -165,30 +165,52 @@ public class HomeSquareHomePage {
 
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//img[@src='/images/homesquare-logo.png'])[1]"), 10);
 	}
-	
+
 	public WebElement emailSigninTextbox() {
 
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath(".//*[@id='UserName']"), 10);
 	}
-	
+
 	public WebElement signInLink() {
 
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@href='/MyAccount/Login.aspx']"), 30);
 	}
-	
+
 	public WebElement passowrdSigninTextbox() {
 
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath(".//*[@id='Password']"), 10);
 	}
-	
+
 	public WebElement designerCheckbox() {
 
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath(".//*[@id='chkIsDesigner']"), 10);
 	}
-	
+
 	public WebElement loginButton() {
 
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath(".//*[@id='Login1']"), 10);
 	}
-	
+	public WebElement homePrice() {
+
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@href='#Price_fg']"), 10);
+
+	}
+	public WebElement homeDesign() {
+
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@href='#Design_fg']"), 10);
+
+	}
+	public WebElement HomeSqunder$250Filter() {
+
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@href='dining-chairs--C635-11170.htm?Sort=Price-Desc&Count=60']"), 10);
+	}
+	public WebElement HomeSqarmChair() {
+
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@href='dining-chairs--C635-4189.htm']"), 10);
+	}
+	public WebElement HomeSqbanquette() {
+
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@href='dining-chairs--C635-4189-7830.htm']"), 10);
+	}
+
 }

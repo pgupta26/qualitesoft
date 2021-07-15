@@ -85,7 +85,7 @@
 			<class name="com.qualitesoft.homesquare.testscripts.OrderConfirmation" />
 			<class name="com.qualitesoft.homesquare.testscripts.LogOff" />
 		</classes>
-	</test>
+	</test> 
 
 	<test name="Checkout via Amazon - As Guest with Free Shipping">
 		<parameter name="fastShipping" value="Free"></parameter>
@@ -147,7 +147,7 @@
 		</classes>
 	</test>
 	<test name="Test Add Items to Cart">
-		<parameter name="Row" value="yes" />
+		<parameter name="Row" value="no" />
 		<parameter name="tax1" value="TBD" />
 		<parameter name="shipping" value="$10.00" />
 		<classes>

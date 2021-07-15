@@ -26,6 +26,12 @@ public class TestHomeSquareCreateNewAccount extends InitializeTest{
 		
 		HomeSquareHomePage homePage = new HomeSquareHomePage(driver);
 		//SeleniumFunction.click(homePage.HomeSqcloseButton());	
+		
+		if(homePage.closePopupWrapperStatus() == true){
+			SeleniumFunction.clickJS(driver, homePage.closePopupWrapper());
+			WaitTool.sleep(2);
+		}	
+		
 		WebElement myAccountLink = homePage.HomeSqmyAccountLink();
 		//ScreenShot.takeScreenShot(driver, "HomePage");
 		SeleniumFunction.click(myAccountLink);
