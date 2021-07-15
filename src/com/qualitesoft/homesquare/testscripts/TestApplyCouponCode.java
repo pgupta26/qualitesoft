@@ -31,8 +31,7 @@ public class TestApplyCouponCode extends InitializeTest {
 	@Test
 	public void testApplyCouponCode() throws ParseException {
 
-		HomeSquareHomePage homePage = new HomeSquareHomePage(driver);
-		
+		HomeSquareHomePage homepage = new HomeSquareHomePage(driver);
 
 		HomeSquareMyAccountPage myAccountPage = new HomeSquareMyAccountPage(driver);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
@@ -42,6 +41,11 @@ public class TestApplyCouponCode extends InitializeTest {
 		SeleniumFunction.hoverAction(driver, diningChairsLink);
 		WaitTool.sleep(2);
 		SeleniumFunction.click(myAccountPage.outdoorSofaLink());
+		
+		if(homepage.closePopupWrapperStatus() == true){
+			SeleniumFunction.clickJS(driver, homepage.closePopupWrapper());
+			WaitTool.sleep(2);
+		}	
 
 		HomeSquareProductsPage productsPage = new HomeSquareProductsPage(driver);
 		WebElement diningChair = productsPage.diningChair();

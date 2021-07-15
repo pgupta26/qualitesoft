@@ -19,7 +19,7 @@ public class TestHomeSquareProductListingRefinement extends InitializeTest  {
 		 WebDriver driver = getDriver();
 		 
 		 HomeSquareHomePage homePage = new HomeSquareHomePage(driver);
-
+			
 		//SeleniumFunction.click(homePage.HomeSqcloseButton());			 
 		 //WebElement hsqHomeLink=homePage.hsqHomeLink();
 		 //SeleniumFunction.click(hsqHomeLink);
@@ -31,6 +31,11 @@ public class TestHomeSquareProductListingRefinement extends InitializeTest  {
 		 SeleniumFunction.click(homePage.HomeSqdiningChairs());
 		 WaitTool.sleep(5);
 	
+		 if(homePage.closePopupWrapperStatus() == true){
+			 SeleniumFunction.clickJS(driver, homePage.closePopupWrapper());
+			 WaitTool.sleep(2);
+		 }	
+		 
 		 //WebElements used
 		 WebElement sortDropdown=homePage.HomeSqsortDropdown();
 
@@ -49,8 +54,8 @@ public class TestHomeSquareProductListingRefinement extends InitializeTest  {
 		 jse.executeScript("window.scrollBy(0,250)", "");
 		 ScreenShot.takeScreenShot(driver, "Highest Price");	
 		
-	/*	 //Filter options
-		 SeleniumFunction.click(homePage.homePrice());
+		 //Filter options
+		/* SeleniumFunction.click(homePage.homePrice());
          SeleniumFunction.click(homePage.HomeSqunder$250Filter());
          WaitTool.sleep(5);
          jse.executeScript("window.scrollBy(0,250)", "");

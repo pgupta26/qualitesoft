@@ -17,7 +17,9 @@ public class SignIn extends InitializeTest{
 	@Test
 	public void testSignIn() {	
 		HomeSquareLoginPage loginPage =new HomeSquareLoginPage(driver);
+		WaitTool.sleep(5);
 		if(loginPage.alreadyHaveAccountPresent()) {
+			WaitTool.sleep(5);
 			loginPage.alreadyHaveAccount();
 			loginPage.userName(emailAddress);
 			loginPage.password("CymaxQa1234");

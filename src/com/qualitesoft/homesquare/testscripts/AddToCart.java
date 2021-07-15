@@ -29,21 +29,26 @@ public class AddToCart extends InitializeTest{
 			HomeSquareMyAccountPage myAccountPage = new HomeSquareMyAccountPage(driver);
 			HomeSquareHomePage homepage = new HomeSquareHomePage(driver);
 			HomeSquareProductsPage productsPage = new HomeSquareProductsPage(driver);
+			
+			
 			JavascriptExecutor jse = (JavascriptExecutor)driver;
 			jse.executeScript("window.scrollBy(0,-250)", "");
 			WebElement diningChairsLink = myAccountPage.kitchenAndDiningLink();
 			SeleniumFunction.hoverAction(driver, diningChairsLink);
 			WaitTool.sleep(2);
+			
 			SeleniumFunction.click(myAccountPage.HomeSqdiningChairsLink());
 			ScreenShot.takeScreenShot(driver, "Beds category page");
-			SeleniumFunction.sendKeys(homepage.searchField(), "1652636");
-			SeleniumFunction.click(homepage.searchButton1());
-			WaitTool.sleep(5);
+
 			if(homepage.closePopupWrapperStatus() == true){
 				SeleniumFunction.clickJS(driver, homepage.closePopupWrapper());
 				WaitTool.sleep(2);
-			}
+			}	
 			
+			SeleniumFunction.sendKeys(homepage.searchField(), "1652636");
+			WaitTool.sleep(5);		
+			SeleniumFunction.click(homepage.searchButton1());
+			WaitTool.sleep(15);		
 			SeleniumFunction.click(productsPage.firstProductInListing());	
 			WaitTool.sleep(10);
 			NumberFormat f = NumberFormat.getInstance(); 
@@ -55,6 +60,7 @@ public class AddToCart extends InitializeTest{
 			WebElement quantityDropdown = addToCartPage.quantityDropdown();
 			jse.executeScript("arguments[0].value='2';", quantityDropdown);
 			SeleniumFunction.clickJS(driver, addToCartPage.addToCartButton());
+			WaitTool.sleep(10);	
 			HomeSquareCartPage cartPage = new HomeSquareCartPage(driver);
 			ScreenShot.takeScreenShot(driver,"CartPage");
 			Assert.assertEquals(f.parse(cartPage.productPrice().replace("$", "")).doubleValue(), (productPrice * 2));

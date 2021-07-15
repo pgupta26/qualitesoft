@@ -36,19 +36,28 @@
       </class> <!-- com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff -->
     </classes>
   </test> <!-- Checkout via Amazon - As Existing User With Shipping(failed) -->
-  <test thread-count="5" name="Test Add Items to Cart(failed)">
-    <parameter name="tax1" value="TBD"/>
-    <parameter name="shipping" value="Free"/>
-    <parameter name="Row" value="yes"/>
+  <test thread-count="5" name="Product List Refinement(failed)">
     <classes>
-      <class name="com.qualitesoft.homesquare.testscripts.TestHomeSquareAddItemsToCart">
+      <class name="com.qualitesoft.homesquare.testscripts.TestHomeSquareProductListingRefinement">
         <methods>
           <include name="initialize"/>
-          <include name="testAddItemsToCart"/>
           <include name="setUp"/>
+          <include name="testProductListingRefinement"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- com.qualitesoft.homesquare.testscripts.TestHomeSquareAddItemsToCart -->
+      </class> <!-- com.qualitesoft.homesquare.testscripts.TestHomeSquareProductListingRefinement -->
     </classes>
-  </test> <!-- Test Add Items to Cart(failed) -->
+  </test> <!-- Product List Refinement(failed) -->
+  <test thread-count="5" name="EnhancedCart Product(failed)">
+    <classes>
+      <class name="com.qualitesoft.homesquare.testscripts.TestHomeSquareEnhancedCartPLA">
+        <methods>
+          <include name="initialize"/>
+          <include name="setUp"/>
+          <include name="testEnhancedCartPLA"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.homesquare.testscripts.TestHomeSquareEnhancedCartPLA -->
+    </classes>
+  </test> <!-- EnhancedCart Product(failed) -->
 </suite> <!-- Failed suite [Homesquare Suite] -->

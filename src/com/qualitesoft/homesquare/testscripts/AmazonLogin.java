@@ -23,19 +23,25 @@ public class AmazonLogin extends InitializeTest {
 			HomeSquareLoginPage loginPage =new HomeSquareLoginPage(driver);
 			HomeSquareCartPage cartPage = new HomeSquareCartPage(driver);
 			Assert.assertEquals(cartPage.shipping(), fastShipping);
+			WaitTool.sleep(5);
 			SeleniumFunction.click(cartPage.checkoutButton());	
 			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.id("AmazonPayButton"), 60));
 
 			SeleniumFunction.getCurrentWindow(driver);
 			Log.info("Switch to Window Title: "+driver.getTitle());
 
-			amazonLogin();
-			SeleniumFunction.click(loginPage.amazonLoginBtn());
-			Log.info("login successfully.");
+			if(loginPage.amazonEmailStatus() == true){
+				amazonLogin();
+				WaitTool.sleep(5);
+				SeleniumFunction.click(loginPage.amazonLoginBtn());
+				Log.info("login successfully.");
+			}
+			
+			WaitTool.sleep(10);
 			SeleniumFunction.click(loginPage.continueButton());
 
 			SeleniumFunction.getCurrentWindow(driver);
-			Log.info("Switch to Window Title: "+driver.getTitle());
+			Log.info("Switch to Window Title: "+ driver.getTitle());
 
 		}catch(Exception ex) {
 			ex.printStackTrace();
@@ -68,10 +74,14 @@ public class AmazonLogin extends InitializeTest {
 
 			SeleniumFunction.getCurrentWindow(driver);
 			Log.info("Switch to Window Title: "+driver.getTitle());
-
-			amazonLogin();
-			SeleniumFunction.click(loginPage.amazonLoginBtn());
-			Log.info("login successfully.");
+			WaitTool.sleep(5);
+			if(loginPage.amazonEmailStatus() == true){
+				amazonLogin();
+				WaitTool.sleep(5);
+				SeleniumFunction.click(loginPage.amazonLoginBtn());
+				Log.info("login successfully.");
+			}
+			
 			SeleniumFunction.click(loginPage.continueButton());
 
 			SeleniumFunction.getCurrentWindow(driver);

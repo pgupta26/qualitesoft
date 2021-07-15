@@ -24,6 +24,7 @@ public class TestHomeSquareEnhancedCartPLA extends InitializeTest{
          WebDriver driver = getDriver(); 
          //CartPage cartPage1 = new CartPage(driver);
          HomeSquareCartPage cartPage = new HomeSquareCartPage(driver);
+         WaitTool.sleep(5);
          WebElement continueShoppingButton= cartPage.continueShoppingButton();
          SeleniumFunction.clickJS(driver, continueShoppingButton);;
          WaitTool.sleep(5);
