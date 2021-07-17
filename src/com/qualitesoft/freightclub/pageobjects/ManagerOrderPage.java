@@ -1,5 +1,7 @@
 package com.qualitesoft.freightclub.pageobjects;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -103,6 +105,112 @@ public class ManagerOrderPage {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id='center']/div/div[4]/div[3]/div/div/div[1]/div[9]/div/ul/li[2]/a"), 30);
 	}
 	
+	//***************************************Initiate Claim***********************************
 	
+	public WebElement listingPageHeader(int index){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//span[contains(@class,'ag-header-cell-text')])["+index+"]"), 30);
+	}
+	
+	public void initiateClaim() {
+		SeleniumFunction.clickJS(driver,WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("Initiate Claim"), 10));
+	}
+	
+	public void requestReroute() {
+		SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("Request Reroute"), 10));
+	}
+	
+	////values are PendingPickup and Booked
+	public void selectStatus(String value){
+		WebElement button = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='ms-parent ']//button)[1]"), 120);
+		SeleniumFunction.click(button);
+		WebElement option = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@value='"+value+"']"), 10);
+		SeleniumFunction.click(option);
+		WaitTool.sleep(2);
+		SeleniumFunction.click(button);
+		WaitTool.sleep(2);
+	}
+	
+	public WebElement initiateClaimPopup(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//h4[@id='initiateClaimLabel']"), 30);
+	}
+	
+	//Value 1 is for Damage and 2 if for Loss
+	public void selectClaimType(String value){
+		SeleniumFunction.selectByvalue(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//select[@id='claimType']"), 30), value);
+	}
+	
+	public void clickInitiateClaimButton() {
+		SeleniumFunction.clickJS(driver,WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//span[contains(@class,'input-group-btn')]//button"), 10));
+	}
+	
+	//********************************Pagination***************
+	
+	public void clickPaginationButton(int index){
+		WebElement button = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='paging-panel pager-visible']//button)["+index+"]"), 20);
+		SeleniumFunction.scrollDownUptoFooter(driver);
+		SeleniumFunction.click(button);
+	}
+	
+	public String getPagiationTotalRows (){
+		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='paging-panel pager-visible']//span[contains(@class,'summary-panel')])[1]"), 20));
+	}
+	
+	public void setPageNumber(String text){
+		SeleniumFunction.sendKeys(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='paging-panel pager-visible']//input[@type='number'])[1]"), 20), text);
+	}
+	
+	public String getPageNumber(){
+		WebElement inputPage = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='paging-panel pager-visible']//input[@type='number'])[1]"), 20);
+		return SeleniumFunction.getAttribute(inputPage, "value");
+	}
+	
+	public Integer getRowsCount(){
+		List<WebElement> elements = WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("(//div[@class='ag-body-viewport'])[1]//div[contains(@class,'ag-row')]"), 30);
+		return elements.size();
+	}
+	
+	public String getTotalPages(){
+		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='paging-panel pager-visible']//span[contains(@class,'action-panel')])[1]"), 20));
+	}
+	
+	//**************Searching************
+	// values 1 order id, 3 Way bill, 4 tracking
+	public void searchFields(String index,String value) {
+		SeleniumFunction.sendKeys(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@ref='eColumnFloatingFilter'])["+index+"]"), 10), value);
+	}
+	
+	//index 2, 9, 10
+	public String getColumnData(String index){
+		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[contains(@class,'ag-cell-value')])["+index+"]"), 20));
+	}
+	
+	//************Page filters header
+	
+	public String getFilterHeader(int index){
+		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='ag-header-cell ag-header-cell-sortable'])["+index+"]"), 20));
+	}
+	
+	//******************************Request Reroute*************************
+	//Delivery Reroute Request
+
+	public WebElement requestReroutePopup(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//h4[@id='rerouteLabel']"), 30);
+	}
+	
+	public void fillRerouteRequestForm(String index, String text){
+		SeleniumFunction.sendKeys(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//h4[@id='rerouteLabel']//following::input[@class='form-control'])["+index+"]"), 60), text);
+	}
+	
+	public String getFieldValidation(int index){
+		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//h4[@id='rerouteLabel']//following::span[@class='form-group-message'])["+index+"]"), 60));
+	}
+	
+	public void clickSendRequestBtn(){
+		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//h4[@id='rerouteLabel']//following::button[@class='btn btn-primary pull-right'])[1]"), 30));
+	}
+	
+	public boolean requestRerouteIsPresent() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("Request Reroute"), 10).isDisplayed();
+	}
 	
 }

@@ -13,8 +13,50 @@
 	<parameter name="browser" value="chrome" />
 	<parameter name="URL" value="https://qa.freightclub.com/" /> 
 	
+	<test name="Test Verify Functionality of Initiate Claim Button - QA-597 - FC-9217">
+		<parameter name="loginuser" value="new" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="testData" value="Booked" />
+		<parameter name="Row" value="2" />
+		
+		<classes>
+		<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestInitiateClaim" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+	
+	<test name="Test Verify Functionality of Initiate Claim Button - QA-597 - FC-9218">
+		<parameter name="loginuser" value="new" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="testData" value="PendingPickup" />
+		<parameter name="Row" value="1" />
+		
+		<classes>
+		<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestInitiateClaim" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+	
+	<test name="Test Verify Functionality of Searching and Pagination - QA-597">
+	<parameter name="loginuser" value="new" />
+	<parameter name="fcusername" value="test.automation@mailinator.com" />
+	<parameter name="fcpassword" value="Automation123!" />
+
+	<classes>
+		<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+		<class
+			name="com.qualitesoft.freightclub.testscripts.manageorders.TestPagination" />
+		<class
+			name="com.qualitesoft.freightclub.testscripts.manageorders.TestSearchFunctionality" />
+	</classes>
+</test> 
+	
 	<!-- ************************************** QA - 538 Tests ****************************************************** -->
-	<test name="Test Order Ready For Booking Mail to User - QA-538 - CO02">
+	<!-- <test name="Test Order Ready For Booking Mail to User - QA-538 - CO02">
 		<parameter name="testData" value="QA_538.xlsx" />
 		<parameter name="fcusername" value="billing.address@mailinator.com" />
 		<parameter name="notificationType" value="Order Ready For Booking" />
@@ -123,6 +165,6 @@
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" /> 
 		</classes>
-	</test> 
+	</test>  -->
 	
 </suite>	
