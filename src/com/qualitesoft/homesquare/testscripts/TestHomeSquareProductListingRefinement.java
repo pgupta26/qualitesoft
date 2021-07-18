@@ -24,17 +24,18 @@ public class TestHomeSquareProductListingRefinement extends InitializeTest  {
 		 //WebElement hsqHomeLink=homePage.hsqHomeLink();
 		 //SeleniumFunction.click(hsqHomeLink);
 		 WaitTool.sleep(5);
+
+		 if(homePage.closePopupWrapperStatus() == true){
+			 SeleniumFunction.clickJS(driver, homePage.closePopupWrapper());
+			 WaitTool.sleep(2);
+		 }	
+		 
 		 WebElement diningChairsLink = homePage.diningChairsLink();
 		 SeleniumFunction.hoverAction(driver, diningChairsLink);
 		 
 		 WaitTool.sleep(5);
 		 SeleniumFunction.click(homePage.HomeSqdiningChairs());
 		 WaitTool.sleep(5);
-	
-		 if(homePage.closePopupWrapperStatus() == true){
-			 SeleniumFunction.clickJS(driver, homePage.closePopupWrapper());
-			 WaitTool.sleep(2);
-		 }	
 		 
 		 //WebElements used
 		 WebElement sortDropdown=homePage.HomeSqsortDropdown();

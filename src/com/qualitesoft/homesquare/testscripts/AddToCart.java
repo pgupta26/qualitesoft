@@ -30,6 +30,10 @@ public class AddToCart extends InitializeTest{
 			HomeSquareHomePage homepage = new HomeSquareHomePage(driver);
 			HomeSquareProductsPage productsPage = new HomeSquareProductsPage(driver);
 			
+			if(homepage.closePopupWrapperStatus() == true){
+				SeleniumFunction.clickJS(driver, homepage.closePopupWrapper());
+				WaitTool.sleep(2);
+			}	
 			
 			JavascriptExecutor jse = (JavascriptExecutor)driver;
 			jse.executeScript("window.scrollBy(0,-250)", "");
@@ -37,13 +41,13 @@ public class AddToCart extends InitializeTest{
 			SeleniumFunction.hoverAction(driver, diningChairsLink);
 			WaitTool.sleep(2);
 			
+			if(driver.getTitle().contains("The wait operation timed out")){
+				driver.navigate().refresh();
+				driver.navigate().refresh();
+			}
+			
 			SeleniumFunction.click(myAccountPage.HomeSqdiningChairsLink());
 			ScreenShot.takeScreenShot(driver, "Beds category page");
-
-			if(homepage.closePopupWrapperStatus() == true){
-				SeleniumFunction.clickJS(driver, homepage.closePopupWrapper());
-				WaitTool.sleep(2);
-			}	
 			
 			SeleniumFunction.sendKeys(homepage.searchField(), "1652636");
 			WaitTool.sleep(5);		

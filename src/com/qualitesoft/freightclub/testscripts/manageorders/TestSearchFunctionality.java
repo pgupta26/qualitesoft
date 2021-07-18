@@ -6,76 +6,55 @@ import java.util.Arrays;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.qualitesoft.core.InitializeTest;
-import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.freightclub.pageobjects.ManagerOrderPage;
 
 public class TestSearchFunctionality extends InitializeTest{
 
-	public void searchOnManageOrders(String searchIndex, String index2, String searchData){
-		ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
-		manageOrderpage.searchFields(searchIndex, searchData);
-		SeleniumFunction.KeyBoradEnter(driver);
-		WaitTool.sleep(10);
-
-		int rows = manageOrderpage.getRowsCount();
-		Assert.assertEquals(rows, 1);
-		Assert.assertEquals(manageOrderpage.getColumnData(index2), searchData);
-	}
-	
-	@Test(priority = 1)
-	public void searchByOrderId(){
+	public static void searchOnManageOrders(String searchIndex, String index2, String searchData){
 		try{
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
 			SeleniumFunction.click(manageOrderpage.manageOrdersLink());
+			WaitTool.sleep(7);
 
 			manageOrderpage.ActionButton();
 			if(!manageOrderpage.ExpandMenupage().getAttribute("class").equals("active")) {
 				SeleniumFunction.click(manageOrderpage.ExpandMenupage());
 			}
-			
-			this.searchOnManageOrders("1", "2", "51487543");
+			manageOrderpage.searchFields(searchIndex, searchData);
+			SeleniumFunction.KeyBoradEnter(driver);
+			WaitTool.sleep(10);
+
+			int rows = manageOrderpage.getRowsCount();
+			Assert.assertEquals(rows, 1);
+			Assert.assertEquals(manageOrderpage.getColumnData(index2), searchData);
 		}catch(Exception ex) {
 			ex.printStackTrace();
 			throw ex;
 		}
+	}
+
+	@Test(priority = 1)
+	public void searchByOrderId(){
+		searchOnManageOrders("1", "2", "51487543");
 	}
 
 	@Test(priority = 2)
 	public void searchByWaybill(){
-		try{
-			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
-			driver.navigate().refresh();
-			manageOrderpage.ActionButton();
-			WaitTool.sleep(7);
-			this.searchOnManageOrders("3", "9", "FCABF1006300");
-			
-		}catch(Exception ex) {
-			ex.printStackTrace();
-			throw ex;
-		}
+		searchOnManageOrders("3", "9", "FCABF1006300");
 	}
 
 	@Test(priority = 3)
 	public void searchByTrackingNumber(){
-		try{
-			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
-			driver.navigate().refresh();
-			manageOrderpage.ActionButton();
-			WaitTool.sleep(7);
-			this.searchOnManageOrders("4", "10", "66488638");
-		}catch(Exception ex) {
-			ex.printStackTrace();
-			throw ex;
-		}
+		searchOnManageOrders("4", "10", "66488638");
 	}
 
 	@Test(priority = 4)
 	public void verifyFilterHeaderText(){
 		try{
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
-			driver.navigate().refresh();
+			SeleniumFunction.click(manageOrderpage.manageOrdersLink());
 			manageOrderpage.ActionButton();
 			WaitTool.sleep(5);
 			ArrayList<String> headers = new ArrayList<String>();

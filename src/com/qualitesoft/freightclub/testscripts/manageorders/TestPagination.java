@@ -1,17 +1,16 @@
 package com.qualitesoft.freightclub.testscripts.manageorders;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
-import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
+import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.freightclub.pageobjects.ManagerOrderPage;
 
 public class TestPagination extends InitializeTest{
 
-	public void clickPaginationBtnAndVerifyRows(int btnIndex, String pageInput, String rowsNumbers, int totalRows){
+	public static void clickPaginationBtnAndVerifyRows(int btnIndex, String pageInput, String rowsNumbers, int totalRows){
 		try{
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
 			String rowsCount = manageOrderpage.getPagiationTotalRows();
@@ -22,25 +21,25 @@ public class TestPagination extends InitializeTest{
 				WaitTool.sleep(15);
 				//************Verify rows limit on pagination********
 				String paginationLimit= manageOrderpage.getPagiationTotalRows();
-				Assert.assertEquals(paginationLimit.substring(0, 8), rowsNumbers);
+				UseAssert.assertEquals(paginationLimit.substring(0, 8), rowsNumbers);
 				System.out.println("Pagination Limit is >>>" + paginationLimit);
 
 				//**************Verify Input field count***********
 				String inputPageCount = manageOrderpage.getPageNumber();
-				Assert.assertEquals(inputPageCount, pageInput);
+				UseAssert.assertEquals(inputPageCount, pageInput);
 				System.out.println("Input page number is >>>" + inputPageCount);
 
 				//*************Verify Number of Rows***********
 				int rows = manageOrderpage.getRowsCount();
-				System.out.println("Total rows are >>>>>>>>>" + rows);			
-				Assert.assertEquals(rows, 10);
+				System.out.println("Total rows are >>>>>>>>>" + rows);	
+				UseAssert.assertEquals(rows, 10);
 			}
 		}catch(Exception ex) {
 			ex.printStackTrace();
 			throw ex;
 		}
 	}
-	@Test(priority = 0)
+	@Test(priority = 1)
 	public void testPagination(){
 		try{
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
@@ -59,10 +58,10 @@ public class TestPagination extends InitializeTest{
 
 			//******* Verify initially rows are 10*******
 			if(Integer.parseInt(num[4]) > 10){
-				Assert.assertEquals(rows, 10);
+				UseAssert.assertEquals(rows, 10);
 			}
 			else{
-				Assert.assertEquals(rows, Integer.parseInt(num[4]));
+				UseAssert.assertEquals(rows, Integer.parseInt(num[4]));
 			}			
 		}catch(Exception ex) {
 			ex.printStackTrace();
@@ -71,7 +70,7 @@ public class TestPagination extends InitializeTest{
 
 	}
 
-	@Test(priority = 1)
+	@Test(priority = 2)
 	public void testLastPageRows(){
 		try{
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
@@ -95,10 +94,10 @@ public class TestPagination extends InitializeTest{
 				System.out.println("Rows count>>>>>>>>>" + lastPageRows);
 
 				if(lastNum != '0'){
-					Assert.assertEquals(lastPageRows, ex_rows);
+					UseAssert.assertEquals(lastPageRows, ex_rows);
 				}
 				else{
-					Assert.assertEquals(lastPageRows, 10);
+					UseAssert.assertEquals(lastPageRows, 10);
 				}
 
 				String pages = manageOrderpage.getTotalPages();
@@ -106,10 +105,10 @@ public class TestPagination extends InitializeTest{
 				System.out.println("Total pages are >>>>>>>>>" + totalPages);
 
 				String inputPages = manageOrderpage.getPageNumber();
-				Assert.assertEquals(inputPages, totalPages);
+				UseAssert.assertEquals(inputPages, totalPages);
 			}
 			else{
-				Assert.assertEquals(rows, Integer.parseInt(num[4]));
+				UseAssert.assertEquals(rows, Integer.parseInt(num[4]));
 			}	
 		}catch(Exception ex) {
 			ex.printStackTrace();
@@ -117,22 +116,23 @@ public class TestPagination extends InitializeTest{
 		}
 	}
 
-	@Test(priority = 2)
-	public void testFirstPageRows(){
-		this.clickPaginationBtnAndVerifyRows(1, "1", "1 to 10 ", 10);
-	}
-
 	@Test(priority = 3)
-	public void testNextPageRows(){
-		this.clickPaginationBtnAndVerifyRows(3, "2", "11 to 20", 20);			
+	public void testFirstPageRows(){
+		clickPaginationBtnAndVerifyRows(1, "1", "1 to 10 ", 10);
 	}
 
 	@Test(priority = 4)
-	public void testPreviousPageRows(){
-		this.clickPaginationBtnAndVerifyRows(2, "1", "1 to 10 ", 10);
+	public void testNextPageRows(){
+		clickPaginationBtnAndVerifyRows(3, "2", "11 to 20", 20);			
 	}
 
 	@Test(priority = 5)
+	public void testPreviousPageRows(){
+		clickPaginationBtnAndVerifyRows(2, "1", "1 to 10 ", 10);
+	}
+
+	
+	@Test(priority = 6)
 	public void verifyRowsLimit(){
 		try{
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
@@ -142,8 +142,8 @@ public class TestPagination extends InitializeTest{
 			manageOrderpage.setPageNumber("2");
 			SeleniumFunction.KeyBoradEnter(driver);
 			WaitTool.sleep(15);
-			Assert.assertEquals(inputPage2, "2");
-			Assert.assertEquals(nextPageRows.substring(0, 8), "11 to 20");
+			UseAssert.assertEquals(inputPage2, "2");
+			UseAssert.assertEquals(nextPageRows.substring(0, 8), "11 to 20");
 		}catch(Exception ex) {
 			ex.printStackTrace();
 			throw ex;
