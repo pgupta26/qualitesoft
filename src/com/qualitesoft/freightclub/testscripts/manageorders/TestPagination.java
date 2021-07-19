@@ -3,6 +3,7 @@ package com.qualitesoft.freightclub.testscripts.manageorders;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
+import com.qualitesoft.core.Log;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
@@ -22,16 +23,17 @@ public class TestPagination extends InitializeTest{
 				//************Verify rows limit on pagination********
 				String paginationLimit= manageOrderpage.getPagiationTotalRows();
 				UseAssert.assertEquals(paginationLimit.substring(0, 8), rowsNumbers);
-				System.out.println("Pagination Limit is >>>" + paginationLimit);
+				Log.info("Pagination Limit is >>>" + paginationLimit);
 
 				//**************Verify Input field count***********
 				String inputPageCount = manageOrderpage.getPageNumber();
 				UseAssert.assertEquals(inputPageCount, pageInput);
-				System.out.println("Input page number is >>>" + inputPageCount);
+				
+				Log.info("Input page number is >>>" + inputPageCount);
 
 				//*************Verify Number of Rows***********
 				int rows = manageOrderpage.getRowsCount();
-				System.out.println("Total rows are >>>>>>>>>" + rows);	
+				Log.info("Total rows are >>>>>>>>>" + rows);	
 				UseAssert.assertEquals(rows, 10);
 			}
 		}catch(Exception ex) {
@@ -39,6 +41,7 @@ public class TestPagination extends InitializeTest{
 			throw ex;
 		}
 	}
+	
 	@Test(priority = 1)
 	public void testPagination(){
 		try{
@@ -54,7 +57,7 @@ public class TestPagination extends InitializeTest{
 			String[] num = rowsCount.split(" ");
 
 			int rows = manageOrderpage.getRowsCount();
-			System.out.println("Total rows are >>>>>>>>>" + rows);
+			Log.info("Total rows are >>>>>>>>>" + rows);
 
 			//******* Verify initially rows are 10*******
 			if(Integer.parseInt(num[4]) > 10){
@@ -77,10 +80,10 @@ public class TestPagination extends InitializeTest{
 
 			String rowsCount = manageOrderpage.getPagiationTotalRows();
 			String[] num = rowsCount.split(" ");
-			System.out.println("Pagination Rows count is >>>>>>>>>" + rowsCount);
+			Log.info("Pagination Rows count is >>>>>>>>>" + rowsCount);
 
 			int rows = manageOrderpage.getRowsCount();
-			System.out.println("Total rows are >>>>>>>>>" + rows);
+			Log.info("Total rows are >>>>>>>>>" + rows);
 
 			if(Integer.parseInt(num[4]) > 10){
 				manageOrderpage.clickPaginationButton(4);
@@ -90,8 +93,8 @@ public class TestPagination extends InitializeTest{
 				int ex_rows = Character.getNumericValue(lastNum);
 				int lastPageRows = manageOrderpage.getRowsCount();
 
-				System.out.println("Last num from pagination text >>>>>>>>>" + ex_rows);
-				System.out.println("Rows count>>>>>>>>>" + lastPageRows);
+				Log.info("Last num from pagination text >>>>>>>>>" + ex_rows);
+				Log.info("Rows count>>>>>>>>>" + lastPageRows);
 
 				if(lastNum != '0'){
 					UseAssert.assertEquals(lastPageRows, ex_rows);
@@ -102,7 +105,7 @@ public class TestPagination extends InitializeTest{
 
 				String pages = manageOrderpage.getTotalPages();
 				String totalPages = pages.replaceAll("[^?0-9]+", "");
-				System.out.println("Total pages are >>>>>>>>>" + totalPages);
+				Log.info("Total pages are >>>>>>>>>" + totalPages);
 
 				String inputPages = manageOrderpage.getPageNumber();
 				UseAssert.assertEquals(inputPages, totalPages);

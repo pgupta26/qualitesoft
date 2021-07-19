@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.SeleniumFunction;
+import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.freightclub.pageobjects.ManagerOrderPage;
 
@@ -27,8 +28,8 @@ public class TestSearchFunctionality extends InitializeTest{
 			WaitTool.sleep(10);
 
 			int rows = manageOrderpage.getRowsCount();
-			Assert.assertEquals(rows, 1);
-			Assert.assertEquals(manageOrderpage.getColumnData(index2), searchData);
+			UseAssert.assertEquals(rows, 1);
+			UseAssert.assertEquals(manageOrderpage.getColumnData(index2), searchData);
 		}catch(Exception ex) {
 			ex.printStackTrace();
 			throw ex;

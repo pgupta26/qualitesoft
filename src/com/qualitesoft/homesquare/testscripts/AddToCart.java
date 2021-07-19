@@ -35,18 +35,18 @@ public class AddToCart extends InitializeTest{
 				WaitTool.sleep(2);
 			}	
 			
+			SeleniumFunction.scrollUpByPixel(driver, "250");
 			JavascriptExecutor jse = (JavascriptExecutor)driver;
-			jse.executeScript("window.scrollBy(0,-250)", "");
+			/*jse.executeScript("window.scrollBy(0,-250)", "");*/
 			WebElement diningChairsLink = myAccountPage.kitchenAndDiningLink();
 			SeleniumFunction.hoverAction(driver, diningChairsLink);
 			WaitTool.sleep(2);
 			
+			SeleniumFunction.click(myAccountPage.HomeSqdiningChairsLink());
 			if(driver.getTitle().contains("The wait operation timed out")){
 				driver.navigate().refresh();
 				driver.navigate().refresh();
 			}
-			
-			SeleniumFunction.click(myAccountPage.HomeSqdiningChairsLink());
 			ScreenShot.takeScreenShot(driver, "Beds category page");
 			
 			SeleniumFunction.sendKeys(homepage.searchField(), "1652636");

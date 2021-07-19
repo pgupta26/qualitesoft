@@ -52,10 +52,8 @@
 
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
-			<class
-				name="com.qualitesoft.freightclub.testscripts.manageorders.TestPagination" />
-			<class
-				name="com.qualitesoft.freightclub.testscripts.manageorders.TestSearchFunctionality" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestPagination" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestSearchFunctionality" />
 				<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
 	</test>

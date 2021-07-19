@@ -210,8 +210,8 @@ public class ManagerOrderPage {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='rerouteDeniedModal']//h4[@id='rerouteLabel']"), 30);
 	}
 	
-	public void fillRerouteRequestForm(String index, String text){
-		SeleniumFunction.sendKeys(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//h4[@id='rerouteLabel']//following::input[@class='form-control'])["+index+"]"), 60), text);
+	public void fillRerouteRequestForm(String labelName, String text){
+		SeleniumFunction.sendKeys(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//h4[@id='rerouteLabel']//following::label[contains(text(),'"+labelName+"')]//parent::div//input"), 60), text);
 	}
 	
 	public String getFieldValidation(int index){
@@ -226,8 +226,8 @@ public class ManagerOrderPage {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("Request Reroute"), 10).isDisplayed();
 	}
 	
-	public WebElement checkboxStatus(int index){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@id='rerouteModal']//input[@type='checkbox'])["+index+"]"), 60);
+	public WebElement checkboxStatus(String fieldName){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[contains(text(),'"+fieldName+"')]//input"), 60);
 	}
 	
 	public WebElement locationType(int index){
