@@ -2,7 +2,7 @@ package com.qualitesoft.cymax.testscripts;
 
 import java.util.List;
 
-import org.junit.Assert;
+import org.testng.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;

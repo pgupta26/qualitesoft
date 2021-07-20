@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-import org.junit.Assert;
+import org.testng.*;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
@@ -272,5 +272,15 @@ public class TestManageOrders extends InitializeTest {
 		WaitTool.sleep(20);
 
 		Assert.assertEquals(manageOrderpage.customerPO().getText(), orderReferenceID);
+		
+		WaitTool.sleep(5);
+		quickQuote.acceptPopup();
+		WaitTool.sleep(1);
+		crorderId=SeleniumFunction.getText(manageOrderpage.orderIDGridValueFirstRow());
+		System.out.println("crorderId:" + crorderId.trim());
+		
+		//set order id in excel
+		xr.setCellData("Input","OrderId", i,crorderId.trim());
+		WaitTool.sleep(5);
 	}
 }

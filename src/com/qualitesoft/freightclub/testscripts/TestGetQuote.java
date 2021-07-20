@@ -28,6 +28,8 @@ public class TestGetQuote extends InitializeTest{
 		keyboard.pressKey(Keys.BACK_SPACE);
 		WaitTool.sleep(2);
 		SeleniumFunction.sendKeys(quickQuote.productvalue(), productName);
+		WaitTool.sleep(5);
+		SeleniumFunction.KeyBoradEnter(driver);
 		WaitTool.sleep(2);
 	}
 
@@ -38,7 +40,6 @@ public class TestGetQuote extends InitializeTest{
 		SeleniumFunction.click(quickQuote.Addproduct());
 		SeleniumFunction.click(quickQuote.searchproduct());				
 		this.searchPackageTypeProduct("prodTBQW");
-		SeleniumFunction.KeyBoradEnter(driver);
 		ScreenShot.takeScreenShot(driver, "product added at shipment information page") ;
 	}
 
@@ -49,10 +50,20 @@ public class TestGetQuote extends InitializeTest{
 
 		String shipmentType=xr.getCellData("Input","shipmentType", i).trim();
 		String packageType = xr.getCellData("Input", "packageType", i).trim();
+		String packageType2 = xr.getCellData("Input", "packageType2", i).trim();
 
-		if(Row.equalsIgnoreCase("5") || Row.equalsIgnoreCase("8") || Row.equalsIgnoreCase("9")) {
-			this.addSearchProduct();
+		String palletDescription = xr.getCellData("ShipmentInformation", "PalletDescription", 2);
+
+		SeleniumFunction.scrollUpByPixel(driver, "300");
+		if(packageType.equals("Standard Pallet 2") || packageType.equals("Custom Pallet (enter dimensions)") || packageType2.equals("Standard Pallet 2")) {
+			SeleniumFunction.click(quickQuote.genericPallet());
+			SeleniumFunction.sendKeys(quickQuote.palletDescription(), palletDescription);
 		}
+		
+		/*
+		 * if(Row.equalsIgnoreCase("5") || Row.equalsIgnoreCase("8") ||
+		 * Row.equalsIgnoreCase("9")) { this.addSearchProduct(); }
+		 */
 		
 		jse.executeScript("window.scrollBy(0,-350)", "");
 		WaitTool.sleep(3);
@@ -148,13 +159,6 @@ public class TestGetQuote extends InitializeTest{
 
 		SeleniumFunction.selectByVisibleText(quickQuote.PickUpLocationType(), pickUpType);
 		SeleniumFunction.selectByVisibleText(quickQuote.DropOffLocationType(), dropOffType);
-
-		//Surepost doesn't support insurance
-		/*if (!suiteName.equals("Sure Post Suite")) {
-			if (Row.equalsIgnoreCase("8")) {
-				SeleniumFunction.click(quickQuote.insurance());
-			}
-		}*/
 
 		if(category1.equalsIgnoreCase("Other")){
 			SeleniumFunction.selectByvalue(quickQuote.Category(), "347");
@@ -259,26 +263,26 @@ public class TestGetQuote extends InitializeTest{
 		}			
 		WaitTool.sleep(10);
 
-		if(Row.equalsIgnoreCase("3")) {
-			jse.executeScript("window.scrollBy(0,-1000)", "");
-			SeleniumFunction.click(quickQuote.Addproduct());
-			SeleniumFunction.click(quickQuote.searchproduct());				
-			WaitTool.sleep(2);
-			Keyboard keyboard = ((HasInputDevices) driver).getKeyboard();
-			keyboard.pressKey(Keys.BACK_SPACE);
-			WaitTool.sleep(2);
-			SeleniumFunction.sendKeys(quickQuote.productvalue(), TestManageProducts.Productname);
-			WaitTool.sleep(2);
-			SeleniumFunction.KeyBoradEnter(driver);
-			ScreenShot.takeScreenShot(driver, "product added ") ;
-		}
+		/*
+		 * if(Row.equalsIgnoreCase("3")) { jse.executeScript("window.scrollBy(0,-1000)",
+		 * ""); SeleniumFunction.click(quickQuote.Addproduct());
+		 * SeleniumFunction.click(quickQuote.searchproduct()); WaitTool.sleep(2);
+		 * Keyboard keyboard = ((HasInputDevices) driver).getKeyboard();
+		 * keyboard.pressKey(Keys.BACK_SPACE); WaitTool.sleep(2);
+		 * SeleniumFunction.sendKeys(quickQuote.productvalue(),
+		 * TestManageProducts.Productname); WaitTool.sleep(2);
+		 * SeleniumFunction.KeyBoradEnter(driver); ScreenShot.takeScreenShot(driver,
+		 * "product added ") ; }
+		 */
 
 		//Shipment information tab 
-		this.enterShipmentInformation(xr);
+		if(i != 9) {
+			this.enterShipmentInformation(xr);
+		}
 
 		//Review and Book Tab
 		SeleniumFunction.scrollDownUptoFooter(driver);
-		SeleniumFunction.click(quickQuote.Book());
+		SeleniumFunction.clickJS(driver, quickQuote.Book());
 		WaitTool.sleep(30);
 		ScreenShot.takeScreenShot(driver, "Order Confirmation "+shipmentType+" "+packageType);
 		SeleniumFunction.click(quickQuote.Okbutton1());

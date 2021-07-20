@@ -3,7 +3,6 @@ package com.qualitesoft.core;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.net.URI;
-import java.net.URISyntaxException;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -28,15 +27,19 @@ public class JavaFunction {
 	}
 	
 	public static String currentDate(){
-		
 		Date myDate=new Date();
 		SimpleDateFormat dateFormat=new SimpleDateFormat("MM/dd/yyyy");
 		String currentDate=dateFormat.format(myDate);
 		return currentDate;
 	}
 	
+	public static String currentDateUSFormat(){
+		Date myDate=new Date();
+		SimpleDateFormat dateFormat=new SimpleDateFormat("MM-dd-yyyy");
+		String currentDate=dateFormat.format(myDate);
+		return currentDate;
+	}
 
-	
 	public static URI appendUri(String uri, String appendQuery) {
 	     
 	    try{URI oldUri = new URI(uri);

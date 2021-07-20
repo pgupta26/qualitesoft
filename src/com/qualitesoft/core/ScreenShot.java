@@ -6,7 +6,6 @@ import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.imageio.ImageIO;
@@ -30,7 +29,7 @@ public class ScreenShot extends InitializeTest {
 		try {
 			WaitTool.sleep(2);
 			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(scrFile, new File(baseScreenShotsFolder +File.separator+ fileName + ".png"));
+			FileUtils.copyFile(scrFile, new File(baseScreenShotsFolder +File.separator+fileName+ ".png"));
 			Log.info("Screenshot " + fileName + " successfully taken.");
 		} catch (Exception e) {
 			Log.warn("Not able to take " + fileName + " screen shot: " + e.getMessage());
@@ -53,12 +52,12 @@ public class ScreenShot extends InitializeTest {
 			Screenshot scrFile=new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(driver);
 			ImageIO.write(scrFile.getImage(),"PNG",new File(baseScreenShotsFolder + "/" +fileName + "_failed.png"));
 			Log.info("Faliure screenshot " + fileName + " successfully taken.");
-			driver.close();
-			InitializeTest initializeTest = new InitializeTest();
-			initializeTest.setUp(browser, URL);
 		} catch (Exception e) {
 			Log.warn("Not able to take " + fileName + " screen shot: " + e.getMessage());
 		}
+		driver.close();
+		InitializeTest initializeTest = new InitializeTest();
+		initializeTest.setUp(browser, URL);
 	}
 	public static void takeScreenShotSystemExcel(String fileName) {
 
@@ -74,9 +73,12 @@ public class ScreenShot extends InitializeTest {
 		try {
 			baseScreenShotsFolder = System.getProperty("user.dir") +File.separator+"screen-shots"+File.separator;
 			SimpleDateFormat sdfmth = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
-			baseScreenShotsFolder = baseScreenShotsFolder +InitializeTest.project+File.separator+testName+File.separator
+			baseScreenShotsFolder = baseScreenShotsFolder +InitializeTest.project+File.separator+testName.trim()+File.separator
 					+ sdfmth.format(new Date());
-			new File(baseScreenShotsFolder).mkdirs();
+			File file = new File(baseScreenShotsFolder);
+			if(!file.exists())  {
+				file.mkdir();
+			}
 			WaitTool.sleep(1);
 			return baseScreenShotsFolder;
 		} catch (Exception e) {

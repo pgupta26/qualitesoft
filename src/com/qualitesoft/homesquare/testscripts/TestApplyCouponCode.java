@@ -31,10 +31,13 @@ public class TestApplyCouponCode extends InitializeTest {
 	@Test
 	public void testApplyCouponCode() throws ParseException {
 
-		HomeSquareHomePage homePage = new HomeSquareHomePage(driver);
-		
+		HomeSquareHomePage homepage = new HomeSquareHomePage(driver);
 
 		HomeSquareMyAccountPage myAccountPage = new HomeSquareMyAccountPage(driver);
+		if(homepage.closePopupWrapperStatus() == true){
+			SeleniumFunction.clickJS(driver, homepage.closePopupWrapper());
+			WaitTool.sleep(2);
+		}	
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,-250)", "");
 		
@@ -42,6 +45,11 @@ public class TestApplyCouponCode extends InitializeTest {
 		SeleniumFunction.hoverAction(driver, diningChairsLink);
 		WaitTool.sleep(2);
 		SeleniumFunction.click(myAccountPage.outdoorSofaLink());
+		
+		if(driver.getTitle().contains("The wait operation timed out")){
+			driver.navigate().refresh();
+			driver.navigate().refresh();
+		}
 
 		HomeSquareProductsPage productsPage = new HomeSquareProductsPage(driver);
 		WebElement diningChair = productsPage.diningChair();

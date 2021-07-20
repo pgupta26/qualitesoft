@@ -1,8 +1,5 @@
 package com.qualitesoft.core;
 
-import static org.testng.Assert.assertThrows;
-
-import java.util.List;
 import java.util.Set;
 
 import org.openqa.selenium.JavascriptExecutor;
@@ -103,6 +100,17 @@ public class SeleniumFunction {
 
 		try {
 			String text = element.getText();
+			return text;
+		} catch (Exception e) {
+			Log.warn("Not able to get text from the: " + element + e.getMessage());
+			throw e;
+		}
+	}
+	
+	public static String getAttribute(WebElement element, String attribute) {
+
+		try {
+			String text = element.getAttribute(attribute);
 			return text;
 		} catch (Exception e) {
 			Log.warn("Not able to get text from the: " + element + e.getMessage());

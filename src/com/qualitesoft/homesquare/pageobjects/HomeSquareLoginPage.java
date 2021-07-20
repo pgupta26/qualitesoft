@@ -60,5 +60,9 @@ public class HomeSquareLoginPage {
 	public WebElement amazonPassword(){
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='ap_password']"), 60);
 	}
+	
+	public boolean amazonEmailStatus(){
+		return WaitTool.waitForElementBoolean(driver, By.xpath("//input[@id='ap_email']"), 15);
+	}
 
 }

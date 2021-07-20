@@ -53,7 +53,6 @@ public class TestSubmitCustomQuote1 extends InitializeTest {
 		Log.info("Data Row: " +Row);
 
 		String orderDetails=xr.getCellData("Input","OrderDetails", i).trim();
-		String updatedOrderDetails=xr.getCellData("Input","updatedOrderDetails", i).trim();	
 		String serviceLevel=xr.getCellData("Input","serviceLevel", i).trim();
 		String handlingUnits = xr.getCellData("Input","HandlingUnits", i).trim();
 		String totalWeight = xr.getCellData("Input","TotalWeight", i).trim();
@@ -79,7 +78,7 @@ public class TestSubmitCustomQuote1 extends InitializeTest {
 		SeleniumFunction.KeyBoradEnter(driver);
 		WaitTool.sleep(5);
 
-		SeleniumFunction.click(notQuotedTab.complete());
+		SeleniumFunction.clickJS(driver, notQuotedTab.complete());
 		WaitTool.sleep(5);
 
 		if(i == 2) {

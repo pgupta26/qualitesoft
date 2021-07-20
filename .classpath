@@ -24,15 +24,11 @@
 	<classpathentry kind="lib" path="C:/Users/charu/eclipse-workspace/qualitesoft/lib/poi-ooxml-schemas-3.16.jar"/>
 	<classpathentry kind="lib" path="C:/Users/charu/eclipse-workspace/qualitesoft/lib/poi-scratchpad-3.16.jar"/>
 	<classpathentry kind="lib" path="C:/Users/charu/eclipse-workspace/qualitesoft/lib/reportng-1.1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/charu/eclipse-workspace/qualitesoft/lib/selenium-server-standalone-2.52.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/charu/eclipse-workspace/qualitesoft/lib/selenium-server-standalone-2.53.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/charu/eclipse-workspace/qualitesoft/lib/selenium-server-standalone-3.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/charu/eclipse-workspace/qualitesoft/lib/selenium-server-standalone-3.1.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/charu/eclipse-workspace/qualitesoft/lib/selenium-server-standalone-3.10.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/charu/eclipse-workspace/qualitesoft/lib/selenium-server-standalone-3.11.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/charu/eclipse-workspace/qualitesoft/lib/sqljdbc4-2.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/charu/eclipse-workspace/qualitesoft/lib/testng-6.9.10.jar"/>
 	<classpathentry kind="lib" path="C:/Users/charu/eclipse-workspace/qualitesoft/lib/velocity-dep-1.4.jar"/>
 	<classpathentry kind="lib" path="C:/Users/charu/eclipse-workspace/qualitesoft/lib/xmlbeans-2.6.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/charu/eclipse-workspace/qualitesoft/lib/pdfbox-app-3.0.0-RC1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
