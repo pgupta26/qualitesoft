@@ -27,16 +27,21 @@ public class TestHomeSquareAddItemsToCart extends InitializeTest {
 		HomeSquareMyAccountPage myAccountPage = new HomeSquareMyAccountPage(driver);
 		HomeSquareHomePage homepage = new HomeSquareHomePage(driver);
 
+		if(homepage.closePopupWrapperStatus() == true){
+			SeleniumFunction.clickJS(driver, homepage.closePopupWrapper());
+			WaitTool.sleep(2);
+		}	
+		
 		WebElement diningChairsLink = myAccountPage.kitchenAndDiningLink();
 		SeleniumFunction.hoverAction(driver, diningChairsLink);
 		WaitTool.sleep(2);
 		SeleniumFunction.click(myAccountPage.HomeSqdiningChairsLink());
 
-		if(homepage.closePopupWrapperStatus() == true){
-			SeleniumFunction.clickJS(driver, homepage.closePopupWrapper());
-			WaitTool.sleep(2);
-		}	
-
+		if(driver.getTitle().contains("The wait operation timed out")){
+			driver.navigate().refresh();
+			driver.navigate().refresh();
+		}
+		
 		HomeSquareProductsPage productsPage = new HomeSquareProductsPage(driver);
 		WebElement diningChair = productsPage.diningChair();
 		ScreenShot.takeScreenShot(driver, "Product list Page");

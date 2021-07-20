@@ -34,6 +34,12 @@ public class TestApplyCouponCode extends InitializeTest {
 		HomeSquareHomePage homepage = new HomeSquareHomePage(driver);
 
 		HomeSquareMyAccountPage myAccountPage = new HomeSquareMyAccountPage(driver);
+
+		if(homepage.closePopupWrapperStatus() == true){
+			SeleniumFunction.clickJS(driver, homepage.closePopupWrapper());
+			WaitTool.sleep(2);
+		}	
+		
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,-250)", "");
 		
@@ -42,10 +48,10 @@ public class TestApplyCouponCode extends InitializeTest {
 		WaitTool.sleep(2);
 		SeleniumFunction.click(myAccountPage.outdoorSofaLink());
 		
-		if(homepage.closePopupWrapperStatus() == true){
-			SeleniumFunction.clickJS(driver, homepage.closePopupWrapper());
-			WaitTool.sleep(2);
-		}	
+		if(driver.getTitle().contains("The wait operation timed out")){
+			driver.navigate().refresh();
+			driver.navigate().refresh();
+		}
 
 		HomeSquareProductsPage productsPage = new HomeSquareProductsPage(driver);
 		WebElement diningChair = productsPage.diningChair();

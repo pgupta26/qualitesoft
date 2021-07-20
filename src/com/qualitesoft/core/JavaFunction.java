@@ -28,9 +28,15 @@ public class JavaFunction {
 	}
 	
 	public static String currentDate(){
-		
 		Date myDate=new Date();
 		SimpleDateFormat dateFormat=new SimpleDateFormat("MM/dd/yyyy");
+		String currentDate=dateFormat.format(myDate);
+		return currentDate;
+	}
+	
+	public static String currentDateUSFormat(){
+		Date myDate=new Date();
+		SimpleDateFormat dateFormat=new SimpleDateFormat("MM-dd-yyyy");
 		String currentDate=dateFormat.format(myDate);
 		return currentDate;
 	}
