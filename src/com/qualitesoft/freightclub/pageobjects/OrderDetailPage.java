@@ -15,8 +15,20 @@ public class OrderDetailPage {
 		this.driver = driver;
 	}
 	
-	public WebElement ViewDetail() {
+	public WebElement getLabel(String label) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[text()='"+label+"']/following::div | //th[text()='"+label+"']/following-sibling::td"), 30);
+	}
+	
+	public WebElement viewDetail() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//button[text()='Detail'])[1]"), 30);
+	}
+	
+	public void expandItemsInThisOrderPanel() {
+		WebElement element = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='shipment-items-panel collapsible well well-note']/div"), 30);
+		String isCollapsedExist = element.getAttribute("class");
+		if(isCollapsedExist.contains("collapsed")) {
+			SeleniumFunction.click(element);
+		}
 	}
 	
 	public boolean verifyBasicThreshold() {

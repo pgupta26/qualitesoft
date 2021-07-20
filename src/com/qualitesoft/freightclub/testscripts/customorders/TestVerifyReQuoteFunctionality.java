@@ -1,6 +1,6 @@
 package com.qualitesoft.freightclub.testscripts.customorders;
 
-import org.junit.Assert;
+import org.testng.*;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;

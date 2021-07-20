@@ -29,7 +29,6 @@ public class AddToCart extends InitializeTest{
 			HomeSquareMyAccountPage myAccountPage = new HomeSquareMyAccountPage(driver);
 			HomeSquareHomePage homepage = new HomeSquareHomePage(driver);
 			HomeSquareProductsPage productsPage = new HomeSquareProductsPage(driver);
-			
 			if(homepage.closePopupWrapperStatus() == true){
 				SeleniumFunction.clickJS(driver, homepage.closePopupWrapper());
 				WaitTool.sleep(2);
@@ -48,6 +47,7 @@ public class AddToCart extends InitializeTest{
 				driver.navigate().refresh();
 			}
 			ScreenShot.takeScreenShot(driver, "Beds category page");
+
 			
 			SeleniumFunction.sendKeys(homepage.searchField(), "1652636");
 			WaitTool.sleep(5);		

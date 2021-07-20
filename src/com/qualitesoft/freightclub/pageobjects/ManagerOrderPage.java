@@ -21,6 +21,10 @@ public class ManagerOrderPage {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[contains(@href,'/Order/Index')]"), 30);
 	}
 	
+	public WebElement orderIdFilter() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@ref='eColumnFloatingFilter'])[1]"), 30);
+	}
+	
 	public WebElement ExpandMenupage() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@title='Click to retract or expand the page menu']"), 30);
 	}
@@ -33,12 +37,20 @@ public class ManagerOrderPage {
 		SeleniumFunction.sendKeys(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@ref='eColumnFloatingFilter'])[1]"), 10), orderid);
 	}
 	
+	public WebElement orderIDGridValueFirstRow() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='ag-cell-no-focus ag-cell ag-cell-not-inline-editing ag-cell-value' and @colid='ID'])[1]"), 20);
+	}
+	
 	public WebElement ActionButton() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//button[@class='btn btn-primary btn-xs dropdown-toggle'])[1]"), 30);
 	}
 	
-	public void billOfLoadingPdf() {
-		SeleniumFunction.clickJS(driver,WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("Download Bill of Lading(s) - PDF"), 10));
+	public WebElement billOfLoadingPdf() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("Download Bill of Lading(s) - PDF"), 10);
+	}
+	
+	public WebElement shippingLabelsPdf() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("Download Shipping Label(s) - PDF"), 10);
 	}
 	
 	public boolean requestCancellation() {
@@ -75,10 +87,6 @@ public class ManagerOrderPage {
 	
 	public WebElement openQuotes() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@href='#quickOrders']"), 30);
-	}
-	
-	public WebElement orderIdFilter() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"center\"]/div/div[1]/div[3]/div/div[2]/div[2]/div[1]/div/input"), 30);
 	}
 	
 	public WebElement quotedPrice() {

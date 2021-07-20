@@ -1,8 +1,5 @@
 package com.qualitesoft.core;
 
-import static org.testng.Assert.assertThrows;
-
-import java.util.List;
 import java.util.Set;
 
 import org.openqa.selenium.JavascriptExecutor;

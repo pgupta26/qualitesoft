@@ -15,16 +15,19 @@ import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
+import com.qualitesoft.freightclub.appcommon.CommonOps;
 import com.qualitesoft.freightclub.pageobjects.ManagerOrderPage;
 import com.qualitesoft.freightclub.pageobjects.OrderDetailPage;
 
 public class TestRerouteRequest extends InitializeTest{
 
+	CommonOps commonOps = new CommonOps();
+
 	@Test
 	public void verifyRerouteLink(){
 		try{
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
-			openManageOrdersPageAndSearchOrder("51487615");
+			commonOps.openManageOrdersPageAndSearchOrder("51487615");
 
 			SeleniumFunction.clickJS(driver, manageOrderpage.ActionButton());
 			boolean status = manageOrderpage.requestRerouteIsPresent();
@@ -97,7 +100,7 @@ public class TestRerouteRequest extends InitializeTest{
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
 			OrderDetailPage orderDetailPage =new OrderDetailPage(driver);
 
-			openManageOrdersPageAndSearchOrder("51487615");
+			commonOps.openManageOrdersPageAndSearchOrder("51487615");
 
 			SeleniumFunction.click(manageOrderpage.ViewDetail());
 
@@ -124,7 +127,7 @@ public class TestRerouteRequest extends InitializeTest{
 				manageOrderpage.acceptFeedbackPopup();
 			}
 
-			openManageOrdersPageAndSearchOrder("51487615");
+			commonOps.openManageOrdersPageAndSearchOrder("51487615");
 			SeleniumFunction.clickJS(driver, manageOrderpage.ActionButton());
 			manageOrderpage.clickConfirmReroute();
 			String successMessage = manageOrderpage.verifyToastMessage();
@@ -143,7 +146,7 @@ public class TestRerouteRequest extends InitializeTest{
 			if(manageOrderpage.acceptFeedbackPopupStatus() == true){
 				manageOrderpage.acceptFeedbackPopup();
 			}
-			openManageOrdersPageAndSearchOrder("51487615");
+			commonOps.openManageOrdersPageAndSearchOrder("51487615");
 			SeleniumFunction.clickJS(driver, manageOrderpage.ActionButton());
 			manageOrderpage.clickDeniedReroute();
 
@@ -162,7 +165,7 @@ public class TestRerouteRequest extends InitializeTest{
 	@Test
 	public void verifyRerouteLocationOnDetailPage(){
 		try{
-			openManageOrdersPageAndSearchOrder("51487615");
+			commonOps.openManageOrdersPageAndSearchOrder("51487615");
 			verifyUpdatedDetailsOnDetailPage();
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -173,7 +176,7 @@ public class TestRerouteRequest extends InitializeTest{
 	@Test
 	public void verifyRerouteDetailPage(){
 		try{
-			openManageOrdersPageAndSearchOrder("51487615");
+			commonOps.openManageOrdersPageAndSearchOrder("51487615");
 			verifyUpdatedDetailsOnDetailPage();
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -189,22 +192,6 @@ public class TestRerouteRequest extends InitializeTest{
 		WaitTool.sleep(2);
 		UseAssert.assertEquals(manageOrderpage.checkboxStatus("Delivery Appointment Required").isSelected(), value1);
 		UseAssert.assertEquals(manageOrderpage.checkboxStatus("Limited Access").isSelected(), value2);
-	}
-
-	public static void openManageOrdersPageAndSearchOrder(String orderId){
-		ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
-		SeleniumFunction.click(manageOrderpage.manageOrdersLink());
-		manageOrderpage.ActionButton();
-
-		ScreenShot.takeScreenShot(driver, "Manage Order for request reroute");
-
-		if(!manageOrderpage.ExpandMenupage().getAttribute("class").equals("active")) {
-			SeleniumFunction.click(manageOrderpage.ExpandMenupage());
-		}
-
-		manageOrderpage.searchFields("1", orderId);
-		SeleniumFunction.KeyBoradEnter(driver);
-		WaitTool.sleep(10);
 	}
 
 	public static void fillRerouteRequestPopup(String locationType){

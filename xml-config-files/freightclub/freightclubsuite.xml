@@ -9,11 +9,11 @@
 		<listener class-name="com.qualitesoft.core.CustomTestListener" />
 	</listeners>
 
-	<parameter name="project" value="Freight Club" />
+	<parameter name="project" value="FreightClub" />
 	<parameter name="browser" value="chrome" />
 	<parameter name="URL" value="https://qa.freightclub.com/" /> 
 	
-	<!-- <test name="Test Verify Functionality of Re-Quote Button - Custom Order">
+	<test name="Test Verify Functionality of Re-Quote Button - Custom Order">
 		<parameter name="loginuser" value="new" />
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />
@@ -25,7 +25,7 @@
 			<class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyReQuoteFunctionality" /> 
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test> -->
+	</test>
 	
 	<!-- ************************************** Floating Cart ****************************************************** -->
 	<test name="Test new user able to quote and sign up">
@@ -53,6 +53,65 @@
 		</classes>
 	</test>
 	
+	<!-- *************************** Quick Quote ********************************** -->
+	<test name="Test user is able to create generic pallet with cartoon count">
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="13" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestUserIsAbleToCreateGenericPalletWithCartoonCount" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />	
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>  
+	
+	<test name="Test user is able to create generic pallet adding cartons without sku">
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="14" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestUserIsAbleToCreateGenericPalletAddingCartonsWithoutSku" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />	
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test> 
+	
+	<test name="Test user is able to create generic pallet with non palletized sku">
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="16" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSkuWithMultipleCarton" />
+			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestUserIsAbletoCreateGenericPalletWithNonPalletizedSku" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />	
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test> 
+	
+	<test name="Test user is able to create palletized sku">
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="18" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreatePalletizedSkuWithMultipleCarton" />
+			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestUserIsAbleToCreatePalletizedSku" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders-.TestLabels" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+	
 	<!-- *************************** FC Phase 1 and 2 and Surepost ********************************** -->
 	
 	<test name="Test manage green list and select onAccount payment method">
@@ -69,7 +128,7 @@
 		</classes>
 	</test> 
 	
-	<test name="Test verify user is able to book and clone order - LTL-Search product ">
+	<test name="Test verify user is able to book and clone order - LTL-Search product">
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />
 		<parameter name="Row" value="2" />
@@ -83,7 +142,7 @@
 			<class name="com.qualitesoft.freightclub.testscripts.TestCloneOrders" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test>
+	</test> 
 	
 	
 	<test name="Test verify user is able to book and clone order - LTL-Standard pallet with added product">
@@ -99,7 +158,7 @@
 			<class name="com.qualitesoft.freightclub.testscripts.TestCloneOrders" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test>
+	</test> 
 	
 	<test name="Test verify user is able to book and clone order - LTL-Non-Palletized">
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
@@ -114,7 +173,8 @@
 			<class name="com.qualitesoft.freightclub.testscripts.TestCloneOrders" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test>
+	</test> 
+	
 
 	 <test name="Test verify user is able to book and clone order - LTL with pallet and Non-Palletized">
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
@@ -160,7 +220,7 @@
 			<class name="com.qualitesoft.freightclub.testscripts.TestCloneOrders" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test>
+	</test> 
 	
 	<test name="Test verify order is booked - Custom Pallet">
 		<parameter name="fcusername" value="test.automation@mailinator.com" />

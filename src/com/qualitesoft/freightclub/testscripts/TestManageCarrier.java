@@ -9,7 +9,6 @@ import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.freightclub.pageobjects.ManageCarrierPage;
-import com.thoughtworks.selenium.Selenium;
 
 public class TestManageCarrier extends InitializeTest{
 

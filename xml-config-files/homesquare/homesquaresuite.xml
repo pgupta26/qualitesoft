@@ -3,6 +3,14 @@
 
 <suite name="Homesquare Suite">
 
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener
+			class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener
+			class-name="com.qualitesoft.core.CustomTestListener" />
+	</listeners>
+
 	<parameter name="project" value="Homesquare" />
 	<parameter name="browser" value="chrome" />
 	<parameter name="URL" value="http://qa.homesquare.com/" />
@@ -17,9 +25,11 @@
 		<parameter name="tax" value="TBD" />
 		<parameter name="taxRate" value="9.5" />
 		<classes>
-			<class name="com.qualitesoft.homesquare.testscripts.TestHomeSquareCreateNewAccount" />
-			
-			<class name="com.qualitesoft.homesquare.testscripts.TestApplyCouponCode" >
+			<class
+				name="com.qualitesoft.homesquare.testscripts.TestHomeSquareCreateNewAccount" />
+
+			<class
+				name="com.qualitesoft.homesquare.testscripts.TestApplyCouponCode">
 				<methods>
 					<include name="testApplyCouponCode" />
 					<include name="testSignIn" />
@@ -31,14 +41,14 @@
 			<class name="com.qualitesoft.homesquare.testscripts.LogOff" />
 		</classes>
 	</test>
-	
+
 	<test name="Checkout via Purchase Order - New User">
 		<parameter name="crusername" value="raj.cymax@gmail.com"></parameter>
 		<parameter name="crpassword" value="Welcome@2"></parameter>
 		<parameter name="Row" value="yes" />
-		<parameter name ="tax" value="$0.00" />
-		<parameter name ="tax1" value="TBD" />
-		<parameter name ="shipping" value="$10.00" />
+		<parameter name="tax" value="$0.00" />
+		<parameter name="tax1" value="TBD" />
+		<parameter name="shipping" value="$10.00" />
 		<classes>
 			<class
 				name="com.qualitesoft.homesquare.testscripts.TestHomeSquareCreateNewAccount" />
@@ -49,25 +59,30 @@
 					<include name="testSignIn" />
 				</methods>
 			</class>
-			<class name="com.qualitesoft.homesquare.testscripts.ShippingInformation" />
-			<class name="com.qualitesoft.homesquare.testscripts.PaymentInformation">
+			<class
+				name="com.qualitesoft.homesquare.testscripts.ShippingInformation" />
+			<class
+				name="com.qualitesoft.homesquare.testscripts.PaymentInformation">
 				<methods>
 					<include name="testPurchaseOrder" />
 				</methods>
 			</class>
-			<class name="com.qualitesoft.homesquare.testscripts.OrderConfirmation" />
-			<class name="com.qualitesoft.homesquare.testscripts.EmailVerification" />
+			<class
+				name="com.qualitesoft.homesquare.testscripts.OrderConfirmation" />
+			<class
+				name="com.qualitesoft.homesquare.testscripts.EmailVerification" />
 			<class name="com.qualitesoft.homesquare.testscripts.LogOff" />
 		</classes>
 	</test>
 
 	<test name="Checkout via Paypal - Existing User">
-		<parameter name="crusername" value="cymax20200217222523@yopmail.com"></parameter>
+		<parameter name="crusername"
+			value="cymax20200217222523@yopmail.com"></parameter>
 		<parameter name="crpassword" value="CymaxQa1234"></parameter>
 		<parameter name="Row" value="yes" />
-		<parameter name ="tax" value="$0.00" />
-		<parameter name ="tax1" value="TBD" />
-		<parameter name ="shipping" value="$10.00" />
+		<parameter name="tax" value="$0.00" />
+		<parameter name="tax1" value="TBD" />
+		<parameter name="shipping" value="$10.00" />
 		<classes>
 			<class
 				name="com.qualitesoft.homesquare.testscripts.TestHomeSquareAddItemsToCart" />
@@ -76,13 +91,16 @@
 					<include name="testHomeSquareSignIn" />
 				</methods>
 			</class>
-			<class name="com.qualitesoft.homesquare.testscripts.ShippingInformation" />
-			<class name="com.qualitesoft.homesquare.testscripts.PaymentInformation">
+			<class
+				name="com.qualitesoft.homesquare.testscripts.ShippingInformation" />
+			<class
+				name="com.qualitesoft.homesquare.testscripts.PaymentInformation">
 				<methods>
 					<include name="testPaypal" />
 				</methods>
 			</class>
-			<class name="com.qualitesoft.homesquare.testscripts.OrderConfirmation" />
+			<class
+				name="com.qualitesoft.homesquare.testscripts.OrderConfirmation" />
 			<class name="com.qualitesoft.homesquare.testscripts.LogOff" />
 		</classes>
 	</test> 
@@ -91,25 +109,29 @@
 		<parameter name="fastShipping" value="Free"></parameter>
 		<parameter name="amazonTax" value="$273.60"></parameter>
 		<parameter name="tax" value="TBD"></parameter>
-		
+
 		<classes>
 			<class name="com.qualitesoft.homesquare.testscripts.AddToCart">
 				<methods>
 					<include name="addToCart"></include>
 				</methods>
 			</class>
-			<class name="com.qualitesoft.homesquare.testscripts.AmazonLogin">
+			<class
+				name="com.qualitesoft.homesquare.testscripts.AmazonLogin">
 				<methods>
 					<include name="testAmazonLoginAsGuest"></include>
 				</methods>
 			</class>
-			<class name="com.qualitesoft.homesquare.testscripts.PaymentInformation">
+			<class
+				name="com.qualitesoft.homesquare.testscripts.PaymentInformation">
 				<methods>
 					<include name="testPaymentInformation" />
 				</methods>
 			</class>
-			<class name="com.qualitesoft.homesquare.testscripts.AmazonOrderConfirmation" />
-			<class name="com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff" />
+			<class
+				name="com.qualitesoft.homesquare.testscripts.AmazonOrderConfirmation" />
+			<class
+				name="com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff" />
 		</classes>
 	</test>
 
@@ -119,21 +141,25 @@
 		<parameter name="amazonTax" value="$273.60"></parameter>
 		<classes>
 			<class name="com.qualitesoft.homesquare.testscripts.AddToCart" />
-			<class name="com.qualitesoft.homesquare.testscripts.AmazonLogin">
+			<class
+				name="com.qualitesoft.homesquare.testscripts.AmazonLogin">
 				<methods>
 					<include name="testAmazonLoginOnCartPage" />
 				</methods>
 			</class>
-			<class name="com.qualitesoft.homesquare.testscripts.PaymentInformation">
+			<class
+				name="com.qualitesoft.homesquare.testscripts.PaymentInformation">
 				<methods>
 					<include name="testPaymentInformation" />
 				</methods>
 			</class>
-			<class name="com.qualitesoft.homesquare.testscripts.AmazonOrderConfirmation" />
-			<class name="com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff" />
+			<class
+				name="com.qualitesoft.homesquare.testscripts.AmazonOrderConfirmation" />
+			<class
+				name="com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff" />
 		</classes>
 	</test>
-	
+
 	<test name="Test Create New Account">
 		<classes>
 			<class
@@ -187,7 +213,8 @@
 	</test>
 	<test name="Log Out">
 		<classes>
-			<class name="com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff" />
+			<class
+				name="com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff" />
 		</classes>
 	</test>
 </suite>	

@@ -34,12 +34,10 @@ public class TestApplyCouponCode extends InitializeTest {
 		HomeSquareHomePage homepage = new HomeSquareHomePage(driver);
 
 		HomeSquareMyAccountPage myAccountPage = new HomeSquareMyAccountPage(driver);
-
 		if(homepage.closePopupWrapperStatus() == true){
 			SeleniumFunction.clickJS(driver, homepage.closePopupWrapper());
 			WaitTool.sleep(2);
 		}	
-		
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,-250)", "");
 		

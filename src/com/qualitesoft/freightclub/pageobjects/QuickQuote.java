@@ -566,6 +566,14 @@ public class QuickQuote {
 	public WebElement SpecialHandling() {		
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//textarea[@placeholder='Advise about any restrictions on Pick Up or Drop Off locations, special package handling, etc.']"), 30);		
 	} 
+	
+	public WebElement genericPallet() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.name("palletType0"), 30);
+	}
+
+	public WebElement palletDescription() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.name("pallet-description"), 30);
+	}
 
 	public WebElement LocationName() {		
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@placeholder='Search address book or type new label'])[1]"), 30);		
