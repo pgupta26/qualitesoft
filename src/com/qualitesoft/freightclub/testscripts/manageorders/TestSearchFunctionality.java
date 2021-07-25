@@ -18,7 +18,7 @@ public class TestSearchFunctionality extends InitializeTest{
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
 			SeleniumFunction.click(manageOrderpage.manageOrdersLink());
 			WaitTool.sleep(7);
-
+			
 			manageOrderpage.ActionButton();
 			if(!manageOrderpage.ExpandMenupage().getAttribute("class").equals("active")) {
 				SeleniumFunction.click(manageOrderpage.ExpandMenupage());

@@ -58,7 +58,7 @@ public class TestViewOrderDetails extends InitializeTest {
 			WaitTool.sleep(3);
 			quickQuote.acceptPopup();
 
-			UseAssert.assertEquals(orderDetailsPage.getLabel("Order ID:").getText(), orderId);
+			UseAssert.assertEquals(orderDetailsPage.getLabel("OrderId:").getText(), orderId);
 			UseAssert.assertEquals(orderDetailsPage.getLabel("Created Date:").getText(), pickUpDate);
 
 			UseAssert.assertEquals(orderDetailsPage.getLabel("Shipment Type:").getText(), shipmentType);

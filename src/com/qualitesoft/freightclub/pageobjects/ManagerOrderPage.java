@@ -202,6 +202,10 @@ public class ManagerOrderPage {
 		SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("Request Reroute"), 10));
 	}
 	
+	public void clickClosePopupButton() {
+		SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='rerouteModal']//button[contains(@class,'close')]"), 10));
+	}
+	
 	public void clickConfirmReroute() {
 		SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("Confirm Reroute"), 10));
 	}
@@ -231,15 +235,19 @@ public class ManagerOrderPage {
 	}
 	
 	public boolean requestRerouteIsPresent() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("Request Reroute"), 10).isDisplayed();
+		return WaitTool.isElementPresentAndDisplay(driver, By.linkText("Request Reroute"));
 	}
 	
 	public WebElement checkboxStatus(String fieldName){
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[contains(text(),'"+fieldName+"')]//input"), 60);
 	}
 	
-	public WebElement locationType(int index){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@id='rerouteModal']//select[@class='form-control'])["+index+"]"), 60);
+	public WebElement locationType(String locationType){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='rerouteModal']//label[contains(text(),'"+locationType+"')]//parent::div//select"), 60);
+	}
+	
+	public boolean dropOffDropdownStatus(String locationType){
+		return WaitTool.isElementPresentAndDisplay(driver, By.xpath("//div[@id='rerouteModal']//label[contains(text(),'"+locationType+"')]//parent::div//select"));
 	}
 	
 	public String verifyToastMessage(){
@@ -256,10 +264,10 @@ public class ManagerOrderPage {
 	
 	//*******************admin dashboard feedback popup
 	public void acceptFeedbackPopup(){
-		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='step-0']//button[@class='btn btn-primary']"), 60));
+		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='step-0']//button[@class='btn btn-primary']"), 15));
 	}
 	
 	public boolean acceptFeedbackPopupStatus(){
-		return WaitTool.waitForElementBoolean(driver, By.xpath("//div[@id='step-0']//button[@class='btn btn-primary']"), 60);
+		return WaitTool.waitForElementBoolean(driver, By.xpath("//div[@id='step-0']//button[@class='btn btn-primary']"), 15);
 	}
 }

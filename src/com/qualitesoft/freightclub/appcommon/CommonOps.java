@@ -311,11 +311,15 @@ public class CommonOps extends InitializeTest {
 	
 	public void openManageOrdersPageAndSearchOrder(String orderId){
 		ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
-		SeleniumFunction.click(manageOrderpage.manageOrdersLink());
+		SeleniumFunction.clickJS(driver, manageOrderpage.manageOrdersLink());
 		ScreenShot.takeScreenShot(driver, "Manage Order Page");
 
 		if(!manageOrderpage.ExpandMenupage().getAttribute("class").equals("active")) {
 			SeleniumFunction.click(manageOrderpage.ExpandMenupage());
+		}
+		
+		if(manageOrderpage.acceptFeedbackPopupStatus() == true){
+			manageOrderpage.acceptFeedbackPopup();
 		}
 
 		manageOrderpage.searchFields("1", orderId);

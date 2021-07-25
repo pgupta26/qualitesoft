@@ -39,6 +39,10 @@ public class OrderDetailPage {
 	public String verifyRerouteWarningMessage(){
 		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='details-info-panel']//div[contains(@class,'alert-warning')]"), 60));
 	}
+	
+	public boolean verifyRerouteWarningMessageStatus(){
+		return WaitTool.isElementPresentAndDisplay(driver, By.xpath("//div[@id='details-info-panel']//div[contains(@class,'alert-warning')]"));
+	}
 
 	public String verifyRerouteLocationOnDetailPage(){
 		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//h5[contains(text(),'Reroute Location')]//parent::div"), 60));
