@@ -13,8 +13,9 @@
 	<parameter name="browser" value="chrome" />
 	<parameter name="URL" value="https://qa.freightclub.com/" />
 
-	<test
-		name="Test Verify Functionality of Initiate Claim Button - QA-597 - FC-9217">
+	<!-- **************************Initiate Claim*************** -->
+
+	<test name="Test initiate claim for booked oders">
 		<parameter name="loginuser" value="new" />
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />
@@ -29,8 +30,7 @@
 		</classes>
 	</test>
 
-	<test
-		name="Test Verify Functionality of Initiate Claim Button - QA-597 - FC-9218">
+	<test name="Test initiate claim for pending pickup oders">
 		<parameter name="loginuser" value="new" />
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />
@@ -45,61 +45,36 @@
 		</classes>
 	</test>
 
-	<test name="Test Verify Functionality of Searching and Pagination - QA-597">
+	<test name="Test verify pagination functionality on manage orders page">
 		<parameter name="loginuser" value="new" />
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />
 
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
-			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestPagination" />
-			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestSearchFunctionality" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestPagination" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
 	</test>
 
-	<test name="Verify user is able to request for reroute - QA-597">
+	<test name="Test verify searching functionality on manage orders page">
 		<parameter name="loginuser" value="new" />
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />
-		<parameter name="Row" value="2" />
 
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class
-				name="com.qualitesoft.freightclub.testscripts.manageorders.TestRerouteRequest">
-				<methods>
-					<include name="verifyRerouteLink"></include>
-					<include name="verifyReroutePopupValidation"></include>
-					<include name="validateFieldsForLocationType"></include>
-					<include name="fillReroutePopupFields"></include>
-					<include name="verifyRerouteRequestOnDetailPage"></include>
-				</methods>
-			</class>
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestSearchFunctionality" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
 	</test>
 
-	<test name="Verify admin is able to accept the reroute request- QA-597">
-		<parameter name="loginuser" value="new" />
-		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
-		<parameter name="fcpassword" value="Welcome@1" />
-		<parameter name="Row" value="2" />
+	<!-- ***************************Reroute Request for Residential Location Type******************* -->
 
-		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
-			<class
-				name="com.qualitesoft.freightclub.testscripts.manageorders.TestRerouteRequest">
-				<methods>
-					<include name="acceptRequestByAdmin"></include>
-					<include name="verifyRerouteLocationOnDetailPage"></include>
-				</methods>
-			</class>
-			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
-		</classes>
-	</test>
-
-	<test name="Verify updated details on detail page - QA-597">
+	<test
+		name="Verify user is able to create reroute request for Residential location type">
 		<parameter name="loginuser" value="new" />
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />
@@ -107,17 +82,98 @@
 
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+
 			<class
-				name="com.qualitesoft.freightclub.testscripts.manageorders.TestRerouteRequest">
-				<methods>
-					<include name="verifyRerouteDetailPage"></include>
-				</methods>
-			</class>
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestReroutePopupValidation" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestReroutePopupFields" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestCreateRerouteRequest" />
+		</classes>
+	</test>
+
+	<test
+		name="Test Reroute Requested Mail to Customer for Residential location type">
+		<parameter name="testData" value="ManageOrdersTestData.xlsx" />
+		<parameter name="fcusername" value="automation.customer@mailinator.com" />
+		<parameter name="notificationType" value="Reroute Requested - Customer" />
+		<parameter name="Row" value="2" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" />
+		</classes>
+	</test>
+
+	<test
+		name="Test Reroute Requested Mail to Carrier for Residential location type">
+		<parameter name="testData" value="ManageOrdersTestData.xlsx" />
+		<parameter name="fcusername" value="automation.salesmanager@mailinator.com" />
+		<parameter name="notificationType" value="Reroute Requested - Carrier" />
+		<parameter name="Row" value="2" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" />
+		</classes>
+	</test>
+
+	<test
+		name="Verify Warning message in order detail page for Residential location type">
+		<parameter name="enableOption" value="Yes" />
+		<parameter name="Row" value="2" />
+
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestRerouteWarningMessage" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
 	</test>
 
-	<test name="Verify user is able to request for reroute 2 - QA-597">
+	<test
+		name="Login as an Admin and accept the reroute request for Residential location type">
+		<parameter name="loginuser" value="new" />
+		<parameter name="fcusername" value="info@freightclub.com" />
+		<parameter name="fcpassword" value="Welcome@2" />
+		<parameter name="Row" value="2" />
+
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestAcceptRerouteRequest" />
+		</classes>
+	</test>
+
+	<test
+		name="As an admin verify reroute request details for Residential location type">
+		<parameter name="Row" value="2" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestRerouteDetails" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+
+	<test
+		name="Test Reroute Request Approve Mail to Customer for Residential location type">
+		<parameter name="testData" value="ManageOrdersTestData.xlsx" />
+		<parameter name="fcusername" value="automation.customer@mailinator.com" />
+		<parameter name="notificationType" value="Reroute Request Approved - Customer" />
+		<parameter name="Row" value="2" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" />
+		</classes>
+	</test>
+
+	<test
+		name="Test Reroute Request Approve Mail to Carrier for Residential location type">
+		<parameter name="testData" value="ManageOrdersTestData.xlsx" />
+		<parameter name="fcusername" value="automation.salesmanager@mailinator.com" />
+		<parameter name="notificationType" value="Reroute Request Approved - Carrier" />
+		<parameter name="Row" value="2" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" />
+		</classes>
+	</test>
+
+	<test
+		name="Login as an Custmer and verify reroute request details for Residential location type">
 		<parameter name="loginuser" value="new" />
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />
@@ -126,33 +182,469 @@
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class
-				name="com.qualitesoft.freightclub.testscripts.manageorders.TestRerouteRequest">
-				<methods>
-					<include name="verifyRerouteLink"></include>
-					<include name="fillReroutePopupFields"></include>
-					<include name="verifyRerouteRequestOnDetailPage"></include>
-				</methods>
-			</class>
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestRerouteDetails" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
 	</test>
 
-	<test name="Verify admin is able to denied the reroute request- QA-597">
+
+	<!-- ***************************Reroute Request for Commercial Location Type******************* -->
+	
+	<test
+		name="Verify user is able to create reroute request with commercial location type">
 		<parameter name="loginuser" value="new" />
-		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
-		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="3" />
+
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestCreateRerouteRequest" />
+		</classes>
+	</test>
+
+	<test
+		name="Test Reroute Requested Mail to Customer for commercial location type">
+		<parameter name="testData" value="ManageOrdersTestData.xlsx" />
+		<parameter name="fcusername" value="automation.customer@mailinator.com" />
+		<parameter name="notificationType" value="Reroute Requested - Customer" />
+		<parameter name="Row" value="3" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" />
+		</classes>
+	</test>
+
+	<test
+		name="Test Reroute Requested Mail to Carrier for commercial location type">
+		<parameter name="testData" value="ManageOrdersTestData.xlsx" />
+		<parameter name="fcusername" value="automation.salesmanager@mailinator.com" />
+		<parameter name="notificationType" value="Reroute Requested - Carrier" />
+		<parameter name="Row" value="3" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" />
+		</classes>
+	</test>
+
+	<test
+		name="Verify Warning message in order detail page for commercial location type">
+		<parameter name="enableOption" value="Yes" />
+		<parameter name="Row" value="3" />
+
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestRerouteWarningMessage" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+
+	<test
+		name="Login as an Admin and accept the reroute request for commercial location type">
+		<parameter name="loginuser" value="new" />
+		<parameter name="fcusername" value="info@freightclub.com" />
+		<parameter name="fcpassword" value="Welcome@2" />
+		<parameter name="Row" value="3" />
+
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestAcceptRerouteRequest" />
+
+		</classes>
+	</test>
+
+	<test
+		name="As an admin verify reroute request details for commercial location type">
+		<parameter name="Row" value="3" />
+
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestRerouteDetails" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+
+	<test
+		name="Test Reroute Request Approve Mail to Customer for commercial location type">
+		<parameter name="testData" value="ManageOrdersTestData.xlsx" />
+		<parameter name="fcusername" value="automation.customer@mailinator.com" />
+		<parameter name="notificationType" value="Reroute Request Approved - Customer" />
+		<parameter name="Row" value="3" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" />
+		</classes>
+	</test>
+
+	<test
+		name="Test Reroute Request Approve Mail to Carrier for commercial location type">
+		<parameter name="testData" value="ManageOrdersTestData.xlsx" />
+		<parameter name="fcusername" value="automation.salesmanager@mailinator.com" />
+		<parameter name="notificationType" value="Reroute Request Approved - Carrier" />
+		<parameter name="Row" value="3" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" />
+		</classes>
+	</test>
+
+	<test
+		name="Login as an Custmer and verify reroute request details for commercial location type">
+		<parameter name="loginuser" value="new" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="3" />
+
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestRerouteDetails" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+
+	<!-- ***************************Reroute Request for Amazon warehouse******************* -->
+
+	<test
+		name="Verify user is able to create request for reroute with Amazon Warehouse as Location type">
+		<parameter name="loginuser" value="new" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="4" />
+
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestCreateRerouteRequest" />
+		</classes>
+	</test>
+
+	<test
+		name="Test Reroute Requested Mail to Customer for Amazon Warehouse as Location type">
+		<parameter name="testData" value="ManageOrdersTestData.xlsx" />
+		<parameter name="fcusername" value="automation.customer@mailinator.com" />
+		<parameter name="notificationType" value="Reroute Requested - Customer" />
+		<parameter name="Row" value="4" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" />
+		</classes>
+	</test>
+
+	<test
+		name="Test Reroute Requested Mail to Carrier for Amazon Warehouse as Location type">
+		<parameter name="testData" value="ManageOrdersTestData.xlsx" />
+		<parameter name="fcusername" value="automation.salesmanager@mailinator.com" />
+		<parameter name="notificationType" value="Reroute Requested - Carrier" />
+		<parameter name="Row" value="4" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" />
+		</classes>
+	</test>
+
+	<test
+		name="Verify Warning message in order detail page for Amazon Warehouse as Location type">
+		<parameter name="enableOption" value="Yes" />
+		<parameter name="Row" value="4" />
+
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestRerouteWarningMessage" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+
+	<test
+		name="Login as an Admin and accept the reroute request for Amazon Warehouse as location type">
+		<parameter name="loginuser" value="new" />
+		<parameter name="fcusername" value="info@freightclub.com" />
+		<parameter name="fcpassword" value="Welcome@2" />
+		<parameter name="Row" value="4" />
+
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestAcceptRerouteRequest" />
+
+		</classes>
+	</test>
+
+	<test
+		name="As an admin verify reroute request details for Amazon Warehouse as location type">
+		<parameter name="Row" value="4" />
+
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestRerouteDetails" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+
+	<test
+		name="Test Reroute Request Approve Mail to Customer for Amazon Warehouse as Location type">
+		<parameter name="testData" value="ManageOrdersTestData.xlsx" />
+		<parameter name="fcusername" value="automation.customer@mailinator.com" />
+		<parameter name="notificationType" value="Reroute Request Approved - Customer" />
+		<parameter name="Row" value="4" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" />
+		</classes>
+	</test>
+
+	<test
+		name="Test Reroute Request Approve Mail to Carrier for Amazon Warehouse as Location type">
+		<parameter name="testData" value="ManageOrdersTestData.xlsx" />
+		<parameter name="fcusername" value="automation.salesmanager@mailinator.com" />
+		<parameter name="notificationType" value="Reroute Request Approved - Carrier" />
+		<parameter name="Row" value="4" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" />
+		</classes>
+	</test>
+
+	<test
+		name="Login as an Custmer and verify reroute request details for Amazon Warehouse as Location type">
+		<parameter name="loginuser" value="new" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="4" />
+
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestRerouteDetails" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+
+	<!-- ****************** Denied Request************** ********** -->
+
+	<test
+		name="Verify user is able to create reroute request for decline request">
+		<parameter name="loginuser" value="new" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
 		<parameter name="Row" value="2" />
 
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class
-				name="com.qualitesoft.freightclub.testscripts.manageorders.TestRerouteRequest">
-				<methods>
-					<include name="deniedRequestByAdmin"></include>
-				</methods>
-			</class>
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestCreateRerouteRequest" />
+		</classes>
+	</test>
+
+	<test
+		name="Verify Warning message in order detail page for residential Location type">
+		<parameter name="enableOption" value="Yes" />
+		<parameter name="Row" value="2" />
+
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestRerouteWarningMessage" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
 	</test>
 
+	<test
+		name="Login as an Admin and denied the reroute request for Amazon Warehouse as location type">
+		<parameter name="loginuser" value="new" />
+		<parameter name="fcusername" value="info@freightclub.com" />
+		<parameter name="fcpassword" value="Welcome@2" />
+		<parameter name="Row" value="2" />
+
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestDeniedRerouteRequest" />
+
+		</classes>
+	</test>
+	<test
+		name="Verify warning message is not displaying after decline the reroute request">
+		<parameter name="enableOption" value="No" />
+		<parameter name="Row" value="4" />
+
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestRerouteWarningMessage" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+
+	<test
+		name="Test Reroute Request decline Mail to Customer for residential Location type">
+		<parameter name="testData" value="ManageOrdersTestData.xlsx" />
+		<parameter name="fcusername" value="automation.customer@mailinator.com" />
+		<parameter name="notificationType" value="Reroute Request decline - Customer" />
+		<parameter name="Row" value="4" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" />
+		</classes>
+	</test>
+
+
+	<!-- *********************************Admin Login> Reroute by admin******************** -->
+
+
+	<test
+		name="Verify admin is able to reroute request for Residencial Location Type">
+		<parameter name="loginuser" value="new" />
+		<parameter name="fcusername" value="info@freightclub.com" />
+		<parameter name="fcpassword" value="Welcome@2" />
+		<parameter name="Row" value="2" />
+
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestReroutePopupValidation" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestReroutePopupFields" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestCreateRerouteRequest" />
+		</classes>
+	</test>
+
+	<test
+		name="Verify admin is able to accept the reroute request for Residencial Location Type">
+		<parameter name="enableOption" value="Yes" />
+		<parameter name="Row" value="2" />
+
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestRerouteWarningMessage" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestAcceptRerouteRequest" />
+		</classes>
+	</test>
+
+	<test name="Verify warning message is not displaying after reject the reroute request">
+		<parameter name="loginuser" value="new" />
+		<parameter name="fcusername" value="info@freightclub.com" />
+		<parameter name="fcpassword" value="Welcome@2" />
+		<parameter name="Row" value="2" />
+
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestRerouteDetails" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+
+	<!-- *********************Admin Row 3***************************** -->
+
+	<test
+		name="Verify admin is able to reroute request for Commercial Location Type">
+		<parameter name="loginuser" value="new" />
+		<parameter name="fcusername" value="info@freightclub.com" />
+		<parameter name="fcpassword" value="Welcome@2" />
+		<parameter name="Row" value="3" />
+
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestCreateRerouteRequest" />
+		</classes>
+	</test>
+
+	<test
+		name="Verify admin is able to accept the reroute request for Commercial Location Type">
+		<parameter name="enableOption" value="Yes" />
+		<parameter name="Row" value="3" />
+
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestRerouteWarningMessage" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestAcceptRerouteRequest" />
+		</classes>
+	</test>
+
+	<test name="Verify Commercial Location Type Reroute request on detail page">
+		<parameter name="Row" value="3" />
+
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestRerouteDetails" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+	<!-- *********************************Admin Row 4******************* -->
+
+
+	<test
+		name="Verify admin is able to reroute request for Amazon warehouse Location Type">
+		<parameter name="loginuser" value="new" />
+		<parameter name="fcusername" value="info@freightclub.com" />
+		<parameter name="fcpassword" value="Welcome@2" />
+		<parameter name="Row" value="4" />
+
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestCreateRerouteRequest" />
+		</classes>
+	</test>
+
+	<test
+		name="Verify admin is able to accept the reroute request for Amazon warehouse Location Type">
+		<parameter name="enableOption" value="Yes" />
+		<parameter name="Row" value="4" />
+
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestRerouteWarningMessage" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestAcceptRerouteRequest" />
+		</classes>
+	</test>
+
+	<test
+		name="Verify Amazon warehouse Location Type Reroute request on detail page">
+		<parameter name="Row" value="4" />
+
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestRerouteDetails" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+
+	<!-- *********************Decline Reroute Request***************************** -->
+
+	<test
+		name="Verify admin is able to create reroute request for decline request">
+		<parameter name="loginuser" value="new" />
+		<parameter name="fcusername" value="info@freightclub.com" />
+		<parameter name="fcpassword" value="Welcome@2" />
+		<parameter name="Row" value="4" />
+
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestCreateRerouteRequest" />
+		</classes>
+	</test>
+
+	<test
+		name="Verify admin is able to decline the reroute request for Amazon warehouse Location Type">
+		<parameter name="enableOption" value="Yes" />
+		<parameter name="Row" value="4" />
+
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestRerouteWarningMessage" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestDeniedRerouteRequest" />
+				
+		</classes>
+	</test>
+	
+	<test
+		name="Verify warning message is not displaying after decline the request">
+		<parameter name="enableOption" value="No" />
+		<parameter name="Row" value="4" />
+
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestRerouteWarningMessage" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
 </suite>	

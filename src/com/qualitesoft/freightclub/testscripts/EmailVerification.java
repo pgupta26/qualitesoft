@@ -88,6 +88,27 @@ public class EmailVerification extends InitializeTest {
 					String expectedMsg="Hi, Thank you for submitting the dispute details. We have submitted it to the carrier for an update. Please allow 7-14 business days for a response. We will provide an update when a carrier response is received. Thanks, Freight Club Claims";
 					expectedMsg = expectedMsg.replace("{orderID}", orderid);
 					this.verifyEmailBody(expectedMsg);
+				} else if(notificationType.equalsIgnoreCase("Reroute Requested - Customer")) {
+					String expectedMsg="Test1 Test Automation Test Automation first name last name 51487615 CEV1002186 NPSKU Ceva Test Location 90001 US CA LOS ANGELES Residential #123, Los Angeles Yes Yes";
+					expectedMsg = expectedMsg.replace("{orderID}", orderid);
+					this.verifyEmailBody(expectedMsg);
+				} else if(notificationType.equalsIgnoreCase("Reroute Requested - Carrier")) {
+					String expectedMsg="Hello Ceva, Please confirm if you can reroute the below order to the new location that has been provided. Also please include a quote for any additional cost that may occur. Do let us know if there are any issues. = Reroute Request = *Company: *Test Automation *Consignee Name*:* first name last name *OrderID: *51487615 *Waybill:* CEV1002186 *Customer PO Number:* NPSKU *Carrier:* Ceva * Requested Reroute Information: *Consignee Name: first name last name Location Name: Test Location Address: #123, Los Angeles LOS ANGELES, CA, US, 90001 Drop-Off Times: - Delivery Appointment: Yes Limited Access: Yes Sincerely, The Freight Club TeamFreight Club - Copyright 2019 © Freight Club 12020 Sunrise Valley Dr. # 100 Reston, Virginia, 20191 You are receiving this email because you are a customer of Freight Club Terms & Conditions <https://www.freightclub.com/terms-and-conditions> | Privacy Policy <https://app.freightclub.com/Home/PrivacyPolicy";
+					expectedMsg = expectedMsg.replace("{orderID}", orderid);
+					this.verifyEmailBody(expectedMsg);
+				} 
+				else if(notificationType.equalsIgnoreCase("Reroute Request Approved - Customer")) {
+					String expectedMsg="Test 3 Freight Club first name last name 51487615 CEV1002186 NPSKU Ceva Test Location 90001 US CA LOS ANGELES Residential #123, Los Angeles Yes Yes";
+					expectedMsg = expectedMsg.replace("{orderID}", orderid);
+					this.verifyEmailBody(expectedMsg);
+				} else if(notificationType.equalsIgnoreCase("Reroute Request Approved - Carrier")) {
+					String expectedMsg="Test4 Freight Club first name last name 51487615 CEV1002186 NPSKU Ceva Test Location 90001 US CA LOS ANGELES Residential #123, Los Angeles Yes Yes";
+					expectedMsg = expectedMsg.replace("{orderID}", orderid);
+					this.verifyEmailBody(expectedMsg);
+				}  else if(notificationType.equalsIgnoreCase("Reroute Request Decline - Customer")) {
+					String expectedMsg="Hello Freight Club, *The* reroute you requested has been denied and is unable to be processed. *This is because of the following reason: Incorrect address reroute denied reason If you have any concerns, please contact us immediately by phone at 1-844-819-2187 = Denied Reroute Request = *Company: *Freight Club *Consignee Name*:* first name last name *OrderID: *51487615 *Waybill:* CEV1002186 *Customer PO Number:* NPSKU *Carrier:* Ceva * Requested Reroute Information: *Consignee Name: first name last name Location Name: Test Location Address: #123, Los Angeles LOS ANGELES, CA, US, 90001 Residential Delivery Appointment: Yes Limited Access: Yes Sincerely, The Freight Club Team Freight Club - Copyright 2019 © Freight Club 12020 Sunrise Valley Dr. # 100 Reston, Virginia, 20191 You are receiving this email because you are a customer of Freight Club Terms & Conditions | Privacy Policy";
+					expectedMsg = expectedMsg.replace("{orderID}", orderid);
+					this.verifyEmailBody(expectedMsg);
 				} 
 			
 				SeleniumFunction.selectParentframe(driver);

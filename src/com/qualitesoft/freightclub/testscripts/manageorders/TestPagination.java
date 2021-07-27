@@ -47,6 +47,11 @@ public class TestPagination extends InitializeTest{
 		try{
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
 			SeleniumFunction.click(manageOrderpage.manageOrdersLink());
+			
+			if(manageOrderpage.acceptFeedbackPopupStatus() == true){
+				manageOrderpage.acceptFeedbackPopup();
+			}
+			
 			manageOrderpage.ActionButton();
 			WaitTool.sleep(10);
 			if(!manageOrderpage.ExpandMenupage().getAttribute("class").equals("active")) {
@@ -138,15 +143,16 @@ public class TestPagination extends InitializeTest{
 	@Test(priority = 6)
 	public void verifyRowsLimit(){
 		try{
-			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
-			String inputPage2 = manageOrderpage.getPageNumber();
-			String nextPageRows = manageOrderpage.getPagiationTotalRows();
-
+			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);			
 			manageOrderpage.setPageNumber("2");
 			SeleniumFunction.KeyBoradEnter(driver);
-			WaitTool.sleep(15);
-			UseAssert.assertEquals(inputPage2, "2");
+			WaitTool.sleep(5);
+			String inputPage2 = manageOrderpage.getPageNumber();
+			String nextPageRows = manageOrderpage.getPagiationTotalRows();
+			
 			UseAssert.assertEquals(nextPageRows.substring(0, 8), "11 to 20");
+			UseAssert.assertEquals(inputPage2, "2");
+			
 		}catch(Exception ex) {
 			ex.printStackTrace();
 			throw ex;
