@@ -81,7 +81,6 @@ public class WaitTool {
 		try {
 			long milliseconds = seconds * 1000;
 			Thread.sleep(milliseconds);
-			System.out.println("Wait for " + seconds + " seconds");
 		} catch (InterruptedException e) {
 			Log.warn(e.getMessage());
 		}
