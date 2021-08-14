@@ -2,6 +2,7 @@ package com.qualitesoft.core;
 
 import java.util.Set;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -237,6 +238,16 @@ public class SeleniumFunction {
 			Log.info(fileName+" successfully uploaded.");
 		} catch (Exception e) {
 			Log.error("Not able to run AutoIt script" + e.getMessage());
+		}
+	} 
+	
+	public static void uploadImage(WebElement element, String fileName) {
+		try {
+			element.sendKeys(fileName);
+			WaitTool.sleep(5);
+			Log.info(fileName+" successfully uploaded.");
+		} catch (Exception e) {
+			Log.error("Not able to upload image" + e.getMessage());
 		}
 	} 
 

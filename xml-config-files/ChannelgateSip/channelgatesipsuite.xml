@@ -11,19 +11,94 @@
 	<parameter name="password" value="cymaxcom" />
 	<parameter name="crusername" value="channelgate09072021@mailinator.com"></parameter>
 
-	<!-- <test name="Test Forgot Password">
+	<!-- <parameter name="emailAddress" value="demovendor@mailinator.com" /> 
+		<parameter name="password" value="demovendor" /> -->
+
+	<test name="Test Forgot Password">
+	<parameter name="password" value="Test123!" />
 		<classes>
 			<class
 				name="com.qualitesoft.channelgatesip.testscripts.TestForgotPassword" />
 		</classes>
-	</test> -->
+	</test>
 	<test name="Test Login">
 		<classes>
 			<class name="com.qualitesoft.channelgatesip.testscripts.TestLogin" />
 		</classes>
 	</test>
 
-	<!-- <test name="TestInstance">
+	<test name="Test select vendor">
+		<classes>
+			<class name="com.qualitesoft.channelgatesip.testscripts.TestSelectVendor" />
+		</classes>
+	</test>
+
+	<test name="Verify user is able to add the product">
+		<parameter name="Row" value="2"></parameter>
+		<classes>
+			<class
+				name="com.qualitesoft.channelgatesip.testscripts.products.TestAddProduct" />
+		</classes>
+	</test>
+
+	<test name="Verify details of added prouct on listing page">
+		<parameter name="Row" value="2"></parameter>
+		<classes>
+			<class
+				name="com.qualitesoft.channelgatesip.testscripts.products.TestProductOnListingPage" />
+		</classes>
+	</test>
+
+	<test name="Verify edit product functionality on product listing page">
+		<parameter name="Row" value="2"></parameter>
+		<classes>
+			<class
+				name="com.qualitesoft.channelgatesip.testscripts.products.TestEditProduct" />
+		</classes>
+	</test>
+	
+	<test name="Verify details of updated prouct on listing page">
+		<parameter name="Row" value="2"></parameter>
+		<classes>
+			<class
+				name="com.qualitesoft.channelgatesip.testscripts.products.TestProductOnListingPage" />
+		</classes>
+	</test>
+	
+
+	<test name="Verify searching functionality on product listing page">
+		<parameter name="Row" value="2"></parameter>
+		<classes>
+			<class
+				name="com.qualitesoft.channelgatesip.testscripts.products.TestSearchFunctionality" />
+		</classes>
+	</test>
+
+	<test name="Verify filter functionality on product listing page">
+		<parameter name="Row" value="2"></parameter>
+		<classes>
+			<class
+				name="com.qualitesoft.channelgatesip.testscripts.products.TestFilterFunctionality" />
+		</classes>
+	</test>
+
+	<test name="Verify pagination functionality on product listing page">
+		<parameter name="Row" value="2"></parameter>
+		<classes>
+			<class
+				name="com.qualitesoft.channelgatesip.testscripts.products.TestPagination" />
+		</classes>
+	</test>
+
+	<test name="Verify bulk actions functionality on product listing page">
+		<parameter name="Row" value="2"></parameter>
+		<classes>
+			<class
+				name="com.qualitesoft.channelgatesip.testscripts.products.TestBulkActionFunctionality" />
+		</classes>
+	</test>
+
+<!-- <test name="TestInstance">
 		<classes>
 			<class name="com.qualitesoft.channelgatesip.testscripts.TestInstance" />
 		</classes>
@@ -73,4 +148,7 @@
 				name="com.qualitesoft.channelgatesip.testscripts.TestForgotPassword" />
 		</classes>
 	</test> -->
+
+
+
 </suite>

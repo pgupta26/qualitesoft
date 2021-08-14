@@ -270,4 +270,33 @@ public class ManagerOrderPage {
 	public boolean acceptFeedbackPopupStatus(){
 		return WaitTool.waitForElementBoolean(driver, By.xpath("//div[@id='step-0']//button[@class='btn btn-primary']"), 15);
 	}
+	
+	//******************Cancel Order*********
+	public void clickCancelLink() {
+		SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("Cancel"), 10));
+	}
+	
+	public void clickRequestCancelLink() {
+		SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("Request Cancellation"), 10));
+	}
+	
+	public WebElement confirmCancelOrderBtn(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//span[contains(text(),'Confirm')]//parent::button"), 10);
+	}
+	
+	public WebElement getCancelOrderPopupHeader(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[contains(@class,'vue-dialog-confirm modal')]//child::div[@class='modal-header']//h5"), 10);
+	}
+	
+	public WebElement getCancelOrderPopupBody(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[contains(@class,'vue-dialog-confirm modal')]//child::div[@class='modal-body']"), 10);
+	}
+	
+	public void clickConfirmCancellationLink() {
+		SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("Confirm Cancellation"), 10));
+	}
+	
+	public void clickWithdrawCancellationLink() {
+		SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("Withdraw Cancellation Request"), 10));
+	}
 }

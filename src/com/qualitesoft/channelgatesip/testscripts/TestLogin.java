@@ -2,7 +2,6 @@ package com.qualitesoft.channelgatesip.testscripts;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import com.qualitesoft.channelgatesip.pageobjects.LoginPage;
 import com.qualitesoft.channelgatesip.pageobjects.ProductListing;
 import com.qualitesoft.core.InitializeTest;
@@ -16,7 +15,7 @@ public class TestLogin extends InitializeTest{
 	
 	@Test(priority = 1)
 	public void verifyRequiredFieldValidation(){
-		driver.get(URL);
+		SeleniumFunction.get(driver, URL);
 		WaitTool.sleep(5);
 		ScreenShot.takeScreenShot(driver, "Login Page");
 		LoginPage login = new LoginPage(driver);
