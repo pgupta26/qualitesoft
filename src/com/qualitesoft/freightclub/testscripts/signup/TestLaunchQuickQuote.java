@@ -1,4 +1,4 @@
-package com.qualitesoft.freightclub.testscripts;
+package com.qualitesoft.freightclub.testscripts.signup;
 
 import org.testng.annotations.Test;
 

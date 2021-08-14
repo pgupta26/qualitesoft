@@ -10,6 +10,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.JavaFunction;
 import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;
@@ -27,12 +28,7 @@ public class QuickQuoteFinal {
 	}
 
 	public WebElement quickQuoteLink() {
-
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[contains(@href,'/QuickQuote/QuickQuote')]"), 30);
-	}
-
-	public WebElement QQLink(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@id='link-quick-quote']"), 60);
 	}
 
 	public void acceptPopup() {
@@ -46,9 +42,9 @@ public class QuickQuoteFinal {
 
 	public WebElement shipmentType(String shipmentType) {
 		if(shipmentType.equals("Parcel")) {
-			return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"app-content\"]/div/div/div/section/section/div/section/div[1]/div[1]/label"), 30);
+			return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Parcel']/preceding::div[1]/parent::label"), 30);
 		}else if(shipmentType.equals("Less Than Truckload")) {
-			return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Less-Than-Truckload (LTL)']/preceding::div[1]/parent::label/parent::div"), 30);
+			return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Less-Than-Truckload (LTL)']/preceding::div[1]/parent::label"), 30);
 		}else if(shipmentType.equals("Custom")) {
 			return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Custom Order']/preceding::div[1]/parent::label/parent::div"), 30);
 		}else {
@@ -59,27 +55,6 @@ public class QuickQuoteFinal {
 	public WebElement OrderDate() {
 		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='OrderDate']"), 30));
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='datepicker-days']//td[@class='day']"), 30);
-	}
-
-	public WebElement ClickDate(String date) {
-
-		try{
-			List<WebElement> allDates= driver.findElements(By.xpath("//div[@class='datepicker-days']//td"));
-			for(WebElement ele: allDates)
-			{
-				String dt= ele.getText();
-				if(dt.equalsIgnoreCase(date))
-				{
-					return ele;	
-				}
-			}
-		}
-		catch (Exception e) {
-			Log.error("Not able to select date " + e.getMessage());
-			throw e;
-		}
-		return null;
-
 	}
 
 	public WebElement OrderReferenceID() {
@@ -96,7 +71,6 @@ public class QuickQuoteFinal {
 	}
 
 	public WebElement DropOffZip() {
-
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='dropoffzipEntry']"), 30);
 	}
 
@@ -107,9 +81,30 @@ public class QuickQuoteFinal {
 	public WebElement DropOffLocationType() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//h5[text()='Drop Off Location ']/ancestor::div[@class='col-xs-12 col-sm-6']/descendant::select[@class='form-input form-control input-sm']"),60);
 	}
+	
+	public void deselectInsurance() {
+		SeleniumFunction.scrollDownByPixel(driver, "200");
+		WaitTool.sleep(2);
+		WebElement insurance = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"app-content\"]/div/div/div/section/section[2]/div/div[4]/div[2]/div[3]/div/div[2]/div[4]/label/input"), 30);
+		Log.info("Insurance Checkbox: "+insurance.isSelected());
+		if(insurance.isSelected())  {
+			SeleniumFunction.click(insurance);
+		}
+	}
+	
+	public WebElement QuickEmail() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='PublicEmail']"), 30);
+	} 
+	public WebElement AccountType() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//select[@id='PublicProfileType']"), 30);
+	}
 
 	public WebElement PackageType(String packageType, int itemIndex) {
-		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@placeholder='Select or Search...'])['"+itemIndex+"']"), 30));
+		if(InitializeTest.loginuser ==  null ||  !InitializeTest.loginuser.equals("new")) {
+			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@placeholder='Select or Search...'])['"+itemIndex+"']"), 30));
+		} else {
+			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@placeholder='Select packaging'])['"+itemIndex+"']"), 30));
+		}
 		WaitTool.sleep(3);
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@data-group='packaging']/div[contains(text(),'"+packageType+"')])["+itemIndex+"]"), 30);
 	}
@@ -193,6 +188,17 @@ public class QuickQuoteFinal {
 		}
 	}
 	
+	public void expandCarries() {
+		boolean flag = WaitTool.isElementPresentAndDisplay(driver, By.xpath("//span[contains(text(),'Show')]"));
+		if(flag) {
+			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//span[contains(text(),'Show')]"), 10));
+		}
+	}
+	
+	public int totalQuotesCount() {
+		return WaitTool.waitForElementsPresentAndDisplay(driver, By.cssSelector("#table-quotes tbody tr"), 10).size();
+	}
+	
 	public WebElement NextButton() {		
 		return WaitTool.waitForElementPresentAndDisplay(driver,By.xpath("//table[@id='table-quotes']//tbody//tr[1]//td[7]//button"), 60);
 	} 
@@ -234,6 +240,39 @@ public class QuickQuoteFinal {
 	public WebElement LocationName() {		
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@placeholder='Search address book or type new label'])[1]"), 30);		
 	}
+	
+	public WebElement pickUpAddress1() {		
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='Address1']"), 30);		
+	} 
+	public WebElement pickUpAddress2() {		
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='Address2']"), 30);		
+	} 
+	public WebElement pickUpFirstName() {		
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='FirstName']"), 30);		
+	} 
+	public WebElement pickUpLastName() {		
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='LastName']"), 30);		
+	} 
+	public WebElement pickUpPhone1() {		
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='Phone1']"), 30);		
+	} 
+	
+	public WebElement DropAddress1() {		
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@id='Address1'])[3]"), 30);		
+	} 
+	public WebElement DropAddress2() {		
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@id='Address2'])[2]"), 30);		
+	} 
+	public WebElement DropFirstName() {		
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@id='FirstName'])[2]"), 30);		
+	} 
+	public WebElement DropLastName() {		
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@id='LastName'])[2]"), 30);		
+	} 
+	public WebElement DropPhone1() {		
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@id='Phone1'])[2]"), 30);		
+	}
+	
 	public WebElement ReviewOrder() {		
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@class='btn btn-lg btn-primary pull-right']"), 30);	
 	}
@@ -243,5 +282,9 @@ public class QuickQuoteFinal {
 	public WebElement Okbutton1() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@id='btn-continue-to-orders']"), 60);
 	}
+	
+	public WebElement PalletDesc() {		
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id='app-content']/div/div/div/section/article/div/div[2]/div[1]/div/div[2]/textarea"), 60);	
+	} 
 	
 }

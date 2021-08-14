@@ -9,6 +9,7 @@ import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
+import com.qualitesoft.freightclub.appcommon.CommonOps;
 import com.qualitesoft.freightclub.pageobjects.ManagerOrderPage;
 import com.qualitesoft.freightclub.pageobjects.QuickQuote;
 import com.qualitesoft.freightclub.pageobjects.Admin.ManageOrderOpenQuotesPage;
@@ -21,6 +22,7 @@ public class TestVerifyReQuoteFunctionality extends InitializeTest {
 		QuickQuote quickQuote = new QuickQuote(driver);
 		ManageOrderOpenQuotesPage openQuotes = new ManageOrderOpenQuotesPage(driver);
 		ManagerOrderPage manageOrderpage  = new ManagerOrderPage(driver);
+		CommonOps commonOps = new CommonOps();
 		
 		SeleniumFunction.click(openQuotes.manageOrdersLink());
 
@@ -40,10 +42,7 @@ public class TestVerifyReQuoteFunctionality extends InitializeTest {
 
 		//filter record by order id
 		String orderid=xr.getCellData("Input","OrderId", i).trim();
-		manageOrderpage.orderIDFilter(orderid);
-		WaitTool.sleep(2);
-		SeleniumFunction.KeyBoradEnter(driver);
-		WaitTool.sleep(10);
+		commonOps.openManageOrdersPageAndSearchOrder(orderid);
 
 		String orderReferenceID=xr.getCellData("Input","orderReferenceID", i).trim();
 		
@@ -54,7 +53,7 @@ public class TestVerifyReQuoteFunctionality extends InitializeTest {
 
 		WaitTool.sleep(10);
 		SeleniumFunction.click(manageOrderpage.notQuoted());
-		Assert.assertEquals(orderReferenceID,manageOrderpage.customerPO_NotQuoted().getText());
+		Assert.assertEquals(manageOrderpage.customerPO_NotQuoted().getText(),orderReferenceID);
 	}
 
 }

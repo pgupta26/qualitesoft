@@ -14,8 +14,6 @@ import com.qualitesoft.freightclub.pageobjects.QuickQuote;
 
 public class TestManageProducts extends InitializeTest {
 	
-	public static String Productname;
-
 	@Test
 	public void testManageProducts() {
 			QuickQuote quickQuote = new QuickQuote(driver);

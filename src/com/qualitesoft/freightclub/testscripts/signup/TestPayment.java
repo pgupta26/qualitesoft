@@ -1,5 +1,6 @@
-package com.qualitesoft.freightclub.testscripts;
+package com.qualitesoft.freightclub.testscripts.signup;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 
@@ -7,6 +8,7 @@ import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
+import com.qualitesoft.core.Xls_Reader;
 import com.qualitesoft.freightclub.pageobjects.QuickQuote;;
 
 public class TestPayment extends InitializeTest {
@@ -34,9 +36,15 @@ public class TestPayment extends InitializeTest {
 		ScreenShot.takeScreenShot(driver, "Payment Page");
 		jse.executeScript("window.scrollBy(0,550)", "");
 		SeleniumFunction.click(quickQuote.BookandPay());
-		WaitTool.sleep(15);
 		ScreenShot.takeScreenShot(driver, "Payment Confirmation");
+		
+		Xls_Reader xr = new Xls_Reader("binaries/FCfiles/"+testData);
+		int rowIndex=Integer.parseInt(Row);
+		//get order id and store it in excel
 		WaitTool.sleep(10);
+		String orderId = SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//table[@class='table table-condensed']/tbody/tr[2]/td[2]"), 30));
+		xr.setCellData("Input", "OrderId", rowIndex, orderId);
+		
 		SeleniumFunction.click(quickQuote.Okbutton());
 		WaitTool.sleep(10);
 	}

@@ -34,7 +34,7 @@ public class ManagerOrderPage {
 	}
 	
 	public void orderIDFilter(String orderid) {
-		SeleniumFunction.sendKeys(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@ref='eColumnFloatingFilter'])[1]"), 10), orderid);
+		SeleniumFunction.sendKeys(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@ref='eColumnFloatingFilter'])[1]"), 60), orderid);
 	}
 	
 	public WebElement orderIDGridValueFirstRow() {
@@ -51,6 +51,10 @@ public class ManagerOrderPage {
 	
 	public WebElement shippingLabelsPdf() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("Download Shipping Label(s) - PDF"), 10);
+	}
+	
+	public WebElement shippingLabelsZPL() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("Download Shipping Label(s) - ZPL"), 10);
 	}
 	
 	public boolean requestCancellation() {
@@ -138,10 +142,9 @@ public class ManagerOrderPage {
 	public WebElement initiateClaimPopup(){
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//h4[@id='initiateClaimLabel']"), 30);
 	}
-	
-	//Value 1 is for Damage and 2 if for Loss
-	public void selectClaimType(String value){
-		SeleniumFunction.selectByvalue(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//select[@id='claimType']"), 30), value);
+
+	public WebElement selectClaimType(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//select[@id='claimType']"), 30);
 	}
 	
 	public void clickInitiateClaimButton() {

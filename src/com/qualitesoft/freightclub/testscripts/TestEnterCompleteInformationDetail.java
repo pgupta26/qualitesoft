@@ -11,7 +11,9 @@ import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
+import com.qualitesoft.freightclub.appcommon.CommonOps;
 import com.qualitesoft.freightclub.pageobjects.QuickQuote;
+import com.qualitesoft.freightclub.pageobjects.QuickQuoteFinal;
 
 public class TestEnterCompleteInformationDetail extends InitializeTest {
 	
@@ -22,10 +24,18 @@ public class TestEnterCompleteInformationDetail extends InitializeTest {
 		xr=new Xls_Reader(testDatasheet);
 
 		String specialHandlingInstructions=xr.getCellData("ShipmentInformation","SpecialHandlingInstructions", 2).trim();
-	
+		String palletDescription = xr.getCellData("ShipmentInformation", "PalletDescription", 2);
+
 		QuickQuote quickQuote = new QuickQuote(driver);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		int i=Integer.parseInt(Row);
+		if(i == 5) {
+			CommonOps commonOps =  new CommonOps();
+			SeleniumFunction.scrollDownByPixel(driver, "200");
+			commonOps.addPalletContents(xr, i, 1);
+		}
 		
+		SeleniumFunction.moveToElement(driver, quickQuote.SpecialHandling());
 		SeleniumFunction.sendKeys(quickQuote.SpecialHandling(), specialHandlingInstructions);
 		
 		jse.executeScript("window.scrollBy(0,400)", "");

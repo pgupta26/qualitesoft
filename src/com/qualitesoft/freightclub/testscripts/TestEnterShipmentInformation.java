@@ -320,8 +320,14 @@ public class TestEnterShipmentInformation extends InitializeTest {
 				SeleniumFunction.click(quickQuote.customOrderDetails(orderDetails));
 				SeleniumFunction.sendKeys(quickQuote.requiredTemp(), requiredTemp);
 			}else {
-				WaitTool.sleep(5);
-				SeleniumFunction.click(quickQuote.customOrderDetails(orderDetails));	
+				WaitTool.sleep(3);
+				try {
+					SeleniumFunction.click(quickQuote.customOrderDetails(orderDetails));	
+				}catch(Exception ex) {
+					Log.info("retry.............");
+					WaitTool.sleep(2);
+					SeleniumFunction.click(quickQuote.customOrderDetails(orderDetails));	
+				}
 			}
 			SeleniumFunction.sendKeys(quickQuote.regulatoryDetails(), regulatoryDetails);
 			

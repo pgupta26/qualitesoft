@@ -1,10 +1,14 @@
 package com.qualitesoft.freightclub.pageobjects;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import com.qualitesoft.core.Log;
+import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 
@@ -54,6 +58,54 @@ public class ManageCarrierPage {
 		}
 	}
 	
+	public void deleteContactsInformation() {
+			List<WebElement> contacts = WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//section[@id='carrier_contact_info']/descendant::table/tbody/tr"), 30);
+			int count = contacts.size();
+			Log.info("Total contacts available: "+count);
+			
+			if(contacts != null && count > 0) {
+				for(int i = 1; i <= count; i++) {
+					SeleniumFunction.click(driver.findElement(By.xpath("//section[@id='carrier_contact_info']/descendant::table/tbody/tr/td[6]/i[2]")));
+					WaitTool.sleep(2);
+				}
+				ScreenShot.takeScreenShot(driver, "Existing contacts deleted");
+			}
+	}
+	
+	public WebElement addContactButton() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//section[@id='carrier_contact_info']/descendant::table/following-sibling::i"), 10);
+	}
+	
+	public WebElement contactType() {
+		List<WebElement> contacts = WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//section[@id='carrier_contact_info']/descendant::table/tbody/tr"), 30);
+		int rowIndex = contacts.size();
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//section[@id='carrier_contact_info']/descendant::table/tbody/tr["+rowIndex+"]/td[1]/div[2]/select"), 10);
+	}
+	
+	public WebElement contactName() {
+		List<WebElement> contacts = WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//section[@id='carrier_contact_info']/descendant::table/tbody/tr"), 30);
+		int rowIndex = contacts.size();
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//section[@id='carrier_contact_info']/descendant::table/tbody/tr["+rowIndex+"]/td[2]/div[2]/input"), 10);
+	}
+	
+	public WebElement phoneNumber() {
+		List<WebElement> contacts = WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//section[@id='carrier_contact_info']/descendant::table/tbody/tr"), 30);
+		int rowIndex = contacts.size();
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//section[@id='carrier_contact_info']/descendant::table/tbody/tr["+rowIndex+"]/td[3]/input"), 10);
+	}
+	
+	public WebElement emailAddress() {
+		List<WebElement> contacts = WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//section[@id='carrier_contact_info']/descendant::table/tbody/tr"), 30);
+		int rowIndex = contacts.size();
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//section[@id='carrier_contact_info']/descendant::table/tbody/tr["+rowIndex+"]/td[4]/input"), 10);
+	}
+	
+	public WebElement saveContactInformation() {
+		List<WebElement> contacts = WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//section[@id='carrier_contact_info']/descendant::table/tbody/tr"), 30);
+		int rowIndex = contacts.size();
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//section[@id='carrier_contact_info']/descendant::table/tbody/tr["+rowIndex+"]/td[6]/i"), 10);
+	}
+	
 	public void selectResidentialPickUp() {
 		WebElement residentialPickUP = WaitTool.returnWebElement(driver, By.xpath("//*[@id='optionsTab']/div[1]/div/input"));
 		if(!residentialPickUP.isSelected()) {
@@ -90,6 +142,12 @@ public class ManageCarrierPage {
 	}public WebElement UPSToggleBtn(){
 		return WaitTool.waitForElementPresentAndDisplay(driver, upscheckbox, 60);
 	}
+	
+	public WebElement updateButton(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[text()='Update']"), 30);
+	}
+	
+	
 	
 	
 

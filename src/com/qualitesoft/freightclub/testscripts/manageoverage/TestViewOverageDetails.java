@@ -14,6 +14,7 @@ import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
 import com.qualitesoft.freightclub.pageobjects.ManageOverages;
+import com.qualitesoft.freightclub.pageobjects.ManagerOrderPage;
 import com.qualitesoft.freightclub.pageobjects.OverageDetails;
 import com.qualitesoft.freightclub.pageobjects.QuickQuote;
 
@@ -25,6 +26,7 @@ public class TestViewOverageDetails extends InitializeTest {
 
 		ManageOverages manageOverages = new ManageOverages(driver);
 		OverageDetails overageDetails = new OverageDetails(driver);
+		ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
 		QuickQuote quickQuote = new QuickQuote(driver);
 		
 		//Click on  manage overages link
@@ -58,12 +60,13 @@ public class TestViewOverageDetails extends InitializeTest {
 		String userSecondaryCategory = xr.getCellData("EditOverageDetails","SecondaryCategory", i);
 		String userReasonDetails = xr.getCellData("EditOverageDetails","ReasonDetails", i);
 		String adminSecondaryReason = xr1.getCellData("Sheet1","Secondary Reason", i);
-		String userSecondaryReason = xr1.getCellData("EditOverageDetails","SecondaryReasonn", i);
+		String userSecondaryReason = xr1.getCellData("EditOverageDetails","SecondaryReason", i);
 		String overageID = xr1.getCellData("Sheet1","OverageID", i);
 
 
 		
 		//Filter data grid by total billed
+		manageOrderpage.ExpandMenupage();
 		SeleniumFunction.sendKeys(manageOverages.TotalBilledTextBox(6), xr.getCellData("Sec invoice Master","New Invoice Amount", i));
 		SeleniumFunction.KeyBoradEnter(driver);
 		
@@ -110,9 +113,9 @@ public class TestViewOverageDetails extends InitializeTest {
 			
 			//Verify fields edited by Admin
 			UseAssert.assertEquals(overageDetails.getSelect("Overage Status:").getText(), userOverageStatus);
-			/*UseAssert.assertEquals(overageDetails.getSelect("Secondary Category:").getText(), userSecondaryCategory);
+			UseAssert.assertEquals(overageDetails.getSelect("Secondary Category:").getText(), userSecondaryCategory);
 			UseAssert.assertEquals(overageDetails.getSelect("Secondary Reason:").getText(), userSecondaryReason);
-			UseAssert.assertEquals(overageDetails.getLabel("Reason Details:").getAttribute("value"), userReasonDetails);*/
+			UseAssert.assertEquals(overageDetails.getLabel("Reason Details:").getAttribute("value"), userReasonDetails);
 
 			//Fields that will be disabled for user
 			Assert.assertTrue(overageDetails.getSelect("Dispute Type:").getAttribute("class").contains("disabled "));

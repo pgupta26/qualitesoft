@@ -132,14 +132,11 @@ public class TestSubmitCustomQuote1 extends InitializeTest {
 			SeleniumFunction.executeJS(driver, "window.scrollBy(0,-400)");
 			SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
 			Date date = new Date();
-			if(i==4) {
-				Calendar c = Calendar.getInstance();
-				c.setTime(date);
-				c.add(Calendar.DAY_OF_MONTH, 1);
-				formatDate = sdf.format(c.getTime()); 
-			} else {
-				formatDate = sdf.format(date);
-			}
+			Calendar c = Calendar.getInstance();
+			c.setTime(date);
+			c.add(Calendar.DAY_OF_MONTH, 1);
+			formatDate = sdf.format(c.getTime()); 
+		
 			Log.info("Current Date Created: "+formatDate);
 			xr.setCellData("Input","RecurringExpiry", i,formatDate);
 			SeleniumFunction.executeJS(driver, "arguments[0].removeAttribute('readonly', 'readonly')", notQuotedTab.recurringExpiry());

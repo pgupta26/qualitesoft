@@ -20,8 +20,15 @@ public class SeleniumFunction {
 			element.click();
 			Log.info("WebElement clicked.");
 		} catch (Exception e) {
-			Log.warn("Not able to click the webelement: " + element + e.getMessage());
-			throw e;
+			try {
+				Log.info("Retrying click...............");
+				WaitTool.sleep(3);
+				element.click();
+				Log.info("WebElement clicked on retry.");
+			}catch(Exception ex) {
+				Log.warn("Not able to click the webelement: " + element + e.getMessage());
+				throw e;
+			}
 		}
 	}
 

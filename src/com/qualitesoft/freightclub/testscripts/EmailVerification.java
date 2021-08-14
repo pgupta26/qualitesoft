@@ -12,6 +12,7 @@ import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
+import com.qualitesoft.freightclub.appcommon.Messages;
 import com.qualitesoft.freightclub.pageobjects.Mailinator;
 
 
@@ -21,7 +22,7 @@ public class EmailVerification extends InitializeTest {
 		Log.info("Expected Message:"+expectedEmailBody);
 		WaitTool.sleep(3);
 		String actualMessage = driver.findElement(By.tagName("body")).getText().replaceAll("[\\t\\n\\r]+"," ");
-		Log.info("Actual Message:"+actualMessage);
+		Log.info("Actual Messag1e:"+actualMessage);
 		Assert.assertEquals(expectedEmailBody, actualMessage);
 	}
 	
@@ -34,9 +35,14 @@ public class EmailVerification extends InitializeTest {
 			Log.info("Data Row: " +Row);
 			
 			//filter record by order id
-			String orderid=xr.getCellData("Input","OrderId", i).trim();
-			String poNumber=xr.getCellData("Input","orderReferenceID", i).trim();
-			
+			String orderid = xr.getCellData("Input","OrderId", i).trim();
+			String poNumber = xr.getCellData("Input","orderReferenceID", i).trim();
+			String trackingID = xr.getCellData("Input","Tracking#", i).trim();
+			String wayBill =  xr.getCellData("Input","WayBill", i).trim();
+			String additionalDocsNeeded =  xr.getCellData("ClaimDetail","AddiotionalDocsEmailBody", i).trim();
+			String expectedMsg = null;
+			String claimType =  xr.getCellData("ClaimDetail","ClaimType", i).trim();
+
 			SeleniumFunction.executeJS(driver, "window.open('');");
 			SeleniumFunction.getCurrentWindow(driver);
 			SeleniumFunction.open(driver, "https://www.mailinator.com/");
@@ -48,69 +54,100 @@ public class EmailVerification extends InitializeTest {
 			SeleniumFunction.click(mailinator.goButton());
 			WaitTool.sleep(20);
 			SeleniumFunction.click(mailinator.firstMail());
+				WaitTool.sleep(5);
 				SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.id("pills-textbuthtml-tab"), 20));
+				WaitTool.sleep(2);
 				SeleniumFunction.selectFrame(driver, "texthtml_msg_body");
-				if(notificationType.equalsIgnoreCase("Custom Quote Requested - User")) {
-					String expectedMsg="== == == Test Automation has submitted a custom order quote request == *Order Details:* * OrderID:*{orderID} * Customer Name:*Test Automation Pick Up Company Address Line1, LOS ANGELES, CA, 90001 Drop Off Company Address Line2, NEW YORK, NY, 10011 Test1234 FC Team, please review and update the quote. Freight Club - Copyright 2019 ?© Freight Club 12020 Sunrise Valley Dr. # 100 Reston, Virginia, 20191 You are receiving this email because you are a customer of Freight Club Terms & Conditions <https://www.freightclub.com/terms-and-conditions> | Privacy Policy <https://app.freightclub.com/Home/PrivacyPolicy>";
-					expectedMsg = expectedMsg.replace("{orderID}", orderid);
-					this.verifyEmailBody(expectedMsg);
-				} else if(notificationType.equalsIgnoreCase("Custom Quote Requested - Carrier")) {
-					String expectedMsg="== == == Test Automation has submitted a custom order quote request == *Order Details:* * OrderID:*{orderID} *Customer Name:* Test Automation | 7460 *Shipment Details:* Handling UnitsTotal WeightConditionDeclared ValueFull Truckload70 lbsUsed$1000 *Shipment Information* Test1234 Test1234 *Pick-up Details: * Pick Up Company Address Line1, LOS ANGELES, CA, 90001 * Drop-off Details: * Drop Off Company Address Line2, NEW YORK, NY, 10011 *Additional Information:* *Custom Order Details* [X] Driver required for loading & unloading [ ] Regulated items that require further inspection [ ] Prohibited or restricted items [ ] Dangerous or hazardous goods [ ] Requires refrigeration *Regulatory Details.* Test1234 Freight Club - Copyright 2019 ?© Freight Club 12020 Sunrise Valley Dr. # 100 Reston, Virginia, 20191 You are receiving this email because you are a customer of Freight Club Terms & Conditions <https://www.freightclub.com/terms-and-conditions> | Privacy Policy <https://app.freightclub.com/Home/PrivacyPolicy>";
-					expectedMsg = expectedMsg.replace("{orderID}", orderid);
-					this.verifyEmailBody(expectedMsg);
-				} else if(notificationType.equalsIgnoreCase("Order Ready For Booking")) {
-					String expectedMsg="The Freight Club team has reviewed your custom order request {orderID} and has provided a quote. Review the order and proceed with the booking through the Manage Orders - Open Quotes page. *Order Details:* * OrderID:*{orderID} * PO Number:*{poNumber} Pick Up Company Address Line1, LOS ANGELES, CA, 90001 Drop Off Company Address Line2, NEW YORK, NY, 10011 Test4321 Thanks again for choosing Freight Club and have a great day! Kind Regards, Customer Support 1-844-819-2187 info@freightclub.com Freight Club - Copyright 2019 ?© Freight Club 12020 Sunrise Valley Dr. # 100 Reston, Virginia, 20191 You are receiving this email because you are a customer of Freight Club Terms & Conditions <https://www.freightclub.com/terms-and-conditions> | Privacy Policy <https://app.freightclub.com/Home/PrivacyPolicy>";
-					expectedMsg = expectedMsg.replace("{orderID}", orderid).replace("{poNumber}", poNumber);
-					this.verifyEmailBody(expectedMsg);	
-				} else if(notificationType.equalsIgnoreCase("Order Confirmation Mail - User")) {
-					String expectedMsg = null;
-					if(i==2) {
-						 expectedMsg="Thank you for submitting your order, this is a confirmation of your booking. *Order Details:* * OrderID:*{orderID} *Customer Name:* Test Automation * Carrier Name:* Estes Express Lines *Carrier QuoteID: *102 *Shipment Details* Handling UnitsTotal WeightConditionDeclared ValueBags70 lbsUsed$1000 *Shipment Information* Test4321 *Custom Order Details* [ ] Driver required for loading & unloading [ ] Regulated items that require further inspection [ ] Prohibited or restricted items [ ] Dangerous or hazardous goods [ ] Requires refrigeration *Regulatory Details.* Test4321 AutoCom90001 address line1, address line 2, LOS ANGELES, CA, 90001 9:00 AM - 4:00 PM first name last name a@gmail.com 0123456789 AutoCom10011 address line 1, address line 2, NEW YORK, NY, 10011 9:00 AM - 4:00 PM first name last name a@gmail.com 0123456789 Test4321 Please note that labels and bills of lading for custom orders are not available through the application. We will be reaching out to you with a carrier bill of lading to use with your shipment. If you have questions or would like to chat with a representative to discuss alternate options please contact our support team. Thanks again for choosing Freight Club and have a great day! Kind Regards, Customer Support 1-844-819-2187 info@freightclub.com Freight Club - Copyright 2019 ?© Freight Club 12020 Sunrise Valley Dr. # 100 Reston, Virginia, 20191 You are receiving this email because you are a customer of Freight Club Terms & Conditions <https://www.freightclub.com/terms-and-conditions> | Privacy Policy <https://app.freightclub.com/Home/PrivacyPolicy>";
-					}else if(i==3) {
-						 expectedMsg="Thank you for submitting your order, this is a confirmation of your booking. *Order Details:* * OrderID:*{orderID} *Customer Name:* Test Automation * Carrier Name:* FC Test Carrier *Carrier QuoteID: *222 *Shipment Details* Handling UnitsTotal WeightConditionDeclared ValueBags70 lbsUsed$1000 *Shipment Information* Test4321 *Custom Order Details* [ ] Driver required for loading & unloading [ ] Regulated items that require further inspection [ ] Prohibited or restricted items [ ] Dangerous or hazardous goods [ ] Requires refrigeration *Regulatory Details.* Test4321 AutoCom90001 address line1, address line 2, LOS ANGELES, CA, 90001 9:00 AM - 4:00 PM first name last name a@gmail.com 0123456789 AutoCom10011 address line 1, address line 2, NEW YORK, NY, 10011 9:00 AM - 4:00 PM first name last name a@gmail.com 0123456789 Test4321 Please note that labels and bills of lading for custom orders are not available through the application. We will be reaching out to you with a carrier bill of lading to use with your shipment. If you have questions or would like to chat with a representative to discuss alternate options please contact our support team. Thanks again for choosing Freight Club and have a great day! Kind Regards, Customer Support 1-844-819-2187 info@freightclub.com Freight Club - Copyright 2019 ?© Freight Club 12020 Sunrise Valley Dr. # 100 Reston, Virginia, 20191 You are receiving this email because you are a customer of Freight Club Terms & Conditions <https://www.freightclub.com/terms-and-conditions> | Privacy Policy <https://app.freightclub.com/Home/PrivacyPolicy>";
-					}
-					expectedMsg = expectedMsg.replace("{orderID}", orderid);
-					this.verifyEmailBody(expectedMsg);
-				}else if(notificationType.equalsIgnoreCase("Order Confirmation Mail - Admin")) {
-					String expectedMsg = null;
-					if(i==2) {
-						 expectedMsg="Test Automation has submitted a booked the following custom order: *Order Details:* * OrderID:* {orderID} * Customer Name: *Test Automation * Carrier Name: *Estes Express Lines * Carrier QuoteID: *102 *Shipment Detail*: Handling UnitsTotal WeightConditionDeclared ValueFull Truckload70 lbsUsed$1000 *Shipment Information* Test4321 *Custom Order Details* [X] Driver required for loading & unloading [X] Regulated items that require further inspection [ ] Prohibited or restricted items [ ] Dangerous or hazardous goods [ ] Requires refrigeration *Regulatory Details.* Test4321 AutoCom90001 address line1, address line 2, LOS ANGELES, CA, 90001 9:00 AM - 4:00 PM first name last name a@gmail.com 0123456789 AutoCom10011 address line 1, address line 2, NEW YORK, NY, 10011 9:00 AM - 4:00 PM first name last name a@gmail.com 0123456789 Test4321 Please contact the carrier to complete the booking, and update the waybill and tracking information in the order details. Freight Club - Copyright 2019 ?© Freight Club 12020 Sunrise Valley Dr. # 100 Reston, Virginia, 20191 You are receiving this email because you are a customer of Freight Club Terms & Conditions <https://www.freightclub.com/terms-and-conditions> | Privacy Policy <https://app.freightclub.com/Home/PrivacyPolicy>";
-					}else if(i==3) {
-						 expectedMsg="Test Automation has submitted a booked the following custom order: *Order Details:* * OrderID:* {orderID} * Customer Name: *Test Automation * Carrier Name: *FC Test Carrier * Carrier QuoteID: *222 *Shipment Detail*: Handling UnitsTotal WeightConditionDeclared ValueBags70 lbsUsed$1000 *Shipment Information* Test4321 *Custom Order Details* [ ] Driver required for loading & unloading [ ] Regulated items that require further inspection [ ] Prohibited or restricted items [ ] Dangerous or hazardous goods [ ] Requires refrigeration *Regulatory Details.* Test4321 AutoCom90001 address line1, address line 2, LOS ANGELES, CA, 90001 9:00 AM - 4:00 PM first name last name a@gmail.com 0123456789 AutoCom10011 address line 1, address line 2, NEW YORK, NY, 10011 9:00 AM - 4:00 PM first name last name a@gmail.com 0123456789 Test4321 Please contact the carrier to complete the booking, and update the waybill and tracking information in the order details. Freight Club - Copyright 2019 ?© Freight Club 12020 Sunrise Valley Dr. # 100 Reston, Virginia, 20191 You are receiving this email because you are a customer of Freight Club Terms & Conditions <https://www.freightclub.com/terms-and-conditions> | Privacy Policy <https://app.freightclub.com/Home/PrivacyPolicy>";
-					}
-					expectedMsg = expectedMsg.replace("{orderID}", orderid);
-					this.verifyEmailBody(expectedMsg);
-				} else if(notificationType.equalsIgnoreCase("Custom Order Cannot Be Fulfilled")) {
-					String expectedMsg="Unfortunately, we were unable to find a carrier who was able to fulfill your custom order request. *Order Details:* * OrderID:*{orderID} * Customer Name:*Test Automation * Purchase Order:*DIR_C03 Pick Up Company Address Line1, LOS ANGELES, CA, 90001 Drop Off Company Address Line2, NEW YORK, NY, 10011 Test1234 If you have questions or would like to chat with a representative to discuss alternate options please contact our support team. Kind Regards, Customer Support 1-844-819-2187 info@freightclub.com Freight Club - Copyright 2019 ?© Freight Club 12020 Sunrise Valley Dr. # 100 Reston, Virginia, 20191 You are receiving this email because you are a customer of Freight Club Terms & Conditions <https://www.freightclub.com/terms-and-conditions> | Privacy Policy <https://app.freightclub.com/Home/PrivacyPolicy>";
-					expectedMsg = expectedMsg.replace("{orderID}", orderid);
-					this.verifyEmailBody(expectedMsg);
-				} else if(notificationType.equalsIgnoreCase("Sent To Carrier")) {
-					String expectedMsg="Hi, Thank you for submitting the dispute details. We have submitted it to the carrier for an update. Please allow 7-14 business days for a response. We will provide an update when a carrier response is received. Thanks, Freight Club Claims";
-					expectedMsg = expectedMsg.replace("{orderID}", orderid);
-					this.verifyEmailBody(expectedMsg);
-				} else if(notificationType.equalsIgnoreCase("Reroute Requested - Customer")) {
-					String expectedMsg="Test1 Test Automation Test Automation first name last name 51487615 CEV1002186 NPSKU Ceva Test Location 90001 US CA LOS ANGELES Residential #123, Los Angeles Yes Yes";
-					expectedMsg = expectedMsg.replace("{orderID}", orderid);
-					this.verifyEmailBody(expectedMsg);
-				} else if(notificationType.equalsIgnoreCase("Reroute Requested - Carrier")) {
-					String expectedMsg="Hello Ceva, Please confirm if you can reroute the below order to the new location that has been provided. Also please include a quote for any additional cost that may occur. Do let us know if there are any issues. = Reroute Request = *Company: *Test Automation *Consignee Name*:* first name last name *OrderID: *51487615 *Waybill:* CEV1002186 *Customer PO Number:* NPSKU *Carrier:* Ceva * Requested Reroute Information: *Consignee Name: first name last name Location Name: Test Location Address: #123, Los Angeles LOS ANGELES, CA, US, 90001 Drop-Off Times: - Delivery Appointment: Yes Limited Access: Yes Sincerely, The Freight Club TeamFreight Club - Copyright 2019 © Freight Club 12020 Sunrise Valley Dr. # 100 Reston, Virginia, 20191 You are receiving this email because you are a customer of Freight Club Terms & Conditions <https://www.freightclub.com/terms-and-conditions> | Privacy Policy <https://app.freightclub.com/Home/PrivacyPolicy";
-					expectedMsg = expectedMsg.replace("{orderID}", orderid);
-					this.verifyEmailBody(expectedMsg);
-				} 
-				else if(notificationType.equalsIgnoreCase("Reroute Request Approved - Customer")) {
-					String expectedMsg="Test 3 Freight Club first name last name 51487615 CEV1002186 NPSKU Ceva Test Location 90001 US CA LOS ANGELES Residential #123, Los Angeles Yes Yes";
-					expectedMsg = expectedMsg.replace("{orderID}", orderid);
-					this.verifyEmailBody(expectedMsg);
-				} else if(notificationType.equalsIgnoreCase("Reroute Request Approved - Carrier")) {
-					String expectedMsg="Test4 Freight Club first name last name 51487615 CEV1002186 NPSKU Ceva Test Location 90001 US CA LOS ANGELES Residential #123, Los Angeles Yes Yes";
-					expectedMsg = expectedMsg.replace("{orderID}", orderid);
-					this.verifyEmailBody(expectedMsg);
-				}  else if(notificationType.equalsIgnoreCase("Reroute Request Decline - Customer")) {
-					String expectedMsg="Hello Freight Club, *The* reroute you requested has been denied and is unable to be processed. *This is because of the following reason: Incorrect address reroute denied reason If you have any concerns, please contact us immediately by phone at 1-844-819-2187 = Denied Reroute Request = *Company: *Freight Club *Consignee Name*:* first name last name *OrderID: *51487615 *Waybill:* CEV1002186 *Customer PO Number:* NPSKU *Carrier:* Ceva * Requested Reroute Information: *Consignee Name: first name last name Location Name: Test Location Address: #123, Los Angeles LOS ANGELES, CA, US, 90001 Residential Delivery Appointment: Yes Limited Access: Yes Sincerely, The Freight Club Team Freight Club - Copyright 2019 © Freight Club 12020 Sunrise Valley Dr. # 100 Reston, Virginia, 20191 You are receiving this email because you are a customer of Freight Club Terms & Conditions | Privacy Policy";
-					expectedMsg = expectedMsg.replace("{orderID}", orderid);
-					this.verifyEmailBody(expectedMsg);
-				} 
-			
+				
+				switch(notificationType) {
+					case "Custom Quote Requested - User":
+						expectedMsg = Messages.custom_quote_requested_user.replace("{orderID}", orderid);
+						break;
+						
+					case "Custom Quote Requested - Carrier":
+						expectedMsg = Messages.custom_quote_requested_carrier.replace("{orderID}", orderid);
+						break;
+						
+					case "Order Ready For Booking":
+						expectedMsg = Messages.order_ready_for_booking.replace("{orderID}", orderid).replace("{poNumber}", poNumber);
+						break;
+						
+					case "Order Confirmation Mail - User":
+						if(i==2) {
+							 expectedMsg = Messages.order_confirmation_mail_user;
+						}else if(i==3) {
+							 expectedMsg = Messages.order_confirmation_mail_user1;
+						}
+						expectedMsg = expectedMsg.replace("{orderID}", orderid);
+						break;
+						
+					case "Order Confirmation Mail - Admin":
+						if(i==2) {
+							 expectedMsg = Messages.order_confirmation_mail_admin;
+						}else if(i==3) {
+							 expectedMsg = Messages.order_confirmation_mail_admin1;
+						}
+						expectedMsg = expectedMsg.replace("{orderID}", orderid);
+						break;
+						
+					case "Custom Order Cannot Be Fulfilled":
+						expectedMsg = Messages.custom_order_cannot_be_fulfilled.replace("{orderID}", orderid);
+						break;
+						
+					case "Sent To Carrier":
+						expectedMsg = Messages.sent_to_carrier.replace("{orderID}", orderid);
+						break;
+						
+					case "Reroute Requested - Customer":
+						expectedMsg = Messages.reroute_requested_customer.replace("{orderID}", orderid);
+						break;
+						
+					case "Reroute Requested - Carrier":
+						expectedMsg = Messages.reroute_requested_carrier.replace("{orderID}", orderid);
+						break;
+						
+					case "Reroute Request Approved - Customer":
+						expectedMsg = Messages.reroute_request_approved_customer.replace("{orderID}", orderid);
+						break;
+						
+					case "Reroute Request Approved - Carrier":
+						expectedMsg = Messages.reroute_request_approved_carrier.replace("{orderID}", orderid);
+						break;
+						
+					case "Reroute Request Decline - Customer":
+						expectedMsg = Messages.reroute_request_decline_customer.replace("{orderID}", orderid);
+						break;
+						
+					case "Claim initiated - Customer":
+						expectedMsg = Messages.email_customer_claim_initiated;
+						break;
+
+					case "Claim initiated - Carrier":
+						if(claimType.equals("Damage")) {
+							expectedMsg = Messages.email_carrier_claim_initiated.replace("{trackingID}", trackingID).replace("{wayBill}", wayBill);
+						} else {
+							expectedMsg = Messages.email_carrier_claim_initiated_loss.replace("{trackingID}", trackingID).replace("{wayBill}", wayBill);
+						}
+						break;
+						
+					case "Customer - Additional Docs Needed":
+						expectedMsg = Messages.email_customer_additional_docs_needed.replace("{AdditionalDocsEmailBody}", additionalDocsNeeded);
+						break;
+					
+					case "Customer - Pending Documentation":
+						expectedMsg = Messages.email_customer_pending_documentation;
+						break;
+					
+					case "Customer - Filed Claim Status":
+						expectedMsg = Messages.email_customer_filed.replace("{trackingID}", trackingID).replace("{wayBill}", wayBill);
+						break;
+						
+					default:
+						Log.info("Please provide valid notiification type");
+						
+				}
+				
+				verifyEmailBody(expectedMsg);
 				SeleniumFunction.selectParentframe(driver);
 				SeleniumFunction.click(mailinator.deleteEmail());
 			SeleniumFunction.closeWindow(driver);
@@ -119,9 +156,11 @@ public class EmailVerification extends InitializeTest {
 		}catch(Exception ex) {
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
-		}catch(AssertionError ae) {
+			throw ex;
+		}catch(AssertionError ex) {
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
+			throw ex;
 		}
 	}
 }

@@ -1,4 +1,4 @@
-package com.qualitesoft.freightclub.testscripts;
+package com.qualitesoft.freightclub.testscripts.signup;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -20,16 +20,17 @@ public class TestCreateAccount extends InitializeTest {
 	@Test
 	public void testCreateAccount(){
 		
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/FCFile.xlsx");
+		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		int rowIndex = Integer.parseInt(Row);
 				
 		//Read data from sheet for 2nd row
-		String firstName=xr.getCellData("CreateAccount","FirstName", 2).trim();
-		String lastName=xr.getCellData("CreateAccount","LastName", 2).trim();
-		String companyName=xr.getCellData("CreateAccount","CompanyName", 2).trim();
-		String password=xr.getCellData("CreateAccount","Password", 2).trim();
-		String confirmPassword=xr.getCellData("CreateAccount","ConfirmPassword", 2).trim();
-		String phoneNumber=xr.getCellData("CreateAccount","PhoneNumber", 2).trim();
-		String extension=xr.getCellData("CreateAccount","Extension", 2).trim();
+		String firstName=xr.getCellData("CreateAccount","FirstName", rowIndex).trim();
+		String lastName=xr.getCellData("CreateAccount","LastName", rowIndex).trim();
+		String companyName=xr.getCellData("CreateAccount","CompanyName", rowIndex).trim();
+		String password=xr.getCellData("CreateAccount","Password", rowIndex).trim();
+		String confirmPassword=xr.getCellData("CreateAccount","ConfirmPassword", rowIndex).trim();
+		String phoneNumber=xr.getCellData("CreateAccount","PhoneNumber", rowIndex).trim();
+		String extension=xr.getCellData("CreateAccount","Extension", rowIndex).trim();
 		
 		
 		FloatingCreateAccount account = new FloatingCreateAccount(driver);

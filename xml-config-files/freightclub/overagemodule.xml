@@ -13,6 +13,18 @@
 	<parameter name="browser" value="chrome" />
 	<parameter name="URL" value="https://stg.freightclub.com/" /> 
 	
+	<!-- <test name="Test verify user is able to book order - LTL - With Insurance - Claim Type - Damage">
+		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcpassword" value="@Test123" />
+		<parameter name="testData" value="ManageClaims.xlsx" />
+		<parameter name="Row" value="2" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuoteStg" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test> -->
+	
 	<test name="Test - valid - admin is able to import secondary invoices">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
@@ -26,6 +38,8 @@
 	</test>
 
 	<test name="Test - valid - admin is able to view secondary invoices detail">
+		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
+		<parameter name="fcpassword" value="Welcome@1" />
 		<parameter name="userType" value="Admin"></parameter>
 		<parameter name="testData" value="SecondaryInvoiceTemplate.xlsx" />
 		<parameter name="Row" value="2" />
@@ -33,7 +47,7 @@
 			<class
 				name="com.qualitesoft.freightclub.testscripts.manageinvoices.TestViewSecondaryInvoice" />
 		</classes>
-	</test>
+	</test>  
 
 	<test name="Test - valid - admin is able to edit secondary invoices">
 		<parameter name="userType" value="Admin"></parameter>
@@ -44,7 +58,7 @@
 				name="com.qualitesoft.freightclub.testscripts.manageinvoices.TestEditSecondaryInvoice" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test> 
+	</test>
 
 
 	<test name="Test - valid - user is able to view secondary invoice detail">
@@ -85,14 +99,17 @@
 	</test>
 
 	<test name="Test - valid - admin is able to edit overage detail">
+		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
+		<parameter name="fcpassword" value="Welcome@1" />
 		<parameter name="userType" value="Admin"></parameter>
 		<parameter name="Row" value="2" />
 		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class
 				name="com.qualitesoft.freightclub.testscripts.manageoverage.TestEditOverageDetails" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test>
+	</test> 
 
 	<test name="Test - valid - user is able to view overage detail">
 		<parameter name="fcusername" value="test20may21@mailinator.com" />

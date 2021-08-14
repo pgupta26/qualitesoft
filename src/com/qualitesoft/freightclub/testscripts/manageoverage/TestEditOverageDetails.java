@@ -1,6 +1,7 @@
 package com.qualitesoft.freightclub.testscripts.manageoverage;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -24,25 +25,32 @@ public class TestEditOverageDetails extends InitializeTest {
 		
 		Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageInvoiceTestData.xlsx");
 		int i=Integer.parseInt(Row);
+		
+		//verify overage details fields
+				SeleniumFunction.getCurrentWindow(driver);
 
 		if(userType.equals("Admin")) {
 
 			//Select overage status
 			SeleniumFunction.click(overageDetails.getSelect("Overage Status:"));
 			SeleniumFunction.click(overageDetails.setSelect("Overage Status:", xr1.getCellData("EditOverageDetails", "OverageStatus", i).trim()));
-			
-			/*//Select secondary category
+			driver.findElement(By.tagName("body")).sendKeys(Keys.ENTER);
+
+			//Select secondary category
 			SeleniumFunction.click(overageDetails.getSelect("Secondary Category:"));
 			SeleniumFunction.click(overageDetails.setSelect("Secondary Category:", xr1.getCellData("EditOverageDetails", "SecondaryCategory", i).trim()));
+			driver.findElement(By.tagName("body")).sendKeys(Keys.ENTER);
+
 			
 			//Select secondary reason
 			SeleniumFunction.scrollDownUptoFooter(driver);
 			SeleniumFunction.click(overageDetails.getSelect("Secondary Reason:"));
 			SeleniumFunction.click(overageDetails.setSelect("Secondary Reason:", xr1.getCellData("EditOverageDetails", "SecondaryReason", i).trim()));
-			
+			driver.findElement(By.tagName("body")).sendKeys(Keys.ENTER);
+
 			//Enter reason details
-			SeleniumFunction.sendKeys(overageDetails.getLabel("Reason Details:"), xr1.getCellData("EditOverageDetails", "ReasonDetails", i).trim());*/
-			
+			SeleniumFunction.sendKeys(overageDetails.getLabel("Reason Details:"), xr1.getCellData("EditOverageDetails", "ReasonDetails", i).trim());
+
 			//Type comments
 			SeleniumFunction.moveToElement(driver, overageDetails.saveComment());
 			SeleniumFunction.sendKeys(overageDetails.comments(), xr1.getCellData("EditOverageDetails", "AdminComment", i));
@@ -76,7 +84,7 @@ public class TestEditOverageDetails extends InitializeTest {
 			
 			//Verify removeable button visible to admin
 			Assert.assertTrue(overageDetails.removable().isDisplayed());
-
+			
 			//Click on save changes
 			SeleniumFunction.scrollDownUptoFooter(driver);
 			SeleniumFunction.click(overageDetails.saveChanges());

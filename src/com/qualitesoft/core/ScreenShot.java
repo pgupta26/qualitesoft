@@ -55,9 +55,6 @@ public class ScreenShot extends InitializeTest {
 		} catch (Exception e) {
 			Log.warn("Not able to take " + fileName + " screen shot: " + e.getMessage());
 		}
-		driver.close();
-		InitializeTest initializeTest = new InitializeTest();
-		initializeTest.setUp(browser, URL);
 	}
 	public static void takeScreenShotSystemExcel(String fileName) {
 

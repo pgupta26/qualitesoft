@@ -13,6 +13,7 @@ import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
 import com.qualitesoft.freightclub.pageobjects.ManagerOrderPage;
 import com.qualitesoft.freightclub.pageobjects.OrderDetailPage;
+import com.qualitesoft.freightclub.pageobjects.QuickQuote;
 
 public class TestOrderDetails extends InitializeTest {
 	
@@ -24,6 +25,10 @@ public class TestOrderDetails extends InitializeTest {
 			Log.info("Data Row: "+Row);
 			
 			ManagerOrderPage manageOrderPage =new ManagerOrderPage(driver);
+			QuickQuote quickQuote = new QuickQuote(driver);
+			WaitTool.sleep(5);
+			quickQuote.acceptPopup();
+			WaitTool.sleep(2);
 			SeleniumFunction.click(manageOrderPage.ViewDetail());
 			
 			ArrayList<String> newTab = new ArrayList<String>(driver.getWindowHandles());

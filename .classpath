@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
-	<classpathentry kind="lib" path="E:/Qualitesoft Data/QualiteSoft/Qualitesoft/lib/ashot-1.5.3.jar"/>
-	<classpathentry kind="lib" path="E:/Qualitesoft Data/QualiteSoft/Qualitesoft/lib/commons-collections4-4.1.jar"/>
-	<classpathentry kind="lib" path="E:/Qualitesoft Data/QualiteSoft/Qualitesoft/lib/commons-lang3-3.4.jar"/>
-	<classpathentry kind="lib" path="E:/Qualitesoft Data/QualiteSoft/Qualitesoft/lib/commons-lang3-3.4-javadoc.jar"/>
-	<classpathentry kind="lib" path="E:/Qualitesoft Data/QualiteSoft/Qualitesoft/lib/curvesapi-1.04.jar"/>
-	<classpathentry kind="lib" path="E:/Qualitesoft Data/QualiteSoft/Qualitesoft/lib/guice-3.0.jar"/>
-	<classpathentry kind="lib" path="E:/Qualitesoft Data/QualiteSoft/Qualitesoft/lib/java-util-1.3.1.jar"/>
-	<classpathentry kind="lib" path="E:/Qualitesoft Data/QualiteSoft/Qualitesoft/lib/log4j-1.2.17.jar"/>
-	<classpathentry kind="lib" path="E:/Qualitesoft Data/QualiteSoft/Qualitesoft/lib/mysql-connector-java-5.1.23-bin.jar"/>
-	<classpathentry kind="lib" path="E:/Qualitesoft Data/QualiteSoft/Qualitesoft/lib/mysql-database-1.8.0.jar"/>
-	<classpathentry kind="lib" path="E:/Qualitesoft Data/QualiteSoft/Qualitesoft/lib/pdfbox-app-3.0.0-RC1.jar"/>
-	<classpathentry kind="lib" path="E:/Qualitesoft Data/QualiteSoft/Qualitesoft/lib/poi-3.16.jar"/>
-	<classpathentry kind="lib" path="E:/Qualitesoft Data/QualiteSoft/Qualitesoft/lib/poi-examples-3.16.jar"/>
-	<classpathentry kind="lib" path="E:/Qualitesoft Data/QualiteSoft/Qualitesoft/lib/poi-excelant-3.16.jar"/>
-	<classpathentry kind="lib" path="E:/Qualitesoft Data/QualiteSoft/Qualitesoft/lib/poi-ooxml-3.16.jar"/>
-	<classpathentry kind="lib" path="E:/Qualitesoft Data/QualiteSoft/Qualitesoft/lib/poi-ooxml-schemas-3.16.jar"/>
-	<classpathentry kind="lib" path="E:/Qualitesoft Data/QualiteSoft/Qualitesoft/lib/poi-scratchpad-3.16.jar"/>
-	<classpathentry kind="lib" path="E:/Qualitesoft Data/QualiteSoft/Qualitesoft/lib/reportng-1.1.4.jar"/>
-	<classpathentry kind="lib" path="E:/Qualitesoft Data/QualiteSoft/Qualitesoft/lib/selenium-server-standalone-3.11.0.jar"/>
-	<classpathentry kind="lib" path="E:/Qualitesoft Data/QualiteSoft/Qualitesoft/lib/sqljdbc4-2.0.jar"/>
-	<classpathentry kind="lib" path="E:/Qualitesoft Data/QualiteSoft/Qualitesoft/lib/testng-6.9.10.jar"/>
-	<classpathentry kind="lib" path="E:/Qualitesoft Data/QualiteSoft/Qualitesoft/lib/velocity-dep-1.4.jar"/>
-	<classpathentry kind="lib" path="E:/Qualitesoft Data/QualiteSoft/Qualitesoft/lib/xmlbeans-2.6.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SONY/git/qualitesoft/lib/ashot-1.5.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SONY/git/qualitesoft/lib/commons-collections4-4.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SONY/git/qualitesoft/lib/commons-lang3-3.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SONY/git/qualitesoft/lib/commons-lang3-3.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SONY/git/qualitesoft/lib/curvesapi-1.04.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SONY/git/qualitesoft/lib/guice-3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SONY/git/qualitesoft/lib/java-util-1.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SONY/git/qualitesoft/lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SONY/git/qualitesoft/lib/mysql-connector-java-5.1.23-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SONY/git/qualitesoft/lib/mysql-database-1.8.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SONY/git/qualitesoft/lib/pdfbox-app-3.0.0-RC1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SONY/git/qualitesoft/lib/poi-3.16.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SONY/git/qualitesoft/lib/poi-examples-3.16.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SONY/git/qualitesoft/lib/poi-excelant-3.16.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SONY/git/qualitesoft/lib/poi-ooxml-3.16.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SONY/git/qualitesoft/lib/poi-ooxml-schemas-3.16.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SONY/git/qualitesoft/lib/poi-scratchpad-3.16.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SONY/git/qualitesoft/lib/reportng-1.1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SONY/git/qualitesoft/lib/selenium-server-standalone-3.11.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SONY/git/qualitesoft/lib/sqljdbc4-2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SONY/git/qualitesoft/lib/testng-6.9.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SONY/git/qualitesoft/lib/velocity-dep-1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SONY/git/qualitesoft/lib/xmlbeans-2.6.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
