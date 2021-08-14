@@ -70,6 +70,7 @@ public class InitializeTest {
 	public static String userType;
 	public static String testData;
 	public static String carrierDetailsOptions=null;
+	public static String Productname;
 
 	
 	@BeforeTest

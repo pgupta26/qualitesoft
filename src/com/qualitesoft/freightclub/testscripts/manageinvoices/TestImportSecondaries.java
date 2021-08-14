@@ -29,26 +29,26 @@ public class TestImportSecondaries extends InitializeTest {
 		WaitTool.sleep(10);
 		quickQuote.acceptPopup();
 		WaitTool.sleep(5);
-		
+
 		//Click on import secondary
 		SeleniumFunction.scrollUPUptoHeader(driver);
 		WaitTool.sleep(5);
 		SeleniumFunction.click(manageInvoices.importSecondaries());
-		
+
 		//Upload overage file
 		SeleniumFunction.uploadFile(testData);
-		
+
 		//Click on upload files
 		SeleniumFunction.click(manageInvoices.uploadFiles());
-		
+
 		//Verify upload success message
 		UseAssert.assertEquals(manageInvoices.successMessage().getText(), (totalRows-1)+" invoices were successfully uploaded");
-		
+
 		//Click on ok button under upload invoice results dialog
 		SeleniumFunction.click(manageInvoices.ok());
-		
+
 		//Verify done  button after file uploaded successfully
-		UseAssert.assertEquals(WaitTool.isElementPresentAndDisplay(driver, By.xpath("//span[@class='k-icon k-i-tick']")), true);
+		UseAssert.assertEquals(WaitTool.isElementPresentAndDisplay(driver, By.xpath("//span[@class='k-icon k-i-tick']")), true);		
 		
 		//Filter grid data by total billed
 		WaitTool.sleep(5);
@@ -64,13 +64,13 @@ public class TestImportSecondaries extends InitializeTest {
 		//Verify overage id detail in data grid
 		Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageInvoiceTestData.xlsx");
 		int rowIndex = 1;
-		
+		System.out.println("USD "+xr.getCellData("Sec invoice Master","New Invoice Amount", i).trim());
 		UseAssert.assertEquals(manageInvoices.gridData(rowIndex, 1).getText(), xr.getCellData("Sec invoice Master","FC Order ID", i).trim());
 		UseAssert.assertEquals(manageInvoices.gridData(rowIndex, 2).getText(), xr1.getCellData("Sheet1","Invoice Type", i).trim());
 		UseAssert.assertEquals(manageInvoices.gridData(rowIndex, 3).getText(), xr1.getCellData("Sheet1","Company", i).trim());
 		xr1.setCellData("Sheet1", "Customer PO #", i, manageInvoices.gridData(rowIndex, 4).getText());
 		UseAssert.assertEquals(manageInvoices.gridData(rowIndex, 5).getText(), xr1.getCellData("Sheet1","Invoice Status", i).trim());
-		UseAssert.assertEquals(manageInvoices.gridData(rowIndex, 6).getText().trim(), xr.getCellData("Sec invoice Master","Date CREATED", i).trim());
+		UseAssert.assertEquals(manageInvoices.gridData(rowIndex, 6).getText().trim(), xr1.getCellData("Sheet1","OrderDate", i).trim());
 		UseAssert.assertEquals(manageInvoices.gridData(rowIndex, 8).getText().trim(), "USD "+xr.getCellData("Sec invoice Master","New Invoice Amount", i).trim());
 		UseAssert.assertEquals(manageInvoices.gridData(rowIndex, 9).getText(), xr1.getCellData("Sheet1","On Account", i).trim());
 	}

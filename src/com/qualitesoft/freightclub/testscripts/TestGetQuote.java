@@ -179,7 +179,7 @@ public class TestGetQuote extends InitializeTest{
 		}
 
 		if(Row.equalsIgnoreCase("2") || Row.equalsIgnoreCase("7") || Row.equalsIgnoreCase("12")) {
-			this.searchPackageTypeProduct(TestManageProducts.Productname);
+			this.searchPackageTypeProduct(Productname);
 		} else {
 			WaitTool.sleep(5);
 			quickQuote.PackageTypeOptions(packageType);
@@ -263,22 +263,8 @@ public class TestGetQuote extends InitializeTest{
 		}			
 		WaitTool.sleep(10);
 
-		/*
-		 * if(Row.equalsIgnoreCase("3")) { jse.executeScript("window.scrollBy(0,-1000)",
-		 * ""); SeleniumFunction.click(quickQuote.Addproduct());
-		 * SeleniumFunction.click(quickQuote.searchproduct()); WaitTool.sleep(2);
-		 * Keyboard keyboard = ((HasInputDevices) driver).getKeyboard();
-		 * keyboard.pressKey(Keys.BACK_SPACE); WaitTool.sleep(2);
-		 * SeleniumFunction.sendKeys(quickQuote.productvalue(),
-		 * TestManageProducts.Productname); WaitTool.sleep(2);
-		 * SeleniumFunction.KeyBoradEnter(driver); ScreenShot.takeScreenShot(driver,
-		 * "product added ") ; }
-		 */
-
 		//Shipment information tab 
-		if(i != 9) {
-			this.enterShipmentInformation(xr);
-		}
+		this.enterShipmentInformation(xr);
 
 		//Review and Book Tab
 		SeleniumFunction.scrollDownUptoFooter(driver);

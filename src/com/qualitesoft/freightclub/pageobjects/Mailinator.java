@@ -19,6 +19,10 @@ public class Mailinator {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@placeholder='Enter Public Mailinator Inbox'] | //input[@id='inbox_field']"), 30);
 	}
 	
+	public WebElement searchBoxYopMail() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.id("login"), 30);
+	}
+	
 	public WebElement goButton() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.id("go-to-public"), 30);
 	}
@@ -29,6 +33,10 @@ public class Mailinator {
 	
 	public WebElement firstMail() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//table[@class='table-striped jambo_table']/tbody/tr"), 30);
+	}
+	
+	public WebElement firstYopEmail() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[text()='Reset Password ( QA TESTING )']"), 30);
 	}
 	
 	public WebElement mailBody() {

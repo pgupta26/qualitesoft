@@ -13,6 +13,7 @@ import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
+import com.qualitesoft.freightclub.pageobjects.ManageClaims;
 import com.qualitesoft.freightclub.pageobjects.ManageOverages;
 import com.qualitesoft.freightclub.pageobjects.ManageProducts;
 import com.qualitesoft.freightclub.pageobjects.ManagerOrderPage;
@@ -33,11 +34,15 @@ public class CommonOps extends InitializeTest {
 		String dropOffType=xr.getCellData("Input","dropOffType", rowIndex).trim();			
 
 		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
-		SeleniumFunction.clickJS(driver, quickQuote.quickQuoteLink());
+		if(loginuser ==  null ||  !loginuser.equals("new")) {
+			SeleniumFunction.clickJS(driver, quickQuote.quickQuoteLink());
+		}
 		quickQuote.acceptPopup();
 		SeleniumFunction.scrollDownByPixel(driver, "500");
 		WaitTool.sleep(5);
-		SeleniumFunction.clickJS(driver, quickQuote.shipmentType(shipmentType));
+		
+		if(!quickQuote.shipmentType(shipmentType).getAttribute("class").contains("active"))
+				SeleniumFunction.clickJS(driver, quickQuote.shipmentType(shipmentType));
 		quickQuote.acceptPopup();
 		SeleniumFunction.scrollUpByPixel(driver, "1500");
 		SeleniumFunction.click(quickQuote.OrderDate());
@@ -71,7 +76,7 @@ public class CommonOps extends InitializeTest {
 			Keyboard keyboard = ((HasInputDevices) driver).getKeyboard();
 			keyboard.pressKey(Keys.BACK_SPACE);
 			WaitTool.sleep(2);
-			SeleniumFunction.sendKeys(quickQuote.productvalue(itemIndex), this.Productname);
+			SeleniumFunction.sendKeys(quickQuote.productvalue(itemIndex), Productname);
 			WaitTool.sleep(5);
 			SeleniumFunction.KeyBoradEnter(driver);
 			WaitTool.sleep(2);
@@ -93,7 +98,7 @@ public class CommonOps extends InitializeTest {
 			SeleniumFunction.sendKeys(quickQuote.DimensionW(itemIndex), DimensionW);
 			SeleniumFunction.sendKeys(quickQuote.DimensionH(itemIndex), DimensionH);
 			SeleniumFunction.sendKeys(quickQuote.DeclaredValue(itemIndex), DeclaredValue);
-			if (packageType.equalsIgnoreCase("Standard Pallet 1")) {
+			if (packageType.equalsIgnoreCase("Standard Pallet 1") || packageType.equalsIgnoreCase("Custom Pallet (enter dimensions)")) {
 				SeleniumFunction.sendKeys(quickQuote.Cartons(itemIndex), Cartons);
 			}
 		}
@@ -105,9 +110,6 @@ public class CommonOps extends InitializeTest {
 		SeleniumFunction.scrollUpByPixel(driver, "250");
 		SeleniumFunction.click(quickQuote.SaveButton());
 		WaitTool.sleep(20);
-		SeleniumFunction.scrollDownByPixel(driver, "250");
-		SeleniumFunction.scrollUp(driver);
-		SeleniumFunction.scrollUpByPixel(driver, "250");
 		quickQuote.waitForQuotesToAppear();
 		WaitTool.sleep(5);
 		quickQuote.acceptPopup();
@@ -168,7 +170,7 @@ public class CommonOps extends InitializeTest {
 
 		} else  {
 			WaitTool.sleep(2);
-			SeleniumFunction.sendKeys(quickQuote.productvalue(itemIndex), this.Productname);
+			SeleniumFunction.sendKeys(quickQuote.productvalue(itemIndex), Productname);
 			WaitTool.sleep(5);
 			SeleniumFunction.KeyBoradEnter(driver);
 			WaitTool.sleep(2);
@@ -196,8 +198,14 @@ public class CommonOps extends InitializeTest {
 
 	public void verifyPalletizedDetail(Xls_Reader xr, int rowIndex, String panelIndex) {
 		int i=rowIndex;
+		
+		String expectedPackageType;
+		expectedPackageType = xr.getCellData("Input", "packageType", i).trim();
+		
+		if(expectedPackageType.equalsIgnoreCase("SearchaddedProduct")) {
+			expectedPackageType="Standard Pallet 1";
+		}
 
-		String expectedPalletType = xr.getCellData("Input", "PalletType", i).trim();
 		String expectedWeight=xr.getCellData("Input","Weight", i).trim();
 		String DimensionL=xr.getCellData("Input","DimensionL", i).trim();
 		String DimensionW=xr.getCellData("Input","DimensionW", i).trim();
@@ -206,9 +214,9 @@ public class CommonOps extends InitializeTest {
 		String expectedDeclareValue=xr.getCellData("Input","DeclaredValue", i).trim();
 		String expectedNumberOfCartoons=xr.getCellData("Input","NumberOfCartoons", i);
 
-		expectedPalletType = "1 x "+expectedPalletType.split("Standard ")[1].toUpperCase();
-		expectedWeight = expectedWeight.substring(0,expectedWeight.indexOf("."))+"lbs";
-		String expectedDimension = "L"+DimensionL.substring(0,DimensionL.indexOf("."))+" x W"+DimensionW.substring(0,DimensionW.indexOf("."))+" x H"+DimensionH.substring(0,DimensionH.indexOf("."))+" inches";
+		expectedPackageType = "1 x "+expectedPackageType.split("Standard ")[1].toUpperCase();
+		expectedWeight = expectedWeight+"lbs";
+		String expectedDimension = "L"+DimensionL+" x W"+DimensionW+" x H"+DimensionH+" inches";
 		expectedDeclareValue = "$"+expectedDeclareValue+".00";
 
 		ManageOrderNotQuotedTab notQuotedTab = new ManageOrderNotQuotedTab(driver);
@@ -221,7 +229,7 @@ public class CommonOps extends InitializeTest {
 		String actualCartoon = notQuotedTab.getCellValueFromPackage(panelIndex, "5").getText();
 
 
-		Assert.assertEquals(actualPackageType, expectedPalletType);
+		Assert.assertEquals(actualPackageType, expectedPackageType);
 		Assert.assertEquals(actualWeight, expectedWeight);
 		Assert.assertEquals(actualDimentions, expectedDimension);
 		Assert.assertEquals(actualDeclaredValue, expectedDeclareValue);
@@ -249,8 +257,6 @@ public class CommonOps extends InitializeTest {
 		xr.setCellData("Input","Amount", rowIndex,amount);
 		WaitTool.sleep(5);
 	}
-
-	public String Productname;
 
 	public void addProductDetail(Xls_Reader xr, int rowIndex) {
 		ManageProducts manageProducts = new ManageProducts(driver);
@@ -323,6 +329,27 @@ public class CommonOps extends InitializeTest {
 		}
 
 		manageOrderpage.searchFields("1", orderId);
+		SeleniumFunction.KeyBoradEnter(driver);
+		WaitTool.sleep(10);
+	}
+	
+	public void openManageClaimsPageAndSearchOrder(String orderId){
+		ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
+		ManageClaims manageClaims = new ManageClaims(driver);
+
+		if(manageOrderpage.ExpandMenupage().getAttribute("class").equals("active")) {
+			SeleniumFunction.click(manageOrderpage.ExpandMenupage());
+		}
+		
+		SeleniumFunction.click(manageClaims.manageClaimsLink());
+		ScreenShot.takeScreenShot(driver, "Manage Claims Page");
+
+		if(!manageOrderpage.ExpandMenupage().getAttribute("class").equals("active")) {
+			SeleniumFunction.click(manageOrderpage.ExpandMenupage());
+		}
+
+		WaitTool.sleep(5);
+		manageOrderpage.orderIDFilter(orderId);
 		SeleniumFunction.KeyBoradEnter(driver);
 		WaitTool.sleep(10);
 	}

@@ -1,10 +1,15 @@
 package com.qualitesoft.freightclub.pageobjects;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.poi.util.SystemOutLogger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.qualitesoft.core.Log;
+import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 
@@ -19,8 +24,53 @@ public class ProfileManagementPage {
 	}
 
 	public WebElement manageProfileLink() {
-
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@href='/Admin/Index']"), 30);
+	}
+	
+	public WebElement manageCarrierTab() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@href='#carriersTab']"), 10);
+	}
+	
+	public WebElement insuranceTab() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@href='#insuranceTab']"), 10);
+	}
+	
+	public WebElement upsCapitalBandDropdown(String dropDownFieldName) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[text()='"+dropDownFieldName+"']/following-sibling::select"), 10);
+	}
+	
+	public WebElement upsCapitalSupportedCheckbox() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[@for='UPSCapitalSupported']/input"), 30);
+	}
+	
+	public WebElement updateButtonInsuranceTab() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[contains(text(),'Update')]"), 10);
+	}
+	
+	public List<String> getListOfEnableCarriers() {
+		
+		try {
+			
+			List<String>  enableCarriers = new ArrayList<String>();
+			
+			int  rowIndex = 0;
+			List<WebElement> carriers = WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//table[@id='table-carrier']/tbody/tr/td[4]/descendant::span"), 10);
+			for(WebElement carrier : carriers) {
+				rowIndex++;
+				if(carrier.getText().equals("Active")) {
+					WebElement carrierName = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//table[@id='table-carrier']/tbody/tr["+rowIndex+"]/td[2]"), 10);
+					enableCarriers.add(carrierName.getText());
+				}
+			}
+			
+			Log.info("List of enable carrier1s: "+enableCarriers);
+			return enableCarriers; 
+			
+		}catch(Exception ex) {
+			System.out.println("sdjfs");
+		}
+		
+		return null;
 	}
 
 	public WebElement companyNameLink() {
@@ -94,7 +144,7 @@ public class ProfileManagementPage {
 	}	
 	
 	public WebElement upsSetting(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("UPS Settings"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@href='#upsTab']"), 60);	
 	}
 
 	//Add by Shubham
@@ -154,6 +204,63 @@ public class ProfileManagementPage {
 		 if(element.isSelected()) {
 			 SeleniumFunction.click(element);
 		 }
+	}
+	
+	public WebElement save() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"upsTab\"]/div[4]/div[7]/div/button"), 10);
+	}
+	
+	public void deleteContactsInformation() {
+		try {
+			List<WebElement> contacts = WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//table[@id='profileInfo']/tbody/tr"), 30);
+			int count = contacts.size();
+			Log.info("Total contacts available: "+count);
+			
+			if(contacts != null && count > 0) {
+				
+				for(int i = 1; i <= count; i++) {
+					SeleniumFunction.click(driver.findElement(By.xpath("//table[@id='profileInfo']/tbody/tr/td[6]/i[2]")));
+					WaitTool.sleep(2);
+				}
+				ScreenShot.takeScreenShot(driver, "Existing contacts deleted");
+			}
+		}catch(Exception ex) {
+			System.out.println("dkfjs;dfk");
+		}
+	}
+	
+	public WebElement addContactButton() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.id("addContactInfo"), 10);
+	}
+	
+	public WebElement contactType() {
+		List<WebElement> contacts = WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//table[@id='profileInfo']/tbody/tr"), 30);
+		int rowIndex = contacts.size();
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//table[@id='profileInfo']/tbody/tr["+rowIndex+"]/td[1]/div[2]/select"), 10);
+	}
+	
+	public WebElement contactName() {
+		List<WebElement> contacts = WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//table[@id='profileInfo']/tbody/tr"), 30);
+		int rowIndex = contacts.size();
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//table[@id='profileInfo']/tbody/tr["+rowIndex+"]/td[2]/div[3]/input"), 10);
+	}
+	
+	public WebElement phoneNumber() {
+		List<WebElement> contacts = WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//table[@id='profileInfo']/tbody/tr"), 30);
+		int rowIndex = contacts.size();
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//table[@id='profileInfo']/tbody/tr["+rowIndex+"]/td[3]/div[2]/input"), 10);
+	}
+	
+	public WebElement emailAddress() {
+		List<WebElement> contacts = WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//table[@id='profileInfo']/tbody/tr"), 30);
+		int rowIndex = contacts.size();
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//table[@id='profileInfo']/tbody/tr["+rowIndex+"]/td[5]/input"), 10);
+	}
+	
+	public WebElement saveContactInformation() {
+		List<WebElement> contacts = WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//table[@id='profileInfo']/tbody/tr"), 30);
+		int rowIndex = contacts.size();
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//table[@id='profileInfo']/tbody/tr["+rowIndex+"]/td[6]/i"), 10);
 	}
 	
 	

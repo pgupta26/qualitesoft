@@ -1,13 +1,10 @@
 package com.qualitesoft.freightclub.testscripts.manageinvoices;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
-import com.qualitesoft.core.JavaFunction;
-import com.qualitesoft.core.Log;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
@@ -15,18 +12,6 @@ import com.qualitesoft.core.Xls_Reader;
 import com.qualitesoft.freightclub.pageobjects.ManageInvoices;
 
 public class TestEditSecondaryInvoice extends InitializeTest {
-	
-	public void temp() {
-		try {
-			ManageInvoices  manageInvoices = new ManageInvoices(driver);
-
-			Actions actions = new Actions(driver);
-			actions.moveToElement(manageInvoices.backupDocumentation()).click().build().perform();
-			//actions.moveToElement(manageInvoices.backupDocumentation(), 10, -10).click().build().perform();
-		}catch(Exception e) {
-			System.out.println("test");
-		}
-	}
 	
 	@Test
 	public void testEditSecondaryInvoice() {
@@ -46,7 +31,6 @@ public class TestEditSecondaryInvoice extends InitializeTest {
 		UseAssert.assertEquals(manageInvoices.savedComment().getText(), xr1.getCellData("EditSecondaryInvoice", "AdminComment", i));
 		UseAssert.assertEquals(manageInvoices.savedUserName().getText(), xr1.getCellData("EditSecondaryInvoice", "AdminUserName", i));
 
-
 		//Click on bacuup documentation button
 		WaitTool.sleep(2);
 		Actions actions = new Actions(driver);
@@ -54,7 +38,7 @@ public class TestEditSecondaryInvoice extends InitializeTest {
 
 		//Upload document
 		SeleniumFunction.uploadFile(xr1.getCellData("EditSecondaryInvoice", "AdminDocumentName", i));
-		WaitTool.sleep(5);
+		WaitTool.sleep(10);
 		
 		//Verify uploaded document detail
 		int backupDocumemtGridDataSize = manageInvoices.backupDocumentGridData().size();

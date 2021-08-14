@@ -17,6 +17,8 @@ import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
 
+import sun.util.logging.resources.logging;
+
 
 public class QuickQuote {
 
@@ -163,7 +165,23 @@ public class QuickQuote {
 	public WebElement insurance() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"app-content\"]/div/div/div/section/section/div/div[3]/div[2]/div[3]/div/div[2]/div[4]/label"), 30);
 	}
+	
+	public void selectInsurance() {
+		WebElement insurance = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"app-content\"]/div/div/div/section/section[2]/div/div[4]/div[2]/div[3]/div/div[2]/div[4]/label/input"), 30);
+		Log.info("Insurance Checkbox: "+insurance.isSelected());
+		if(!insurance.isSelected())  {
+			SeleniumFunction.click(insurance);
+		}
+	}
 
+	public void deselectInsurance() {
+		WebElement insurance = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"app-content\"]/div/div/div/section/section[2]/div/div[4]/div[2]/div[3]/div/div[2]/div[4]/label/input"), 30);
+		Log.info("Insurance Checkbox: "+insurance.isSelected());
+		if(insurance.isSelected())  {
+			SeleniumFunction.click(insurance);
+		}
+	}
+	
 	public WebElement DropOffZip() {
 
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='dropoffzipEntry']"), 30);
@@ -561,7 +579,7 @@ public class QuickQuote {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"app-content\"]/div/div/div/section/article/div/div[2]/div[1]/div/div[3]/div[1]/div/div[1]"), 60);		
 	}
 	public WebElement productvalue() {		
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"app-content\"]/div/div/div/section/article/div/div[2]/div[1]/div/div[3]/div[1]/div/div[1]/input"), 60);		
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@placeholder='Select or Search...'])[1]"), 60);		
 	}
 	public WebElement SpecialHandling() {		
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//textarea[@placeholder='Advise about any restrictions on Pick Up or Drop Off locations, special package handling, etc.']"), 30);		
@@ -773,7 +791,12 @@ public class QuickQuote {
 	
 	public WebElement PickUpAddress1() {		
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@id='Address1'])[2]"), 30);		
-	} 
+	}
+	
+	public WebElement dropUpAddress3() {		
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@id='Address1'])[3]"), 30);		
+	}
+	
 	public WebElement PickUpFirstName() {		
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@id='FirstName'])[1]"), 30);		
 	} 

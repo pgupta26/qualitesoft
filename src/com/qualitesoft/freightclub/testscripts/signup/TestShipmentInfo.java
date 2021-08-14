@@ -1,4 +1,4 @@
-package com.qualitesoft.freightclub.testscripts;
+package com.qualitesoft.freightclub.testscripts.signup;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
@@ -32,11 +32,19 @@ public class TestShipmentInfo extends InitializeTest {
 		String dropOffFirstName=xr.getCellData("ShipmentInformation","DropOffFirstname", 2).trim();
 		String dropOffLastName=xr.getCellData("ShipmentInformation","DropOffLastName", 2).trim();
 		String dropOffPhone1=xr.getCellData("ShipmentInformation","DropOffPhone1", 2).trim();
+		
+		String packageType = xr.getCellData("Input","packageType", Integer.parseInt(Row)).trim();
 
 		QuickQuote quickQuote = new QuickQuote(driver);
 		
-		SeleniumFunction.sendKeys(quickQuote.PalletDesc(), description);
-		SeleniumFunction.sendKeys(quickQuote.SpecialHandling(), specialHandlingInstructions);
+		if(packageType.equals("Standard Pallet 1") || packageType.equals("Custom Pallet (enter dimensions)")) {
+			SeleniumFunction.scrollUpByPixel(driver, "300");
+			SeleniumFunction.click(quickQuote.genericPallet());
+			SeleniumFunction.sendKeys(quickQuote.palletDescription(), description);
+		} else {
+			SeleniumFunction.sendKeys(quickQuote.PalletDesc(), description);
+			SeleniumFunction.sendKeys(quickQuote.SpecialHandling(), specialHandlingInstructions);
+		}
 		SeleniumFunction.sendKeys(quickQuote.Address1(), addressLine1);
 		SeleniumFunction.sendKeys(quickQuote.Address2(), addressLine2);
 		SeleniumFunction.sendKeys(quickQuote.City(), city);

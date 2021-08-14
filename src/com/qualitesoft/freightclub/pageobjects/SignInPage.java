@@ -28,5 +28,10 @@ public class SignInPage {
 
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[contains(@type,'submit')]"), 30);
 	}
+	
+	public WebElement forgotPassword() {
+
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("Forgot password?"), 30);
+	} 
 
 }

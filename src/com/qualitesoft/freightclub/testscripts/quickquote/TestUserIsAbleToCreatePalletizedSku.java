@@ -37,7 +37,7 @@ public class TestUserIsAbleToCreatePalletizedSku extends InitializeTest{
 		SeleniumFunction.click(quickQuote.ReviewOrder());
 		quickQuote.acceptPopup();
 		WaitTool.sleep(10);
-		commonOps.verifyPalletizedDetail(xr, i, "1");
+		commonOps.verifyPalletizedDetail(xr, i, "3");
 		commonOps.bookOrder(xr, i);
 	}
 

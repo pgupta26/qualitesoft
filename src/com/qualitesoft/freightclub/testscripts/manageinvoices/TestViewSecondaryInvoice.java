@@ -44,7 +44,7 @@ public class TestViewSecondaryInvoice extends InitializeTest {
 			//Filter data grid by total billed
 			SeleniumFunction.sendKeys(manageInvoices.TotalBilledTextBox(4), xr.getCellData("Sec invoice Master","New Invoice Amount", i));
 			SeleniumFunction.KeyBoradEnter(driver);
-			WaitTool.sleep(5);
+			WaitTool.sleep(15);
 		}
 		
 		//Click detail

@@ -34,7 +34,7 @@ public class ManageOverages {
 	
 	public WebElement gridData(int rowIndex, int colIndex) {
 		colIndex = colIndex + 2;
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='ag-body']/descendant::div[@class='ag-body-container']/div["+rowIndex+"]/div["+colIndex+"]"), 10);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='ag-body']/descendant::div[@class='ag-body-container']/div["+rowIndex+"]/div["+colIndex+"]"), 60);
 	}
 	
 	public WebElement viewEdit(int rowIndex) {
