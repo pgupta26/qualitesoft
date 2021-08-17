@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Freight Club Suite">
+
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="com.qualitesoft.core.CustomTestListener" />
+	</listeners>
+
+	<parameter name="project" value="FreightClub" />
+	<parameter name="browser" value="chrome" />
+	<parameter name="URL" value="https://qa.freightclub.com/" /> 
+	
+	<test name="Test New User Able To Sign Up When Account Type - Manufacturer">
+		<parameter name="loginuser" value="new" />
+		<parameter name="testData" value="SignUp.xlsx" />
+		<parameter name="Row" value="2" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.signup.TestLaunchQuickQuote" />
+			<class name="com.qualitesoft.freightclub.testscripts.signup.TestNewUserIsAbleToSignUp"/>
+			<class name="com.qualitesoft.freightclub.testscripts.signup.TestCreateAccount" />
+			<class name="com.qualitesoft.freightclub.testscripts.signup.TestShipmentInfo" />
+			<class name="com.qualitesoft.freightclub.testscripts.signup.TestPayment" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test> 
+	
+	<test name="Test verify user is able to book and clone order - LTL-Non-Palletized">
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="4" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestGetQuote" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestBillofLading" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestOrderHistory" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestManageFullOrders" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestCloneOrders" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test> 
+	
+</suite>	

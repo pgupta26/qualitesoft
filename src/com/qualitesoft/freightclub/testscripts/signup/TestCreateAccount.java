@@ -44,7 +44,7 @@ public class TestCreateAccount extends InitializeTest {
 		ScreenShot.takeScreenShot(driver, "Create Account Details");
 		SeleniumFunction.scrollDownByPixel(driver, "500");
 		SeleniumFunction.click(account.createButton());
-		WaitTool.sleep(60);
+		WaitTool.sleep(30);
 		
 		QuickQuote quickQuote = new QuickQuote(driver);
 		WaitTool.sleep(2);

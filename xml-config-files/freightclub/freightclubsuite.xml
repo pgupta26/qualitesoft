@@ -14,7 +14,7 @@
 	<parameter name="URL" value="https://qa.freightclub.com/" /> 
 	
 	
-	<!-- <test name="Test Verify Functionality of Re-Quote Button - Custom Order">
+	<test name="Test Verify Functionality of Re-Quote Button - Custom Order">
 		<parameter name="loginuser" value="new" />
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />
@@ -26,7 +26,7 @@
 			<class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyReQuoteFunctionality" /> 
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test> -->
+	</test>
 	
 	<!-- ************************************** Sign Up ****************************************************** -->
 	
@@ -127,7 +127,7 @@
 		<parameter name="Row" value="13" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
-			<!-- <class name="com.qualitesoft.freightclub.testscripts.quickquote.TestUserIsAbleToCreateGenericPalletWithCartoonCount" /> -->
+			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestUserIsAbleToCreateGenericPalletWithCartoonCount" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />	
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />

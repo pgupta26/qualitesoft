@@ -121,6 +121,10 @@ public class EmailVerification extends InitializeTest {
 					case "Claim initiated - Customer":
 						expectedMsg = Messages.email_customer_claim_initiated;
 						break;
+						
+					case "Claim initiated - Customer - Loss":
+						expectedMsg = Messages.email_customer_claim_initiated_loss;
+						break;
 
 					case "Claim initiated - Carrier":
 						if(claimType.equals("Damage")) {
