@@ -9,9 +9,11 @@
 		<listener class-name="com.qualitesoft.core.CustomTestListener" />
 	</listeners>
 	
-	<suite-files> 
+	<suite-files>
+	
+		<suite-file path="xml-config-files//freightclub//demo.xml" /> 	
 		<!-- <suite-file path="xml-config-files//freightclub//freightclubsuite.xml" />  -->
-		<suite-file path="xml-config-files//ChannelgateSip//channelgatesipsuite.xml" /> 
+		<!-- <suite-file path="xml-config-files//ChannelgateSip//channelgatesipsuite.xml" /> --> 
 		
 	</suite-files>
 </suite>

@@ -255,7 +255,7 @@
 		<parameter name="testData" value="ManageClaims.xlsx" />
 		<parameter name="fcusername" value="customercontact@mailinator.com" />
 		<parameter name="Row" value="3" />
-		<parameter name="notificationType" value="Claim initiated - Customer" />
+		<parameter name="notificationType" value="Claim initiated - Customer - Loss" />
 		<classes>
 			<class
 				name="com.qualitesoft.freightclub.testscripts.EmailVerification" />

@@ -46,7 +46,6 @@ public class TestVerifyReQuoteFunctionality extends InitializeTest {
 
 		String orderReferenceID=xr.getCellData("Input","orderReferenceID", i).trim();
 		
-		SeleniumFunction.click(manageOrderpage.ExpandMenupage());
 		SeleniumFunction.click(manageOrderpage.ActionButton());
 		SeleniumFunction.click(manageOrderpage.reQuote());
 		ScreenShot.takeScreenShot(driver, "Re Quote success message");

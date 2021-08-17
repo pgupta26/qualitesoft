@@ -52,7 +52,7 @@ public class TestViewSecondaryInvoice extends InitializeTest {
 		
 		//Verify invoice detail 
 		UseAssert.assertEquals(manageInvoices.getLabel("Order ID").getText(), xr.getCellData("Sec invoice Master","FC Order ID", i));
-		UseAssert.assertEquals(manageInvoices.getLabel("Invoice Created Date").getText(), xr.getCellData("Sec invoice Master","Date CREATED", i));
+		UseAssert.assertEquals(manageInvoices.getLabel("Invoice Created Date").getText(), xr.getCellData("Sec invoice Master","Date CREATED (MM/DD/YYYY)", i));
 		UseAssert.assertEquals(manageInvoices.getLabel("Tracking Number").getText(), xr.getCellData("Sec invoice Master","Tracking #", i));
 		UseAssert.assertEquals(manageInvoices.getLabel("Carrier").getText(), xr.getCellData("Sec invoice Master","Carrier", i));
 		UseAssert.assertEquals(manageInvoices.getLabel("Quoted Amount").getText(), "$"+xr.getCellData("Sec invoice Master","New Invoice Amount", i));

@@ -46,7 +46,7 @@ public class TestViewOverageDetails extends InitializeTest {
 		String trackingNumber = xr.getCellData("Sec invoice Master","Tracking #", i);
 		String secondaryInvoiceAmount = xr.getCellData("Sec invoice Master","New Invoice Amount", i);
 		String secondaryInvoiceNumber = xr.getCellData("Sec invoice Master","SECONDARY INV #", i);
-		String invoiceCreatedDate = xr.getCellData("Sec invoice Master","Date CREATED", i);
+		String invoiceCreatedDate = xr.getCellData("Sec invoice Master","Date CREATED (MM/DD/YYYY)", i);
 		String adminSecondaryCategory = xr.getCellData("Sec invoice Master","Secondary Category", i);
 		String adminReasonDetails = xr.getCellData("Sec invoice Master","Invoice Reason", i);
 		
@@ -57,8 +57,8 @@ public class TestViewOverageDetails extends InitializeTest {
 		String disputeType = xr1.getCellData("Sheet1","DisputeType", i);
 		String adminOverageStatus = xr1.getCellData("Sheet1","OverageStatus", i);
 		String userOverageStatus = xr1.getCellData("EditOverageDetails","OverageStatus", i);
-		String userSecondaryCategory = xr.getCellData("EditOverageDetails","SecondaryCategory", i);
-		String userReasonDetails = xr.getCellData("EditOverageDetails","ReasonDetails", i);
+		String userSecondaryCategory = xr1.getCellData("EditOverageDetails","SecondaryCategory", i);
+		String userReasonDetails = xr1.getCellData("EditOverageDetails","ReasonDetails", i);
 		String adminSecondaryReason = xr1.getCellData("Sheet1","Secondary Reason", i);
 		String userSecondaryReason = xr1.getCellData("EditOverageDetails","SecondaryReason", i);
 		String overageID = xr1.getCellData("Sheet1","OverageID", i);
@@ -67,6 +67,7 @@ public class TestViewOverageDetails extends InitializeTest {
 		
 		//Filter data grid by total billed
 		manageOrderpage.ExpandMenupage();
+		SeleniumFunction.sendKeys(manageOverages.OrderIDTextBox(), xr.getCellData("Sec invoice Master","FC Order ID", i));
 		SeleniumFunction.sendKeys(manageOverages.TotalBilledTextBox(6), xr.getCellData("Sec invoice Master","New Invoice Amount", i));
 		SeleniumFunction.KeyBoradEnter(driver);
 		
@@ -81,8 +82,10 @@ public class TestViewOverageDetails extends InitializeTest {
 		
 		//verify overage details fields
 		SeleniumFunction.getCurrentWindow(driver);
+		WaitTool.sleep(30);
 		UseAssert.assertEquals(overageDetails.getLabel("Order ID:").getText(), orderID);
-		Assert.assertTrue(overageDetails.getLabel("Overage ID:").getText().contains(overageID));
+		String overageId = overageDetails.getLabel("Overage ID:").getText();
+		Assert.assertTrue(overageId.contains(overageID));
 		
 		Date myDate=new Date();
 		SimpleDateFormat dateFormat=new SimpleDateFormat("MM-dd-yyyy");
@@ -97,7 +100,7 @@ public class TestViewOverageDetails extends InitializeTest {
 		UseAssert.assertEquals(overageDetails.getLabel("Order Status:").getText(), orderStatus);
 		UseAssert.assertEquals(overageDetails.getLabel("Secondary Invoice Amount:").getText(), "$"+secondaryInvoiceAmount);
 		Assert.assertTrue(overageDetails.getLabel("Secondary Invoice Number:").getText().contains(secondaryInvoiceNumber));
-		UseAssert.assertEquals(overageDetails.getLabel("Invoice Created Date:").getText().replaceAll("-", "/"), invoiceCreatedDate);
+		UseAssert.assertEquals(overageDetails.getLabel("Invoice Created Date:").getText(), invoiceCreatedDate.replaceAll("/", "-"));
 
 		UseAssert.assertEquals(overageDetails.getSelect("Dispute Type:").getText(), disputeType);
 		

@@ -27,7 +27,7 @@ public class TestEditOverageDetails extends InitializeTest {
 		int i=Integer.parseInt(Row);
 		
 		//verify overage details fields
-				SeleniumFunction.getCurrentWindow(driver);
+		SeleniumFunction.getCurrentWindow(driver);
 
 		if(userType.equals("Admin")) {
 
