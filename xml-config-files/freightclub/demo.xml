@@ -34,10 +34,9 @@
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestGetQuote" />
-			<class name="com.qualitesoft.freightclub.testscripts.TestBillofLading" />
-			<class name="com.qualitesoft.freightclub.testscripts.TestOrderHistory" />
-			<class name="com.qualitesoft.freightclub.testscripts.TestManageFullOrders" />
-			<class name="com.qualitesoft.freightclub.testscripts.TestCloneOrders" />
+			<!-- <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" /> -->
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
 	</test> 
