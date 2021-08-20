@@ -1,7 +1,9 @@
 package com.qualitesoft.freightclub.appcommon;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.HasInputDevices;
 import org.openqa.selenium.interactions.Keyboard;
 import org.testng.Assert;
@@ -91,7 +93,10 @@ public class CommonOps extends InitializeTest {
 				SeleniumFunction.selectByvalue(quickQuote.Category(itemIndex), "346");
 			}
 
-			SeleniumFunction.sendKeys(quickQuote.quantity(itemIndex), quantity);
+			WebElement quan = quickQuote.quantity(itemIndex);
+			JavascriptExecutor jse = (JavascriptExecutor)driver;
+			jse.executeScript("arguments[0].value=''", quan);
+			SeleniumFunction.sendKeys(quan, quantity);
 			SeleniumFunction.clickJS(driver, quickQuote.PackageType(packageType, itemIndex));
 			SeleniumFunction.sendKeys(quickQuote.Weight(itemIndex), Weight);
 			SeleniumFunction.sendKeys(quickQuote.DimensionL(itemIndex), DimensionL);
