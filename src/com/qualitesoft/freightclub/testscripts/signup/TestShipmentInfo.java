@@ -3,6 +3,7 @@ package com.qualitesoft.freightclub.testscripts.signup;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import com.qualitesoft.core.InitializeTest;
+import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
@@ -66,10 +67,9 @@ public class TestShipmentInfo extends InitializeTest {
 		SeleniumFunction.sendKeys(quickQuote.LocationName(), "DropOffComm");
 		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='DropOffComm']"), 10));
 		SeleniumFunction.sendKeys(quickQuote.DropAddress1(), dropOffAddressLine1);
-		SeleniumFunction.sendKeys(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='col-xs-12 col-md-6'][2]/descendant::input[@id='Phone1']"), 30), dropOffPhone1);
 		SeleniumFunction.sendKeys(quickQuote.DropFirstName(), dropOffFirstName);
 		SeleniumFunction.sendKeys(quickQuote.DropLastName(), dropOffLastName);
-		SeleniumFunction.sendKeys(quickQuote.DropPhone1(), dropOffPhone1);
+		SeleniumFunction.sendKeys(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@id='Phone1'])[3]"), 30), dropOffPhone1);
 
 		ScreenShot.takeScreenShot(driver, "Filled Shipment info");
 		SeleniumFunction.scrollDownUptoFooter(driver);

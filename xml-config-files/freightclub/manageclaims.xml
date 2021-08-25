@@ -15,8 +15,8 @@
 	<!-- ***********************LTL Order With Insurance Claim Type Damage************************ -->
 	
 	<test name="Test Select Contact Info, Payment Method, Carrier and Enable LTL And Parcel Band From Admin">
-		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
-		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="fcusername" value="info@freightclub.com" />
+		<parameter name="fcpassword" value="Welcome@2" />
 		<parameter name="testData" value="ManageClaims.xlsx" />
 		<parameter name="searchUser" value="test20may21@mailinator.com"/>
 		<parameter name="Row" value="2" />
@@ -31,8 +31,8 @@
 	</test>
 	
 	<test name="Test Add Contact Information For Carrier From Admin">
-		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
-		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="fcusername" value="info@freightclub.com" />
+		<parameter name="fcpassword" value="Welcome@2" />
 		<parameter name="testData" value="ManageClaims.xlsx" />
 		<parameter name="Row" value="3" />
 		<classes>
@@ -110,8 +110,8 @@
 	</test>
 	
 	<test name="Test - valid - Admin is able to view claim details - LTL - With Insurance - Claim Type - Damage">
-		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
-		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="fcusername" value="info@freightclub.com" />
+		<parameter name="fcpassword" value="Welcome@2" />
 		<parameter name="testData" value="ManageClaims.xlsx" />
 		<parameter name="userType" value="Admin"></parameter>
 		<parameter name="Row" value="2" />
@@ -122,8 +122,8 @@
 	</test>
 	
 	<test name="Test - valid - admin is able to change addiotional docs needed claim status - LTL - With Insurance - Claim Type - Damage">
-		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
-		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="fcusername" value="info@freightclub.com" />
+		<parameter name="fcpassword" value="Welcome@2" />
 		<parameter name="testData" value="ManageClaims.xlsx" />
 		<parameter name="userType" value="Admin"></parameter>
 		<parameter name="Row" value="2" />
@@ -161,8 +161,8 @@
 	
 	
 	<test name="Test - valid - admin is able to change pending doucmentation claim status - LTL - With Insurance - Claim Type - Damage">
-		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
-		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="fcusername" value="info@freightclub.com" />
+		<parameter name="fcpassword" value="Welcome@2" />
 		<parameter name="testData" value="ManageClaims.xlsx" />
 		<parameter name="userType" value="Admin"></parameter>
 		<parameter name="Row" value="2" />
@@ -201,8 +201,8 @@
 	</test>
 	
 	<test name="Test - valid - admin is able to change Filed claim status - LTL - With Insurance - Claim Type - Damage">
-		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
-		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="fcusername" value="info@freightclub.com" />
+		<parameter name="fcpassword" value="Welcome@2" />
 		<parameter name="testData" value="ManageClaims.xlsx" />
 		<parameter name="userType" value="Admin"></parameter>
 		<parameter name="Row" value="2" />
@@ -297,8 +297,8 @@
 	</test>
 	
 	<test name="Test - valid - Admin is able to view claim details - LTL - Without Insurance - Claim Type - Loss">
-		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
-		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="fcusername" value="info@freightclub.com" />
+		<parameter name="fcpassword" value="Welcome@2" />
 		<parameter name="testData" value="ManageClaims.xlsx" />
 		<parameter name="userType" value="Admin"></parameter>
 		<parameter name="Row" value="3" />
@@ -309,8 +309,8 @@
 	</test>
 	
 	<test name="Test - valid - admin is able to change addiotional docs needed claim status - LTL - Without Insurance - Claim Type - Loss">
-		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
-		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="fcusername" value="info@freightclub.com" />
+		<parameter name="fcpassword" value="Welcome@2" />
 		<parameter name="testData" value="ManageClaims.xlsx" />
 		<parameter name="userType" value="Admin"></parameter>
 		<parameter name="Row" value="3" />
@@ -348,8 +348,8 @@
 	
 	
 	<test name="Test - valid - admin is able to change pending doucmentation claim status - LTL - Without Insurance - Claim Type - Loss">
-		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
-		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="fcusername" value="info@freightclub.com" />
+		<parameter name="fcpassword" value="Welcome@2" />
 		<parameter name="testData" value="ManageClaims.xlsx" />
 		<parameter name="userType" value="Admin"></parameter>
 		<parameter name="Row" value="3" />
@@ -388,8 +388,8 @@
 	</test>
 	
 	<test name="Test - valid - admin is able to change Filed claim status - LTL - Without Insurance - Claim Type - Loss">
-		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
-		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="fcusername" value="info@freightclub.com" />
+		<parameter name="fcpassword" value="Welcome@2" />
 		<parameter name="testData" value="ManageClaims.xlsx" />
 		<parameter name="userType" value="Admin"></parameter>
 		<parameter name="Row" value="3" />

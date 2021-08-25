@@ -27,9 +27,9 @@ public class TestUserIsAbleToCreateGenericPalletAddingCartonsWithoutSku extends 
 		commonOps.selectCarrier();
 		quickQuote.selectCarrier(carrier);
 		
-		commonOps.addPalletContents(xr, i, 1);
+		commonOps.addPalletContents(xr, (i+1), 1);
 		SeleniumFunction.click(quickQuote.addadditionalItem());
-		commonOps.addPalletContents(xr, (i+1), 2);
+		commonOps.addPalletContents(xr, (i+2), 2);
 		
 		//verify total carton count
 		String actualCartonCount = SeleniumFunction.getText(quickQuote.totalCartonCount());

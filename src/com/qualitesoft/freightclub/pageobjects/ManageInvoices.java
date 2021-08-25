@@ -101,11 +101,11 @@ public class ManageInvoices {
 	}
 	
 	public WebElement viewable(int rowIndex) {
-		return WaitTool.returnWebElement(driver, By.xpath("//div[@id='invoiceModal']/descendant::h4[text()='Backup Documentation']/following-sibling::div/table/tbody/tr["+rowIndex+"]/td[3]/i[1]"));
+		return WaitTool.returnWebElement(driver, By.xpath("//div[@id='invoiceModal']/descendant::h4[text()='Backup Documentation']/following-sibling::div/table/tbody/tr["+rowIndex+"]/td[3]/a[1]/i"));
 	}
 	
 	public WebElement downloadable(int rowIndex) {
-		return WaitTool.returnWebElement(driver, By.xpath("//div[@id='invoiceModal']/descendant::h4[text()='Backup Documentation']/following-sibling::div/table/tbody/tr["+rowIndex+"]/td[3]/i[2]"));
+		return WaitTool.returnWebElement(driver, By.xpath("//div[@id='invoiceModal']/descendant::h4[text()='Backup Documentation']/following-sibling::div/table/tbody/tr["+rowIndex+"]/td[3]/a[2]/i"));
 	}
 	
 	public WebElement removable(int rowIndex) {
