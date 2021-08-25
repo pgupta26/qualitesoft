@@ -239,7 +239,12 @@ public class CommonOps extends InitializeTest {
 		Assert.assertEquals(actualDimentions, expectedDimension);
 		Assert.assertEquals(actualDeclaredValue, expectedDeclareValue);
 		Assert.assertEquals(actualCartoon, expectedNumberOfCartoons);
-		Assert.assertEquals(actualCategory, expectedCategory);
+		if(testname.equals("Test user is able to create palletized sku")) {
+			Assert.assertEquals(actualCategory, "Other, Other, Other");
+		}else {
+			Assert.assertEquals(actualCategory, expectedCategory);
+		}
+		
 	}
 
 	public void bookOrder(Xls_Reader xr, int rowIndex) {
@@ -334,7 +339,7 @@ public class CommonOps extends InitializeTest {
 		}
 
 		manageOrderpage.searchFields("1", orderId);
-		SeleniumFunction.KeyBoradEnter(driver);
+		manageOrderpage.orderIdFilter().sendKeys(Keys.ENTER);
 		WaitTool.sleep(10);
 	}
 	

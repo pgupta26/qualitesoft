@@ -1,6 +1,7 @@
 package com.qualitesoft.freightclub.testscripts;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
@@ -24,7 +25,9 @@ public class TestProfileManagement extends InitializeTest {
 			WaitTool.sleep(2);
 			
 			SeleniumFunction.sendKeys(profileManagementPage.profileListfilter(), "test.automation@mailinator.com");
+			profileManagementPage.profileListfilter().sendKeys(Keys.TAB);
 			WaitTool.sleep(10);
+			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='User:']"),30));
 			ScreenShot.takeScreenShot(driver, "Search User details");
 			quickQuote.acceptPopup();
 			WaitTool.sleep(2);

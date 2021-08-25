@@ -159,7 +159,7 @@ public class TestSubmitCustomQuote extends InitializeTest {
 		SeleniumFunction.KeyBoradEnter(driver);
 		WaitTool.sleep(5);
 
-		SeleniumFunction.click(notQuotedTab.complete());
+		SeleniumFunction.clickJS(driver, notQuotedTab.complete());
 		WaitTool.sleep(5);
 
 		//Verify Details
@@ -190,7 +190,7 @@ public class TestSubmitCustomQuote extends InitializeTest {
 
 		SeleniumFunction.sendKeys(notQuotedTab.carrierQuoteID(), quoteId.substring(0, quoteId.indexOf(".")));
 		SeleniumFunction.sendKeys(notQuotedTab.COGS(), COGS.substring(0, quoteId.indexOf(".")));
-
+		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//i[@class='fa fa-check-circle fa-lg']"), 10));
 
 		WaitTool.sleep(5);
 		SeleniumFunction.executeJS(driver, "window.scrollBy(0,400)");

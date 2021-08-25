@@ -31,8 +31,8 @@ public class TestLabels extends InitializeTest {
 		ScreenShot.takeScreenShot(driver, "Shipping Label PDF for order id "+orderId);
 
 		TestBOL obj = new TestBOL();
-		String quantity = xr.getCellData("Input","Quantity", i).trim();
+		int numberOfPages = Integer.parseInt(xr.getCellData("Input","NumberOfCartoons", i).trim()) + 1;
 		String fileName = orderId+".pdf";
-		obj.checkPdfFilePresenceAndPageCount(fileName, Integer.parseInt(quantity));
+		obj.checkPdfFilePresenceAndPageCount(fileName, numberOfPages);
 	}
 }

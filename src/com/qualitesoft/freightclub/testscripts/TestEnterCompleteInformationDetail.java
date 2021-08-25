@@ -20,19 +20,18 @@ public class TestEnterCompleteInformationDetail extends InitializeTest {
 	@Test
 	public void testEnterCompleteInformationDetail() {
 		Xls_Reader xr;
-		String testDatasheet= "binaries/FCfiles/FCFile.xlsx";
+		String testDatasheet= "binaries/FCfiles/"+testData;
 		xr=new Xls_Reader(testDatasheet);
-
 		String specialHandlingInstructions=xr.getCellData("ShipmentInformation","SpecialHandlingInstructions", 2).trim();
-		String palletDescription = xr.getCellData("ShipmentInformation", "PalletDescription", 2);
-
+		
 		QuickQuote quickQuote = new QuickQuote(driver);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		int i=Integer.parseInt(Row);
-		if(i == 5) {
-			CommonOps commonOps =  new CommonOps();
+		
+		if(testname.equals("Test Verify Request Cancellation Button - QA-537")) {
 			SeleniumFunction.scrollDownByPixel(driver, "200");
-			commonOps.addPalletContents(xr, i, 1);
+			CommonOps commonOps = new CommonOps();
+			commonOps.addPalletContents(xr, i, 1); 
 		}
 		
 		SeleniumFunction.moveToElement(driver, quickQuote.SpecialHandling());

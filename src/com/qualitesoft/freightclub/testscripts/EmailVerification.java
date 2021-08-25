@@ -37,6 +37,8 @@ public class EmailVerification extends InitializeTest {
 			//filter record by order id
 			String orderid = xr.getCellData("Input","OrderId", i).trim();
 			String poNumber = xr.getCellData("Input","orderReferenceID", i).trim();
+			String regulatoryDetails =  xr.getCellData("Input","RegulatoryDetails", i).trim();
+
 			String trackingID = xr.getCellData("Input","Tracking#", i).trim();
 			String wayBill =  xr.getCellData("Input","WayBill", i).trim();
 			String additionalDocsNeeded =  xr.getCellData("ClaimDetail","AddiotionalDocsEmailBody", i).trim();
@@ -69,7 +71,11 @@ public class EmailVerification extends InitializeTest {
 						break;
 						
 					case "Order Ready For Booking":
-						expectedMsg = Messages.order_ready_for_booking.replace("{orderID}", orderid).replace("{poNumber}", poNumber);
+						expectedMsg = Messages.order_ready_for_booking.replace("{orderID}", orderid).replace("{poNumber}", poNumber).replace("{regulatoryDetails}", regulatoryDetails);
+						break;
+						
+					case "Order Confirmation Mail - User - LTL":
+						expectedMsg = Messages.order_confirmation_mail_user_ltl.replace("{orderID}", orderid);
 						break;
 						
 					case "Order Confirmation Mail - User":

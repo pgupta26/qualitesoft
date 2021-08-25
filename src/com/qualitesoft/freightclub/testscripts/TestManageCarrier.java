@@ -3,12 +3,13 @@ package com.qualitesoft.freightclub.testscripts;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-import com.beust.jcommander.Parameter;
 import com.qualitesoft.core.InitializeTest;
+import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.freightclub.pageobjects.ManageCarrierPage;
+
 
 public class TestManageCarrier extends InitializeTest{
 
@@ -54,6 +55,7 @@ public class TestManageCarrier extends InitializeTest{
 				WaitTool.sleep(5);
 				SeleniumFunction.scrollDownByPixel(driver, "500");
 				SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[text()='Update']"), 30));
+				Log.info("carrier"+carrierNames[carriersCount]+"enabled");
 			}
 			WaitTool.sleep(2);
 	}

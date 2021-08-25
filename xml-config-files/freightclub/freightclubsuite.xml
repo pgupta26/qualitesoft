@@ -154,7 +154,7 @@
 	<test name="Test user is able to create generic pallet with non palletized sku">
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />
-		<parameter name="Row" value="16" />
+		<parameter name="Row" value="17" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSkuWithMultipleCarton" />
@@ -170,7 +170,7 @@
 	<test name="Test user is able to create palletized sku">
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />
-		<parameter name="Row" value="18" />
+		<parameter name="Row" value="19" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreatePalletizedSkuWithMultipleCarton" />
@@ -1104,7 +1104,6 @@
 	</test>
 	
 	<test name="Test Verify Request Cancellation Button">
-		<parameter name="loginuser" value="new" />
 		<parameter name="testData" value="QA_537.xlsx" />
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />

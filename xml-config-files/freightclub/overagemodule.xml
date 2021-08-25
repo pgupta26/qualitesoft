@@ -13,7 +13,7 @@
 	<parameter name="browser" value="chrome" />
 	<parameter name="URL" value="https://stg.freightclub.com/" /> 
 	
-	<test name="Test verify user is able to book order - LTL - With Insurance - Claim Type - Damage">
+	<!-- <test name="Test verify user is able to book order - LTL - With Insurance - Claim Type - Damage">
 		<parameter name="fcusername" value="test20may21@mailinator.com" />
 		<parameter name="fcpassword" value="@Test123" />
 		<parameter name="testData" value="ManageClaims.xlsx" />
@@ -23,9 +23,9 @@
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuoteStg" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test>
+	</test> -->
 	
-	<test name="Test - valid - admin is able to import secondary invoices">
+	<!-- <test name="Test - valid - admin is able to import secondary invoices">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
 		<parameter name="testData" value="SecondaryInvoiceTemplate.xlsx" />
@@ -58,7 +58,7 @@
 				name="com.qualitesoft.freightclub.testscripts.manageinvoices.TestEditSecondaryInvoice" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test>
+	</test> -->
 
 
 	<test name="Test - valid - user is able to view secondary invoice detail">
