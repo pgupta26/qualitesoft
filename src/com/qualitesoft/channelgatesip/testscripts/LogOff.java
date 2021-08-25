@@ -18,6 +18,7 @@ public class LogOff extends InitializeTest{
 		SeleniumFunction.click(login.logout());
 		WaitTool.sleep(5);
 		ScreenShot.takeScreenShot(driver, "LogOffPage");
+		login.emailField();
 	}
 
 }

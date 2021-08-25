@@ -23,8 +23,7 @@ public class LoginPage {
 	}
 
 	public WebElement emailField(){
-
-		WebElement webElement = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='email']"), 30);
+		WebElement webElement = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='email']"), 120);
 		return webElement;
 	}
 
@@ -142,8 +141,7 @@ public class LoginPage {
 		return webElement;
 	}
 	public WebElement logout(){
-
-		WebElement webElement = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//ul[@role='menu']/li[2]"), 30);
+		WebElement webElement = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//ul[@role='menu']//li//a[text()='Logout']"), 30);
 		return webElement;
 	}
 	public WebElement loginemail(){

@@ -42,6 +42,10 @@ public class ProductListing {
 	
 	//********************Product Listing page*************************
 	
+	public WebElement listingBtn(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@href='/app/vendor']"), 60);	
+	}
+	
 	public WebElement exportContentScoreBtn(){
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[text()='Export Content Score ']"), 60);	
 	}
@@ -66,8 +70,8 @@ public class ProductListing {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//ul[@id='select2-brandsSelect-results']//li"), 60);	
 	}
 	
-	public boolean selectedBrandName(){
-		return WaitTool.isElementPresentAndDisplay(driver, By.xpath("//ul[@class='select2-selection__rendered']//li[@title='Test 3']"));	
+	public boolean selectedBrandName(String brandName){
+		return WaitTool.isElementPresentAndDisplay(driver, By.xpath("//ul[@class='select2-selection__rendered']//li[@title='"+brandName+"']"));	
 	}	
 	
 	public WebElement searchBySkuAndProductIdField(){
@@ -179,12 +183,16 @@ public class ProductListing {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//button[@class='btn btn-success'])[1]"), 60);
 	}
 	
+	public WebElement toastMessage(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.id("toast-container"), 120);
+	}
+	
 	public WebElement uploadMessage(){
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[contains(@class,'toast-info')]"), 120);
 	}
 	
 	public WebElement uploadingSuccessMessage(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[contains(@class,'toast-success')]"), 720);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[contains(@class,'toast-success')]"), 120);
 	}
 	
 	//********************Add Product Details Tab*******************************
