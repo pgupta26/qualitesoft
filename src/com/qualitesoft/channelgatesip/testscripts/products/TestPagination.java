@@ -14,7 +14,9 @@ public class TestPagination extends InitializeTest{
 	public void verifyFirstPageRowCount(){
 		try{
 			ProductListing listingPage = new ProductListing(driver);
-
+			driver.navigate().refresh();
+			WaitTool.sleep(10);
+			listingPage.getTableData(1, 1);
 
 			WaitTool.sleep(5);
 			int rowsCount = listingPage.getCountOfRows().size();

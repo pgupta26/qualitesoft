@@ -15,7 +15,7 @@ public class TestBulkActionFunctionality extends InitializeTest{
 		try{
 		ProductListing listingPage = new ProductListing(driver);
 		driver.navigate().refresh();
-		listingPage.lastPageBtn();
+		listingPage.getTableData(1, 1);
 		SeleniumFunction.click(listingPage.bulkActionsBtn());
 		WaitTool.sleep(3);
 		SeleniumFunction.click(listingPage.bulkActionButtons(btnName));
@@ -23,12 +23,14 @@ public class TestBulkActionFunctionality extends InitializeTest{
 		UseAssert.assertEquals(popupHeader, "Bulk Actions");
 		SeleniumFunction.uploadImage(listingPage.uploadImage(1), System.getProperty("user.dir") + fileName);
 		SeleniumFunction.scrollDownUptoFooter(driver);
-		SeleniumFunction.scrollIntoView(driver, listingPage.uploadBtn());
+		SeleniumFunction.scrollIntoView(driver, listingPage.bulkActionPopupHeader());
 		
 		SeleniumFunction.click(listingPage.uploadBtn());
 		
 		String actualMess = SeleniumFunction.getText(listingPage.warningMessage());
 		UseAssert.assertEquals(actualMess, "It seems the file was not downloaded today, do you want to proceed with the update ?");
+		WaitTool.sleep(5);
+		SeleniumFunction.scrollIntoView(driver, listingPage.warningMessage());
 		
 		SeleniumFunction.click(listingPage.acceptWarning());
 		String uploadMessage = SeleniumFunction.getText(listingPage.uploadMessage());
@@ -40,7 +42,7 @@ public class TestBulkActionFunctionality extends InitializeTest{
 		}
 	}
 	
-	@Test
+	@Test(priority = 1)
 	public void downloadTemplate(){
 		try{
 			ProductListing listingPage = new ProductListing(driver);
@@ -51,19 +53,18 @@ public class TestBulkActionFunctionality extends InitializeTest{
 		}
 	}
 
-	@Test
+	@Test(priority = 2)
 	public void addUpdateProducts(){
 		bulkAction("//binaries//CGFiles//AddProductsTemplate.xlsx", "Add / Update Products");
 	}
 	
+	@Test(priority = 3)
+	public void updateInventory(){
+		bulkAction("//binaries//CGFiles//UpdateProductTemplate.xlsx", "Add / Update Products");
+	}
 	
-	@Test
+	/*@Test
 	public void deactivateProducts(){
 		bulkAction("//binaries//CGFiles//Deactivate Products Template.xlsx", "Deactivate Products");
-	}
-	
-	@Test
-	public void updateInventory(){
-		bulkAction("//binaries//CGFiles//UpdateInventoryTemplate.xlsx", "Update Inventory");
-	}
+	}*/
 }

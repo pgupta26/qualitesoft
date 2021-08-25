@@ -14,7 +14,7 @@ public class TestSelectVendor extends InitializeTest{
 		try{
 			ProductListing listingPage = new ProductListing(driver);
 			SeleniumFunction.click(listingPage.clickOnVendorDropdown());
-			SeleniumFunction.sendKeys(listingPage.searchVendorNameOnDropdown(), "Demo Vendor");
+			SeleniumFunction.sendKeys(listingPage.searchVendorNameOnDropdown(), keyword);
 			SeleniumFunction.click(listingPage.selectVendorName());
 			listingPage.getTableData(2, 2);
 		}catch(Exception e){

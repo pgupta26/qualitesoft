@@ -17,12 +17,19 @@ public class TestSearchFunctionality extends InitializeTest{
 	public void testBrandSearching(){
 		try{
 			ProductListing listingPage = new ProductListing(driver);
+			Xls_Reader xr1=new Xls_Reader("binaries/CGFiles/ChannelGateTestData.xlsx");
+			int i=Integer.parseInt(Row);
+			String brandName = xr1.getCellData("Add Product", "Brand", i);
+			Log.info("Brand Name is : " + brandName);
+			
 			driver.navigate().refresh();
 			listingPage.getTableData(1, 1);
-			SeleniumFunction.sendKeys(listingPage.searchByBrandField(), "Test 3");
+			
+			
+			SeleniumFunction.sendKeys(listingPage.searchByBrandField(), brandName);
 			SeleniumFunction.click(listingPage.selectBrand());
 			WaitTool.sleep(3);
-			UseAssert.assertEquals(listingPage.selectedBrandName(), true);
+			UseAssert.assertEquals(listingPage.selectedBrandName(brandName), true);
 			listingPage.getTableData(1, 1);
 		}catch(Exception e){
 			Log.warn(e.getMessage());
@@ -56,10 +63,10 @@ public class TestSearchFunctionality extends InitializeTest{
 	public void testMultipleSkuSearching(){
 		try{
 			ProductListing listingPage = new ProductListing(driver);
-			String skuNumber = "Net5-Check9, Net5-Check10, Net5-Check8";
+			/*String skuNumber = "Net5-Check9, Net5-Check10, Net5-Check8";*/
 
 			WaitTool.sleep(3);
-			SeleniumFunction.sendKeys(listingPage.searchBySkuAndProductIdField(), skuNumber);
+			SeleniumFunction.sendKeys(listingPage.searchBySkuAndProductIdField(), keyword);
 			SeleniumFunction.click(listingPage.goBtn());
 			WaitTool.sleep(3);
 			listingPage.getTableData(1, 1);
@@ -69,7 +76,7 @@ public class TestSearchFunctionality extends InitializeTest{
 			UseAssert.assertEquals(rowsCount, 3);
 			for(int i=1; i==3; i++){
 				String skuNum = SeleniumFunction.getText(listingPage.getTableData(i, 5));
-				if(skuNumber.contains(skuNum)){
+				if(keyword.contains(skuNum)){
 					Assert.assertTrue(true);
 				}
 			}

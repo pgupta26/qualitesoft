@@ -188,10 +188,11 @@ public class TestAddProduct extends InitializeTest{
 
 			SeleniumFunction.scrollIntoView(driver, listingPage.addProductHeaders("Shipping"));
 			SeleniumFunction.sendKeys(listingPage.setHsCode(), hsCode);
-			/*SeleniumFunction.click(listingPage.setSoldInCanadaRadio(1));
+			
+			SeleniumFunction.click(listingPage.setSoldInCanadaRadio(1));
 			SeleniumFunction.click(listingPage.setShipPalletCheckRadio(1));
 			SeleniumFunction.click(listingPage.setPreAssembledCheck(2));
-			SeleniumFunction.click(listingPage.setUsaCheck(2));*/
+			SeleniumFunction.click(listingPage.setUsaCheck(2));
 
 			SeleniumFunction.scrollIntoView(driver, listingPage.setHsCode());
 			SeleniumFunction.sendKeys(listingPage.setProductHeight(), height);
@@ -210,14 +211,19 @@ public class TestAddProduct extends InitializeTest{
 			SeleniumFunction.click(listingPage.scrollToTop());
 			SeleniumFunction.click(listingPage.addProductHeaders("Images"));
 			SeleniumFunction.scrollIntoView(driver, listingPage.addProductHeaders("Images"));
-			SeleniumFunction.uploadImage(listingPage.uploadImage(1), System.getProperty("user.dir") + "\\binaries\\logo\\logo.jpg");
+			
+			String fileName =  System.getProperty("user.dir") + "\\binaries\\logo\\logo.jpg";
+			SeleniumFunction.uploadImage(listingPage.uploadImage(1), fileName);
 
 			SeleniumFunction.click(listingPage.setPrimaryImage());
 			SeleniumFunction.click(listingPage.scrollToTop());
 			SeleniumFunction.click(listingPage.addProductHeaders("Resources"));
 			SeleniumFunction.uploadImage(listingPage.uploadImage(2), System.getProperty("user.dir") + "\\binaries\\CGFiles\\sample.pdf");
 
-			/*SeleniumFunction.click(listingPage.activeToggle());*/
+			if(existingbrand.contains("Yes")){
+				SeleniumFunction.click(listingPage.activeToggle());
+			}
+			
 			WaitTool.sleep(5);
 			SeleniumFunction.click(listingPage.saveBtn());
 			String mess = SeleniumFunction.getText(listingPage.uploadingSuccessMessage());
