@@ -22,7 +22,7 @@ public class TestUserIsAbleToCreatePalletizedSku extends InitializeTest{
 		xr=new Xls_Reader("binaries/FCfiles/FCFile.xlsx");
 		i=Integer.parseInt(Row);
 
-		commonOps.shipmentInformation(xr,i);
+		commonOps.shipmentInformation(xr, i);
 		commonOps.itemInformation(xr, i, 1);
 		commonOps.selectCarrier();
 		SeleniumFunction.clickJS(driver, quickQuote.NextButton());

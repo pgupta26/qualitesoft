@@ -100,7 +100,7 @@ public class TestEnterShipmentInformation extends InitializeTest {
 	@Test
 	public void selectPalletizedPackageType() {
 		
-			Xls_Reader xr=new Xls_Reader("binaries/FCfiles/QA_517.xlsx");
+			Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
 			i=Integer.parseInt(Row);
 			Log.info("Reading data from row: "+Row);
 

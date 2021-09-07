@@ -30,9 +30,7 @@ public class TestBookCustomOrder extends InitializeTest {
 			quickQuote.acceptPopup();
 			WaitTool.sleep(2);
 			
-			Xls_Reader xr;
-			String testDatasheet= "binaries/FCfiles/"+testData;
-			xr=new Xls_Reader(testDatasheet);
+			Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
 			int i=Integer.parseInt(Row);
 			Log.info("Data Row: " +Row);
 			

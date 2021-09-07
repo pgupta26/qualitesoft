@@ -55,7 +55,8 @@ public class TestAddContactInformationForCarrier extends InitializeTest {
 			//click on update button
 			SeleniumFunction.scrollDownUptoFooter(driver);
 			WaitTool.sleep(2);
-			SeleniumFunction.click(manageCarrierPage.updateButton());	
+			SeleniumFunction.click(manageCarrierPage.updateButton());
+			WaitTool.sleep(10);
 			
 		}catch(Exception ex) {
 			ex.printStackTrace();

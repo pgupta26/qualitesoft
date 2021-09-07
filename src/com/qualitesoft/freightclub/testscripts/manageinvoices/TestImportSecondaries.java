@@ -70,7 +70,7 @@ public class TestImportSecondaries extends InitializeTest {
 		UseAssert.assertEquals(manageInvoices.gridData(rowIndex, 3).getText(), xr1.getCellData("Sheet1","Company", i).trim());
 		xr1.setCellData("Sheet1", "Customer PO #", i, manageInvoices.gridData(rowIndex, 4).getText());
 		UseAssert.assertEquals(manageInvoices.gridData(rowIndex, 5).getText(), xr1.getCellData("Sheet1","Invoice Status", i).trim());
-		UseAssert.assertEquals(manageInvoices.gridData(rowIndex, 6).getText().trim(), xr1.getCellData("Sheet1","OrderDate", i).trim());
+		UseAssert.assertEquals(manageInvoices.gridData(rowIndex, 6).getText().trim(), xr1.getCellData("Sheet1","OrderDate", i).trim().replace("-", "/"));
 		UseAssert.assertEquals(manageInvoices.gridData(rowIndex, 8).getText().trim(), "USD "+xr.getCellData("Sec invoice Master","New Invoice Amount", i).trim());
 		UseAssert.assertEquals(manageInvoices.gridData(rowIndex, 9).getText(), xr1.getCellData("Sheet1","On Account", i).trim());
 	}
