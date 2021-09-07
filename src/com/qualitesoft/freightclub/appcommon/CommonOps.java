@@ -1,5 +1,8 @@
 package com.qualitesoft.freightclub.appcommon;
 
+import java.text.NumberFormat;
+import java.text.ParseException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -13,6 +16,7 @@ import com.qualitesoft.core.JavaFunction;
 import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
+import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
 import com.qualitesoft.freightclub.pageobjects.ManageClaims;
@@ -362,6 +366,36 @@ public class CommonOps extends InitializeTest {
 		manageOrderpage.orderIDFilter(orderId);
 		SeleniumFunction.KeyBoradEnter(driver);
 		WaitTool.sleep(10);
+	}
+	
+	//************************Manage billing search document id and verify listing***************
+	
+	public void searchDocumentIdAndVerifyListing(String ex_carrierCode, String ex_type, String ex_fileStatus,
+			String ex_editStatus, String ex_status, String ex_carrierBill, String ex_documentNum) throws ParseException{
+		ManageOverages overagesPage = new ManageOverages(driver);
+		NumberFormat f = NumberFormat.getInstance(); 
+		
+		WebElement carrierName = overagesPage.gridData(1, 1);
+		WebElement billType = overagesPage.gridData(1, 2);
+		WebElement fileStatus = overagesPage.gridData(1, 3);
+		WebElement ediStatus = overagesPage.gridData(1, 4);
+		WebElement status = overagesPage.gridData(1, 5);
+		WebElement documentNum = overagesPage.gridData(1, 7);
+		WebElement noMarkupQuote = overagesPage.gridData(1, 8);
+		WebElement getvariance = overagesPage.gridData(1, 10);		
+		
+		String markupQuote = SeleniumFunction.getText(noMarkupQuote);
+		double markupQuoteAmount = Double.parseDouble(markupQuote.substring(1, markupQuote.length()));
+		double variance = ((Double.parseDouble(ex_carrierBill) - markupQuoteAmount) / markupQuoteAmount) * 100;
+		int vari = f.parse(SeleniumFunction.getText(getvariance).replace("$", "")).intValue(); 
+		
+		UseAssert.assertEquals(SeleniumFunction.getText(carrierName), ex_carrierCode);
+		UseAssert.assertEquals(SeleniumFunction.getText(billType), ex_type);
+		UseAssert.assertEquals(SeleniumFunction.getText(fileStatus), ex_fileStatus);
+		UseAssert.assertEquals(SeleniumFunction.getText(ediStatus), ex_editStatus);
+		UseAssert.assertEquals(SeleniumFunction.getText(status), ex_status);
+		UseAssert.assertEquals(SeleniumFunction.getText(documentNum), ex_documentNum);
+		UseAssert.assertEquals(vari, (int)variance);
 	}
 }
 

@@ -47,5 +47,19 @@ public class OrderDetailPage {
 	public String verifyRerouteLocationOnDetailPage(){
 		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//h5[contains(text(),'Reroute Location')]//parent::div"), 60));
 	}
+	
+	//******************verify bill details added by Admin on order detail page************
+	
+	public WebElement adminTab(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@id='admin-tab']"), 60);
+	}
+	
+	public WebElement billsTab(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@id='bills-tab']"), 60);
+	}
+	
+	public WebElement billDetail(String documentNum, int index){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//td[text()='"+documentNum+"']//parent::tr//td)["+index+"]"), 60);
+	}
 
 }

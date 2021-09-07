@@ -130,8 +130,6 @@
 			</class>
 			<class
 				name="com.qualitesoft.homesquare.testscripts.AmazonOrderConfirmation" />
-			<class
-				name="com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff" />
 		</classes>
 	</test>
 
@@ -155,8 +153,6 @@
 			</class>
 			<class
 				name="com.qualitesoft.homesquare.testscripts.AmazonOrderConfirmation" />
-			<class
-				name="com.qualitesoft.homesquare.testscripts.TestHomeSquareLogOff" />
 		</classes>
 	</test>
 
