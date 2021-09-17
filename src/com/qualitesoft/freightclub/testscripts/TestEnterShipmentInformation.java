@@ -137,13 +137,9 @@ public class TestEnterShipmentInformation extends InitializeTest {
 			SeleniumFunction.click(quickQuote.addadditionalItem());
 			jse.executeScript("window.scrollBy(0,250)", "");
 			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.cssSelector(".btn-remove:nth-child(1)"), 10));
-			WaitTool.sleep(2);
-			Keyboard keyboard = ((HasInputDevices) driver).getKeyboard();
-			keyboard.pressKey(Keys.BACK_SPACE);
-			WaitTool.sleep(2);
 			driver.findElement(By.cssSelector("input[placeholder='Select or Search...']")).sendKeys(productName);
 			WaitTool.sleep(5);
-			SeleniumFunction.KeyBoradEnter(driver);
+			driver.findElement(By.cssSelector("input[placeholder='Select or Search...']")).sendKeys(Keys.ENTER);
 			WaitTool.sleep(2);
 
 			if(!Row.equals("7")) {
@@ -356,12 +352,9 @@ public class TestEnterShipmentInformation extends InitializeTest {
 			
 			String productName= "prodDNnz";
 			WaitTool.sleep(2);
-			Keyboard keyboard = ((HasInputDevices) driver).getKeyboard();
-			keyboard.pressKey(Keys.BACK_SPACE);
-			WaitTool.sleep(2);
 			driver.findElement(By.xpath("(//*[@id=\"app-content\"]/div/div/div/section/section[2]/div/div[5]/div[1]/div[2]/div/div/table/tr/td[2]/div/div[1]/div[1]/div/div[1]/input)[3]")).sendKeys(productName);
 			WaitTool.sleep(5);
-			SeleniumFunction.KeyBoradEnter(driver);
+			driver.findElement(By.xpath("(//*[@id=\"app-content\"]/div/div/div/section/section[2]/div/div[5]/div[1]/div[2]/div/div/table/tr/td[2]/div/div[1]/div[1]/div/div[1]/input)[3]")).sendKeys(Keys.ENTER);
 			WaitTool.sleep(2);
 		}
 
@@ -420,12 +413,9 @@ public class TestEnterShipmentInformation extends InitializeTest {
 		//LTL Select 1 Package Type
 		if(i == 4) {
 			WaitTool.sleep(2);
-			Keyboard keyboard = ((HasInputDevices) driver).getKeyboard();
-			keyboard.pressKey(Keys.BACK_SPACE);
-			WaitTool.sleep(2);
 			driver.findElement(By.xpath("//*[@id=\"app-content\"]/div/div/div/section/section[2]/div/div[5]/div[1]/div[2]/div/div/table/tr/td[2]/div/div[1]/div[1]/div/div[1]/input")).sendKeys(TestManageProducts.Productname);
 			WaitTool.sleep(5);
-			SeleniumFunction.KeyBoradEnter(driver);
+			driver.findElement(By.xpath("//*[@id=\"app-content\"]/div/div/div/section/section[2]/div/div[5]/div[1]/div[2]/div/div/table/tr/td[2]/div/div[1]/div[1]/div/div[1]/input")).sendKeys(Keys.ENTER);
 			WaitTool.sleep(2);
 		} else {
 		quickQuote.PackageTypeOptions(packageType);

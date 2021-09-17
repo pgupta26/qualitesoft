@@ -1,5 +1,7 @@
 package com.qualitesoft.freightclub.testscripts.manageoverage;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
@@ -35,7 +37,8 @@ public class TestCompletedOverageStatus extends InitializeTest {
 		WaitTool.sleep(5);
 		SeleniumFunction.sendKeys(manageOverages.OrderIDTextBox(), xr.getCellData("Sec invoice Master","FC Order ID", i));
 		SeleniumFunction.sendKeys(manageOverages.TotalBilledTextBox(6), xr.getCellData("Sec invoice Master","New Invoice Amount", i));
-		SeleniumFunction.KeyBoradEnter(driver);
+		manageOverages.TotalBilledTextBox(6).sendKeys(Keys.ENTER);
+		WaitTool.sleep(5);
 		
 		//Click on view/edit button
 		SeleniumFunction.click(manageOverages.viewEdit(1));
@@ -43,9 +46,13 @@ public class TestCompletedOverageStatus extends InitializeTest {
 		//Select completed overage status
 		SeleniumFunction.getCurrentWindow(driver);
 		SeleniumFunction.click(overageDetails.getSelect("Overage Status:"));
-		SeleniumFunction.click(overageDetails.setSelect("Overage Status:", "Completed"));
+		SeleniumFunction.clickJS(driver, overageDetails.setSelect("Overage Status:", "Completed"));
+		WaitTool.sleep(5);
 		
 		//Save changes
+		SeleniumFunction.moveToElement(driver, overageDetails.saveChanges());
+		SeleniumFunction.scrollDownUptoFooter(driver);
+		SeleniumFunction.executeJS(driver, "window.scrollBy(2000,0)");
 		SeleniumFunction.click(overageDetails.saveChanges());
 		
 		//Verify overage status

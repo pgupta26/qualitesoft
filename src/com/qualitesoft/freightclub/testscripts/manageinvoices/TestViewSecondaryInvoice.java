@@ -1,6 +1,7 @@
 package com.qualitesoft.freightclub.testscripts.manageinvoices;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -43,7 +44,7 @@ public class TestViewSecondaryInvoice extends InitializeTest {
 				
 			//Filter data grid by total billed
 			SeleniumFunction.sendKeys(manageInvoices.TotalBilledTextBox(4), xr.getCellData("Sec invoice Master","New Invoice Amount", i));
-			SeleniumFunction.KeyBoradEnter(driver);
+			manageInvoices.TotalBilledTextBox(4).sendKeys(Keys.ENTER);
 			WaitTool.sleep(15);
 		}
 		

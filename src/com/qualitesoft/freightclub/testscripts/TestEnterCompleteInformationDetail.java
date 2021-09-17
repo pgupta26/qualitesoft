@@ -23,15 +23,16 @@ public class TestEnterCompleteInformationDetail extends InitializeTest {
 		String testDatasheet= "binaries/FCfiles/"+testData;
 		xr=new Xls_Reader(testDatasheet);
 		String specialHandlingInstructions=xr.getCellData("ShipmentInformation","SpecialHandlingInstructions", 2).trim();
-		
+
 		QuickQuote quickQuote = new QuickQuote(driver);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		int i=Integer.parseInt(Row);
-		
+		String palletType1 = xr.getCellData("Input", "PalletType1", i).trim();
+
 		if(testname.equals("Test Verify Request Cancellation Button - QA-537")) {
 			SeleniumFunction.scrollDownByPixel(driver, "200");
 			CommonOps commonOps = new CommonOps();
-			commonOps.addPalletContents(xr, i, 1); 
+			commonOps.addPalletContents(xr, i, 1, palletType1); 
 		}
 		
 		SeleniumFunction.moveToElement(driver, quickQuote.SpecialHandling());

@@ -47,6 +47,10 @@ public class ProfileManagementPage {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[contains(text(),'Update')]"), 10);
 	}
 	
+	public WebElement accountTypeDropdown() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"profileTab\"]/div[5]/div[3]/div/select"), 30);
+	}
+	
 	public List<String> getListOfEnableCarriers() {
 		
 		try {

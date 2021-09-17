@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -69,7 +70,7 @@ public class TestViewOverageDetails extends InitializeTest {
 		manageOrderpage.ExpandMenupage();
 		SeleniumFunction.sendKeys(manageOverages.OrderIDTextBox(), xr.getCellData("Sec invoice Master","FC Order ID", i));
 		SeleniumFunction.sendKeys(manageOverages.TotalBilledTextBox(6), xr.getCellData("Sec invoice Master","New Invoice Amount", i));
-		SeleniumFunction.KeyBoradEnter(driver);
+		manageOverages.TotalBilledTextBox(6).sendKeys(Keys.ENTER);
 		
 		//Accept popup
 		WaitTool.sleep(5);

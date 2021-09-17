@@ -1,6 +1,7 @@
 package com.qualitesoft.freightclub.testscripts.manageinvoices;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
@@ -49,12 +50,12 @@ public class TestImportSecondaries extends InitializeTest {
 
 		//Verify done  button after file uploaded successfully
 		UseAssert.assertEquals(WaitTool.isElementPresentAndDisplay(driver, By.xpath("//span[@class='k-icon k-i-tick']")), true);		
-		
+
 		//Filter grid data by total billed
 		WaitTool.sleep(5);
 		SeleniumFunction.sendKeys(manageInvoices.OrderIDTextBox(), xr.getCellData("Sec invoice Master","FC Order ID", i));
 		SeleniumFunction.sendKeys(manageInvoices.TotalBilledTextBox(5), xr.getCellData("Sec invoice Master","New Invoice Amount", i));
-		SeleniumFunction.KeyBoradEnter(driver);
+		manageInvoices.TotalBilledTextBox(5).sendKeys(Keys.ENTER);
 		
 		//Accept popup
 		WaitTool.sleep(10);

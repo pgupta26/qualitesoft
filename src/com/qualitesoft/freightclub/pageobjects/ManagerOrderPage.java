@@ -109,6 +109,10 @@ public class ManagerOrderPage {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"center\"]/div/div[4]/div[3]/div/div/div[1]/div[7]/div/ul/li[2]"), 30);
 	}
 	
+	public WebElement customerPOGridFilter() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@id='quickOrders']/descendant::input[@ref='eColumnFloatingFilter'])[2]"), 30);
+	}
+	
 	public WebElement openQuotesActions() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id='center']/div/div[4]/div[3]/div/div/div[1]/div[9]/div/button"), 30);
 	}

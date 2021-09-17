@@ -70,12 +70,13 @@ public class ScreenShot extends InitializeTest {
 		try {
 			baseScreenShotsFolder = System.getProperty("user.dir") +File.separator+"screen-shots"+File.separator;
 			SimpleDateFormat sdfmth = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
-			baseScreenShotsFolder = baseScreenShotsFolder +InitializeTest.project+File.separator+testName.trim()+File.separator
+			baseScreenShotsFolder = baseScreenShotsFolder +InitializeTest.project+File.separator+testName+File.separator
 					+ sdfmth.format(new Date());
 			File file = new File(baseScreenShotsFolder);
 			if(!file.exists())  {
-				file.mkdir();
+				file.mkdirs();
 			}
+			
 			WaitTool.sleep(1);
 			return baseScreenShotsFolder;
 		} catch (Exception e) {

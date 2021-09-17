@@ -1,6 +1,7 @@
 package com.qualitesoft.freightclub.testscripts.manageoverage;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -42,7 +43,7 @@ public class TestSentToCarrierOverageStatus extends InitializeTest {
 		WaitTool.sleep(5);
 		SeleniumFunction.sendKeys(manageOverages.OrderIDTextBox(), xr.getCellData("Sec invoice Master","FC Order ID", i));
 		SeleniumFunction.sendKeys(manageOverages.TotalBilledTextBox(6), xr.getCellData("Sec invoice Master","New Invoice Amount", i));
-		SeleniumFunction.KeyBoradEnter(driver);
+		manageOverages.TotalBilledTextBox(6).sendKeys(Keys.ENTER);
 		
 		//Verify overage status in data grid
 		WaitTool.sleep(5);

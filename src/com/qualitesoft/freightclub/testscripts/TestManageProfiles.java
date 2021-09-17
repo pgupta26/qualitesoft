@@ -1,6 +1,8 @@
 package com.qualitesoft.freightclub.testscripts;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
@@ -17,13 +19,16 @@ public class TestManageProfiles extends InitializeTest{
 		
 		ProfileManagementPage profileManagementPage = new ProfileManagementPage(driver);
 		QuickQuote quickQuote = new QuickQuote(driver);
-		profileManagementPage.manageProfileLink();
 		SeleniumFunction.clickJS(driver, profileManagementPage.manageProfileLink());
-		WaitTool.sleep(1);
+		WaitTool.sleep(5);
 		quickQuote.acceptPopup();
-		WaitTool.sleep(1);
+		WaitTool.sleep(2);
 		ScreenShot.takeScreenShot(driver, "ProfileManagementPage");
 		SeleniumFunction.sendKeys(profileManagementPage.profileListfilter(), "17226");
+		profileManagementPage.profileListfilter().sendKeys(Keys.TAB);
+		WaitTool.sleep(10);
+		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='User:']"),30));
+		
 	    JavascriptExecutor jse = (JavascriptExecutor) driver;
 	    WaitTool.sleep(9);
 	    jse.executeScript("window.scrollBy(0,550)", "");

@@ -29,7 +29,6 @@ public class InitializeTest {
 	public static String existingbrand = null;
 	public static String templateused = null;
 	public static String testname = null;
-	//public static String testname = null;
 	public static String URL = null;
 	public static String manageproductfile = null;
 	public static String managefullorderfile = null;
@@ -151,7 +150,6 @@ public class InitializeTest {
 				chromePrefs.put("download.default_directory", download);
 				ChromeOptions options = new ChromeOptions();
 				options.setExperimentalOption("prefs", chromePrefs);
-				//options.setBinary("C://Program Files//Google//Chrome//Application//chrome.exe");
 				options.addArguments("--disable-notifications");
 				DesiredCapabilities cap = DesiredCapabilities.chrome();
 				options.addArguments("test-type");
