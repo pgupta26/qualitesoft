@@ -2,6 +2,7 @@ package com.qualitesoft.freightclub.testscripts.manageoverage;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -13,7 +14,9 @@ import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
 import com.qualitesoft.freightclub.pageobjects.ManageOverages;
+import com.qualitesoft.freightclub.pageobjects.ManagerOrderPage;
 import com.qualitesoft.freightclub.pageobjects.OverageDetails;
+import com.qualitesoft.freightclub.pageobjects.QuickQuote;
 
 public class TestEditOverageDetails extends InitializeTest {
 
@@ -35,24 +38,28 @@ public class TestEditOverageDetails extends InitializeTest {
 			SeleniumFunction.click(overageDetails.getSelect("Overage Status:"));
 			SeleniumFunction.click(overageDetails.setSelect("Overage Status:", xr1.getCellData("EditOverageDetails", "OverageStatus", i).trim()));
 			driver.findElement(By.tagName("body")).sendKeys(Keys.ENTER);
+			WaitTool.sleep(3);
 
 			//Select secondary category
 			SeleniumFunction.click(overageDetails.getSelect("Secondary Category:"));
 			SeleniumFunction.click(overageDetails.setSelect("Secondary Category:", xr1.getCellData("EditOverageDetails", "SecondaryCategory", i).trim()));
 			driver.findElement(By.tagName("body")).sendKeys(Keys.ENTER);
-
+			WaitTool.sleep(3);
 			
 			//Select secondary reason
 			SeleniumFunction.scrollDownUptoFooter(driver);
-			SeleniumFunction.click(overageDetails.getSelect("Secondary Reason:"));
+			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[text()='Secondary Reason:']/following-sibling::div/descendant::div[contains(@class,'has-options')]"), 20));
 			SeleniumFunction.click(overageDetails.setSelect("Secondary Reason:", xr1.getCellData("EditOverageDetails", "SecondaryReason", i).trim()));
 			driver.findElement(By.tagName("body")).sendKeys(Keys.ENTER);
-
+			WaitTool.sleep(3);
+			
 			//Enter reason details
 			SeleniumFunction.sendKeys(overageDetails.getLabel("Reason Details:"), xr1.getCellData("EditOverageDetails", "ReasonDetails", i).trim());
 
 			//Type comments
-			SeleniumFunction.moveToElement(driver, overageDetails.saveComment());
+			SeleniumFunction.moveToElement(driver, overageDetails.saveChanges());
+			SeleniumFunction.scrollDownUptoFooter(driver);
+			SeleniumFunction.executeJS(driver, "window.scrollBy(2000,0)");
 			SeleniumFunction.sendKeys(overageDetails.comments(), xr1.getCellData("EditOverageDetails", "AdminComment", i));
 
 			//Click on save comment
@@ -136,6 +143,27 @@ public class TestEditOverageDetails extends InitializeTest {
 			SeleniumFunction.getCurrentWindow(driver);
 
 			//Verify grid button text
+			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
+			QuickQuote quickQuote = new QuickQuote(driver);
+			
+			Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+			
+			String orderID = xr.getCellData("Sec invoice Master","FC Order ID", i);
+			String amount = xr.getCellData("Sec invoice Master","New Invoice Amount", i);
+			
+			//Click on  manage overages link
+			SeleniumFunction.click(manageOverages.manageOverages());
+			
+			//Accept popup
+			WaitTool.sleep(5);
+			quickQuote.acceptPopup();
+			WaitTool.sleep(5);
+			
+			manageOrderpage.ExpandMenupage();
+			SeleniumFunction.sendKeys(manageOverages.OrderIDTextBox(), orderID);
+			SeleniumFunction.sendKeys(manageOverages.TotalBilledTextBox(6), amount);
+			manageOverages.TotalBilledTextBox(6).sendKeys(Keys.ENTER);
+			WaitTool.sleep(5);
 			UseAssert.assertEquals(SeleniumFunction.getText(manageOverages.viewEdit(1)), "View");
 		}
 	}

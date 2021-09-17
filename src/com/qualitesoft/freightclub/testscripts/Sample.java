@@ -8,12 +8,9 @@ import com.qualitesoft.core.SoftAssertion;
 
 public class Sample {
 
-	@Test
-	public void assertionTest() {
-		
-		String amount = String.valueOf(JavaFunction.getRandomNumber(1, 999))+"."+String.valueOf(JavaFunction.getRandomNumber(1, 99));
-		System.out.println(amount);
-		
+	public static void main(String[] args) {
+		String locationName = "AutoCom90001";
+		System.out.println(locationName.substring(0, 4));
+		System.out.println(locationName.substring(4, locationName.length()));
 	}
-
 }

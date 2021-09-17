@@ -10,27 +10,29 @@ import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
 import com.qualitesoft.freightclub.pageobjects.ProfileManagementPage;
 
-public class TestSelectPaymentMethod extends InitializeTest {
-
+public class TestSelectAccountType extends InitializeTest {
+	
 	@Test
-	public void testSelectPaymentMethod() {
+	public void testSelectAccountType() {
+		
 		ProfileManagementPage profileManagement = new ProfileManagementPage(driver);
 
 		Xls_Reader xr = new Xls_Reader("binaries/FCfiles/"+testData);
 		int rowIndex = Integer.parseInt(Row);
 		Log.info("Row Number: "+rowIndex);	
 
-		String paymentMethod = xr.getCellData("ContactInfo", "PaymentMethod", rowIndex);
+		String accountType = xr.getCellData("ContactInfo", "AccountType", rowIndex);
 
-		SeleniumFunction.moveToElement(driver, profileManagement.paymentType());
-		SeleniumFunction.selectByVisibleText(profileManagement.paymentType(), paymentMethod);
-		ScreenShot.takeScreenShot(driver, "payment method"+paymentMethod);		
+		SeleniumFunction.moveToElement(driver, profileManagement.accountTypeDropdown());
+		SeleniumFunction.selectByVisibleText(profileManagement.accountTypeDropdown(), accountType);
+		ScreenShot.takeScreenShot(driver, "Account type "+accountType+" selected");		
 
 		//click on save profile
 		SeleniumFunction.scrollDownUptoFooter(driver);
 		WaitTool.sleep(5);
 		SeleniumFunction.clickJS(driver, profileManagement.saveProfileButtonSurePost());
-		ScreenShot.takeScreenShot(driver, "profile saved successfully");
+		ScreenShot.takeScreenShot(driver, "Account type "+accountType+" saved");
 		WaitTool.sleep(20);
+		
 	}
 }

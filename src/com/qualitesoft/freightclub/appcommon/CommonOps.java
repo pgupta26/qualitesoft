@@ -3,6 +3,11 @@ package com.qualitesoft.freightclub.appcommon;
 import java.text.NumberFormat;
 import java.text.ParseException;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.pdfbox.Loader;
+import org.apache.pdfbox.pdmodel.PDDocument;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -35,8 +40,10 @@ public class CommonOps extends InitializeTest {
 		String serviceLevel=xr.getCellData("Input","serviceLevel", rowIndex).trim();
 		String orderReferenceID=xr.getCellData("Input","orderReferenceID", rowIndex).trim();
 		String pickUpZip=xr.getCellData("Input","pickUpZip", rowIndex).trim();
+		String pickUPLocationName = xr.getCellData("Input","pickUpLocationName", rowIndex).trim();
 		String pickUpType=xr.getCellData("Input","pickUpType", rowIndex).trim();
 		String dropOffZip=xr.getCellData("Input","dropOffZip", rowIndex).trim();
+		String dropOffLocationName = xr.getCellData("Input","dropOffLocationName", rowIndex).trim();
 		String dropOffType=xr.getCellData("Input","dropOffType", rowIndex).trim();			
 
 		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
@@ -46,23 +53,34 @@ public class CommonOps extends InitializeTest {
 		quickQuote.acceptPopup();
 		SeleniumFunction.scrollDownByPixel(driver, "500");
 		WaitTool.sleep(5);
-		
+
 		if(!quickQuote.shipmentType(shipmentType).getAttribute("class").contains("active"))
-				SeleniumFunction.clickJS(driver, quickQuote.shipmentType(shipmentType));
+			SeleniumFunction.clickJS(driver, quickQuote.shipmentType(shipmentType));
 		quickQuote.acceptPopup();
 		SeleniumFunction.scrollUpByPixel(driver, "1500");
 		SeleniumFunction.click(quickQuote.OrderDate());
 		SeleniumFunction.sendKeys(quickQuote.OrderReferenceID(), orderReferenceID);
 		SeleniumFunction.click(quickQuote.serviceLevel(serviceLevel));
 
-		SeleniumFunction.sendKeys(quickQuote.PickUpZip(), pickUpZip.trim());
-		SeleniumFunction.sendKeys(quickQuote.DropOffZip(),dropOffZip.trim());
+		if(!pickUPLocationName.isEmpty()) {
+			SeleniumFunction.click(quickQuote.selectLocationName(pickUPLocationName));
+		} else { 
+			SeleniumFunction.sendKeys(quickQuote.PickUpZip(), pickUpZip.trim());
+		}
+
+		if(dropOffZip.isEmpty()) {
+			SeleniumFunction.click(quickQuote.selectLocationName(dropOffLocationName));
+		} else {
+			SeleniumFunction.sendKeys(quickQuote.DropOffZip(),dropOffZip.trim());
+		}
+
 		SeleniumFunction.scrollUpByPixel(driver, "250");
 		SeleniumFunction.selectByVisibleText(quickQuote.PickUpLocationType(), pickUpType);
 		SeleniumFunction.selectByVisibleText(quickQuote.DropOffLocationType(), dropOffType);
+		ScreenShot.takeScreenShot(driver, "Shipment Info");
 	}
 
-	public void itemInformation(Xls_Reader xr, int rowIndex, int itemIndex) {
+	public void itemInformation(Xls_Reader xr, int rowIndex, int itemIndex, String packageType) {
 		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
 
 		//Read data from sheet for selected row
@@ -74,17 +92,13 @@ public class CommonOps extends InitializeTest {
 		String category=xr.getCellData("Input","category", rowIndex).trim();			
 		String DeclaredValue=xr.getCellData("Input","DeclaredValue", rowIndex).trim();
 		String Cartons=xr.getCellData("Input","Cartons", rowIndex).trim();
-		String packageType = xr.getCellData("Input", "packageType", rowIndex).trim();	
+		String packageType2 = xr.getCellData("Input", "packageType2", rowIndex).trim();	
 
 		SeleniumFunction.scrollDownByPixel(driver, "1000");
 		if(packageType.equals("SearchaddedProduct")) {
-			WaitTool.sleep(2);
-			Keyboard keyboard = ((HasInputDevices) driver).getKeyboard();
-			keyboard.pressKey(Keys.BACK_SPACE);
-			WaitTool.sleep(2);
 			SeleniumFunction.sendKeys(quickQuote.productvalue(itemIndex), Productname);
 			WaitTool.sleep(5);
-			SeleniumFunction.KeyBoradEnter(driver);
+			quickQuote.productvalue(itemIndex).sendKeys(Keys.ENTER);
 			WaitTool.sleep(2);
 
 		}else {
@@ -97,20 +111,19 @@ public class CommonOps extends InitializeTest {
 				SeleniumFunction.selectByvalue(quickQuote.Category(itemIndex), "346");
 			}
 
-			WebElement quan = quickQuote.quantity(itemIndex);
-			JavascriptExecutor jse = (JavascriptExecutor)driver;
-			jse.executeScript("arguments[0].value=''", quan);
-			SeleniumFunction.sendKeys(quan, quantity);
+			SeleniumFunction.sendKeys(quickQuote.quantity(itemIndex), quantity);
 			SeleniumFunction.clickJS(driver, quickQuote.PackageType(packageType, itemIndex));
 			SeleniumFunction.sendKeys(quickQuote.Weight(itemIndex), Weight);
+			WaitTool.sleep(3);
 			SeleniumFunction.sendKeys(quickQuote.DimensionL(itemIndex), DimensionL);
 			SeleniumFunction.sendKeys(quickQuote.DimensionW(itemIndex), DimensionW);
 			SeleniumFunction.sendKeys(quickQuote.DimensionH(itemIndex), DimensionH);
 			SeleniumFunction.sendKeys(quickQuote.DeclaredValue(itemIndex), DeclaredValue);
-			if (packageType.equalsIgnoreCase("Standard Pallet 1") || packageType.equalsIgnoreCase("Custom Pallet (enter dimensions)")) {
+			if (packageType.contains("Standard Pallet") || packageType.equalsIgnoreCase("Custom Pallet (enter dimensions)")) {
 				SeleniumFunction.sendKeys(quickQuote.Cartons(itemIndex), Cartons);
 			}
 		}
+		ScreenShot.takeScreenShot(driver, "Item Info");
 	}
 
 	public void selectCarrier() {
@@ -124,26 +137,32 @@ public class CommonOps extends InitializeTest {
 		quickQuote.acceptPopup();
 	}
 
-	public void addPalletContents(Xls_Reader xr, int rowIndex, int itemIndex) {
+	public void addPalletContents(Xls_Reader xr, int rowIndex, int itemIndex, String palletType) {
 		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
-
-		String palletType = xr.getCellData("Input", "PalletType", rowIndex).trim();		
-		String palletDescription = xr.getCellData("ShipmentInformation", "PalletDescription", rowIndex);
+		
 		String quantity=xr.getCellData("Input","Quantity", rowIndex).trim();
-		String Weight=xr.getCellData("Input","Weight", rowIndex).trim();
+		String Weight=xr.getCellData("Input","PalletWeight", rowIndex).trim();
 		String DimensionL=xr.getCellData("Input","DimensionL", rowIndex).trim();
 		String DimensionW=xr.getCellData("Input","DimensionW", rowIndex).trim();
 		String DimensionH=xr.getCellData("Input","DimensionH", rowIndex).trim();
 		String category=xr.getCellData("Input","category", rowIndex).trim();			
 		String DeclaredValue=xr.getCellData("Input","DeclaredValue", rowIndex).trim();
-		String numberOfCartoons = xr.getCellData("Input", "NumberOfCartoons", rowIndex).trim();			
+		String cartoonQuantity = xr.getCellData("Input", "CartoonQuantity", rowIndex).trim();	
+		
+		String description = xr.getCellData("ShipmentInformation","Description", 2).trim();
 
-		if(palletType.equalsIgnoreCase("Generic Pallet")) {
+		
+		if(palletType.equals("Non-Palletized")) {
 			SeleniumFunction.scrollUpByPixel(driver, "300");
+			SeleniumFunction.sendKeys(quickQuote.PalletDesc(), description);
+			ScreenShot.takeScreenShot(driver, "Pallet Info");
+		} else if(palletType.equalsIgnoreCase("Generic Pallet")) {
+			SeleniumFunction.scrollUpByPixel(driver, "500");
 			SeleniumFunction.click(quickQuote.genericPallet());
-			SeleniumFunction.sendKeys(quickQuote.palletDescription(), palletDescription);
-			SeleniumFunction.sendKeys(quickQuote.numberOfCartoons(), numberOfCartoons);
-		} else if(palletType.equalsIgnoreCase("Non-Palletized")) {
+			SeleniumFunction.sendKeys(quickQuote.palletDescription(), description);
+			SeleniumFunction.sendKeys(quickQuote.numberOfCartoons(), cartoonQuantity);
+			ScreenShot.takeScreenShot(driver, "Pallet Info");
+		} else if(palletType.equalsIgnoreCase("Non-Palletized-step3")) {
 			if(category.equalsIgnoreCase("Other")){
 				SeleniumFunction.selectByvalue(quickQuote.Category(itemIndex), "347");
 				SeleniumFunction.click(quickQuote.popupCateogory(itemIndex));
@@ -153,15 +172,17 @@ public class CommonOps extends InitializeTest {
 				SeleniumFunction.selectByvalue(quickQuote.Category(itemIndex), "346");
 			}
 
-			SeleniumFunction.sendKeys(quickQuote.quantity(itemIndex), quantity);
-			SeleniumFunction.clickJS(driver, quickQuote.PackageType(palletType, itemIndex));
+			SeleniumFunction.sendKeys(quickQuote.quantity(itemIndex), cartoonQuantity);
+			SeleniumFunction.clickJS(driver, quickQuote.PackageType("Non-Palletized", itemIndex));
 			SeleniumFunction.sendKeys(quickQuote.Weight(itemIndex), Weight);
 			SeleniumFunction.sendKeys(quickQuote.DimensionL(itemIndex), DimensionL);
 			SeleniumFunction.sendKeys(quickQuote.DimensionW(itemIndex), DimensionW);
 			SeleniumFunction.sendKeys(quickQuote.DimensionH(itemIndex), DimensionH);
 			SeleniumFunction.sendKeys(quickQuote.DeclaredValue(itemIndex), DeclaredValue);
+			ScreenShot.takeScreenShot(driver, "Pallet Info");
 
 		} else if(palletType.equals("New Product")) {
+			SeleniumFunction.scrollUpByPixel(driver, "300");
 			ManageProducts manageProducts = new ManageProducts(driver);
 			String Productname=JavaFunction.randomText("prod", 4);
 			Log.info("Product Name: "+Productname);
@@ -176,14 +197,15 @@ public class CommonOps extends InitializeTest {
 			this.addProductCarton(xr, 5, 1);
 
 			SeleniumFunction.click(manageProducts.saveproduct());
+			ScreenShot.takeScreenShot(driver, "Pallet Info");
 
 		} else  {
 			WaitTool.sleep(2);
 			SeleniumFunction.sendKeys(quickQuote.productvalue(itemIndex), Productname);
 			WaitTool.sleep(5);
-			SeleniumFunction.KeyBoradEnter(driver);
+			quickQuote.productvalue(itemIndex).sendKeys(Keys.ENTER);
 			WaitTool.sleep(2);
-		}
+		} 
 	}
 
 	public void shipmentCompletion(Xls_Reader xr, int rowIndex) {
@@ -191,64 +213,75 @@ public class CommonOps extends InitializeTest {
 
 		String shipmentType=xr.getCellData("Input","shipmentType", rowIndex).trim();
 		String packageType = xr.getCellData("Input", "packageType", rowIndex).trim();
+		String packageType2 = xr.getCellData("Input", "packageType2", rowIndex).trim();
+		String pickUPLocationName = xr.getCellData("Input","pickUpLocationName", rowIndex).trim();
 
-		SeleniumFunction.scrollDownByPixel(driver, "350");
-		WaitTool.sleep(3);
-		SeleniumFunction.sendKeys(quickQuote.SpecialHandling(), "Test Special Handling Instructions");
-		SeleniumFunction.scrollUpByPixel(driver, "400");
-		WaitTool.sleep(15);
-		quickQuote.LocationName().sendKeys(Keys.chord("Auto"));
-		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Com90001']"), 10));	
-		quickQuote.LocationName().sendKeys(Keys.chord("Auto"));
-		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Com10011']"), 10));	
-		SeleniumFunction.scrollUpByPixel(driver, "400");
-		ScreenShot.takeScreenShot(driver, "Filled Shipment info "+shipmentType+" "+packageType);
+		String specialHandlingIns = xr.getCellData("ShipmentInformation","SpecialHandlingInstructions", 2).trim();
+		String genericPalletDesc = xr.getCellData("ShipmentInformation","PalletDescription", 2).trim();
+
+		SeleniumFunction.scrollDownByPixel(driver, "300");
+		SeleniumFunction.sendKeys(quickQuote.SpecialHandling(), specialHandlingIns);
+	
+		if(pickUPLocationName.isEmpty()) {
+			SeleniumFunction.scrollDownByPixel(driver, "300");
+			quickQuote.LocationName().sendKeys(Keys.chord("Auto"));
+			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Com90001']"), 10));	
+			quickQuote.LocationName().sendKeys(Keys.chord("Auto"));
+			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Com10011']"), 10));	
+			SeleniumFunction.scrollUpByPixel(driver, "400");
+		}
+		
+		ScreenShot.takeScreenShot(driver, "Shipment Completion");
 	}
 
-	public void verifyPalletizedDetail(Xls_Reader xr, int rowIndex, String panelIndex) {
-		int i=rowIndex;
+	public void verifyPalletizedDetail(Xls_Reader xr, int rowIndex, String panelIndex, String packageType) {
 		
-		String expectedPackageType;
-		expectedPackageType = xr.getCellData("Input", "packageType", i).trim();
-		
-		if(expectedPackageType.equalsIgnoreCase("SearchaddedProduct")) {
-			expectedPackageType="Standard Pallet 1";
-		}
+		ManageOrderNotQuotedTab notQuotedTab = new ManageOrderNotQuotedTab(driver);
 
-		String expectedWeight=xr.getCellData("Input","Weight", i).trim();
-		String DimensionL=xr.getCellData("Input","DimensionL", i).trim();
-		String DimensionW=xr.getCellData("Input","DimensionW", i).trim();
-		String DimensionH=xr.getCellData("Input","DimensionH", i).trim();
-		String expectedCategory=xr.getCellData("Input","category", i).trim();			
-		String expectedDeclareValue=xr.getCellData("Input","DeclaredValue", i).trim();
-		String expectedNumberOfCartoons=xr.getCellData("Input","NumberOfCartoons", i);
+		String expectedPackageType = null;
+		String expectedWeight=xr.getCellData("Input","Weight", rowIndex).trim();
+		String DimensionL=xr.getCellData("Input","DimensionL", rowIndex).trim();
+		String DimensionW=xr.getCellData("Input","DimensionW", rowIndex).trim();
+		String DimensionH=xr.getCellData("Input","DimensionH", rowIndex).trim();
+		String expectedCategory=xr.getCellData("Input","category", rowIndex).trim();			
+		String expectedDeclareValue=xr.getCellData("Input","DeclaredValue", rowIndex).trim();
+		String expectedNumberOfCartoons=xr.getCellData("Input","TotalPalletCount", rowIndex);
 
-		expectedPackageType = "1 x "+expectedPackageType.split("Standard ")[1].toUpperCase();
 		expectedWeight = expectedWeight+"lbs";
 		String expectedDimension = "L"+DimensionL+" x W"+DimensionW+" x H"+DimensionH+" inches";
 		expectedDeclareValue = "$"+expectedDeclareValue+".00";
-
-		ManageOrderNotQuotedTab notQuotedTab = new ManageOrderNotQuotedTab(driver);
-
+		
+		String actualCategory = null;
+		String actualCartoon = null;
+		
+		if(packageType.equals("Non-Palletized")) {
+			expectedPackageType = "1 x "+packageType+ " 1";
+			actualCategory = notQuotedTab.getCellValueFromPackage(panelIndex, "4").getText();
+		} else if(packageType.contains("Standard")) {
+			expectedPackageType = "1 x "+packageType.split("Standard ")[1].toUpperCase();
+			actualCartoon = notQuotedTab.getCellValueFromPackage(panelIndex, "5").getText();
+			actualCategory = notQuotedTab.getCellValueFromPackage(panelIndex, "6").getText();
+			Assert.assertEquals(actualCartoon, expectedNumberOfCartoons);
+		} else if(packageType.equalsIgnoreCase("SearchaddedProduct") || packageType.equalsIgnoreCase("Custom Pallet (enter dimensions)") ) {
+			expectedPackageType="1 x Pallet 1";
+			actualCartoon = notQuotedTab.getCellValueFromPackage(panelIndex, "5").getText();
+			actualCategory = notQuotedTab.getCellValueFromPackage(panelIndex, "6").getText();
+			Assert.assertEquals(actualCartoon, expectedNumberOfCartoons);
+		} else {
+			expectedPackageType="1 x Box 1";
+			actualCategory = notQuotedTab.getCellValueFromPackage(panelIndex, "4").getText();
+		}
+		
 		String actualPackageType = notQuotedTab.packageTypeHeading(panelIndex).getText();
 		String actualWeight = notQuotedTab.getCellValueFromPackage(panelIndex, "1").getText();
 		String actualDimentions = notQuotedTab.getCellValueFromPackage(panelIndex, "2").getText();
 		String actualDeclaredValue = notQuotedTab.getCellValueFromPackage(panelIndex, "3").getText();
-		String actualCategory = notQuotedTab.getCellValueFromPackage(panelIndex, "6").getText();
-		String actualCartoon = notQuotedTab.getCellValueFromPackage(panelIndex, "5").getText();
-
-
+		
 		Assert.assertEquals(actualPackageType, expectedPackageType);
 		Assert.assertEquals(actualWeight, expectedWeight);
 		Assert.assertEquals(actualDimentions, expectedDimension);
 		Assert.assertEquals(actualDeclaredValue, expectedDeclareValue);
-		Assert.assertEquals(actualCartoon, expectedNumberOfCartoons);
-		if(testname.equals("Test user is able to create palletized sku")) {
-			Assert.assertEquals(actualCategory, "Other, Other, Other");
-		}else {
-			Assert.assertEquals(actualCategory, expectedCategory);
-		}
-		
+		ScreenShot.takeScreenShot(driver, "Pallet Details");
 	}
 
 	public void bookOrder(Xls_Reader xr, int rowIndex) {
@@ -256,7 +289,8 @@ public class CommonOps extends InitializeTest {
 		ManageOverages manageOverage = new ManageOverages(driver);
 
 		SeleniumFunction.clickJS(driver, quickQuote.Book());
-		SeleniumFunction.click(quickQuote.Okbutton1());			
+		SeleniumFunction.click(quickQuote.Okbutton1());
+		WaitTool.sleep(10);
 		crorderId=SeleniumFunction.getText(manageOverage.gridData(1, 1));
 		Log.info("Order Id Generated: "+crorderId);
 		String orderDate= SeleniumFunction.getText(manageOverage.gridData(1, 3));
@@ -270,6 +304,7 @@ public class CommonOps extends InitializeTest {
 		xr.setCellData("Input","pickUpDate", rowIndex,orderDate.trim());
 		xr.setCellData("Input","Amount", rowIndex,amount);
 		WaitTool.sleep(5);
+		ScreenShot.takeScreenShot(driver, "Order Booked");
 	}
 
 	public void addProductDetail(Xls_Reader xr, int rowIndex) {
@@ -326,9 +361,9 @@ public class CommonOps extends InitializeTest {
 		SeleniumFunction.sendKeys(manageProduct.cartoonheight(itemIndex), cartonHeight);
 
 	}
-	
+
 	/*-------------------------------Manage Orders Page --------------------------------------*/
-	
+
 	public void openManageOrdersPageAndSearchOrder(String orderId){
 		ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
 		SeleniumFunction.clickJS(driver, manageOrderpage.manageOrdersLink());
@@ -337,7 +372,7 @@ public class CommonOps extends InitializeTest {
 		if(!manageOrderpage.ExpandMenupage().getAttribute("class").equals("active")) {
 			SeleniumFunction.click(manageOrderpage.ExpandMenupage());
 		}
-		
+
 		if(manageOrderpage.acceptFeedbackPopupStatus() == true){
 			manageOrderpage.acceptFeedbackPopup();
 		}
@@ -346,7 +381,7 @@ public class CommonOps extends InitializeTest {
 		manageOrderpage.orderIdFilter().sendKeys(Keys.ENTER);
 		WaitTool.sleep(10);
 	}
-	
+
 	public void openManageClaimsPageAndSearchOrder(String orderId){
 		ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
 		ManageClaims manageClaims = new ManageClaims(driver);
@@ -354,7 +389,7 @@ public class CommonOps extends InitializeTest {
 		if(manageOrderpage.ExpandMenupage().getAttribute("class").equals("active")) {
 			SeleniumFunction.click(manageOrderpage.ExpandMenupage());
 		}
-		
+
 		SeleniumFunction.click(manageClaims.manageClaimsLink());
 		ScreenShot.takeScreenShot(driver, "Manage Claims Page");
 
@@ -364,7 +399,7 @@ public class CommonOps extends InitializeTest {
 
 		WaitTool.sleep(5);
 		manageOrderpage.orderIDFilter(orderId);
-		SeleniumFunction.KeyBoradEnter(driver);
+		manageOrderpage.orderIdFilter().sendKeys(Keys.ENTER);
 		WaitTool.sleep(10);
 	}
 	
@@ -396,6 +431,20 @@ public class CommonOps extends InitializeTest {
 		UseAssert.assertEquals(SeleniumFunction.getText(status), ex_status);
 		UseAssert.assertEquals(SeleniumFunction.getText(documentNum), ex_documentNum);
 		UseAssert.assertEquals(vari, (int)variance);
+	}
+	
+	public void checkPdfFilePresenceAndPageCount(String fileName, int expectedPageCount ) throws IOException {
+
+		String downloadDir = System.getProperty("user.dir") +File.separator+"download"+File.separator;
+		File file = new File(downloadDir+fileName);
+
+		if(file.exists()) {
+			PDDocument doc = Loader.loadPDF(file);
+			int count = doc.getNumberOfPages();
+			UseAssert.assertEquals(count, expectedPageCount);
+		}else {
+			Assert.fail();
+		}
 	}
 }
 

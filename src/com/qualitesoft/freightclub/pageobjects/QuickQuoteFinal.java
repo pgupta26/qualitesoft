@@ -69,6 +69,11 @@ public class QuickQuoteFinal {
 	public WebElement PickUpZip() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='pickupzipEntry']"), 30);
 	}
+	
+	public WebElement selectLocationName(String locationName) {
+		WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@placeholder='Select location or enter ZIP/Postal code'])[1]"), 30).sendKeys(Keys.chord(locationName.substring(0, 4)));
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='"+locationName.substring(4, locationName.length())+"']"), 10);
+	}
 
 	public WebElement DropOffZip() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='dropoffzipEntry']"), 30);
@@ -214,21 +219,28 @@ public class QuickQuoteFinal {
 			SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/302.png']/ancestor::tr/td[7]/button"), 10));
 		} else if(carrierName.equals("FC Test Carrier")) {
 			SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/222.png']/ancestor::tr/td[7]/button"), 10));
+		} else if(carrierName.equals("Ups")) {
+			SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/1.png']/ancestor::tr/td[7]/button"), 10));
+		} else if(carrierName.equals("Ups SurePost")) {
+			SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//span[contains(text(),'SurePost')]/parent::td/following-sibling::td[4]/button"), 10));
 		}
 	}
 
 	//Shipment Completion Tab
+	public WebElement PalletDesc() {		
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//textarea[@placeholder='It is highly recommended to detail what is inside the box for claims and insurance purposes. E.g. game console, microwave ']"), 60);	
+	} 
+	
+	public WebElement palletDescription() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.name("pallet-description"), 30);
+	}
+	
 	public WebElement totalCartonCount() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[text()='Total Carton Count:']/following-sibling::span"), 30);
 	}
 	public WebElement genericPallet() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.name("palletType0"), 30);
 	}
-
-	public WebElement palletDescription() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.name("pallet-description"), 30);
-	}
-
 	public WebElement numberOfCartoons() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[text()='Number of cartons on pallet']/following::input"), 30);
 	}
@@ -283,8 +295,6 @@ public class QuickQuoteFinal {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@id='btn-continue-to-orders']"), 60);
 	}
 	
-	public WebElement PalletDesc() {		
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id='app-content']/div/div/div/section/article/div/div[2]/div[1]/div/div[2]/textarea"), 60);	
-	} 
+	
 	
 }

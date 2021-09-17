@@ -19,20 +19,19 @@ public class TestLabels extends InitializeTest {
 
 		ManagerOrderPage manageOrderPage =new ManagerOrderPage(driver);
 		CommonOps commonOps = new CommonOps();
-
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/FCFile.xlsx"); 
-		int i=Integer.parseInt(Row);
+		
+		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData); int
+		i=Integer.parseInt(Row);
 		String orderId=xr.getCellData("Input","OrderId", i).trim();
 
-		commonOps.openManageOrdersPageAndSearchOrder(orderId);
+		WaitTool.sleep(2);
 		SeleniumFunction.click(manageOrderPage.ActionButton());
 		SeleniumFunction.click(manageOrderPage.shippingLabelsPdf());
 		WaitTool.sleep(10); 
 		ScreenShot.takeScreenShot(driver, "Shipping Label PDF for order id "+orderId);
 
-		TestBOL obj = new TestBOL();
-		int numberOfPages = Integer.parseInt(xr.getCellData("Input","NumberOfCartoons", i).trim()) + 1;
+		int totalNumberOfLabels = Integer.parseInt(xr.getCellData("Input","TotalNumberOfLabels", i).trim());
 		String fileName = orderId+".pdf";
-		obj.checkPdfFilePresenceAndPageCount(fileName, numberOfPages);
+		commonOps.checkPdfFilePresenceAndPageCount(fileName, totalNumberOfLabels);
 	}
 }

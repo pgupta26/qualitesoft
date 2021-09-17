@@ -93,7 +93,8 @@ public class SeleniumFunction {
 		try {
 			element.clear();
 			if(!element.getAttribute("value").equals("")){
-				element.clear();
+				WaitTool.sleep(3);
+				executeJS(InitializeTest.driver,"arguments[0].value=''", element);
 			}
 			element.sendKeys(text);
 			Log.info("Text send.");

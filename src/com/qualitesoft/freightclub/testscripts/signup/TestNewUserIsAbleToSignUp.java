@@ -22,6 +22,7 @@ public class TestNewUserIsAbleToSignUp extends InitializeTest {
 		Xls_Reader xr = new Xls_Reader("binaries/FCfiles/"+testData);
 		int rowIndex=Integer.parseInt(Row);
 		String accountType = xr.getCellData("Input","accountType", rowIndex).trim();
+		String packageType = xr.getCellData("Input","packageType", rowIndex).trim();
 		
 		commonOps.shipmentInformation(xr, rowIndex);
 		String emailAddress = JavaFunction.randomText("Selenium", 4) + "@mailinator.com";
@@ -29,7 +30,7 @@ public class TestNewUserIsAbleToSignUp extends InitializeTest {
 		SeleniumFunction.sendKeys(quickQuote.QuickEmail(),emailAddress);
 		SeleniumFunction.selectByVisibleText(quickQuote.AccountType(), accountType);
 		
-		commonOps.itemInformation(xr, rowIndex, 1);
+		commonOps.itemInformation(xr, rowIndex, 1, packageType);
 		commonOps.selectCarrier();
 
 		//select carrier

@@ -5,96 +5,132 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
+import com.qualitesoft.core.Log;
+import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
-import com.qualitesoft.freightclub.appcommon.CommonOps;
 import com.qualitesoft.freightclub.pageobjects.ManagerOrderPage;
 import com.qualitesoft.freightclub.pageobjects.OrderDetailPage;
 import com.qualitesoft.freightclub.pageobjects.QuickQuoteFinal;
 
 public class TestViewOrderDetails extends InitializeTest {
 
+	public void verifyItemsInThisOrderPanel(Xls_Reader xr, int rowIndex, int panelIndex, String packageType) {
+		OrderDetailPage	orderDetailsPage= new OrderDetailPage(driver);
+
+		String quantity=xr.getCellData("Input","Quantity", rowIndex);
+		String weight=xr.getCellData("Input","Weight", rowIndex).trim();
+		String expectedDeclareValue=xr.getCellData("Input","DeclaredValue", rowIndex).trim();
+		String expectedTotalPalletCount=xr.getCellData("Input","TotalPalletCount", rowIndex);
+		String expectedCategory=xr.getCellData("Input","category", rowIndex).trim();			
+		String DimensionL=xr.getCellData("Input","DimensionL", rowIndex).trim();
+		String DimensionW=xr.getCellData("Input","DimensionW", rowIndex).trim();
+		String DimensionH=xr.getCellData("Input","DimensionH", rowIndex).trim();
+
+		String expectedDimension = "L"+DimensionL+" x W"+DimensionW+" x H"+DimensionH+" in";
+		expectedDeclareValue = "$"+expectedDeclareValue+".00";
+
+		orderDetailsPage.expandItemsInThisOrderPanel(panelIndex);
+		ScreenShot.takeScreenShot(driver, "Pallet info order details");
+		WaitTool.sleep(5);
+		UseAssert.assertEquals(orderDetailsPage.getLabel("Quantity:", panelIndex).getText(), quantity);
+		UseAssert.assertEquals(orderDetailsPage.getLabel("Weight:", panelIndex).getText(), weight+"lbs");
+		UseAssert.assertEquals(orderDetailsPage.getLabel("Dimensions:", panelIndex).getText(), expectedDimension);
+		UseAssert.assertEquals(orderDetailsPage.getLabel("Declared Value:", panelIndex).getText(),expectedDeclareValue);
+
+		if(packageType.equals("Non-Palletized")) {
+			UseAssert.assertEquals(orderDetailsPage.getLabel("Category:", 1).getText(), expectedCategory);
+		} else {
+			UseAssert.assertEquals(orderDetailsPage.getLabel("Categories:", panelIndex).getText(), expectedCategory);
+			UseAssert.assertEquals(orderDetailsPage.getLabel("Carton Count:", panelIndex).getText(), expectedTotalPalletCount);
+		}
+	}
+
 	@Test
 	public void testViewOrderDetails() {
 
+		ManagerOrderPage manageOrderPage =new ManagerOrderPage(driver);
+		OrderDetailPage	orderDetailsPage= new OrderDetailPage(driver);
+		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
+
+		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		int i=Integer.parseInt(Row);
+		
+		String shipmentType=xr.getCellData("Input","shipmentType", i).trim();
+		String serviceLevel=xr.getCellData("Input","serviceLevel", i).trim();
+		String orderReferenceID=xr.getCellData("Input","orderReferenceID", i).trim();
+		String orderId=xr.getCellData("Input","OrderId", i).trim();
+		String expectedDeclareValue=xr.getCellData("Input","DeclaredValue", i).trim();
+		String amount=xr.getCellData("Input","Amount", i);
+		String packageType = xr.getCellData("Input","packageType", i).trim();
+		String packageType2 = xr.getCellData("Input", "packageType2", i).trim();
+		String carrier = xr.getCellData("Input", "Carrier", i).trim();
+
+		String description = xr.getCellData("ShipmentInformation","SpecialHandlingInstructions", 2).trim();
+		expectedDeclareValue = "$"+expectedDeclareValue+".00";
+
+
+		String customer=xr.getCellData("CreateAccount","CompanyName", 2).trim();
+		String email=xr.getCellData("CreateAccount","Email", 2).trim();
+		String phoneNumber=xr.getCellData("CreateAccount","PhoneNumber", 2).trim();
+		String extn=xr.getCellData("CreateAccount","Extension", 2).trim();
+
+		SeleniumFunction.clickJS(driver, manageOrderPage.ViewDetail());
+
 		try {
-			ManagerOrderPage manageOrderPage =new ManagerOrderPage(driver);
-			OrderDetailPage	orderDetailsPage= new OrderDetailPage(driver);
-			QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
-			CommonOps commonOps = new CommonOps();
-
-			Xls_Reader xr=new Xls_Reader("binaries/FCfiles/FCFile.xlsx");
-			int i=Integer.parseInt(Row);
-
-			String shipmentType=xr.getCellData("Input","shipmentType", i).trim();
-			String serviceLevel=xr.getCellData("Input","serviceLevel", i).trim();
-			String orderReferenceID=xr.getCellData("Input","orderReferenceID", i).trim();
-			String orderId=xr.getCellData("Input","OrderId", i).trim();
-			String weight=xr.getCellData("Input","Weight", i).trim();
-			String DimensionL=xr.getCellData("Input","DimensionL", i).trim();
-			String DimensionW=xr.getCellData("Input","DimensionW", i).trim();
-			String DimensionH=xr.getCellData("Input","DimensionH", i).trim();
-			String expectedCategory=xr.getCellData("Input","category", i).trim();			
-			String expectedDeclareValue=xr.getCellData("Input","DeclaredValue", i).trim();
-			String expectedNumberOfCartoons=xr.getCellData("Input","NumberOfCartoons", i);
-			String pickUpDate=xr.getCellData("Input","pickUpDate", i);
-			String amount=xr.getCellData("Input","Amount", i);
-			String quantity=xr.getCellData("Input","Quantity", i);
-
-			String expectedDimension = "L"+DimensionL+" x W"+DimensionW+" x H"+DimensionH+" in";
-			expectedDeclareValue = "$"+expectedDeclareValue+".00";
-
-
-			String customer=xr.getCellData("CreateAccount","CompanyName", 2).trim();
-			String email=xr.getCellData("CreateAccount","Email", 2).trim();
-			String phoneNumber=xr.getCellData("CreateAccount","PhoneNumber", 2).trim();
-			String extn=xr.getCellData("CreateAccount","Extension", 2).trim();
-
-			commonOps.openManageOrdersPageAndSearchOrder(orderId);
-			SeleniumFunction.clickJS(driver, manageOrderPage.ViewDetail());
 			SeleniumFunction.getCurrentWindow(driver);
 			WaitTool.sleep(3);
 			quickQuote.acceptPopup();
 
-			UseAssert.assertEquals(orderDetailsPage.getLabel("Order ID:").getText(), orderId);
+			int panelIndex = 1;
+			UseAssert.assertEquals(orderDetailsPage.getLabel("Order ID:", panelIndex).getText(), orderId);
 			//UseAssert.assertEquals(orderDetailsPage.getLabel("Created Date:").getText(), pickUpDate);
 
-			UseAssert.assertEquals(orderDetailsPage.getLabel("Shipment Type:").getText(), shipmentType);
-			UseAssert.assertEquals(orderDetailsPage.getLabel("Customer PO #:").getText(), orderReferenceID);
-			UseAssert.assertEquals(orderDetailsPage.getLabel("Quoted Amount:").getText(), amount);
-			UseAssert.assertEquals(orderDetailsPage.getLabel("Service Level:").getText(), serviceLevel);
+			UseAssert.assertEquals(orderDetailsPage.getLabel("Shipment Type:", panelIndex).getText(), shipmentType);
+			UseAssert.assertEquals(orderDetailsPage.getLabel("Customer PO #:", panelIndex).getText(), orderReferenceID);
+			UseAssert.assertEquals(orderDetailsPage.getLabel("Quoted Amount:", panelIndex).getText(), amount);
+			if(carrier.equals("Ups SurePost")) {
+				UseAssert.assertEquals(orderDetailsPage.getLabel("Service Level:", panelIndex).getText(), "SurePost");
+			}else {
+				UseAssert.assertEquals(orderDetailsPage.getLabel("Service Level:", panelIndex).getText(), serviceLevel);
+			}
+
 			//UseAssert.assertEquals(orderDetailsPage.getLabel("Status:").getText(), "Booked");
-			UseAssert.assertEquals(orderDetailsPage.getLabel("Customer:").getText(), customer);
-			UseAssert.assertEquals(orderDetailsPage.getLabel("Payment Type:").getText(), "OnAccount");
+			UseAssert.assertEquals(orderDetailsPage.getLabel("Customer:", panelIndex).getText(), customer);
+			UseAssert.assertEquals(orderDetailsPage.getLabel("Payment Type:", panelIndex).getText(), "OnAccount");
 
 			//UseAssert.assertEquals(orderDetailsPage.getLabel("Booking Date:").getText(), pickUpDate);
-			UseAssert.assertEquals(orderDetailsPage.getLabel("Contact Name:").getText(), customer);
-			UseAssert.assertEquals(orderDetailsPage.getLabel("Company Email:").getText(), email);
-			UseAssert.assertEquals(orderDetailsPage.getLabel("Phone Number:").getText(), phoneNumber+" ext. "+extn);
-
+			UseAssert.assertEquals(orderDetailsPage.getLabel("Contact Name:", panelIndex).getText(), customer);
+			UseAssert.assertEquals(orderDetailsPage.getLabel("Company Email:", panelIndex).getText(), email);
+			UseAssert.assertEquals(orderDetailsPage.getLabel("Phone Number:", panelIndex).getText(), phoneNumber+" ext. "+extn);
+			UseAssert.assertEquals(orderDetailsPage.getLabel("Special Handling Instructions", panelIndex).getText(), description);
+			ScreenShot.takeScreenShot(driver, "Order Details");
 			SeleniumFunction.scrollDownUptoFooter(driver);
-			orderDetailsPage.expandItemsInThisOrderPanel();
-			UseAssert.assertEquals(orderDetailsPage.getLabel("Quantity:").getText(), quantity);
-			UseAssert.assertEquals(orderDetailsPage.getLabel("Weight:").getText(), weight+"lbs");
-			UseAssert.assertEquals(orderDetailsPage.getLabel("Dimensions:").getText(), expectedDimension);
-			UseAssert.assertEquals(orderDetailsPage.getLabel("Declared Value:").getText(),expectedDeclareValue);
-			UseAssert.assertEquals(orderDetailsPage.getLabel("Carton Count:").getText(), expectedNumberOfCartoons);
-			UseAssert.assertEquals(orderDetailsPage.getLabel("Categories:").getText(), expectedCategory);
-			UseAssert.assertEquals(orderDetailsPage.getLabel("Special Handling Instructions").getText(), "Test Special Handling Instructions");
+			if((packageType.equals("Non-Palletized") || packageType.equals("Cardboard Box") ||packageType.equals("Bagged or Unboxed Product")) && packageType2.isEmpty()) {
+				this.verifyItemsInThisOrderPanel(xr, i, 1, "Non-Palletized");
+			} else if((packageType.equals("Standard Pallet 1") || packageType.equals("SearchaddedProduct") ||packageType.equals("Custom Pallet (enter dimensions)")) && packageType2.isEmpty() && !shipmentType.equals("Parcel")) {
+				this.verifyItemsInThisOrderPanel(xr, i, 1, "Palletized");
+			} else if(packageType2.equals("Standard Pallet 1")) {
+				this.verifyItemsInThisOrderPanel(xr, i, 1, "Palletized");
+				WaitTool.sleep(2);
+				SeleniumFunction.scrollDownByPixel(driver, "300");
+				this.verifyItemsInThisOrderPanel(xr, i, 2, "Non-Palletized");
+			} 
 
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
 		}catch(Exception ex) {
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
+			Log.error(ex.getMessage());
 			Assert.fail();
 		}catch(AssertionError ae) {
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
+			Log.error(ae.getMessage());
 			Assert.fail();
 		}
-
 	}
 }

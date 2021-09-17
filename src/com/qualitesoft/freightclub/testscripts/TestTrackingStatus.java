@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
@@ -31,7 +32,7 @@ public class TestTrackingStatus extends InitializeTest{
 		WaitTool.sleep(2);
 		ScreenShot.takeScreenShot(driver, "ManageOrdersPage");
 
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/FCFile.xlsx");
+		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/QuickQuote/QuickQuoteTestData.xlsx");
 		int i=Integer.parseInt(Row);
 
 		String orderid=xr.getCellData("Input","OrderId", i).trim();
@@ -40,7 +41,7 @@ public class TestTrackingStatus extends InitializeTest{
 		for(int trackingIndex=0; trackingIndex < trackingStatus.length; trackingIndex++) {
 
 			SeleniumFunction.sendKeys(landingPage.IDTextBox(), orderid);
-			SeleniumFunction.KeyBoradEnter(driver);
+			landingPage.IDTextBox().sendKeys(Keys.ENTER);
 			WaitTool.sleep(5);
 
 			SeleniumFunction.click(landingPage.ViewDetail());

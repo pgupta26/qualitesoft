@@ -27,18 +27,20 @@
 		</classes>
 	</test> 
 	
-	<test name="Test verify user is able to book and clone order - LTL-Non-Palletized">
+	<test name="Test verify book and clone order - LTL Non-Palletized">
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />
-		<parameter name="Row" value="4" />
+		<parameter name="Row" value="2" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
-			<class name="com.qualitesoft.freightclub.testscripts.TestGetQuote" />
-			<!-- <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" /> -->
+			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />	
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" />
-			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" />
 		</classes>
-	</test> 
+	</test>
 	
 </suite>	
