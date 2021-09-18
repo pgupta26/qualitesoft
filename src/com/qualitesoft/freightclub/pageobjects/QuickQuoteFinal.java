@@ -295,6 +295,22 @@ public class QuickQuoteFinal {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@id='btn-continue-to-orders']"), 60);
 	}
 	
+	public boolean acknowleadgeBtnStatus(){
+		return WaitTool.waitForElementBoolean(driver, By.xpath("//span[text()='Acknowledge']//parent::button"), 10);
+	}
+	
+	public WebElement acknowleadgeBtn(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//span[text()='Acknowledge']//parent::button"), 10);
+	}
+	
+	public WebElement acknowleadgeModalHeader(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='vue-dialog-confirm modal fade in']//h5"), 10);
+	}
+	
+	public WebElement acknowleadgeModalBody(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='vue-dialog-confirm modal fade in']//div[@class='modal-body']"), 10);
+	}
+	
 	
 	
 }

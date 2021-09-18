@@ -289,6 +289,16 @@ public class CommonOps extends InitializeTest {
 		ManageOverages manageOverage = new ManageOverages(driver);
 
 		SeleniumFunction.clickJS(driver, quickQuote.Book());
+		
+		if(quickQuote.acknowleadgeBtnStatus() == true){
+			String actualPopupHeader = SeleniumFunction.getText(quickQuote.acknowleadgeModalHeader());
+			String actualPopupBody = SeleniumFunction.getText(quickQuote.acknowleadgeModalBody());
+			UseAssert.assertEquals(actualPopupHeader, "A matching order has already been placed.");
+			UseAssert.assertEquals(actualPopupBody, "We have identified that the order that you are about to place is similar to an order that has already been booked. Would you like to continue with placing a duplicate order?");
+			SeleniumFunction.click(quickQuote.acknowleadgeBtn());
+			SeleniumFunction.clickJS(driver, quickQuote.Book());
+		}
+		
 		SeleniumFunction.click(quickQuote.Okbutton1());
 		WaitTool.sleep(10);
 		crorderId=SeleniumFunction.getText(manageOverage.gridData(1, 1));
