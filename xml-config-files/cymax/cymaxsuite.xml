@@ -226,7 +226,7 @@
 		</classes>
 	</test>
 	
-	<test name="Verify that user is able to apply coupon code">
+	<test name="Verify that user is able to apply coupon code1">
 		<parameter name="Row" value="2" />
 		<parameter name="shipping" value="Free" />
 		<parameter name="couponValue" value="($10.00)" />

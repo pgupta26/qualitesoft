@@ -10,7 +10,7 @@
 	</listeners>
 
 	<parameter name="project" value="FreightClub" />
-	<parameter name="browser" value="chrome" />
+	<parameter name="browser" value="chrome1" />
 	<parameter name="URL" value="https://qa.freightclub.com/" /> 
 	
 	<test name="Test New User Able To Sign Up When Account Type - Manufacturer">

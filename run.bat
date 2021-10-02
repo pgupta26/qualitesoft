@@ -1,1 +1,0 @@
-java -jar qs_automation.jar

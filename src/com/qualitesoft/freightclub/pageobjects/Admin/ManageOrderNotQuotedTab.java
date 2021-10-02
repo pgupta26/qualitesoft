@@ -69,6 +69,10 @@ public class ManageOrderNotQuotedTab {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//section[@id='shipment-review']/div/div["+tableIndex+"]/descendant::tbody/tr/td["+columnIndex+"]"), 30);
 	}
 	
+	public WebElement declaredValueCloneOrder() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Declared Value per Product:']/parent::div"), 30);
+	}
+	
 	public WebElement totalWeight() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"shipment-review\"]/div[1]/div[7]/div/div/div/div/table/tbody/tr/td[1]"), 30);
 	}

@@ -46,7 +46,7 @@ public class QuickQuoteFinal {
 		}else if(shipmentType.equals("Less Than Truckload")) {
 			return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Less-Than-Truckload (LTL)']/preceding::div[1]/parent::label"), 30);
 		}else if(shipmentType.equals("Custom")) {
-			return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Custom Order']/preceding::div[1]/parent::label/parent::div"), 30);
+			return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Custom Order']/preceding::div[1]/parent::label"), 30);
 		}else {
 			return null;
 		}
@@ -114,6 +114,15 @@ public class QuickQuoteFinal {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@data-group='packaging']/div[contains(text(),'"+packageType+"')])["+itemIndex+"]"), 30);
 	}
 	
+	public WebElement PackageType() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='form-group col-sm-2']/div[@class='selectize-control form-input single']"), 90);
+	}
+	
+	public void PackageTypeOptions(String packageType) {
+		SeleniumFunction.executeJS(driver, "arguments[0].click();", driver.findElement
+				(By.xpath("//div[@data-group='packaging']/div[contains(text(),'"+packageType+"')]")));
+	}
+	
 	public WebElement addProduct(int itemIndex) {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@data-group='packaging']/following-sibling::div/div[contains(text(),'New Product')])["+itemIndex+"]"), 30);
 	}
@@ -124,6 +133,16 @@ public class QuickQuoteFinal {
 	
 	public WebElement quantity(int itemIndex) {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//span[contains(text(),'Quantity')]/following::input[1])["+itemIndex+"]"), 30);
+	}
+	
+	public void quantity2(String quantity) {
+		WebElement element = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//span[contains(text(),'Quantity')]/following::input[1])[1]"), 10);
+		int charLength = element.getAttribute("value").length();
+		for(int index = 0; index < charLength; index++){
+			element.sendKeys(Keys.BACK_SPACE);
+		}
+		element.sendKeys(quantity);
+		element.sendKeys(Keys.TAB);
 	}
 
 
@@ -223,6 +242,10 @@ public class QuickQuoteFinal {
 			SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/1.png']/ancestor::tr/td[7]/button"), 10));
 		} else if(carrierName.equals("Ups SurePost")) {
 			SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//span[contains(text(),'SurePost')]/parent::td/following-sibling::td[4]/button"), 10));
+		}else if(carrierName.equals("YRC")) {
+			SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/9.png']/ancestor::tr/td[7]/button"), 10));
+		}else if(carrierName.equals("Estes")) {
+			SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/22.png']/ancestor::tr/td[7]/button"), 10));
 		}
 	}
 
@@ -256,9 +279,15 @@ public class QuickQuoteFinal {
 	public WebElement pickUpAddress1() {		
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='Address1']"), 30);		
 	} 
+	
+	public WebElement PickUpAddress1() {		
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@id='Address1'])[2]"), 30);		
+	}
+	
 	public WebElement pickUpAddress2() {		
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='Address2']"), 30);		
 	} 
+	
 	public WebElement pickUpFirstName() {		
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='FirstName']"), 30);		
 	} 
@@ -272,9 +301,15 @@ public class QuickQuoteFinal {
 	public WebElement DropAddress1() {		
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@id='Address1'])[3]"), 30);		
 	} 
+	
+	public WebElement DropAddress4() {		
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@id='Address1'])[4]"), 30);		
+	} 
+	
 	public WebElement DropAddress2() {		
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@id='Address2'])[2]"), 30);		
 	} 
+	
 	public WebElement DropFirstName() {		
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@id='FirstName'])[2]"), 30);		
 	} 
@@ -294,9 +329,9 @@ public class QuickQuoteFinal {
 	public WebElement Okbutton1() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@id='btn-continue-to-orders']"), 60);
 	}
-	
+
 	public boolean acknowleadgeBtnStatus(){
-		return WaitTool.waitForElementBoolean(driver, By.xpath("//span[text()='Acknowledge']//parent::button"), 10);
+		return WaitTool.waitForElementBoolean(driver, By.xpath("//span[text()='Acknowledge']//parent::button"), 20);
 	}
 	
 	public WebElement acknowleadgeBtn(){
@@ -310,7 +345,116 @@ public class QuickQuoteFinal {
 	public WebElement acknowleadgeModalBody(){
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='vue-dialog-confirm modal fade in']//div[@class='modal-body']"), 10);
 	}
+
+	public boolean verifyCarrier(String carrierName) {
+		boolean isPresent = false;
+		if(carrierName.equals("ABF Freight")) {
+			isPresent =  WaitTool.isElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/11.png']"));
+		}else if(carrierName.equals("Ceva")){
+			isPresent = WaitTool.isElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/44.png']"));
+		}else if(carrierName.equals("Pilot Freight Services[Televisions]")) {
+			isPresent = WaitTool.isElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/301.png']"));
+		}else if(carrierName.equals("Werner")) {
+			isPresent = WaitTool.isElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/302.png']"));
+		}else if(carrierName.equals("FC Test Carrier")) {
+			isPresent = WaitTool.isElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/222.png']"));
+		}else if(carrierName.equals("YRC")) {
+			isPresent = WaitTool.isElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/9.png']"));
+		}else if(carrierName.equals("Estes")) {
+			isPresent = WaitTool.isElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/22.png']"));
+		}
+		
+		Log.info("Is Carrier Present: "+isPresent);
+		return isPresent;
+	}
+
+	public boolean verifyBasicThreshold(String carrierName) {
+		boolean isPresent= false;
+		if(carrierName.equals("ABF Freight")) {
+			SeleniumFunction.scrollIntoView(driver, driver.findElement(By.xpath("//img[@src='/Content/Images/Logos/11.png']")));
+			isPresent =  WaitTool.isElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/11.png']/ancestor::tr/descendant::span[text()='Basic Threshold (No Signature Required)']"));
+		}else if(carrierName.equals("Ceva")){
+			SeleniumFunction.scrollIntoView(driver, driver.findElement(By.xpath("//img[@src='/Content/Images/Logos/44.png']")));
+			isPresent = WaitTool.isElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/44.png']/ancestor::tr/descendant::span[text()='Basic Threshold (No Signature Required)']"));
+		}else if(carrierName.equals("Pilot Freight Services[Televisions]")) {
+			SeleniumFunction.scrollIntoView(driver, driver.findElement(By.xpath("//img[@src='/Content/Images/Logos/301.png']")));
+			isPresent =  WaitTool.isElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/33.png']/ancestor::tr/descendant::span[text()='Basic Threshold (No Signature Required)']"));
+		}else if(carrierName.equals("Werner")) {
+			SeleniumFunction.scrollIntoView(driver, driver.findElement(By.xpath("//img[@src='/Content/Images/Logos/302.png']")));
+			isPresent =  WaitTool.isElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/302.png']/ancestor::tr/descendant::span[text()='Basic Threshold (No Signature Required)']"));
+		}
+		return isPresent;
+	}	
 	
+	public boolean verifyBasicThresholdAtReview() {
+		return WaitTool.isElementPresentAndDisplay(driver, By.xpath("//h4[text()='Basic Threshold (No Signature Required)']"));
+	}
 	
+	public WebElement backBtn(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@class='btn btn-lg btn-default pull-left']"), 60);
+	}
 	
+	public String looseCartonPopupHeader() {
+		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='vue-dialog-confirm modal fade in']/descendant::h5"), 10));
+	}
+
+	public String looseCartonPopupBody() {
+		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='vue-dialog-confirm modal fade in']/descendant::div[@class='modal-body']"), 10));
+	}
+
+	public boolean looseCartonChangeOrder() {
+		return WaitTool.isElementPresentAndDisplay(driver, By.xpath("//div[@class='vue-dialog-confirm modal fade in']/descendant::button[@data-dismiss='modal']"));
+	}
+
+	public boolean looseCartonGetQuote() {
+		return WaitTool.isElementPresentAndDisplay(driver, By.xpath("//div[@class='vue-dialog-confirm modal fade in']/descendant::button[@class='btn btn-primary']"));
+	}
+	
+	public WebElement closeLooseCartonPopup() {
+		return WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//h5[text()='Loose Carton Warning']/preceding-sibling::button"), 20);
+	}
+	
+	public WebElement getCustomQuoteButton() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='vue-dialog-confirm modal fade in']/descendant::div[@class='modal-footer']/descendant::button[2]"), 30);
+	}
+	
+	public WebElement PickUpCompanyName() {		
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@id='Name'])[1]"), 30);		
+	} 
+	
+	public WebElement dropOffCompanyName() {		
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@id='Name'])[2]"), 30);		
+	} 
+	
+	public WebElement deliveryFrequency() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//span[@title='Delivery Frequency']/following::textarea[1]"), 30);
+	}
+	
+	public WebElement customOrderDetails(String orderDetails) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//span[contains(text(),'"+orderDetails+"')]/input"), 30);
+	}
+	
+	public WebElement requiredTemp() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//span[@title='Req. Temperature']/following::input"), 30);
+	}
+	
+	public WebElement regulatoryDetails() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//span[contains(text(),'Regulatory Details')]/following::textarea[1]"), 30);
+	}
+	
+	public WebElement submitForQuote() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[text()='Submit for Quote']"), 30);
+	}
+	
+	public WebElement handlingUnits() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.id("ShippingUnits"), 30);
+	}
+
+	public WebElement totalWeights() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"app-content\"]/div/div/div/section/section[2]/div/div[5]/div[1]/div/div[2]/div/div[2]/div[2]/input"), 30);
+	}
+	
+	public WebElement deliveryFrequencySelect() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"app-content\"]/div/div/div/section/section[2]/div/div[5]/div[2]/div[1]/div[2]/div/select"), 30);
+	}
 }

@@ -44,7 +44,7 @@ public class TestVerifyReQuoteFunctionality extends InitializeTest {
 		String orderid=xr.getCellData("Input","OrderId", i).trim();
 		commonOps.openManageOrdersPageAndSearchOrder(orderid);
 
-		String orderReferenceID=xr.getCellData("Input","Clone Ref ID", i).trim();
+		String orderReferenceID=xr.getCellData("Input","orderReferenceID", i).trim();
 		
 		SeleniumFunction.click(manageOrderpage.ActionButton());
 		SeleniumFunction.click(manageOrderpage.reQuote());

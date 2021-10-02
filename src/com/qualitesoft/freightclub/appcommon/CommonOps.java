@@ -108,7 +108,7 @@ public class CommonOps extends InitializeTest {
 				WaitTool.sleep(2);
 			}
 			else {
-				SeleniumFunction.selectByvalue(quickQuote.Category(itemIndex), "346");
+				SeleniumFunction.selectByVisibleText(quickQuote.Category(itemIndex), category);
 			}
 
 			SeleniumFunction.sendKeys(quickQuote.quantity(itemIndex), quantity);
@@ -133,6 +133,8 @@ public class CommonOps extends InitializeTest {
 		SeleniumFunction.click(quickQuote.SaveButton());
 		WaitTool.sleep(20);
 		quickQuote.waitForQuotesToAppear();
+		SeleniumFunction.scrollDownByPixel(driver, "3000");
+		quickQuote.expandCarries();
 		WaitTool.sleep(5);
 		quickQuote.acceptPopup();
 	}
@@ -163,6 +165,7 @@ public class CommonOps extends InitializeTest {
 			SeleniumFunction.sendKeys(quickQuote.numberOfCartoons(), cartoonQuantity);
 			ScreenShot.takeScreenShot(driver, "Pallet Info");
 		} else if(palletType.equalsIgnoreCase("Non-Palletized-step3")) {
+			SeleniumFunction.scrollUpByPixel(driver, "200");
 			if(category.equalsIgnoreCase("Other")){
 				SeleniumFunction.selectByvalue(quickQuote.Category(itemIndex), "347");
 				SeleniumFunction.click(quickQuote.popupCateogory(itemIndex));
@@ -210,14 +213,8 @@ public class CommonOps extends InitializeTest {
 
 	public void shipmentCompletion(Xls_Reader xr, int rowIndex) {
 		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
-
-		String shipmentType=xr.getCellData("Input","shipmentType", rowIndex).trim();
-		String packageType = xr.getCellData("Input", "packageType", rowIndex).trim();
-		String packageType2 = xr.getCellData("Input", "packageType2", rowIndex).trim();
 		String pickUPLocationName = xr.getCellData("Input","pickUpLocationName", rowIndex).trim();
-
 		String specialHandlingIns = xr.getCellData("ShipmentInformation","SpecialHandlingInstructions", 2).trim();
-		String genericPalletDesc = xr.getCellData("ShipmentInformation","PalletDescription", 2).trim();
 
 		SeleniumFunction.scrollDownByPixel(driver, "300");
 		SeleniumFunction.sendKeys(quickQuote.SpecialHandling(), specialHandlingIns);
@@ -246,7 +243,7 @@ public class CommonOps extends InitializeTest {
 		String expectedCategory=xr.getCellData("Input","category", rowIndex).trim();			
 		String expectedDeclareValue=xr.getCellData("Input","DeclaredValue", rowIndex).trim();
 		String expectedNumberOfCartoons=xr.getCellData("Input","TotalPalletCount", rowIndex);
-
+		
 		expectedWeight = expectedWeight+"lbs";
 		String expectedDimension = "L"+DimensionL+" x W"+DimensionW+" x H"+DimensionH+" inches";
 		expectedDeclareValue = "$"+expectedDeclareValue+".00";
@@ -263,7 +260,7 @@ public class CommonOps extends InitializeTest {
 			actualCategory = notQuotedTab.getCellValueFromPackage(panelIndex, "6").getText();
 			Assert.assertEquals(actualCartoon, expectedNumberOfCartoons);
 		} else if(packageType.equalsIgnoreCase("SearchaddedProduct") || packageType.equalsIgnoreCase("Custom Pallet (enter dimensions)") ) {
-			expectedPackageType="1 x Pallet 1";
+			expectedPackageType="1 x PALLET 1";
 			actualCartoon = notQuotedTab.getCellValueFromPackage(panelIndex, "5").getText();
 			actualCategory = notQuotedTab.getCellValueFromPackage(panelIndex, "6").getText();
 			Assert.assertEquals(actualCartoon, expectedNumberOfCartoons);
@@ -281,7 +278,69 @@ public class CommonOps extends InitializeTest {
 		Assert.assertEquals(actualWeight, expectedWeight);
 		Assert.assertEquals(actualDimentions, expectedDimension);
 		Assert.assertEquals(actualDeclaredValue, expectedDeclareValue);
+		Assert.assertEquals(actualCategory, expectedCategory);
 		ScreenShot.takeScreenShot(driver, "Pallet Details");
+	}
+	
+	public void verifyPalletizedDetailCloneOrder(Xls_Reader xr, int rowIndex, String panelIndex, String packageType) {
+		
+		ManageOrderNotQuotedTab notQuotedTab = new ManageOrderNotQuotedTab(driver);
+
+		String expectedPackageType = null;
+		String shipmentType=xr.getCellData("Input","shipmentType", rowIndex).trim();
+		String expectedWeight=xr.getCellData("Input","Weight", rowIndex).trim();
+		String DimensionL=xr.getCellData("Input","DimensionL", rowIndex).trim();
+		String DimensionW=xr.getCellData("Input","DimensionW", rowIndex).trim();
+		String DimensionH=xr.getCellData("Input","DimensionH", rowIndex).trim();
+		String expectedCategory=xr.getCellData("Input","category", rowIndex).trim();			
+		String expectedDeclareValue=xr.getCellData("Input","DeclaredValue", rowIndex).trim();
+		String expectedNumberOfCartoons=xr.getCellData("Input","TotalPalletCount", rowIndex);
+
+		String description = xr.getCellData("ShipmentInformation","Description", 2).trim();
+		
+		String actualCategory = null;
+		String actualCartoon = null;
+		String actualPackageType, actualWeight, actualDimentions, actualDeclaredValue;
+		
+		if(packageType.equals("Non-Palletized") || packageType.equals("Cardboard Box") || packageType.equals("Bagged or Unboxed Product")) {
+			expectedPackageType = "1 x "+description;
+			actualCategory = notQuotedTab.getCellValueFromPackage(panelIndex, "4").getText();
+		} else if(shipmentType.equals("Parcel") &&  packageType.contains("SearchaddedProduct")) {
+			expectedPackageType = "1 x "+Productname;
+			actualCategory = notQuotedTab.getCellValueFromPackage(panelIndex, "4").getText();
+		} else {
+			expectedPackageType="1 x PALLET 1";
+			actualCartoon = notQuotedTab.getCellValueFromPackage(panelIndex, "5").getText();
+			actualCategory = notQuotedTab.getCellValueFromPackage(panelIndex, "6").getText();
+			Assert.assertEquals(actualCartoon, expectedNumberOfCartoons);
+		}
+		
+		String expectedDimension = null;
+		if(shipmentType.equals("Parcel") || packageType.equals("Non-Palletized")) {
+			expectedWeight = expectedWeight+" lbs";
+			expectedDimension = DimensionL+" x "+DimensionW+" x "+DimensionH+" in";
+			expectedDeclareValue = "$"+expectedDeclareValue+".00";
+			actualPackageType = notQuotedTab.packageTypeHeading(panelIndex).getText();
+			actualWeight = notQuotedTab.getCellValueFromPackage(panelIndex, "2").getText();
+			actualDimentions = notQuotedTab.getCellValueFromPackage(panelIndex, "3").getText();
+			actualDeclaredValue = notQuotedTab.declaredValueCloneOrder().getText().split(":")[1].trim();
+		} else {
+			expectedWeight = expectedWeight+"lbs";
+			expectedDimension = "L"+DimensionL+" x W"+DimensionW+" x H"+DimensionH+" inches";
+			expectedDeclareValue = "$"+expectedDeclareValue+".00";
+			actualPackageType = notQuotedTab.packageTypeHeading(panelIndex).getText();
+			actualWeight = notQuotedTab.getCellValueFromPackage(panelIndex, "1").getText();
+			actualDimentions = notQuotedTab.getCellValueFromPackage(panelIndex, "2").getText();
+			actualDeclaredValue = notQuotedTab.getCellValueFromPackage(panelIndex, "3").getText();
+		}
+		
+		
+		Assert.assertEquals(actualPackageType, expectedPackageType);
+		Assert.assertEquals(actualWeight, expectedWeight);
+		Assert.assertEquals(actualDimentions, expectedDimension);
+		Assert.assertEquals(actualDeclaredValue, expectedDeclareValue);
+		Assert.assertEquals(actualCategory, expectedCategory);
+		ScreenShot.takeScreenShot(driver, "Pallet Details Clone Order");
 	}
 
 	public void bookOrder(Xls_Reader xr, int rowIndex) {
@@ -307,12 +366,18 @@ public class CommonOps extends InitializeTest {
 		orderDate = orderDate.replace("/","-");
 		Log.info("Pick up date: "+orderDate);
 		String amount= SeleniumFunction.getText(manageOverage.gridData(1, 10));
-		Log.info("Amount: "+orderDate);
+		Log.info("Amount: "+amount);
+		String wayBill = manageOverage.gridData(1, 8).getText();
+		Log.info("WayBill: "+wayBill);
+		String tracking = manageOverage.gridData(1, 9).getText();
+		Log.info("Tracking: "+tracking);
 
 		//set order id in excel
 		xr.setCellData("Input","OrderId", rowIndex,crorderId.trim());
 		xr.setCellData("Input","pickUpDate", rowIndex,orderDate.trim());
 		xr.setCellData("Input","Amount", rowIndex,amount);
+		xr.setCellData("Input","Tracking#", rowIndex, tracking);
+		xr.setCellData("Input","WayBill", rowIndex, wayBill);
 		WaitTool.sleep(5);
 		ScreenShot.takeScreenShot(driver, "Order Booked");
 	}

@@ -32,7 +32,7 @@ public class TestImportSecondaries extends InitializeTest {
 		WaitTool.sleep(5);
 
 		//Click on import secondary
-		SeleniumFunction.scrollUPUptoHeader(driver);
+		SeleniumFunction.scrollUpByPixel(driver, "2000");
 		WaitTool.sleep(5);
 		SeleniumFunction.click(manageInvoices.importSecondaries());
 

@@ -10,10 +10,13 @@ import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
+import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
 import com.qualitesoft.freightclub.appcommon.Messages;
 import com.qualitesoft.freightclub.pageobjects.Mailinator;
+
+import ru.yandex.qatools.ashot.Screenshot;
 
 
 public class EmailVerification extends InitializeTest {
@@ -23,7 +26,7 @@ public class EmailVerification extends InitializeTest {
 		WaitTool.sleep(3);
 		String actualMessage = driver.findElement(By.tagName("body")).getText().replaceAll("[\\t\\n\\r]+"," ");
 		Log.info("Actual Messag1e:"+actualMessage);
-		Assert.assertEquals(expectedEmailBody, actualMessage);
+		UseAssert.assertEquals(actualMessage, expectedEmailBody);
 	}
 	
 	@Parameters({ "notificationType"})
@@ -37,7 +40,7 @@ public class EmailVerification extends InitializeTest {
 			//filter record by order id
 			String orderid = xr.getCellData("Input","OrderId", i).trim();
 			String poNumber = xr.getCellData("Input","orderReferenceID", i).trim();
-			String regulatoryDetails =  xr.getCellData("Input","RegulatoryDetails", i).trim();
+			String regulatoryDetails =  xr.getCellData("Input","updatedRegulatoryDetails", i).trim();
 
 			String trackingID = xr.getCellData("Input","Tracking#", i).trim();
 			String wayBill =  xr.getCellData("Input","WayBill", i).trim();
@@ -55,6 +58,7 @@ public class EmailVerification extends InitializeTest {
 			WaitTool.sleep(2);
 			SeleniumFunction.click(mailinator.goButton());
 			WaitTool.sleep(20);
+			ScreenShot.takeScreenShot(driver, "Email inbox");
 			SeleniumFunction.click(mailinator.firstMail());
 				WaitTool.sleep(5);
 				SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.id("pills-textbuthtml-tab"), 20));

@@ -34,6 +34,8 @@ public class TestShipmentInfo extends InitializeTest {
 		String dropOffLastName=xr.getCellData("ShipmentInformation","DropOffLastName", 2).trim();
 		String dropOffPhone1=xr.getCellData("ShipmentInformation","DropOffPhone1", 2).trim();
 		
+		String pickUpType=xr.getCellData("Input","pickUpType", Integer.parseInt(Row)).trim();
+		String dropOffType=xr.getCellData("Input","dropOffType", Integer.parseInt(Row)).trim();		
 		String packageType = xr.getCellData("Input","packageType", Integer.parseInt(Row)).trim();
 
 		QuickQuote quickQuote = new QuickQuote(driver);
@@ -70,6 +72,9 @@ public class TestShipmentInfo extends InitializeTest {
 		SeleniumFunction.sendKeys(quickQuote.DropFirstName(), dropOffFirstName);
 		SeleniumFunction.sendKeys(quickQuote.DropLastName(), dropOffLastName);
 		SeleniumFunction.sendKeys(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@id='Phone1'])[3]"), 30), dropOffPhone1);
+		if(pickUpType.equals("Residential") && dropOffType.equals("Commercial") && packageType.equals("Non-Palletized")) {
+			SeleniumFunction.sendKeys(quickQuote.DropEmail2(), email);
+		}
 
 		ScreenShot.takeScreenShot(driver, "Filled Shipment info");
 		SeleniumFunction.scrollDownUptoFooter(driver);
@@ -78,6 +83,7 @@ public class TestShipmentInfo extends InitializeTest {
 		
 		ScreenShot.takeScreenShot(driver, "Shipment Review");
 		SeleniumFunction.click(quickQuote.ReviewOrder());
+		SeleniumFunction.click(quickQuote.Okbutton1());
 		WaitTool.sleep(15);
 	}
 }
