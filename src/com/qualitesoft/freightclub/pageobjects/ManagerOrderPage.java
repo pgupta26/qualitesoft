@@ -46,7 +46,7 @@ public class ManagerOrderPage {
 	}
 	
 	public WebElement billOfLoadingPdf() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("Download Bill of Lading(s) - PDF"), 10);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("Download Bill of Lading - PDF"), 10);
 	}
 	
 	public WebElement shippingLabelsPdf() {

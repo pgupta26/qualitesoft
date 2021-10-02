@@ -2,23 +2,24 @@ package com.qualitesoft.core;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.xml.DOMConfigurator;
+import org.openqa.selenium.InvalidArgumentException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-//import org.openqa.selenium.firefox.FirefoxDriver;
-//import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 
 public class InitializeTest {
 
@@ -50,11 +51,10 @@ public class InitializeTest {
 	public static String suiteName=null;
 	public static String carrierName=null;
 	public static double productPrice ;
-	public static String shipping; //= "Free";
+	public static String shipping;
 	public static String amazonTax=null;
 	public static String xpathRow=null;
 	public static String fastShipping = null;
-	public static String carriername=null;
 	public static String baseRateRow=null;
 	public static String tax;
 	public static String tax1;
@@ -104,7 +104,6 @@ public class InitializeTest {
 		amazonTax=context.getCurrentXmlTest().getParameter("amazonTax");
 		//Logger Log = Logger.getLogger(Log.class.getName());
 		fastShipping=context.getCurrentXmlTest().getParameter("fastShipping");
-		carriername=context.getCurrentXmlTest().getParameter("carriername");
 		baseRateRow=context.getCurrentXmlTest().getParameter("baseRateRow");
 		shipping=context.getCurrentXmlTest().getParameter("shipping");
 		searchUser = context.getCurrentXmlTest().getParameter("searchUser");
@@ -138,37 +137,40 @@ public class InitializeTest {
 
 	public WebDriver launchBrowser(String browser) {
 		try {
-			if (browser.equalsIgnoreCase("firefox")) {
-				System.setProperty("webdriver.gecko.driver", "binaries/geckodriver.exe");
-				driver = new FirefoxDriver();
-			}
-
-			if (browser.equalsIgnoreCase("chrome")) {
-				String download =System.getProperty("user.dir")+File.separator+"download";
+			String download =System.getProperty("user.dir")+File.separator+"download";
+			if(browser.equalsIgnoreCase("chrome")) {
+				//set download directory
 				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 				chromePrefs.put("profile.default_content_settings.popups", 0);
 				chromePrefs.put("download.default_directory", download);
+				
+				//set chrome options
 				ChromeOptions options = new ChromeOptions();
 				options.setExperimentalOption("prefs", chromePrefs);
 				options.addArguments("--disable-notifications");
-				DesiredCapabilities cap = DesiredCapabilities.chrome();
-				options.addArguments("test-type");
 				options.addArguments("--start-maximized");
-				cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-				cap.setCapability(ChromeOptions.CAPABILITY, options);
+				options.setAcceptInsecureCerts(true);
+				options.addArguments("test-type");
 				System.setProperty("java.net.preferIPv4Stack", "true");
-				System.setProperty("webdriver.chrome.driver", "binaries/chromedriver.exe");
-				driver = new ChromeDriver(cap);
-			}
-
-			if (browser.equalsIgnoreCase("iexplorer")) {
-				System.setProperty("webdriver.ie.driver", "binaries/IEDriverServer.exe");
+				
+				//Launch browser
+				WebDriverManager.chromedriver().clearResolutionCache().setup();
+				driver = new ChromeDriver(options);
+			} else if(browser.equalsIgnoreCase("firefox")) {
+				//Launch browser
+				WebDriverManager.firefoxdriver().clearResolutionCache().setup();
+				driver = new FirefoxDriver();
+			} else if(browser.equalsIgnoreCase("iexplorer")) {
+				//Launch browser
+				WebDriverManager.iedriver().clearResolutionCache().setup();
 				driver = new InternetExplorerDriver();
+			} else {
+				throw new InvalidArgumentException("Invalid browser name");
 			}
-
-			driver.manage().window().maximize();
 			Log.info(browser + " browser launched successfully.");
-
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("return document.readyState").equals("complete");
 		} catch (Exception e) {
 			Log.error("Not able to launch browser: " + e.getMessage());
 			throw e;

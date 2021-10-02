@@ -1,5 +1,6 @@
 package com.qualitesoft.freightclub.testscripts.customorders;
 
+import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -36,16 +37,17 @@ public class TestUnableToFulfillFunctionality extends InitializeTest {
 		String orderid=xr.getCellData("Input","OrderId", i).trim();
 		SeleniumFunction.sendKeys(notQuotedTab.orderIDFilter(), orderid);
 		WaitTool.sleep(5);
-		SeleniumFunction.KeyBoradEnter(driver);
+		notQuotedTab.orderIDFilter().sendKeys(Keys.ENTER);
 		WaitTool.sleep(5);
 		
 		SeleniumFunction.click(notQuotedTab.complete());
 		WaitTool.sleep(5);
 
 		SeleniumFunction.click(notQuotedTab.unableToFulfil());
-		ScreenShot.takeScreenShot(driver, "Unable to button clicked successfully. ");
 		WaitTool.sleep(5);
 		
 		Assert.assertEquals(notQuotedTab.gridStatus().getText().trim(), "Unable To Fulfill");
+		ScreenShot.takeScreenShot(driver, "Unable to fulfil");
+
 	}
 }

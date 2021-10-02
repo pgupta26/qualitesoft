@@ -11,29 +11,24 @@ public class Log {
 	public static void info(String message) {
 		Reporter.log(message);
 		Log.info(message);
-		System.out.println(message);
 	}
 
 	public static void warn(String message) {
 		Reporter.log(message);
 		Log.warn(message);
-		System.out.println(message);
 	}
 
 	public static void error(String message) {
 		Reporter.log(message);
 		Log.error(message);
-		System.out.println(message);
 	}
 
 	public static void fatal(String message) {
 		Reporter.log(message);
-		System.out.println(message);
 		Log.fatal(message);
 	}
 
 	public static void debug(String message) {
-		System.out.println(message);
 		Reporter.log(message);
 		Log.debug(message);
 	}

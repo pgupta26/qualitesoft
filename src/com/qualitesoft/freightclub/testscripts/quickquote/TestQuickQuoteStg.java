@@ -5,6 +5,7 @@ import com.qualitesoft.core.Xls_Reader;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
+import com.qualitesoft.freightclub.appcommon.CommonOps;
 import com.qualitesoft.freightclub.pageobjects.ManageOverages;
 import com.qualitesoft.freightclub.pageobjects.QuickQuoteFinal;
 
@@ -13,6 +14,7 @@ import com.qualitesoft.core.JavaFunction;
 import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
+import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
 
 public class TestQuickQuoteStg extends InitializeTest {
@@ -46,6 +48,7 @@ public class TestQuickQuoteStg extends InitializeTest {
 		String insurance=xr.getCellData("Input","UpsInsurance", i).trim();			
 
 		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
+		CommonOps commonOps = new CommonOps();
 		
 		
 		SeleniumFunction.clickJS(driver, quickQuote.quickQuoteLink());
@@ -90,17 +93,10 @@ public class TestQuickQuoteStg extends InitializeTest {
 		
 		WaitTool.sleep(2);
 		ScreenShot.takeScreenShot(driver, "Shipmentinfo "+shipmentType+" "+packageType);
-		SeleniumFunction.scrollUpByPixel(driver, "250");
-		SeleniumFunction.click(quickQuote.SaveButton());
-		WaitTool.sleep(20);
-
-
-		//Select Carrier Tab
-		quickQuote.waitForQuotesToAppear();
-		SeleniumFunction.scrollDownByPixel(driver, "250");
-		ScreenShot.takeScreenShot(driver, "Rates wih Carriers "+shipmentType+" "+packageType);
-		quickQuote.acceptPopup();
-
+		
+		//move to carriers page
+		commonOps.selectCarrier();
+				
 		String insuranceValue = null;
 		if(insurance.equals("Yes")) {
 			insuranceValue = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/222.png']/ancestor::tr/td[5]/ul/li"), 10).getText();
@@ -162,6 +158,16 @@ public class TestQuickQuoteStg extends InitializeTest {
 		WaitTool.sleep(10);
 		SeleniumFunction.clickJS(driver, quickQuote.Book());
 		WaitTool.sleep(10);
+		
+		if(quickQuote.acknowleadgeBtnStatus() == true){
+			String actualPopupHeader = SeleniumFunction.getText(quickQuote.acknowleadgeModalHeader());
+			String actualPopupBody = SeleniumFunction.getText(quickQuote.acknowleadgeModalBody());
+			UseAssert.assertEquals(actualPopupHeader, "A matching order has already been placed.");
+			UseAssert.assertEquals(actualPopupBody, "We have identified that the order that you are about to place is similar to an order that has already been booked. Would you like to continue with placing a duplicate order?");
+			SeleniumFunction.click(quickQuote.acknowleadgeBtn());
+			SeleniumFunction.clickJS(driver, quickQuote.Book());
+		}
+		
 		ScreenShot.takeScreenShot(driver, "Order Confirmation "+shipmentType+" "+packageType);
 		SeleniumFunction.click(quickQuote.Okbutton1());
 		WaitTool.sleep(20);

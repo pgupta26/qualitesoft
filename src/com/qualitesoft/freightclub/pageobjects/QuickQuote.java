@@ -434,7 +434,7 @@ public class QuickQuote {
 			isPresent = WaitTool.isElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/22.png']"));
 		}
 		
-		System.out.println("Is Carrier Present: "+isPresent);
+		Log.info("Is Carrier Present: "+isPresent);
 		return isPresent;
 	}
 
@@ -636,6 +636,10 @@ public class QuickQuote {
 	} 
 	public WebElement DropEmail() {		
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@id='Email'])[2]"), 30);		
+	} 
+	
+	public WebElement DropEmail2() {		
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@id='Email'])[3]"), 30);		
 	} 
 	public WebElement ReviewOrder() {		
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@class='btn btn-lg btn-primary pull-right']"), 30);	

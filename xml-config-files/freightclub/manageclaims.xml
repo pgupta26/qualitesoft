@@ -15,7 +15,7 @@
 	<!-- **********************************Manage Claims Tests****************************************** -->
 	<!-- ***********************LTL Order With Insurance Claim Type Damage************************ -->
 	
-	<test name="Test Select Contact Info, Payment Method, Carrier and Enable LTL And Parcel Band From Admin">
+	<!-- <test name="Test Select Contact Info, Payment Method, Carrier and Enable LTL And Parcel Band From Admin">
 		<parameter name="fcusername" value="info@freightclub.com" />
 		<parameter name="fcpassword" value="Welcome@2" />
 		<parameter name="testData" value="ManageClaims.xlsx" />
@@ -40,7 +40,7 @@
 			<class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestAddContactInformationForCarrier" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test>
+	</test> -->
 	
 	<test name="Test verify user is able to book order - LTL - With Insurance - Claim Type - Damage">
 		<parameter name="fcusername" value="test20may21@mailinator.com" />

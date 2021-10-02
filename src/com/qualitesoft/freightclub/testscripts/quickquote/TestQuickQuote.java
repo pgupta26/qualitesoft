@@ -23,6 +23,7 @@ public class TestQuickQuote extends InitializeTest {
 		String packageType2 = xr.getCellData("Input", "packageType2", i).trim();	
 		String palletType1 = xr.getCellData("Input", "PalletType1", i).trim();
 		String palletType2 = xr.getCellData("Input", "PalletType2", i).trim();
+		String shipmentType=xr.getCellData("Input","shipmentType", i).trim();
 
 		//enter shipment information
 		commonOps.shipmentInformation(xr,i);
@@ -44,11 +45,15 @@ public class TestQuickQuote extends InitializeTest {
 		if (!palletType1.isEmpty()) {
 			commonOps.addPalletContents(xr, i, 1, palletType1);
 		}
+		
 		if (!palletType2.isEmpty()) {
 			WaitTool.sleep(2);
-			SeleniumFunction.scrollDownByPixel(driver, "200");
-			SeleniumFunction.click(quickQuote.addadditionalItem());
+			if(!palletType2.equals("Generic Pallet")) {
+				SeleniumFunction.scrollDownByPixel(driver, "150");
+				SeleniumFunction.click(quickQuote.addadditionalItem());
+			}
 			if(palletType2.equals("New Product")) {
+				SeleniumFunction.scrollDownByPixel(driver, "400");
 				commonOps.addPalletContents(xr, i, 1, palletType2);
 			} else {
 				commonOps.addPalletContents(xr, i, 2, palletType2);
@@ -63,19 +68,19 @@ public class TestQuickQuote extends InitializeTest {
 		WaitTool.sleep(10);
 		
 		//verify pallet details
-		if (!palletType1.isEmpty()) {
-			if(palletType1.equals("Non-Palletized")) {
+		if (!packageType.isEmpty()) {
+			if(shipmentType.equals("Parcel") || packageType.equals("Non-Palletized")) {
 				commonOps.verifyPalletizedDetail(xr, i, "4", packageType);
 			} else {
 				commonOps.verifyPalletizedDetail(xr, i, "3", packageType);
 			}
 			
 		}
-		if (!palletType2.isEmpty()) {
-			if(palletType1.equals("Non-Palletized")) {
-				commonOps.verifyPalletizedDetail(xr, i, "4", packageType);
+		if (!packageType2.isEmpty()) {
+			if(shipmentType.equals("Parcel") || packageType2.equals("Non-Palletized")) {
+				commonOps.verifyPalletizedDetail(xr, i, "4", packageType2);
 			} else {
-				commonOps.verifyPalletizedDetail(xr, i, "3", packageType);
+				commonOps.verifyPalletizedDetail(xr, i, "3", packageType2);
 			}
 		}
 		commonOps.bookOrder(xr, i);

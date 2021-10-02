@@ -1,11 +1,5 @@
 package com.qualitesoft.core;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.testng.Reporter;
 import org.testng.asserts.SoftAssert;
 
 public class SoftAssertion { 
