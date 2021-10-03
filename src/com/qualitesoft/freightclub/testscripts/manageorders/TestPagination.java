@@ -1,5 +1,6 @@
 package com.qualitesoft.freightclub.testscripts.manageorders;
 
+import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
@@ -143,9 +144,10 @@ public class TestPagination extends InitializeTest{
 	@Test(priority = 6)
 	public void verifyRowsLimit(){
 		try{
-			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);			
-			manageOrderpage.setPageNumber("2");
-			SeleniumFunction.KeyBoradEnter(driver);
+			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
+			SeleniumFunction.sendKeys(manageOrderpage.setPageNumber(), "2");
+			manageOrderpage.setPageNumber().sendKeys(Keys.ENTER);
+			/*SeleniumFunction.KeyBoradEnter(driver);*/
 			WaitTool.sleep(5);
 			String inputPage2 = manageOrderpage.getPageNumber();
 			String nextPageRows = manageOrderpage.getPagiationTotalRows();

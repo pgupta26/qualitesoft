@@ -1,5 +1,6 @@
 package com.qualitesoft.freightclub.testscripts.managebilling;
 
+import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -26,7 +27,8 @@ public class TestBillsDetails extends InitializeTest{
 			
 			SeleniumFunction.click(orderPage.manageOrdersLink());
 			SeleniumFunction.sendKeys(orderPage.orderIdFilter(), orderId);
-			SeleniumFunction.KeyBoradEnter(driver);
+			orderPage.orderIdFilter().sendKeys(Keys.ENTER);
+			/*SeleniumFunction.KeyBoradEnter(driver);*/
 			WaitTool.sleep(7);
 			
 			SeleniumFunction.click(orderPage.ViewDetail());

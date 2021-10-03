@@ -17,12 +17,17 @@ public class TestRerouteDetails extends InitializeTest{
 	@Test
 	public void verifyRerouteLocationOnDetailPage(){
 		try{
-			Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageOrdersTestData.xlsx");
+			/*Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageOrdersTestData.xlsx");
 			int i=Integer.parseInt(Row);
 
-			String orderId = xr1.getCellData("Reroute Request", "OrderId", i);
+			String orderId = xr1.getCellData("Reroute Request", "OrderId", i);*/
+			Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/"+testData);
+			int i=Integer.parseInt(Row);
+			
+			String orderId = xr1.getCellData("Input", "OrderId", i);
 
 			commonOps.openManageOrdersPageAndSearchOrder(orderId);
+			
 			verifyUpdatedDetailsOnDetailPage();
 		}catch(Exception ex){
 			ex.printStackTrace();

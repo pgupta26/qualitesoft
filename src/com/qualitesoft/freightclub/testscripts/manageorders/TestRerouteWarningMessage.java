@@ -17,10 +17,15 @@ public class TestRerouteWarningMessage extends InitializeTest{
 	@Test
 	public void verifyRerouteRequestOnDetailPage(){
 		try{
-			Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageOrdersTestData.xlsx");
+			/*Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageOrdersTestData.xlsx");
 			int i=Integer.parseInt(Row);
 
-			String orderId = xr1.getCellData("Reroute Request", "OrderId", i);
+			String orderId = xr1.getCellData("Reroute Request", "OrderId", i);*/
+			
+			Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/"+testData);
+			int i=Integer.parseInt(Row);
+			
+			String orderId = xr1.getCellData("Input", "OrderId", i);
 
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
 			OrderDetailPage orderDetailPage =new OrderDetailPage(driver);
@@ -28,20 +33,27 @@ public class TestRerouteWarningMessage extends InitializeTest{
 			commonOps.openManageOrdersPageAndSearchOrder(orderId);
 
 			SeleniumFunction.click(manageOrderpage.ViewDetail());
+			try{
+				SeleniumFunction.getCurrentWindow(driver);	
+				WaitTool.sleep(3);
 
-			SeleniumFunction.getCurrentWindow(driver);	
-			WaitTool.sleep(3);
+				if(enableOption.contains("No")){
+					boolean warningMessage = orderDetailPage.verifyRerouteWarningMessageStatus();
+					UseAssert.assertEquals(warningMessage, false);
+				} else{
+					String warningMessage = orderDetailPage.verifyRerouteWarningMessage();
+					UseAssert.assertEquals(warningMessage, "Order Pending Reroute. Reroute was requested on " + JavaFunction.currentDateUSFormat());
+				}
 
-			if(enableOption.contains("No")){
-				boolean warningMessage = orderDetailPage.verifyRerouteWarningMessageStatus();
-				UseAssert.assertEquals(warningMessage, false);
-			} else{
-				String warningMessage = orderDetailPage.verifyRerouteWarningMessage();
-				UseAssert.assertEquals(warningMessage, "Order Pending Reroute. Reroute was requested on " + JavaFunction.currentDateUSFormat());
+				SeleniumFunction.closeWindow(driver);
+				SeleniumFunction.getCurrentWindow(driver);
+			}catch(Exception ex){
+				SeleniumFunction.closeWindow(driver);
+				SeleniumFunction.getCurrentWindow(driver);
+				ex.printStackTrace();
+				throw ex;
 			}
-
-			SeleniumFunction.closeWindow(driver);
-			SeleniumFunction.getCurrentWindow(driver);
+			
 		}catch(Exception ex){
 			ex.printStackTrace();
 			throw ex;

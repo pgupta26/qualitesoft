@@ -1,5 +1,6 @@
 package com.qualitesoft.freightclub.testscripts.managebilling;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -53,7 +54,8 @@ public class TestExportBills extends InitializeTest
 			
 			WebElement orderId = billingPage.orderNumTextBox();
 			SeleniumFunction.sendKeys(orderId, poNum);
-			SeleniumFunction.KeyBoradEnter(driver);
+			orderId.sendKeys(Keys.ENTER);
+			/*SeleniumFunction.KeyBoradEnter(driver);*/
 			WaitTool.sleep(5);
 
 			SeleniumFunction.click(billingPage.exportCsvBtn());

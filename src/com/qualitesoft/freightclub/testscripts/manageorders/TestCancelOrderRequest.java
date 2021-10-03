@@ -1,5 +1,6 @@
 package com.qualitesoft.freightclub.testscripts.manageorders;
 
+import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
@@ -36,8 +37,9 @@ public class TestCancelOrderRequest extends InitializeTest{
 			}
 			
 			String orderId = xr.getCellData("BOL", "OrderId", i);
-			manageOrderpage.searchFields("1", orderId);
-			SeleniumFunction.KeyBoradEnter(driver);
+			SeleniumFunction.sendKeys(manageOrderpage.searchFields("1"), orderId);
+			manageOrderpage.searchFields("1").sendKeys(Keys.ENTER);;
+			/*SeleniumFunction.KeyBoradEnter(driver);*/
 			WaitTool.sleep(10);
 			
 			String orderStatus = SeleniumFunction.getText(manageOverages.gridData(1, 6));
@@ -85,8 +87,10 @@ public class TestCancelOrderRequest extends InitializeTest{
 		WaitTool.sleep(5);
 		SeleniumFunction.click(manageOrderpage.manageOrdersLink());
 		WaitTool.sleep(7);
-		manageOrderpage.searchFields("1", orderId);
-		SeleniumFunction.KeyBoradEnter(driver);
+		
+		SeleniumFunction.sendKeys(manageOrderpage.searchFields("1"), orderId);
+		manageOrderpage.searchFields("1").sendKeys(Keys.ENTER);;
+		/*SeleniumFunction.KeyBoradEnter(driver);*/
 		WaitTool.sleep(10);
 		
 		String updatedOrderStatus = SeleniumFunction.getText(manageOverages.gridData(1, 6));

@@ -1,5 +1,6 @@
 package com.qualitesoft.freightclub.testscripts.managebilling;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -32,7 +33,8 @@ public class TestViewBill extends InitializeTest{
 
 			WebElement document = billingPage.documentNumTextBox();
 			SeleniumFunction.sendKeys(document, documentId);
-			SeleniumFunction.KeyBoradEnter(driver);
+			document.sendKeys(Keys.ENTER);
+			/*SeleniumFunction.KeyBoradEnter(driver);*/
 			WaitTool.sleep(5);
 
 			WebElement getMarkupQuote = overagesPage.gridData(1, 8);

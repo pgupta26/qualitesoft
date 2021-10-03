@@ -1,5 +1,6 @@
 package com.qualitesoft.freightclub.testscripts.billoflading;
 
+import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.SeleniumFunction;
@@ -36,7 +37,8 @@ public class TestSearchFunctionality extends InitializeTest{
 			manageOrderpage.acceptFeedbackPopup();
 		}
 		SeleniumFunction.sendKeys(bolPage.searchTextBox(index), searchData);
-		SeleniumFunction.KeyBoradEnter(driver);
+		bolPage.searchTextBox(index).sendKeys(Keys.ENTER);
+		/*SeleniumFunction.KeyBoradEnter(driver);*/
 		WaitTool.sleep(7);
 		String orderStatus = SeleniumFunction.getText(bolPage.gridData(1, index));
 		UseAssert.assertEquals(orderStatus, searchData);

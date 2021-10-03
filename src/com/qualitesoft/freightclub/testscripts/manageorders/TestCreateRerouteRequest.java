@@ -17,12 +17,19 @@ public class TestCreateRerouteRequest extends InitializeTest{
 	@Test(priority = 1)
 	public void verifyRerouteLink(){
 		try{
-			Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageOrdersTestData.xlsx");
+			/*Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageOrdersTestData.xlsx");
+			int i=Integer.parseInt(Row);
+
+			String orderId = xr1.getCellData("Reroute Request", "OrderId", i);*/
+			Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/"+testData);
 			int i=Integer.parseInt(Row);
 			
-			String orderId = xr1.getCellData("Reroute Request", "OrderId", i);
+			String orderId = xr1.getCellData("Input", "OrderId", i);
 			
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
+			SeleniumFunction.click(manageOrderpage.manageOrdersLink());
+			WaitTool.sleep(7);
+			
 			commonOps.openManageOrdersPageAndSearchOrder(orderId);
 
 			SeleniumFunction.clickJS(driver, manageOrderpage.ActionButton());
@@ -39,7 +46,7 @@ public class TestCreateRerouteRequest extends InitializeTest{
 
 	}
 	
-	@Test(priority = 2)
+	@Test(priority = 2, dependsOnMethods = {"verifyRerouteLink"})
 	public void fillReroutePopupFields(){
 		try{
 			fillRerouteRequestPopup();
@@ -50,7 +57,7 @@ public class TestCreateRerouteRequest extends InitializeTest{
 		}
 	}
 	
-	@Test(priority = 3)
+	@Test(priority = 3, dependsOnMethods = {"verifyRerouteLink", "fillReroutePopupFields"})
 	public void verifyRerouteRequestLinkNotPresent(){
 		try{
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);

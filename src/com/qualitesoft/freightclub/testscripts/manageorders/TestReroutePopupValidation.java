@@ -20,10 +20,15 @@ public class TestReroutePopupValidation extends InitializeTest{
 	@Test
 	public void verifyRerouteLink(){
 		try{
-			Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageOrdersTestData.xlsx");
+		/*	Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageOrdersTestData.xlsx");
 			int i=Integer.parseInt(Row);
 			
-			String orderId = xr1.getCellData("Reroute Request", "OrderId", i);
+			String orderId = xr1.getCellData("Reroute Request", "OrderId", i);*/
+			
+			Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/"+testData);
+			int i=Integer.parseInt(Row);
+			
+			String orderId = xr1.getCellData("Input", "OrderId", i);
 			
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
 			commonOps.openManageOrdersPageAndSearchOrder(orderId);
