@@ -35,9 +35,8 @@ public class TestUserIsAbleToCreatePalletizedSkuWithMultipleCarton extends Initi
 		SeleniumFunction.click(manageProducts.saveproduct());
 		
 		//set product name in excel
-		xr.setCellData("Input","ProductName", 5 ,commonOps.Productname);
+		xr.setCellData("Input","ProductName", 5, InitializeTest.Productname);
 		WaitTool.sleep(5);
 
 	}
-
 }
