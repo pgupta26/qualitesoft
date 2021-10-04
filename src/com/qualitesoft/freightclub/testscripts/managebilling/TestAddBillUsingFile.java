@@ -3,6 +3,7 @@ package com.qualitesoft.freightclub.testscripts.managebilling;
 import java.io.IOException;
 import java.text.ParseException;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -47,7 +48,8 @@ public class TestAddBillUsingFile extends InitializeTest{
 			
 			WebElement document = billingPage.documentNumTextBox();
 			SeleniumFunction.sendKeys(document, documentId);
-			SeleniumFunction.KeyBoradEnter(driver);
+			document.sendKeys(Keys.ENTER);
+			/*SeleniumFunction.KeyBoradEnter(driver);*/
 			WaitTool.sleep(5);
 			
 			CommonOps common =  new CommonOps();

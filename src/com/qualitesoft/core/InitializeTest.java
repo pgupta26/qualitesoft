@@ -151,8 +151,7 @@ public class InitializeTest {
 				options.addArguments("--start-maximized");
 				options.setAcceptInsecureCerts(true);
 				options.addArguments("test-type");
-				System.setProperty("java.net.preferIPv4Stack", "true");
-				
+				System.setProperty("java.net.preferIPv4Stack", "true");			
 				//Launch browser
 				WebDriverManager.chromedriver().clearResolutionCache().setup();
 				driver = new ChromeDriver(options);

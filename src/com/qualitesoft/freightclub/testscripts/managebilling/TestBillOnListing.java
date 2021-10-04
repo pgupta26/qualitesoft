@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -36,7 +37,8 @@ public class TestBillOnListing extends InitializeTest{
 			
 			WebElement document = billingPage.documentNumTextBox();
 			SeleniumFunction.sendKeys(document, mapData.get("DocumentNumber").toString());
-			SeleniumFunction.KeyBoradEnter(driver);
+			document.sendKeys(Keys.ENTER);
+			/*SeleniumFunction.KeyBoradEnter(driver);*/
 			WaitTool.sleep(5);
 			
 			CommonOps commonops = new CommonOps();

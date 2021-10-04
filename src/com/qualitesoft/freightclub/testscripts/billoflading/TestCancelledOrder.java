@@ -1,5 +1,6 @@
 package com.qualitesoft.freightclub.testscripts.billoflading;
 
+import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
@@ -29,7 +30,8 @@ public class TestCancelledOrder extends InitializeTest{
 
 		String orderid=xr.getCellData("BOL","OrderId", i).trim();
 		SeleniumFunction.sendKeys(bolPage.orderIdTextBox(), orderid);
-		SeleniumFunction.KeyBoradEnter(driver);
+		bolPage.orderIdTextBox().sendKeys(Keys.ENTER);
+		/*SeleniumFunction.KeyBoradEnter(driver);*/
 		WaitTool.sleep(5);
 		ScreenShot.takeScreenShot(driver, "BillofLadingPage for cancelled order "+ orderid);
 		String orderStatus = SeleniumFunction.getText(bolPage.gridData(1, 5));

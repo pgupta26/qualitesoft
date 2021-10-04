@@ -3,6 +3,7 @@ package com.qualitesoft.freightclub.testscripts.manageorders;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.qualitesoft.core.InitializeTest;
@@ -23,8 +24,10 @@ public class TestSearchFunctionality extends InitializeTest{
 			if(!manageOrderpage.ExpandMenupage().getAttribute("class").equals("active")) {
 				SeleniumFunction.click(manageOrderpage.ExpandMenupage());
 			}
-			manageOrderpage.searchFields(searchIndex, searchData);
-			SeleniumFunction.KeyBoradEnter(driver);
+			
+			SeleniumFunction.sendKeys(manageOrderpage.searchFields(searchIndex), searchData);
+			manageOrderpage.searchFields(searchIndex).sendKeys(Keys.ENTER);;
+			/*SeleniumFunction.KeyBoradEnter(driver);*/
 			WaitTool.sleep(10);
 
 			int rows = manageOrderpage.getRowsCount();

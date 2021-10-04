@@ -127,8 +127,6 @@ public class TestViewOrderDetails extends InitializeTest {
 			Log.error(ex.getMessage());
 			Assert.fail();
 		}catch(AssertionError ae) {
-			SeleniumFunction.closeWindow(driver);
-			SeleniumFunction.getCurrentWindow(driver);
 			Log.error(ae.getMessage());
 			Assert.fail();
 		}

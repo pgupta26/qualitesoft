@@ -167,8 +167,8 @@ public class ManagerOrderPage {
 		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='paging-panel pager-visible']//span[contains(@class,'summary-panel')])[1]"), 20));
 	}
 	
-	public void setPageNumber(String text){
-		SeleniumFunction.sendKeys(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='paging-panel pager-visible']//input[@type='number'])[1]"), 20), text);
+	public WebElement setPageNumber(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='paging-panel pager-visible']//input[@type='number'])[1]"), 20);
 	}
 	
 	public String getPageNumber(){
@@ -187,8 +187,8 @@ public class ManagerOrderPage {
 	
 	//**************Searching************
 	// values 1 order id, 3 Way bill, 4 tracking
-	public void searchFields(String index,String value) {
-		SeleniumFunction.sendKeys(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@ref='eColumnFloatingFilter'])["+index+"]"), 10), value);
+	public WebElement searchFields(String index) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@ref='eColumnFloatingFilter'])["+index+"]"), 60);
 	}
 	
 	//index 2, 9, 10

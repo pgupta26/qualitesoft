@@ -41,13 +41,13 @@ public class EmailVerification extends InitializeTest {
 			String orderid = xr.getCellData("Input","OrderId", i).trim();
 			String poNumber = xr.getCellData("Input","orderReferenceID", i).trim();
 			String regulatoryDetails =  xr.getCellData("Input","updatedRegulatoryDetails", i).trim();
-
+			String carrierName = xr.getCellData("Input", "Carrier", i).trim();
 			String trackingID = xr.getCellData("Input","Tracking#", i).trim();
 			String wayBill =  xr.getCellData("Input","WayBill", i).trim();
 			String additionalDocsNeeded =  xr.getCellData("ClaimDetail","AddiotionalDocsEmailBody", i).trim();
 			String expectedMsg = null;
 			String claimType =  xr.getCellData("ClaimDetail","ClaimType", i).trim();
-
+			
 			SeleniumFunction.executeJS(driver, "window.open('');");
 			SeleniumFunction.getCurrentWindow(driver);
 			SeleniumFunction.open(driver, "https://www.mailinator.com/");
@@ -108,24 +108,56 @@ public class EmailVerification extends InitializeTest {
 						expectedMsg = Messages.sent_to_carrier.replace("{orderID}", orderid);
 						break;
 						
-					case "Reroute Requested - Customer":
-						expectedMsg = Messages.reroute_requested_customer.replace("{orderID}", orderid);
+					case "Residential Reroute Requested - Customer":
+						expectedMsg = Messages.residential_reroute_requested_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
 						break;
 						
-					case "Reroute Requested - Carrier":
-						expectedMsg = Messages.reroute_requested_carrier.replace("{orderID}", orderid);
+					case "Commercial Reroute Requested - Customer":
+						expectedMsg = Messages.commercial_reroute_requested_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
 						break;
 						
-					case "Reroute Request Approved - Customer":
-						expectedMsg = Messages.reroute_request_approved_customer.replace("{orderID}", orderid);
+					case "Amazon Reroute Requested - Customer":
+						expectedMsg = Messages.amazon_reroute_requested_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
 						break;
 						
-					case "Reroute Request Approved - Carrier":
-						expectedMsg = Messages.reroute_request_approved_carrier.replace("{orderID}", orderid);
+					case "Residential Reroute Requested - Carrier":
+						expectedMsg = Messages.residential_reroute_requested_carrier.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
+						break;
+						
+					case "Commercial Reroute Requested - Carrier":
+						expectedMsg = Messages.commercial_reroute_requested_carrier.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
+						break;
+						
+					case "Amazon Reroute Requested - Carrier":
+						expectedMsg = Messages.amazon_reroute_requested_carrier.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
+						break;
+						
+					case "Residential Reroute Request Approved - Customer":
+						expectedMsg = Messages.residential_reroute_approved_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
+						break;
+						
+					case "Commercial Reroute Request Approved - Customer":
+						expectedMsg = Messages.commercial_reroute_approved_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
+						break;
+						
+					case "Amazon Reroute Request Approved - Customer":
+						expectedMsg = Messages.amazon_reroute_approved_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
+						break;
+						
+					case "Residential Reroute Request Approved - Carrier":
+						expectedMsg = Messages.residential_reroute_approved_carrier.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
+						break;
+						
+					case "Commercial Reroute Request Approved - Carrier":
+						expectedMsg = Messages.commercial_reroute_approved_carrier.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
+						break;
+						
+					case "Amazon Reroute Request Approved - Carrier":
+						expectedMsg = Messages.amazon_reroute_approved_carrier.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
 						break;
 						
 					case "Reroute Request Decline - Customer":
-						expectedMsg = Messages.reroute_request_decline_customer.replace("{orderID}", orderid);
+						expectedMsg = Messages.reroute_request_decline_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
 						break;
 						
 					case "Claim initiated - Customer":

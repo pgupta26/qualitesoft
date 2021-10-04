@@ -16,12 +16,17 @@ public class TestAcceptRerouteRequest extends InitializeTest{
 	@Test(priority = 1)
 	public void acceptRequestByAdmin(){
 		try{
-			Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageOrdersTestData.xlsx");
+			/*Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageOrdersTestData.xlsx");
 			int i=Integer.parseInt(Row);
 			
-			String orderId = xr1.getCellData("Reroute Request", "OrderId", i);
+			String orderId = xr1.getCellData("Reroute Request", "OrderId", i);*/
+			Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/"+testData);
+			int i=Integer.parseInt(Row);
+			
+			String orderId = xr1.getCellData("Input", "OrderId", i);
 
 			commonOps.openManageOrdersPageAndSearchOrder(orderId);
+			
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
 			if(manageOrderpage.acceptFeedbackPopupStatus() == true){
 				manageOrderpage.acceptFeedbackPopup();

@@ -452,8 +452,9 @@ public class CommonOps extends InitializeTest {
 			manageOrderpage.acceptFeedbackPopup();
 		}
 
-		manageOrderpage.searchFields("1", orderId);
-		manageOrderpage.orderIdFilter().sendKeys(Keys.ENTER);
+		SeleniumFunction.sendKeys(manageOrderpage.searchFields("1"), orderId);
+		manageOrderpage.searchFields("1").sendKeys(Keys.ENTER);
+		/*manageOrderpage.orderIdFilter().sendKeys(Keys.ENTER);*/
 		WaitTool.sleep(10);
 	}
 

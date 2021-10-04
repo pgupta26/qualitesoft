@@ -39,21 +39,23 @@ public class TestAddProduct extends InitializeTest{
 			List<WebElement> validationElement = driver.findElements(By.xpath("//span[@class='help-block']"));
 
 			for(int i=0; i<validationElement.size(); i++){
-				if(i==8){
+				if(i==9){
 					scrollUptoHeader("Description");
 				}
-				else if(i==14){
+				else if(i==15){
 					scrollUptoHeader("Shipping");
 				}
 				String validationMess = SeleniumFunction.getText(validationElement.get(i));
 				SeleniumFunction.scrollIntoView(driver, validationElement.get(i));
 				WaitTool.sleep(1);
 				validationMessage = validationMessage + validationMess;
+				Log.info(validationMessage);
 			}
 			UseAssert.assertEquals(validationMessage, "Product Title is required.Brand is required. "
 					+ "Please choose a valid brand.Category is required. Please choose a valid category."
 					+ "SKU is required.UPC is required.Country of manufacture is required. "
-					+ "Please select from the list.The Wholesale price is required.Material is required. "
+					+ "Please select from the list.The Wholesale price is required."
+					+ "Color Family is required. Please select from the list.Material is required. "
 					+ "Please select from the list.Short Description is required."
 					+ "Short Description should be between 40-2000 characters.For Commercial Use value is required."
 					+ "Feature value is required.Feature value is required.Feature value is required."
@@ -67,7 +69,7 @@ public class TestAddProduct extends InitializeTest{
 			UseAssert.assertEquals(alertMess, "Please correct the following errors:\nProduct Title\nBrand\n"
 					+ "Category\nSKU\nUPC\nCountry of Manufacture\nWholesale Price\nShipping Service\nProduct"
 					+ " Dimensions: Weight\nShort Description\nFor Commercial Use\nFeature 1\nFeature 2\nFeature 3"
-					+ "\nMaterial\nPackage Dimensions: Qty\nPackage Type\nPackage Dimensions: Package SKU\n"
+					+ "\nColor Family\nMaterial\nPackage Dimensions: Qty\nPackage Type\nPackage Dimensions: Package SKU\n"
 					+ "All the letters in the title cannot be either UPPERCASE or lowercase.\nField: Category, "
 					+ "Error: Select a Value");
 
@@ -77,7 +79,7 @@ public class TestAddProduct extends InitializeTest{
 		}
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 2, enabled = false)
 	public void fillProductData(){
 		try{
 			ProductListing listingPage = new ProductListing(driver);
