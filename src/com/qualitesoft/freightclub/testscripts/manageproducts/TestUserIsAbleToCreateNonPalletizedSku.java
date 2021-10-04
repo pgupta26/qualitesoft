@@ -3,21 +3,17 @@ package com.qualitesoft.freightclub.testscripts.manageproducts;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
-import com.qualitesoft.core.JavaFunction;
-import com.qualitesoft.core.Log;
-import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
 import com.qualitesoft.freightclub.appcommon.CommonOps;
 import com.qualitesoft.freightclub.pageobjects.ManageProducts;
-import com.qualitesoft.freightclub.pageobjects.QuickQuote;
 import com.qualitesoft.freightclub.pageobjects.QuickQuoteFinal;
 
-public class TestUserIsAbleToCreateNonPalletizedSkuWithMultipleCarton extends InitializeTest {
+public class TestUserIsAbleToCreateNonPalletizedSku extends InitializeTest {
 	
 	@Test
-	public void testUserIsAbleToCreateNonPalletizedSkuWithMultipleCarton() {
+	public void testUserIsAbleToCreateNonPalletizedSku() {
 		
 		ManageProducts manageProducts = new ManageProducts(driver);
 		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
@@ -30,16 +26,13 @@ public class TestUserIsAbleToCreateNonPalletizedSkuWithMultipleCarton extends In
 		quickQuote.acceptPopup();
 		
 		commonOps.addProductDetail(xr, 2);
-		commonOps.addProductCarton(xr, 2, 1);
-		SeleniumFunction.click(quickQuote.addadditionalItem());
-		commonOps.addProductCarton(xr, 3, 2);
-		SeleniumFunction.click(quickQuote.addadditionalItem());
-		commonOps.addProductCarton(xr, 4, 3);
+		commonOps.addProductCarton(xr, 8, 1);
 		
 		SeleniumFunction.click(manageProducts.saveproduct());
 		
 		//set product name in excel
-		xr.setCellData("Input","ProductName", 2,InitializeTest.Productname);
+		xr.setCellData("Input","ProductName", 8,InitializeTest.Productname);
 		WaitTool.sleep(5);
+
 	}
 }

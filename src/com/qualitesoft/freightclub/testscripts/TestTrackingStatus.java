@@ -22,7 +22,6 @@ public class TestTrackingStatus extends InitializeTest{
 	public void testTrackingStatus(){
 
 		QuickQuote quickQuote = new QuickQuote(driver);
-		LandingPage landingPage = new LandingPage(driver);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 
 

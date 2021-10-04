@@ -1,27 +1,12 @@
-package com.qualitesoft.freightclub.testscripts;
+package com.qualitesoft.freightclub.testscripts.greenlist;
 
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.Test;
-
 import com.qualitesoft.core.InitializeTest;
 
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
-
-import com.qualitesoft.freightclub.pageobjects.LandingPage;
+import com.qualitesoft.freightclub.pageobjects.GreenList;
 import com.qualitesoft.freightclub.pageobjects.QuickQuote;
 
 
@@ -30,15 +15,15 @@ public class TestManageGreenlist extends InitializeTest {
 	@Test
 	public void testManagegreenlist() {
 
-		LandingPage landingPage = new LandingPage(driver);
-		SeleniumFunction.click(landingPage.manageGreenLink());
+		GreenList greenList = new GreenList(driver);
+		SeleniumFunction.click(greenList.manageGreenLink());
 		
 		QuickQuote quickQuote = new QuickQuote(driver);
 		WaitTool.sleep(5);
 		quickQuote.acceptPopup();
 		WaitTool.sleep(2);
 		
-		SeleniumFunction.click(landingPage.downloadGreenlistLink());
+		SeleniumFunction.click(greenList.downloadGreenlistLink());
 		WaitTool.sleep(10);
 
 		//open excel and take screenshot  
@@ -50,18 +35,21 @@ public class TestManageGreenlist extends InitializeTest {
 			Runtime.getRuntime().exec(
 			        "cmd /c taskkill /f /im excel.exe");
 	    	
-		} catch (IOException e1) {
+		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
+	    
+	    //click select files
+	    SeleniumFunction.click(greenList.selectFiles());
 
 		//upload greenlist
 	    WaitTool.sleep(10);
-		landingPage.uploadFileChrome("Greenlist_Template.xlsx");		
+	    SeleniumFunction.uploadFile("Greenlist_Template.xlsx");
 		WaitTool.sleep(5);
-		SeleniumFunction.clickAction(driver, landingPage.uploadButton());
+		SeleniumFunction.clickAction(driver, greenList.uploadButton());
 		ScreenShot.takeScreenShot(driver, "Green List selected");
 		WaitTool.sleep(5);
-		SeleniumFunction.clickAction(driver, landingPage.OKButton());
+		SeleniumFunction.clickAction(driver, greenList.OKButton());
 		WaitTool.sleep(5);
 		ScreenShot.takeScreenShot(driver, "Green List uploaded");
 	}

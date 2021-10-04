@@ -69,7 +69,9 @@ public class TestQuickQuote extends InitializeTest {
 		
 		//verify pallet details
 		if (!packageType.isEmpty()) {
-			if(shipmentType.equals("Parcel") || packageType.equals("Non-Palletized")) {
+			if(shipmentType.equals("Parcel") && packageType.equals("SearchaddedProduct")) {
+				commonOps.verifyPalletizedDetail(xr, i, "5", packageType);
+			} else if(shipmentType.equals("Parcel") || packageType.equals("Non-Palletized")) {
 				commonOps.verifyPalletizedDetail(xr, i, "4", packageType);
 			} else {
 				commonOps.verifyPalletizedDetail(xr, i, "3", packageType);

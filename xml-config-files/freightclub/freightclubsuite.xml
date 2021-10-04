@@ -129,7 +129,7 @@
 		<parameter name="Row" value="2" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
-			<class name="com.qualitesoft.freightclub.testscripts.TestManageGreenlist" />
+			<class name="com.qualitesoft.freightclub.testscripts.greenlist.TestManageGreenlist" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestUserIsAbleToSearchProfile" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestSelectPaymentMethod" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
@@ -248,10 +248,9 @@
 	<test name="Test book and clone order - Parcel - AddedProduct">
 		<parameter name="Row" value="10" />
 		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.TestManageProducts" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku" />
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
-			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />
 			<!-- <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" /> -->
@@ -259,7 +258,7 @@
 		</classes>
 	</test>  
 	
-	<test name="Test book and clone order - Bagged or Unboxed Product">
+	<test name="Test book and clone order - Parcel - Bagged or Unboxed Product">
 		<parameter name="Row" value="11" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
@@ -288,7 +287,7 @@
 	<test name="Test book and clone order - Parcel - AddedProduct - SurePost">
 		<parameter name="Row" value="13" />
 		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.TestManageProducts" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku" />
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />
@@ -299,7 +298,7 @@
 		</classes>
 	</test>  
 
-	<test name="Test verify tracking status of order id's">
+	<!-- <test name="Test verify tracking status of order id's">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
 		<parameter name="Row" value="8" />
@@ -307,7 +306,7 @@
 			<class name="com.qualitesoft.freightclub.testscripts.TestTrackingStatus" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test> 
+	</test> --> 
 	
 	<!-- *********************Manage Orders Filteration And Pagination***************************** -->
 	<test name="Test verify pagination functionality on manage orders page">
@@ -719,7 +718,6 @@
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class
 				name="com.qualitesoft.freightclub.testscripts.manageorders.TestDeniedRerouteRequest" />
-
 		</classes>
 	</test>
 	<test
@@ -1759,9 +1757,4 @@
 			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" /> 
 		</classes>
 	</test>
-	
-	
-	
-	
-	
 </suite>	

@@ -243,10 +243,7 @@ public class CommonOps extends InitializeTest {
 		String expectedCategory=xr.getCellData("Input","category", rowIndex).trim();			
 		String expectedDeclareValue=xr.getCellData("Input","DeclaredValue", rowIndex).trim();
 		String expectedNumberOfCartoons=xr.getCellData("Input","TotalPalletCount", rowIndex);
-		
-		expectedWeight = expectedWeight+"lbs";
-		String expectedDimension = "L"+DimensionL+" x W"+DimensionW+" x H"+DimensionH+" inches";
-		expectedDeclareValue = "$"+expectedDeclareValue+".00";
+		String shipmentType=xr.getCellData("Input","shipmentType", rowIndex).trim();
 		
 		String actualCategory = null;
 		String actualCartoon = null;
@@ -254,12 +251,10 @@ public class CommonOps extends InitializeTest {
 		if(packageType.equals("Non-Palletized")) {
 			expectedPackageType = "1 x "+packageType+ " 1";
 			actualCategory = notQuotedTab.getCellValueFromPackage(panelIndex, "4").getText();
-		} else if(packageType.contains("Standard")) {
-			expectedPackageType = "1 x "+packageType.split("Standard ")[1].toUpperCase();
-			actualCartoon = notQuotedTab.getCellValueFromPackage(panelIndex, "5").getText();
-			actualCategory = notQuotedTab.getCellValueFromPackage(panelIndex, "6").getText();
-			Assert.assertEquals(actualCartoon, expectedNumberOfCartoons);
-		} else if(packageType.equalsIgnoreCase("SearchaddedProduct") || packageType.equalsIgnoreCase("Custom Pallet (enter dimensions)") ) {
+		} else if(shipmentType.equals("Parcel") &&  packageType.contains("SearchaddedProduct")) {
+			expectedPackageType = "1 x "+Productname;
+			actualCategory = notQuotedTab.getCellValueFromPackage(panelIndex, "4").getText();
+		} else if(shipmentType.equals("Less Than Truckload") && !packageType.equals("Non-Palletized")) {
 			expectedPackageType="1 x PALLET 1";
 			actualCartoon = notQuotedTab.getCellValueFromPackage(panelIndex, "5").getText();
 			actualCategory = notQuotedTab.getCellValueFromPackage(panelIndex, "6").getText();
@@ -269,10 +264,28 @@ public class CommonOps extends InitializeTest {
 			actualCategory = notQuotedTab.getCellValueFromPackage(panelIndex, "4").getText();
 		}
 		
-		String actualPackageType = notQuotedTab.packageTypeHeading(panelIndex).getText();
-		String actualWeight = notQuotedTab.getCellValueFromPackage(panelIndex, "1").getText();
-		String actualDimentions = notQuotedTab.getCellValueFromPackage(panelIndex, "2").getText();
-		String actualDeclaredValue = notQuotedTab.getCellValueFromPackage(panelIndex, "3").getText();
+		String actualPackageType, actualWeight, actualDimentions, actualDeclaredValue;
+		String expectedDimension;
+		
+		if(shipmentType.equals("Parcel") &&  packageType.contains("SearchaddedProduct")) {
+			expectedWeight = expectedWeight+" lbs";
+			expectedDimension = DimensionL+" x "+DimensionW+" x "+DimensionH+" in";
+			expectedDeclareValue = "$"+expectedDeclareValue+".00";
+			
+			actualPackageType = notQuotedTab.packageTypeHeading(panelIndex).getText();
+			actualWeight = notQuotedTab.getCellValueFromPackage(panelIndex, "2").getText();
+			actualDimentions = notQuotedTab.getCellValueFromPackage(panelIndex, "3").getText();
+			actualDeclaredValue = notQuotedTab.declaredValueCloneOrder().getText().split(":")[1].trim();
+		} else {
+			expectedWeight = expectedWeight+"lbs";
+			expectedDimension = "L"+DimensionL+" x W"+DimensionW+" x H"+DimensionH+" inches";
+			expectedDeclareValue = "$"+expectedDeclareValue+".00";
+			
+			actualPackageType = notQuotedTab.packageTypeHeading(panelIndex).getText();
+			actualWeight = notQuotedTab.getCellValueFromPackage(panelIndex, "1").getText();
+			actualDimentions = notQuotedTab.getCellValueFromPackage(panelIndex, "2").getText();
+			actualDeclaredValue = notQuotedTab.getCellValueFromPackage(panelIndex, "3").getText();
+		}
 		
 		Assert.assertEquals(actualPackageType, expectedPackageType);
 		Assert.assertEquals(actualWeight, expectedWeight);
@@ -427,7 +440,7 @@ public class CommonOps extends InitializeTest {
 			WaitTool.sleep(2);
 		}
 		else {
-			SeleniumFunction.selectByvalue(manageProduct.category(itemIndex), "346");
+			SeleniumFunction.selectByvalue(manageProduct.category(itemIndex), "1183");
 		}
 
 		SeleniumFunction.sendKeys(manageProduct.cartoonweight(itemIndex), cartonWeight);
