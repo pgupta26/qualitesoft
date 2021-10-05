@@ -39,7 +39,7 @@
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestNewUserIsAbleToSignUp"/>
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestCreateAccount" />
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestShipmentInfo" />
-			<!-- <class name="com.qualitesoft.freightclub.testscripts.signup.TestPayment" /> -->
+			<class name="com.qualitesoft.freightclub.testscripts.signup.TestPayment" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
 	</test> 
@@ -53,7 +53,7 @@
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestNewUserIsAbleToSignUp"/>
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestCreateAccount" />
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestShipmentInfo" />
-			<!-- <class name="com.qualitesoft.freightclub.testscripts.signup.TestPayment" /> -->
+			<class name="com.qualitesoft.freightclub.testscripts.signup.TestPayment" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
 	</test>
@@ -67,7 +67,7 @@
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestNewUserIsAbleToSignUp"/>
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestCreateAccount" />
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestShipmentInfo" />
-			<!-- <class name="com.qualitesoft.freightclub.testscripts.signup.TestPayment" /> -->
+			<class name="com.qualitesoft.freightclub.testscripts.signup.TestPayment" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
 	</test>    
@@ -81,7 +81,7 @@
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestNewUserIsAbleToSignUp"/>
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestCreateAccount" />
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestShipmentInfo" />
-			<!-- <class name="com.qualitesoft.freightclub.testscripts.signup.TestPayment" /> -->
+			<class name="com.qualitesoft.freightclub.testscripts.signup.TestPayment" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
 	</test> 
@@ -95,7 +95,7 @@
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestNewUserIsAbleToSignUp"/>
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestCreateAccount" />
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestShipmentInfo" />
-			<!-- <class name="com.qualitesoft.freightclub.testscripts.signup.TestPayment" /> -->
+			<class name="com.qualitesoft.freightclub.testscripts.signup.TestPayment" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
 	</test>
@@ -295,18 +295,20 @@
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" /> -->
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
 	</test>  
 
-	<!-- <test name="Test verify tracking status of order id's">
+	<test name="Test verify tracking status of order id's">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
-		<parameter name="Row" value="8" />
+		<parameter name="Row" value="2" />
 		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.TestTrackingStatus" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestTrackingStatus" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test> --> 
+	</test>
 	
 	<!-- *********************Manage Orders Filteration And Pagination***************************** -->
 	<test name="Test verify pagination functionality on manage orders page">

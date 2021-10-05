@@ -83,7 +83,7 @@ public class TestShipmentInfo extends InitializeTest {
 		
 		ScreenShot.takeScreenShot(driver, "Shipment Review");
 		SeleniumFunction.click(quickQuote.ReviewOrder());
-		SeleniumFunction.click(quickQuote.Okbutton1());
+		//SeleniumFunction.click(quickQuote.Okbutton1());
 		WaitTool.sleep(15);
 	}
 }

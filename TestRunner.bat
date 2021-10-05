@@ -1,1 +1,1 @@
-for /r %%a in (*.java) do ( javac "%%a" )
+java -cp .\lib\*;.\bin org.testng.TestNG .\xml-config-files\freightclub\freightclubsuite.xml

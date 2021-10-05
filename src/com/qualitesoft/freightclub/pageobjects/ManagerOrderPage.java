@@ -306,4 +306,8 @@ public class ManagerOrderPage {
 	public void clickWithdrawCancellationLink() {
 		SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("Withdraw Cancellation Request"), 10));
 	}
+	
+	public WebElement trackingNoLink() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@colid='TrackingNos']//div//div//div//a[@target='_blank']"), 30);
+	}
 }

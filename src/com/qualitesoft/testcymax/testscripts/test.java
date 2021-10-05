@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
-import com.qualitesoft.freightclub.pageobjects.LandingPage;
 
 public class test extends InitializeTest{ 
 	@Test

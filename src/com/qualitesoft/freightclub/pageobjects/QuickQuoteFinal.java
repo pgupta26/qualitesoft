@@ -71,8 +71,8 @@ public class QuickQuoteFinal {
 	}
 	
 	public WebElement selectLocationName(String locationName) {
-		WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@placeholder='Select location or enter ZIP/Postal code'])[1]"), 30).sendKeys(Keys.chord(locationName.substring(0, 4)));
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='"+locationName.substring(4, locationName.length())+"']"), 10);
+		WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@placeholder='Select location or enter ZIP/Postal code'])[1]"), 30).sendKeys(Keys.chord(locationName.substring(0, 6)));
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='"+locationName.substring(6, locationName.length())+"']"), 10);
 	}
 
 	public WebElement DropOffZip() {
