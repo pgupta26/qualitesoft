@@ -367,7 +367,9 @@ public class CommonOps extends InitializeTest {
 			String actualPopupBody = SeleniumFunction.getText(quickQuote.acknowleadgeModalBody());
 			UseAssert.assertEquals(actualPopupHeader, "A matching order has already been placed.");
 			UseAssert.assertEquals(actualPopupBody, "We have identified that the order that you are about to place is similar to an order that has already been booked. Would you like to continue with placing a duplicate order?");
+			WaitTool.sleep(2);
 			SeleniumFunction.click(quickQuote.acknowleadgeBtn());
+			WaitTool.sleep(2);
 			SeleniumFunction.clickJS(driver, quickQuote.Book());
 		}
 		
@@ -443,7 +445,11 @@ public class CommonOps extends InitializeTest {
 			SeleniumFunction.selectByvalue(manageProduct.category(itemIndex), "1183");
 		}
 
-		SeleniumFunction.sendKeys(manageProduct.cartoonweight(itemIndex), cartonWeight);
+		if(testname.contains("Weight greater than 250 - LTL  Added-Product")) {
+			SeleniumFunction.sendKeys(manageProduct.cartoonweight(itemIndex),"251");
+		}else {
+			SeleniumFunction.sendKeys(manageProduct.cartoonweight(itemIndex), cartonWeight);
+		}
 		SeleniumFunction.sendKeys(manageProduct.cartoonlength(itemIndex), cartonLength);
 		SeleniumFunction.sendKeys(manageProduct.cartoonwidth(itemIndex), cartonWidth);
 		SeleniumFunction.sendKeys(manageProduct.cartoonheight(itemIndex), cartonHeight);

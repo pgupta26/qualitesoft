@@ -61,5 +61,9 @@ public class OrderDetailPage {
 	public WebElement billDetail(String documentNum, int index){
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//td[text()='"+documentNum+"']//parent::tr//td)["+index+"]"), 60);
 	}
+	
+	public WebElement editOrder() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@class='btn btn-xs btn-primary']"), 30);
+	}
 
 }
