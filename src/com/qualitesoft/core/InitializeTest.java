@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 import org.apache.log4j.xml.DOMConfigurator;
 import org.openqa.selenium.InvalidArgumentException;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -147,9 +148,15 @@ public class InitializeTest {
 				//set chrome options
 				ChromeOptions options = new ChromeOptions();
 				options.setExperimentalOption("prefs", chromePrefs);
+				options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+				options.setAcceptInsecureCerts(true);
+				options.addArguments("enable-automation");
+				options.addArguments("--no-sandbox");
+				options.addArguments("--disable-extensions");
+				options.addArguments("--dns-prefetch-disable");
+				options.addArguments("--disable-gpu");
 				options.addArguments("--disable-notifications");
 				options.addArguments("--start-maximized");
-				options.setAcceptInsecureCerts(true);
 				options.addArguments("test-type");
 				System.setProperty("java.net.preferIPv4Stack", "true");			
 				//Launch browser
