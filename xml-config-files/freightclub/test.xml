@@ -20,5 +20,21 @@
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 		</classes>
-	</test>   
+	</test>
+	
+	<test name="Test manage green list and select onAccount payment method">
+		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
+		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="searchUser" value="test.automation@mailinator.com"/>
+		<parameter name="testData" value="ManageClaims.xlsx" />
+		<parameter name="Row" value="2" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.greenlist.TestManageGreenlist" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestUserIsAbleToSearchProfile" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestSelectPaymentMethod" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+	  
 </suite>	
