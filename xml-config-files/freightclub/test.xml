@@ -12,16 +12,9 @@
 	<parameter name="project" value="FreightClub" />
 	<parameter name="browser" value="chrome" />
 	<parameter name="URL" value="https://qa.freightclub.com/" /> 
+	<parameter name="testData" value="QuickQuote\QuickQuoteTestData.xlsx" />
 	
 	<!-- *************************** Quick Quote ********************************** -->
-	<test name="Test Log In">
-		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
-		<parameter name="fcpassword" value="Welcome@1" />
-		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
-		</classes>
-	</test>
-	
 	<test name="Test manage green list and select onAccount payment method">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
@@ -35,6 +28,5 @@
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestSelectPaymentMethod" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test>
-	  
+	</test> 
 </suite>	

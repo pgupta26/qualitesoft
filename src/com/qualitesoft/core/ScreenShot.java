@@ -61,7 +61,7 @@ public class ScreenShot extends InitializeTest {
 		try {
 			image = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
 	    	ImageIO.write(image, "png", new File(baseScreenShotsFolder + "/" + fileName + ".png"));
-			Log.info("Faliure screenshot " + fileName + " successfully taken.");
+			Log.info("Screenshot " + fileName + " successfully taken.");
 		} catch (Exception e) {
 			Log.warn("Not able to take " + fileName + " screen shot: " + e.getMessage());
 		}
