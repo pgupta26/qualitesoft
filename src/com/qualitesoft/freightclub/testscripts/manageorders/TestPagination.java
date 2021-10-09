@@ -1,6 +1,7 @@
 package com.qualitesoft.freightclub.testscripts.manageorders;
 
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
@@ -15,25 +16,25 @@ public class TestPagination extends InitializeTest{
 	public static void clickPaginationBtnAndVerifyRows(int btnIndex, String pageInput, String rowsNumbers, int totalRows){
 		try{
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
-			String rowsCount = manageOrderpage.getPagiationTotalRows();
+			String rowsCount = manageOrderpage.getPagiationTotalRows(keyword);
 			String[] num = rowsCount.split(" ");
 
 			if(Integer.parseInt(num[4]) > totalRows){
-				manageOrderpage.clickPaginationButton(btnIndex);
+				manageOrderpage.clickPaginationButton(keyword, btnIndex);
 				WaitTool.sleep(15);
 				//************Verify rows limit on pagination********
-				String paginationLimit= manageOrderpage.getPagiationTotalRows();
+				String paginationLimit= manageOrderpage.getPagiationTotalRows(keyword);
 				UseAssert.assertEquals(paginationLimit.substring(0, 8), rowsNumbers);
 				Log.info("Pagination Limit is >>>" + paginationLimit);
 
 				//**************Verify Input field count***********
-				String inputPageCount = manageOrderpage.getPageNumber();
+				String inputPageCount = manageOrderpage.getPageNumber(keyword);
 				UseAssert.assertEquals(inputPageCount, pageInput);
 				
 				Log.info("Input page number is >>>" + inputPageCount);
 
 				//*************Verify Number of Rows***********
-				int rows = manageOrderpage.getRowsCount();
+				int rows = manageOrderpage.getRowsCount(keyword);
 				Log.info("Total rows are >>>>>>>>>" + rows);	
 				UseAssert.assertEquals(rows, 10);
 			}
@@ -52,17 +53,22 @@ public class TestPagination extends InitializeTest{
 			if(manageOrderpage.acceptFeedbackPopupStatus() == true){
 				manageOrderpage.acceptFeedbackPopup();
 			}
+		
+			if(keyword.equals("quickOrders") == true){
+				SeleniumFunction.click(manageOrderpage.openQuoteTab());
+			}else if(keyword.equals("incompleteGrid") == true){
+				SeleniumFunction.click(manageOrderpage.customOrdersTab());
+			}
+			WaitTool.sleep(5);
 			
-			manageOrderpage.ActionButton();
-			WaitTool.sleep(10);
 			if(!manageOrderpage.ExpandMenupage().getAttribute("class").equals("active")) {
 				SeleniumFunction.click(manageOrderpage.ExpandMenupage());
 			}
 
-			String rowsCount = manageOrderpage.getPagiationTotalRows();
+			String rowsCount = manageOrderpage.getPagiationTotalRows(keyword);
 			String[] num = rowsCount.split(" ");
 
-			int rows = manageOrderpage.getRowsCount();
+			int rows = manageOrderpage.getRowsCount(keyword);
 			Log.info("Total rows are >>>>>>>>>" + rows);
 
 			//******* Verify initially rows are 10*******
@@ -84,20 +90,20 @@ public class TestPagination extends InitializeTest{
 		try{
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
 
-			String rowsCount = manageOrderpage.getPagiationTotalRows();
+			String rowsCount = manageOrderpage.getPagiationTotalRows(keyword);
 			String[] num = rowsCount.split(" ");
 			Log.info("Pagination Rows count is >>>>>>>>>" + rowsCount);
 
-			int rows = manageOrderpage.getRowsCount();
+			int rows = manageOrderpage.getRowsCount(keyword);
 			Log.info("Total rows are >>>>>>>>>" + rows);
 
 			if(Integer.parseInt(num[4]) > 10){
-				manageOrderpage.clickPaginationButton(4);
+				manageOrderpage.clickPaginationButton(keyword, 4);
 				WaitTool.sleep(10);
 
 				char lastNum = rowsCount.charAt(rowsCount.length() - 1);
 				int ex_rows = Character.getNumericValue(lastNum);
-				int lastPageRows = manageOrderpage.getRowsCount();
+				int lastPageRows = manageOrderpage.getRowsCount(keyword);
 
 				Log.info("Last num from pagination text >>>>>>>>>" + ex_rows);
 				Log.info("Rows count>>>>>>>>>" + lastPageRows);
@@ -109,11 +115,11 @@ public class TestPagination extends InitializeTest{
 					UseAssert.assertEquals(lastPageRows, 10);
 				}
 
-				String pages = manageOrderpage.getTotalPages();
+				String pages = manageOrderpage.getTotalPages(keyword);
 				String totalPages = pages.replaceAll("[^?0-9]+", "");
 				Log.info("Total pages are >>>>>>>>>" + totalPages);
 
-				String inputPages = manageOrderpage.getPageNumber();
+				String inputPages = manageOrderpage.getPageNumber(keyword);
 				UseAssert.assertEquals(inputPages, totalPages);
 			}
 			else{
@@ -145,12 +151,14 @@ public class TestPagination extends InitializeTest{
 	public void verifyRowsLimit(){
 		try{
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
-			SeleniumFunction.sendKeys(manageOrderpage.setPageNumber(), "2");
-			manageOrderpage.setPageNumber().sendKeys(Keys.ENTER);
+
+			WebElement pageNumInput = manageOrderpage.setPageNumber(keyword);
+			SeleniumFunction.sendKeys(pageNumInput, "2");
+			pageNumInput.sendKeys(Keys.ENTER);
 			/*SeleniumFunction.KeyBoradEnter(driver);*/
 			WaitTool.sleep(5);
-			String inputPage2 = manageOrderpage.getPageNumber();
-			String nextPageRows = manageOrderpage.getPagiationTotalRows();
+			String inputPage2 = manageOrderpage.getPageNumber(keyword);
+			String nextPageRows = manageOrderpage.getPagiationTotalRows(keyword);
 			
 			UseAssert.assertEquals(nextPageRows.substring(0, 8), "11 to 20");
 			UseAssert.assertEquals(inputPage2, "2");

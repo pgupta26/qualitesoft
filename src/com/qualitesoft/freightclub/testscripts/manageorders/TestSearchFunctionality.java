@@ -30,7 +30,7 @@ public class TestSearchFunctionality extends InitializeTest{
 			/*SeleniumFunction.KeyBoradEnter(driver);*/
 			WaitTool.sleep(10);
 
-			int rows = manageOrderpage.getRowsCount();
+			int rows = manageOrderpage.getRowsCount("fullOrders");
 			UseAssert.assertEquals(rows, 1);
 			UseAssert.assertEquals(manageOrderpage.getColumnData(index2), searchData);
 		}catch(Exception ex) {

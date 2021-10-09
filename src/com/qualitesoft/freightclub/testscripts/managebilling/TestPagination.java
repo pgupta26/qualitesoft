@@ -54,7 +54,7 @@ public class TestPagination extends InitializeTest{
 			ManagerOrderPage orderPage = new ManagerOrderPage(driver);
 			
 			String totalRecords = SeleniumFunction.getText(billingPage.getTotalRecords()).replace(",", "");
-			int rows = orderPage.getRowsCount();
+			int rows = orderPage.getRowsCount("borderLayout_eRootPanel");
 			Log.info("Actual number of rows are " + rows);
 			
 			if(Integer.parseInt(totalRecords) > 10){
@@ -120,7 +120,7 @@ public class TestPagination extends InitializeTest{
 			WaitTool.sleep(7);
 			
 			String totalRecords = SeleniumFunction.getText(billingPage.getTotalRecords()).replace(",", "");
-			int rows = orderPage.getRowsCount();
+			int rows = orderPage.getRowsCount("borderLayout_eRootPanel");
 			int totalCount = Integer.parseInt(totalRecords);
 			Log.info("Actual number of rows on last page are + " + rows);
 			

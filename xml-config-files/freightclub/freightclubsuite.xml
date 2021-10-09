@@ -315,6 +315,7 @@
 		<parameter name="loginuser" value="new" />
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="keyword" value="fullOrders" />
 
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />

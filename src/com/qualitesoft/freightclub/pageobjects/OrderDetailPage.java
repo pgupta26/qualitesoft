@@ -36,6 +36,10 @@ public class OrderDetailPage {
 	}
 	
 	//********Added by Shubham**************
+	
+	public WebElement orderId(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//label[text()='Order ID:']//following::div)[1]"), 10);
+	}
 	public String verifyRerouteWarningMessage(){
 		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='details-info-panel']//div[contains(@class,'alert-warning')]"), 60));
 	}
