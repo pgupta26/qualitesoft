@@ -1,10 +1,5 @@
 package com.qualitesoft.freightclub.pageobjects;
 
-
-import java.text.DateFormatSymbols;
-import java.util.Calendar;
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +10,6 @@ import com.qualitesoft.core.JavaFunction;
 import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
-import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
 
 
@@ -54,7 +48,7 @@ public class QuickQuoteFinal {
 
 	public WebElement OrderDate() {
 		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='OrderDate']"), 30));
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='datepicker-days']//td[@class='day']"), 30);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='datepicker-days']//td[@class='day'])[2]"), 30);
 	}
 
 	public WebElement OrderReferenceID() {
@@ -246,6 +240,8 @@ public class QuickQuoteFinal {
 			SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/9.png']/ancestor::tr/td[7]/button"), 10));
 		}else if(carrierName.equals("Estes")) {
 			SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/22.png']/ancestor::tr/td[7]/button"), 10));
+		}else if(carrierName.equals("BTX Global Logistics")) {
+			SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/291.png']/ancestor::tr/td[7]/button"), 10));
 		}
 	}
 
@@ -362,6 +358,8 @@ public class QuickQuoteFinal {
 			isPresent = WaitTool.isElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/9.png']"));
 		}else if(carrierName.equals("Estes")) {
 			isPresent = WaitTool.isElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/22.png']"));
+		}else if(carrierName.equals("BTX Global Logistics")) {
+			SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/291.png']"), 10));
 		}
 		
 		Log.info("Is Carrier Present: "+isPresent);

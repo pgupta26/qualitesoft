@@ -129,7 +129,7 @@
 		<parameter name="Row" value="2" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
-			<class name="com.qualitesoft.freightclub.testscripts.greenlist.TestManageGreenlist" />
+			<!-- <class name="com.qualitesoft.freightclub.testscripts.greenlist.TestManageGreenlist" /> -->
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestUserIsAbleToSearchProfile" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestSelectPaymentMethod" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
