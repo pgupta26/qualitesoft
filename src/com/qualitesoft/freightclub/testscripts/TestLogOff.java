@@ -14,6 +14,7 @@ public class TestLogOff extends InitializeTest{
 	public void testlogoff(){
 		WaitTool.sleep(5);
 		HomePage homePage = new HomePage(driver);
+		SeleniumFunction.scrollUpByPixel(driver, "2000");
 		SeleniumFunction.click(homePage.logoff());
 		WaitTool.sleep(10);
 		ScreenShot.takeScreenShot(driver, "Logout");		
