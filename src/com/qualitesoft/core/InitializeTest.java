@@ -164,6 +164,7 @@ public class InitializeTest {
 				//Launch browser
 				WebDriverManager.chromedriver().clearResolutionCache().setup();
 				driver = new ChromeDriver(options);
+				driver.manage().window().setSize(new Dimension(1440, 1440));
 			} else if(browser.equalsIgnoreCase("firefox")) {
 				//Launch browser
 				WebDriverManager.firefoxdriver().clearResolutionCache().setup();
