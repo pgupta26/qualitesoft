@@ -12,7 +12,6 @@ public class TestSignIn extends InitializeTest {
 
 	@Test
 	public void testSignIn(){
-		try {
 			SignInPage signInPage = new SignInPage(driver);
 			SeleniumFunction.sendKeys(signInPage.usernameTextField(), fcusername);
 			SeleniumFunction.sendKeys(signInPage.passowrdTextField(), fcpassword);
@@ -24,11 +23,6 @@ public class TestSignIn extends InitializeTest {
 			ScreenShot.takeScreenShot(driver, "Login detail inserted");
 			SeleniumFunction.clickJS(driver, signInPage.loginButton());
 			WaitTool.sleep(5);
-			driver.navigate().refresh();
 			ScreenShot.takeScreenShot(driver, "Login Successfully");
-		} catch(Exception e) {
-			e.printStackTrace();
-			throw e;
-		}
 	}
 }

@@ -5,13 +5,13 @@
 
 	<listeners>
 		<listener class-name="org.uncommons.reportng.HTMLReporter" />
-		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
 		<listener class-name="com.qualitesoft.core.CustomTestListener" />
 	</listeners>
 
 	<parameter name="project" value="FreightClub" />
 	<parameter name="browser" value="chrome" />
 	<parameter name="URL" value="https://qa.freightclub.com/" />
+	<parameter name="retryCount" value="1" />
 
 	<test name="Test verify user is able to add bills">
 		<parameter name="fcusername" value="info@freightclub.com" />

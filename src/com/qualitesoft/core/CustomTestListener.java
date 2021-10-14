@@ -15,15 +15,12 @@ import org.testng.annotations.ITestAnnotation;
 
 public class CustomTestListener extends InitializeTest implements IAnnotationTransformer, ITestListener {
 
-	public void transform(ITestAnnotation testannotation, Class testClass, Constructor testConstructor,
-			Method testMethod) {
+	public void transform(ITestAnnotation testannotation, Class testClass, Constructor testConstructor, Method testMethod) {
+		IRetryAnalyzer retry = testannotation.getRetryAnalyzer();
 
-		/*
-		 * IRetryAnalyzer retry = testannotation.getRetryAnalyzer();
-		 * 
-		 * if (retry == null) { testannotation.setRetryAnalyzer(Retry.class); }
-		 */
-
+		if (retry == null) { 
+			testannotation.setRetryAnalyzer(Retry.class);
+		}
 	}
 
 	// Adjust test reports
@@ -46,7 +43,7 @@ public class CustomTestListener extends InitializeTest implements IAnnotationTra
 	@Override
 	public void onStart(ITestContext arg0) {
 		// TODO Auto-generated method stub
-	
+
 	}
 
 	@Override
