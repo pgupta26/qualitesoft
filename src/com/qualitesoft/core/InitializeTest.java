@@ -158,7 +158,7 @@ public class InitializeTest {
 				options.addArguments("--disable-gpu");
 				options.addArguments("--disable-notifications");
 				options.addArguments("--start-maximized");
-				options.addArguments("--window-size=1920x1080");
+				options.addArguments("--window-size=1920x1366");
 				options.addArguments("test-type");
 				System.setProperty("java.net.preferIPv4Stack", "true");			
 				//Launch browser
