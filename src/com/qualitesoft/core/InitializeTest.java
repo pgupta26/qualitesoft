@@ -164,7 +164,7 @@ public class InitializeTest {
 				//Launch browser
 				WebDriverManager.chromedriver().clearResolutionCache().setup();
 				driver = new ChromeDriver(options);
-				SeleniumFunction.executeJS(driver, "window.resizeTo(1024, 1024);");
+				driver.manage().window().fullscreen();
 			} else if(browser.equalsIgnoreCase("firefox")) {
 				//Launch browser
 				WebDriverManager.firefoxdriver().clearResolutionCache().setup();
