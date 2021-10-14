@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.xml.DOMConfigurator;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.InvalidArgumentException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.PageLoadStrategy;
@@ -157,12 +158,13 @@ public class InitializeTest {
 				options.addArguments("--disable-gpu");
 				options.addArguments("--disable-notifications");
 				options.addArguments("--start-maximized");
-				options.addArguments("--window-size=1920*1080");
+				//options.addArguments("--window-size=1920*1080");
 				options.addArguments("test-type");
 				System.setProperty("java.net.preferIPv4Stack", "true");			
 				//Launch browser
 				WebDriverManager.chromedriver().clearResolutionCache().setup();
 				driver = new ChromeDriver(options);
+				driver.manage().window().setSize(new Dimension(1440, 900));
 			} else if(browser.equalsIgnoreCase("firefox")) {
 				//Launch browser
 				WebDriverManager.firefoxdriver().clearResolutionCache().setup();
