@@ -109,55 +109,55 @@ public class EmailVerification extends InitializeTest {
 						break;
 						
 					case "Residential Reroute Requested - Customer":
-						expectedMsg = Messages.residential_reroute_requested_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
+						expectedMsg = Messages.residential_reroute_requested_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName.toUpperCase());
 						break;
 						
 					case "Commercial Reroute Requested - Customer":
-						expectedMsg = Messages.commercial_reroute_requested_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
+						expectedMsg = Messages.commercial_reroute_requested_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName.toUpperCase());
 						break;
 						
 					case "Amazon Reroute Requested - Customer":
-						expectedMsg = Messages.amazon_reroute_requested_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
+						expectedMsg = Messages.amazon_reroute_requested_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName.toUpperCase());
 						break;
 						
 					case "Residential Reroute Requested - Carrier":
-						expectedMsg = Messages.residential_reroute_requested_carrier.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
+						expectedMsg = Messages.residential_reroute_requested_carrier.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName.toUpperCase());
 						break;
 						
 					case "Commercial Reroute Requested - Carrier":
-						expectedMsg = Messages.commercial_reroute_requested_carrier.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
+						expectedMsg = Messages.commercial_reroute_requested_carrier.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName.toUpperCase());
 						break;
 						
 					case "Amazon Reroute Requested - Carrier":
-						expectedMsg = Messages.amazon_reroute_requested_carrier.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
+						expectedMsg = Messages.amazon_reroute_requested_carrier.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName.toUpperCase());
 						break;
 						
 					case "Residential Reroute Request Approved - Customer":
-						expectedMsg = Messages.residential_reroute_approved_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
+						expectedMsg = Messages.residential_reroute_approved_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName.toUpperCase());
 						break;
 						
 					case "Commercial Reroute Request Approved - Customer":
-						expectedMsg = Messages.commercial_reroute_approved_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
+						expectedMsg = Messages.commercial_reroute_approved_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName.toUpperCase());
 						break;
 						
 					case "Amazon Reroute Request Approved - Customer":
-						expectedMsg = Messages.amazon_reroute_approved_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
+						expectedMsg = Messages.amazon_reroute_approved_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName.toUpperCase());
 						break;
 						
 					case "Residential Reroute Request Approved - Carrier":
-						expectedMsg = Messages.residential_reroute_approved_carrier.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
+						expectedMsg = Messages.residential_reroute_approved_carrier.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName.toUpperCase());
 						break;
 						
 					case "Commercial Reroute Request Approved - Carrier":
-						expectedMsg = Messages.commercial_reroute_approved_carrier.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
+						expectedMsg = Messages.commercial_reroute_approved_carrier.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName.toUpperCase());
 						break;
 						
 					case "Amazon Reroute Request Approved - Carrier":
-						expectedMsg = Messages.amazon_reroute_approved_carrier.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
+						expectedMsg = Messages.amazon_reroute_approved_carrier.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName.toUpperCase());
 						break;
 						
 					case "Reroute Request Decline - Customer":
-						expectedMsg = Messages.reroute_request_decline_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
+						expectedMsg = Messages.reroute_request_decline_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName.toUpperCase());
 						break;
 						
 					case "Claim initiated - Customer":

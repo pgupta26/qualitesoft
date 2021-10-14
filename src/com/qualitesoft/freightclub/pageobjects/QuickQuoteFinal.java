@@ -48,7 +48,7 @@ public class QuickQuoteFinal {
 
 	public WebElement OrderDate() {
 		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='OrderDate']"), 30));
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='datepicker-days']//td[@class='day'])[2]"), 30);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='datepicker-days']//td[@class='day'])"), 30);
 	}
 
 	public WebElement OrderReferenceID() {

@@ -5,16 +5,17 @@
 
 	<listeners>
 		<listener class-name="org.uncommons.reportng.HTMLReporter" />
-		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
 		<listener class-name="com.qualitesoft.core.CustomTestListener" />
 	</listeners>
 
 	<parameter name="project" value="FreightClub" />
 	<parameter name="browser" value="chrome" />
 	<parameter name="URL" value="https://qa.freightclub.com/" />  
+	<parameter name="retryCount" value="1" />
+	
 	<parameter name="testData" value="QuickQuote\QuickQuoteTestData.xlsx" />
 	
-	<!-- <test name="Test Verify Functionality of Re-Quote Button - Custom Order">
+	<test name="Test Verify Functionality of Re-Quote Button - Custom Order">
 		<parameter name="loginuser" value="new" />
 		<parameter name="fcusername" value="test.automation@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />
@@ -26,11 +27,11 @@
 			<class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyReQuoteFunctionality" /> 
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test> -->
+	</test>
 	
 	<!-- ************************************** Sign Up ****************************************************** -->
 	
-	<!-- <test name="Test New User Able To Sign Up When Account Type - Manufacturer">
+	<test name="Test New User Able To Sign Up When Account Type - Manufacturer">
 		<parameter name="loginuser" value="new" />
 		<parameter name="testData" value="SignUp.xlsx" />
 		<parameter name="Row" value="2" />
@@ -108,17 +109,17 @@
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestVerifyUserProfileDetail" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test> -->
+	</test>
 	
 	<!-- *************************** Forgot Password ********************************** -->
-	<!-- <test name="Test forgot password">
+	<test name="Test forgot password">
 		<parameter name="testData" value="SignUp.xlsx" />
 		<parameter name="Row" value="7" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.forgotpassword.TestForgotPassword" />
 			<class name="com.qualitesoft.freightclub.testscripts.forgotpassword.TestResetPassword" />	
 		</classes>
-	</test> -->
+	</test>
 	
 	<!-- *************************** Quick Quote ********************************** -->
 	<test name="Test manage green list and select onAccount payment method">
@@ -129,7 +130,7 @@
 		<parameter name="Row" value="2" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
-			<!-- <class name="com.qualitesoft.freightclub.testscripts.greenlist.TestManageGreenlist" /> -->
+			<class name="com.qualitesoft.freightclub.testscripts.greenlist.TestManageGreenlist" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestUserIsAbleToSearchProfile" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestSelectPaymentMethod" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
@@ -302,7 +303,7 @@
 	<test name="Test verify tracking status of order id's">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
-		<parameter name="Row" value="2" />
+		<parameter name="Row" value="4" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestTrackingStatus" />
