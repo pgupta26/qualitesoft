@@ -164,7 +164,10 @@ public class InitializeTest {
 				//Launch browser
 				WebDriverManager.chromedriver().clearResolutionCache().setup();
 				driver = new ChromeDriver(options);
-				driver.manage().window().setSize(new Dimension(1440, 900));
+				Dimension dimention = driver.manage().window().getSize();
+				Log.info("Window Height: "+dimention.getHeight());
+				Log.info("Window Width: "+dimention.getWidth());
+				driver.manage().window().setSize(dimention);
 			} else if(browser.equalsIgnoreCase("firefox")) {
 				//Launch browser
 				WebDriverManager.firefoxdriver().clearResolutionCache().setup();
