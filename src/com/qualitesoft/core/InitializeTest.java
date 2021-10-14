@@ -157,14 +157,13 @@ public class InitializeTest {
 				options.addArguments("--dns-prefetch-disable");
 				options.addArguments("--disable-gpu");
 				options.addArguments("--disable-notifications");
-				//options.addArguments("start-maximized");
-				options.addArguments("--window-size=2500x2500");
+				options.addArguments("--start-maximized");
+				options.addArguments("--window-size=1920,1980");
 				options.addArguments("test-type");
 				System.setProperty("java.net.preferIPv4Stack", "true");			
 				//Launch browser
 				WebDriverManager.chromedriver().clearResolutionCache().setup();
 				driver = new ChromeDriver(options);
-				driver.manage().window().setSize(new Dimension(1440, 1440));
 			} else if(browser.equalsIgnoreCase("firefox")) {
 				//Launch browser
 				WebDriverManager.firefoxdriver().clearResolutionCache().setup();
