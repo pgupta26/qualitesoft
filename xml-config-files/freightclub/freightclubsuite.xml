@@ -1696,15 +1696,6 @@
 		</classes>
 	</test> 
 	
-	<test name="Test Verify Functionality of Clone Button - QA-538 - CO02">
-		<parameter name="testData" value="QA_538.xlsx" />
-		<parameter name="Row" value="3" />
-		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
-			<class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCloneButtonFunctionalityCustomOrder" />
-		</classes>
-	</test>  
-	
 	<test name="Test Order Confirmation Mail to Admin - QA-538 - CO02">
 		<parameter name="testData" value="QA_538.xlsx" />
 		<parameter name="fcusername" value="8march1@mailinator.com" />
@@ -1728,6 +1719,15 @@
 			</class>
 		</classes>
 	</test> 
+	
+	<test name="Test Verify Functionality of Clone Button - QA-538 - CO02">
+		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="Row" value="3" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
+			<class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCloneButtonFunctionalityCustomOrder" />
+		</classes>
+	</test>  
 	
 	<test name="Test Quick Quote Custom Order - Weekly - QA-538 -  CO03">
 		<parameter name="testData" value="QA_538.xlsx" />

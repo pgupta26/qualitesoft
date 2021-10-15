@@ -8,6 +8,7 @@ import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.freightclub.pageobjects.ManageCarrierPage;
+import com.qualitesoft.freightclub.pageobjects.QuickQuoteFinal;
 
 public class TestDisableLooseCartoonAccepted extends InitializeTest {
 
@@ -15,7 +16,9 @@ public class TestDisableLooseCartoonAccepted extends InitializeTest {
 	public void testDisableLooseCartoonAccepted() {
 		String[] carrierNames=carrierName.split(",");
 		ManageCarrierPage manageCarrierPage = new ManageCarrierPage(driver);
+		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
 		manageCarrierPage.manageCarriersLink();
+		quickQuote.acceptPopup();
 		for(int carriersCount=0; carriersCount<carrierNames.length; carriersCount++) {
 			WaitTool.sleep(5);
 			manageCarrierPage.filterCarrier(carrierNames[carriersCount]);
