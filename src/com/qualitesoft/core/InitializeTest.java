@@ -153,13 +153,12 @@ public class InitializeTest {
 				options.setAcceptInsecureCerts(true);
 				options.addArguments("enable-automation");
 				options.addArguments("--no-sandbox");
-				options.addArguments("--headless");
 				options.addArguments("--disable-extensions");
 				options.addArguments("--dns-prefetch-disable");
 				options.addArguments("--disable-gpu");
 				options.addArguments("--disable-notifications");
 				options.addArguments("--start-maximized");
-				//options.addArguments("--window-size=1920,1980");
+				options.addArguments("--window-size=600,2100");
 				options.addArguments("test-type");
 				System.setProperty("java.net.preferIPv4Stack", "true");			
 				//Launch browser
