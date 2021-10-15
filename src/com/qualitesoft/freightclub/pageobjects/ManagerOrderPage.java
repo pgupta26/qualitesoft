@@ -157,32 +157,32 @@ public class ManagerOrderPage {
 	
 	//********************************Pagination***************
 	
-	public void clickPaginationButton(int index){
-		WebElement button = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='paging-panel pager-visible']//button)["+index+"]"), 20);
+	public void clickPaginationButton(String tableName, int index){
+		WebElement button = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@id='"+tableName+"']//div[@class='paging-panel pager-visible']//button)["+index+"]"), 20);
 		SeleniumFunction.scrollDownUptoFooter(driver);
 		SeleniumFunction.click(button);
 	}
 	
-	public String getPagiationTotalRows (){
-		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='paging-panel pager-visible']//span[contains(@class,'summary-panel')])[1]"), 20));
+	public String getPagiationTotalRows(String tableName){
+		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@id='"+tableName+"']//span[contains(@class,'summary-panel')])[2]"), 20));
 	}
 	
-	public WebElement setPageNumber(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='paging-panel pager-visible']//input[@type='number'])[1]"), 20);
+	public WebElement setPageNumber(String tableName){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@id='"+tableName+"']//div[@class='paging-panel pager-visible']//input[@type='number'])"), 20);
 	}
 	
-	public String getPageNumber(){
-		WebElement inputPage = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='paging-panel pager-visible']//input[@type='number'])[1]"), 20);
+	public String getPageNumber(String tableName){
+		WebElement inputPage = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@id='"+tableName+"']//div[@class='paging-panel pager-visible']//input[@type='number'])"), 20);
 		return SeleniumFunction.getAttribute(inputPage, "value");
 	}
 	
-	public Integer getRowsCount(){
-		List<WebElement> elements = WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("(//div[@class='ag-body-viewport'])[1]//div[contains(@class,'ag-row')]"), 30);
+	public Integer getRowsCount(String tableName){
+		List<WebElement> elements = WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("(//div[@id='"+tableName+"']//div[@class='ag-body-viewport'])//div[contains(@class,'ag-row')]"), 30);
 		return elements.size();
 	}
 	
-	public String getTotalPages(){
-		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='paging-panel pager-visible']//span[contains(@class,'action-panel')])[1]"), 20));
+	public String getTotalPages(String tableName){
+		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@id='"+tableName+"']//div[@class='paging-panel pager-visible']//span[contains(@class,'action-panel')])[1]"), 20));
 	}
 	
 	//**************Searching************
@@ -309,5 +309,55 @@ public class ManagerOrderPage {
 	
 	public WebElement trackingNoLink() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@colid='TrackingNos']//div//div//div//a[@target='_blank']"), 30);
+	}
+	//******************************Export CSV file***********
+	
+	public WebElement clickExportOrdersBtn(String tableName){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='"+tableName+"']//a[@class='btn btn-default btn-sm']"), 10);
+	}
+	
+	public WebElement openQuoteTab(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@id='quotedOrders']"), 10);
+	}
+	
+	public WebElement customOrdersTab(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@id='incompleteOrders']"), 10);
+	}
+	
+	public WebElement PagiationTotalRows (){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='paging-panel pager-visible']//span[contains(@class,'summary-panel')])[2]"), 20);
+	}
+
+	//quickOrders
+	public WebElement searchFieldsOnTable(String tableName, String index) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@id='"+tableName+"']//input[@ref='eColumnFloatingFilter'])["+index+"]"), 60);
+	}
+
+	public String getColumnDataFromTable(String tableName, String index){
+		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@id='"+tableName+"']//div[contains(@class,'ag-cell-value')])["+index+"]"), 20));
+	}
+	
+	public WebElement getOrderId(String tableName){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@id='"+tableName+"']//div[@row='9'])//div[@colid='ID']"), 60);
+	}
+	
+	public WebElement actionButton(String tableName) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@id='"+tableName+"']//button[@class='btn btn-primary btn-xs dropdown-toggle'])[1]"), 30);
+	}
+	
+	public void clickDeleteLink() {
+		SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("Delete"), 10));
+	}
+	
+	public WebElement deleteButton() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//button[text()='Delete'])[1]"), 10);
+	}
+	
+	public WebElement noRowsText(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='overlay']//span"), 10);
+	}
+	
+	public WebElement detailBtn(String tableName) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@id='"+tableName+"']//button[text()='Detail'])[1]"), 30);
 	}
 }
