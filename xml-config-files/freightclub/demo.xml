@@ -38,9 +38,9 @@
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />	
-			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
+			<!-- <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
-			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" /> -->
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" />
 		</classes>
 	</test>

@@ -151,6 +151,8 @@ public class InitializeTest {
 				options.setExperimentalOption("prefs", chromePrefs);
 				options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 				options.setAcceptInsecureCerts(true);
+				options.addArguments("force-device-scale-factor=0.75");
+				options.addArguments("high-dpi-support=0.75");
 				options.addArguments("enable-automation");
 				options.addArguments("--no-sandbox");
 				options.addArguments("--disable-extensions");
