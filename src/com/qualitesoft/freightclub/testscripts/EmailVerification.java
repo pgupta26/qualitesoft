@@ -133,7 +133,7 @@ public class EmailVerification extends InitializeTest {
 						break;
 						
 					case "Residential Reroute Request Approved - Customer":
-						expectedMsg = Messages.residential_reroute_approved_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName.toUpperCase());
+						expectedMsg = Messages.residential_reroute_approved_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
 						break;
 						
 					case "Commercial Reroute Request Approved - Customer":
@@ -145,7 +145,7 @@ public class EmailVerification extends InitializeTest {
 						break;
 						
 					case "Residential Reroute Request Approved - Carrier":
-						expectedMsg = Messages.residential_reroute_approved_carrier.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName.toUpperCase());
+						expectedMsg = Messages.residential_reroute_approved_carrier.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
 						break;
 						
 					case "Commercial Reroute Request Approved - Carrier":
@@ -157,7 +157,7 @@ public class EmailVerification extends InitializeTest {
 						break;
 						
 					case "Reroute Request Decline - Customer":
-						expectedMsg = Messages.reroute_request_decline_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName.toUpperCase());
+						expectedMsg = Messages.reroute_request_decline_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
 						break;
 						
 					case "Claim initiated - Customer":

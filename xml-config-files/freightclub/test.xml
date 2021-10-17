@@ -18,8 +18,8 @@
 	<!-- ************************************** QA - 538 Tests ****************************************************** -->
 	
 	<test name="Test Enable Custom Order Option and Estes Express Lines from Admin - QA-538">
-		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
-		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
 		<parameter name="testData" value="QA_538.xlsx" />
 		<parameter name="Row" value="2" />
 		<parameter name="enableOption" value="Custom Orders"/>
