@@ -194,6 +194,8 @@ public class EmailVerification extends InitializeTest {
 				}
 				
 				verifyEmailBody(expectedMsg);
+				ScreenShot.takeScreenShot(driver, "email message");
+				WaitTool.sleep(2);
 				SeleniumFunction.selectParentframe(driver);
 				SeleniumFunction.click(mailinator.deleteEmail());
 			SeleniumFunction.closeWindow(driver);
