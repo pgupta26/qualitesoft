@@ -28,4 +28,38 @@
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 		</classes>
 	</test> 
+	
+	<test name="Test Quick Quote Custom Order - Weekly - QA-538 -  CO03">
+		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="Row" value="4" />
+		<parameter name="CarrierName" value="Custom Orders"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomOrderAsUser" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+	
+	<test name="Test Verify Functionality of Unable to fulfill button">
+		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
+		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="Row" value="4" />
+		<parameter name="CarrierName" value="Custom Orders"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.customorders.TestUnableToFulfillFunctionality" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>  
+	
+	<test name="Test verify that user will get email notification for unable to fulfill ordrs - QA-538 - CO03">
+		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="fcusername" value="billing.address@mailinator.com" />
+		<parameter name="Row" value="4" />
+		<parameter name="notificationType" value="Custom Order Cannot Be Fulfilled" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" /> 
+		</classes>
+	</test>
+	
 </suite>	
