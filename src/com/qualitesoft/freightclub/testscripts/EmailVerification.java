@@ -1,8 +1,6 @@
 package com.qualitesoft.freightclub.testscripts;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -15,9 +13,6 @@ import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
 import com.qualitesoft.freightclub.appcommon.Messages;
 import com.qualitesoft.freightclub.pageobjects.Mailinator;
-
-import ru.yandex.qatools.ashot.Screenshot;
-
 
 public class EmailVerification extends InitializeTest {
 	
@@ -109,7 +104,7 @@ public class EmailVerification extends InitializeTest {
 						break;
 						
 					case "Residential Reroute Requested - Customer":
-						expectedMsg = Messages.residential_reroute_requested_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName.toUpperCase());
+						expectedMsg = Messages.residential_reroute_requested_customer.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
 						break;
 						
 					case "Commercial Reroute Requested - Customer":
@@ -121,7 +116,7 @@ public class EmailVerification extends InitializeTest {
 						break;
 						
 					case "Residential Reroute Requested - Carrier":
-						expectedMsg = Messages.residential_reroute_requested_carrier.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName.toUpperCase());
+						expectedMsg = Messages.residential_reroute_requested_carrier.replace("{orderID}", orderid).replace("{wayBill}", wayBill).replace("{poNumber}", poNumber).replace("{carrierName}", carrierName);
 						break;
 						
 					case "Commercial Reroute Requested - Carrier":

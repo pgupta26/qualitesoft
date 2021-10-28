@@ -72,7 +72,7 @@ public class InitializeTest {
 	public static String testData;
 	public static String carrierDetailsOptions=null;
 	public static String Productname;
-
+	public static String userPermissions = null;
 	
 	@BeforeTest
 	public void initialize(ITestContext context) {
@@ -118,6 +118,7 @@ public class InitializeTest {
 		carrierDetailsOptions=context.getCurrentXmlTest().getParameter("CarrierDetailsOptions");
 		emailAddress = context.getCurrentXmlTest().getParameter("emailAddress");
 		password = context.getCurrentXmlTest().getParameter("password");
+		userPermissions = context.getCurrentXmlTest().getParameter("userPermissions");
 		Log.info("*****************************"+ testname + " started.");
 	}
 	

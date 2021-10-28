@@ -23,7 +23,6 @@
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestExportOrders" /> 
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestPagination" />
-			
 		</classes>
 	</test> 
 	
