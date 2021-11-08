@@ -30,7 +30,11 @@ public class ManagerOrderPage {
 	}
 	
 	public WebElement ViewDetail() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//button[text()='Detail'])[1]"), 30);
+		try {
+			return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//button[text()='Detail'])[1]"), 30);
+		}catch(Exception ex) {
+			return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//button[text()='View Detail'])[1]"), 30);
+		}
 	}
 	
 	public void orderIDFilter(String orderid) {

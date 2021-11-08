@@ -83,6 +83,8 @@ public class TestQuickQuoteStg extends InitializeTest {
 			SeleniumFunction.selectByvalue(quickQuote.Category(1), "346");
 		}
 
+		SeleniumFunction.scrollDownUptoFooter(driver);
+		WaitTool.sleep(2);
 		SeleniumFunction.sendKeys(quickQuote.quantity(1), quantity);
 		SeleniumFunction.clickJS(driver, quickQuote.PackageType(packageType, 1));
 		SeleniumFunction.sendKeys(quickQuote.Weight(1), Weight);

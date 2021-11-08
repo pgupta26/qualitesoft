@@ -22,7 +22,7 @@ public class TestAdditionalDocsNeededClaimStatus extends InitializeTest {
 	public void testAdditionalDocsNeededClaimStatus() {
 		
 		Xls_Reader xr;
-		xr=new Xls_Reader("binaries/FCfiles/ManageClaims.xlsx");
+		xr=new Xls_Reader("binaries/FCfiles/"+testData);
 		int i=Integer.parseInt(Row);
 		
 		String orderId=xr.getCellData("Input","OrderId", i).trim();
@@ -40,31 +40,38 @@ public class TestAdditionalDocsNeededClaimStatus extends InitializeTest {
 		//navigate claims details page
 		SeleniumFunction.click(manageOverages.viewEdit(1));
 		
-		//switch to manage claims window
-		SeleniumFunction.getCurrentWindow(driver); 
-		WaitTool.sleep(30);
-		quickQuote.acceptPopup();
-		
-		//select additional docs needed claim status
-		manageClaims.selectByVisibleText("Claim Status:", "Filed - Additional Docs Needed");
+		try {
+			//switch to manage claims window
+			SeleniumFunction.getCurrentWindow(driver); 
+			WaitTool.sleep(30);
+			quickQuote.acceptPopup();
+			
+			//select additional docs needed claim status
+			manageClaims.selectByVisibleText("Claim Status:", "Filed - Additional Docs Needed");
 
-		//click save changes
-		manageClaims.clickSaveChanges();
+			//click save changes
+			manageClaims.clickSaveChanges();
 
-		//enter boby then click on send email
-		SeleniumFunction.sendKeys(manageClaims.body("filledModal"), addiotionalDocsEmailBody);
-		SeleniumFunction.click(manageClaims.sendEmail("filledModal"));
-		
-		//verify comment and claim status field
-		WaitTool.sleep(20);
-		String comment = "Pending Documentation Email Sent, the documentation needed {emailBody}.".replace("{emailBody}", addiotionalDocsEmailBody);
-		manageClaims.verifySavedComment(comment);
-		UseAssert.assertEquals(manageClaims.getSelect("Claim Status:").getText(), "Filed - Additional Docs Needed");
-		
-		xr.setCellData("ClaimDetail", "ClaimStatus", i,"Filed - Additional Docs Needed");
+			//enter boby then click on send email
+			SeleniumFunction.sendKeys(manageClaims.body("filledModal"), addiotionalDocsEmailBody);
+			SeleniumFunction.click(manageClaims.sendEmail("filledModal"));
+			
+			//verify comment and claim status field
+			WaitTool.sleep(20);
+			String comment = "Pending Documentation Email Sent, the documentation needed {emailBody}.".replace("{emailBody}", addiotionalDocsEmailBody);
+			manageClaims.verifySavedComment(comment);
+			UseAssert.assertEquals(manageClaims.getSelect("Claim Status:").getText(), "Filed - Additional Docs Needed");
+			
+			xr.setCellData("ClaimDetail", "ClaimStatus", i,"Filed - Additional Docs Needed");
 
-		SeleniumFunction.closeWindow(driver);
-		SeleniumFunction.getCurrentWindow(driver);	
+			SeleniumFunction.closeWindow(driver);
+			SeleniumFunction.getCurrentWindow(driver);	
+			
+		}catch(Exception ex) {
+			SeleniumFunction.closeWindow(driver);
+			SeleniumFunction.getCurrentWindow(driver);	
+			Assert.fail();
+		}
 		
 		//verify claim status in manage claims grid
 		ArrayList<String> expectedGridHeader = new ArrayList<String> (); 

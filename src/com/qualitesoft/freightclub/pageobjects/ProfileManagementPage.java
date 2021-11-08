@@ -7,6 +7,7 @@ import org.apache.poi.util.SystemOutLogger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;
@@ -191,6 +192,25 @@ public class ProfileManagementPage {
 			String carrierStatus = SeleniumFunction.getText(driver.findElement(By.xpath("//td[contains(text(),'"+carrierName+"')]/following-sibling::td[2]/descendant::span")));
 			if(carrierStatus.equals("Active")) {
 				SeleniumFunction.click(driver.findElement(By.xpath("//td[contains(text(),'"+carrierName+"')]/following-sibling::td[2]/descendant::span")));
+			}
+		}
+	}
+	
+	public void disableAllCarriers() {
+		List<WebElement> elements = WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//table[@id='table-carrier']/tbody/tr/td[4]/descendant::span"), 30);
+		for(int i=0; i< elements.size(); i++) {
+			SeleniumFunction.scrollIntoView(driver, elements.get(i));
+			String carrierStatus = elements.get(i).getText();
+			Log.info("Carrier Status: "+carrierStatus);
+			if(carrierStatus.equals("Active")) {
+				SeleniumFunction.scrollUpByPixel(driver, "400");
+				WaitTool.sleep(2);
+				try {
+					SeleniumFunction.click(elements.get(i));
+				}catch(Exception ex) {
+					SeleniumFunction.scrollDownByPixel(driver, "800");
+					SeleniumFunction.click(elements.get(i));
+				}
 			}
 		}
 	}

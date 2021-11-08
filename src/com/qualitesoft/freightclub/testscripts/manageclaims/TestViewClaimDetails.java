@@ -29,7 +29,7 @@ public class TestViewClaimDetails extends InitializeTest {
 		CommonOps commonOps = new CommonOps();
 
 		Xls_Reader xr;
-		xr=new Xls_Reader("binaries/FCfiles/ManageClaims.xlsx");
+		xr=new Xls_Reader("binaries/FCfiles/"+testData);
 		int i=Integer.parseInt(Row);
 
 		String orderId=xr.getCellData("Input","OrderId", i).trim();
@@ -73,105 +73,113 @@ public class TestViewClaimDetails extends InitializeTest {
 		commonOps.openManageClaimsPageAndSearchOrder(orderId);
 		SeleniumFunction.click(manageOverages.viewEdit(1));	
 		
-		//switch to manage claims window
-		SeleniumFunction.getCurrentWindow(driver); WaitTool.sleep(30);
-		quickQuote.acceptPopup();
-		
-		//verify claim details
-		Date myDate=new Date();
-		SimpleDateFormat dateFormat=new SimpleDateFormat("MM-dd-yyyy");
-		String currentDate=dateFormat.format(myDate);
+		try {
+			//switch to manage claims window
+			SeleniumFunction.getCurrentWindow(driver); WaitTool.sleep(30);
+			quickQuote.acceptPopup();
+			
+			//verify claim details
+			Date myDate=new Date();
+			SimpleDateFormat dateFormat=new SimpleDateFormat("MM-dd-yyyy");
+			String currentDate=dateFormat.format(myDate);
 
-		String actualShipper = manageClaims.getLabel("Shipper:").getText().replaceAll("[\\t\\n\\r]+"," ");
-		Log.info("Actual Shipper Name: "+actualShipper);
-		String actualConsignee = manageClaims.getLabel("Consignee:").getText().replaceAll("[\\t\\n\\r]+"," ");
-		Log.info("Actual Consignee Name: "+actualConsignee);
+			String actualShipper = manageClaims.getLabel("Shipper:").getText().replaceAll("[\\t\\n\\r]+"," ");
+			Log.info("Actual Shipper Name: "+actualShipper);
+			String actualConsignee = manageClaims.getLabel("Consignee:").getText().replaceAll("[\\t\\n\\r]+"," ");
+			Log.info("Actual Consignee Name: "+actualConsignee);
 
-		//Verify claim details
-		SoftAssertion.assertEquals(manageClaims.getLabel("Company:").getText(), companyName);
-		SoftAssertion.assertEquals(manageClaims.getLabel("Claim Date:").getText(), currentDate);
-		SoftAssertion.assertEquals(manageClaims.getLabel("Order ID:").getText(), orderId);
-		SoftAssertion.assertEquals(manageClaims.getLabel("Customer PO:").getText(), customerPO);
-		SoftAssertion.assertEquals(manageClaims.getLabel("Declared Value:").getText(), "$"+declaredValue+".00" );
-		if(userType.equals("User")) {
-			SoftAssertion.assertEquals(manageClaims.getLabel("UPSC Insurance Coverage:").getText(), upsInsuranceCoverage);
-		} else  {
-			Select insuranceCoverage = new Select(manageClaims.upscInsuranceCoverage());
-			SoftAssertion.assertEquals(insuranceCoverage.getFirstSelectedOption().getText(), upsInsuranceCoverage); 
-		}
-		
-		SoftAssertion.assertEquals(actualShipper, shipper);
-		SoftAssertion.assertEquals(actualConsignee, consignee);
-		SoftAssertion.assertEquals(manageClaims.getSelect("Claim Type:").getText(), claimType);
-		SoftAssertion.assertEquals(manageClaims.getField("Original Tracking #:").getAttribute("value"), trackingID);
-		if(userType.equals("User")) {
-			SoftAssertion.assertEquals(manageClaims.getField("Claim Status:").getAttribute("value"), claimStatus);
-			Assert.assertFalse(manageClaims.getField("Claim Status:").isEnabled());
-		} else  {
-			SoftAssertion.assertEquals(manageClaims.getSelect("Claim Status:").getText(), claimStatus);
-			Assert.assertTrue(manageClaims.getSelect("Claim Status:").isEnabled());
-		}
-		
-		if(userType.equals("Admin")) {
-			
-			  if(upsInsuranceCoverage.equals("No")) {
-				  SoftAssertion.assertEquals(manageClaims.getLabel("UPSC Parcel Band:").getText(), "");
-				  SoftAssertion.assertEquals(manageClaims.getLabel("UPSC LTL Band:").getText(),"");  
-			  } else { 
-				  SoftAssertion.assertEquals(manageClaims.getLabel("UPSC Parcel Band:").getText(), "A");
-				  SoftAssertion.assertEquals(manageClaims.getLabel("UPSC LTL Band:").getText(), "A");
-			  }
-			 
-			SoftAssertion.assertEquals(manageClaims.getLabel("Order Date:").getText(), orderDate);
-			SoftAssertion.assertEquals(manageClaims.getLabel("Claim ID:").getText(), claimID);
-			//SoftAssertion.assertEquals(manageClaims.getLabel("Review Date:").getText(), claimID);
-
-			Double productAmount = Double.parseDouble(declaredValue);
-			Double carrierFreightAmount = Double.parseDouble(manageClaims.getField("Carrier Freight Amount:").getAttribute("value"));
-			Double companyFreightAmount = Double.parseDouble(manageClaims.getField("Company Freight Amount:").getAttribute("value"));
-
-			double totalInternalClaimAmountDouble = Math.round((productAmount + carrierFreightAmount) * 100.0) / 100.0;
-			String totalInternalClaimAmount = String.valueOf(totalInternalClaimAmountDouble);
-			System.out.println(totalInternalClaimAmount);
-			double totalCustomerClaimAmountDouble = Math.round((productAmount + companyFreightAmount) * 100.0) / 100.0;
-			String totalCustomerClaimAmount = String.valueOf(totalCustomerClaimAmountDouble);
-			
-			
-			SoftAssertion.assertEquals(manageClaims.getLabel("Total Internal Claim Amount:").getText(), "$"+totalInternalClaimAmount);
-			SoftAssertion.assertEquals(manageClaims.getLabel("Total Customer Claim Amount:").getText(), "$"+totalCustomerClaimAmount);
-			SoftAssertion.assertEquals(manageClaims.getField("Waybill #:").getAttribute("value"), wayBill);
-			SoftAssertion.assertEquals(manageClaims.getSelect("Carrier:").getText(), xr.getCellData("Input","Carrier", i).trim());
-
-			SoftAssertion.assertEquals(manageClaims.getField("Product Amount:").getAttribute("value"), declaredValue);
-			int deductibleAmount = (Integer.parseInt(declaredValue) * 20) / 100 ;
-			
-			
-			
-			if(claimType.equals("Loss")) {
-				SoftAssertion.assertEquals(manageClaims.getField("Company Freight Amount:").getAttribute("value"), amount.replace("$", ""));
-				SoftAssertion.assertEquals(manageClaims.getField("Deductible Amount:").getAttribute("value"), "0");
-				SoftAssertion.assertEquals(manageClaims.getField("Premium Amount:").getAttribute("value"), "0");
-			} else {
-				double companyFreightAmount1 = Math.round((Double.parseDouble(amount.replace("$", "")) -  Double.parseDouble(insurance.replace("$", ""))) * 100.0) / 100.0;
-				SoftAssertion.assertEquals(manageClaims.getField("Company Freight Amount:").getAttribute("value"), String.valueOf(companyFreightAmount1));
-				SoftAssertion.assertEquals(manageClaims.getField("Deductible Amount:").getAttribute("value"), String.valueOf(deductibleAmount));
-				SoftAssertion.assertEquals(manageClaims.getField("Premium Amount:").getAttribute("value"), insurance.replace("$", ""));
+			//Verify claim details
+			SoftAssertion.assertEquals(manageClaims.getLabel("Company:").getText(), companyName);
+			SoftAssertion.assertEquals(manageClaims.getLabel("Claim Date:").getText(), currentDate);
+			SoftAssertion.assertEquals(manageClaims.getLabel("Order ID:").getText(), orderId);
+			SoftAssertion.assertEquals(manageClaims.getLabel("Customer PO:").getText(), customerPO);
+			SoftAssertion.assertEquals(manageClaims.getLabel("Declared Value:").getText(), "$"+declaredValue+".00" );
+			if(userType.equals("User")) {
+				SoftAssertion.assertEquals(manageClaims.getLabel("UPSC Insurance Coverage:").getText(), upsInsuranceCoverage);
+			} else  {
+				Select insuranceCoverage = new Select(manageClaims.upscInsuranceCoverage());
+				SoftAssertion.assertEquals(insuranceCoverage.getFirstSelectedOption().getText(), upsInsuranceCoverage); 
 			}
 			
-			//verify documents uploaded by user
-			manageClaims.verifyUploadedDocument("Commercial and Sales Invoice:", xr.getCellData("ClaimDetail", "Commercial and Sales Invoice:", i));
-			if(claimType.equals("Loss")) {
-				manageClaims.verifyUploadedDocument("Signed Bill of Lading:", xr.getCellData("ClaimDetail", "Pictures:", i));
-			} else {
-				manageClaims.verifyUploadedDocument("Pictures:", xr.getCellData("ClaimDetail", "Pictures:", i));
-
+			SoftAssertion.assertEquals(actualShipper, shipper);
+			SoftAssertion.assertEquals(actualConsignee, consignee);
+			SoftAssertion.assertEquals(manageClaims.getSelect("Claim Type:").getText(), claimType);
+			SoftAssertion.assertEquals(manageClaims.getField("Original Tracking #:").getAttribute("value"), trackingID);
+			if(userType.equals("User")) {
+				SoftAssertion.assertEquals(manageClaims.getField("Claim Status:").getAttribute("value"), claimStatus);
+				Assert.assertFalse(manageClaims.getField("Claim Status:").isEnabled());
+			} else  {
+				SoftAssertion.assertEquals(manageClaims.getSelect("Claim Status:").getText(), claimStatus);
+				Assert.assertTrue(manageClaims.getSelect("Claim Status:").isEnabled());
 			}
-			manageClaims.verifyUploadedDocument("Proof of Liability (Refund, Replacement, Repair or Credit):", xr.getCellData("ClaimDetail", "Proof of Liability (Refund, Replacement, Repair or Credit):", i));
-			manageClaims.verifyUploadedDocument("Additional Documents:", xr.getCellData("ClaimDetail", "Additional Documents:", i));	
+			
+			if(userType.equals("Admin")) {
+				
+				  if(upsInsuranceCoverage.equals("No")) {
+					  SoftAssertion.assertEquals(manageClaims.getLabel("UPSC Parcel Band:").getText(), "");
+					  SoftAssertion.assertEquals(manageClaims.getLabel("UPSC LTL Band:").getText(),"");  
+				  } else { 
+					  SoftAssertion.assertEquals(manageClaims.getLabel("UPSC Parcel Band:").getText(), "A");
+					  SoftAssertion.assertEquals(manageClaims.getLabel("UPSC LTL Band:").getText(), "A");
+				  }
+				 
+				SoftAssertion.assertEquals(manageClaims.getLabel("Order Date:").getText(), orderDate);
+				SoftAssertion.assertEquals(manageClaims.getLabel("Claim ID:").getText(), claimID);
+				//SoftAssertion.assertEquals(manageClaims.getLabel("Review Date:").getText(), claimID);
+
+				Double productAmount = Double.parseDouble(declaredValue);
+				Double carrierFreightAmount = Double.parseDouble(manageClaims.getField("Carrier Freight Amount:").getAttribute("value"));
+				Double companyFreightAmount = Double.parseDouble(manageClaims.getField("Company Freight Amount:").getAttribute("value"));
+
+				double totalInternalClaimAmountDouble = Math.round((productAmount + carrierFreightAmount) * 100.0) / 100.0;
+				String totalInternalClaimAmount = String.valueOf(totalInternalClaimAmountDouble);
+				System.out.println(totalInternalClaimAmount);
+				double totalCustomerClaimAmountDouble = Math.round((productAmount + companyFreightAmount) * 100.0) / 100.0;
+				String totalCustomerClaimAmount = String.valueOf(totalCustomerClaimAmountDouble);
+				
+				
+				SoftAssertion.assertEquals(manageClaims.getLabel("Total Internal Claim Amount:").getText(), "$"+totalInternalClaimAmount);
+				SoftAssertion.assertEquals(manageClaims.getLabel("Total Customer Claim Amount:").getText(), "$"+totalCustomerClaimAmount);
+				SoftAssertion.assertEquals(manageClaims.getField("Waybill #:").getAttribute("value"), wayBill);
+				SoftAssertion.assertEquals(manageClaims.getSelect("Carrier:").getText(), xr.getCellData("Input","Carrier", i).trim());
+
+				SoftAssertion.assertEquals(manageClaims.getField("Product Amount:").getAttribute("value"), declaredValue);
+				int deductibleAmount = (Integer.parseInt(declaredValue) * 20) / 100 ;
+				
+				
+				
+				if(claimType.equals("Loss")) {
+					SoftAssertion.assertEquals(manageClaims.getField("Company Freight Amount:").getAttribute("value"), amount.replace("$", ""));
+					SoftAssertion.assertEquals(manageClaims.getField("Deductible Amount:").getAttribute("value"), "0");
+					SoftAssertion.assertEquals(manageClaims.getField("Premium Amount:").getAttribute("value"), "0");
+				} else {
+					double companyFreightAmount1 = Math.round((Double.parseDouble(amount.replace("$", "")) -  Double.parseDouble(insurance.replace("$", ""))) * 100.0) / 100.0;
+					SoftAssertion.assertEquals(manageClaims.getField("Company Freight Amount:").getAttribute("value"), String.valueOf(companyFreightAmount1));
+					SoftAssertion.assertEquals(manageClaims.getField("Deductible Amount:").getAttribute("value"), String.valueOf(deductibleAmount));
+					SoftAssertion.assertEquals(manageClaims.getField("Premium Amount:").getAttribute("value"), insurance.replace("$", ""));
+				}
+				
+				//verify documents uploaded by user
+				manageClaims.verifyUploadedDocument("Commercial and Sales Invoice:", xr.getCellData("ClaimDetail", "Commercial and Sales Invoice:", i));
+				if(claimType.equals("Loss")) {
+					manageClaims.verifyUploadedDocument("Signed Bill of Lading:", xr.getCellData("ClaimDetail", "Pictures:", i));
+				} else {
+					manageClaims.verifyUploadedDocument("Pictures:", xr.getCellData("ClaimDetail", "Pictures:", i));
+
+				}
+				manageClaims.verifyUploadedDocument("Proof of Liability (Refund, Replacement, Repair or Credit):", xr.getCellData("ClaimDetail", "Proof of Liability (Refund, Replacement, Repair or Credit):", i));
+				manageClaims.verifyUploadedDocument("Additional Documents:", xr.getCellData("ClaimDetail", "Additional Documents:", i));	
+			}
+			
+			//close current window and switch to parent window
+			SeleniumFunction.closeWindow(driver);
+			SeleniumFunction.getCurrentWindow(driver);
+			
+		}catch(Exception ex) {
+			//close current window and switch to parent window
+			SeleniumFunction.closeWindow(driver);
+			SeleniumFunction.getCurrentWindow(driver);
+			Assert.fail();
 		}
-		
-		//close current window and switch to parent window
-		SeleniumFunction.closeWindow(driver);
-		SeleniumFunction.getCurrentWindow(driver);
 	}
 }
