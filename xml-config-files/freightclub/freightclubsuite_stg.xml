@@ -27,6 +27,7 @@
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestUserIsAbleToSearchProfile" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestAddContactInformationForUser" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestSelectPaymentMethod" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestDisableAllCarriers" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestEnableCarrier" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestSelectUPSInsuranceParcelAndLTLBand" />
 		</classes>

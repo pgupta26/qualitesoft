@@ -13,17 +13,72 @@
 	<parameter name="URL" value="https://stg.freightclub.com/" />
 	<parameter name="retryCount" value="1" />
 	
-	<test name="Test - valid - admin is able to import secondary invoices">
-		<parameter name="fcusername" value="info@freightclub.com" />
-		<parameter name="fcpassword" value="Welcome@2" />
-		<parameter name="testData" value="SecondaryInvoiceTemplate.xlsx" />
+	<test name="Test verify user is able to book order - LTL - With Insurance - Claim Type - Damage">
+		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcpassword" value="@Test123" />
+		<parameter name="testData" value="ManageClaims.xlsx" />
 		<parameter name="Row" value="2" />
-		<parameter name="CarrierName" value="Custom Orders"/>
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
-			<class
-				name="com.qualitesoft.freightclub.testscripts.manageinvoices.TestImportSecondaries" />
+			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuoteStg" />
+		</classes>
+	</test>
+		
+	<test name="Test - valid - user is able to initiate claim  - LTL - With Insurance - Claim Type - Damage">
+		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcpassword" value="@Test123" />
+		<parameter name="testData" value="ManageClaims.xlsx" />
+		<parameter name="userType" value="User"></parameter>
+		<parameter name="Row" value="2" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.manageclaims.TestInitiateClaim" />
 		</classes>
 	</test>
 
+	<test name="Test verify that customer will get the email after claim initiated  - LTL - With Insurance - Claim Type - Damage">
+		<parameter name="testData" value="ManageClaims.xlsx" />
+		<parameter name="fcusername" value="customercontact@mailinator.com" />
+		<parameter name="Row" value="2" />
+		<parameter name="notificationType" value="Claim initiated - Customer" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.EmailVerification" />
+		</classes>
+	</test>
+
+	<test
+		name="Test verify that carrier will get the email after claim initiated  - LTL - With Insurance - Claim Type - Damage">
+		<parameter name="testData" value="ManageClaims.xlsx" />
+		<parameter name="fcusername" value="testautomation@mailinator.com" />
+		<parameter name="Row" value="2" />
+		<parameter name="notificationType" value="Claim initiated - Carrier" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.EmailVerification" />
+		</classes>
+	</test>  
+	
+	<test name="Test - valid - user is able to view claim details - LTL - With Insurance - Claim Type - Damage">
+		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcpassword" value="@Test123" />
+		<parameter name="testData" value="ManageClaims.xlsx" />
+		<parameter name="userType" value="User"></parameter>
+		<parameter name="Row" value="2" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.manageclaims.TestViewClaimDetails" />
+		</classes>
+	</test> 
+	
+	<test name="Test - valid - user is able to submit claim for review when claim status initiated - LTL - With Insurance - Claim Type - Damage">
+		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcpassword" value="@Test123" />
+		<parameter name="testData" value="ManageClaims.xlsx" />
+		<parameter name="userType" value="User"></parameter>
+		<parameter name="Row" value="2" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.manageclaims.TestSubmitForReview" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+	
 </suite>	

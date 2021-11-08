@@ -17,9 +17,10 @@ import com.qualitesoft.freightclub.pageobjects.Mailinator;
 public class EmailVerification extends InitializeTest {
 	
 	public void verifyEmailBody(String expectedEmailBody) {
+		expectedEmailBody = expectedEmailBody.replaceAll("[^a-zA-Z0-9]", " ");
 		Log.info("Expected Message:"+expectedEmailBody);
 		WaitTool.sleep(3);
-		String actualMessage = driver.findElement(By.tagName("body")).getText().replaceAll("[\\t\\n\\r]+"," ");
+		String actualMessage = driver.findElement(By.tagName("body")).getText().replaceAll("[\\t\\n\\r]+"," ").replaceAll("[^a-zA-Z0-9]", " ");
 		Log.info("Actual Messag1e:"+actualMessage);
 		UseAssert.assertEquals(actualMessage, expectedEmailBody);
 	}

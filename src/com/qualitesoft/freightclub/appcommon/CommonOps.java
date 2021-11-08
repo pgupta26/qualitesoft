@@ -129,6 +129,7 @@ public class CommonOps extends InitializeTest {
 	public void selectCarrier() {
 		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
 		WaitTool.sleep(2);
+		quickQuote.acceptPopup();
 		SeleniumFunction.scrollUpByPixel(driver, "250");
 		SeleniumFunction.click(quickQuote.SaveButton());
 		WaitTool.sleep(30);

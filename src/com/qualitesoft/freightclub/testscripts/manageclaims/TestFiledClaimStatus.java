@@ -22,11 +22,10 @@ public class TestFiledClaimStatus extends InitializeTest {
 	public void testFilesClaimStatus() {
 		
 		Xls_Reader xr;
-		xr=new Xls_Reader("binaries/FCfiles/ManageClaims.xlsx");
+		xr=new Xls_Reader("binaries/FCfiles/"+testData);
 		int i=Integer.parseInt(Row);
 		
 		String orderId=xr.getCellData("Input","OrderId", i).trim();
-		String pendingDocumentsEmailBody=xr.getCellData("ClaimDetail","PendingDocumentsEmailBody", i).trim();
 		
 		CommonOps commonOps = new CommonOps();
 		ManageOverages manageOverages = new ManageOverages(driver);
@@ -39,32 +38,39 @@ public class TestFiledClaimStatus extends InitializeTest {
 		//navigate claims details page
 		SeleniumFunction.click(manageOverages.viewEdit(1));
 
-		//switch to manage claims window
-		SeleniumFunction.getCurrentWindow(driver); 
-		WaitTool.sleep(30);
-		quickQuote.acceptPopup();
+		try {
+			//switch to manage claims window
+			SeleniumFunction.getCurrentWindow(driver); 
+			WaitTool.sleep(30);
+			quickQuote.acceptPopup();
 
-		//select filed claim status
-		manageClaims.selectByVisibleText("Claim Status:", "Filed");
+			//select filed claim status
+			manageClaims.selectByVisibleText("Claim Status:", "Filed");
 
-		//click save changes
-		manageClaims.clickSaveChanges();
-		WaitTool.sleep(20);
+			//click save changes
+			manageClaims.clickSaveChanges();
+			WaitTool.sleep(20);
 
-		//verify comment and claim status field
-		String comment = "Claim was filed";
-		manageClaims.verifySavedComment(comment);
-		UseAssert.assertEquals(manageClaims.getSelect("Claim Status:").getText(), "Filed");
+			//verify comment and claim status field
+			String comment = "Claim was filed";
+			manageClaims.verifySavedComment(comment);
+			UseAssert.assertEquals(manageClaims.getSelect("Claim Status:").getText(), "Filed");
 
-		//verify email communication sent
-		//String expectedMessage="Claim Successfully Filed Order ID: {orderID} / PO: LTLInsurance was sent to claimscontact@mailinator.com".replace("{orderID}", orderId);
-		//manageClaims.verifyEmailCommunicationSent(expectedMessage);
+			//verify email communication sent
+			//String expectedMessage="Claim Successfully Filed Order ID: {orderID} / PO: LTLInsurance was sent to claimscontact@mailinator.com".replace("{orderID}", orderId);
+			//manageClaims.verifyEmailCommunicationSent(expectedMessage);
 
-		xr.setCellData("ClaimDetail", "ClaimStatus", i,"Filed");
+			xr.setCellData("ClaimDetail", "ClaimStatus", i,"Filed");
 
-		SeleniumFunction.closeWindow(driver);
-		SeleniumFunction.getCurrentWindow(driver);	
-
+			SeleniumFunction.closeWindow(driver);
+			SeleniumFunction.getCurrentWindow(driver);
+			
+		}catch(Exception ex) {
+			SeleniumFunction.closeWindow(driver);
+			SeleniumFunction.getCurrentWindow(driver);
+			Assert.fail();
+		}
+		
 		//verify claim status in manage claims grid
 		ArrayList<String> expectedGridHeader = new ArrayList<String> (); 
 		Collections.addAll(expectedGridHeader,"Order ID","Claim ID","Customer PO No.","Original Tracking #","Claim Status",
