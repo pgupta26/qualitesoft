@@ -10,74 +10,61 @@
 
 	<parameter name="project" value="FreightClub" />
 	<parameter name="browser" value="chrome" />
-	<parameter name="URL" value="https://stg.freightclub.com/" />
+	<parameter name="URL" value="https://qa.freightclub.com/" />  
 	<parameter name="retryCount" value="1" />
 	
-	<test name="Test verify user is able to book order - LTL - With Insurance - Claim Type - Damage">
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
-		<parameter name="fcpassword" value="@Test123" />
-		<parameter name="testData" value="ManageClaims.xlsx" />
+	<parameter name="testData" value="QuickQuote\QuickQuoteTestData.xlsx" />
+	
+	
+	<test name="Test verify book and clone order - LTL Non-Palletized">
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
 		<parameter name="Row" value="2" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
-			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuoteStg" />
 		</classes>
 	</test>
-		
-	<test name="Test - valid - user is able to initiate claim  - LTL - With Insurance - Claim Type - Damage">
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
-		<parameter name="fcpassword" value="@Test123" />
-		<parameter name="testData" value="ManageClaims.xlsx" />
-		<parameter name="userType" value="User"></parameter>
-		<parameter name="Row" value="2" />
+	
+	<test name="Test book and clone order - Parcel - AddedProduct">
+		<parameter name="Row" value="10" />
 		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.manageclaims.TestInitiateClaim" />
-		</classes>
-	</test>
-
-	<test name="Test verify that customer will get the email after claim initiated  - LTL - With Insurance - Claim Type - Damage">
-		<parameter name="testData" value="ManageClaims.xlsx" />
-		<parameter name="fcusername" value="customercontact@mailinator.com" />
-		<parameter name="Row" value="2" />
-		<parameter name="notificationType" value="Claim initiated - Customer" />
-		<classes>
-			<class
-				name="com.qualitesoft.freightclub.testscripts.EmailVerification" />
-		</classes>
-	</test>
-
-	<test
-		name="Test verify that carrier will get the email after claim initiated  - LTL - With Insurance - Claim Type - Damage">
-		<parameter name="testData" value="ManageClaims.xlsx" />
-		<parameter name="fcusername" value="testautomation@mailinator.com" />
-		<parameter name="Row" value="2" />
-		<parameter name="notificationType" value="Claim initiated - Carrier" />
-		<classes>
-			<class
-				name="com.qualitesoft.freightclub.testscripts.EmailVerification" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" />
 		</classes>
 	</test>  
 	
-	<test name="Test - valid - user is able to view claim details - LTL - With Insurance - Claim Type - Damage">
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
-		<parameter name="fcpassword" value="@Test123" />
-		<parameter name="testData" value="ManageClaims.xlsx" />
-		<parameter name="userType" value="User"></parameter>
-		<parameter name="Row" value="2" />
+	<test name="Test book and clone order - Parcel - Bagged or Unboxed Product">
+		<parameter name="Row" value="11" />
 		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.manageclaims.TestViewClaimDetails" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" />
+		</classes>
+	</test>  
+	
+	<test name="Test book and clone order - Parcel - Cardboard Box - SurePost">
+		<parameter name="Row" value="12" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" />
 		</classes>
 	</test> 
-	
-	<test name="Test - valid - user is able to submit claim for review when claim status initiated - LTL - With Insurance - Claim Type - Damage">
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
-		<parameter name="fcpassword" value="@Test123" />
-		<parameter name="testData" value="ManageClaims.xlsx" />
-		<parameter name="userType" value="User"></parameter>
-		<parameter name="Row" value="2" />
+
+	<test name="Test book and clone order - Parcel - AddedProduct - SurePost">
+		<parameter name="Row" value="13" />
 		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.manageclaims.TestSubmitForReview" />
-			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" />
 		</classes>
 	</test>
 	

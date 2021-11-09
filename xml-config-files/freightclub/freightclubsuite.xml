@@ -29,6 +29,34 @@
 		</classes>
 	</test>
 	
+	<test name="Test Disable Team World Wide and Echo Carriers">
+		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
+		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="searchUser" value="test.automation@mailinator.com"/>
+		<parameter name="testData" value="BulkOrders/BulkOrdersTestData.xlsx" />
+		<parameter name="Row" value="2" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestUserIsAbleToSearchProfile" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestDisableCarrier" />
+		</classes>
+	</test>
+	
+	<test name="Test Enable BTX Carrier">
+		<parameter name="Row" value="2" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestEnableCarrier" />
+		</classes>
+	</test>
+	
+	<test name="Test Enable Ceva Carrier">
+		<parameter name="Row" value="3" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestEnableCarrier" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+	
 	<!-- ************************************** Sign Up ****************************************************** -->
 	
 	<test name="Test New User Able To Sign Up When Account Type - Manufacturer">
@@ -146,9 +174,9 @@
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />	
-			<!-- <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
-			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" /> --> 
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" /> 
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" />
 		</classes>
 	</test>
@@ -159,9 +187,9 @@
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />	
-			<!-- <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
-			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" /> -->
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" />
 		</classes>
 	</test>
@@ -172,9 +200,9 @@
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />	
-			<!-- <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
-			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" /> -->
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" />
 		</classes>
 	</test>
@@ -185,9 +213,9 @@
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />	
-			<!-- <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
-			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" /> -->
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" />
 		</classes>
 	</test>
@@ -199,9 +227,9 @@
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />	
-			<!-- <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
-			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" /> -->
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" />
 		</classes>
 	</test> 
@@ -213,9 +241,9 @@
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />	
-			<!-- <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
-			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" /> -->
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" />
 		</classes>
 	</test>
@@ -226,9 +254,9 @@
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />
-			<!-- <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
-			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" /> -->
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" />
 		</classes>
 	</test>
@@ -239,9 +267,9 @@
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />
-			<!-- <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
-			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" /> -->
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" />
 		</classes>
 	</test>
@@ -252,9 +280,9 @@
 			<class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku" />
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
-			<!-- <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
-			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" /> -->
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" />
 		</classes>
 	</test>  
@@ -265,9 +293,9 @@
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />
-			<!-- <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
-			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" /> -->
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" />
 		</classes>
 	</test>  
@@ -278,9 +306,9 @@
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />
-			<!-- <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
-			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" /> -->
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" />
 		</classes>
 	</test> 
@@ -292,9 +320,9 @@
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />
-			<!-- <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
-			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" /> -->
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>

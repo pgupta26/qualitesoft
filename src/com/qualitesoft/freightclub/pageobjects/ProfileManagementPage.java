@@ -191,7 +191,14 @@ public class ProfileManagementPage {
 			SeleniumFunction.scrollIntoView(driver, driver.findElement(By.xpath("//td[contains(text(),'"+carrierName+"')]/following-sibling::td[2]/descendant::span")));
 			String carrierStatus = SeleniumFunction.getText(driver.findElement(By.xpath("//td[contains(text(),'"+carrierName+"')]/following-sibling::td[2]/descendant::span")));
 			if(carrierStatus.equals("Active")) {
-				SeleniumFunction.click(driver.findElement(By.xpath("//td[contains(text(),'"+carrierName+"')]/following-sibling::td[2]/descendant::span")));
+				SeleniumFunction.scrollUpByPixel(driver, "400");
+				WaitTool.sleep(2);
+				try {
+					SeleniumFunction.click(driver.findElement(By.xpath("//td[contains(text(),'"+carrierName+"')]/following-sibling::td[2]/descendant::span")));
+				}catch(Exception ex) {
+					SeleniumFunction.scrollDownByPixel(driver, "800");
+					SeleniumFunction.click(driver.findElement(By.xpath("//td[contains(text(),'"+carrierName+"')]/following-sibling::td[2]/descendant::span")));
+				}
 			}
 		}
 	}
