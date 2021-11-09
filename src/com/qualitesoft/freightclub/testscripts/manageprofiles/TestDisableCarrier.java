@@ -22,11 +22,11 @@ public class TestDisableCarrier extends InitializeTest {
 
 		SeleniumFunction.scrollUpByPixel(driver, "3000");
 		WaitTool.sleep(5);
-		String carrierName = xr.getCellData("Input", "Carrier", rowIndex);
+		String carrierName = xr.getCellData("Sheet1", "Carrier", rowIndex);
 		String[] carrierNames=carrierName.split(",");
 		SeleniumFunction.click(profileManagement.manageCarrierTab());
 		WaitTool.sleep(5);
 		profileManagement.disableCarrier(carrierNames);
-		ScreenShot.takeScreenShot(driver, "Carrier "+carrierName+" enabled");
+		ScreenShot.takeScreenShot(driver, "Carrier "+carrierName+" disabled");
 	}
 }

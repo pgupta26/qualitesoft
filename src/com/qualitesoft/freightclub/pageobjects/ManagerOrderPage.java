@@ -53,6 +53,11 @@ public class ManagerOrderPage {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("Download Bill of Lading - PDF"), 10);
 	}
 	
+	public boolean IsbillOfLoadingPdfPresent() {
+		WaitTool.sleep(2);
+		return WaitTool.isElementPresentAndDisplay(driver, By.linkText("Download Bill of Lading - PDF"));
+	}
+	
 	public WebElement shippingLabelsPdf() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("Download Shipping Label(s) - PDF"), 10);
 	}

@@ -29,8 +29,9 @@ public class TestBOL extends InitializeTest {
 		WaitTool.sleep(2);
 		SeleniumFunction.click(manageOrderPage.ActionButton());
 		if(shipmentType.equals("Parcel")) {
-			Assert.assertFalse(manageOrderPage.billOfLoadingPdf().isDisplayed());
+			Assert.assertFalse(manageOrderPage.IsbillOfLoadingPdfPresent());
 			ScreenShot.takeScreenShot(driver, "Download BOL not visible");
+			SeleniumFunction.click(manageOrderPage.ActionButton());
 		} else {
 			SeleniumFunction.click(manageOrderPage.billOfLoadingPdf());
 			WaitTool.sleep(10); 
