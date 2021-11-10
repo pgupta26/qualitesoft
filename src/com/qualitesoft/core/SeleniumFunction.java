@@ -244,6 +244,7 @@ public class SeleniumFunction {
 			Runtime.getRuntime().exec(System.getProperty("user.dir")+"\\autoit\\NewUploadChrome.exe"+" "+fileName+" "+"Open");
 			WaitTool.sleep(10);
 			Log.info(fileName+" successfully uploaded.");
+			ScreenShot.takeScreenShot(InitializeTest.getDriver(), "File Upload");
 		} catch (Exception e) {
 			Log.error("Not able to run AutoIt script" + e.getMessage());
 		}
