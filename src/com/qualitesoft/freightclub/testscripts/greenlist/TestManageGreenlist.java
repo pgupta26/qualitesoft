@@ -44,6 +44,7 @@ public class TestManageGreenlist extends InitializeTest {
 
 		//upload greenlist
 	    WaitTool.sleep(10);
+	    ScreenShot.takeScreenShot(driver, "File Upload Dialog");
 	    SeleniumFunction.uploadFile("Greenlist_Template.xlsx");
 		WaitTool.sleep(5);
 		SeleniumFunction.clickAction(driver, greenList.uploadButton());
