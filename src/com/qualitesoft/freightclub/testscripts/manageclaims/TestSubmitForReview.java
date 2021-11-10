@@ -14,6 +14,7 @@ import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.Log;
+import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
@@ -36,6 +37,7 @@ public class TestSubmitForReview extends InitializeTest {
 		
 		SeleniumFunction.uploadFile(xr.getCellData("ClaimDetail", fieldName, i));
 		WaitTool.sleep(15);
+		ScreenShot.takeScreenShot(driver, "File Uploaded");
 
 		//Verify uploaded document detail
 		SeleniumFunction.scrollDownByPixel(driver, "300");
