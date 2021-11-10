@@ -84,7 +84,7 @@ public class TestCloneOrders extends InitializeTest{
 		if(quickQuote.acknowleadgeBtnStatus() == true){
 			String actualPopupHeader = SeleniumFunction.getText(quickQuote.acknowleadgeModalHeader());
 			String actualPopupBody = SeleniumFunction.getText(quickQuote.acknowleadgeModalBody());
-			UseAssert.assertEquals(actualPopupHeader, "A matching order has already been placed.1");
+			UseAssert.assertEquals(actualPopupHeader, "A matching order has already been placed.");
 			UseAssert.assertEquals(actualPopupBody, "We have identified that the order that you are about to place is similar to an order that has already been booked. Would you like to continue with placing a duplicate order?");
 			SeleniumFunction.click(quickQuote.acknowleadgeBtn());
 			WaitTool.sleep(2);
