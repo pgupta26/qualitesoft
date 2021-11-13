@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import com.qualitesoft.core.InitializeTest;
+import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
@@ -113,7 +114,7 @@ public class TestSubmitCustomOrderAsUser extends InitializeTest {
 
 		WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//*[@id=\"center\"]/div/div[4]/div[3]/div/div/div[1]/div[2])[3]"), 20);
 		crorderId=SeleniumFunction.getText(driver.findElement(By.xpath("(//*[@id=\"center\"]/div/div[4]/div[3]/div/div/div[1]/div[2])[3]")));
-		System.out.println("crorderId:" + crorderId.trim());
+		Log.info("crorderId:" + crorderId.trim());
 
 		//set order id in excel
 		xr.setCellData("Input","OrderId", i,crorderId.trim());

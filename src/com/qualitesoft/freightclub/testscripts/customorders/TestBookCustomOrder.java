@@ -61,7 +61,7 @@ public class TestBookCustomOrder extends InitializeTest {
 		Assert.assertEquals(reviewOrder.regulatoryDetails().getAttribute("value"), updatedRegulatoryDetails);
 		Assert.assertEquals(quickQuote.customOrderDetails(orderDetails).getAttribute("disabled"), "true");
 		if(orderDetails.equals("Requires refrigeration")) { 
-	    	System.out.println("Attribute Value: "+quickQuote.requiredTemp().getAttribute("value"));
+	    	Log.info("Attribute Value: "+quickQuote.requiredTemp().getAttribute("value"));
 	    	Assert.assertEquals(quickQuote.requiredTemp().getAttribute("value"), updatedRequiredTemp);
 			Assert.assertEquals(quickQuote.requiredTemp().getAttribute("readonly"),"true");
 	    }

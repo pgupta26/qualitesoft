@@ -28,7 +28,7 @@ public class TestValidateCustomerOrderRequiredFields extends InitializeTest {
 		ArrayList<String> actualRequiredFields  = new ArrayList<String>();
 		List<WebElement> validationFields = driver.findElements(By.xpath("//span[@class='form-group-message']"));
 		for(WebElement validationField :validationFields) {
-			System.out.println(validationField.getCssValue("display"));
+			Log.info(validationField.getCssValue("display"));
 			if(validationField.getCssValue("display").equals("block")){
 				actualRequiredFields.add(validationField.getText());
 			}

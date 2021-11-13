@@ -34,7 +34,7 @@ public class TestVerifyCloneButtonFunctionalityCustomOrder extends InitializeTes
 		String orderReferenceID=xr.getCellData("Input","orderReferenceID", i).trim();
 
 		orderReferenceID = "Clone_" + orderReferenceID;
-		System.out.println("Cloned Customer PO number: "+orderReferenceID);
+		Log.info("Cloned Customer PO number: "+orderReferenceID);
 		SeleniumFunction.click(manageOrderpage.clone());
 		SeleniumFunction.sendKeys(manageOrderpage.customerPONumber(), orderReferenceID);
 		SeleniumFunction.click(manageOrderpage.cloneNow());

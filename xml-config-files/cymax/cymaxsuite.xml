@@ -256,7 +256,7 @@
 		<parameter name="shipping" value="Free" />
 		<parameter name="couponValue" value="($10.00)" />
 		<parameter name="tax" value="TBD" />
-		<parameter name="taxRate" value="7.25" />
+		<parameter name="taxRate" value="7.25" /> 
 		<classes>
 			<class name="com.qualitesoft.cymax.testscripts.CreateNewAccount">
 				<methods>

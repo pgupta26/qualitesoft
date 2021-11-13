@@ -71,26 +71,36 @@ public class PaymentInformation extends InitializeTest {
 			//Switch to Paypal window
 			ScreenShot.takeFullScreenShot("PayPal Window");
 			SeleniumFunction.getCurrentWindow(driver);
-			Log.info("Switch to Window Title: "+driver.getTitle());
-			driver.manage().window().maximize();
-			PaypalCheckout payPalCheckOut = new PaypalCheckout(driver);
-			payPalCheckOut.payPalLogIn();
-			ScreenShot.takeFullScreenShot("PayPal Log In");
-			payPalCheckOut.email("raj.cymax@gmail.com");
-			payPalCheckOut.next();
-			payPalCheckOut.password("Welcome@2");
-			payPalCheckOut.signInButton();
-			WaitTool.sleep(30);
-			payPalCheckOut.changeLink();
-			WaitTool.sleep(2);
-			if(suiteName.contains("Homesquare")) {
-				Assert.assertEquals(payPalCheckOut.infoMessage().trim(), "This is the address provided by Homesquare. To change it, return to Homesquare before completing your purchase.");
-			} else {
-				Assert.assertEquals(payPalCheckOut.infoMessage().trim(), "This is the address provided by Cymax Stores. To change it, return to Cymax Stores before completing your purchase.");
+			
+			try{
+				Log.info("Switch to Window Title: "+driver.getTitle());
+				driver.manage().window().maximize();
+				PaypalCheckout payPalCheckOut = new PaypalCheckout(driver);
+				payPalCheckOut.payPalLogIn();
+				ScreenShot.takeFullScreenShot("PayPal Log In");
+				payPalCheckOut.email("raj.cymax@gmail.com");
+				payPalCheckOut.next();
+				payPalCheckOut.password("Welcome@2");
+				payPalCheckOut.signInButton();
+				WaitTool.sleep(30);
+				payPalCheckOut.changeLink();
+				WaitTool.sleep(2);
+				if(suiteName.contains("Homesquare")) {
+					Assert.assertEquals(payPalCheckOut.infoMessage().trim(), "This is the address provided by Homesquare. To change it, return to Homesquare before completing your purchase.");
+				} else {
+					//This is the address provided by Cymax Stores. To change it, return to Cymax Stores before completing your purchase.
+					Assert.assertEquals(payPalCheckOut.infoMessage().trim(), "This is the address provided by Cymax Business. You can change it on the Cymax Business site.");
+				}
+				ScreenShot.takeFullScreenShot("PayPal Information Page");
+				payPalCheckOut.payNow();
+				WaitTool.sleep(60);
+			}catch(Exception e){
+				SeleniumFunction.closeWindow(driver);
+			    SeleniumFunction.getCurrentWindow(driver);
+			    Assert.fail();
 			}
-			ScreenShot.takeFullScreenShot("PayPal Information Page");
-			payPalCheckOut.payNow();
-		    SeleniumFunction.getCurrentWindow(driver); 
-			WaitTool.sleep(40);	
+			SeleniumFunction.getCurrentWindow(driver); 
+			Log.info("Window swithched successfully");
+			WaitTool.sleep(40);
 	}
 }

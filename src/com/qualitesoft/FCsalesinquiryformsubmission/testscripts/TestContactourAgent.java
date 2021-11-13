@@ -21,7 +21,6 @@ public class TestContactourAgent extends InitializeTest{
 		ContactUsLink contact = new ContactUsLink(driver);
 		WaitTool.sleep(7);
 		String Text= SeleniumFunction.getText(contact.contactourAgent());
-		System.out.println(Text);
 		if(Text.equalsIgnoreCase("Contact Our Agents")) {
 			ScreenShot.takeScreenShot(driver, "Contact Our Agent displayed succesfully");	
 			Log.warn("Contact Our Agent displayed succesfully");

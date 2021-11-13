@@ -52,7 +52,7 @@ public class ManageClaims {
 		WaitTool.sleep(2);
 		List<WebElement> elementList = WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//label[text()='"+fieldName+"']/following::div[@class='selectize-dropdown-content']/div"), 30);
 		for(WebElement element: elementList) {
-			System.out.println(element.getText());
+			Log.info(element.getText());
 			if(element.getText().equals(value)) {
 				SeleniumFunction.clickJS(driver, element);
 				break;
@@ -217,7 +217,7 @@ public class ManageClaims {
 			Assert.assertTrue(element.getText().contains(message));
 			Assert.assertTrue(this.gridData("Email Communication",2).getText().contains(InitializeTest.fcusername));
 		}catch(Exception e) {
-			System.out.println("retry.........");
+			Log.info("retry.........");
 		}
 	}
 	

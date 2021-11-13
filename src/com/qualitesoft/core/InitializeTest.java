@@ -17,10 +17,10 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 
@@ -76,7 +76,7 @@ public class InitializeTest {
 	public static String userPermissions = null;
 	
 	@BeforeTest
-	public void initialize(ITestContext context) {
+	public void initialize(ITestContext context) throws Exception {
 		browser = context.getCurrentXmlTest().getParameter("browser");
 		URL = context.getCurrentXmlTest().getParameter("URL");
 		retryCount = context.getCurrentXmlTest().getParameter("retryCount");
@@ -121,9 +121,14 @@ public class InitializeTest {
 		password = context.getCurrentXmlTest().getParameter("password");
 		userPermissions = context.getCurrentXmlTest().getParameter("userPermissions");
 		Log.info("*****************************"+ testname + " started.");
+		
+		MyScreenRecorder.startRecording(testname.replace(" ", "_"));
 	}
 	
-
+	@AfterTest
+	public void stopVideoRecording() throws Exception{
+		MyScreenRecorder.stopRecording();
+	}
 	@Parameters({ "browser", "URL" })
 	@BeforeSuite
 	public WebDriver setUp(String browser, String URL) {
