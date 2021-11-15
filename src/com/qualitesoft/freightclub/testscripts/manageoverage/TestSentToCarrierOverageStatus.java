@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.JavaFunction;
 import com.qualitesoft.core.Log;
+import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
@@ -52,44 +53,53 @@ public class TestSentToCarrierOverageStatus extends InitializeTest {
 		//Click on view/edit button
 		SeleniumFunction.click(manageOverages.viewEdit(1));
 		
-		//Verify overage status
-		SeleniumFunction.getCurrentWindow(driver);
-		UseAssert.assertEquals(overageDetails.getSelect("Overage Status:").getText(), "In Review");
-		
-		//Verify document uploaded by user
-		WaitTool.sleep(2);
-		int documentsGridSize = overageDetails.documentsGrid().size();
-		UseAssert.assertEquals(overageDetails.uploadName(documentsGridSize).getText(), xr1.getCellData("EditOverageDetails", "UserDocumentName", i));
-		//Assert.assertTrue(overageDetails.dateTime(documentsGridSize).getText().contains(JavaFunction.currentDate()));
-		Assert.assertTrue(overageDetails.viewable(documentsGridSize).isDisplayed());
-		Assert.assertTrue(overageDetails.downloadable(documentsGridSize).isDisplayed());
-		
-		//Verify comment made by user
-		UseAssert.assertEquals(overageDetails.savedComment(documentsGridSize).getText(), xr1.getCellData("EditOverageDetails", "UserComment", i));
-		UseAssert.assertEquals(overageDetails.savedUserName(documentsGridSize).getText(), xr1.getCellData("EditOverageDetails", "UserName", i));
+		try {
+			//Verify overage status
+			SeleniumFunction.getCurrentWindow(driver);
+			UseAssert.assertEquals(overageDetails.getSelect("Overage Status:").getText(), "In Review");
+			
+			//Verify document uploaded by user
+			WaitTool.sleep(2);
+			int documentsGridSize = overageDetails.documentsGrid().size();
+			UseAssert.assertEquals(overageDetails.uploadName(documentsGridSize).getText(), xr1.getCellData("EditOverageDetails", "UserDocumentName", i));
+			//Assert.assertTrue(overageDetails.dateTime(documentsGridSize).getText().contains(JavaFunction.currentDate()));
+			Assert.assertTrue(overageDetails.viewable(documentsGridSize).isDisplayed());
+			Assert.assertTrue(overageDetails.downloadable(documentsGridSize).isDisplayed());
+			
+			//Verify comment made by user
+			UseAssert.assertEquals(overageDetails.savedComment(documentsGridSize).getText(), xr1.getCellData("EditOverageDetails", "UserComment", i));
+			UseAssert.assertEquals(overageDetails.savedUserName(documentsGridSize).getText(), xr1.getCellData("EditOverageDetails", "UserName", i));
 
-		//Select overage status
-		SeleniumFunction.click(overageDetails.getSelect("Overage Status:"));
-		SeleniumFunction.click(overageDetails.setSelect("Overage Status:", "Sent to Carrier"));
-		
-		//click on save changes
-		SeleniumFunction.horizontalScroll(driver);
-		SeleniumFunction.scrollDownUptoFooter(driver);
-		WaitTool.sleep(2);
-		SeleniumFunction.click(overageDetails.saveChanges());
-		
-		//Clear and enter customer email
-		String customerEmail = SeleniumFunction.getText(overageDetails.getLabelFromModal("sentToCarrierModal", "Customer Email"));
-		Log.info("Customer Email: "+customerEmail);
-		SeleniumFunction.sendKeys(overageDetails.getLabelFromModal("sentToCarrierModal", "Customer Email"), xr1.getCellData("EditOverageDetails", "SentToCarrier_Customer_Email", i));
-		
-		//Body
-		SeleniumFunction.sendKeys(overageDetails.getLabelFromModal("sentToCarrierModal", "Body"), xr1.getCellData("EditOverageDetails", "SentToCarrier_Email_Body", i));
-		
-		//Send email
-		SeleniumFunction.click(overageDetails.sendEmail("sentToCarrierModal")); 
-		
-		SeleniumFunction.closeWindow(driver);
-		SeleniumFunction.getCurrentWindow(driver);
+			//Select overage status
+			SeleniumFunction.click(overageDetails.getSelect("Overage Status:"));
+			SeleniumFunction.click(overageDetails.setSelect("Overage Status:", "Sent to Carrier"));
+			
+			//click on save changes
+			SeleniumFunction.horizontalScroll(driver);
+			SeleniumFunction.scrollDownUptoFooter(driver);
+			WaitTool.sleep(2);
+			SeleniumFunction.click(overageDetails.saveChanges());
+			
+			//Clear and enter customer email
+			String customerEmail = SeleniumFunction.getText(overageDetails.getLabelFromModal("sentToCarrierModal", "Customer Email"));
+			Log.info("Customer Email: "+customerEmail);
+			SeleniumFunction.sendKeys(overageDetails.getLabelFromModal("sentToCarrierModal", "Customer Email"), xr1.getCellData("EditOverageDetails", "SentToCarrier_Customer_Email", i));
+			
+			//Body
+			SeleniumFunction.sendKeys(overageDetails.getLabelFromModal("sentToCarrierModal", "Body"), xr1.getCellData("EditOverageDetails", "SentToCarrier_Email_Body", i));
+			
+			//Send email
+			SeleniumFunction.click(overageDetails.sendEmail("sentToCarrierModal")); 
+			WaitTool.sleep(10);
+			ScreenShot.takeScreenShot(driver, "Send to carrier status selected");
+			
+			SeleniumFunction.closeWindow(driver);
+			SeleniumFunction.getCurrentWindow(driver);
+			
+		}catch(Exception ex) {
+			SeleniumFunction.closeWindow(driver);
+			SeleniumFunction.getCurrentWindow(driver);
+			Assert.fail();
+		}
 	}
 }

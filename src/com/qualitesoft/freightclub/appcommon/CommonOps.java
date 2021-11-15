@@ -414,7 +414,7 @@ public class CommonOps extends InitializeTest {
 		String height=xr.getCellData("Input","PalletHeight", rowIndex).trim();
 
 		SeleniumFunction.click(manageProducts.createproduct());	
-		ScreenShot.takeScreenShot(driver, "Create Product");
+		ScreenShot.takeScreenShot(driver, "Create Product Popup");
 
 		SeleniumFunction.clickJS(driver, manageProducts.palletType(palletType));
 		SeleniumFunction.sendKeys(manageProducts.SKU(),sku);
@@ -426,11 +426,12 @@ public class CommonOps extends InitializeTest {
 			SeleniumFunction.sendKeys(manageProducts.length(),length);
 			SeleniumFunction.sendKeys(manageProducts.width(),width);
 			SeleniumFunction.sendKeys(manageProducts.height(),height);
-		}
+		}	
 	}
 
 	public void addProductCarton(Xls_Reader xr, int rowIndex, int itemIndex) {
 		ManageProducts manageProduct = new ManageProducts(driver);
+		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
 
 		String cartonWeight=xr.getCellData("Input","CartonWeight", rowIndex).trim();
 		String cartonLength=xr.getCellData("Input","CartonLength", rowIndex).trim();
@@ -438,9 +439,17 @@ public class CommonOps extends InitializeTest {
 		String cartonHeight=xr.getCellData("Input","CartonHeight", rowIndex).trim();
 		String category=xr.getCellData("Input","Category", rowIndex).trim();
 
+		
+		String cartonWeight2=xr.getCellData("Input","CartonWeight2", rowIndex).trim();
+		String cartonLength2=xr.getCellData("Input","CartonLength2", rowIndex).trim();
+		String cartonWidth2=xr.getCellData("Input","CartonWidth2", rowIndex).trim();
+		String cartonHeight2=xr.getCellData("Input","CartonHeight2", rowIndex).trim();
+		String category2=xr.getCellData("Input","Category2", rowIndex).trim();
+		
 		if(category.equalsIgnoreCase("Other")){
 			SeleniumFunction.selectByvalue(manageProduct.category(itemIndex), "347");
-			SeleniumFunction.click(manageProduct.popupCateogory(itemIndex));
+			WaitTool.sleep(2);
+			SeleniumFunction.click(manageProduct.popupCateogory(1));
 			WaitTool.sleep(2);
 		}
 		else {
@@ -455,7 +464,30 @@ public class CommonOps extends InitializeTest {
 		SeleniumFunction.sendKeys(manageProduct.cartoonlength(itemIndex), cartonLength);
 		SeleniumFunction.sendKeys(manageProduct.cartoonwidth(itemIndex), cartonWidth);
 		SeleniumFunction.sendKeys(manageProduct.cartoonheight(itemIndex), cartonHeight);
+		
+		if(!cartonWeight2.isEmpty()) {
+			SeleniumFunction.click(quickQuote.addadditionalItem());
 
+			if(category2.equalsIgnoreCase("Other")){
+				SeleniumFunction.selectByvalue(manageProduct.category(itemIndex+1), "347");
+				WaitTool.sleep(2);
+				SeleniumFunction.click(manageProduct.popupCateogory(itemIndex+1));
+				WaitTool.sleep(2);
+			}
+			else {
+				SeleniumFunction.selectByvalue(manageProduct.category(itemIndex+1), "1183");
+			}
+
+			if(testname.contains("Weight greater than 250 - LTL  Added-Product")) {
+				SeleniumFunction.sendKeys(manageProduct.cartoonweight(itemIndex+1),"251");
+			}else {
+				SeleniumFunction.sendKeys(manageProduct.cartoonweight(itemIndex+1), cartonWeight2);
+			}
+			SeleniumFunction.sendKeys(manageProduct.cartoonlength(itemIndex+1), cartonLength2);
+			SeleniumFunction.sendKeys(manageProduct.cartoonwidth(itemIndex+1), cartonWidth2);
+			SeleniumFunction.sendKeys(manageProduct.cartoonheight(itemIndex+1), cartonHeight2);
+		}
+		ScreenShot.takeScreenShot(driver, "Product Details");
 	}
 
 	/*-------------------------------Manage Orders Page --------------------------------------*/

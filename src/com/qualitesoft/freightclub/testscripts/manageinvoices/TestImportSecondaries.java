@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.Log;
+import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
@@ -36,6 +37,7 @@ public class TestImportSecondaries extends InitializeTest {
 		SeleniumFunction.scrollUpByPixel(driver, "2000");
 		WaitTool.sleep(5);
 		SeleniumFunction.click(manageInvoices.importSecondaries());
+		ScreenShot.takeScreenShot(driver, "File upload dialog");
 
 		//Upload overage file
 		SeleniumFunction.uploadFile(testData);
@@ -45,6 +47,7 @@ public class TestImportSecondaries extends InitializeTest {
 
 		//Verify upload success message
 		UseAssert.assertEquals(manageInvoices.successMessage().getText(), (totalRows-1)+" invoices were successfully uploaded");
+		ScreenShot.takeScreenShot(driver, "File upload results dialog");
 
 		//Click on ok button under upload invoice results dialog
 		SeleniumFunction.click(manageInvoices.ok());

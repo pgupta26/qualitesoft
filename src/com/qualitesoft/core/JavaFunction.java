@@ -2,6 +2,7 @@ package com.qualitesoft.core;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -33,6 +34,14 @@ public class JavaFunction {
 		Date myDate=new Date();
 		SimpleDateFormat dateFormat=new SimpleDateFormat("MM/dd/yyyy");
 		String currentDate=dateFormat.format(myDate);
+		return currentDate;
+	}
+	
+	public static String currentPSTDate(String format) {
+		Date date = new Date(); // current date time
+		SimpleDateFormat dateFormat=new SimpleDateFormat(format);
+		dateFormat.setTimeZone(TimeZone.getTimeZone("PST"));
+		String currentDate=dateFormat.format(date);
 		return currentDate;
 	}
 

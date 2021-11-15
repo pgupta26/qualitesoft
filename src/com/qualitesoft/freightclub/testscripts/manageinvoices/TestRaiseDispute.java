@@ -1,5 +1,6 @@
 package com.qualitesoft.freightclub.testscripts.manageinvoices;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
@@ -30,10 +31,15 @@ public class TestRaiseDispute extends InitializeTest {
 		
 		//Switch to overage window
 		SeleniumFunction.getCurrentWindow(driver);
-		UseAssert.assertEquals(driver.getTitle(), "Overage Details - Freight Club");
-		UseAssert.assertEquals(overageDetails.getLabel("Order ID:").getText().trim(), xr.getCellData("Sec invoice Master", "FC Order ID", i).trim());
-		SeleniumFunction.closeWindow(driver);
-		SeleniumFunction.getCurrentWindow(driver);
-		
+		try {
+			UseAssert.assertEquals(driver.getTitle(), "Overage Details - Freight Club");
+			UseAssert.assertEquals(overageDetails.getLabel("Order ID:").getText().trim(), xr.getCellData("Sec invoice Master", "FC Order ID", i).trim());
+			SeleniumFunction.closeWindow(driver);
+			SeleniumFunction.getCurrentWindow(driver);	
+		}catch(Exception ex) {
+			SeleniumFunction.closeWindow(driver);
+			SeleniumFunction.getCurrentWindow(driver);
+			Assert.fail();
+		}
 	}
 }
