@@ -81,6 +81,7 @@ public class AddItemsToCart2 extends InitializeTest{
 			Assert.assertEquals(cartPage.shipping(), fastShipping);
 			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.id("AmazonPayButton"), 60));
 			Log.info("login successfully.");
+			WaitTool.sleep(10);
 			SeleniumFunction.click(loginPage.continueButton());
 	}
 }

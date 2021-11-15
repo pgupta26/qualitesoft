@@ -16,7 +16,7 @@ public class ReadPropertyFile {
 			pro.load(fis);
 		}
 		catch(Exception e) {
-			System.out.println("Exception is " + e.getMessage());
+			Log.info("Exception is " + e.getMessage());
 		}	
 	}
 	

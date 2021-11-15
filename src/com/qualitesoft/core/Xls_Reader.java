@@ -84,7 +84,6 @@ public class Xls_Reader {
 			sheet = workbook.getSheetAt(index);
 			row = sheet.getRow(0);
 			for (int i = 0; i < row.getLastCellNum(); i++) {
-			 //System.out.println(row.getCell(i).getStringCellValue().trim());
 				if (row.getCell(i).getStringCellValue().trim().equals(colName.trim()))
 					col_Num = i;
 			}
@@ -193,7 +192,6 @@ public class Xls_Reader {
 
 			row = sheet.getRow(0);
 			for (int i = 0; i < row.getLastCellNum(); i++) {
-				// System.out.println(row.getCell(i).getStringCellValue().trim());
 				if (row.getCell(i).getStringCellValue().trim().equals(colName))
 					colNum = i;
 			}
@@ -490,7 +488,7 @@ public class Xls_Reader {
 		datatable = new Xls_Reader(
 				"C:\\CM3.0\\app\\test\\Framework\\AutomationBvt\\src\\config\\xlfiles\\Controller.xlsx");
 		for (int col = 0; col < datatable.getColumnCount("TC5"); col++) {
-			System.out.println(datatable.getCellData("TC5", col, 1));
+			Log.info(datatable.getCellData("TC5", col, 1));
 		}
 	}
 
@@ -512,7 +510,6 @@ public class Xls_Reader {
 
 			row = sheet.getRow(0);
 			for (int i = 0; i < row.getLastCellNum(); i++) {
-				// System.out.println(row.getCell(i).getStringCellValue().trim());
 				if (row.getCell(i).getStringCellValue().trim().equals(colName))
 					colNum = i;
 			}
@@ -553,10 +550,10 @@ public class Xls_Reader {
 	public void Open_Excel(String path) {
 		try {
 			fis = new FileInputStream(path);
-			System.out.println("pathbefore:" + path);
+			Log.info("pathbefore:" + path);
 			workbook = new XSSFWorkbook(fis);
 
-			System.out.println("path:" + path);
+			Log.info("path:" + path);
 			sheet = workbook.getSheetAt(0);
 
 			// fis.close();

@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
+import com.qualitesoft.core.Log;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
@@ -65,7 +66,7 @@ public class TestImportSecondaries extends InitializeTest {
 		//Verify overage id detail in data grid
 		Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageInvoiceTestData.xlsx");
 		int rowIndex = 1;
-		System.out.println("USD "+xr.getCellData("Sec invoice Master","New Invoice Amount", i).trim());
+		Log.info("USD "+xr.getCellData("Sec invoice Master","New Invoice Amount", i).trim());
 		UseAssert.assertEquals(manageInvoices.gridData(rowIndex, 1).getText(), xr.getCellData("Sec invoice Master","FC Order ID", i).trim());
 		UseAssert.assertEquals(manageInvoices.gridData(rowIndex, 2).getText(), xr1.getCellData("Sheet1","Invoice Type", i).trim());
 		UseAssert.assertEquals(manageInvoices.gridData(rowIndex, 3).getText(), xr1.getCellData("Sheet1","Company", i).trim());

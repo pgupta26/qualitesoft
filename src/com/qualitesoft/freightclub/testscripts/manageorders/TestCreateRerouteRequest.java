@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
+import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.UseAssert;
@@ -96,7 +97,7 @@ public class TestCreateRerouteRequest extends InitializeTest{
 			String getEarliestDropoff  = xr1.getCellData("Reroute Request", "Earliest Drop-Off", i);
 			String getLatestDropoff = xr1.getCellData("Reroute Request", "Latest Drop-Off", i);
 			
-			System.out.println(getEarliestDropoff + " >> " + getLatestDropoff);
+			Log.info(getEarliestDropoff + " >> " + getLatestDropoff);
 			SeleniumFunction.selectByVisibleText(manageOrderpage.locationType("Earliest Drop-Off"), "12:00 PM");
 			SeleniumFunction.selectByVisibleText(manageOrderpage.locationType("Latest Drop-Off"), "04:00 PM");
 		}

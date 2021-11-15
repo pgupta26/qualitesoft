@@ -100,6 +100,7 @@ public class AddItemsToCart1 extends InitializeTest {
 				}
 			}
 		}
+		WaitTool.sleep(5);
 		this.paidShipping();
 		ScreenShot.takeScreenShot(driver, "CartPage");
 		UseAssert.assertEquals(f.parse(cartPage.productPrice().replace("$", "")).doubleValue(), (productPrice * 2));

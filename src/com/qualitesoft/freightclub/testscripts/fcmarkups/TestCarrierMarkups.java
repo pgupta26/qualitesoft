@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
+import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
@@ -36,7 +37,7 @@ public class TestCarrierMarkups extends InitializeTest{
 		int i=Integer.parseInt(Row);
 		CarrierMarkups markups=new CarrierMarkups(driver);
 		Xls_Reader xr=new Xls_Reader(".\\binaries\\FCfiles\\FCMarkups.xlsx");
-		System.out.println("Data Row: " +Row);
+		Log.info("Data Row: " +Row);
 		
 		SeleniumFunction.sendKeys(markups.groundMarkups(xpathRow), xr.getCellData("Markups", "Markups", i).trim());
 		markups.groundMarkups(xpathRow).sendKeys(Keys.TAB);
@@ -48,7 +49,7 @@ public class TestCarrierMarkups extends InitializeTest{
 		int i=Integer.parseInt(Row);
 		CarrierMarkups markups=new CarrierMarkups(driver);
 		Xls_Reader xr=new Xls_Reader(".\\binaries\\FCfiles\\FCMarkups.xlsx");
-		System.out.println("Data Row: " +Row);
+		Log.info("Data Row: " +Row);
 		
 		SeleniumFunction.sendKeys(markups.nextDayAirEarlyAM(xpathRow), xr.getCellData("Markups", "Markups", i).trim());
 		markups.nextDayAirEarlyAM(xpathRow).sendKeys(Keys.TAB);
@@ -60,7 +61,7 @@ public class TestCarrierMarkups extends InitializeTest{
 		int i=Integer.parseInt(Row);
 		CarrierMarkups markups=new CarrierMarkups(driver);
 		Xls_Reader xr=new Xls_Reader(".\\binaries\\FCfiles\\FCMarkups.xlsx");
-		System.out.println("Data Row: " +Row);
+		Log.info("Data Row: " +Row);
 		
 		SeleniumFunction.sendKeys(markups.standard(xpathRow), xr.getCellData("Markups", "Markups", i).trim());
 		markups.standard(xpathRow).sendKeys(Keys.TAB);

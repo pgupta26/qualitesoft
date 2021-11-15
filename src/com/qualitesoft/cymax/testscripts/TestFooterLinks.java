@@ -6,6 +6,7 @@ import java.util.Map;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -31,14 +32,14 @@ public class TestFooterLinks extends InitializeTest {
 		}
 
 		HashMap<String, String> pageTitles = new HashMap<String, String>();
-		pageTitles.put("Log in / Register", "Login | Cymax Stores");
-		pageTitles.put("Order Status", "Track Order Status | Cymax Stores");
-		pageTitles.put("Business Program", "Business Program | Cymax Stores");
-		pageTitles.put("Shipping", "Ordering Information | Cymax Stores");
-		pageTitles.put("Returns", "Return Damage & Cancellation | Cymax Stores");
-		pageTitles.put("Contact Us", "Contact | Cymax Stores");
-		pageTitles.put("Accessibility Statement", "Accessibility Statement | Cymax Stores");
-		pageTitles.put("Careers", "Careers — Cymax Group");
+		pageTitles.put("Log in / Register", "Login | Cymax Business");
+		pageTitles.put("Order Status", "Track Order Status | Cymax Business");
+		pageTitles.put("Business Program", "Business Program | Cymax Business");
+		pageTitles.put("Shipping", "Ordering Information | Cymax Business");
+		pageTitles.put("Returns", "Return Damage & Cancellation | Cymax Business");
+		pageTitles.put("Contact Us", "Contact | Cymax Business");
+		pageTitles.put("Accessibility Statement", "Accessibility Statement | Cymax Business");
+		pageTitles.put("Careers", "Careers | Cymax Group");
 
 		SeleniumFunction.scrollDownUptoFooter(driver);
 		for (Map.Entry<String, String> entry : pageTitles.entrySet()) {
@@ -48,8 +49,13 @@ public class TestFooterLinks extends InitializeTest {
 			wait.until(ExpectedConditions.titleIs( entry.getValue()));
 			String actualPageTitle = driver.getTitle();
 			Log.info("Page Title: " + actualPageTitle);
-			UseAssert.assertEquals(actualPageTitle, entry.getValue());
-			driver.navigate().back();
+			try{
+				UseAssert.assertEquals(actualPageTitle, entry.getValue());
+				driver.navigate().back();
+			}catch(Exception e){
+				Assert.fail();
+				driver.navigate().back();
+			}
 		}
 	}
 
@@ -67,14 +73,14 @@ public class TestFooterLinks extends InitializeTest {
 		ScreenShot.takeFullScreenShot("LoginPage");
 
 		HashMap<String, String> pageTitles = new HashMap<String, String>();
-		pageTitles.put("Log in / Register", "Login | Cymax Stores");
-		pageTitles.put("Order Status", "Track Order Status | Cymax Stores");
-		pageTitles.put("Business Program", "Business Program | Cymax Stores");
-		pageTitles.put("Shipping", "Ordering Information | Cymax Stores");
-		pageTitles.put("Returns", "Return Damage & Cancellation | Cymax Stores");
-		pageTitles.put("Contact Us", "Contact | Cymax Stores");
-		pageTitles.put("Accessibility Statement", "Accessibility Statement | Cymax Stores");
-		pageTitles.put("Careers", "Careers — Cymax Group");
+		pageTitles.put("Log in / Register", "Login | Cymax Business");
+		pageTitles.put("Order Status", "Track Order Status | Cymax Business");
+		pageTitles.put("Business Program", "Business Program | Cymax Business");
+		pageTitles.put("Shipping", "Ordering Information | Cymax Business");
+		pageTitles.put("Returns", "Return Damage & Cancellation | Cymax Business");
+		pageTitles.put("Contact Us", "Contact | Cymax Business");
+		pageTitles.put("Accessibility Statement", "Accessibility Statement | Cymax Business");
+		pageTitles.put("Careers", "Careers | Cymax Group");
 
 		SeleniumFunction.scrollDownUptoFooter(driver);
 
@@ -85,8 +91,13 @@ public class TestFooterLinks extends InitializeTest {
 			wait.until(ExpectedConditions.titleIs( entry.getValue()));
 			String actualPageTitle = driver.getTitle();
 			Log.info("Page Title: " + actualPageTitle);
-			UseAssert.assertEquals(actualPageTitle, entry.getValue());
-			driver.navigate().back();
+			try{
+				UseAssert.assertEquals(actualPageTitle, entry.getValue());
+				driver.navigate().back();
+			}catch(Exception e){
+				Assert.fail();
+				driver.navigate().back();
+			}
 		}
 
 	}
@@ -111,15 +122,16 @@ public class TestFooterLinks extends InitializeTest {
 		SeleniumFunction.clickJS(driver, addToCartPage.addToCartButton());
 		WaitTool.sleep(5);
 
+		// Actual: "Return Damage & Cancellation | Cymax Business" but getting "Return Damage & Cancellation | Cymax Business"
 		HashMap<String, String> pageTitles = new HashMap<String, String>();
-		pageTitles.put("Log in / Register", "Login | Cymax Stores");
-		pageTitles.put("Order Status", "Track Order Status | Cymax Stores");
-		pageTitles.put("Business Program", "Business Program | Cymax Stores");
-		pageTitles.put("Shipping", "Ordering Information | Cymax Stores");
-		pageTitles.put("Returns", "Return Damage & Cancellation | Cymax Stores");
-		pageTitles.put("Contact Us", "Contact | Cymax Stores");
-		pageTitles.put("Accessibility Statement", "Accessibility Statement | Cymax Stores");
-		pageTitles.put("Careers", "Careers — Cymax Group");
+		pageTitles.put("Log in / Register", "Login | Cymax Business");
+		pageTitles.put("Order Status", "Track Order Status | Cymax Business");
+		pageTitles.put("Business Program", "Business Program | Cymax Business");
+		pageTitles.put("Shipping", "Ordering Information | Cymax Business");
+		pageTitles.put("Returns", "Return Damage & Cancellation | Cymax Business");
+		pageTitles.put("Contact Us", "Contact | Cymax Business");
+		pageTitles.put("Accessibility Statement", "Accessibility Statement | Cymax Business");
+		pageTitles.put("Careers", "Careers | Cymax Group");
 
 		SeleniumFunction.scrollDownUptoFooter(driver);
 		for (Map.Entry<String, String> entry : pageTitles.entrySet()) {
@@ -129,8 +141,13 @@ public class TestFooterLinks extends InitializeTest {
 			wait.until(ExpectedConditions.titleIs( entry.getValue()));
 			String actualPageTitle = driver.getTitle();
 			Log.info("Page Title: " + actualPageTitle);
-			UseAssert.assertEquals(actualPageTitle, entry.getValue());
-			driver.navigate().back();
+			try{
+				UseAssert.assertEquals(actualPageTitle, entry.getValue());
+				driver.navigate().back();
+			}catch(Exception e){
+				Assert.fail();
+				driver.navigate().back();
+			}
 		}
 	}
 
@@ -138,14 +155,14 @@ public class TestFooterLinks extends InitializeTest {
 	public Object[][] getFooterLinksDataprovider() {
 		return new Object[][] {
 
-				{ "Log in / Register", "Login | Cymax Stores" },
-				{ "Order Status", "Track Order Status | Cymax Stores" },
-				{ "Business Program", "Business Program | Cymax Stores" },
-				{ "Shipping", "Ordering Information | Cymax Stores" },
-				{ "Returns", "Return Damage & Cancellation | Cymax Stores" },
-				{ "Contact Us", "Contact | Cymax Stores" },
-				{ "Accessibility Statement", "Accessibility Statement | Cymax Stores" },
-				{ "Careers", "Careers — Cymax Group" }, };
+				{ "Log in / Register", "Login | Cymax Business" },
+				{ "Order Status", "Track Order Status | Cymax Business" },
+				{ "Business Program", "Business Program | Cymax Business" },
+				{ "Shipping", "Ordering Information | Cymax Business" },
+				{ "Returns", "Return Damage & Cancellation | Cymax Business" },
+				{ "Contact Us", "Contact | Cymax Business" },
+				{ "Accessibility Statement", "Accessibility Statement | Cymax Business" },
+				{ "Careers", "Careers | Cymax Group" }, };
 	}*/
 
 }

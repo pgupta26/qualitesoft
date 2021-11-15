@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Cymax Admin Suite">
+	<parameter name="project" value="Cymax Admin Portal" />
+	<parameter name="browser" value="chrome" />
+	<parameter name="URL" value="http://qa-adminportal.cymax.com/" />
+	<parameter name="crusername" value="samta.k"></parameter>
+	<parameter name="crpassword" value="Sam@Sam@321"></parameter>
+	<parameter name="retryCount" value="0" />
+
+	<!-- <test name="TEST ORDER REPLACEMENT FUNCTIONALITY">
+		<parameter name="testData" value="19095082"></parameter>
+		<classes>
+			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestLogin" />
+			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestSearchOrderId" />
+			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestReplacementOrder" />
+			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestLogout" />
+		</classes>
+	</test> -->
+	
+	<!-- <test name="TEST ORDER RETURN AND CANCELLATION FUNCTIONALITY">
+		<parameter name="testData" value="19108642"></parameter>
+		<classes>
+			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestLogin" />
+			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestSearchOrderId" />
+			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestReturnAndCancellation" />
+			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestLogout" />
+		</classes>
+	</test> -->
+	
+	<test name="TEST ORDER REFUND FUNCTIONALITY">
+		<parameter name="testData" value="19108642"></parameter>
+		<classes>
+			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestLogin" />
+			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestSearchOrderId" />
+			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestRefund" />
+			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestLogout" />
+		</classes>
+	</test>
+	
+	<!-- <test name="TEST ORDER CUSTOMER FEEDBACK FUNCTIONALITY">
+		<parameter name="testData" value="19095082"></parameter>
+		<classes>
+			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestLogin" />
+			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestSearchOrderId" />
+			<class name="com.qualitesoft.cymaxAdmin.testscripts.TesCustomerFeedback" />
+			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestLogout" />
+		</classes>
+	</test> -->
+
+</suite>	

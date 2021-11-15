@@ -181,7 +181,7 @@ public class QuickQuoteFinal {
 		try {
 			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[contains(@class,'well well-white quote-item margin-right-10')]/descendant::button[1])["+(index+1)+"]"), 10));	
 		}catch(Exception ex) {
-			System.out.println("test");
+			Log.info(ex.getMessage());
 		}
 
 	}
@@ -200,7 +200,7 @@ public class QuickQuoteFinal {
 		for(int i = 2; i < 40; i=i+2) {
 			displayValue =  driver.findElement(By.xpath("//span[text()='Searching for quotes...']")).getCssValue("display");
 			if(!displayValue.equals("none")){
-				System.out.println("------i-------------"+i);
+				Log.info("------i-------------"+i);
 				WaitTool.sleep(i);
 			}
 		}

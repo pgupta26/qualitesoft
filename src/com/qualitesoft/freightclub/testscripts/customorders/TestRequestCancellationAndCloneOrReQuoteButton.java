@@ -46,11 +46,11 @@ public class TestRequestCancellationAndCloneOrReQuoteButton extends InitializeTe
 		Long l = d.getSeconds();
 
 		if (d.getSeconds() == 0)
-			System.out.println("Both Start time and End Time are equal");
+			Log.info("Both Start time and End Time are equal");
 		else if (d.getSeconds() > 0)
-			System.out.println("Start time is less than end time");
+			Log.info("Start time is less than end time");
 		else
-			System.out.println("Start time is greater than end time");
+			Log.info("Start time is greater than end time");
 
 		return l;
 	}
@@ -81,9 +81,9 @@ public class TestRequestCancellationAndCloneOrReQuoteButton extends InitializeTe
 		if(i == 3) {
 			Long d = getDuration();
 			if (d == 0) {
-				System.out.println("Both Start time and End Time are equal");
+				Log.info("Both Start time and End Time are equal");
 			} else if (d > 0) {
-				System.out.println("Start time is less than end time");
+				Log.info("Start time is less than end time");
 				if(WaitTool.isElementPresentAndDisplay(driver, By.xpath("//a[text()='Re-Quote']"))) {
 					Assert.assertTrue(true);
 				} else {
@@ -91,7 +91,7 @@ public class TestRequestCancellationAndCloneOrReQuoteButton extends InitializeTe
 				} 
 				ScreenShot.takeScreenShot(driver, "Request Cancellation and Re-Quote button presence");
 			} else {
-				System.out.println("Start time is greater than end time");
+				Log.info("Start time is greater than end time");
 				if(WaitTool.isElementPresentAndDisplay(driver, By.xpath("//a[text()='Clone']"))) {
 					Assert.assertTrue(true);
 				} else {

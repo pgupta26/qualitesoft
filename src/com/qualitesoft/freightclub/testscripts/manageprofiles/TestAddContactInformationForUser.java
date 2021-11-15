@@ -48,7 +48,7 @@ public class TestAddContactInformationForUser extends InitializeTest {
 			WaitTool.sleep(20);
 
 		}catch(Exception ex) {
-			System.out.println(ex.getMessage());
+			Log.info(ex.getMessage());
 			throw ex;
 		}
 	}

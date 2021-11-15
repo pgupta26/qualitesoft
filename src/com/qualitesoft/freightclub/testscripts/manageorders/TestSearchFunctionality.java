@@ -7,6 +7,7 @@ import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.qualitesoft.core.InitializeTest;
+import com.qualitesoft.core.Log;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
@@ -68,7 +69,7 @@ public class TestSearchFunctionality extends InitializeTest{
 			for(int i=0; i<10; i++){
 				headers.add(i, manageOrderpage.getFilterHeader(i + 1));
 			}
-			System.out.println("Actual Array is " + headers + "\n expected is " + ex_header);
+			Log.info("Actual Array is " + headers + "\n expected is " + ex_header);
 			Assert.assertEquals(headers, ex_header);
 		}catch(Exception ex) {
 			ex.printStackTrace();

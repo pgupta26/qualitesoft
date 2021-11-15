@@ -296,7 +296,7 @@ public class QuickQuote {
 		try {
 			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[contains(@class,'well well-white quote-item margin-right-10')]/descendant::button[1])["+(index+1)+"]"), 10));	
 		}catch(Exception ex) {
-			System.out.println("test");
+			Log.info(ex.getMessage());
 		}
 		
 	}
@@ -410,7 +410,7 @@ public class QuickQuote {
 	}
 
 	public void expandCarries() {
-		System.out.println("Is Expand Carrier: "+WaitTool.isElementPresentAndDisplay(driver, By.xpath("//span[contains(text(),'Show')]")));
+		Log.info("Is Expand Carrier: "+WaitTool.isElementPresentAndDisplay(driver, By.xpath("//span[contains(text(),'Show')]")));
 		if(WaitTool.isElementPresentAndDisplay(driver, By.xpath("//span[contains(text(),'Show')]"))) {
 			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//span[contains(text(),'Show')]"), 10));
 		}
@@ -458,7 +458,7 @@ public class QuickQuote {
 	public static int orderDate(){
 		Calendar cal=Calendar.getInstance();
 		int val = cal.get(Calendar.DAY_OF_WEEK);
-		System.out.println(new DateFormatSymbols().getWeekdays()[val]);
+		Log.info(new DateFormatSymbols().getWeekdays()[val]);
 		String weekday=new DateFormatSymbols().getWeekdays()[val];
 
 
@@ -744,7 +744,7 @@ public class QuickQuote {
 		for(int i = 2; i < 40; i=i+2) {
 			displayValue =  driver.findElement(By.xpath("//span[text()='Searching for quotes...']")).getCssValue("display");
 			if(!displayValue.equals("none")){
-				System.out.println("------i-------------"+i);
+				Log.info("------i-------------"+i);
 				WaitTool.sleep(i);
 			}
 		}

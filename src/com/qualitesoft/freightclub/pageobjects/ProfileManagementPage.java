@@ -72,7 +72,7 @@ public class ProfileManagementPage {
 			return enableCarriers; 
 			
 		}catch(Exception ex) {
-			System.out.println("sdjfs");
+			Log.info(ex.getMessage());
 		}
 		
 		return null;
@@ -224,7 +224,7 @@ public class ProfileManagementPage {
 	
 	public void enableTruckLoad(String truckLoad) {
 		WebElement element = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//label[contains(text(),'Truckload')])[2]/following::div[1]/input[3]"), 30);
-		System.out.println("Is element selected: "+element.isSelected());
+		Log.info("Is element selected: "+element.isSelected());
 		 if(!element.isSelected()) {
 			 SeleniumFunction.click(element);
 		 }
@@ -232,7 +232,7 @@ public class ProfileManagementPage {
 	
 	public void disableTruckLoad(String truckLoad) {
 		 WebElement element = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//label[contains(text(),'Truckload')])[2]/following::div[1]/input[3]"), 30);
-		 System.out.println("Is element selected: "+element.isSelected());
+		 Log.info("Is element selected: "+element.isSelected());
 		 if(element.isSelected()) {
 			 SeleniumFunction.click(element);
 		 }
@@ -257,7 +257,7 @@ public class ProfileManagementPage {
 				ScreenShot.takeScreenShot(driver, "Existing contacts deleted");
 			}
 		}catch(Exception ex) {
-			System.out.println("dkfjs;dfk");
+			Log.info(ex.getMessage());
 		}
 	}
 	
