@@ -2,9 +2,11 @@ package com.qualitesoft.freightclub.testscripts.manageoverage;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
+import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
@@ -43,21 +45,31 @@ public class TestCompletedOverageStatus extends InitializeTest {
 		//Click on view/edit button
 		SeleniumFunction.click(manageOverages.viewEdit(1));
 		
-		//Select completed overage status
-		SeleniumFunction.getCurrentWindow(driver);
-		SeleniumFunction.click(overageDetails.getSelect("Overage Status:"));
-		SeleniumFunction.clickJS(driver, overageDetails.setSelect("Overage Status:", "Completed"));
-		WaitTool.sleep(5);
-		
-		//Save changes
-		SeleniumFunction.moveToElement(driver, overageDetails.saveChanges());
-		SeleniumFunction.scrollDownUptoFooter(driver);
-		SeleniumFunction.executeJS(driver, "window.scrollBy(2000,0)");
-		SeleniumFunction.click(overageDetails.saveChanges());
-		
-		//Verify overage status
-		WaitTool.sleep(20);
-		UseAssert.assertEquals(overageDetails.getSelect("Overage Status:").getText(), "Completed");
-		
+		try {
+			//Select completed overage status
+			SeleniumFunction.getCurrentWindow(driver);
+			SeleniumFunction.click(overageDetails.getSelect("Overage Status:"));
+			SeleniumFunction.clickJS(driver, overageDetails.setSelect("Overage Status:", "Completed"));
+			WaitTool.sleep(5);
+			
+			//Save changes
+			SeleniumFunction.moveToElement(driver, overageDetails.saveChanges());
+			SeleniumFunction.scrollDownUptoFooter(driver);
+			SeleniumFunction.executeJS(driver, "window.scrollBy(2000,0)");
+			SeleniumFunction.click(overageDetails.saveChanges());
+			
+			//Verify overage status
+			WaitTool.sleep(20);
+			ScreenShot.takeScreenShot(driver, "Completed Overage Status");
+			UseAssert.assertEquals(overageDetails.getSelect("Overage Status:").getText(), "Completed");
+			
+			SeleniumFunction.closeWindow(driver);
+			SeleniumFunction.getCurrentWindow(driver);
+			
+		}catch(Exception ex) {
+			SeleniumFunction.closeWindow(driver);
+			SeleniumFunction.getCurrentWindow(driver);
+			Assert.fail();
+		}
 	}
 }
