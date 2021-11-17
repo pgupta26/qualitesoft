@@ -77,6 +77,7 @@ public class TestInitiateClaim extends InitializeTest {
 				WaitTool.sleep(30);
 
 				//verify email communication send
+				ScreenShot.takeScreenShot(driver, "Email Communication");
 				String customerEmail=xr.getCellData("ContactInfo","EmailAddress", 2).trim();
 				String carrier=xr.getCellData("ContactInfo","EmailAddress", 3).trim();
 

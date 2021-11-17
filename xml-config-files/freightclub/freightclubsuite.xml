@@ -12,6 +12,7 @@
 	<parameter name="browser" value="chrome" />
 	<parameter name="URL" value="https://qa.freightclub.com/" />  
 	<parameter name="retryCount" value="1" />
+	<parameter name="isRecording" value="false" />
 	
 	<parameter name="testData" value="QuickQuote\QuickQuoteTestData.xlsx" />
 	
@@ -162,14 +163,6 @@
 		</classes>
 	</test> 
 	
-	<test name="TEST CREATE PRODUCT - NO-PALLETIZED - MULTIPLE CARTON">
-		<parameter name="testData" value="ManageProducts/ManageProducts.xlsx" />
-		<parameter name="Row" value="3" />
-		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestCreateProduct" />
-		</classes>
-	</test>
-	
 	<test name="TEST CREATE PRODUCT - PALLETIZED - SINGLE CARTON">
 		<parameter name="testData" value="ManageProducts/ManageProducts.xlsx" />
 		<parameter name="Row" value="4" />
@@ -177,14 +170,6 @@
 			<class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestCreateProduct" />
 		</classes>
 	</test>
-	
-	<test name="TEST CREATE PRODUCT - PALLETIZED - MULTIPLE CARTON">
-		<parameter name="testData" value="ManageProducts/ManageProducts.xlsx" />
-		<parameter name="Row" value="5" />
-		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestCreateProduct" />
-		</classes>
-	</test> 
 	
 	<test name="TEST CREATE PRODUCT - CUSTOM PALLET - SINGLE CARTON">
 		<parameter name="testData" value="ManageProducts/ManageProducts.xlsx" />
@@ -236,6 +221,7 @@
 		<parameter name="Row" value="2" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUploadProducts" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
 	</test>
 	
@@ -310,10 +296,17 @@
 		</classes>
 	</test>
 	
+	<test name="TEST CREATE PRODUCT - NO-PALLETIZED - MULTIPLE CARTON">
+		<parameter name="testData" value="ManageProducts/ManageProducts.xlsx" />
+		<parameter name="Row" value="3" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestCreateProduct" />
+		</classes>
+	</test>
+	
 	<test name="Test create generic pallet with non palletized sku">
 		<parameter name="Row" value="6" />
 		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSkuWithMultipleCarton" />
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />	
@@ -324,10 +317,17 @@
 		</classes>
 	</test> 
 	
+	<test name="TEST CREATE PRODUCT - PALLETIZED - MULTIPLE CARTON">
+		<parameter name="testData" value="ManageProducts/ManageProducts.xlsx" />
+		<parameter name="Row" value="5" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestCreateProduct" />
+		</classes>
+	</test> 
+	
 	<test name="Test create palletized sku">
 		<parameter name="Row" value="7" />
 		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreatePalletizedSkuWithMultipleCarton" />
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />	
@@ -362,7 +362,7 @@
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" />
 		</classes>
-	</test>
+	</test> 
 	
 	<test name="Test book and clone order - Parcel - AddedProduct">
 		<parameter name="Row" value="10" />

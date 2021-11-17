@@ -12,6 +12,7 @@
 	<parameter name="browser" value="chrome" />
 	<parameter name="URL" value="https://stg.freightclub.com/" />
 	<parameter name="retryCount" value="1" />
+	<parameter name="isRecording" value="false" />
 	
 	<!-- **********************************Manage Claims Tests****************************************** -->
 	<!-- ***********************LTL Order With Insurance Claim Type Damage************************ -->
@@ -578,7 +579,7 @@
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestUserIsAbleToSearchProfile" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestSelectPaymentMethod" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestSelectAccountType" />
-			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestDisableCarrier" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestEnableCarrier" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestEnableGroundUnderUPSSetting" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>

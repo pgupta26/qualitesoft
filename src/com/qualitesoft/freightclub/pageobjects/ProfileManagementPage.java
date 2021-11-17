@@ -226,7 +226,7 @@ public class ProfileManagementPage {
 		WebElement element = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//label[contains(text(),'Truckload')])[2]/following::div[1]/input[3]"), 30);
 		Log.info("Is element selected: "+element.isSelected());
 		 if(!element.isSelected()) {
-			 SeleniumFunction.click(element);
+			 SeleniumFunction.clickJS(driver, element);
 		 }
 	}
 	
@@ -234,7 +234,7 @@ public class ProfileManagementPage {
 		 WebElement element = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//label[contains(text(),'Truckload')])[2]/following::div[1]/input[3]"), 30);
 		 Log.info("Is element selected: "+element.isSelected());
 		 if(element.isSelected()) {
-			 SeleniumFunction.click(element);
+			 SeleniumFunction.clickJS(driver, element);
 		 }
 	}
 	

@@ -74,6 +74,7 @@ public class InitializeTest {
 	public static String carrierDetailsOptions=null;
 	public static String Productname;
 	public static String userPermissions = null;
+	public static boolean isRecording;
 	
 	@BeforeTest
 	public void initialize(ITestContext context) throws Exception {
@@ -91,7 +92,6 @@ public class InitializeTest {
 		plaquery= context.getCurrentXmlTest().getParameter("plaquery");
 		crusername= context.getCurrentXmlTest().getParameter("crusername");
 		crpassword= context.getCurrentXmlTest().getParameter("crpassword");
-		//crorderId= context.getCurrentXmlTest().getParameter("crorderId");
 		keyword= context.getCurrentXmlTest().getParameter("keyword");
 		brandname=context.getCurrentXmlTest().getParameter("brandname");
 		loginuser = context.getCurrentXmlTest().getParameter("loginuser");
@@ -105,7 +105,6 @@ public class InitializeTest {
 		ScreenShot.createScreenshotFolder(testname);
 		xpathRow=context.getCurrentXmlTest().getParameter("xpathRow");
 		amazonTax=context.getCurrentXmlTest().getParameter("amazonTax");
-		//Logger Log = Logger.getLogger(Log.class.getName());
 		fastShipping=context.getCurrentXmlTest().getParameter("fastShipping");
 		baseRateRow=context.getCurrentXmlTest().getParameter("baseRateRow");
 		shipping=context.getCurrentXmlTest().getParameter("shipping");
@@ -120,15 +119,19 @@ public class InitializeTest {
 		emailAddress = context.getCurrentXmlTest().getParameter("emailAddress");
 		password = context.getCurrentXmlTest().getParameter("password");
 		userPermissions = context.getCurrentXmlTest().getParameter("userPermissions");
+		isRecording = Boolean.parseBoolean(context.getCurrentXmlTest().getParameter("isRecording"));
 		Log.info("*****************************"+ testname + " started.");
 		
-		MyScreenRecorder.startRecording(testname.replace(" ", "_"));
+		if(isRecording)
+			MyScreenRecorder.startRecording(testname.replace(" ", "_"));
 	}
 	
 	@AfterTest
 	public void stopVideoRecording() throws Exception{
-		MyScreenRecorder.stopRecording();
+		if(isRecording)
+			MyScreenRecorder.stopRecording();
 	}
+	
 	@Parameters({ "browser", "URL" })
 	@BeforeSuite
 	public WebDriver setUp(String browser, String URL) {

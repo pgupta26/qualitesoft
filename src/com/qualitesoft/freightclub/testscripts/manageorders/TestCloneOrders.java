@@ -62,7 +62,9 @@ public class TestCloneOrders extends InitializeTest{
 		
 		//verify pallet details
 		if (!packageType.isEmpty()) {
-			if(shipmentType.equals("Parcel") ||  packageType.equals("Non-Palletized")) {
+			if(packageType.equals("Non-Palletized")) {
+				commonOps.verifyPalletizedDetailCloneOrder(xr, i, "4", packageType);
+			} else if(shipmentType.equals("Parcel")) {
 				commonOps.verifyPalletizedDetailCloneOrder(xr, i, "5", packageType);
 			} else {
 				commonOps.verifyPalletizedDetailCloneOrder(xr, i, "3", packageType);

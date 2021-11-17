@@ -2,11 +2,9 @@ package com.qualitesoft.freightclub.testscripts.bulkorders;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
-import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.UseAssert;
@@ -51,50 +49,66 @@ public class TestUserIsAbleToBookOrder extends InitializeTest {
 		//click on not yet booked link
 		SeleniumFunction.click(manageinvoices.gridData(1, 3).findElement(By.xpath("./div/a")));
 		
-		//switch to new window
-		SeleniumFunction.getCurrentWindow(driver);
-		
-		//search order id
-		if(!manageOrderpage.ExpandMenupage().getAttribute("class").equals("active")) {
-			SeleniumFunction.click(manageOrderpage.ExpandMenupage());
-		}
-		
-		//filter open quotes grid by customer PO number
-		SeleniumFunction.sendKeys(manageOrderpage.customerPOGridFilter(), searchUser);
-		manageOrderpage.customerPOGridFilter().sendKeys(Keys.ENTER);
-		ScreenShot.takeScreenShot(driver, "filter customer PO number");
-		WaitTool.sleep(10);
-		
-		//click on book button
-		SeleniumFunction.click(manageOrderpage.openQuotesActions());
-		SeleniumFunction.click(manageOrderpage.openQuotesBook());
-		ScreenShot.takeFullScreenShot("Shipment information details");
-		
-		//Review and Book Tab
-		SeleniumFunction.scrollDownUptoFooter(driver);
-		SeleniumFunction.click(quickQuote.ReviewOrder());
-		WaitTool.sleep(10);
-		SeleniumFunction.clickJS(driver, quickQuote.Book());
-		WaitTool.sleep(10);
-		SeleniumFunction.click(quickQuote.Okbutton1());
-		WaitTool.sleep(20);
-		ScreenShot.takeScreenShot(driver, "order booked");
+		try {
+			//switch to new window
+			SeleniumFunction.getCurrentWindow(driver);
+			
+			//search order id
+			if(!manageOrderpage.ExpandMenupage().getAttribute("class").equals("active")) {
+				SeleniumFunction.click(manageOrderpage.ExpandMenupage());
+			}
+			
+			//filter open quotes grid by customer PO number
+			SeleniumFunction.sendKeys(manageOrderpage.customerPOGridFilter(), searchUser);
+			manageOrderpage.customerPOGridFilter().sendKeys(Keys.ENTER);
+			ScreenShot.takeScreenShot(driver, "filter customer PO number");
+			WaitTool.sleep(10);
+			
+			//click on book button
+			SeleniumFunction.click(manageOrderpage.openQuotesActions());
+			SeleniumFunction.click(manageOrderpage.openQuotesBook());
+			ScreenShot.takeFullScreenShot("Shipment information details");
 
-		
-		SeleniumFunction.closeWindow(driver);
-		SeleniumFunction.getCurrentWindow(driver);
-		WaitTool.sleep(5);
+			//Review and Book Tab
+			SeleniumFunction.scrollDownUptoFooter(driver);
+			SeleniumFunction.click(quickQuote.ReviewOrder());
+			WaitTool.sleep(10);
+			
+			if(quickQuote.isReRatePresent()) {
+				SeleniumFunction.click(quickQuote.reRate());
+				SeleniumFunction.click(quickQuote.NextButton());
+				SeleniumFunction.click(quickQuote.ReviewOrder());
+			}
+			
+			WaitTool.sleep(10);
+			SeleniumFunction.clickJS(driver, quickQuote.Book());
+			WaitTool.sleep(10);
+			
+			if(quickQuote.acknowleadgeBtnStatus() == true){
+				String actualPopupHeader = SeleniumFunction.getText(quickQuote.acknowleadgeModalHeader());
+				String actualPopupBody = SeleniumFunction.getText(quickQuote.acknowleadgeModalBody());
+				UseAssert.assertEquals(actualPopupHeader, "A matching order has already been placed.");
+				UseAssert.assertEquals(actualPopupBody, "We have identified that the order that you are about to place is similar to an order that has already been booked. Would you like to continue with placing a duplicate order?");
+				SeleniumFunction.click(quickQuote.acknowleadgeBtn());
+				SeleniumFunction.clickJS(driver, quickQuote.Book());
+			}
+			
+			SeleniumFunction.click(quickQuote.Okbutton1());
+			WaitTool.sleep(20);
+			ScreenShot.takeScreenShot(driver, "order booked");
+
+			SeleniumFunction.closeWindow(driver);
+			SeleniumFunction.getCurrentWindow(driver);
+			WaitTool.sleep(5);
+			
+		}catch(Exception ex) {
+			SeleniumFunction.closeWindow(driver);
+			SeleniumFunction.getCurrentWindow(driver);
+			throw ex;
+		}
 		
 		//click on refresh view
 		SeleniumFunction.click(bulkOrdersPage.refreshView());
 		ScreenShot.takeScreenShot(driver, "Successfully booked count after refresh view");
-		
-		//verify successful booked order count
-		if(searchUser.equals("Parcel-OID532")) {
-			Log.info("Successfully Booked Count: "+manageinvoices.gridData(1, 2).getText().trim());
-			Assert.assertTrue(manageinvoices.gridData(1, 2).getText().contains("1"));
-		}else {
-			Assert.assertTrue(manageinvoices.gridData(1, 2).getText().contains("2"));
-		}		
 	}
 }

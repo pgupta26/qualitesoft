@@ -317,7 +317,10 @@ public class CommonOps extends InitializeTest {
 		String actualCartoon = null;
 		String actualPackageType, actualWeight, actualDimentions, actualDeclaredValue;
 		
-		if(packageType.equals("Non-Palletized") || packageType.equals("Cardboard Box") || packageType.equals("Bagged or Unboxed Product")) {
+		if(packageType.equals("Non-Palletized")) {
+			expectedPackageType = "1 x "+packageType+ " 1";
+			actualCategory = notQuotedTab.getCellValueFromPackage(panelIndex, "4").getText();
+		} else if(packageType.equals("Cardboard Box") || packageType.equals("Bagged or Unboxed Product")) {
 			expectedPackageType = "1 x "+description;
 			actualCategory = notQuotedTab.getCellValueFromPackage(panelIndex, "4").getText();
 		} else if(shipmentType.equals("Parcel") &&  packageType.contains("SearchaddedProduct")) {
@@ -331,7 +334,7 @@ public class CommonOps extends InitializeTest {
 		}
 		
 		String expectedDimension = null;
-		if(shipmentType.equals("Parcel") || packageType.equals("Non-Palletized")) {
+		if(shipmentType.equals("Parcel")) {
 			expectedWeight = expectedWeight+" lbs";
 			expectedDimension = DimensionL+" x "+DimensionW+" x "+DimensionH+" in";
 			expectedDeclareValue = "$"+expectedDeclareValue+".00";
