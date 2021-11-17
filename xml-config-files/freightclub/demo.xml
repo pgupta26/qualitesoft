@@ -8,11 +8,11 @@
 		<listener class-name="com.qualitesoft.core.CustomTestListener" />
 	</listeners>
 
-	<parameter name="project" value="FreightClub" />
+	<parameter name="project" value="FreightClub_Demo" />
 	<parameter name="browser" value="chrome" />
 	<parameter name="URL" value="https://qa.freightclub.com/" />
 	<parameter name="retryCount" value="1" />
-	
+	<parameter name="isRecording" value="false" />
 	<parameter name="testData" value="QuickQuote\QuickQuoteTestData.xlsx" />
 	
 	<test name="Test New User Able To Sign Up When Account Type - Manufacturer">
@@ -38,9 +38,9 @@
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />	
-			<!-- <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
-			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" /> -->
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" />
 		</classes>
 	</test>

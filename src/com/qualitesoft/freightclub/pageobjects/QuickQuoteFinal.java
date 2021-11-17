@@ -173,17 +173,11 @@ public class QuickQuoteFinal {
 	}
 
 	public WebElement addadditionalItem() {
-
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//button[@class='btn btn-info btn-xs'])[1]"), 30);
 	}
 
 	public void copyItemInformation(int index) {
-		try {
 			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[contains(@class,'well well-white quote-item margin-right-10')]/descendant::button[1])["+(index+1)+"]"), 10));	
-		}catch(Exception ex) {
-			Log.info(ex.getMessage());
-		}
-
 	}
 
 	public void deleteItemInformation() {
@@ -455,4 +449,13 @@ public class QuickQuoteFinal {
 	public WebElement deliveryFrequencySelect() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"app-content\"]/div/div/div/section/section[2]/div/div[5]/div[2]/div[1]/div[2]/div/select"), 30);
 	}
+	
+	public boolean isReRatePresent() {
+		return WaitTool.isElementPresentAndDisplay(driver, By.xpath("//span[text()='Re-rate with the new weight']"));
+	}
+	
+	public WebElement reRate() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//span[text()='Re-rate with the new weight']"), 10);
+	}
+	
 }

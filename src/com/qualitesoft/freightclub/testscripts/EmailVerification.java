@@ -21,7 +21,7 @@ public class EmailVerification extends InitializeTest {
 		Log.info("Expected Message:"+expectedEmailBody);
 		WaitTool.sleep(3);
 		String actualMessage = driver.findElement(By.tagName("body")).getText().replaceAll("[\\t\\n\\r]+"," ").replaceAll("[^a-zA-Z0-9]", " ");
-		Log.info("Actual Messag1e:"+actualMessage);
+		Log.info("Actual Message:"+actualMessage);
 		UseAssert.assertEquals(actualMessage, expectedEmailBody);
 	}
 	
@@ -190,7 +190,7 @@ public class EmailVerification extends InitializeTest {
 				}
 				
 				verifyEmailBody(expectedMsg);
-				ScreenShot.takeScreenShot(driver, "email message");
+				ScreenShot.takeScreenShot(driver, "Email body");
 				WaitTool.sleep(2);
 				SeleniumFunction.selectParentframe(driver);
 				SeleniumFunction.click(mailinator.deleteEmail());

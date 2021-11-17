@@ -19,20 +19,20 @@ public class TestUserIsAbleToCreateNonPalletizedSku extends InitializeTest {
 		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
 		CommonOps commonOps = new CommonOps();
 		
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/ManageProducts.xlsx");
+		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/ManageProducts/ManageProducts.xlsx");
 		
 		SeleniumFunction.clickJS(driver, manageProducts.manageProductLink());
 		WaitTool.sleep(5);
 		quickQuote.acceptPopup();
 		
 		commonOps.addProductDetail(xr, 2);
-		commonOps.addProductCarton(xr, 8, 1);
+		commonOps.addProductCarton(xr, 2, 1);
 		
 		SeleniumFunction.click(manageProducts.saveproduct());
 		
 		//set product name in excel
-		xr.setCellData("Input","ProductName", 8,InitializeTest.Productname);
-		WaitTool.sleep(5);
+		xr.setCellData("Input","ProductName", 2,InitializeTest.Productname);
+		WaitTool.sleep(2);
 
 	}
 }

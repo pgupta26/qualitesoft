@@ -11,6 +11,7 @@
 	<parameter name="project" value="FreightClub" />
 	<parameter name="browser" value="chrome" />
 	<parameter name="URL" value="https://qa.freightclub.com/" /> 
+	<parameter name="isRecording" value="false" />
 	
 	<test name="Test pagination, export, delete, and view on booked order listing">
 		<parameter name="loginuser" value="new" />
