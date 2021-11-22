@@ -12,7 +12,7 @@
 	<parameter name="browser" value="chrome" />
 	<parameter name="URL" value="https://qa.freightclub.com/" />  
 	<parameter name="retryCount" value="1" />
-	<parameter name="isRecording" value="true" />
+	<parameter name="isRecording" value="false" />
 	
 	<parameter name="testData" value="QuickQuote\QuickQuoteTestData.xlsx" />
 	
