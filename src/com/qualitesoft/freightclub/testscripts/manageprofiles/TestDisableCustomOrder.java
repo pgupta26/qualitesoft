@@ -27,10 +27,11 @@ public class TestDisableCustomOrder extends InitializeTest {
 		ScreenShot.takeScreenShot(driver, "Search User details");
 		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Contact Name:']"), 30));
 		WaitTool.sleep(5);
-		SeleniumFunction.executeJS(driver, "window.scrollBy(0,2500)");
+		SeleniumFunction.executeJS(driver, "window.scrollBy(0,3500)");
 		profileManagementPage.disableTruckLoad(enableOption);
 		ScreenShot.takeScreenShot(driver, "Custom Order Button disabled");
-		SeleniumFunction.click(profileManagementPage.saveProfileButtonSurePost());
+		WaitTool.sleep(5);
+		SeleniumFunction.clickJS(driver,profileManagementPage.saveProfileButtonSurePost());
 		WaitTool.sleep(5);
 	}
 }

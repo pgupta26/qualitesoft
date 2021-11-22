@@ -53,46 +53,33 @@ public class ProfileManagementPage {
 	}
 	
 	public List<String> getListOfEnableCarriers() {
-		
-		try {
-			
-			List<String>  enableCarriers = new ArrayList<String>();
-			
-			int  rowIndex = 0;
-			List<WebElement> carriers = WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//table[@id='table-carrier']/tbody/tr/td[4]/descendant::span"), 10);
-			for(WebElement carrier : carriers) {
-				rowIndex++;
-				if(carrier.getText().equals("Active")) {
-					WebElement carrierName = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//table[@id='table-carrier']/tbody/tr["+rowIndex+"]/td[2]"), 10);
-					enableCarriers.add(carrierName.getText());
-				}
+		List<String>  enableCarriers = new ArrayList<String>();
+
+		int  rowIndex = 0;
+		List<WebElement> carriers = WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//table[@id='table-carrier']/tbody/tr/td[4]/descendant::span"), 10);
+		for(WebElement carrier : carriers) {
+			rowIndex++;
+			if(carrier.getText().equals("Active")) {
+				WebElement carrierName = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//table[@id='table-carrier']/tbody/tr["+rowIndex+"]/td[2]"), 10);
+				enableCarriers.add(carrierName.getText());
 			}
-			
-			Log.info("List of enable carrier1s: "+enableCarriers);
-			return enableCarriers; 
-			
-		}catch(Exception ex) {
-			Log.info(ex.getMessage());
 		}
-		
-		return null;
+
+		Log.info("List of enable carrier1s: "+enableCarriers);
+		return enableCarriers; 
 	}
 
 	public WebElement companyNameLink() {
-
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//h5[contains(.,'Brand ID: 10534')]"), 30);
 	}
 	public WebElement profileListfilter() {
-
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@placeholder='Filter profiles']"), 30);
 	}	
 	public WebElement paymentTermTextbox() {
-
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='InvoicingCycleDays']"), 30);
 	}
 
 	public WebElement lockoutCheckbox() {
-
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='LockOutEnabled']"), 30);
 	}
 
@@ -105,38 +92,25 @@ public class ProfileManagementPage {
 	}
 
 	public WebElement quickQuoteBookOrderError() {
-
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath(".//*[@class='pull-right text-danger']/strong"), 30);
 	}
 	public WebElement paymentType() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[text()='Payment Type']/following-sibling::select[@class='form-control']"), 30);
 	}
+	
 	public WebElement selectParcel() {
-
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"profileManagement\"]/div[2]/div/div/div/div[2]/div[19]/div/div[3]/input[2]"), 30);
-	}	
+	}
+	
 	public void paymentTypeOptions(String packageType) {
-
-		try {
-			if(packageType.equalsIgnoreCase("CreditCard")){
-				SeleniumFunction.click(driver.findElement
-						(By.xpath("//div[@class='col-xs-12 col-lg-9']/div[8]/div[@class='col-xs-12 col-lg-6']//select[@class='form-control']/option[@value='96']")));
-			}
-			else if(packageType.equalsIgnoreCase("OnAccount")){
-				SeleniumFunction.click(driver.findElement
-						(By.xpath("//label[text()='Payment Type']/following-sibling::select/option[@value='95']")));
-			}				
+		if(packageType.equalsIgnoreCase("CreditCard")){
+			SeleniumFunction.click(driver.findElement
+					(By.xpath("//div[@class='col-xs-12 col-lg-9']/div[8]/div[@class='col-xs-12 col-lg-6']//select[@class='form-control']/option[@value='96']")));
 		}
-
-		catch (Exception e) {
-			Log.error("Not able to select package: " + e.getMessage());
-			try {
-				throw e;
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		}
+		else if(packageType.equalsIgnoreCase("OnAccount")){
+			SeleniumFunction.click(driver.findElement
+					(By.xpath("//label[text()='Payment Type']/following-sibling::select/option[@value='95']")));
+		}				
 	}	
 	public void quickQuoteBookOrderValidation() {
 		quickQuoteBookOrderError();
@@ -156,6 +130,7 @@ public class ProfileManagementPage {
 	public WebElement selectGround(){
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[contains(text(),'Ground')]/input[1]"), 60);	
 	}
+	
 	public WebElement selectUPSSurepost(){
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[contains(text(),'Ground')]/input[2]"), 60);	
 	}
@@ -163,6 +138,7 @@ public class ProfileManagementPage {
 	public WebElement saveProfileBtn(){
 		return WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//*[@id=\"upsTab\"]/div[3]/div[7]/div/button"), 60);
 	}
+	
 	public WebElement selectInternational(){
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[contains(text(),'Can Book International Orders')]/input"), 60);
 	}
@@ -243,7 +219,6 @@ public class ProfileManagementPage {
 	}
 	
 	public void deleteContactsInformation() {
-		try {
 			List<WebElement> contacts = WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//table[@id='profileInfo']/tbody/tr"), 30);
 			int count = contacts.size();
 			Log.info("Total contacts available: "+count);
@@ -256,9 +231,6 @@ public class ProfileManagementPage {
 				}
 				ScreenShot.takeScreenShot(driver, "Existing contacts deleted");
 			}
-		}catch(Exception ex) {
-			Log.info(ex.getMessage());
-		}
 	}
 	
 	public WebElement addContactButton() {
@@ -294,6 +266,4 @@ public class ProfileManagementPage {
 		int rowIndex = contacts.size();
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//table[@id='profileInfo']/tbody/tr["+rowIndex+"]/td[6]/i"), 10);
 	}
-	
-	
 }

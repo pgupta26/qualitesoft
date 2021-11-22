@@ -32,12 +32,10 @@ public class HomePage {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@href='https://app.freightclub.com/Home/QuickQuote']"), 30);
 	}	
 	public WebElement logoff() {
-
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"top-bar\"]/ul[2]/li[4]/a"), 30);
-		 //return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[contains(text(),'Log off')]"), 30);
 	}	
+	
 	public WebElement trackShipmentButton() {
-
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[contains(@class,'track-btn track-one')]"), 30);
 	}
 

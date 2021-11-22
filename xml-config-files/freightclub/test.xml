@@ -12,33 +12,16 @@
 	<parameter name="browser" value="chrome" />
 	<parameter name="URL" value="https://qa.freightclub.com/" />  
 	<parameter name="retryCount" value="1" />
-	<parameter name="isRecording" value="false" />
+	<parameter name="isRecording" value="true" />
+	
 	<parameter name="testData" value="QuickQuote\QuickQuoteTestData.xlsx" />
 	
-	<test name="Test disable Custom Order Option from Admin">
-		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
-		<parameter name="fcpassword" value="Welcome@1" />
-		<parameter name="enableOption" value="Custom Orders"/>
-		<parameter name="searchUser" value="test.automation@mailinator.com"/>
-		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
-			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestDisableCustomOrder" />
-			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
-		</classes>
-	</test>
-	
-	<test name="Test Enable Custom Order Option and Estes Express Lines from Admin - QA-538">
-		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
-		<parameter name="fcpassword" value="Welcome@1" />
-		<parameter name="testData" value="QA_538.xlsx" />
+	<test name="Test verify book and clone order - LTL Non-Palletized">
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
 		<parameter name="Row" value="2" />
-		<parameter name="enableOption" value="Custom Orders"/>
-		<parameter name="searchUser" value="test.automation@mailinator.com"/>
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
-			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestUserIsAbleToSearchProfile" />
-			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestEnableCustomOrder" />
-			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestEnableCarrier" />
 		</classes>
 	</test>
 </suite>	
