@@ -12,7 +12,6 @@
 	<parameter name="browser" value="chrome" />
 	<parameter name="URL" value="https://qa.freightclub.com/" />
 	<parameter name="retryCount" value="1" />
-	<parameter name="isRecording" value="false" />
 	<parameter name="testData" value="QuickQuote\QuickQuoteTestData.xlsx" />
 	
 	<test name="Test New User Able To Sign Up When Account Type - Manufacturer">

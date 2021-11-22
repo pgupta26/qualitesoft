@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.xml.DOMConfigurator;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.InvalidArgumentException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.PageLoadStrategy;
@@ -14,7 +13,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.remote.LocalFileDetector;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
@@ -74,7 +72,7 @@ public class InitializeTest {
 	public static String carrierDetailsOptions=null;
 	public static String Productname;
 	public static String userPermissions = null;
-	public static boolean isRecording;
+	public static boolean isRecording = false;
 	
 	@BeforeTest
 	public void initialize(ITestContext context) throws Exception {
@@ -119,7 +117,7 @@ public class InitializeTest {
 		emailAddress = context.getCurrentXmlTest().getParameter("emailAddress");
 		password = context.getCurrentXmlTest().getParameter("password");
 		userPermissions = context.getCurrentXmlTest().getParameter("userPermissions");
-		isRecording = Boolean.parseBoolean(context.getCurrentXmlTest().getParameter("isRecording"));
+		isRecording = Boolean.parseBoolean(System.getProperty("isRecording"));
 		Log.info("*****************************"+ testname + " started.");
 		
 		if(isRecording)

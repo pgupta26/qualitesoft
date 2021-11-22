@@ -13,6 +13,10 @@ java -cp .\lib\*;.\bin -DisRecording=%Recording% org.testng.TestNG .\xml-config-
 
 jar -cfM screen-shots.zip screen-shots
 
+jar -cfM test-output.zip test-output
+
 Xcopy screen-shots.zip %JENKINS_HOME%\jobs\%JOB_NAME%\builds\%BUILD_NUMBER%
+
+Xcopy test-output.zip %JENKINS_HOME%\jobs\%JOB_NAME%\builds\%BUILD_NUMBER%
 
 pause
