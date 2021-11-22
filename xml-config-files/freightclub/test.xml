@@ -10,15 +10,16 @@
 
 	<parameter name="project" value="FreightClub" />
 	<parameter name="browser" value="chrome" />
-	<parameter name="URL" value="https://qa.freightclub.com/" />  
+	<parameter name="URL" value="https://stg.freightclub.com/" />  
 	<parameter name="retryCount" value="1" />
-	<parameter name="isRecording" value="false" />
 	
 	<parameter name="testData" value="QuickQuote\QuickQuoteTestData.xlsx" />
 	
-	<test name="Test verify book and clone order - LTL Non-Palletized">
-		<parameter name="fcusername" value="test.automation@mailinator.com" />
-		<parameter name="fcpassword" value="Automation123!" />
+	<test name="TEST SIGN IN">
+		<parameter name="fcusername" value="info@freightclub.com" />
+		<parameter name="fcpassword" value="Welcome@2" />
+		<parameter name="testData" value="ManageClaims.xlsx" />
+		<parameter name="searchUser" value="test20may21@mailinator.com"/>
 		<parameter name="Row" value="2" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />

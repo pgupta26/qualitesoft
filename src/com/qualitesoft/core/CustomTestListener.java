@@ -4,9 +4,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.Set;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.IAnnotationTransformer;
-import org.testng.IRetryAnalyzer;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestNGMethod;
@@ -16,13 +14,9 @@ import org.testng.annotations.ITestAnnotation;
 public class CustomTestListener extends InitializeTest implements IAnnotationTransformer, ITestListener {
 
 	public void transform(ITestAnnotation testannotation, Class testClass, Constructor testConstructor, Method testMethod) {
-		IRetryAnalyzer retry = testannotation.getRetryAnalyzer();
-
-		if (retry == null) { 
 			testannotation.setRetryAnalyzer(Retry.class);
-		}
 	}
-
+	
 	// Adjust test reports
 	@Override
 	public void onFinish(ITestContext context) {

@@ -12,7 +12,6 @@
 	<parameter name="browser" value="chrome" />
 	<parameter name="URL" value="https://stg.freightclub.com/" />
 	<parameter name="retryCount" value="1" />
-	<parameter name="isRecording" value="false" />
 	
 	<!-- **********************************Manage Claims Tests****************************************** -->
 	<!-- ***********************LTL Order With Insurance Claim Type Damage************************ -->

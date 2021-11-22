@@ -3,11 +3,9 @@ package com.qualitesoft.freightclub.pageobjects;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.poi.util.SystemOutLogger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
 import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;
