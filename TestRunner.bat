@@ -1,11 +1,11 @@
 set Project=%1
-echo %Project%
 set XmlFile=%2
-echo %XmlFile%.xml
 set Recording=%3
 set JENKINS_HOME=%4
 set BUILD_NUMBER=%5
+set JOB_NAME=%6
 
+cd %JENKINS_HOME%\workspace\%JOB_NAME%
 
 RMDIR .\screen-shots /S /Q
 
