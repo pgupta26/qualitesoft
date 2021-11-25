@@ -61,11 +61,6 @@ public class TestImportSecondaries extends InitializeTest {
 		SeleniumFunction.sendKeys(manageInvoices.TotalBilledTextBox(5), xr.getCellData("Sec invoice Master","New Invoice Amount", i));
 		manageInvoices.TotalBilledTextBox(5).sendKeys(Keys.ENTER);
 		
-		//Accept popup
-		WaitTool.sleep(10);
-		quickQuote.acceptPopup();
-		WaitTool.sleep(5);
-		
 		//Verify overage id detail in data grid
 		Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageInvoiceTestData.xlsx");
 		int rowIndex = 1;
@@ -78,5 +73,8 @@ public class TestImportSecondaries extends InitializeTest {
 		UseAssert.assertEquals(manageInvoices.gridData(rowIndex, 6).getText().trim(), xr1.getCellData("Sheet1","OrderDate", i).trim().replace("-", "/"));
 		UseAssert.assertEquals(manageInvoices.gridData(rowIndex, 8).getText().trim(), "USD "+xr.getCellData("Sec invoice Master","New Invoice Amount", i).trim());
 		UseAssert.assertEquals(manageInvoices.gridData(rowIndex, 9).getText(), xr1.getCellData("Sheet1","On Account", i).trim());
+		
+		//page refresh to handle popup
+		InitializeTest.getDriver().navigate().refresh();
 	}
 }
