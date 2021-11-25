@@ -9,7 +9,6 @@ public class Main {
 
 	public static void main(String[] args) {
 		try {
-			//String suiteName = "xml-config-files\\"+args[0]+""+;
 			DOMConfigurator.configure("log4j.xml");
 			TestNG testng = new TestNG();
 			List<String> suites = Lists.newArrayList();

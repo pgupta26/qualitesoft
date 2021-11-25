@@ -22,7 +22,7 @@ public class TestViewBill extends InitializeTest{
 
 			ManageBillingPage billingPage = new ManageBillingPage(driver);
 			ManageOverages overagesPage = new ManageOverages(driver);
-			Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/Upload_Bills.xlsx");
+			Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageBilling/Upload_Bills.xlsx");
 
 			String documentId = xr1.getCellData("Bill", "Document #", 2);
 			String carrierCode = xr1.getCellData("Bill", "Carrier Code", 2);
@@ -34,7 +34,6 @@ public class TestViewBill extends InitializeTest{
 			WebElement document = billingPage.documentNumTextBox();
 			SeleniumFunction.sendKeys(document, documentId);
 			document.sendKeys(Keys.ENTER);
-			/*SeleniumFunction.KeyBoradEnter(driver);*/
 			WaitTool.sleep(5);
 
 			WebElement getMarkupQuote = overagesPage.gridData(1, 8);
@@ -71,8 +70,7 @@ public class TestViewBill extends InitializeTest{
 			WaitTool.sleep(3);
 
 		}catch(Exception e){
-			e.getMessage();
-			Assert.fail();
+			Assert.fail(e.getMessage());
 		}
 	}
 
@@ -122,8 +120,7 @@ public class TestViewBill extends InitializeTest{
 			WaitTool.sleep(3);
 
 		}catch(Exception e){
-			e.getMessage();
-			Assert.fail();
+			Assert.fail(e.getMessage());
 		}
 	}
 
@@ -142,8 +139,7 @@ public class TestViewBill extends InitializeTest{
 			SeleniumFunction.click(billingPage.closeModalBtn());
 			WaitTool.sleep(3);
 		}catch(Exception e){
-			e.getMessage();
-			Assert.fail();
+			Assert.fail(e.getMessage());
 		}
 	}
 }

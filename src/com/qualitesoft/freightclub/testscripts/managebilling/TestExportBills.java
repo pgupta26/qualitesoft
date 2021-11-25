@@ -39,8 +39,7 @@ public class TestExportBills extends InitializeTest
 			UseAssert.assertEquals(Integer.parseInt(totalRecords)+1, numOfRows);
 
 		}catch(Exception e){
-			e.getMessage();
-			Assert.fail();
+			Assert.fail(e.getMessage());
 		}
 	}
 	
@@ -49,13 +48,12 @@ public class TestExportBills extends InitializeTest
 		try{
 			ManageBillingPage billingPage = new ManageBillingPage(driver);
 			SeleniumFunction.click(billingPage.manageBillingLink());
-			Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageBilling.xlsx");
+			Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageBilling/ManageBilling.xlsx");
 			String poNum = xr1.getCellData("Sheet1", "PONumber", 2);
 			
 			WebElement orderId = billingPage.orderNumTextBox();
 			SeleniumFunction.sendKeys(orderId, poNum);
 			orderId.sendKeys(Keys.ENTER);
-			/*SeleniumFunction.KeyBoradEnter(driver);*/
 			WaitTool.sleep(5);
 
 			SeleniumFunction.click(billingPage.exportCsvBtn());
@@ -72,8 +70,7 @@ public class TestExportBills extends InitializeTest
 			WaitTool.sleep(5);
 
 		}catch(Exception e){
-			e.getMessage();
-			Assert.fail();
+			Assert.fail(e.getMessage());
 		}
 	}
 

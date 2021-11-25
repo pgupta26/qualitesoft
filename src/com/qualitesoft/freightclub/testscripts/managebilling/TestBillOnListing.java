@@ -11,7 +11,6 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -26,36 +25,30 @@ public class TestBillOnListing extends InitializeTest{
 
 	@Test(dataProvider = "billData")
 	public void addBillForCeva(Map<Object, Object> mapData) throws ParseException{
-		try{
-			ManageBillingPage billingPage = new ManageBillingPage(driver);
-			
-			SeleniumFunction.click(billingPage.manageBillingLink());
-			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
-			if(manageOrderpage.acceptFeedbackPopupStatus() == true){
-				manageOrderpage.acceptFeedbackPopup();
-			}
-			
-			WebElement document = billingPage.documentNumTextBox();
-			SeleniumFunction.sendKeys(document, mapData.get("DocumentNumber").toString());
-			document.sendKeys(Keys.ENTER);
-			/*SeleniumFunction.KeyBoradEnter(driver);*/
-			WaitTool.sleep(5);
-			
-			CommonOps commonops = new CommonOps();
-			commonops.searchDocumentIdAndVerifyListing(
-					mapData.get("CarrierCode").toString(), mapData.get("Type").toString(), 
-					mapData.get("File Status2").toString(), mapData.get("EDI Status").toString(),
-					mapData.get("Status2").toString(),
-					mapData.get("Total").toString(), mapData.get("DocumentNumber").toString());
-		}catch(Exception e){
-			e.getMessage();
-			Assert.fail();
+		ManageBillingPage billingPage = new ManageBillingPage(driver);
+
+		SeleniumFunction.click(billingPage.manageBillingLink());
+		ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
+		if(manageOrderpage.acceptFeedbackPopupStatus() == true){
+			manageOrderpage.acceptFeedbackPopup();
 		}
+
+		WebElement document = billingPage.documentNumTextBox();
+		SeleniumFunction.sendKeys(document, mapData.get("DocumentNumber").toString());
+		document.sendKeys(Keys.ENTER);
+		WaitTool.sleep(5);
+
+		CommonOps commonops = new CommonOps();
+		commonops.searchDocumentIdAndVerifyListing(
+				mapData.get("CarrierCode").toString(), mapData.get("Type").toString(), 
+				mapData.get("File Status2").toString(), mapData.get("EDI Status").toString(),
+				mapData.get("Status2").toString(),
+				mapData.get("Total").toString(), mapData.get("DocumentNumber").toString());
 	}
-	
+
 	@DataProvider(name = "billData")
 	public Object[][] RegistrationPageData() throws IOException{
-		File file = new File(".\\binaries\\FCfiles\\ManageBilling.xlsx");
+		File file = new File(".\\binaries\\FCfiles\\ManageBilling\\ManageBilling.xlsx");
 		FileInputStream fis = new FileInputStream(file);
 
 		XSSFWorkbook wb = new XSSFWorkbook(fis);

@@ -18,10 +18,8 @@ public class EmailVerification extends InitializeTest {
 	
 	public void verifyEmailBody(String expectedEmailBody) {
 		expectedEmailBody = expectedEmailBody.replaceAll("[^a-zA-Z0-9]", " ");
-		Log.info("Expected Message:"+expectedEmailBody);
 		WaitTool.sleep(3);
 		String actualMessage = driver.findElement(By.tagName("body")).getText().replaceAll("[\\t\\n\\r]+"," ").replaceAll("[^a-zA-Z0-9]", " ");
-		Log.info("Actual Message:"+actualMessage);
 		UseAssert.assertEquals(actualMessage, expectedEmailBody);
 	}
 	
@@ -193,15 +191,11 @@ public class EmailVerification extends InitializeTest {
 				ScreenShot.takeScreenShot(driver, "Email body");
 				WaitTool.sleep(2);
 				SeleniumFunction.selectParentframe(driver);
-				SeleniumFunction.click(mailinator.deleteEmail());
+				SeleniumFunction.clickJS(driver, mailinator.deleteEmail());
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
 			
-		}catch(Exception ex) {
-			SeleniumFunction.closeWindow(driver);
-			SeleniumFunction.getCurrentWindow(driver);
-			throw ex;
-		}catch(AssertionError ex) {
+		}catch(Exception | AssertionError ex) {
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
 			throw ex;

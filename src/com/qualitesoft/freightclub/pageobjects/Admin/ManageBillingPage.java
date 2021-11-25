@@ -73,7 +73,7 @@ public class ManageBillingPage {
 	}
 	
 	public boolean closeBtnStatus(){
-		return WaitTool.waitForElementBoolean(driver, By.xpath("//div[@id='createBillModal']//button[@class='btn btn-default']"), 5);
+		return WaitTool.isElementPresentAndDisplay(driver, By.xpath("//div[@id='createBillModal']//button[@class='btn btn-default']"));
 	}
 	
 	public WebElement addBillBtn(){

@@ -21,6 +21,20 @@ public class TestAddBillUsingFile extends InitializeTest{
 	@Test
 	public void addBillByFileUploading() throws IOException, ParseException{
 		try{
+			
+			//get order id from quick quote test data sheet
+			Xls_Reader xr;
+			xr=new Xls_Reader("binaries/FCfiles/"+testData);
+			String orderId = xr.getCellData("Input","OrderId", 4).trim();
+			
+			//update order id in manage billing test data sheet
+			xr=new Xls_Reader("binaries/FCfiles/ManageBilling/Upload_Bills.xlsx");
+			int rowCount = xr.getRowCount("Bill");
+			for(int i=2; i <=rowCount; i++) {
+				xr.setCellData("Bill","PO No", i ,orderId);
+				xr.setCellData("Bill","Document #", i ,(orderId+"+"+i));
+			}
+			
 			ManageBillingPage billingPage = new ManageBillingPage(driver);
 			SeleniumFunction.click(billingPage.manageBillingLink());
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
@@ -28,7 +42,7 @@ public class TestAddBillUsingFile extends InitializeTest{
 				manageOrderpage.acceptFeedbackPopup();
 			}
 			SeleniumFunction.click(billingPage.selectFile());
-			SeleniumFunction.uploadFile("Upload_Bills.xlsx");
+			SeleniumFunction.uploadFile("ManageBilling\\Upload_Bills.xlsx");
 			WaitTool.sleep(2);
 			SeleniumFunction.click(billingPage.uploadBtn());
 			WaitTool.sleep(5);
@@ -40,7 +54,7 @@ public class TestAddBillUsingFile extends InitializeTest{
 			UseAssert.assertEquals(confirmationHeader, "Import Bill Results");
 			UseAssert.assertEquals(confirmationMessage, "2 bill(s) were successfully imported");
 			
-			Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/Upload_Bills.xlsx");
+			Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageBilling/Upload_Bills.xlsx");
 			String documentId = xr1.getCellData("Bill", "Document #", 2);
 			String carrierCode = xr1.getCellData("Bill", "Carrier Code", 2);
 			String type = xr1.getCellData("Bill", "Type", 2);
@@ -49,14 +63,12 @@ public class TestAddBillUsingFile extends InitializeTest{
 			WebElement document = billingPage.documentNumTextBox();
 			SeleniumFunction.sendKeys(document, documentId);
 			document.sendKeys(Keys.ENTER);
-			/*SeleniumFunction.KeyBoradEnter(driver);*/
 			WaitTool.sleep(5);
 			
 			CommonOps common =  new CommonOps();
 			common.searchDocumentIdAndVerifyListing(carrierCode, type, "Valid", "", "Ready", carrierBill, documentId);
 		}catch(Exception e){
-			e.getMessage();
-			Assert.fail();
+			Assert.fail(e.getMessage());
 		}
 	}
 }

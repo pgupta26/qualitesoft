@@ -64,10 +64,10 @@ public class TestResetPassword extends InitializeTest {
 						SeleniumFunction.closeWindow(driver);
 						SeleniumFunction.getCurrentWindow(driver);
 							
-						}catch(Exception ex) {
+						}catch(Exception | AssertionError ex) {
 							SeleniumFunction.closeWindow(driver);
 							SeleniumFunction.getCurrentWindow(driver);
-							Assert.fail();
+							Assert.fail(ex.getMessage());
 						}
 				SeleniumFunction.selectParentframe(driver);
 				SeleniumFunction.closeWindow(driver);
@@ -75,7 +75,7 @@ public class TestResetPassword extends InitializeTest {
 			}catch(Exception ex) {
 				SeleniumFunction.closeWindow(driver);
 				SeleniumFunction.getCurrentWindow(driver);
-				Assert.fail();
+				Assert.fail(ex.getMessage());
 			}
 	}
 

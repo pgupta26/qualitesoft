@@ -42,8 +42,7 @@ public class TestPagination extends InitializeTest{
 			
 			
 		}catch(Exception e){
-			e.getMessage();
-			Assert.fail();
+			Assert.fail(e.getMessage());
 		}
 	}
 	
@@ -63,8 +62,7 @@ public class TestPagination extends InitializeTest{
 				UseAssert.assertEquals(rows, Integer.parseInt(totalRecords));
 			}
 		}catch(Exception e){
-			e.getMessage();
-			Assert.fail();
+			Assert.fail(e.getMessage());
 		}
 	}
 	
@@ -86,8 +84,7 @@ public class TestPagination extends InitializeTest{
 				getPaginationBtnStatus(false, false, false, false);
 			}
 		}catch(Exception e){
-			e.getMessage();
-			Assert.fail();
+			Assert.fail(e.getMessage());
 		}
 	}
 	
@@ -105,8 +102,7 @@ public class TestPagination extends InitializeTest{
 				getPaginationBtnStatus(false, false, false, false);
 			}
 		}catch(Exception e){
-			e.getMessage();
-			Assert.fail();
+			Assert.fail(e.getMessage());
 		}
 	}
 	
@@ -134,8 +130,7 @@ public class TestPagination extends InitializeTest{
 				UseAssert.assertEquals(rows, totalCount);
 			}
 		}catch(Exception e){
-			e.getMessage();
-			Assert.fail();
+			Assert.fail(e.getMessage());
 		}
 	}
 	
@@ -152,7 +147,7 @@ public class TestPagination extends InitializeTest{
 			Log.info("Actual number of pages are " + actualPages);
 			
 			if(totalCount > 10){
-				if(totalCount%10 >=5){
+				if(totalCount%10 >=1){
 					UseAssert.assertEquals(actualPages, expectedPages + 1);
 				}else{
 					UseAssert.assertEquals(actualPages, expectedPages);
@@ -161,8 +156,7 @@ public class TestPagination extends InitializeTest{
 				UseAssert.assertEquals(actualPages, 1);
 			}
 		}catch(Exception e){
-			e.getMessage();
-			Assert.fail();
+			Assert.fail(e.getMessage());
 		}
 	}
 	

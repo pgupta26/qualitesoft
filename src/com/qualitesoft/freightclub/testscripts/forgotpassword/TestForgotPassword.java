@@ -40,8 +40,8 @@ public class TestForgotPassword extends InitializeTest {
 			//click return to sign in  page
 			SeleniumFunction.click(forgotPassword.returnToSignInPage());
 			
-		}catch(Exception ex) {
-			ex.printStackTrace();
+		}catch(Exception | AssertionError ex) {
+			SeleniumFunction.get(driver, URL);
 			throw ex;
 		}
 	}

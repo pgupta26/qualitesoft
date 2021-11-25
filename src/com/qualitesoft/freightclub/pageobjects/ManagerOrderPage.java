@@ -37,6 +37,22 @@ public class ManagerOrderPage {
 		}
 	}
 	
+	public WebElement viewDetalsOpenQuotes() {
+		try {
+			return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='quickOrders']/descendant::button[text()='Detail']"), 30);
+		}catch(Exception ex) {
+			return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='quickOrders']/descendant::button[text()='View Detail']"), 30);
+		}
+	}
+	
+	public WebElement viewDetalsCustomOrders() {
+		try {
+			return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='incompleteGrid']/descendant::button[text()='Detail']"), 30);
+		}catch(Exception ex) {
+			return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='incompleteGrid']/descendant::button[text()='View Detail']"), 30);
+		}
+	}
+	
 	public void orderIDFilter(String orderid) {
 		SeleniumFunction.sendKeys(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@ref='eColumnFloatingFilter'])[1]"), 60), orderid);
 	}
