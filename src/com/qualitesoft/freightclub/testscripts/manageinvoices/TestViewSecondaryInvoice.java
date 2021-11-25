@@ -26,33 +26,27 @@ public class TestViewSecondaryInvoice extends InitializeTest {
 				
 		ManageInvoices  manageInvoices = new ManageInvoices(driver);
 		QuickQuote quickQuote = new QuickQuote(driver);
+		
+		//Click on manage invoices
+		SeleniumFunction.click(manageInvoices.manageInvoices());
 
 		//Accept popup
-		WaitTool.sleep(5);
+		WaitTool.sleep(10);
 		quickQuote.acceptPopup();
 		WaitTool.sleep(5);
 		
-		//Filter grid data by total billed
-		SeleniumFunction.sendKeys(manageInvoices.OrderIDTextBox(), xr.getCellData("Sec invoice Master","FC Order ID", i));
-		SeleniumFunction.sendKeys(manageInvoices.TotalBilledTextBox(5), xr.getCellData("Sec invoice Master","New Invoice Amount", i));
-		manageInvoices.TotalBilledTextBox(5).sendKeys(Keys.ENTER);
-		WaitTool.sleep(10);
-		ScreenShot.takeScreenShot(driver, "grid filter");
-		
-		if(userType.equals("User")) {
-			//Click on manage invoices
-			SeleniumFunction.click(manageInvoices.manageInvoices());
-			
-			//Accept popup
-			WaitTool.sleep(5);
-			quickQuote.acceptPopup();
-			WaitTool.sleep(5);
-				
+		if(userType.equals("User")) {	
 			//Filter data grid by total billed
 			SeleniumFunction.sendKeys(manageInvoices.TotalBilledTextBox(4), xr.getCellData("Sec invoice Master","New Invoice Amount", i));
 			manageInvoices.TotalBilledTextBox(4).sendKeys(Keys.ENTER);
-			WaitTool.sleep(15);
+		} else {
+			//Filter grid data by total billed
+			SeleniumFunction.sendKeys(manageInvoices.OrderIDTextBox(), xr.getCellData("Sec invoice Master","FC Order ID", i));
+			SeleniumFunction.sendKeys(manageInvoices.TotalBilledTextBox(5), xr.getCellData("Sec invoice Master","New Invoice Amount", i));
+			manageInvoices.TotalBilledTextBox(5).sendKeys(Keys.ENTER);
 		}
+		WaitTool.sleep(10);
+		ScreenShot.takeScreenShot(driver, "grid filter");
 		
 		//Click detail
 		SeleniumFunction.click(manageInvoices.detail(1));
