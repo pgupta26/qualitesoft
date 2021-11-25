@@ -432,8 +432,6 @@
 	</test>
 
 	<test name="Test - valid - admin is able to view secondary invoices detail">
-		<parameter name="fcusername" value="info@freightclub.com" />
-		<parameter name="fcpassword" value="Welcome@2" />
 		<parameter name="userType" value="Admin"></parameter>
 		<parameter name="testData" value="SecondaryInvoiceTemplate.xlsx" />
 		<parameter name="Row" value="2" />

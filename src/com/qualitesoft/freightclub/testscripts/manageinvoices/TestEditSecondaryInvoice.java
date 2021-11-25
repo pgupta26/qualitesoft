@@ -10,7 +10,6 @@ import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
 import com.qualitesoft.freightclub.pageobjects.ManageInvoices;
-import com.qualitesoft.freightclub.pageobjects.QuickQuote;
 
 public class TestEditSecondaryInvoice extends InitializeTest {
 	
@@ -21,13 +20,6 @@ public class TestEditSecondaryInvoice extends InitializeTest {
 		int i=Integer.parseInt(Row);
 		
 		ManageInvoices  manageInvoices = new ManageInvoices(driver);
-		QuickQuote quickQuote = new QuickQuote(driver);
-
-		//Accept popup
-		WaitTool.sleep(10);
-		quickQuote.acceptPopup();
-		WaitTool.sleep(5);
-		quickQuote.acceptPopup();
 
 		//Type comments
 		SeleniumFunction.sendKeys(manageInvoices.comments(), xr1.getCellData("EditSecondaryInvoice", "AdminComment", i));

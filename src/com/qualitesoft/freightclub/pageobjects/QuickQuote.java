@@ -36,11 +36,15 @@ public class QuickQuote {
 	public WebElement QQLink(){
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@id='link-quick-quote']"), 60);
 	}
+	
+	public boolean isPopupPresent() {
+		return WaitTool.isElementPresentAndDisplay(driver, By.xpath("//button[@data-role='end']"));
+	}
 
 	public void acceptPopup() {
-		if(WaitTool.isElementPresentAndDisplay(driver, By.xpath("//button[@data-role='end']"))) {
+		if(this.isPopupPresent()) {
 			ScreenShot.takeScreenShot(driver, "Popup"+JavaFunction.getRandomNumber(10, 10000));
-			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@data-role='end']"), 10));
+			SeleniumFunction.clickJS(driver,WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@data-role='end']"), 10));
 		}
 	}
 
