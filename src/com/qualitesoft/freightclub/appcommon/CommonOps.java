@@ -9,11 +9,8 @@ import java.io.IOException;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.HasInputDevices;
-import org.openqa.selenium.interactions.Keyboard;
 import org.testng.Assert;
 
 import com.qualitesoft.core.InitializeTest;
@@ -551,7 +548,7 @@ public class CommonOps extends InitializeTest {
 		WebElement noMarkupQuote = overagesPage.gridData(1, 8);
 		WebElement getvariance = overagesPage.gridData(1, 10);		
 		
-		String markupQuote = SeleniumFunction.getText(noMarkupQuote);
+		String markupQuote = SeleniumFunction.getText(noMarkupQuote).trim().replaceAll(",", "");
 		double markupQuoteAmount = Double.parseDouble(markupQuote.substring(1, markupQuote.length()));
 		double variance = ((Double.parseDouble(ex_carrierBill) - markupQuoteAmount) / markupQuoteAmount) * 100;
 		int vari = f.parse(SeleniumFunction.getText(getvariance).replace("$", "")).intValue(); 

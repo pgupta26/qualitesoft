@@ -24,9 +24,10 @@ public class TestEditSecondaryInvoice extends InitializeTest {
 		QuickQuote quickQuote = new QuickQuote(driver);
 
 		//Accept popup
-		WaitTool.sleep(5);
+		WaitTool.sleep(10);
 		quickQuote.acceptPopup();
 		WaitTool.sleep(5);
+		quickQuote.acceptPopup();
 
 		//Type comments
 		SeleniumFunction.sendKeys(manageInvoices.comments(), xr1.getCellData("EditSecondaryInvoice", "AdminComment", i));

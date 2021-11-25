@@ -83,15 +83,13 @@ public class JavaFunction {
 
 	}
 
-	public static int countLineBufferedReader(String fileName) {
+	public static int countLineBufferedReader(String fileName) throws IOException {
 
 		int lines = 0;
-		try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-			while (reader.readLine() != null) lines++;
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		BufferedReader reader = new BufferedReader(new FileReader(fileName));
+		while (reader.readLine() != null) 
+			lines++;
+		reader.close();
 		return lines;
-
 	}
 }

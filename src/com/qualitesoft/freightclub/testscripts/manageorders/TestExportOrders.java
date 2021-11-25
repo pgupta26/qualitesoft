@@ -34,18 +34,17 @@ public class TestExportOrders extends InitializeTest
 			SeleniumFunction.click(manageOrderpage.clickExportOrdersBtn(keyword));
 			WaitTool.sleep(10);
 
-			String sheetName = JavaFunction.currentDateFormat("yyyy-M-d");
+			String sheetName = JavaFunction.currentPSTDate("yyyy-M-d");
 			int numOfRows = JavaFunction.countLineBufferedReader("download\\" + testData +  sheetName + ".csv");
 
 			String rowsCount = manageOrderpage.getPagiationTotalRows(keyword);
 			String[] num = rowsCount.split(" ");
 			String totalRecords = num[4];
 			Log.info("Pagination count " + totalRecords + " \n Excel rows " + numOfRows);
-			UseAssert.assertEquals(Integer.parseInt(totalRecords)+1, numOfRows);
-
+			Assert.assertTrue(numOfRows >= Integer.parseInt(totalRecords));
+			
 		}catch(Exception e){
-			e.getMessage();
-			Assert.fail();
+			Assert.fail(e.getMessage());
 		}
 	}
 }

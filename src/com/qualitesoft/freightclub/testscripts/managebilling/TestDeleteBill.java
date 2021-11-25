@@ -29,8 +29,7 @@ public class TestDeleteBill extends InitializeTest{
 				Assert.assertTrue(false, "Delete button is not disabled");
 			}
 		}catch(Exception e){
-			e.getMessage();
-			Assert.fail();
+			Assert.fail(e.getMessage());
 		}
 	}
 
@@ -50,21 +49,19 @@ public class TestDeleteBill extends InitializeTest{
 			String deleteBillSuccessMessage = SeleniumFunction.getText(billingPage.toastMessage());
 			UseAssert.assertEquals(deleteBillSuccessMessage, "Successfully removed bill.");
 		}catch(Exception e){
-			e.getMessage();
-			Assert.fail();
+			Assert.fail(e.getMessage());
 		}
 	}
 	
 	public static void searchDocumentId(int row){
 		ManageBillingPage billingPage = new ManageBillingPage(driver);
-		Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/Upload_Bills.xlsx");
+		Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageBilling/Upload_Bills.xlsx");
 		String documentId = xr1.getCellData("Bill", "Document #", row);
 		
 		SeleniumFunction.click(billingPage.manageBillingLink());
 		WebElement document = billingPage.documentNumTextBox();
 		SeleniumFunction.sendKeys(document, documentId);
 		document.sendKeys(Keys.ENTER);
-		/*SeleniumFunction.KeyBoradEnter(driver);*/
 		WaitTool.sleep(5);
 	}
 }

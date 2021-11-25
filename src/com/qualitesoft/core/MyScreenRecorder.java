@@ -8,8 +8,6 @@ import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.monte.media.Format;
 import org.monte.media.FormatKeys.MediaType;
@@ -46,7 +44,7 @@ public class MyScreenRecorder extends ScreenRecorder {
 	}
 
 	public static void startRecording(String methodName) throws Exception {
-		File file = new File("./videos/recordings-" + JavaFunction.currentDateFormat("yyyyMMddHHmmss") + File.separator);
+		File file = new File("./videos/" + JavaFunction.currentDateFormat("MM-dd-yyyy-HHmmss") + File.separator);
 
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		int width = screenSize.width;
