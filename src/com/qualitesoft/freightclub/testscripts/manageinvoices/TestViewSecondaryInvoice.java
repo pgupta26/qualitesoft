@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
+import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
@@ -35,6 +36,8 @@ public class TestViewSecondaryInvoice extends InitializeTest {
 		SeleniumFunction.sendKeys(manageInvoices.OrderIDTextBox(), xr.getCellData("Sec invoice Master","FC Order ID", i));
 		SeleniumFunction.sendKeys(manageInvoices.TotalBilledTextBox(5), xr.getCellData("Sec invoice Master","New Invoice Amount", i));
 		manageInvoices.TotalBilledTextBox(5).sendKeys(Keys.ENTER);
+		WaitTool.sleep(10);
+		ScreenShot.takeScreenShot(driver, "grid filter");
 		
 		if(userType.equals("User")) {
 			//Click on manage invoices
@@ -108,7 +111,7 @@ public class TestViewSecondaryInvoice extends InitializeTest {
 			//Assert.assertTrue(manageInvoices.dateTime(backupDocumemtGridDataSize).getText().contains(JavaFunction.currentDate()));
 			Assert.assertTrue(manageInvoices.viewable(backupDocumemtGridDataSize).isDisplayed());
 			Assert.assertTrue(manageInvoices.downloadable(backupDocumemtGridDataSize).isDisplayed());
-			
 		}	
+		ScreenShot.takeScreenShot(driver, "invoice detail");
 	}
 }

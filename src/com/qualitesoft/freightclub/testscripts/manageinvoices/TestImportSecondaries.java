@@ -60,6 +60,8 @@ public class TestImportSecondaries extends InitializeTest {
 		SeleniumFunction.sendKeys(manageInvoices.OrderIDTextBox(), xr.getCellData("Sec invoice Master","FC Order ID", i));
 		SeleniumFunction.sendKeys(manageInvoices.TotalBilledTextBox(5), xr.getCellData("Sec invoice Master","New Invoice Amount", i));
 		manageInvoices.TotalBilledTextBox(5).sendKeys(Keys.ENTER);
+		WaitTool.sleep(10);
+		ScreenShot.takeScreenShot(driver, "grid filter");
 		
 		//Verify overage id detail in data grid
 		Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageInvoiceTestData.xlsx");
