@@ -23,7 +23,8 @@ public class TestEnterShipmentInformation extends InitializeTest {
 		commonOps.itemInformation(xr, i, 1, packageType);
 		WaitTool.sleep(2);
 		SeleniumFunction.scrollDownUptoFooter(driver);
+		quickQuote.acceptPopup();
 		SeleniumFunction.click(quickQuote.SaveButton());
-		WaitTool.sleep(30);
+		WaitTool.sleep(20);
 	}
 }

@@ -100,7 +100,7 @@ public class TestAddBill extends InitializeTest{
 		//get order id from quick quote test data sheet
 		Xls_Reader xr;
 		xr=new Xls_Reader("binaries/FCfiles/"+testData);
-		String orderId = xr.getCellData("Input","OrderId", 3).trim();
+		String orderId = xr.getCellData("Input","OrderId", 2).trim();
 		
 		//update order id in manage billing test data sheet
 		xr=new Xls_Reader("binaries/FCfiles/ManageBilling/ManageBilling.xlsx");

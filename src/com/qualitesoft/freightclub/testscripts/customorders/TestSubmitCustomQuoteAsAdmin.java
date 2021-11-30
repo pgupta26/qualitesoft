@@ -226,6 +226,7 @@ public class TestSubmitCustomQuoteAsAdmin extends InitializeTest {
 			SeleniumFunction.sendKeys(notQuotedTab.COGS(), COGS);
 			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//i[@class='fa fa-check-circle fa-lg'])[2]"), 10));
 		} 
+		ScreenShot.takeScreenShot(driver, "Fulfilment carrier details");
 		
 		if(!deliveryFrequency.equals("One Time Shipment")) {
 			String formatDate;
@@ -243,6 +244,7 @@ public class TestSubmitCustomQuoteAsAdmin extends InitializeTest {
 			notQuotedTab.recurringExpiry().clear();
 			SeleniumFunction.sendKeys(notQuotedTab.recurringExpiry(), formatDate);
 			notQuotedTab.recurringExpiry().sendKeys(Keys.TAB);
+			ScreenShot.takeScreenShot(driver, "Recurring expiry for"+deliveryFrequency);
 		}
 		
 		//Update regulatory and shipment information
@@ -251,6 +253,7 @@ public class TestSubmitCustomQuoteAsAdmin extends InitializeTest {
 		WaitTool.sleep(2);
 		SeleniumFunction.scrollDownByPixel(driver, "400");
 		SeleniumFunction.sendKeys(notQuotedTab.regulatoryDetails(), updatedRegulatoryDetails);
+		ScreenShot.takeScreenShot(driver, "Updated regulatory and shipment information");
 
 		WaitTool.sleep(5);
 		SeleniumFunction.executeJS(driver, "window.scrollBy(0,400)");
@@ -258,11 +261,13 @@ public class TestSubmitCustomQuoteAsAdmin extends InitializeTest {
 		markupPercentage.clear();
 		SeleniumFunction.sendKeys(markupPercentage, "6");
 		WaitTool.sleep(5);
+		ScreenShot.takeScreenShot(driver, "Markup percentage");
 
 		//Submit Information
 		SeleniumFunction.executeJS(driver, "window.scrollBy(0,2500)");
-		ScreenShot.takeScreenShot(driver, "Submit quote details");
 		SeleniumFunction.click(notQuotedTab.submitQuote());
 		WaitTool.sleep(10);
+		ScreenShot.takeScreenShot(driver, "Submit quote");
+
 	}
 }
