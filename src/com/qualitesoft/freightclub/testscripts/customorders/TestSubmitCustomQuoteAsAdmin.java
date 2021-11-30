@@ -176,6 +176,11 @@ public class TestSubmitCustomQuoteAsAdmin extends InitializeTest {
 		
 		String orderid=xr.getCellData("Input","OrderId", i).trim();
 		Log.info("Order Id: "+orderid);
+		
+		SeleniumFunction.sendKeys(manageOrderpage.searchFieldsOnTable(keyword, "1"), orderid.trim());
+		manageOrderpage.searchFieldsOnTable(keyword, "1").sendKeys(Keys.ENTER);
+		WaitTool.sleep(5);
+		ScreenShot.takeScreenShot(driver, "Order Id filter");
 		 
 		SeleniumFunction.clickJS(driver, notQuotedTab.complete());
 		WaitTool.sleep(5);
