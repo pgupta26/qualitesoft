@@ -195,8 +195,8 @@ public class CommonOps extends InitializeTest {
 			SeleniumFunction.sendKeys(manageProducts.productName(),Productname);
 			SeleniumFunction.sendKeys(manageProducts.declaredValue(),DeclaredValue);
 
-			xr=new Xls_Reader("binaries/FCfiles/ManageProducts.xlsx");
-			this.addProductCarton(xr, 5, 1);
+			xr=new Xls_Reader("binaries/FCfiles/ManageProducts/ManageProducts.xlsx");
+			this.addProductCarton(xr, 4, 1);
 
 			SeleniumFunction.click(manageProducts.saveproduct());
 			ScreenShot.takeScreenShot(driver, "Pallet Info");

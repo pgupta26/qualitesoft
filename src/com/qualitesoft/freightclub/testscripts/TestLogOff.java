@@ -1,6 +1,5 @@
 package com.qualitesoft.freightclub.testscripts;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
@@ -21,7 +20,7 @@ public class TestLogOff extends InitializeTest{
 		}catch(Exception ex) {
 			try {
 				Log.info("Log Off Retry...............");
-				SeleniumFunction.getCurrentUrl(driver);
+				InitializeTest.getDriver().navigate().refresh();
 				WaitTool.sleep(5);
 				SeleniumFunction.click(homePage.logoff());
 			}catch(Exception e) {

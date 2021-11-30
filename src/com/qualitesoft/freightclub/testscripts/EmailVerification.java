@@ -196,6 +196,7 @@ public class EmailVerification extends InitializeTest {
 			SeleniumFunction.getCurrentWindow(driver);
 			
 		}catch(Exception | AssertionError ex) {
+			ScreenShot.takeScreenShotOnFailure("Failure Screenshot");
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
 			throw ex;

@@ -1285,7 +1285,7 @@
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentCompletionDetail" />
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestBasicThresholdAtReviewOrderPage" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
-			<!-- <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" /> -->
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBasicThresholdAtOrderDetails" />	
 		</classes>
 	</test>
@@ -1300,7 +1300,7 @@
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentCompletionDetail" />
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestBasicThresholdAtReviewOrderPage" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
-			<!-- <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" /> -->
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBasicThresholdAtOrderDetails" />
 		</classes>
 	</test>
@@ -1315,7 +1315,7 @@
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentCompletionDetail" />
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestBasicThresholdAtReviewOrderPage" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
-			<!-- <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" /> -->
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBasicThresholdAtOrderDetails" />
 		</classes>
 	</test>
@@ -1330,7 +1330,7 @@
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentCompletionDetail" />
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestBasicThresholdAtReviewOrderPage" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
-			<!-- <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" /> -->
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBasicThresholdAtOrderDetails" />
 		</classes>
 	</test>

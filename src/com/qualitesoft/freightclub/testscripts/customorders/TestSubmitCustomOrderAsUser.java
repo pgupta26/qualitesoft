@@ -112,8 +112,8 @@ public class TestSubmitCustomOrderAsUser extends InitializeTest {
 		WaitTool.sleep(30);
 		quickQuote.acceptPopup();
 
-		WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//*[@id=\"center\"]/div/div[4]/div[3]/div/div/div[1]/div[2])[3]"), 20);
-		crorderId=SeleniumFunction.getText(driver.findElement(By.xpath("(//*[@id=\"center\"]/div/div[4]/div[3]/div/div/div[1]/div[2])[3]")));
+		WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='incompleteGrid']/descendant::div[@class='ag-body-container']/descendant::div[@colid='ID']"), 20);
+		crorderId=SeleniumFunction.getText(driver.findElement(By.xpath("//div[@id='incompleteGrid']/descendant::div[@class='ag-body-container']/descendant::div[@colid='ID']")));
 		Log.info("crorderId:" + crorderId.trim());
 
 		//set order id in excel

@@ -24,7 +24,7 @@ public class Mailinator {
 	}
 	
 	public WebElement goButton() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.id("go-to-public"), 30);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@value='Search for public inbox for free']"), 30);
 	}
 	
 	public WebElement go() {

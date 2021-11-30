@@ -48,7 +48,13 @@ public class QuickQuoteFinal {
 
 	public WebElement OrderDate() {
 		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='OrderDate']"), 30));
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='datepicker-days']//td[@class='day'])[2]"), 30);
+		try {
+			return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='datepicker-days']//td[@class='day'])[2]"), 10);
+		}catch(Exception ex) {
+			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//th[@class='next'])[1]"), 10));
+			WaitTool.sleep(2);
+			return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='datepicker-days']//td[@class='day'])[2]"), 10);
+		}
 	}
 
 	public WebElement OrderReferenceID() {
@@ -216,26 +222,31 @@ public class QuickQuoteFinal {
 	} 
 	
 	public void selectCarrier(String carrierName) {
-		if(carrierName.equals("ABF Freight")) {
-			SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/11.png']/ancestor::tr/td[7]/button"), 10));
-		}else if(carrierName.equals("Ceva")){
-			SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/44.png']/ancestor::tr/td[7]/button"), 10));
-		}else if(carrierName.equals("Pilot Freight Services[Televisions]")) {
-			SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/33.png']/ancestor::tr/td[7]/button"), 10));
-		}else if(carrierName.equals("Werner")) {
-			SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/302.png']/ancestor::tr/td[7]/button"), 10));
-		} else if(carrierName.equals("FC Test Carrier")) {
-			SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/222.png']/ancestor::tr/td[7]/button"), 10));
-		} else if(carrierName.equals("Ups")) {
-			SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/1.png']/ancestor::tr/td[7]/button"), 10));
-		} else if(carrierName.equals("Ups SurePost")) {
-			SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//span[contains(text(),'SurePost')]/parent::td/following-sibling::td[4]/button"), 10));
-		}else if(carrierName.equals("YRC")) {
-			SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/9.png']/ancestor::tr/td[7]/button"), 10));
-		}else if(carrierName.equals("Estes")) {
-			SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/22.png']/ancestor::tr/td[7]/button"), 10));
-		}else if(carrierName.equals("BTX Global Logistics")) {
-			SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/291.png']/ancestor::tr/td[7]/button"), 10));
+		try {
+			if(carrierName.equals("ABF Freight")) {
+				SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/11.png']/ancestor::tr/td[7]/button"), 10));
+			}else if(carrierName.equals("Ceva")){
+				SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/44.png']/ancestor::tr/td[7]/button"), 10));
+			}else if(carrierName.equals("Pilot Freight Services[Televisions]")) {
+				SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/33.png']/ancestor::tr/td[7]/button"), 10));
+			}else if(carrierName.equals("Werner")) {
+				SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/302.png']/ancestor::tr/td[7]/button"), 10));
+			} else if(carrierName.equals("FC Test Carrier")) {
+				SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/222.png']/ancestor::tr/td[7]/button"), 10));
+			} else if(carrierName.equals("Ups")) {
+				SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/1.png']/ancestor::tr/td[7]/button"), 10));
+			} else if(carrierName.equals("Ups SurePost")) {
+				SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//span[contains(text(),'SurePost')]/parent::td/following-sibling::td[4]/button"), 10));
+			}else if(carrierName.equals("YRC")) {
+				SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/9.png']/ancestor::tr/td[7]/button"), 10));
+			}else if(carrierName.equals("Estes")) {
+				SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/22.png']/ancestor::tr/td[7]/button"), 10));
+			}else if(carrierName.equals("BTX Global Logistics")) {
+				SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/291.png']/ancestor::tr/td[7]/button"), 10));
+			}
+			
+		}catch(Exception ex) {
+			SeleniumFunction.clickJS(driver, this.NextButton());
 		}
 	}
 
