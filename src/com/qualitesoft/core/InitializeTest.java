@@ -151,6 +151,9 @@ public class InitializeTest {
 	public WebDriver launchBrowser(String browser) {
 		try {
 			String download =System.getProperty("user.dir")+File.separator+"download";
+			File file = new File(download);
+			if(!file.exists())
+				file.mkdir();
 			if(browser.equalsIgnoreCase("chrome")) {
 				//set download directory
 				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();

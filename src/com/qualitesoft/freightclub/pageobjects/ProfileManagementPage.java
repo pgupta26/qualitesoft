@@ -217,18 +217,19 @@ public class ProfileManagementPage {
 	}
 	
 	public void deleteContactsInformation() {
-			List<WebElement> contacts = WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//table[@id='profileInfo']/tbody/tr"), 30);
+		List<WebElement> contacts = WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//table[@id='profileInfo']/tbody/tr"), 30);
+
+		if(contacts != null) {
 			int count = contacts.size();
 			Log.info("Total contacts available: "+count);
-			
-			if(contacts != null && count > 0) {
-				
+			if(count > 0) {
 				for(int i = 1; i <= count; i++) {
 					SeleniumFunction.click(driver.findElement(By.xpath("//table[@id='profileInfo']/tbody/tr/td[6]/i[2]")));
 					WaitTool.sleep(2);
 				}
-				ScreenShot.takeScreenShot(driver, "Existing contacts deleted");
 			}
+		}
+		ScreenShot.takeScreenShot(driver, "Existing contacts deleted");
 	}
 	
 	public WebElement addContactButton() {

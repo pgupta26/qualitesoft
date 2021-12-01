@@ -14,42 +14,35 @@ public class TestAddContactInformationForUser extends InitializeTest {
 
 	@Test
 	public void testAddContactInformationForUser() {
-		try {
+		ProfileManagementPage profileManagement = new ProfileManagementPage(driver);
 
-			ProfileManagementPage profileManagement = new ProfileManagementPage(driver);
+		Xls_Reader xr = new Xls_Reader("binaries/FCfiles/"+testData);
+		int rowIndex = Integer.parseInt(Row);
+		Log.info("Row Number: "+rowIndex);	
 
-			Xls_Reader xr = new Xls_Reader("binaries/FCfiles/"+testData);
-			int rowIndex = Integer.parseInt(Row);
-			Log.info("Row Number: "+rowIndex);	
-			
-			String contactType = xr.getCellData("ContactInfo", "ContactType", rowIndex);
-			String contactName = xr.getCellData("ContactInfo", "ContactName", rowIndex);
-			String phoneNumber = xr.getCellData("ContactInfo", "PhoneNumber", rowIndex);
-			String emailAddress = xr.getCellData("ContactInfo", "EmailAddress", rowIndex);
-			
-			//delete all existing contacts
-			SeleniumFunction.scrollDownByPixel(driver, "300");
-			WaitTool.sleep(5);
-			profileManagement.deleteContactsInformation();
-			
-			//Add new contact details
-			SeleniumFunction.click(profileManagement.addContactButton());
-			SeleniumFunction.selectByVisibleText(profileManagement.contactType(), contactType);
-			SeleniumFunction.sendKeys(profileManagement.contactName(), contactName);
-			SeleniumFunction.sendKeys(profileManagement.phoneNumber(), phoneNumber);
-			SeleniumFunction.sendKeys(profileManagement.emailAddress(), emailAddress);
-			SeleniumFunction.click(profileManagement.saveContactInformation());
-			
-			//click on save profile
-			SeleniumFunction.scrollDownUptoFooter(driver);
-			WaitTool.sleep(5);
-			SeleniumFunction.clickJS(driver, profileManagement.saveProfileButtonSurePost());
-			ScreenShot.takeScreenShot(driver, "Profile1 saved successfully after adding contact info");
-			WaitTool.sleep(20);
+		String contactType = xr.getCellData("ContactInfo", "ContactType", rowIndex);
+		String contactName = xr.getCellData("ContactInfo", "ContactName", rowIndex);
+		String phoneNumber = xr.getCellData("ContactInfo", "PhoneNumber", rowIndex);
+		String emailAddress = xr.getCellData("ContactInfo", "EmailAddress", rowIndex);
 
-		}catch(Exception ex) {
-			Log.info(ex.getMessage());
-			throw ex;
-		}
+		//delete all existing contacts
+		SeleniumFunction.scrollDownByPixel(driver, "300");
+		WaitTool.sleep(5);
+		profileManagement.deleteContactsInformation();
+
+		//Add new contact details
+		SeleniumFunction.click(profileManagement.addContactButton());
+		SeleniumFunction.selectByVisibleText(profileManagement.contactType(), contactType);
+		SeleniumFunction.sendKeys(profileManagement.contactName(), contactName);
+		SeleniumFunction.sendKeys(profileManagement.phoneNumber(), phoneNumber);
+		SeleniumFunction.sendKeys(profileManagement.emailAddress(), emailAddress);
+		SeleniumFunction.click(profileManagement.saveContactInformation());
+
+		//click on save profile
+		SeleniumFunction.scrollDownUptoFooter(driver);
+		WaitTool.sleep(5);
+		SeleniumFunction.clickJS(driver, profileManagement.saveProfileButtonSurePost());
+		ScreenShot.takeScreenShot(driver, "Profile1 saved successfully after adding contact info");
+		WaitTool.sleep(20);
 	}
 }
