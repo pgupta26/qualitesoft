@@ -95,10 +95,10 @@ public class TestInitiateClaim extends InitializeTest {
 				SeleniumFunction.closeWindow(driver);
 				SeleniumFunction.getCurrentWindow(driver);
 				
-			}catch(Exception ex) {
+			}catch(Exception | AssertionError ex) {
 				SeleniumFunction.closeWindow(driver);
 				SeleniumFunction.getCurrentWindow(driver);
-				Assert.fail();
+				throw ex;
 			}
 
 			//verify claim status in manage claims grid
