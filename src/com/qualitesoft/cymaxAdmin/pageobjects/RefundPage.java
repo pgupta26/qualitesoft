@@ -1,5 +1,7 @@
 package com.qualitesoft.cymaxAdmin.pageobjects;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,7 +19,7 @@ public class RefundPage {
 	By refundTab = By.xpath("//span[contains(@id,'tcOrder_tabRefund_tab')]");
 	
 	By refundReason = By.xpath("//select[contains(@id,'cbRefundReason')]");
-	By category = By.xpath("//select[contains(@id,'cbSubCategory')]");
+	By category = By.xpath("(//select[contains(@id,'cbSubCategory')])[2]");
 	By subCategory = By.xpath("//select[contains(@id,'cbThirdSubCategory')]");
 	
 	By checkbox = By.xpath("(//table[contains(@id,'tabRefund_gvRefundItems')]//input[contains(@id,'chkSelect')])[1]");
@@ -57,5 +59,38 @@ public class RefundPage {
 	
 	public WebElement getTableData(int index){
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[contains(@id,'_tabRefund_gvRefundHead')]/tbody/tr["+index+"]//td"), 60);
+	}
+	
+	//*************************Table locators/************
+	public List<WebElement> getCountOfRows(){
+		return WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//table[@class='Grid tableFullWidth']//following-sibling::tr//td[10]"), 60);
+	}
+	public WebElement getCellData(int rowNum, int colNum){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//table[@class='Grid tableFullWidth']//following-sibling::tr["+rowNum+"]//td["+colNum+"]"), 60);
+	}
+	public WebElement checkbox(int rowNum){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//table[@class='Grid tableFullWidth']//following-sibling::tr["+rowNum+"]//td[1]//input"), 60);
+	}
+	
+	By refundModalHeader = By.xpath("//h4[@id='refundModalLabel']");
+	By refundReasonId = By.xpath("//select[@id='ddlRefundReason']");
+	By refundCategory = By.xpath("//select[@id='ddlRefundCat']");
+	By refundSubCategory = By.xpath("//select[@id='ddlRefundSubCat']");
+	By saveChanges = By.xpath("//button[@id='refundFormSubmitBtn']");
+	
+	public WebElement clickEditIcon(int rowNum){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//table[@class='Grid tableFullWidth']//following-sibling::tr["+rowNum+"]//td[3]//a"), 60);
+	}
+	public WebElement updateSelectRefundReason(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, refundReasonId, 60);
+	}
+	public WebElement updateSelectCategory(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, refundCategory, 60);
+	}
+	public WebElement updateSelectSubcategory(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, refundSubCategory, 60);
+	}
+	public WebElement clickSaveChanges(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, saveChanges, 60);
 	}
 }

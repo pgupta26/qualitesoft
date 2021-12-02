@@ -16,7 +16,13 @@ public class TestLogout extends InitializeTest{
 			
 			SeleniumFunction.click(login.clickLogoutBtn());
 			login.setUsername();
+			SeleniumFunction.closeWindow(driver);
+			SeleniumFunction.getCurrentWindow(driver);
+			driver.navigate().refresh();
 		}catch(Exception e) {
+			SeleniumFunction.closeWindow(driver);
+			SeleniumFunction.getCurrentWindow(driver);
+			driver.navigate().refresh();
 			Assert.fail();
 		}
 	}

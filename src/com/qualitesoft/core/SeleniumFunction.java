@@ -253,7 +253,7 @@ public class SeleniumFunction {
 	public static void uploadImage(WebElement element, String fileName) {
 		try {
 			element.sendKeys(fileName);
-			WaitTool.sleep(5);
+			WaitTool.sleep(10);
 			Log.info(fileName+" successfully uploaded.");
 		} catch (Exception e) {
 			Log.error("Not able to upload image" + e.getMessage());

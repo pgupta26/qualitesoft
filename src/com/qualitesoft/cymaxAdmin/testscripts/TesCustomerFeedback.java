@@ -18,7 +18,7 @@ public class TesCustomerFeedback extends InitializeTest{
 			FeedbackPage feedback = new FeedbackPage(driver);
 			
 			SeleniumFunction.click(feedback.clickCustomerFeedbackTab());
-			WaitTool.sleep(5);
+			WaitTool.sleep(20);
 			SeleniumFunction.selectByVisibleText(feedback.selectAssignTo(), "Samatha.B");
 			SeleniumFunction.selectByvalue(feedback.selectFeedBackRating(), "2");
 			SeleniumFunction.selectByVisibleText(feedback.selectFeedbackType(), "A-Z Claim");
@@ -26,13 +26,14 @@ public class TesCustomerFeedback extends InitializeTest{
 			SeleniumFunction.selectByVisibleText(feedback.selectFeedbackChannel(), "Amazon");
 			SeleniumFunction.selectByVisibleText(feedback.selectFeedbackCarrier(), "ABF Freight");
 			SeleniumFunction.selectByVisibleText(feedback.selectFeedbackCause(), "Carrier error");
-			WaitTool.sleep(7);
+			WaitTool.sleep(15);
 			SeleniumFunction.selectByVisibleText(feedback.selectFeedBackReason(), "Lost shipment");
 			SeleniumFunction.sendKeys(feedback.setComment(), "Test Automation Comment");
 			SeleniumFunction.sendKeys(feedback.setNotes(), "Test Automation Notes");
 			SeleniumFunction.click(feedback.clickSaveBtn());
 			WaitTool.sleep(20);
 			driver.switchTo().alert().accept();
+			WaitTool.sleep(10);
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 			Assert.fail();
@@ -75,7 +76,7 @@ public class TesCustomerFeedback extends InitializeTest{
 			SeleniumFunction.selectByVisibleText(feedback.selectFeedbackChannel(), "Ebay");
 			SeleniumFunction.selectByVisibleText(feedback.selectFeedbackCarrier(), "Ceva");
 			SeleniumFunction.selectByVisibleText(feedback.selectFeedbackCause(), "Vendor error");
-			WaitTool.sleep(7);
+			WaitTool.sleep(15);
 			SeleniumFunction.selectByVisibleText(feedback.selectFeedBackReason(), "Original item never shipped");
 			
 			SeleniumFunction.sendKeys(feedback.setReceivedDate(), "11-Nov-2022");
@@ -90,6 +91,7 @@ public class TesCustomerFeedback extends InitializeTest{
 			SeleniumFunction.click(feedback.clickSaveBtn());
 			WaitTool.sleep(20);
 			driver.switchTo().alert().accept();
+			WaitTool.sleep(10);
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 			Assert.fail();

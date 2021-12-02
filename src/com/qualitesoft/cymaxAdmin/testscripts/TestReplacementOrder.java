@@ -17,7 +17,7 @@ public class TestReplacementOrder extends InitializeTest{
 			ReplacementPage replacement = new ReplacementPage(driver);
 			
 			SeleniumFunction.click(replacement.clickReplacementTab());
-			WaitTool.sleep(5);
+			WaitTool.sleep(20);
 			this.changeStatus("Accepted", JavaFunction.currentDate());
 			this.changeStatus("Completed", "12/31/2022");
 			
@@ -29,13 +29,14 @@ public class TestReplacementOrder extends InitializeTest{
 	@Test
 	public void verifyUploadedFile(){
 		ReplacementPage replacement = new ReplacementPage(driver);
-		
+		WaitTool.sleep(10);
 		String fileName = System.getProperty("user.dir") + "\\binaries\\AdminFiles\\enterprise.jpg" ;
 		SeleniumFunction.uploadImage(replacement.setChooseFile(), fileName);
 		
 		int beforeUplodingFileCount = replacement.getUploadedPhotosText().size();
 		SeleniumFunction.click(replacement.clickUploadBtn());
 		
+		WaitTool.sleep(20);
 		int afterUplodingFileCount = replacement.getUploadedPhotosText().size();
 		UseAssert.assertEquals(afterUplodingFileCount, beforeUplodingFileCount + 1); 
 	}
@@ -46,9 +47,11 @@ public class TestReplacementOrder extends InitializeTest{
 		SeleniumFunction.sendKeys(replacement.setFollowUpDate(), ex_date);
 		
 		SeleniumFunction.click(replacement.clickSaveBtn());
-		WaitTool.sleep(10);
+		WaitTool.sleep(20);
 		driver.switchTo().alert().accept();
 		driver.navigate().refresh();
+		
+		WaitTool.sleep(10);
 		String selectedStatus = SeleniumFunction.getText(replacement.getSelectedStatus());
 		UseAssert.assertEquals(selectedStatus, ex_status);
 		
