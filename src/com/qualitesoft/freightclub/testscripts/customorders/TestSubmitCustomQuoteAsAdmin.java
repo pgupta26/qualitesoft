@@ -216,7 +216,9 @@ public class TestSubmitCustomQuoteAsAdmin extends InitializeTest {
 		SeleniumFunction.executeJS(driver, "window.scrollBy(0,-800)");
 		SeleniumFunction.click(notQuotedTab.fulfillmentCarrier());
 	    
-	    WaitTool.sleep(2);
+	    WaitTool.sleep(5);
+	    quickQuote.acceptPopup();
+	    WaitTool.sleep(5);
 	    SeleniumFunction.sendKeys(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@placeholder='Select Carrier']"), 20), fulfillmentCarrier);
 		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@data-value='"+fulfillmentCarrierId+"']"), 10));
 		SeleniumFunction.sendKeys(notQuotedTab.carrierQuoteID(), quoteId);
