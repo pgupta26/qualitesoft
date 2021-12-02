@@ -13,7 +13,7 @@ import com.qualitesoft.cymaxAdmin.pageobjects.ReturnAndCancellation;
 public class TestReturnAndCancellation extends InitializeTest{
 
 	@Test
-	public void testStatus(){
+	public void aTestStatus(){
 		try{
 			ReturnAndCancellation returnPage = new ReturnAndCancellation(driver);
 			
@@ -21,15 +21,15 @@ public class TestReturnAndCancellation extends InitializeTest{
 			WaitTool.sleep(5);
 			SeleniumFunction.scrollIntoView(driver, returnPage.clickReturnDetailsSubtab());
 			
-			this.changeStatusAndSetDate("Return - In Transit", JavaFunction.currentDate());
-			this.changeStatusAndSetDate("Completed - Returned to Orbit", "12/31/2022");
+			this.changeStatusAndSetDate("RMA Sent to Cust.", JavaFunction.currentDate());
+			this.changeStatusAndSetDate("Return - In Transit", "12/31/2022");
 		}catch(Exception e){
 			Assert.fail();
 		}
 	}
 	
 	@Test
-	public void testUploadedFilesCount(){
+	public void bTestUploadedFilesCount(){
 		try{
 			ReturnAndCancellation returnPage = new ReturnAndCancellation(driver);
 			
@@ -50,7 +50,7 @@ public class TestReturnAndCancellation extends InitializeTest{
 	}
 	
 	@Test
-	public void testCreateFedExLabel(){
+	public void cTestCreateFedExLabel(){
 		try{
 			ReturnAndCancellation returnPage = new ReturnAndCancellation(driver);
 			SeleniumFunction.click(returnPage.clickReturnAndCancellationTab());
@@ -88,6 +88,7 @@ public class TestReturnAndCancellation extends InitializeTest{
 		driver.switchTo().alert().accept();
 		driver.navigate().refresh();
 		
+		WaitTool.sleep(10);
 		String selectedStatus = SeleniumFunction.getText(returnPage.getSelectedStatus());
 		UseAssert.assertEquals(selectedStatus, ex_status);
 		
