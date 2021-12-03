@@ -18,7 +18,7 @@ public class TestReplacementOrder extends InitializeTest{
 			
 			SeleniumFunction.click(replacement.clickReplacementTab());
 			WaitTool.sleep(20);
-			this.changeStatus("Accepted", JavaFunction.currentDate());
+			this.changeStatus("Accepted", JavaFunction.currentDateFormat("M/d/yyyy"));
 			this.changeStatus("Completed", "12/31/2022");
 			
 		}catch(Exception e){

@@ -2,6 +2,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Cymax Admin Suite">
+
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="com.qualitesoft.core.CustomTestListener" />
+	</listeners>
+	
 	<parameter name="project" value="Cymax Admin Portal" />
 	<parameter name="browser" value="chrome" />
 	<parameter name="URL" value="http://qa-adminportal.cymax.com/" />
@@ -70,7 +76,7 @@
 	</test>
 
 	<test name="TEST ORDER RETURN AND CANCELLATION FUNCTIONALITY">
-		<parameter name="testData" value="19130152"></parameter>
+		<parameter name="testData" value="19129267"></parameter>
 		<classes>
 			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestLogin" />
 			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestSearchOrderId" />

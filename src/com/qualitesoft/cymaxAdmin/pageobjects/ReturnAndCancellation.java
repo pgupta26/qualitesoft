@@ -19,6 +19,7 @@ public class ReturnAndCancellation {
 	By returnTab = By.xpath("//span[contains(@id,'tcOrder_tpCancellationReturn_tab')]");
 	By status = By.xpath("//select[contains(@name,'tbReturnAndCancellation$CancelStatus')]");
 	By selectedStatus = By.xpath("//select[contains(@name,'CancelStatus')]//option[@selected='selected']");
+	By subReason = By.xpath("//select[contains(@name,'ddlSubReason')]");
 	By custEmailDate = By.xpath("//input[contains(@name,'CancelCustomerEmailDate')]");
 	By followUpDate = By.xpath("//input[contains(@name,'dtFollowUp')]");
 	By depostionDate = By.xpath("//input[contains(@name,'txtDepostionDate')]");
@@ -27,7 +28,7 @@ public class ReturnAndCancellation {
 	By returnDetails = By.xpath("//div[contains(@id,'Detail_header')]//span[contains(@id,'ReturnDetailsNew')]");
 	By chooseFile = By.xpath("//div[contains(@id,'updFileUpReturn')]//input[@type='file']");
 	By uploadBtn = By.xpath("//div[contains(@id,'updFileUpReturn')]//input[@type='submit']");
-	By uploadedPhotos = By.xpath("//div[contains(@id,'upReturnPhotos')]//td[2]");
+	By uploadedPhotos = By.xpath("//table[@id='ctl00_cphForm_OLmatch_tcOrder_tpCancellationReturn_tbReturnCancelDetail_PnlReturnDetailsNew_gvReturnsAnswers']/tbody/tr");
 	
 	public WebElement clickReturnAndCancellationTab(){
 		return WaitTool.waitForElementPresentAndDisplay(driver, returnTab, 120);
@@ -35,6 +36,10 @@ public class ReturnAndCancellation {
 	
 	public WebElement selectStatus(){
 		return WaitTool.waitForElementPresentAndDisplay(driver, status, 120);
+	}
+	
+	public WebElement selectSubReason(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, subReason, 120);
 	}
 	
 	public WebElement clickUpdateBtn(){
@@ -71,6 +76,10 @@ public class ReturnAndCancellation {
 	
 	public List<WebElement> getUploadedPhotosText(){
 		return WaitTool.waitForElementsPresentAndDisplay(driver, uploadedPhotos, 60);
+	}
+	
+	public boolean verifyUploadedFile() {
+		return WaitTool.isElementPresentAndDisplay(driver, By.xpath("//table[@id='ctl00_cphForm_OLmatch_tcOrder_tpCancellationReturn_tbReturnCancelDetail_PnlReturnDetailsNew_gvReturnPhotoLinks']/descendant::a[@href='http://media.cymaxstores.com/ResolutionMedia/19129267/28717352\\enterprise.jpg']"));
 	}
 	
 	//***********************Fedex Label Tab***************
