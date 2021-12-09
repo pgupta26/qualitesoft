@@ -29,7 +29,7 @@ public class TestExportProductsInExcel extends InitializeTest {
 		SeleniumFunction.click(manageProducts.exportProduct());
 		WaitTool.sleep(10);
 		
-		String sheetName = "download\\Products-"+JavaFunction.currentPSTDate("yyyy-MM-dd")+".xlsm";
+		String sheetName = "download\\Products-"+JavaFunction.currentPSTDate("yyyy-M-d")+".xlsm";
 		Xls_Reader xr;
 		xr=new Xls_Reader(sheetName);
 		int rowIndex=xr.getRowCount("Products") -1;

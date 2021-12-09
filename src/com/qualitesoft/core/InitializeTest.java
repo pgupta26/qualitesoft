@@ -174,7 +174,6 @@ public class InitializeTest {
 				options.addArguments("--disable-gpu");
 				options.addArguments("--disable-notifications");
 				options.addArguments("--start-maximized");
-				//options.addArguments("--window-size=1920,1080");
 				options.addArguments("test-type");
 				System.setProperty("java.net.preferIPv4Stack", "true");			
 				//Launch browser
@@ -192,7 +191,6 @@ public class InitializeTest {
 				throw new InvalidArgumentException("Invalid browser name");
 			}
 			Log.info(browser + " browser launched successfully.");
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("return document.readyState").equals("complete");
 		} catch (Exception e) {

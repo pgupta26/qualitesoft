@@ -163,6 +163,11 @@ public class ManageBillingPage {
 	public WebElement closeModalBtn(){
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='billModal']//button[@class='btn btn-default pull-left']"), 60);
 	}
+	
+	public boolean closeModalBtnStatus(){
+		return WaitTool.isElementPresentAndDisplay(driver, By.xpath("//div[@id='billModal']//button[@class='btn btn-default pull-left']"));
+	}
+	
 	public WebElement getAddedCommentText(){
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='order-comments']//tr//td[1]"), 60);
 	}

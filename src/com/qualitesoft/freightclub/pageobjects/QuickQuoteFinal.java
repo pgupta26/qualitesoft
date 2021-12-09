@@ -187,7 +187,7 @@ public class QuickQuoteFinal {
 	}
 
 	public void deleteItemInformation() {
-		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='row margin-left-0'])[1]/descendant::li[2]/button"), 10));
+		SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='row margin-left-0'])[1]/descendant::li[2]/button"), 10));
 	}
 	
 	public WebElement SaveButton() {
