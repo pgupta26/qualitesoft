@@ -44,8 +44,9 @@ public class TestLooseCartoonPopup  extends InitializeTest {
 			SeleniumFunction.click(quickQuote.closeLooseCartonPopup());
 			WaitTool.sleep(1);
 			SeleniumFunction.executeJS(driver,"window.scrollBy(0,-1700)");
+			WaitTool.sleep(1);
 			for(int itemInformationCount =2; itemInformationCount <= 11; itemInformationCount++)
-				SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("(//div[@class='row margin-left-0'])[1]/descendant::li[2]/button"), 20));
+				quickQuote.deleteItemInformation();
 			WaitTool.sleep(2);
 			SeleniumFunction.executeJS(driver,"window.scrollBy(0,500)");
 			SeleniumFunction.click(quickQuote.SaveButton());

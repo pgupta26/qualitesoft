@@ -18,8 +18,6 @@ public class TestViewBill extends InitializeTest{
 
 	@Test(priority = 1)
 	public void verifyDetailsOnViewPopup(){
-		try{
-
 			ManageBillingPage billingPage = new ManageBillingPage(driver);
 			ManageOverages overagesPage = new ManageOverages(driver);
 			Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageBilling/Upload_Bills.xlsx");
@@ -41,44 +39,50 @@ public class TestViewBill extends InitializeTest{
 			WebElement getvariance = overagesPage.gridData(1, 10);
 
 			SeleniumFunction.click(billingPage.viewBillButton());
-
-			String documentID = SeleniumFunction.getText(billingPage.modalPopupHeader());
-			String carrierName = SeleniumFunction.getText(billingPage.getBillDetail(1));
-			String orderId = SeleniumFunction.getText(billingPage.getBillDetail(2));
-			String carrierbill = SeleniumFunction.getText(billingPage.getBillDetail(3));
-			String markupQuote = SeleniumFunction.getText(billingPage.getBillDetail(4));
-			String appliedMarkup = SeleniumFunction.getText(billingPage.getBillDetail(5));
-			String variance = SeleniumFunction.getText(billingPage.getBillDetail(6));
-			String billSource = SeleniumFunction.getText(billingPage.getBillDetail(7));
-			String billType = SeleniumFunction.getText(billingPage.getBillDetail(8));
-			String gpBillId = SeleniumFunction.getText(billingPage.getBillDetail(10));
-
-			Log.info(appliedMarkup);
 			
-			UseAssert.assertEquals(documentID, "Order " + documentId);
-			UseAssert.assertEquals(carrierName, carrierCode);
-			UseAssert.assertEquals(orderId, poNum);
-			UseAssert.assertEquals(carrierbill, SeleniumFunction.getText(getCarrierBill));
-			UseAssert.assertEquals(markupQuote, SeleniumFunction.getText(getMarkupQuote));
-			/*UseAssert.assertEquals(appliedMarkup, "0.00%");*/
-			UseAssert.assertEquals(variance, SeleniumFunction.getText(getvariance));
-			UseAssert.assertEquals(billSource, "Manual Entry");
-			UseAssert.assertEquals(billType, type);
-			UseAssert.assertEquals(gpBillId, "");
+			try {
+				String documentID = SeleniumFunction.getText(billingPage.modalPopupHeader());
+				String carrierName = SeleniumFunction.getText(billingPage.getBillDetail(1));
+				String orderId = SeleniumFunction.getText(billingPage.getBillDetail(2));
+				String carrierbill = SeleniumFunction.getText(billingPage.getBillDetail(3));
+				String markupQuote = SeleniumFunction.getText(billingPage.getBillDetail(4));
+				String appliedMarkup = SeleniumFunction.getText(billingPage.getBillDetail(5));
+				String variance = SeleniumFunction.getText(billingPage.getBillDetail(6));
+				String billSource = SeleniumFunction.getText(billingPage.getBillDetail(7));
+				String billType = SeleniumFunction.getText(billingPage.getBillDetail(8));
+				String gpBillId = SeleniumFunction.getText(billingPage.getBillDetail(10));
 
-			SeleniumFunction.click(billingPage.closeModalBtn());
-			WaitTool.sleep(3);
+				Log.info(appliedMarkup);
+				
+				UseAssert.assertEquals(documentID, "Order " + documentId);
+				UseAssert.assertEquals(carrierName, carrierCode);
+				UseAssert.assertEquals(orderId, poNum);
+				UseAssert.assertEquals(carrierbill, SeleniumFunction.getText(getCarrierBill));
+				UseAssert.assertEquals(markupQuote, SeleniumFunction.getText(getMarkupQuote));
+				UseAssert.assertEquals(variance, SeleniumFunction.getText(getvariance));
+				UseAssert.assertEquals(billSource, "Manual Entry");
+				UseAssert.assertEquals(billType, type);
+				UseAssert.assertEquals(gpBillId, "");
 
-		}catch(Exception e){
-			Assert.fail(e.getMessage());
-		}
+				SeleniumFunction.click(billingPage.closeModalBtn());
+				WaitTool.sleep(3);
+				
+			}catch(Exception | AssertionError ex) {
+				WaitTool.sleep(5);
+				if(billingPage.closeModalBtnStatus())
+					SeleniumFunction.click(billingPage.closeModalBtn());
+				WaitTool.sleep(2);
+				if(billingPage.closeModalBtnStatus())
+					InitializeTest.getDriver().navigate().refresh();
+				Assert.fail(ex.getMessage());
+			}
 	}
 
 	@Test(priority = 2, dependsOnMethods = {"verifyDetailsOnViewPopup"})
 	public void setCommentAndChangeTheStatus(){
-		try{
-			ManageBillingPage billingPage = new ManageBillingPage(driver);
+		ManageBillingPage billingPage = new ManageBillingPage(driver);
 
+		try{
 			SeleniumFunction.click(billingPage.viewBillButton());
 
 			SeleniumFunction.sendKeys(billingPage.setComment(), "Test Automation Comment");
@@ -119,27 +123,35 @@ public class TestViewBill extends InitializeTest{
 			SeleniumFunction.click(billingPage.closeModalBtn());
 			WaitTool.sleep(3);
 
-		}catch(Exception e){
-			Assert.fail(e.getMessage());
+		}catch(Exception | AssertionError ex) {
+			WaitTool.sleep(5);
+			if(billingPage.closeModalBtnStatus())
+				SeleniumFunction.click(billingPage.closeModalBtn());
+			WaitTool.sleep(2);
+			if(billingPage.closeModalBtnStatus())
+				InitializeTest.getDriver().navigate().refresh();
+			Assert.fail(ex.getMessage());
 		}
 	}
 
 	@Test(priority = 3, dependsOnMethods = {"verifyDetailsOnViewPopup", "setCommentAndChangeTheStatus"})
 	public void verifyGpNumber(){
+		ManageBillingPage billingPage = new ManageBillingPage(driver);
+
 		try{
-			
-			ManageBillingPage billingPage = new ManageBillingPage(driver);
 			SeleniumFunction.click(billingPage.viewBillButton());
 			String gpBillId = SeleniumFunction.getText(billingPage.getBillDetail(10));
 			UseAssert.assertEquals(gpBillId, "00000012547896");
-			/*String fileStatusValue = SeleniumFunction.getAttribute(billingPage.setFileStatus(), "value");
-			String billStatusValue = SeleniumFunction.getAttribute(billingPage.setBillStatus(), "value");
-			UseAssert.assertEquals(fileStatusValue, "580");
-			UseAssert.assertEquals(billStatusValue, "371");*/
 			SeleniumFunction.click(billingPage.closeModalBtn());
 			WaitTool.sleep(3);
-		}catch(Exception e){
-			Assert.fail(e.getMessage());
+		}catch(Exception | AssertionError ex) {
+			WaitTool.sleep(5);
+			if(billingPage.closeModalBtnStatus())
+				SeleniumFunction.click(billingPage.closeModalBtn());
+			WaitTool.sleep(2);
+			if(billingPage.closeModalBtnStatus())
+				InitializeTest.getDriver().navigate().refresh();
+			Assert.fail(ex.getMessage());
 		}
 	}
 }
