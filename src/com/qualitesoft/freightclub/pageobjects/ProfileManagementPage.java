@@ -156,7 +156,6 @@ public class ProfileManagementPage {
 					SeleniumFunction.clickJS(driver,driver.findElement(By.xpath("//td[contains(text(),'"+carrierName+"')]/following-sibling::td[2]/label")));
 				}
 			}
-			Log.info(carrierName+"enabled");
 		}
 	}
 
