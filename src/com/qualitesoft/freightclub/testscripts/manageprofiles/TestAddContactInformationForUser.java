@@ -9,12 +9,14 @@ import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
 import com.qualitesoft.freightclub.pageobjects.ProfileManagementPage;
+import com.qualitesoft.freightclub.pageobjects.QuickQuote;
 
 public class TestAddContactInformationForUser extends InitializeTest {
 
 	@Test
 	public void testAddContactInformationForUser() {
 		ProfileManagementPage profileManagement = new ProfileManagementPage(driver);
+		QuickQuote quickQuote = new QuickQuote(driver);
 
 		Xls_Reader xr = new Xls_Reader("binaries/FCfiles/"+testData);
 		int rowIndex = Integer.parseInt(Row);
@@ -31,6 +33,7 @@ public class TestAddContactInformationForUser extends InitializeTest {
 		profileManagement.deleteContactsInformation();
 
 		//Add new contact details
+		quickQuote.acceptPopup();
 		SeleniumFunction.click(profileManagement.addContactButton());
 		SeleniumFunction.selectByVisibleText(profileManagement.contactType(), contactType);
 		SeleniumFunction.sendKeys(profileManagement.contactName(), contactName);
