@@ -29,5 +29,7 @@ public class TestUserIsAbleToSearchProfile extends InitializeTest {
 		WaitTool.sleep(10);
 		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='User:']"),30));
 		WaitTool.sleep(20);
+		quickQuote.acceptPopup();
+		WaitTool.sleep(5);
 	}
 }
