@@ -34,7 +34,7 @@ public class TestZPL extends InitializeTest {
 		if(file.exists()) {
 			Assert.assertTrue(true);
 		}else {
-			Assert.fail();
+			Assert.fail("File doesn't exists");
 		}
 	}
 }

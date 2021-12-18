@@ -53,7 +53,7 @@ public class TestFooterLinks extends InitializeTest {
 				UseAssert.assertEquals(actualPageTitle, entry.getValue());
 				driver.navigate().back();
 			}catch(Exception e){
-				Assert.fail();
+				Assert.fail(e.getMessage());
 				driver.navigate().back();
 			}
 		}
@@ -95,7 +95,7 @@ public class TestFooterLinks extends InitializeTest {
 				UseAssert.assertEquals(actualPageTitle, entry.getValue());
 				driver.navigate().back();
 			}catch(Exception e){
-				Assert.fail();
+				Assert.fail(e.getMessage());
 				driver.navigate().back();
 			}
 		}
@@ -145,7 +145,7 @@ public class TestFooterLinks extends InitializeTest {
 				UseAssert.assertEquals(actualPageTitle, entry.getValue());
 				driver.navigate().back();
 			}catch(Exception e){
-				Assert.fail();
+				Assert.fail(e.getMessage());
 				driver.navigate().back();
 			}
 		}

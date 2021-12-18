@@ -36,7 +36,7 @@ public class TestDownloadProductTemplate extends InitializeTest {
 		if(file.exists()) {
 			Assert.assertTrue(true);
 		} else {
-			Assert.fail();
+			Assert.fail("File does not exists");
 		}
 	}
 }

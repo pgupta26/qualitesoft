@@ -97,7 +97,7 @@ public class PaymentInformation extends InitializeTest {
 			}catch(Exception e){
 				SeleniumFunction.closeWindow(driver);
 			    SeleniumFunction.getCurrentWindow(driver);
-			    Assert.fail();
+				Assert.fail(e.getMessage());
 			}
 			SeleniumFunction.getCurrentWindow(driver); 
 			Log.info("Window swithched successfully");

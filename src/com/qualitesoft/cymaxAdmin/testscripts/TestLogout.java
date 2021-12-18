@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
+import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.cymaxAdmin.pageobjects.LoginPage;
 
@@ -19,11 +20,12 @@ public class TestLogout extends InitializeTest{
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
 			driver.navigate().refresh();
+			ScreenShot.takeScreenShot(driver, "Login Page After Logout");
 		}catch(Exception e) {
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
 			driver.navigate().refresh();
-			Assert.fail();
+			Assert.fail(e.getMessage());
 		}
 	}
 }

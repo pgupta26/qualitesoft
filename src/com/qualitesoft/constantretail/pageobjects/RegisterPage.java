@@ -77,14 +77,13 @@ public class RegisterPage {
 			for (WebElement error : errors) {
 				Log.error("Validation error: " + SeleniumFunction.getText(error));
 			}
-			Assert.fail();
+			Assert.fail("Validation error is present and display on register page");
 		}
 		
 		validationSummary();
 
 		if (WaitTool.isElementPresentAndDisplay(driver, By.xpath(".//*[@id='val-summary']/li"))) {
-			Log.warn("Validation error: " + SeleniumFunction.getText(validationSummary()));
-			Assert.fail();
+			Assert.fail("Validation error: " + SeleniumFunction.getText(validationSummary()));
 		}
 	}
 

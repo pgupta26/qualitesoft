@@ -3,10 +3,8 @@ package com.qualitesoft.cymaxAdmin.testscripts;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.JavaFunction;
 import com.qualitesoft.core.ScreenShot;
@@ -42,7 +40,6 @@ public class TestReturnAndCancellation extends InitializeTest{
 	@Test
 	public void bTestUploadedFilesCount(){
 		ReturnAndCancellation returnPage = new ReturnAndCancellation(driver);
-
 		SeleniumFunction.click(returnPage.clickReturnDetailsSubtab());
 		WaitTool.sleep(10);
 		ScreenShot.takeScreenShot(driver, "Return and Cancellation tab");
@@ -67,7 +64,6 @@ public class TestReturnAndCancellation extends InitializeTest{
 
 		SeleniumFunction.click(returnPage.clickFedExLabel());
 		WaitTool.sleep(10);
-
 		SeleniumFunction.sendKeys(returnPage.setRma(), "123456");
 		SeleniumFunction.sendKeys(returnPage.setFirstName(), "FedEx Fname");
 		SeleniumFunction.sendKeys(returnPage.setCompanyName(), "Test Company");
@@ -76,9 +72,9 @@ public class TestReturnAndCancellation extends InitializeTest{
 		SeleniumFunction.sendKeys(returnPage.setPostalCode(), "78965");
 		SeleniumFunction.sendKeys(returnPage.setPhoneNum(), "1236547898");
 		SeleniumFunction.sendKeys(returnPage.setDate(), JavaFunction.currentDateFormat("yyyy-MM-dd"));
+
 		ScreenShot.takeScreenShot(driver, "Fedex detail inserted");
 		SeleniumFunction.click(returnPage.clickSubmitBtn());
-
 		if(returnPage.checkAcceptWarning().size()> 0){
 			SeleniumFunction.click(	returnPage.acceptWarning());
 		}	
@@ -91,11 +87,11 @@ public class TestReturnAndCancellation extends InitializeTest{
 		SeleniumFunction.sendKeys(returnPage.setFollowUpDate(), ex_date);
 		SeleniumFunction.sendKeys(returnPage.setCustEmailDate(), ex_date);
 		SeleniumFunction.sendKeys(returnPage.setDepostionDate(), ex_date);
+
 		ScreenShot.takeScreenShot(driver, "Status and date selected");
-		
 		SeleniumFunction.click(returnPage.clickUpdateBtn());
 		WaitTool.sleep(25);
-		driver.switchTo().alert().accept();
+		SeleniumFunction.acceptAlert(driver, 1);
 		driver.navigate().refresh();
 
 		WaitTool.sleep(10);

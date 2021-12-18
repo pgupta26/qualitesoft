@@ -137,7 +137,7 @@ public class NewStorePage {
 			for (WebElement error : errors) {
 				Log.error("Validation error: " + SeleniumFunction.getText(error));
 			}
-			Assert.fail();
+			Assert.fail("Validation error is present and display on new store page");
 		}
 	}
 }

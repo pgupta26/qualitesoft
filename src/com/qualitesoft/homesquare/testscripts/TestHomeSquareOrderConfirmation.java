@@ -48,8 +48,7 @@ public class TestHomeSquareOrderConfirmation extends InitializeTest {
 		if (orderNumberString.equalsIgnoreCase(orderIdString)) {
 			Log.info("Order Id matched on Order confirmation and My Account page");
 		} else {
-			Log.error("Order Id did not matched on Order confirmation and My Account page");
-			Assert.fail();
+			Assert.fail("Order Id did not matched on Order confirmation and My Account page");
 		}
 	}
 }

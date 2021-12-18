@@ -572,7 +572,7 @@ public class CommonOps extends InitializeTest {
 			int count = doc.getNumberOfPages();
 			UseAssert.assertEquals(count, expectedPageCount);
 		}else {
-			Assert.fail();
+			Assert.fail("File doesn't exists");
 		}
 	}
 }

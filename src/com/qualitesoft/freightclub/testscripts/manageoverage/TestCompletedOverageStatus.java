@@ -66,10 +66,10 @@ public class TestCompletedOverageStatus extends InitializeTest {
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
 			
-		}catch(Exception ex) {
+		}catch(Exception e) {
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
-			Assert.fail();
+			Assert.fail(e.getMessage());
 		}
 	}
 }

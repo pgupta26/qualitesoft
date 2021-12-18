@@ -61,8 +61,7 @@ public class EditWebsiteContent extends InitializeTest {
 		if (SeleniumFunction.getText(aboutUsWebsitePage.aboutUsLink()).equalsIgnoreCase(aboutUsText)) {
 			Log.info("Text matched on website about us page.");
 		} else {
-			Log.error("Text not matched on website about us page.");
-			Assert.fail();
+			Assert.fail("Text not matched on website about us page.");
 		}
 		WaitTool.sleep(4);
 		ScreenShot.takeScreenShot(driver, "AboutUsPageEdited");
@@ -100,8 +99,7 @@ public class EditWebsiteContent extends InitializeTest {
 		if (SeleniumFunction.getText(sitePagesPage.newElementWebsite()).equalsIgnoreCase(generalInfoText)) {
 			Log.info("New Element text matched on Website.");
 		} else {
-			Log.error("New Element text didnot matched on Website.");
-			Assert.fail();
+			Assert.fail("New Element text didnot matched on Website.");
 		}		
 	}
 }

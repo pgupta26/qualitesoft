@@ -179,7 +179,7 @@ public class TestViewClaimDetails extends InitializeTest {
 			//close current window and switch to parent window
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
-			Assert.fail();
+			Assert.fail(ex.getMessage());
 		}
 	}
 }

@@ -39,7 +39,7 @@ public class TestRaiseDispute extends InitializeTest {
 		}catch(Exception ex) {
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
-			Assert.fail();
+			Assert.fail(ex.getMessage());
 		}
 	}
 }

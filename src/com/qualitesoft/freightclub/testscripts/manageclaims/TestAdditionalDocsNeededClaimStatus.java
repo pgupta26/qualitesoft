@@ -70,7 +70,7 @@ public class TestAdditionalDocsNeededClaimStatus extends InitializeTest {
 		}catch(Exception ex) {
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);	
-			Assert.fail();
+			Assert.fail(ex.getMessage());
 		}
 		
 		//verify claim status in manage claims grid

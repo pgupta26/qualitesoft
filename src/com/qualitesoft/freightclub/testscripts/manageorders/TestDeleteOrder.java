@@ -55,8 +55,7 @@ public class TestDeleteOrder extends InitializeTest{
 			String noRows = SeleniumFunction.getText(manageOrderpage.noRowsText());
 			UseAssert.assertEquals(noRows, "No Rows To Show");
 		}catch(Exception e){
-			e.getMessage();
-			Assert.fail();
+			Assert.fail(e.getMessage());
 		}
 	}
 }
