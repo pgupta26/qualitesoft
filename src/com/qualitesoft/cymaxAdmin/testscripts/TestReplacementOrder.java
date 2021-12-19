@@ -1,9 +1,8 @@
 package com.qualitesoft.cymaxAdmin.testscripts;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.JavaFunction;
+import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
@@ -13,17 +12,12 @@ public class TestReplacementOrder extends InitializeTest{
 
 	@Test
 	public void verifyStatusAndFollowUpDate(){
-		try{
-			ReplacementPage replacement = new ReplacementPage(driver);
-			
-			SeleniumFunction.click(replacement.clickReplacementTab());
-			WaitTool.sleep(20);
-			this.changeStatus("Accepted", JavaFunction.currentDateFormat("M/d/yyyy"));
-			this.changeStatus("Completed", "12/31/2022");
-			
-		}catch(Exception e){
-			Assert.fail();
-		}
+		ReplacementPage replacement = new ReplacementPage(driver);
+		
+		SeleniumFunction.click(replacement.clickReplacementTab());
+		WaitTool.sleep(20);
+		this.changeStatus("Accepted", JavaFunction.currentDateFormat("M/d/yyyy"));
+		this.changeStatus("Completed", "12/31/2022");
 	}
 	
 	@Test
@@ -34,6 +28,7 @@ public class TestReplacementOrder extends InitializeTest{
 		SeleniumFunction.uploadImage(replacement.setChooseFile(), fileName);
 		
 		int beforeUplodingFileCount = replacement.getUploadedPhotosText().size();
+		ScreenShot.takeScreenShot(driver, "Upload Replacement Image Page");
 		SeleniumFunction.click(replacement.clickUploadBtn());
 		
 		WaitTool.sleep(20);
@@ -46,9 +41,11 @@ public class TestReplacementOrder extends InitializeTest{
 		SeleniumFunction.selectByvalue(replacement.selectStatus(), ex_status);
 		SeleniumFunction.sendKeys(replacement.setFollowUpDate(), ex_date);
 		
+		ScreenShot.takeScreenShot(driver, "Update Peplacement Page");
+		
 		SeleniumFunction.click(replacement.clickSaveBtn());
 		WaitTool.sleep(20);
-		driver.switchTo().alert().accept();
+		SeleniumFunction.acceptAlert(driver, 1);
 		driver.navigate().refresh();
 		
 		WaitTool.sleep(10);

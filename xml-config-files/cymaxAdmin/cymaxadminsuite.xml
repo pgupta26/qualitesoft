@@ -21,68 +21,54 @@
 			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestLogin" />
 			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestSearchOrderId" />
 			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestDetailPage" />
-			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestLogout" />
 		</classes>
 	</test>
 
 	<test name="TEST ORDER CUSTOMER FEEDBACK FUNCTIONALITY">
 		<parameter name="testData" value="19130152"></parameter>
 		<classes>
-			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestLogin" />
-			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestSearchOrderId" />
+			<class name="com.qualitesoft.cymaxAdmin.testscripts.NavigateToUrl" />
 			<class name="com.qualitesoft.cymaxAdmin.testscripts.TesCustomerFeedback" />
-			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestLogout" />
 		</classes>
 	</test>
 
 	<test name="TEST ORDER REPLACEMENT FUNCTIONALITY">
 		<parameter name="testData" value="19095082"></parameter>
 		<classes>
-			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestLogin" />
-			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestSearchOrderId" />
+			<class name="com.qualitesoft.cymaxAdmin.testscripts.NavigateToUrl" />
 			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestReplacementOrder" />
-			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestLogout" />
 		</classes>
 	</test>
 
 	<test name="TEST ORDER REFUND FUNCTIONALITY">
 		<parameter name="testData" value="19126588"></parameter>
 		<classes>
-			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestLogin" />
-			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestSearchOrderId" />
+			<class name="com.qualitesoft.cymaxAdmin.testscripts.NavigateToUrl" />
 			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestRefund" />
-			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestLogout" />
 		</classes>
 	</test>
 
 	<test name="TEST ORDER CREDIT MEMO FUNCTIONALITY">
 		<parameter name="testData" value="19128890"></parameter>
 		<classes>
-			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestLogin" />
-			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestSearchOrderId" />
+			<class name="com.qualitesoft.cymaxAdmin.testscripts.NavigateToUrl" />
 			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestCreditMemo" />
-			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestLogout" />
 		</classes>
 	</test>
 
 	<test name="TEST ORDER CLAIMS FUNCTIONALITY">
 		<parameter name="testData" value="19004011"></parameter>
 		<classes>
-			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestLogin" />
-			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestSearchOrderId" />
+			<class name="com.qualitesoft.cymaxAdmin.testscripts.NavigateToUrl" />
 			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestClaim" />
-			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestLogout" />
 		</classes>
 	</test>
 
 	<test name="TEST ORDER RETURN AND CANCELLATION FUNCTIONALITY">
 		<parameter name="testData" value="19129267"></parameter>
 		<classes>
-			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestLogin" />
-			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestSearchOrderId" />
-			<class
-				name="com.qualitesoft.cymaxAdmin.testscripts.TestReturnAndCancellation" />
-			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestLogout" />
+			<class name="com.qualitesoft.cymaxAdmin.testscripts.NavigateToUrl" />
+			<class name="com.qualitesoft.cymaxAdmin.testscripts.TestReturnAndCancellation" />
 		</classes>
 	</test>
 </suite>	

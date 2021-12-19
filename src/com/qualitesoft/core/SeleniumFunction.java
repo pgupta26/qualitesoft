@@ -326,6 +326,17 @@ public class SeleniumFunction {
 			throw ex;
 		}
 	}
+	
+	public static void acceptAlert(WebDriver driver, int ex_sec){
+		try {
+			driver.switchTo().alert().accept();
+			WaitTool.sleep(ex_sec);
+			Log.info("Alert accepted successfully");
+		}catch(Exception ex) {
+			Log.error("Unable to accept the Alert");
+			throw ex;
+		}
+	}
 
 	//*******************************************************Scroll Up/Down Shubham***********************************************
 

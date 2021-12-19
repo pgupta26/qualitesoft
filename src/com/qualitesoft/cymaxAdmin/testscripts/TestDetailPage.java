@@ -14,23 +14,18 @@ public class TestDetailPage extends InitializeTest{
 
 	@Test
 	public void aVerifyProductDetailPop(){
-		try{
-			DetailPage detailPage = new DetailPage(driver);
-			WaitTool.sleep(10);
-			String manufacturename = SeleniumFunction.getText(detailPage.clickManufactureNameLink());
-			SeleniumFunction.click(detailPage.clickSkuNum());
-			WaitTool.sleep(15);
-			String popupHeader = SeleniumFunction.getText(detailPage.getPopupHeader());
-			String manufactureName = SeleniumFunction.getText(detailPage.getManufactureNameOnPopup());
+		DetailPage detailPage = new DetailPage(driver);
+		WaitTool.sleep(10);
+		String manufacturename = SeleniumFunction.getText(detailPage.clickManufactureNameLink());
+		SeleniumFunction.click(detailPage.clickSkuNum());
+		WaitTool.sleep(15);
+		String popupHeader = SeleniumFunction.getText(detailPage.getPopupHeader());
+		String manufactureName = SeleniumFunction.getText(detailPage.getManufactureNameOnPopup());
 
-			UseAssert.assertEquals(popupHeader, "Product Info");
-			UseAssert.assertEquals(manufactureName, manufacturename);
-			ScreenShot.takeScreenShot(driver, "Product Information Page");
-			SeleniumFunction.click(detailPage.clickClosePopup());
-		}catch(Exception e){
-			System.out.println(e.getMessage());
-			Assert.fail();
-		}
+		UseAssert.assertEquals(popupHeader, "Product Info");
+		UseAssert.assertEquals(manufactureName, manufacturename);
+		ScreenShot.takeScreenShot(driver, "Product Information Page");
+		SeleniumFunction.click(detailPage.clickClosePopup());
 	}
 
 	@Test
@@ -52,10 +47,9 @@ public class TestDetailPage extends InitializeTest{
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
 		}catch(Exception e){
-			System.out.println(e.getMessage());
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
-			Assert.fail();
+			Assert.fail(e.getMessage());
 		}
 	}
 }

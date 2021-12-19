@@ -60,8 +60,7 @@ public class PaymentPage {
 		if (placeOrderErrorMessage() != null) {
 			if (driver.findElement(By.xpath(".//*[@class='alert alert-danger messages']//li"))
 					.getText() != "duplicate") {
-				Log.error(driver.findElement(By.xpath(".//*[@class='alert alert-danger messages']//li")).getText());
-				Assert.fail();
+				Assert.fail(driver.findElement(By.xpath(".//*[@class='alert alert-danger messages']//li")).getText());
 			}
 		}
 	}

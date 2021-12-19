@@ -148,8 +148,7 @@ public class AvailableSubscriptionPage {
 		successSubscription();
 
 		if (!WaitTool.isElementPresentAndDisplay(driver, By.xpath(".//*[@class='toast toast-success']"))) {
-			Log.warn("Success subscription message didnot displayed.");
-			Assert.fail();
+			Assert.fail("Success subscription message didnot displayed.");
 		} else {
 			Log.info(SeleniumFunction.getText(successSubscription()));
 		}
@@ -175,7 +174,7 @@ public class AvailableSubscriptionPage {
 			for (WebElement error : errors) {
 				Log.error(SeleniumFunction.getText(error));
 			}
-			Assert.fail();
+			Assert.fail("Validation errors is displaying on Subscription Details page.");
 		} else {
 			Log.info("No validation errors on Subscription Details page.");
 			subscriptionSuccessful();
@@ -189,7 +188,7 @@ public class AvailableSubscriptionPage {
 			for (WebElement error : errors) {
 				Log.error(SeleniumFunction.getText(error));
 			}
-			Assert.fail();
+			Assert.fail("Validation errors is displaying on Subscription Details page.");
 		} else {
 			Log.info("No validation errors on Subscription Details page.");
 			subscriptionSuccessful();

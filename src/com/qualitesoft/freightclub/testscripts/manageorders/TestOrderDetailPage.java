@@ -56,7 +56,7 @@ public class TestOrderDetailPage extends InitializeTest{
 			e.getMessage();
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
-			Assert.fail();
+			Assert.fail(e.getMessage());
 		}
 	}
 }

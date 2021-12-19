@@ -24,8 +24,7 @@ public class MuzeboardDetailsPage {
 		if (driver.findElement(By.xpath(".//*[@class='alert-success']")).isDisplayed()) {
 			Log.info(SeleniumFunction.getText(driver.findElement(By.xpath(".//*[@class='alert-success']"))));
 		} else {
-			Log.warn("Success message not found.");
-			Assert.fail();
+			Assert.fail("Success message not found.");
 		}
 	}
 
