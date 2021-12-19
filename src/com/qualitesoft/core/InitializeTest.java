@@ -3,10 +3,8 @@ package com.qualitesoft.core;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.log4j.xml.DOMConfigurator;
 import org.openqa.selenium.InvalidArgumentException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.PageLoadStrategy;
@@ -135,7 +133,6 @@ public class InitializeTest {
 	@Parameters({ "browser", "URL" })
 	@BeforeSuite
 	public WebDriver setUp(String browser, String URL) throws IOException {
-		DOMConfigurator.configure("log4j.xml");
 		FileUtils.deleteDirectory(new File(".\\download"));
 		driver = launchBrowser(browser);
 		launchURL(URL);
