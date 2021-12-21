@@ -3,7 +3,6 @@ package com.qualitesoft.freightclub.testscripts.signup;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import com.qualitesoft.core.InitializeTest;
-import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
@@ -72,7 +71,7 @@ public class TestShipmentInfo extends InitializeTest {
 		SeleniumFunction.sendKeys(quickQuote.DropFirstName(), dropOffFirstName);
 		SeleniumFunction.sendKeys(quickQuote.DropLastName(), dropOffLastName);
 		SeleniumFunction.sendKeys(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@id='Phone1'])[3]"), 30), dropOffPhone1);
-		if(pickUpType.equals("Residential") && dropOffType.equals("Commercial") && packageType.equals("Non-Palletized")) {
+		if(quickQuote.DropEmail2().isDisplayed()) {
 			SeleniumFunction.sendKeys(quickQuote.DropEmail2(), email);
 		}
 
@@ -83,7 +82,6 @@ public class TestShipmentInfo extends InitializeTest {
 		
 		ScreenShot.takeScreenShot(driver, "Shipment Review");
 		SeleniumFunction.click(quickQuote.ReviewOrder());
-		//SeleniumFunction.click(quickQuote.Okbutton1());
-		WaitTool.sleep(15);
+		WaitTool.sleep(30);
 	}
 }
