@@ -19,8 +19,6 @@
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
 		<parameter name="searchUser" value="test.automation2@mailinator.com"/>
-		<parameter name="testData" value="BulkOrders/BulkOrdersTestData.xlsx" />
-		<parameter name="Row" value="2" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestUserIsAbleToSearchProfile" />
@@ -36,8 +34,8 @@
 		</classes>
 	</test>
 	
-	<test name="TEST ENABLE LOOSE CARTON FOR FC TEST CARRIER">
-	 	<parameter name="CarrierName" value="FC Test Carrier" />
+	<test name="TEST ENABLE LOOSE CARTON FOR BTX Global Logistics,Ceva,FC Test Carrier">
+	 	<parameter name="CarrierName" value="BTX Global Logistics,Ceva,FC Test Carrier" />
 		<parameter name="CarrierDetailsOptions" value="Loose carton accepted" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions" />
