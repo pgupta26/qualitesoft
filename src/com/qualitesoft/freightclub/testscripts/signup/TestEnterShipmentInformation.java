@@ -11,7 +11,7 @@ import com.qualitesoft.core.Xls_Reader;
 import com.qualitesoft.freightclub.appcommon.CommonOps;
 import com.qualitesoft.freightclub.pageobjects.QuickQuoteFinal;
 
-public class TestNewUserIsAbleToSignUp extends InitializeTest {
+public class TestEnterShipmentInformation extends InitializeTest {
 	
 	@Test
 	public void testNewUserIsAbleToSignUp() {

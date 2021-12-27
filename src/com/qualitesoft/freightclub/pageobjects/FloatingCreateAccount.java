@@ -15,7 +15,7 @@ public class FloatingCreateAccount {
 	}
 	public WebElement firstName() {
 
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//form[@class='form-horizontal']/div[2]/div/div[2]/div[2]//input"), 30);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//form[@class='form-horizontal']/div[2]/div/div[2]/div[2]//input"), 50);
 	}
 	public WebElement lastName() {
 
