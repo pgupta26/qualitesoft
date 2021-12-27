@@ -32,19 +32,24 @@ public class TestCreateAccount extends InitializeTest {
 		String phoneNumber=xr.getCellData("CreateAccount","PhoneNumber", rowIndex).trim();
 		String extension=xr.getCellData("CreateAccount","Extension", rowIndex).trim();
 		
-		
 		FloatingCreateAccount account = new FloatingCreateAccount(driver);
-		SeleniumFunction.sendKeys(account.firstName(), firstName);
-		SeleniumFunction.sendKeys(account.lastName(), lastName);
-		SeleniumFunction.sendKeys(account.companyName(), companyName);
-		SeleniumFunction.sendKeys(account.password(), password);
-		SeleniumFunction.sendKeys(account.confirmPassword(), confirmPassword);
-		SeleniumFunction.sendKeys(account.phone(), phoneNumber);
-		SeleniumFunction.sendKeys(account.extension(), extension);
-		ScreenShot.takeScreenShot(driver, "Create Account Details");
-		SeleniumFunction.scrollDownByPixel(driver, "500");
-		SeleniumFunction.click(account.createButton());
-		WaitTool.sleep(30);
+
+		try {
+			SeleniumFunction.sendKeys(account.firstName(), firstName);
+			SeleniumFunction.sendKeys(account.lastName(), lastName);
+			SeleniumFunction.sendKeys(account.companyName(), companyName);
+			SeleniumFunction.sendKeys(account.password(), password);
+			SeleniumFunction.sendKeys(account.confirmPassword(), confirmPassword);
+			SeleniumFunction.sendKeys(account.phone(), phoneNumber);
+			SeleniumFunction.sendKeys(account.extension(), extension);
+			ScreenShot.takeScreenShot(driver, "Create Account Details");
+			SeleniumFunction.scrollDownByPixel(driver, "500");
+			SeleniumFunction.click(account.createButton());
+			WaitTool.sleep(30);
+			
+		}catch(Exception | AssertionError ex) {
+			SeleniumFunction.click(account.closeButton());
+		}
 		
 		QuickQuote quickQuote = new QuickQuote(driver);
 		WaitTool.sleep(2);
