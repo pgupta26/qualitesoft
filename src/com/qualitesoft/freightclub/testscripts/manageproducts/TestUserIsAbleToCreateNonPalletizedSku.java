@@ -19,7 +19,7 @@ public class TestUserIsAbleToCreateNonPalletizedSku extends InitializeTest {
 		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
 		CommonOps commonOps = new CommonOps();
 		
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/ManageProducts/ManageProducts.xlsx");
+		Xls_Reader xr=new Xls_Reader("testdata/FCfiles/"+env+"/ManageProducts/ManageProducts.xlsx");
 		
 		SeleniumFunction.clickJS(driver, manageProducts.manageProductLink());
 		WaitTool.sleep(5);

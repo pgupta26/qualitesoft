@@ -66,7 +66,7 @@
 		<parameter name="Row" value="2" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestLaunchQuickQuote" />
-			<class name="com.qualitesoft.freightclub.testscripts.signup.TestNewUserIsAbleToSignUp"/>
+			<class name="com.qualitesoft.freightclub.testscripts.signup.TestEnterShipmentInformation"/>
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestCreateAccount" />
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestShipmentInfo" />
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestPayment" />
@@ -80,7 +80,7 @@
 		<parameter name="Row" value="3" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestLaunchQuickQuote" />
-			<class name="com.qualitesoft.freightclub.testscripts.signup.TestNewUserIsAbleToSignUp"/>
+			<class name="com.qualitesoft.freightclub.testscripts.signup.TestEnterShipmentInformation"/>
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestCreateAccount" />
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestShipmentInfo" />
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestPayment" />
@@ -94,7 +94,7 @@
 		<parameter name="Row" value="4" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestLaunchQuickQuote" />
-			<class name="com.qualitesoft.freightclub.testscripts.signup.TestNewUserIsAbleToSignUp"/>
+			<class name="com.qualitesoft.freightclub.testscripts.signup.TestEnterShipmentInformation"/>
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestCreateAccount" />
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestShipmentInfo" />
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestPayment" />
@@ -108,7 +108,7 @@
 		<parameter name="Row" value="5" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestLaunchQuickQuote" />
-			<class name="com.qualitesoft.freightclub.testscripts.signup.TestNewUserIsAbleToSignUp"/>
+			<class name="com.qualitesoft.freightclub.testscripts.signup.TestEnterShipmentInformation"/>
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestCreateAccount" />
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestShipmentInfo" />
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestPayment" />
@@ -122,7 +122,7 @@
 		<parameter name="Row" value="6" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestLaunchQuickQuote" />
-			<class name="com.qualitesoft.freightclub.testscripts.signup.TestNewUserIsAbleToSignUp"/>
+			<class name="com.qualitesoft.freightclub.testscripts.signup.TestEnterShipmentInformation"/>
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestCreateAccount" />
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestShipmentInfo" />
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestPayment" />

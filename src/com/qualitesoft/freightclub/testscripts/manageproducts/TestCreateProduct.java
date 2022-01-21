@@ -23,7 +23,7 @@ public class TestCreateProduct extends InitializeTest {
 		CommonOps commonOps = new CommonOps();
 		
 		Xls_Reader xr;
-		xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		xr=new Xls_Reader(testData);
 		int rowIndex=Integer.parseInt(Row);
 		
 		SeleniumFunction.clickJS(driver, manageProducts.manageProductLink());
@@ -42,7 +42,7 @@ public class TestCreateProduct extends InitializeTest {
 		WaitTool.sleep(2);
 		
 		//verify created product
-		xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		xr=new Xls_Reader(testData);
 		String sku=xr.getCellData("Input","Sku", rowIndex).trim();
 		String productName=xr.getCellData("Input","ProductName", rowIndex).trim();
 		manageProducts.searchProductDataGrid(productName);

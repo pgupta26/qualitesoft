@@ -26,6 +26,7 @@ public class InitializeTest {
 
 	protected static WebDriver driver = null;
 	public static String browser = null;
+	public static String env = null;
 	public static String retryCount = null;
 	public static String project = null;
 	public static String existingbrand = null;
@@ -77,6 +78,7 @@ public class InitializeTest {
 	@BeforeTest
 	public void initialize(ITestContext context) throws Exception {
 		browser = context.getCurrentXmlTest().getParameter("browser");
+		env = context.getCurrentXmlTest().getParameter("env");
 		URL = context.getCurrentXmlTest().getParameter("URL");
 		retryCount = context.getCurrentXmlTest().getParameter("retryCount");
 		project = context.getCurrentXmlTest().getParameter("project");

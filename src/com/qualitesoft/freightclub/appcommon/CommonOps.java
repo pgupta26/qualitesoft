@@ -195,7 +195,7 @@ public class CommonOps extends InitializeTest {
 			SeleniumFunction.sendKeys(manageProducts.productName(),Productname);
 			SeleniumFunction.sendKeys(manageProducts.declaredValue(),DeclaredValue);
 
-			xr=new Xls_Reader("binaries/FCfiles/ManageProducts/ManageProducts.xlsx");
+			xr=new Xls_Reader("testdata/FCfiles/qa/ManageProducts/ManageProducts.xlsx");
 			this.addProductCarton(xr, 4, 1);
 
 			SeleniumFunction.click(manageProducts.saveproduct());
@@ -375,7 +375,8 @@ public class CommonOps extends InitializeTest {
 			SeleniumFunction.clickJS(driver, quickQuote.Book());
 		}
 		
-		SeleniumFunction.click(quickQuote.Okbutton1());
+		SeleniumFunction.clickJS(driver, quickQuote.Okbutton1());
+		//SeleniumFunction.click(quickQuote.Okbutton1());
 		WaitTool.sleep(10);
 		crorderId=SeleniumFunction.getText(manageOverage.gridData(1, 1));
 		Log.info("Order Id Generated: "+crorderId);

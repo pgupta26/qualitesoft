@@ -55,7 +55,7 @@ public class TestViewOrderDetails extends InitializeTest {
 		OrderDetailPage	orderDetailsPage= new OrderDetailPage(driver);
 		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
 
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr=new Xls_Reader(testData);
 		int i=Integer.parseInt(Row);
 		
 		String shipmentType=xr.getCellData("Input","shipmentType", i).trim();

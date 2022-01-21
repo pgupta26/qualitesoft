@@ -328,11 +328,11 @@ public class QuickQuoteFinal {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@type='submit' and @class='btn btn-lg btn-primary pull-right']"), 30);		
 	}
 	public WebElement Okbutton1() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@id='btn-continue-to-orders']"), 60);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@id='btn-continue-to-orders']"), 300);
 	}
 
 	public boolean acknowleadgeBtnStatus(){
-		return WaitTool.waitForElementBoolean(driver, By.xpath("//span[text()='Acknowledge']//parent::button"), 20);
+		return WaitTool.waitForElementBoolean(driver, By.xpath("//span[text()='Acknowledge']//parent::button"), 60);
 	}
 	
 	public WebElement acknowleadgeBtn(){
