@@ -24,7 +24,7 @@ public class TestTrackingStatus extends InitializeTest{
 		OrderDetailPage	orderDetailsPage= new OrderDetailPage(driver);
 		ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
 		
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr=new Xls_Reader(testData);
 		int i=Integer.parseInt(Row);
 
 		SeleniumFunction.clickJS(driver, manageOrderpage.manageOrdersLink());

@@ -18,7 +18,7 @@ public class TestSelectPalletizedPackageType extends InitializeTest {
 	public void selectPalletizedPackageType() {
 		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
 		
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr=new Xls_Reader(testData);
 		int i=Integer.parseInt(Row);
 		String packageType = xr.getCellData("Input","packageType", i).trim();
 		String DimensionH=xr.getCellData("Input","DimensionH", i).trim();

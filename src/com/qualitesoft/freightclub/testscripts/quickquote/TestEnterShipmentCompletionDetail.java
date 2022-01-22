@@ -18,7 +18,7 @@ public class TestEnterShipmentCompletionDetail extends InitializeTest {
 		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
 		CommonOps commonOps = new CommonOps();
 		
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr=new Xls_Reader(testData);
 		int i=Integer.parseInt(Row);
 		String palletType1 = xr.getCellData("Input", "PalletType1", i).trim();
 

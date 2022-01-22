@@ -18,7 +18,7 @@ public class TestAddContactInformationForUser extends InitializeTest {
 		ProfileManagementPage profileManagement = new ProfileManagementPage(driver);
 		QuickQuote quickQuote = new QuickQuote(driver);
 
-		Xls_Reader xr = new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr = new Xls_Reader(testData);
 		int rowIndex = Integer.parseInt(Row);
 		Log.info("Row Number: "+rowIndex);	
 

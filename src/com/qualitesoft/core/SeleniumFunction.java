@@ -240,7 +240,7 @@ public class SeleniumFunction {
 	public static void uploadFile(String fileName) {
 
 		try {
-			fileName = System.getProperty("user.dir") + "\\binaries\\FCfiles\\" + fileName;
+			fileName = System.getProperty("user.dir") + "\\testdata\\FCfiles\\"+InitializeTest.env+"\\"+fileName;
 			Runtime.getRuntime().exec(System.getProperty("user.dir")+"\\autoit\\ChromeUpload.exe"+" "+fileName+" "+"Open");
 			WaitTool.sleep(10);
 			Log.info(fileName+" successfully uploaded.");

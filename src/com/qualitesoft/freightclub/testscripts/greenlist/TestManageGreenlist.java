@@ -28,7 +28,7 @@ public class TestManageGreenlist extends InitializeTest {
 
 		//open excel and take screenshot  
 	    try {
-	    	Runtime.getRuntime().exec("cmd /c start \"\" \"binaries\\FCfiles\\Greenlist_Template.xlsx\"");
+	    	Runtime.getRuntime().exec("cmd /c start \"\" \"testdata\\FCfiles\\"+env+"\\Greenlist_Template.xlsx\"");
 	    	WaitTool.sleep(20);
 			ScreenShot.takeScreenShotSystemExcel("Green List downloaded");
 			WaitTool.sleep(15);

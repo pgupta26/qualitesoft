@@ -19,7 +19,7 @@ public class TestForgotPassword extends InitializeTest {
 			SignInPage singIn = new SignInPage(driver);
 			ForgotPasswordPage forgotPassword = new ForgotPasswordPage(driver);
 			
-			Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+			Xls_Reader xr=new Xls_Reader(testData);
 			int rowIndex = Integer.parseInt(Row);
 			
 			String emailAddress = xr.getCellData("CreateAccount", "Email", rowIndex);

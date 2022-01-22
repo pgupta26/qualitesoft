@@ -16,7 +16,7 @@ public class TestEnableCarrier extends InitializeTest {
 	public void testEnableCarrier() throws Exception {
 		ProfileManagementPage profileManagement = new ProfileManagementPage(driver);
 
-		Xls_Reader xr = new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr = new Xls_Reader(testData);
 		int rowIndex = Integer.parseInt(Row);
 		Log.info("Row Number: "+rowIndex);
 
