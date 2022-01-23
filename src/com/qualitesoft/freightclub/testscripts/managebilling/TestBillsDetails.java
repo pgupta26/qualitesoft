@@ -19,7 +19,7 @@ public class TestBillsDetails extends InitializeTest{
 		try{
 			ManagerOrderPage orderPage = new ManagerOrderPage(driver);
 			OrderDetailPage detailPage = new OrderDetailPage(driver);
-			Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageBilling/Upload_Bills.xlsx");
+			Xls_Reader xr1=new Xls_Reader("testdata/FCfiles/"+ env +"/ManageBilling/Upload_Bills.xlsx");
 
 			String orderId = xr1.getCellData("Bill", "PO No", 2);
 			String documentId = xr1.getCellData("Bill", "Document #", 2);

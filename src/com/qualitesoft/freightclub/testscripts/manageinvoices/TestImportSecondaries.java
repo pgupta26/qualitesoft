@@ -21,7 +21,7 @@ public class TestImportSecondaries extends InitializeTest {
 		ManageInvoices  manageInvoices = new ManageInvoices(driver);
 		QuickQuote quickQuote = new QuickQuote(driver);
 		//Read data from sheet for selected row
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr=new Xls_Reader(testData);
 		int totalRows = xr.getRowCount("Sec invoice Master");
 		int i=Integer.parseInt(Row);
 		
@@ -64,7 +64,7 @@ public class TestImportSecondaries extends InitializeTest {
 		ScreenShot.takeScreenShot(driver, "grid filter");
 		
 		//Verify overage id detail in data grid
-		Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageInvoiceTestData.xlsx");
+		Xls_Reader xr1=new Xls_Reader("testdata/FCfiles/"+ env +"/ManageInvoiceTestData.xlsx");
 		int rowIndex = 1;
 		Log.info("USD "+xr.getCellData("Sec invoice Master","New Invoice Amount", i).trim());
 		UseAssert.assertEquals(manageInvoices.gridData(rowIndex, 1).getText(), xr.getCellData("Sec invoice Master","FC Order ID", i).trim());

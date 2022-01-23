@@ -27,7 +27,7 @@ public class EmailVerification extends InitializeTest {
 	@Test
 	public void testEmailNotifications(String notificationType) {
 		try {
-			Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+			Xls_Reader xr=new Xls_Reader(testData);
 			int i=Integer.parseInt(Row);
 			Log.info("Data Row: " +Row);
 			

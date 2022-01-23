@@ -21,7 +21,7 @@ public class TestCancelOrderRequest extends InitializeTest{
 		try{			
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
 			ManageOverages manageOverages = new ManageOverages(driver);
-			Xls_Reader xr=new Xls_Reader("binaries/FCfiles/ManageOrdersTestData.xlsx");
+			Xls_Reader xr=new Xls_Reader("testdata/FCfiles/"+ env +"/ManageOrdersTestData.xlsx");
 			int i=Integer.parseInt(Row);
 
 			SeleniumFunction.click(manageOrderpage.manageOrdersLink());
@@ -70,7 +70,7 @@ public class TestCancelOrderRequest extends InitializeTest{
 	{
 		ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
 		ManageOverages manageOverages = new ManageOverages(driver);
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/ManageOrdersTestData.xlsx");
+		Xls_Reader xr=new Xls_Reader("testdata/FCfiles/"+ env +"/ManageOrdersTestData.xlsx");
 		int i=Integer.parseInt(Row);
 		
 		WaitTool.sleep(2);

@@ -20,7 +20,7 @@ public class TestCompletedOverageStatus extends InitializeTest {
 	@Test
 	public void testCompletedOverageStatus() {
 			
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr=new Xls_Reader(testData);
 		int i=Integer.parseInt(Row);
 		
 		ManageOverages manageOverages = new ManageOverages(driver);

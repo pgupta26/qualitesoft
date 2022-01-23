@@ -27,7 +27,7 @@ public class TestFilterFunctionality extends InitializeTest{
 			SeleniumFunction.click(listingPage.applyFilterBtn());
 			WaitTool.sleep(10);
 			String filterName = SeleniumFunction.getText(listingPage.applyFilterLabel(1));
-			UseAssert.assertEquals(filterName, "Category is " + xr1.getCellData("Add Product", "Category", i) + "\n×");
+			UseAssert.assertEquals(filterName, "Category is " + xr1.getCellData("Add Product", "Category", i) + "\nï¿½");
 			listingPage.lastPageBtn();
 		}catch(Exception e){
 			Log.warn(e.getMessage());

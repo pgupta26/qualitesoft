@@ -30,7 +30,7 @@ public class TestUnableToFulfillFunctionality extends InitializeTest {
 		SeleniumFunction.click(notQuotedTab.notQuoted());
 		WaitTool.sleep(5);
 
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr=new Xls_Reader(testData);
 		int i=Integer.parseInt(Row);
 		Log.info("Data Row: " +Row);
 		

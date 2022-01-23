@@ -12,7 +12,7 @@ import com.qualitesoft.freightclub.pageobjects.QuickQuote;;
 public class TestShipmentInfo extends InitializeTest {
 	@Test
 	public void testShipmentInfo() throws InterruptedException{
-		String testDataSheet= "binaries/FCfiles/"+testData;
+		String testDataSheet= testData;
 		Xls_Reader xr=new Xls_Reader(testDataSheet);
 
 		String description=xr.getCellData("ShipmentInformation","Description", 2).trim();

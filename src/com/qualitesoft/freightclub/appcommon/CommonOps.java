@@ -1,10 +1,9 @@
 package com.qualitesoft.freightclub.appcommon;
 
-import java.text.NumberFormat;
-import java.text.ParseException;
-
 import java.io.File;
 import java.io.IOException;
+import java.text.NumberFormat;
+import java.text.ParseException;
 
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -195,7 +194,7 @@ public class CommonOps extends InitializeTest {
 			SeleniumFunction.sendKeys(manageProducts.productName(),Productname);
 			SeleniumFunction.sendKeys(manageProducts.declaredValue(),DeclaredValue);
 
-			xr=new Xls_Reader("testdata/FCfiles/qa/ManageProducts/ManageProducts.xlsx");
+			xr=new Xls_Reader("testdata/FCfiles/"+ env +"/ManageProducts/ManageProducts.xlsx");
 			this.addProductCarton(xr, 4, 1);
 
 			SeleniumFunction.click(manageProducts.saveproduct());

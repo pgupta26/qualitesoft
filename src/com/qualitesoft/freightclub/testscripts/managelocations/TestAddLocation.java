@@ -16,7 +16,7 @@ public class TestAddLocation extends InitializeTest {
 	@Test
 	public void testAddLocation(){
 		
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr=new Xls_Reader(testData);
 		int i=Integer.parseInt(Row);
 		String companyName = xr.getCellData("Input","CompanyName", i).trim();
 		String addressLine1 = xr.getCellData("Input","AddressLine1", i).trim();

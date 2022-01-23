@@ -19,7 +19,7 @@ public class TestEnterShipmentInformation extends InitializeTest {
 		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
 		CommonOps commonOps = new CommonOps();
 		
-		Xls_Reader xr = new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr = new Xls_Reader(testData);
 		int rowIndex=Integer.parseInt(Row);
 		String accountType = xr.getCellData("Input","accountType", rowIndex).trim();
 		String packageType = xr.getCellData("Input","packageType", rowIndex).trim();

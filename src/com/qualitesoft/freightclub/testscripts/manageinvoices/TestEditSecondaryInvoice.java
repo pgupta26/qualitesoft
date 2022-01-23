@@ -17,7 +17,7 @@ public class TestEditSecondaryInvoice extends InitializeTest {
 	@Test
 	public void testEditSecondaryInvoice() {
 		
-		Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageInvoiceTestData.xlsx");
+		Xls_Reader xr1=new Xls_Reader("testdata/FCfiles/"+ env +"/ManageInvoiceTestData.xlsx");
 		int i=Integer.parseInt(Row);
 		
 		ManageInvoices  manageInvoices = new ManageInvoices(driver);

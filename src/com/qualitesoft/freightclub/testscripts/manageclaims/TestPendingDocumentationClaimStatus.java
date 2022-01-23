@@ -23,7 +23,7 @@ public class TestPendingDocumentationClaimStatus extends InitializeTest {
 	public void testPendingDocumentationClaimStatus() {
 		
 		Xls_Reader xr;
-		xr=new Xls_Reader("binaries/FCfiles/ManageClaims.xlsx");
+		xr=new Xls_Reader("testdata/FCfiles/"+ env +"/ManageClaims.xlsx");
 		int i=Integer.parseInt(Row);
 		
 		String orderId=xr.getCellData("Input","OrderId", i).trim();
@@ -86,7 +86,7 @@ public class TestPendingDocumentationClaimStatus extends InitializeTest {
 		Collections.addAll(expectedGridHeader,"Order ID","Claim ID","Customer PO No.","Original Tracking #","Claim Status",
 						"UPSC Status","Internal Status","Claim Response","Assigned To",
 						"Follow-Up Date","Company","Carrier"); 
-		xr=new Xls_Reader("binaries/FCfiles/ManageClaims.xlsx");
+		xr=new Xls_Reader("testdata/FCfiles/"+ env +"/ManageClaims.xlsx");
 		manageClaims.verifyManageClaimsGrid(xr, i, expectedGridHeader);
 	}
 }

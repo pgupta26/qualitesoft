@@ -20,7 +20,7 @@ public class TestCreateAccount extends InitializeTest {
 	@Test
 	public void testCreateAccount(){
 		
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr=new Xls_Reader(testData);
 		int rowIndex = Integer.parseInt(Row);
 				
 		//Read data from sheet for 2nd row
