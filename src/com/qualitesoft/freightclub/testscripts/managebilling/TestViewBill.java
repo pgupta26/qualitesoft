@@ -21,7 +21,7 @@ public class TestViewBill extends InitializeTest{
 	public void verifyDetailsOnViewPopup(){
 			ManageBillingPage billingPage = new ManageBillingPage(driver);
 			ManageOverages overagesPage = new ManageOverages(driver);
-			Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageBilling/Upload_Bills.xlsx");
+			Xls_Reader xr1=new Xls_Reader("testdata/FCfiles/"+ env +"/ManageBilling/Upload_Bills.xlsx");
 
 			String documentId = xr1.getCellData("Bill", "Document #", 2);
 			String carrierCode = xr1.getCellData("Bill", "Carrier Code", 2);

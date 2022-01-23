@@ -23,9 +23,9 @@ public class TestSentToCarrierOverageStatus extends InitializeTest {
 	@Test
 	public void testSentToCarrierOverageStatus() {
 		
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr=new Xls_Reader(testData);
 		
-		Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageInvoiceTestData.xlsx");
+		Xls_Reader xr1=new Xls_Reader("testdata/FCfiles/"+ env +"/ManageInvoiceTestData.xlsx");
 		int i=Integer.parseInt(Row);
 		
 		ManageOverages manageOverages = new ManageOverages(driver);

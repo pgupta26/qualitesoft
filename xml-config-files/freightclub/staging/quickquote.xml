@@ -44,6 +44,7 @@
 		</classes>
 	</test>
 	
+
 	<!-- *************************** Forgot Password ********************************** -->
 	<test name="Test forgot password">
 		<parameter name="testData" value="testdata/FCfiles/stg/SignUp.xlsx" />

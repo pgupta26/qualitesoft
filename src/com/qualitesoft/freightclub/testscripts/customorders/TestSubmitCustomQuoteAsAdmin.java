@@ -26,7 +26,7 @@ public class TestSubmitCustomQuoteAsAdmin extends InitializeTest {
 
 	public void verifyNonPalletizedDetail(String panelIndex) {
 
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr=new Xls_Reader(testData);
 		int i=Integer.parseInt(Row);
 
 		String expectedPackageType = xr.getCellData("Input", "packageType", i).trim();
@@ -60,7 +60,7 @@ public class TestSubmitCustomQuoteAsAdmin extends InitializeTest {
 
 	public void verifyPalletizedDetail(String panelIndex) {
 
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr=new Xls_Reader(testData);
 		int i=6;
 
 		String expectedPackageType = xr.getCellData("Input", "packageType", i).trim();
@@ -98,7 +98,7 @@ public class TestSubmitCustomQuoteAsAdmin extends InitializeTest {
 
 	public void verifyAddedProductDetail(String panelIndex) {
 
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr=new Xls_Reader(testData);
 		int i=4;
 
 		String expectedWeight=xr.getCellData("Input","Weight", i).trim();
@@ -149,7 +149,7 @@ public class TestSubmitCustomQuoteAsAdmin extends InitializeTest {
 		SeleniumFunction.click(notQuotedTab.notQuoted());
 		WaitTool.sleep(5);
 
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr=new Xls_Reader(testData);
 		int i=Integer.parseInt(Row);
 		Log.info("Data Row: " +Row);
 

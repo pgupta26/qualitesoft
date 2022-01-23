@@ -48,7 +48,7 @@ public class TestExportBills extends InitializeTest
 		try{
 			ManageBillingPage billingPage = new ManageBillingPage(driver);
 			SeleniumFunction.click(billingPage.manageBillingLink());
-			Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageBilling/ManageBilling.xlsx");
+			Xls_Reader xr1=new Xls_Reader("testdata/FCfiles/"+ env +"/ManageBilling/ManageBilling.xlsx");
 			String poNum = xr1.getCellData("Sheet1", "PONumber", 2);
 			
 			WebElement orderId = billingPage.orderNumTextBox();

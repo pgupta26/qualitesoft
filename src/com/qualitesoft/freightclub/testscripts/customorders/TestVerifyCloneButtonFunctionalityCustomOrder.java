@@ -28,7 +28,7 @@ public class TestVerifyCloneButtonFunctionalityCustomOrder extends InitializeTes
 		Assert.assertTrue(WaitTool.isElementPresentAndDisplay(driver, By.xpath("//a[text()='Clone']")));
 		ScreenShot.takeScreenShot(driver, "Clone button presence");
 
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr=new Xls_Reader(testData);
 		int i=Integer.parseInt(Row);
 		Log.info("Data Row: " +Row);
 		String orderReferenceID=xr.getCellData("Input","orderReferenceID", i).trim();

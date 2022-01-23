@@ -20,7 +20,7 @@ public class TestUserIsAbleToBookOrder extends InitializeTest {
 	@Test
 	public void testUserIsAbleToBookOrder() {
 		
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);	
+		Xls_Reader xr=new Xls_Reader(testData);	
 		int i=Integer.parseInt(Row);
 		String fileName = xr.getCellData("Sheet1", "FileName", i);
 		String finalOrderStatus = xr.getCellData("Sheet1", "FinalOrderStatus", i);

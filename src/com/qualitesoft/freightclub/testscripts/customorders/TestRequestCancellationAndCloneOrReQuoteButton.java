@@ -60,7 +60,7 @@ public class TestRequestCancellationAndCloneOrReQuoteButton extends InitializeTe
 
 		ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
 
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr=new Xls_Reader(testData);
 		int i=Integer.parseInt(Row);
 		Log.info("Data Row: " +Row);
 		String orderid=xr.getCellData("Input","OrderId", i).trim();

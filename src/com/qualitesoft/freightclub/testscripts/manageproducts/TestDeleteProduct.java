@@ -18,7 +18,7 @@ public class TestDeleteProduct extends InitializeTest {
 		ManageProducts manageProducts = new ManageProducts(driver);
 		
 		Xls_Reader xr;
-		xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		xr=new Xls_Reader(testData);
 		int rowIndex=Integer.parseInt(Row);
 		String productName=xr.getCellData("Input","ProductName", rowIndex).trim();
 		

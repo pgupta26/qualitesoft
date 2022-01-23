@@ -26,7 +26,7 @@ public class TestEditOverageDetails extends InitializeTest {
 		ManageOverages manageOverages = new ManageOverages(driver);
 		OverageDetails overageDetails = new OverageDetails(driver);
 		
-		Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageInvoiceTestData.xlsx");
+		Xls_Reader xr1=new Xls_Reader("testdata/FCfiles/"+ env +"/ManageInvoiceTestData.xlsx");
 		int i=Integer.parseInt(Row);
 		
 		//verify overage details fields
@@ -146,7 +146,7 @@ public class TestEditOverageDetails extends InitializeTest {
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
 			QuickQuote quickQuote = new QuickQuote(driver);
 			
-			Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+			Xls_Reader xr=new Xls_Reader(testData);
 			
 			String orderID = xr.getCellData("Sec invoice Master","FC Order ID", i);
 			String amount = xr.getCellData("Sec invoice Master","New Invoice Amount", i);

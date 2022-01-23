@@ -39,7 +39,7 @@ public class TestViewOverageDetails extends InitializeTest {
 		WaitTool.sleep(5);
 		
 		//Read data from sheet for selected row
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr=new Xls_Reader(testData);
 		int i=Integer.parseInt(Row);
 		
 		String orderID = xr.getCellData("Sec invoice Master","FC Order ID", i);
@@ -51,7 +51,7 @@ public class TestViewOverageDetails extends InitializeTest {
 		String adminSecondaryCategory = xr.getCellData("Sec invoice Master","Secondary Category", i);
 		String adminReasonDetails = xr.getCellData("Sec invoice Master","Invoice Reason", i);
 		
-		Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageInvoiceTestData.xlsx");
+		Xls_Reader xr1=new Xls_Reader("testdata/FCfiles/"+ env +"/ManageInvoiceTestData.xlsx");
 		String orderStatus = xr1.getCellData("Sheet1","Order Status", i);
 		String company = xr1.getCellData("Sheet1","Company", i);
 		String disputeAge = xr1.getCellData("Sheet1","DisputedAge", i);

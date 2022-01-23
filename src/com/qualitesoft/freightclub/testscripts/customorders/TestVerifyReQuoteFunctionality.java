@@ -35,7 +35,7 @@ public class TestVerifyReQuoteFunctionality extends InitializeTest {
 		WaitTool.sleep(2);
 
 		Xls_Reader xr;
-		String testDatasheet= "binaries/FCfiles/"+testData;
+		String testDatasheet= testData;
 		xr=new Xls_Reader(testDatasheet);
 		int i=Integer.parseInt(Row);
 		Log.info("Data Row: " +Row);

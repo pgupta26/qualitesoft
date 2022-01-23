@@ -8,13 +8,13 @@
 		<listener class-name="com.qualitesoft.core.CustomTestListener" />
 	</listeners>
 
-	<parameter name="project" value="FreightClub" />
+	<parameter name="project" value="FreightClub_stg" />
 	<parameter name="browser" value="chrome" />
-	<parameter name="env" value="qa" />
-	<parameter name="URL" value="https://qa.freightclub.com/" />  
+	<parameter name="env" value="stg" />
+	<parameter name="URL" value="https://stg.freightclub.com/" />  
 	<parameter name="retryCount" value="1" />
 	
-	<parameter name="testData" value="testdata\FCfiles\qa\RequestReroute\QuickQuoteTestData.xlsx" /> 
+	<parameter name="testData" value="testdata\FCfiles\stg\RequestReroute\QuickQuoteTestData.xlsx" /> 
 	
 	<test name="TEST ENABLE LOOSE CARTON FOR BTX Global Logistics,Ceva,FC Test Carrier">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
@@ -33,8 +33,8 @@
 
 	<test
 		name="Verify user is able to create reroute request for Residential location type">
-		<parameter name="fcusername" value="test.automation@mailinator.com" />
-		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcpassword" value="@Test123" />
 		<parameter name="Row" value="2" />
 		
 		<classes>
@@ -125,8 +125,8 @@
 
 	<test
 		name="Login as an Custmer and verify reroute request details for Residential location type">
-		<parameter name="fcusername" value="test.automation@mailinator.com" />
-		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcpassword" value="@Test123" />
 		<parameter name="Row" value="2" />
 		
 		<classes>
@@ -136,8 +136,7 @@
 		</classes>
 	</test>
 
-
-	<!-- ***************************Reroute Request for Commercial Location Type******************* -->
+<!-- ***************************Reroute Request for Commercial Location Type******************* -->
 	
 	<test
 		name="Verify user is able to create reroute request with commercial location type">
@@ -233,8 +232,8 @@
 
 	<test
 		name="Login as an Custmer and verify reroute request details for commercial location type">
-		<parameter name="fcusername" value="test.automation@mailinator.com" />
-		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcpassword" value="@Test123" />
 		<parameter name="Row" value="9" />
 		
 		<classes>
@@ -248,8 +247,8 @@
 
 	<test
 		name="Verify user is able to create request for reroute with Amazon Warehouse as Location type">
-		<parameter name="fcusername" value="test.automation@mailinator.com" />
-		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcpassword" value="@Test123" />
 		<parameter name="Row" value="11" />
 		
 		<classes>
@@ -342,8 +341,8 @@
 
 	<test
 		name="Login as an Custmer and verify reroute request details for Amazon Warehouse as Location type">
-		<parameter name="fcusername" value="test.automation@mailinator.com" />
-		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcpassword" value="@Test123" />
 		<parameter name="Row" value="11" />
 		
 		<classes>
@@ -357,8 +356,8 @@
 
 	<test
 		name="Verify user is able to create reroute request for decline request">
-		<parameter name="fcusername" value="test.automation@mailinator.com" />
-		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcpassword" value="@Test123" />
 		<parameter name="Row" value="2" />
 		
 		<classes>
@@ -488,7 +487,7 @@
 		</classes>
 	</test>
 	
-    <!--- 	*********************************Admin Row 4******************* -->
+   <!--  - 	*********************************Admin Row 4******************* -->
 
 	<test
 		name="Verify admin is able to reroute request for Amazon warehouse Location Type">
@@ -560,4 +559,5 @@
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
 	</test>
+	
 </suite>	

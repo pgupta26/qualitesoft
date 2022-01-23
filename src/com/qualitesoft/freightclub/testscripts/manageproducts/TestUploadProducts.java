@@ -21,7 +21,7 @@ public class TestUploadProducts extends InitializeTest {
 		
 		//Read data from sheet for selected row
 		Xls_Reader xr;
-		xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		xr=new Xls_Reader(testData);
 		int totalRows = xr.getRowCount("Products");
 		int rowIndex=Integer.parseInt(Row);
 		

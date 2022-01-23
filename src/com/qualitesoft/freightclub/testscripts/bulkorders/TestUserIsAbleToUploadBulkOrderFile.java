@@ -30,7 +30,7 @@ public class TestUserIsAbleToUploadBulkOrderFile extends InitializeTest {
 		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
 		
 		Xls_Reader xr;
-		xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		xr=new Xls_Reader(testData);
 		int i=Integer.parseInt(Row);
 		
 		String fileName = xr.getCellData("Sheet1", "FileName", i);

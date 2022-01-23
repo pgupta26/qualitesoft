@@ -18,7 +18,7 @@ public class TestCancelledOrder extends InitializeTest{
 	public void verifyCancelledOrderStatus(){
 		BillOfLadingPage bolPage = new BillOfLadingPage(driver);
 		ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/ManageOrdersTestData.xlsx");
+		Xls_Reader xr=new Xls_Reader("testdata/FCfiles/"+ env +"/ManageOrdersTestData.xlsx");
 		int i=Integer.parseInt(Row);
 		
 		SeleniumFunction.clickJS(driver, bolPage.billOfLading());

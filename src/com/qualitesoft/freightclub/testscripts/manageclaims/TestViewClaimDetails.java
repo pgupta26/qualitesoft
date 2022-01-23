@@ -29,7 +29,7 @@ public class TestViewClaimDetails extends InitializeTest {
 		CommonOps commonOps = new CommonOps();
 
 		Xls_Reader xr;
-		xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		xr=new Xls_Reader(testData);
 		int i=Integer.parseInt(Row);
 
 		String orderId=xr.getCellData("Input","OrderId", i).trim();

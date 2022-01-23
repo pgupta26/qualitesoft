@@ -20,7 +20,7 @@ public class TestSearchProduct extends InitializeTest {
 		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
 
 		Xls_Reader xr;
-		xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		xr=new Xls_Reader(testData);
 		int rowIndex=Integer.parseInt(Row);
 		String sku=xr.getCellData("Input","Sku", rowIndex).trim();
 		String productName=xr.getCellData("Input","ProductName", rowIndex).trim();
