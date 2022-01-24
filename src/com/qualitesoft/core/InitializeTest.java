@@ -202,7 +202,7 @@ public class InitializeTest {
 	public void launchURL(String URL) {
 		try {
 			driver.get(URL);
-			Log.info(URL + "URL launched successfully.");
+			Log.info(URL + " URL launched successfully.");
 		} catch (Exception e) {
 			Log.error("Not able to launch URL: " + e.getMessage());
 			throw e;

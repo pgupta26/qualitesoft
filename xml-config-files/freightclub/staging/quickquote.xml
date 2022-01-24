@@ -19,7 +19,7 @@
 	<test name="TEST DISABLE ALL CARRIERS">
 		<parameter name="fcusername" value="info@freightclub.com" />
 		<parameter name="fcpassword" value="Welcome@2" />
-		<parameter name="searchUser" value="test20may21@mailinator.com"/>
+		<parameter name="searchUser" value="prodsh22dec@mailinator.com"/>
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestUserIsAbleToSearchProfile" />
@@ -59,7 +59,7 @@
 	<test name="Test manage green list and select onAccount payment method">
 		<parameter name="fcusername" value="info@freightclub.com" />
 		<parameter name="fcpassword" value="Welcome@2" />
-		<parameter name="searchUser" value="test20may21@mailinator.com"/>
+		<parameter name="searchUser" value="prodsh22dec@mailinator.com"/>
 		<parameter name="testData" value="testdata/FCfiles/stg/ManageClaims.xlsx" />
 		<parameter name="Row" value="2" />
 		<classes>
@@ -72,7 +72,7 @@
 	</test>   
 	
 	<test name="Test verify book and clone order - LTL Non-Palletized">
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcusername" value="prodsh22dec@mailinator.com" />
 		<parameter name="fcpassword" value="@Test123" />
 		<parameter name="Row" value="2" />
 		<classes>
@@ -264,7 +264,7 @@
 	<test name="Test Enable Carrier and residential pickup and loose cartoon">
 		<parameter name="fcusername" value="info@freightclub.com" />
 		<parameter name="fcpassword" value="Welcome@2" />
-		<parameter name="searchUser" value="test20may21@mailinator.com"/>
+		<parameter name="searchUser" value="prodsh22dec@mailinator.com"/>
 		<parameter name="testData" value="testdata/FCfiles/stg/QuickQuote/QA_517.xlsx" />
 		<parameter name="Row" value="2" />
 		<classes>
@@ -277,7 +277,7 @@
 	</test>
 
 	 <test name="Test Basic Threshold Not Visible When Residential to Commercial - ABF Freight">
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcusername" value="prodsh22dec@mailinator.com" />
 		<parameter name="fcpassword" value="@Test123" />
 		<parameter name="testData" value="testdata/FCfiles/stg/QuickQuote/QA_517.xlsx" />
 		<parameter name="Row" value="2" />
@@ -385,7 +385,7 @@
 
 	<test
 		name="Test loose carton popup visible - Non-Palletized with quantity = 11">
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcusername" value="prodsh22dec@mailinator.com" />
 		<parameter name="fcpassword" value="@Test123" />
 		<parameter name="Row" value="8" />
 		<parameter name="CarrierName" value="FC Test Carrier" />

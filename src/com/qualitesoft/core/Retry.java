@@ -16,7 +16,7 @@ public class Retry implements IRetryAnalyzer {
 		}
 
 		if (retryCount < maxRetryCount) {
-			ScreenShot.takeScreenShotOnFailure("Test skipped");
+			ScreenShot.takeScreenShotOnFailure("TestSkipped");
 			Log.info("============================================================================");
 			Log.info("Retrying test " + result.getName() + " with status " + getResultStatusName(result.getStatus())
 					+ " for the " + (retryCount + 1) + " time(s).");

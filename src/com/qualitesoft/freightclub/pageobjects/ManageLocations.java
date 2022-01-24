@@ -41,6 +41,10 @@ public class ManageLocations {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='Address1']"), 30);
 	}
 	
+	public WebElement address2Textfield() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='Address2']"), 30);
+	}
+	
 	public WebElement postalCodeTextfield() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='PostalCode']"), 30);
 	}
