@@ -5,4 +5,8 @@
 /download
 /.classpath
 /videos
+<<<<<<< Updated upstream
 /bin
+=======
+/bin/
+>>>>>>> Stashed changes

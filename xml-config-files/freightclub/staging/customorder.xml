@@ -15,9 +15,9 @@
 	<parameter name="retryCount" value="1" />
 	
 	<test name="TEST ADD LOCATION - AutoCom10011">
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcusername" value="prodsh16dec@mailinator.com" />
 		<parameter name="fcpassword" value="@Test123" />
-		<parameter name="testData" value="ManageLocations\ManageLocations.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/ManageLocations/ManageLocations.xlsx" />
 		<parameter name="Row" value="2" />
 		<parameter name="CarrierName" value="Custom Orders"/>
 		<classes>
@@ -27,9 +27,9 @@
 	</test>
 	
 	<test name="TEST ADD LOCATION3 - AutoCom90001">
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcusername" value="prodsh16dec@mailinator.com" />
 		<parameter name="fcpassword" value="@Test123" />
-		<parameter name="testData" value="ManageLocations\ManageLocations.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/ManageLocations/ManageLocations.xlsx" />
 		<parameter name="Row" value="3" />
 		<parameter name="CarrierName" value="Custom Orders"/>
 		<classes>
@@ -38,9 +38,9 @@
 	</test>
 	
 	<test name="TEST ADD LOCATIO4 - AutoRes10011">
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcusername" value="prodsh16dec@mailinator.com" />
 		<parameter name="fcpassword" value="@Test123" />
-		<parameter name="testData" value="ManageLocations\ManageLocations.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/ManageLocations/ManageLocations.xlsx" />
 		<parameter name="Row" value="4" />
 		<parameter name="CarrierName" value="Custom Orders"/>
 		<classes>
@@ -49,16 +49,16 @@
 	</test>
 	
 	<test name="Test Verify Functionality of Re-Quote Button - Custom Order">
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcusername" value="prodsh16dec@mailinator.com" />
 		<parameter name="fcpassword" value="@Test123" />
-		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
 		<parameter name="Row" value="3" />
 		<parameter name="CarrierName" value="Custom Orders"/>
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyReQuoteFunctionality" /> 
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test>
+	</test> 
 	
 	<!-- ************************************** QA - 537 Tests ****************************************************** -->
 	
@@ -66,7 +66,7 @@
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
 		<parameter name="enableOption" value="Custom Orders"/>
-		<parameter name="searchUser" value="test20may21@mailinator.com"/>
+		<parameter name="searchUser" value="prodsh16dec@mailinator.com"/>
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestUserIsAbleToSearchProfile" />
@@ -76,9 +76,9 @@
 	</test>
 	
 	<test name="Custom Order not visible Weight less than 250 - LTL Non-Palletized">
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcusername" value="prodsh16dec@mailinator.com" />
 		<parameter name="fcpassword" value="@Test123" />
-		<parameter name="testData" value="QA_537.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_537.xlsx" />
 		<parameter name="Row" value="2" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn"/>
@@ -102,7 +102,7 @@
 	</test>
 	
 	<test name="Custom Order not visible Weight less than 250 - LTL Standard">
-		<parameter name="testData" value="QA_537.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_537.xlsx" />
 		<parameter name="Row" value="3" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentInformation" />
@@ -126,7 +126,7 @@
 	
 	<test name="Custom Order not visible Weight less than 250 - LTL Added-Product">
 		<parameter name="loginuser" value="old" />
-		<parameter name="testData" value="QA_537.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_537.xlsx" />
 		<parameter name="Row" value="4" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku" />
@@ -137,7 +137,7 @@
 	
 	<test name="Custom Order visible Weight greater than 250 - LTL  Added-Product">
 		<parameter name="loginuser" value="old" />
-		<parameter name="testData" value="QA_537.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_537.xlsx" />
 		<parameter name="Row" value="4" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku" />
@@ -158,7 +158,7 @@
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
 		<parameter name="enableOption" value="Custom Orders"/>
-		<parameter name="searchUser" value="test20may21@mailinator.com"/>
+		<parameter name="searchUser" value="prodsh16dec@mailinator.com"/>
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestDisableCustomOrder" />
@@ -167,9 +167,9 @@
 	</test>
 	
 	<test name="Custom Order not visible Weight less than 250 - LTL Non-Palletized - 02">
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcusername" value="prodsh16dec@mailinator.com" />
 		<parameter name="fcpassword" value="@Test123" />
-		<parameter name="testData" value="QA_537.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_537.xlsx" />
 		<parameter name="Row" value="2" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn"/>
@@ -193,7 +193,7 @@
 	</test>
 	
 	<test name="Custom Order not visible Weight less than 250 - LTL Standard - 02">
-		<parameter name="testData" value="QA_537.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_537.xlsx" />
 		<parameter name="Row" value="3" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentInformation" />
@@ -216,7 +216,7 @@
 	</test>   
 	
 	<test name="Custom Order not visible Weight less than 250 - LTL Added-Product - 02">
-		<parameter name="testData" value="QA_537.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_537.xlsx" />
 		<parameter name="Row" value="4" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku" />
@@ -226,7 +226,7 @@
 	</test>
 	
 	<test name="Custom Order visible Weight greater than 250 - LTL  Added-Product - 02">
-		<parameter name="testData" value="QA_537.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_537.xlsx" />
 		<parameter name="Row" value="4" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku" />
@@ -243,7 +243,7 @@
 	</test>  
 	
 	<test name="Test Submit Custom Order - LTL">
-		<parameter name="testData" value="QA_537.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_537.xlsx" />
 		<parameter name="Row" value="5" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku" />
@@ -255,7 +255,7 @@
 	<test name="Test Submit Custom Order Quote as Admin">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
-		<parameter name="testData" value="QA_537.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_537.xlsx" />
 		<parameter name="Row" value="5" />
 		<parameter name="CarrierName" value="Custom Orders"/>
 		<parameter name="keyword" value="incompleteGrid" />
@@ -267,8 +267,8 @@
 	</test>      
 	
 	<test name="Test Order Ready For Booking Mail">
-		<parameter name="testData" value="QA_537.xlsx" />
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_537.xlsx" />
+		<parameter name="fcusername" value="custom.order@mailinator.com" />
 		<parameter name="Row" value="5" />
 		<parameter name="notificationType" value="Order Ready For Booking" />
 		<classes>
@@ -277,8 +277,8 @@
 	</test>
 	
 	<test name="Test book custom order as user - LTL">
-		<parameter name="testData" value="QA_537.xlsx" />
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_537.xlsx" />
+		<parameter name="fcusername" value="prodsh16dec@mailinator.com" />
 		<parameter name="fcpassword" value="@Test123" />
 		<parameter name="Row" value="5" />
 		<parameter name="CarrierName" value="Custom Orders"/>
@@ -289,7 +289,7 @@
 	</test>  
 	
 	<test name="Test Verify Request Cancellation Button - LTL">
-		<parameter name="testData" value="QA_537.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_537.xlsx" />
 		<parameter name="Row" value="5" />
 		<parameter name="CarrierName" value="Custom Orders"/>
 		<classes>
@@ -299,8 +299,8 @@
 	</test>
 	
 	<test name="Test Order Confirmation Mail">
-		<parameter name="testData" value="QA_537.xlsx" />
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_537.xlsx" />
+		<parameter name="fcusername" value="custom.order@mailinator.com" />
 		<parameter name="Row" value="5" />
 		<parameter name="notificationType" value="Order Confirmation Mail - User - LTL" />
 		<classes>
@@ -313,10 +313,10 @@
 	<test name="Test Enable Custom Order Option and Estes Express Lines from Admin - QA-538">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
-		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
 		<parameter name="Row" value="2" />
 		<parameter name="enableOption" value="Custom Orders"/>
-		<parameter name="searchUser" value="test20may21@mailinator.com"/>
+		<parameter name="searchUser" value="prodsh16dec@mailinator.com"/>
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestUserIsAbleToSearchProfile" />
@@ -335,9 +335,9 @@
 	</test>
 	
 	<test name="Test validate custom order fields">
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcusername" value="prodsh16dec@mailinator.com" />
 		<parameter name="fcpassword" value="@Test123" />
-		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
 		<parameter name="Row" value="2" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
@@ -346,7 +346,7 @@
 	</test>   
 	
 	<test name="Test Custom Quote Request - One-Time Delivery - QA-538 - CO01">
-		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
 		<parameter name="Row" value="2" />
 		<parameter name="CarrierName" value="Custom Orders"/>
 		<classes>
@@ -356,8 +356,8 @@
 	</test> 
 	
 	<test name="Test Custom Quote Requested Mail to User - QA-538 - CO01">
-		<parameter name="testData" value="QA_538.xlsx" />
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
+		<parameter name="fcusername" value="custom.order@mailinator.com" />
 		<parameter name="notificationType" value="Custom Quote Requested - User" />		
 		<parameter name="Row" value="2" />
 		<classes>
@@ -366,7 +366,7 @@
 	</test>   
 	
 	<test name="Test Custom Quote Requested Mail to Carrier - QA-538 - CO01">
-		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
 		<parameter name="fcusername" value="banita.verma@mailinator.com" />
 		<parameter name="notificationType" value="Custom Quote Requested - Carrier" />		
 		<parameter name="Row" value="2" />
@@ -378,7 +378,7 @@
 	<test name="Test Submit Custom Order Quote as Admin - - One-Time Delivery - QA-538 - CO01">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
-		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
 		<parameter name="Row" value="2" />
 		<parameter name="CarrierName" value="Custom Orders"/>
 		<parameter name="keyword" value="incompleteGrid" />
@@ -390,8 +390,8 @@
 	</test>
 	
 	<test name="Test Order Ready For Booking Mail to User - QA-538 - CO01">
-		<parameter name="testData" value="QA_538.xlsx" />
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
+		<parameter name="fcusername" value="custom.order@mailinator.com" />
 		<parameter name="notificationType" value="Order Ready For Booking" />
 		<parameter name="Row" value="2" />
 		<classes>
@@ -405,9 +405,9 @@
 	
 	<test name="Test Verify YRC and ESTES carrier will appear even if it is disabled - One-Time Delivery - QA-538 - CO01">
 		<parameter name="loginuser" value="new" />
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcusername" value="prodsh16dec@mailinator.com" />
 		<parameter name="fcpassword" value="@Test123" />
-		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
 		<parameter name="Row" value="2" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
@@ -417,7 +417,7 @@
 	
 	<test name="Test Verify Request Cancellation Button - One-Time Delivery - QA-538 - CO01">
 		<parameter name="loginuser" value="new" />
-		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
 		<parameter name="Row" value="2" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.customorders.TestRequestCancellationAndCloneOrReQuoteButton" />
@@ -426,7 +426,7 @@
 	</test>  
 	
 	<test name="Test Order Confirmation Mail to Admin - QA-538 - CO01">
-		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
 		<parameter name="fcusername" value="8march1@mailinator.com" />
 		<parameter name="Row" value="2" />
 		<parameter name="notificationType" value="Order Confirmation Mail - Admin" />
@@ -440,8 +440,8 @@
 	</test>   
 	
 	<test name="Test Order Confirmation Mail to User - QA-538 - CO01">
-		<parameter name="testData" value="QA_538.xlsx" />
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
+		<parameter name="fcusername" value="custom.order@mailinator.com" />
 		<parameter name="Row" value="2" />
 		<parameter name="notificationType" value="Order Confirmation Mail - User" />
 		<classes>
@@ -451,8 +451,8 @@
 	
 	<test name="Test Quick Quote Custom Order - Weekly - QA-538 -  CO02">
 		<parameter name="loginuser" value="old" />
-		<parameter name="testData" value="QA_538.xlsx" />
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
+		<parameter name="fcusername" value="prodsh16dec@mailinator.com" />
 		<parameter name="fcpassword" value="@Test123" />
 		<parameter name="Row" value="3" />
 		<parameter name="CarrierName" value="Custom Orders"/>
@@ -464,8 +464,8 @@
 	</test>
 	
 	<test name="Test Custom Quote Requested Mail to User - Weekly - QA-538 - CO02">
-		<parameter name="testData" value="QA_538.xlsx" />
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
+		<parameter name="fcusername" value="custom.order@mailinator.com" />
 		<parameter name="notificationType" value="Custom Quote Requested - User" />		
 		<parameter name="Row" value="3" />
 		<classes>
@@ -476,7 +476,7 @@
 	<test name="Test Submit Custom Order Quote as Admin - Weekly - QA-538 -  CO02">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
-		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
 		<parameter name="Row" value="3" />
 		<parameter name="CarrierName" value="Custom Orders"/>
 		<parameter name="keyword" value="incompleteGrid" />
@@ -488,8 +488,8 @@
 	</test>
 	
 	<test name="Test Order Ready For Booking Mail to User - QA-538 - CO02">
-		<parameter name="testData" value="QA_538.xlsx" />
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
+		<parameter name="fcusername" value="custom.order@mailinator.com" />
 		<parameter name="notificationType" value="Order Ready For Booking" />
 		<parameter name="Row" value="3" />
 		<classes>
@@ -502,9 +502,9 @@
 	</test> 
 	
 	<test name="Test book custom order as user - Weekly - QA-538 - CO02">
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcusername" value="prodsh16dec@mailinator.com" />
 		<parameter name="fcpassword" value="@Test123" />
-		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
 		<parameter name="Row" value="3" />
 		<parameter name="CarrierName" value="YRC,ESTES"/>
 		<classes>
@@ -514,7 +514,7 @@
 	</test> 
 	
 	<test name="Test Order Confirmation Mail to Admin - QA-538 - CO02">
-		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
 		<parameter name="fcusername" value="8march1@mailinator.com" />
 		<parameter name="Row" value="3" />
 		<parameter name="notificationType" value="Order Confirmation Mail - Admin" />
@@ -524,8 +524,8 @@
 	</test>   
 	
 	<test name="Test Order Confirmation Mail to User - QA-538 - CO02">
-		<parameter name="testData" value="QA_538.xlsx" />
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
+		<parameter name="fcusername" value="custom.order@mailinator.com" />
 		<parameter name="Row" value="3" />
 		<parameter name="notificationType" value="Order Confirmation Mail - User" />
 		<classes>
@@ -538,7 +538,7 @@
 	</test> 
 	
 	<test name="Test Verify Functionality of Clone Button - QA-538 - CO02">
-		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
 		<parameter name="Row" value="3" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
@@ -547,7 +547,7 @@
 	</test>  
 	
 	<test name="Test Quick Quote Custom Order - Weekly - QA-538 -  CO03">
-		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
 		<parameter name="Row" value="4" />
 		<parameter name="CarrierName" value="Custom Orders"/>
 		<classes>
@@ -559,7 +559,7 @@
 	<test name="Test Verify Functionality of Unable to fulfill button">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
-		<parameter name="testData" value="QA_538.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
 		<parameter name="Row" value="4" />
 		<parameter name="CarrierName" value="Custom Orders"/>
 		<classes>
@@ -570,8 +570,8 @@
 	</test>  
 	
 	<test name="Test verify that user will get email notification for unable to fulfill ordrs - QA-538 - CO03">
-		<parameter name="testData" value="QA_538.xlsx" />
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
+		<parameter name="fcusername" value="custom.order@mailinator.com" />
 		<parameter name="Row" value="4" />
 		<parameter name="notificationType" value="Custom Order Cannot Be Fulfilled" />
 		<classes>

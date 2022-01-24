@@ -31,7 +31,8 @@ public class TestTrackingStatus extends InitializeTest{
 		quickQuote.acceptPopup();
 		
 		String orderid=xr.getCellData("Input","OrderId", i).trim();
-		String[] trackingStatus = {"In Transit","Delivered"};
+		String[] trackingStatus = {"Scheduled for Pick-up","Scheduled for Delivery","Picked Up",
+										"In Transit","Delivered"};
 
 		for(int trackingIndex=0; trackingIndex < trackingStatus.length; trackingIndex++) {
 			SeleniumFunction.sendKeys(manageOrderpage.searchFields("1"), orderid);
@@ -61,9 +62,9 @@ public class TestTrackingStatus extends InitializeTest{
 					SeleniumFunction.sendKeys(updateTrackingStatusPage.cityTextfield(), "Selenium_City");
 					SeleniumFunction.sendKeys(updateTrackingStatusPage.zipTextfield(), "92010");
 					SeleniumFunction.sendKeys(updateTrackingStatusPage.stateTextfield(), "CA");
-					ScreenShot.takeScreenShot(driver, "UpdateTrackingStatusPageFilled");
 					SeleniumFunction.clickAction(driver, updateTrackingStatusPage.dateOfUpdateTextfield());
 					SeleniumFunction.sendKeysAction(driver, updateTrackingStatusPage.dateOfUpdateTextfield(), "01-01-2022");
+					ScreenShot.takeScreenShot(driver, "UpdateTrackingStatusPageFilled");
 					WaitTool.sleep(4);
 					SeleniumFunction.click(updateTrackingStatusPage.submitButton());
 					WaitTool.sleep(5);
