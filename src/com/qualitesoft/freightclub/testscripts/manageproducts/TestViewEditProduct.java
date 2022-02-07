@@ -14,8 +14,6 @@ import com.qualitesoft.freightclub.appcommon.CommonOps;
 import com.qualitesoft.freightclub.pageobjects.ManageProducts;
 import com.qualitesoft.freightclub.pageobjects.QuickQuoteFinal;
 
-import ru.yandex.qatools.ashot.Screenshot;
-
 public class TestViewEditProduct extends InitializeTest {
 	
 	@Test

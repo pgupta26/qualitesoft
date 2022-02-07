@@ -73,7 +73,7 @@ public class TestUserIsAbleToBookOrder extends InitializeTest {
 			SeleniumFunction.scrollDownUptoFooter(driver);
 			SeleniumFunction.click(quickQuote.ReviewOrder());
 			WaitTool.sleep(10);
-			
+			quickQuote.acceptPopup();
 			if(quickQuote.isReRatePresent()) {
 				SeleniumFunction.click(quickQuote.reRate());
 				SeleniumFunction.click(quickQuote.NextButton());

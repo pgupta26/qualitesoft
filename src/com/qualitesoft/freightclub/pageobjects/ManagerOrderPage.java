@@ -143,7 +143,7 @@ public class ManagerOrderPage {
 	}
 	
 	public WebElement openQuotesBook() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id='center']/div/div[4]/div[3]/div/div/div[1]/div[9]/div/ul/li[2]/a"), 30);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.linkText("Book"), 30);
 	}
 	
 	//***************************************Initiate Claim***********************************

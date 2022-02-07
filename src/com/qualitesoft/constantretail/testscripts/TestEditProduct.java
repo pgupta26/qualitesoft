@@ -7,7 +7,6 @@ import com.qualitesoft.constantretail.pageobjects.ProductPage;
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
-import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
 
 public class TestEditProduct extends InitializeTest{

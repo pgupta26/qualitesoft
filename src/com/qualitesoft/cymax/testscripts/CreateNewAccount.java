@@ -3,7 +3,6 @@ package com.qualitesoft.cymax.testscripts;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 

@@ -35,7 +35,7 @@ public class TestSubmitForReview extends InitializeTest {
 		Actions ac = new Actions(driver);
 		ac.moveToElement(manageClaims.documentUploadField(fieldName)).moveByOffset(7, -15).click().build().perform();
 		
-		SeleniumFunction.uploadFile(xr.getCellData("ClaimDetail", fieldName, i));
+		SeleniumFunction.uploadFile("ManageClaims\\"+xr.getCellData("ClaimDetail", fieldName, i));
 		WaitTool.sleep(15);
 		ScreenShot.takeScreenShot(driver, "File Uploaded");
 
@@ -69,7 +69,8 @@ public class TestSubmitForReview extends InitializeTest {
 		//Upload document
 		SeleniumFunction.moveToElement(driver, manageClaims.documentUploadField(fieldName));
 		SeleniumFunction.scrollUpByPixel(driver, "200");
-		ac.moveToElement(manageClaims.documentUploadField(fieldName)).moveByOffset(7, -15).click().build().perform();		SeleniumFunction.uploadFile(xr.getCellData("ClaimDetail", fieldName, i));
+		ac.moveToElement(manageClaims.documentUploadField(fieldName)).moveByOffset(7, -15).click().build().perform();		
+		SeleniumFunction.uploadFile("ManageClaims\\"+xr.getCellData("ClaimDetail", fieldName, i));
 		WaitTool.sleep(10);
 		
 		if(fieldName.equals("Additional Documents:")) {
@@ -101,7 +102,7 @@ public class TestSubmitForReview extends InitializeTest {
 		commonOps.openManageClaimsPageAndSearchOrder(orderId);
 
 		//navigate claims details page
-		SeleniumFunction.click(manageOverages.viewEdit(1));
+		SeleniumFunction.clickJS(driver, manageOverages.viewEdit(1));
 		
 		try {
 			//switch to manage claims window
@@ -237,7 +238,7 @@ public class TestSubmitForReview extends InitializeTest {
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
 			
-		}catch(Exception ex) {
+		}catch(Exception | AssertionError ex) {
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
 			Assert.fail(ex.getMessage());

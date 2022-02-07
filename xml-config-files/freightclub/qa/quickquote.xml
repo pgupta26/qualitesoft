@@ -254,7 +254,6 @@
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestTrackingStatus" />
-			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
 	</test>
 	
@@ -267,7 +266,6 @@
 		<parameter name="testData" value="testdata/FCfiles/qa/QuickQuote/QA_517.xlsx" />
 		<parameter name="Row" value="2" />
 		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestUserIsAbleToSearchProfile" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestEnableCarrier" />
 			<class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableResidentialPickup" />

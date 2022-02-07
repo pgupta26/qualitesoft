@@ -1,13 +1,11 @@
 package com.qualitesoft.freightclub.pageobjects;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 
 public class ManageInvoices {

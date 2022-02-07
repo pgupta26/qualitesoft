@@ -2,15 +2,12 @@ package com.qualitesoft.googlemerchantpricebenchmarksimulator;
 
 
 
-import java.io.File;
-
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
-import com.qualitesoft.core.Xls_Reader;
 import com.qualitesoft.googlemerchantpricebenchmarksimulator.pageobjects.LoginPage;
 
 public class LogOut extends InitializeTest{

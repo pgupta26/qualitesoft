@@ -2,7 +2,6 @@ package com.qualitesoft.bush.testscripts;
 
 
 
-import java.net.URI;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
@@ -10,7 +9,6 @@ import org.testng.annotations.Test;
 import com.qualitesoft.bush.pageobjects.AddToCartPage;
 import com.qualitesoft.bush.pageobjects.CartPage;
 import com.qualitesoft.core.InitializeTest;
-import com.qualitesoft.core.JavaFunction;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;

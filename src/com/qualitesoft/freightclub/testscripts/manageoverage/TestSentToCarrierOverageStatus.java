@@ -1,12 +1,10 @@
 package com.qualitesoft.freightclub.testscripts.manageoverage;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
-import com.qualitesoft.core.JavaFunction;
 import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
@@ -25,7 +23,7 @@ public class TestSentToCarrierOverageStatus extends InitializeTest {
 		
 		Xls_Reader xr=new Xls_Reader(testData);
 		
-		Xls_Reader xr1=new Xls_Reader("testdata/FCfiles/"+ env +"/ManageInvoiceTestData.xlsx");
+		Xls_Reader xr1=new Xls_Reader("testdata/FCfiles/"+ env +"/Overages/ManageInvoiceTestData.xlsx");
 		int i=Integer.parseInt(Row);
 		
 		ManageOverages manageOverages = new ManageOverages(driver);

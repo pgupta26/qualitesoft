@@ -32,7 +32,7 @@ public class TestVerifyUserProfileDetail extends InitializeTest {
 		int rowsCount = xr.getRowCount("Input");
 		Log.info("Manage Profile Total Rows Counts: "+rowsCount);
 		
-		Xls_Reader singUp = new Xls_Reader("testdata/FCfiles/"+ env +"/SignUp.xlsx");
+		Xls_Reader singUp = new Xls_Reader(testData);
 		int totalRows = xr.getRowCount("Input");
 		Log.info("Sign Up Total Rows Counts: "+totalRows);
 		

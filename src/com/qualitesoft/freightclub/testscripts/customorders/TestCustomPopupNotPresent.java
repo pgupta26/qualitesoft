@@ -8,7 +8,6 @@ import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
-import com.qualitesoft.freightclub.pageobjects.QuickQuote;
 import com.qualitesoft.freightclub.pageobjects.QuickQuoteFinal;
 
 public class TestCustomPopupNotPresent extends InitializeTest {

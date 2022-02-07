@@ -9,7 +9,6 @@ import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
 import com.qualitesoft.freightclub.pageobjects.ManageLocations;
-import com.qualitesoft.freightclub.pageobjects.QuickQuote;
 
 public class TestAddLocation extends InitializeTest {
 	

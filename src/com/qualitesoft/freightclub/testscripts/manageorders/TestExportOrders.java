@@ -7,7 +7,6 @@ import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.JavaFunction;
 import com.qualitesoft.core.Log;
 import com.qualitesoft.core.SeleniumFunction;
-import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.freightclub.pageobjects.ManagerOrderPage;
 

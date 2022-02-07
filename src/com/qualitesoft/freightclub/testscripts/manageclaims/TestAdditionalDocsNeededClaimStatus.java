@@ -78,7 +78,7 @@ public class TestAdditionalDocsNeededClaimStatus extends InitializeTest {
 		Collections.addAll(expectedGridHeader,"Order ID","Claim ID","Customer PO No.","Original Tracking #","Claim Status",
 						"UPSC Status","Internal Status","Claim Response","Assigned To",
 						"Follow-Up Date","Company","Carrier"); 
-		xr=new Xls_Reader("testdata/FCfiles/"+ env +"/ManageClaims.xlsx");
+		xr=new Xls_Reader(testData);
 		manageClaims.verifyManageClaimsGrid(xr, i, expectedGridHeader);
 	}
 }

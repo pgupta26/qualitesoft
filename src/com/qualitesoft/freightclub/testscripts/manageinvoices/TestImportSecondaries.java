@@ -40,7 +40,7 @@ public class TestImportSecondaries extends InitializeTest {
 		ScreenShot.takeScreenShot(driver, "File upload dialog");
 
 		//Upload overage file
-		SeleniumFunction.uploadFile(testData);
+		SeleniumFunction.uploadFile("Overages\\SecondaryInvoiceTemplate.xlsx");
 
 		//Click on upload files
 		SeleniumFunction.click(manageInvoices.uploadFiles());
@@ -64,7 +64,7 @@ public class TestImportSecondaries extends InitializeTest {
 		ScreenShot.takeScreenShot(driver, "grid filter");
 		
 		//Verify overage id detail in data grid
-		Xls_Reader xr1=new Xls_Reader("testdata/FCfiles/"+ env +"/ManageInvoiceTestData.xlsx");
+		Xls_Reader xr1=new Xls_Reader("testdata/FCfiles/"+ env +"/Overages/ManageInvoiceTestData.xlsx");
 		int rowIndex = 1;
 		Log.info("USD "+xr.getCellData("Sec invoice Master","New Invoice Amount", i).trim());
 		UseAssert.assertEquals(manageInvoices.gridData(rowIndex, 1).getText(), xr.getCellData("Sec invoice Master","FC Order ID", i).trim());

@@ -268,7 +268,7 @@
 	
 	<test name="Test Order Ready For Booking Mail">
 		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_537.xlsx" />
-		<parameter name="fcusername" value="custom.order@mailinator.com" />
+		<parameter name="fcusername" value="prodsh16dec@mailinator.com" />
 		<parameter name="Row" value="5" />
 		<parameter name="notificationType" value="Order Ready For Booking" />
 		<classes>
@@ -300,7 +300,7 @@
 	
 	<test name="Test Order Confirmation Mail">
 		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_537.xlsx" />
-		<parameter name="fcusername" value="custom.order@mailinator.com" />
+		<parameter name="fcusername" value="prodsh16dec@mailinator.com" />
 		<parameter name="Row" value="5" />
 		<parameter name="notificationType" value="Order Confirmation Mail - User - LTL" />
 		<classes>
@@ -357,7 +357,7 @@
 	
 	<test name="Test Custom Quote Requested Mail to User - QA-538 - CO01">
 		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
-		<parameter name="fcusername" value="custom.order@mailinator.com" />
+		<parameter name="fcusername" value="prodsh16dec@mailinator.com" />
 		<parameter name="notificationType" value="Custom Quote Requested - User" />		
 		<parameter name="Row" value="2" />
 		<classes>
@@ -391,7 +391,7 @@
 	
 	<test name="Test Order Ready For Booking Mail to User - QA-538 - CO01">
 		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
-		<parameter name="fcusername" value="custom.order@mailinator.com" />
+		<parameter name="fcusername" value="prodsh16dec@mailinator.com" />
 		<parameter name="notificationType" value="Order Ready For Booking" />
 		<parameter name="Row" value="2" />
 		<classes>
@@ -441,7 +441,7 @@
 	
 	<test name="Test Order Confirmation Mail to User - QA-538 - CO01">
 		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
-		<parameter name="fcusername" value="custom.order@mailinator.com" />
+		<parameter name="fcusername" value="prodsh16dec@mailinator.com" />
 		<parameter name="Row" value="2" />
 		<parameter name="notificationType" value="Order Confirmation Mail - User" />
 		<classes>
@@ -465,7 +465,7 @@
 	
 	<test name="Test Custom Quote Requested Mail to User - Weekly - QA-538 - CO02">
 		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
-		<parameter name="fcusername" value="custom.order@mailinator.com" />
+		<parameter name="fcusername" value="prodsh16dec@mailinator.com" />
 		<parameter name="notificationType" value="Custom Quote Requested - User" />		
 		<parameter name="Row" value="3" />
 		<classes>
@@ -489,7 +489,7 @@
 	
 	<test name="Test Order Ready For Booking Mail to User - QA-538 - CO02">
 		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
-		<parameter name="fcusername" value="custom.order@mailinator.com" />
+		<parameter name="fcusername" value="prodsh16dec@mailinator.com" />
 		<parameter name="notificationType" value="Order Ready For Booking" />
 		<parameter name="Row" value="3" />
 		<classes>
@@ -525,7 +525,7 @@
 	
 	<test name="Test Order Confirmation Mail to User - QA-538 - CO02">
 		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
-		<parameter name="fcusername" value="custom.order@mailinator.com" />
+		<parameter name="fcusername" value="prodsh16dec@mailinator.com" />
 		<parameter name="Row" value="3" />
 		<parameter name="notificationType" value="Order Confirmation Mail - User" />
 		<classes>
@@ -571,7 +571,7 @@
 	
 	<test name="Test verify that user will get email notification for unable to fulfill ordrs - QA-538 - CO03">
 		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
-		<parameter name="fcusername" value="custom.order@mailinator.com" />
+		<parameter name="fcusername" value="prodsh16dec@mailinator.com" />
 		<parameter name="Row" value="4" />
 		<parameter name="notificationType" value="Custom Order Cannot Be Fulfilled" />
 		<classes>

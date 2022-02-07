@@ -3,7 +3,6 @@ package com.qualitesoft.vignettes.testscripts;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 
-import com.qualitesoft.americanmattress.pageobjects.MattressesPage;
 import com.qualitesoft.americanmattress.pageobjects.ProductPage;
 import com.qualitesoft.americanmattress.pageobjects.ShoppingCartPage;
 import com.qualitesoft.core.InitializeTest;

@@ -9,7 +9,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
-import com.qualitesoft.core.JavaFunction;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
@@ -51,7 +50,7 @@ public class TestViewOverageDetails extends InitializeTest {
 		String adminSecondaryCategory = xr.getCellData("Sec invoice Master","Secondary Category", i);
 		String adminReasonDetails = xr.getCellData("Sec invoice Master","Invoice Reason", i);
 		
-		Xls_Reader xr1=new Xls_Reader("testdata/FCfiles/"+ env +"/ManageInvoiceTestData.xlsx");
+		Xls_Reader xr1=new Xls_Reader("testdata/FCfiles/"+ env +"/Overages/ManageInvoiceTestData.xlsx");
 		String orderStatus = xr1.getCellData("Sheet1","Order Status", i);
 		String company = xr1.getCellData("Sheet1","Company", i);
 		String disputeAge = xr1.getCellData("Sheet1","DisputedAge", i);
@@ -64,8 +63,6 @@ public class TestViewOverageDetails extends InitializeTest {
 		String userSecondaryReason = xr1.getCellData("EditOverageDetails","SecondaryReason", i);
 		String overageID = xr1.getCellData("Sheet1","OverageID", i);
 
-
-		
 		//Filter data grid by total billed
 		manageOrderpage.ExpandMenupage();
 		SeleniumFunction.sendKeys(manageOverages.OrderIDTextBox(), xr.getCellData("Sec invoice Master","FC Order ID", i));
@@ -110,8 +107,7 @@ public class TestViewOverageDetails extends InitializeTest {
 			UseAssert.assertEquals(overageDetails.getSelect("Secondary Category:").getText(), adminSecondaryCategory);
 			UseAssert.assertEquals(overageDetails.getSelect("Secondary Reason:").getText(), adminSecondaryReason);
 			UseAssert.assertEquals(overageDetails.getLabel("Reason Details:").getAttribute("value"), adminReasonDetails);
-		}
-		
+		}	
 		
 		if(userType.equals("User")) {
 			

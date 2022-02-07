@@ -7,7 +7,6 @@ import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
-import com.qualitesoft.core.Xls_Reader;
 import com.qualitesoft.channelgatesip.pageobjects.Mailinator;
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.ReadPropertyFile;

@@ -1,6 +1,5 @@
 package com.qualitesoft.freightclub.testscripts.manageoverage;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -66,7 +65,7 @@ public class TestCompletedOverageStatus extends InitializeTest {
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
 			
-		}catch(Exception e) {
+		}catch(Exception | AssertionError e) {
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
 			Assert.fail(e.getMessage());

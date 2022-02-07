@@ -10,14 +10,16 @@
 
 	<parameter name="project" value="FreightClub_stg" />
 	<parameter name="browser" value="chrome" />
+	<parameter name="env" value="stg" />
 	<parameter name="URL" value="https://stg.freightclub.com/" />  
 	<parameter name="retryCount" value="1" />
+	
+	<parameter name="testData" value="testdata/FCfiles/stg/SignUp.xlsx" />
 		
 	<!-- ************************************** Sign Up ****************************************************** -->
 	
 	<test name="Test New User Able To Sign Up When Account Type - Manufacturer">
 		<parameter name="loginuser" value="new" />
-		<parameter name="testData" value="SignUp.xlsx" />
 		<parameter name="Row" value="2" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestLaunchQuickQuote" />
@@ -31,7 +33,6 @@
 	
 	<test name="Test New User Able To Sign Up When Account Type - Retailer">
 		<parameter name="loginuser" value="new" />
-		<parameter name="testData" value="SignUp.xlsx" />
 		<parameter name="Row" value="3" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestLaunchQuickQuote" />
@@ -45,7 +46,6 @@
 	
 	<test name="Test New User Able To Sign Up When Account Type - Carrier">
 		<parameter name="loginuser" value="new" />
-		<parameter name="testData" value="SignUp.xlsx" />
 		<parameter name="Row" value="4" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestLaunchQuickQuote" />
@@ -59,7 +59,6 @@
 	
 	<test name="Test New User Able To Sign Up When Account Type - Designer">
 		<parameter name="loginuser" value="new" />
-		<parameter name="testData" value="SignUp.xlsx" />
 		<parameter name="Row" value="5" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestLaunchQuickQuote" />
@@ -73,7 +72,6 @@
 	
 	<test name="Test New User Able To Sign Up When Account Type - Individual Consumer">
 		<parameter name="loginuser" value="new" />
-		<parameter name="testData" value="SignUp.xlsx" />
 		<parameter name="Row" value="6" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.signup.TestLaunchQuickQuote" />

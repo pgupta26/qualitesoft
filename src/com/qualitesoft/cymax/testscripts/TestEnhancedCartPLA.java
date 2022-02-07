@@ -12,7 +12,6 @@ import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.cymax.pageobjects.AddToCartPage;
 import com.qualitesoft.cymax.pageobjects.CartPage;
-import com.qualitesoft.cymax.pageobjects.ProductsPage;
 
 
 public class TestEnhancedCartPLA extends InitializeTest {

@@ -6,7 +6,6 @@ import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
 import com.qualitesoft.freightclub.pageobjects.ManageCarrierPage;
-import com.qualitesoft.freightclub.pageobjects.ProfileManagementPage;
 import com.qualitesoft.freightclub.pageobjects.QuickQuote;
 
 import org.testng.annotations.Test;

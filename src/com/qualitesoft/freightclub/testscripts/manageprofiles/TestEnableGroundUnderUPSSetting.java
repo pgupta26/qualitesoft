@@ -8,8 +8,6 @@ import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.freightclub.pageobjects.ProfileManagementPage;
 
-import ru.yandex.qatools.ashot.Screenshot;
-
 public class TestEnableGroundUnderUPSSetting extends InitializeTest {
 	
 	@Test

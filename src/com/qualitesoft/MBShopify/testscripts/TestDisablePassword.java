@@ -2,16 +2,10 @@ package com.qualitesoft.MBShopify.testscripts;
 
 import java.util.ArrayList;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
-import com.qualitesoft.MBShopify.pageobjects.AddProduct;
-import com.qualitesoft.MBShopify.pageobjects.CreateNewStore;
 import com.qualitesoft.MBShopify.pageobjects.DisablePassword;
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.ScreenShot;

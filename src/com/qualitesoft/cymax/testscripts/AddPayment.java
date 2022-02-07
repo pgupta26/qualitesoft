@@ -1,22 +1,14 @@
 package com.qualitesoft.cymax.testscripts;
 
-import java.net.URI;
-
 //import org.apache.commons.lang.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
-import com.qualitesoft.core.JavaFunction;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
-import com.qualitesoft.cymax.pageobjects.AddToCartPage;
 import com.qualitesoft.cymax.pageobjects.CartPage;
-import com.qualitesoft.cymax.pageobjects.HomePage;
-import com.qualitesoft.cymax.pageobjects.MyAccountPage;
-import com.qualitesoft.cymax.pageobjects.ProductsPage;
 
 public class AddPayment extends InitializeTest {
 

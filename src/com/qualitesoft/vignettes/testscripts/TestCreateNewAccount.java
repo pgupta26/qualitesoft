@@ -10,7 +10,6 @@ import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.americanmattress.pageobjects.CreateMyAccountPage;
 import com.qualitesoft.americanmattress.pageobjects.HomePage;
-import com.qualitesoft.americanmattress.pageobjects.ProductPage;
 
 public class TestCreateNewAccount extends InitializeTest {
 

@@ -12,7 +12,6 @@ import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
 import com.qualitesoft.freightclub.pageobjects.ManagerOrderPage;
-import com.qualitesoft.freightclub.pageobjects.QuickQuote;
 import com.qualitesoft.freightclub.pageobjects.QuickQuoteFinal;
 import com.qualitesoft.freightclub.pageobjects.ShipmentReviewOrderPage;
 
