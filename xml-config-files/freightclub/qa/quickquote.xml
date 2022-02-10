@@ -59,7 +59,7 @@
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
 		<parameter name="searchUser" value="test.automation2@mailinator.com"/>
-		<parameter name="testData" value="testdata/FCfiles/qa/ManageClaims.xlsx" />
+		<parameter name="testData" value="testdata/FCfiles/qa/ManageClaims/ManageClaims.xlsx" />
 		<parameter name="Row" value="2" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
