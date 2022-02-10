@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 
 public class ManageOrderNotQuotedTab {
@@ -32,7 +31,7 @@ public class ManageOrderNotQuotedTab {
 	}
 	
 	public WebElement serviceLevel() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"shipment-review\"]/div[1]/div[3]/div/div[1]/div[1]/div/div[1]/div/strong"), 30);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"shipment-review\"]/div[1]/div[3]/div/div[1]/div[1]/div/div[1]/div/strong"), 180);
 	}
 	
 	public WebElement carrierQuoteID() {

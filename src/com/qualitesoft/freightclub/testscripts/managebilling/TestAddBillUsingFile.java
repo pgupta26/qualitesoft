@@ -24,11 +24,11 @@ public class TestAddBillUsingFile extends InitializeTest{
 			
 			//get order id from quick quote test data sheet
 			Xls_Reader xr;
-			xr=new Xls_Reader("binaries/FCfiles/"+testData);
+			xr=new Xls_Reader(testData);
 			String orderId = xr.getCellData("Input","OrderId", 3).trim();
 			
 			//update order id in manage billing test data sheet
-			xr=new Xls_Reader("binaries/FCfiles/ManageBilling/Upload_Bills.xlsx");
+			xr=new Xls_Reader("testdata/FCfiles/"+ env +"/ManageBilling/Upload_Bills.xlsx");
 			int rowCount = xr.getRowCount("Bill");
 			for(int i=2; i <=rowCount; i++) {
 				xr.setCellData("Bill","PO No", i ,orderId);
@@ -54,7 +54,7 @@ public class TestAddBillUsingFile extends InitializeTest{
 			UseAssert.assertEquals(confirmationHeader, "Import Bill Results");
 			UseAssert.assertEquals(confirmationMessage, "2 bill(s) were successfully imported");
 			
-			Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageBilling/Upload_Bills.xlsx");
+			Xls_Reader xr1=new Xls_Reader("testdata/FCfiles/"+ env +"/ManageBilling/Upload_Bills.xlsx");
 			String documentId = xr1.getCellData("Bill", "Document #", 2);
 			String carrierCode = xr1.getCellData("Bill", "Carrier Code", 2);
 			String type = xr1.getCellData("Bill", "Type", 2);

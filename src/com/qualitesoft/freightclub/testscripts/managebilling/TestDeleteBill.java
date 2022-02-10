@@ -55,7 +55,7 @@ public class TestDeleteBill extends InitializeTest{
 	
 	public static void searchDocumentId(int row){
 		ManageBillingPage billingPage = new ManageBillingPage(driver);
-		Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageBilling/Upload_Bills.xlsx");
+		Xls_Reader xr1=new Xls_Reader("testdata/FCfiles/"+ env +"/ManageBilling/Upload_Bills.xlsx");
 		String documentId = xr1.getCellData("Bill", "Document #", row);
 		
 		SeleniumFunction.click(billingPage.manageBillingLink());

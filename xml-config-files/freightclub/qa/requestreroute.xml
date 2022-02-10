@@ -10,10 +10,11 @@
 
 	<parameter name="project" value="FreightClub" />
 	<parameter name="browser" value="chrome" />
+	<parameter name="env" value="qa" />
 	<parameter name="URL" value="https://qa.freightclub.com/" />  
 	<parameter name="retryCount" value="1" />
 	
-	<parameter name="testData" value="RequestReroute\QuickQuoteTestData.xlsx" /> 
+	<parameter name="testData" value="testdata\FCfiles\qa\RequestReroute\QuickQuoteTestData.xlsx" /> 
 	
 	<test name="TEST ENABLE LOOSE CARTON FOR BTX Global Logistics,Ceva,FC Test Carrier">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />

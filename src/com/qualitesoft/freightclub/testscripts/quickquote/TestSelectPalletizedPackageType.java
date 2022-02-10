@@ -3,13 +3,10 @@ package com.qualitesoft.freightclub.testscripts.quickquote;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
-import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
-import com.qualitesoft.freightclub.appcommon.CommonOps;
-import com.qualitesoft.freightclub.pageobjects.QuickQuote;
 import com.qualitesoft.freightclub.pageobjects.QuickQuoteFinal;
 
 public class TestSelectPalletizedPackageType extends InitializeTest {
@@ -18,7 +15,7 @@ public class TestSelectPalletizedPackageType extends InitializeTest {
 	public void selectPalletizedPackageType() {
 		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
 		
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr=new Xls_Reader(testData);
 		int i=Integer.parseInt(Row);
 		String packageType = xr.getCellData("Input","packageType", i).trim();
 		String DimensionH=xr.getCellData("Input","DimensionH", i).trim();

@@ -2,13 +2,11 @@ package com.qualitesoft.freightclub.testscripts.manageoverage;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
-import com.qualitesoft.core.JavaFunction;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
@@ -26,7 +24,7 @@ public class TestEditOverageDetails extends InitializeTest {
 		ManageOverages manageOverages = new ManageOverages(driver);
 		OverageDetails overageDetails = new OverageDetails(driver);
 		
-		Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageInvoiceTestData.xlsx");
+		Xls_Reader xr1=new Xls_Reader("testdata/FCfiles/"+ env +"/Overages/ManageInvoiceTestData.xlsx");
 		int i=Integer.parseInt(Row);
 		
 		//verify overage details fields
@@ -75,7 +73,7 @@ public class TestEditOverageDetails extends InitializeTest {
 			actions.moveToElement(overageDetails.documents()).click().build().perform();
 
 			//Upload document
-			SeleniumFunction.uploadFile(xr1.getCellData("EditOverageDetails", "AdminDocumentName", i));
+			SeleniumFunction.uploadFile("Overages\\"+xr1.getCellData("EditOverageDetails", "AdminDocumentName", i));
 
 			//Verify uploaded document detail
 			WaitTool.sleep(10);
@@ -98,7 +96,7 @@ public class TestEditOverageDetails extends InitializeTest {
 			
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
-		} else {
+		}else {
 			
 			//Type comments
 			SeleniumFunction.sendKeys(overageDetails.comments(), xr1.getCellData("EditOverageDetails", "UserComment", i));
@@ -113,7 +111,7 @@ public class TestEditOverageDetails extends InitializeTest {
 			actions.moveToElement(overageDetails.documents()).click().build().perform();
 
 			//Upload document
-			SeleniumFunction.uploadFile(xr1.getCellData("EditOverageDetails", "UserDocumentName", i));
+			SeleniumFunction.uploadFile("Overages\\"+xr1.getCellData("EditOverageDetails", "UserDocumentName", i));
 
 			//Verify uploaded document detail
 			WaitTool.sleep(10);
@@ -146,7 +144,7 @@ public class TestEditOverageDetails extends InitializeTest {
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
 			QuickQuote quickQuote = new QuickQuote(driver);
 			
-			Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+			Xls_Reader xr=new Xls_Reader(testData);
 			
 			String orderID = xr.getCellData("Sec invoice Master","FC Order ID", i);
 			String amount = xr.getCellData("Sec invoice Master","New Invoice Amount", i);

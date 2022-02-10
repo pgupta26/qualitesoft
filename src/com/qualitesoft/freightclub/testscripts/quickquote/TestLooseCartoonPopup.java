@@ -1,6 +1,5 @@
 package com.qualitesoft.freightclub.testscripts.quickquote;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

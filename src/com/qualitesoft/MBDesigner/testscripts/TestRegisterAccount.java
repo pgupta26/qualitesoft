@@ -13,7 +13,6 @@ import com.qualitesoft.core.JavaFunction;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
-import com.qualitesoft.cymax.pageobjects.HomePage;
 
 public class TestRegisterAccount extends InitializeTest{
 	@Test

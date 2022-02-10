@@ -3,16 +3,13 @@ package com.qualitesoft.bush.testscripts;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
-import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.bush.pageobjects.CreateAccountPage;
 import com.qualitesoft.bush.pageobjects.HomePage;
 import com.qualitesoft.bush.pageobjects.LoginPage;

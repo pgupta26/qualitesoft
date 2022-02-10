@@ -20,7 +20,7 @@ public class TestBOL extends InitializeTest {
 
 		ManagerOrderPage manageOrderPage =new ManagerOrderPage(driver);
 		CommonOps commonOps = new CommonOps();
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData); int
+		Xls_Reader xr=new Xls_Reader(testData); int
 		i=Integer.parseInt(Row);
 		String orderId=xr.getCellData("Input","OrderId", i).trim();
 		String bolCount=xr.getCellData("Input","BOLCount", i).trim();

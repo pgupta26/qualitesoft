@@ -1,14 +1,11 @@
 package com.qualitesoft.cymax.testscripts;
 
 
-import java.text.NumberFormat;
-
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
-import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;

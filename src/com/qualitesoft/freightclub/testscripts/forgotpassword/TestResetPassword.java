@@ -17,7 +17,7 @@ public class TestResetPassword extends InitializeTest {
 	
 	@Test
 	public void testResetPassword() {
-			Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+			Xls_Reader xr=new Xls_Reader(testData);
 			int rowIndex = Integer.parseInt(Row);
 			
 			String emailAddress = xr.getCellData("CreateAccount", "Email", rowIndex);			

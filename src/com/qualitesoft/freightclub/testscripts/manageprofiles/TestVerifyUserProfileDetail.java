@@ -28,11 +28,11 @@ public class TestVerifyUserProfileDetail extends InitializeTest {
 		quickQuote.acceptPopup();
 		WaitTool.sleep(2);
 		
-		Xls_Reader xr = new Xls_Reader("binaries/FCfiles/ManageProfile.xlsx");
+		Xls_Reader xr = new Xls_Reader("testdata/FCfiles/"+ env +"/ManageProfile.xlsx");
 		int rowsCount = xr.getRowCount("Input");
 		Log.info("Manage Profile Total Rows Counts: "+rowsCount);
 		
-		Xls_Reader singUp = new Xls_Reader("binaries/FCfiles/SignUp.xlsx");
+		Xls_Reader singUp = new Xls_Reader(testData);
 		int totalRows = xr.getRowCount("Input");
 		Log.info("Sign Up Total Rows Counts: "+totalRows);
 		

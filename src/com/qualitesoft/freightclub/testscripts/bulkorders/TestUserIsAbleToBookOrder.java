@@ -20,7 +20,7 @@ public class TestUserIsAbleToBookOrder extends InitializeTest {
 	@Test
 	public void testUserIsAbleToBookOrder() {
 		
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);	
+		Xls_Reader xr=new Xls_Reader(testData);	
 		int i=Integer.parseInt(Row);
 		String fileName = xr.getCellData("Sheet1", "FileName", i);
 		String finalOrderStatus = xr.getCellData("Sheet1", "FinalOrderStatus", i);
@@ -73,7 +73,7 @@ public class TestUserIsAbleToBookOrder extends InitializeTest {
 			SeleniumFunction.scrollDownUptoFooter(driver);
 			SeleniumFunction.click(quickQuote.ReviewOrder());
 			WaitTool.sleep(10);
-			
+			quickQuote.acceptPopup();
 			if(quickQuote.isReRatePresent()) {
 				SeleniumFunction.click(quickQuote.reRate());
 				SeleniumFunction.click(quickQuote.NextButton());

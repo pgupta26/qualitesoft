@@ -16,7 +16,7 @@ public class TestRaiseDispute extends InitializeTest {
 	public void testRaiseDispute() {
 		
 		//Read data from sheet for selected row
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr=new Xls_Reader(testData);
 		int i=Integer.parseInt(Row);
 		
 		ManageInvoices  manageInvoices = new ManageInvoices(driver);

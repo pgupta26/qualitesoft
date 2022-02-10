@@ -9,17 +9,17 @@ import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
 import com.qualitesoft.freightclub.pageobjects.ManageLocations;
-import com.qualitesoft.freightclub.pageobjects.QuickQuote;
 
 public class TestAddLocation extends InitializeTest {
 	
 	@Test
 	public void testAddLocation(){
 		
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr=new Xls_Reader(testData);
 		int i=Integer.parseInt(Row);
 		String companyName = xr.getCellData("Input","CompanyName", i).trim();
 		String addressLine1 = xr.getCellData("Input","AddressLine1", i).trim();
+		String addressLine2 = xr.getCellData("Input","AddressLine2", i).trim();
 		String zipCode = xr.getCellData("Input", "ZipCode", i).trim();	
 		String locationType = xr.getCellData("Input", "LocationType", i).trim();
 		String earliestPickUp = xr.getCellData("Input", "EarliestPickUp", i).trim();
@@ -36,7 +36,7 @@ public class TestAddLocation extends InitializeTest {
 		
 		SeleniumFunction.clickJS(driver, manageLocationsPage.manageLocationsLink());
 		
-		if(!manageLocationsPage.isLocationExist(companyName)) {
+		if(manageLocationsPage.isLocationExist(companyName)) {
 			//click manage locations link
 			manageLocationsPage.addNewPickupLocButton();
 			ScreenShot.takeScreenShot(driver, "ManageLocationsPage");
@@ -47,6 +47,7 @@ public class TestAddLocation extends InitializeTest {
 			//enter location details
 			SeleniumFunction.sendKeys(manageLocationsPage.companyNameTextfield(), companyName);
 			SeleniumFunction.sendKeys(manageLocationsPage.address1Textfield(), addressLine1);
+			SeleniumFunction.sendKeys(manageLocationsPage.address2Textfield(), addressLine2);
 			SeleniumFunction.sendKeys(manageLocationsPage.postalCodeTextfield(), zipCode);
 			SeleniumFunction.selectByVisibleText(manageLocationsPage.locationTypeField(), locationType);
 			

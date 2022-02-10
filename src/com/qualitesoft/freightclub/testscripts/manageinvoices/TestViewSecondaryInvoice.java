@@ -21,7 +21,7 @@ public class TestViewSecondaryInvoice extends InitializeTest {
 	public void testViewSecondaryInvoice() {
 
 		//Read data from sheet for selected row
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr=new Xls_Reader(testData);
 		int i=Integer.parseInt(Row);
 				
 		ManageInvoices  manageInvoices = new ManageInvoices(driver);
@@ -61,7 +61,7 @@ public class TestViewSecondaryInvoice extends InitializeTest {
 		UseAssert.assertEquals(manageInvoices.getLabel("Secondary Invoice Number").getText(), xr.getCellData("Sec invoice Master","SECONDARY INV #", i));
 		UseAssert.assertEquals(manageInvoices.getLabel("Invoice Reason").getText(), xr.getCellData("Sec invoice Master","Invoice Reason", i));
 		
-		Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageInvoiceTestData.xlsx");
+		Xls_Reader xr1=new Xls_Reader("testdata/FCfiles/"+ env +"/Overages/ManageInvoiceTestData.xlsx");
 		UseAssert.assertEquals(manageInvoices.getLabel("Invoice Type").getText(), xr1.getCellData("Sheet1","Invoice Type", i).trim());
 		UseAssert.assertEquals(manageInvoices.getLabel("Company Name").getText(), xr1.getCellData("Sheet1","Company", i).trim());
 		UseAssert.assertEquals(manageInvoices.getLabel("Order Status").getText(), "Booked");

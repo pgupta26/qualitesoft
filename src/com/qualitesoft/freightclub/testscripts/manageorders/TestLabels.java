@@ -20,8 +20,8 @@ public class TestLabels extends InitializeTest {
 		ManagerOrderPage manageOrderPage =new ManagerOrderPage(driver);
 		CommonOps commonOps = new CommonOps();
 		
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData); int
-		i=Integer.parseInt(Row);
+		Xls_Reader xr=new Xls_Reader(testData);
+		int i=Integer.parseInt(Row);
 		String orderId=xr.getCellData("Input","OrderId", i).trim();
 
 		WaitTool.sleep(2);

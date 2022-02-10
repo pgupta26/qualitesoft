@@ -7,9 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.qualitesoft.bush.pageobjects.HomePage;
-import com.qualitesoft.bush.pageobjects.MyAccountPage;
-
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;

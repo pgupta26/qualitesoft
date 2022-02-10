@@ -17,7 +17,7 @@ public class TestEditSecondaryInvoice extends InitializeTest {
 	@Test
 	public void testEditSecondaryInvoice() {
 		
-		Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageInvoiceTestData.xlsx");
+		Xls_Reader xr1=new Xls_Reader("testdata/FCfiles/"+ env +"/Overages/ManageInvoiceTestData.xlsx");
 		int i=Integer.parseInt(Row);
 		
 		ManageInvoices  manageInvoices = new ManageInvoices(driver);
@@ -40,7 +40,7 @@ public class TestEditSecondaryInvoice extends InitializeTest {
 		ScreenShot.takeScreenShot(driver, "File upload dialog");
 		
 		//Upload document
-		SeleniumFunction.uploadFile(xr1.getCellData("EditSecondaryInvoice", "AdminDocumentName", i));
+		SeleniumFunction.uploadFile("Overages\\"+xr1.getCellData("EditSecondaryInvoice", "AdminDocumentName", i));
 		WaitTool.sleep(10);
 		
 		//Verify uploaded document detail

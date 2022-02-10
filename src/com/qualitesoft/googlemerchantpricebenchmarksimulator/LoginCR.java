@@ -2,15 +2,6 @@ package com.qualitesoft.googlemerchantpricebenchmarksimulator;
 
 
 
-import java.io.File;
-import java.io.FileFilter;
-import java.io.FilenameFilter;
-import java.util.ArrayList;
-
-import org.apache.commons.io.filefilter.WildcardFileFilter;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;

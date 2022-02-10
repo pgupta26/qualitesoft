@@ -6,11 +6,9 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
-import com.qualitesoft.core.JavaFunction;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.freightclub.pageobjects.ManageProducts;
-import com.qualitesoft.freightclub.pageobjects.QuickQuoteFinal;
 
 public class TestDownloadProductTemplate extends InitializeTest {
 	

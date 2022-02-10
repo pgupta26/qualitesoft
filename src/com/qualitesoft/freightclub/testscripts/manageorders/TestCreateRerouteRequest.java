@@ -18,11 +18,11 @@ public class TestCreateRerouteRequest extends InitializeTest{
 	@Test(priority = 1)
 	public void verifyRerouteLink(){
 		try{
-			/*Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageOrdersTestData.xlsx");
+			/*Xls_Reader xr1=new Xls_Reader("testdata/FCfiles/"+ env +"/ManageOrdersTestData.xlsx");
 			int i=Integer.parseInt(Row);
 
 			String orderId = xr1.getCellData("Reroute Request", "OrderId", i);*/
-			Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/"+testData);
+			Xls_Reader xr1=new Xls_Reader(testData);
 			int i=Integer.parseInt(Row);
 			
 			String orderId = xr1.getCellData("Input", "OrderId", i);
@@ -73,7 +73,7 @@ public class TestCreateRerouteRequest extends InitializeTest{
 	
 	public static void fillRerouteRequestPopup(){
 		ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
-		Xls_Reader xr1=new Xls_Reader("binaries/FCfiles/ManageOrdersTestData.xlsx");
+		Xls_Reader xr1=new Xls_Reader("testdata/FCfiles/"+ env +"/ManageOrdersTestData.xlsx");
 		int i=Integer.parseInt(Row);
 
 		String getLocationType = xr1.getCellData("Reroute Request", "Location Type", i);

@@ -17,8 +17,6 @@ import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
 
-import sun.util.logging.resources.logging;
-
 
 public class QuickQuote {
 

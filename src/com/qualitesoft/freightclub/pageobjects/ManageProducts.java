@@ -6,9 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.qualitesoft.core.SeleniumFunction;
-import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
-import com.qualitesoft.core.Xls_Reader;
 
 public class ManageProducts {
 	

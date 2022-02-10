@@ -38,7 +38,7 @@ public class TestPayment extends InitializeTest {
 		SeleniumFunction.click(quickQuote.BookandPay());
 		ScreenShot.takeScreenShot(driver, "Payment Confirmation");
 		
-		Xls_Reader xr = new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr = new Xls_Reader(testData);
 		int rowIndex=Integer.parseInt(Row);
 		//get order id and store it in excel
 		WaitTool.sleep(10);

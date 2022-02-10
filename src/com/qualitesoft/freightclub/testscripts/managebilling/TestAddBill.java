@@ -99,18 +99,18 @@ public class TestAddBill extends InitializeTest{
 		
 		//get order id from quick quote test data sheet
 		Xls_Reader xr;
-		xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		xr=new Xls_Reader(testData);
 		String orderId = xr.getCellData("Input","OrderId", 2).trim();
 		
 		//update order id in manage billing test data sheet
-		xr=new Xls_Reader("binaries/FCfiles/ManageBilling/ManageBilling.xlsx");
+		xr=new Xls_Reader(".\\testdata\\FCfiles\\"+env+"\\ManageBilling\\ManageBilling.xlsx");
 		int rowCount = xr.getRowCount("Sheet1");
 		for(int i=2; i <=rowCount; i++) {
 			xr.setCellData("Sheet1","PONumber", i ,orderId);
 			xr.setCellData("Sheet1","DocumentNumber", i ,(orderId+"+"+i));
 		}
 
-		File file = new File(".\\binaries\\FCfiles\\ManageBilling\\ManageBilling.xlsx");
+		File file = new File(".\\testdata\\FCfiles\\"+env+"\\ManageBilling\\ManageBilling.xlsx");
 		FileInputStream fis = new FileInputStream(file);
 
 		XSSFWorkbook wb = new XSSFWorkbook(fis);

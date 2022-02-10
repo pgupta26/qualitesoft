@@ -1,12 +1,8 @@
 package com.qualitesoft.vignettes.testscripts;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 
-import com.qualitesoft.americanmattress.pageobjects.FurniturePage;
 import com.qualitesoft.americanmattress.pageobjects.HomePage;
-import com.qualitesoft.americanmattress.pageobjects.MattressesPage;
-import com.qualitesoft.americanmattress.pageobjects.NavigationPage;
 import com.qualitesoft.americanmattress.pageobjects.ProductPage;
 import com.qualitesoft.americanmattress.pageobjects.ShoppingCartPage;
 import com.qualitesoft.core.InitializeTest;

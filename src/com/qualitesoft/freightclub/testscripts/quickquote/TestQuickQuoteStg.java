@@ -22,7 +22,7 @@ public class TestQuickQuoteStg extends InitializeTest {
 	@Test
 	public void testGetQuote() {
 
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr=new Xls_Reader(testData);
 		int i=Integer.parseInt(Row);
 
 		//clear existing data
@@ -197,12 +197,12 @@ public class TestQuickQuoteStg extends InitializeTest {
 		xr.setCellData("ShipmentInformation","DropCompanyName", 2, dropLocName);
 		
 		//update test data for manage invoices
-		Xls_Reader manageInvoiceTestData = new Xls_Reader("binaries/FCfiles/ManageInvoiceTestData.xlsx");
+		Xls_Reader manageInvoiceTestData = new Xls_Reader("testdata/FCfiles/"+ env +"/Overages/ManageInvoiceTestData.xlsx");
 		manageInvoiceTestData.setCellData("Sheet1", "OrderDate", 2, orderDate);
 		manageInvoiceTestData.setCellData("Sheet1", "Customer PO #", 2, orderReferenceID);
 		manageInvoiceTestData.setCellData("Sheet1", "OverageID", 2, orderID);
 
-		Xls_Reader secondaryInvoice = new Xls_Reader("binaries/FCfiles/SecondaryInvoiceTemplate.xlsx");
+		Xls_Reader secondaryInvoice = new Xls_Reader("testdata/FCfiles/"+ env +"/Overages/SecondaryInvoiceTemplate.xlsx");
 		secondaryInvoice.setCellData("Sec invoice Master", "FC Order ID", 2, orderID);
 		secondaryInvoice.setCellData("Sec invoice Master", "Tracking #", 2, tracking);
 		secondaryInvoice.setCellData("Sec invoice Master", "SECONDARY INV #", 2, orderID+"+1");
@@ -210,7 +210,6 @@ public class TestQuickQuoteStg extends InitializeTest {
 		Log.info("New Invoice Amount Generated: "+newInvoiceAmount);
 		secondaryInvoice.setCellData("Sec invoice Master", "New Invoice Amount", 2, newInvoiceAmount);
 
-		
 		WaitTool.sleep(5);
 	}
 }

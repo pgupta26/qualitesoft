@@ -1,12 +1,10 @@
 package com.qualitesoft.freightclub.testscripts.quickquote;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.ScreenShot;
-import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.freightclub.pageobjects.QuickQuote;
 
 public class TestFCTestCarriersNotVisible extends InitializeTest {

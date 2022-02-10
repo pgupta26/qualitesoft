@@ -20,7 +20,7 @@ public class TestCancelOrder extends InitializeTest{
 		try{			
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
 			ManageOverages manageOverages = new ManageOverages(driver);
-			Xls_Reader xr=new Xls_Reader("binaries/FCfiles/ManageOrdersTestData.xlsx");
+			Xls_Reader xr=new Xls_Reader("testdata/FCfiles/"+ env +"/ManageOrdersTestData.xlsx");
 			int i=Integer.parseInt(Row);
 
 			SeleniumFunction.click(manageOrderpage.manageOrdersLink());
@@ -72,7 +72,7 @@ public class TestCancelOrder extends InitializeTest{
 	public static void verifyCancelPopupAndStatus(String ex_popupBody, String toastMess, String ex_status){
 		ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
 		ManageOverages manageOverages = new ManageOverages(driver);
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/ManageOrdersTestData.xlsx");
+		Xls_Reader xr=new Xls_Reader("testdata/FCfiles/"+ env +"/ManageOrdersTestData.xlsx");
 		int i=Integer.parseInt(Row);
 		
 		WaitTool.sleep(2);

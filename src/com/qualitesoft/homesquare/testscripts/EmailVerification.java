@@ -1,19 +1,9 @@
 package com.qualitesoft.homesquare.testscripts;
 
-import java.text.NumberFormat;
 import java.text.ParseException;
-import java.util.ArrayList;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
-import com.qualitesoft.core.SeleniumFunction;
-import com.qualitesoft.core.UseAssert;
-import com.qualitesoft.core.WaitTool;
-import com.qualitesoft.cymax.pageobjects.YopMailPage;
 
 
 public class EmailVerification extends InitializeTest {

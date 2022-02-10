@@ -8,7 +8,6 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.MBDesigner.pageobjects.BoardList;
-import com.qualitesoft.MBDesigner.pageobjects.ViewBoard;
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;

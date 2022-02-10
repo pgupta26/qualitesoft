@@ -6,7 +6,6 @@ import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
 import com.qualitesoft.freightclub.pageobjects.ManageCarrierPage;
-import com.qualitesoft.freightclub.pageobjects.ProfileManagementPage;
 import com.qualitesoft.freightclub.pageobjects.QuickQuote;
 
 import org.testng.annotations.Test;
@@ -20,7 +19,7 @@ public class TestAddContactInformationForCarrier extends InitializeTest {
 			ManageCarrierPage manageCarrierPage = new ManageCarrierPage(driver);
 			QuickQuote quickQuote = new QuickQuote(driver);
 
-			Xls_Reader xr = new Xls_Reader("binaries/FCfiles/"+testData);
+			Xls_Reader xr = new Xls_Reader(testData);
 			int rowIndex = Integer.parseInt(Row);
 			Log.info("Row Number: "+rowIndex);
 			

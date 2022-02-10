@@ -10,7 +10,6 @@ import com.qualitesoft.americanmattress.pageobjects.PaymentPage;
 import com.qualitesoft.americanmattress.pageobjects.ProductPage;
 import com.qualitesoft.americanmattress.pageobjects.ReviewYourOrderPage;
 import com.qualitesoft.americanmattress.pageobjects.ShippingInformationPage;
-import com.qualitesoft.americanmattress.pageobjects.ShoppingCartPage;
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;

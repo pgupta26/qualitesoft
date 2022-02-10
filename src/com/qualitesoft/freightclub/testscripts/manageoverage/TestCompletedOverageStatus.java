@@ -1,6 +1,5 @@
 package com.qualitesoft.freightclub.testscripts.manageoverage;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -20,7 +19,7 @@ public class TestCompletedOverageStatus extends InitializeTest {
 	@Test
 	public void testCompletedOverageStatus() {
 			
-		Xls_Reader xr=new Xls_Reader("binaries/FCfiles/"+testData);
+		Xls_Reader xr=new Xls_Reader(testData);
 		int i=Integer.parseInt(Row);
 		
 		ManageOverages manageOverages = new ManageOverages(driver);
@@ -66,7 +65,7 @@ public class TestCompletedOverageStatus extends InitializeTest {
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
 			
-		}catch(Exception e) {
+		}catch(Exception | AssertionError e) {
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
 			Assert.fail(e.getMessage());

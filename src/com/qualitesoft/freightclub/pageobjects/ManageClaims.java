@@ -261,7 +261,7 @@ public class ManageClaims {
 		ManageClaims manageClaims = new ManageClaims(driver);
 		
 		Xls_Reader xr;
-		xr=new Xls_Reader("binaries/FCfiles/ManageClaims.xlsx");
+		xr=new Xls_Reader("testdata\\FCfiles\\stg\\ManageClaims\\ManageClaims.xlsx");
 		int i=Integer.parseInt(InitializeTest.Row);
 		
 		 String documentType = xr.getCellData("ClaimDetail", "DocumentType", i);

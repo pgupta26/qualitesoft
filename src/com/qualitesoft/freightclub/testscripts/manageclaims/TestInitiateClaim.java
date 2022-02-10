@@ -31,7 +31,7 @@ public class TestInitiateClaim extends InitializeTest {
 			CommonOps commonOps = new CommonOps();
 
 			Xls_Reader xr;
-			xr=new Xls_Reader("binaries/FCfiles/"+testData);
+			xr=new Xls_Reader(testData);
 			int i=Integer.parseInt(Row);
 
 			String orderId=xr.getCellData("Input","OrderId", i).trim();
@@ -102,12 +102,12 @@ public class TestInitiateClaim extends InitializeTest {
 			}
 
 			//verify claim status in manage claims grid
-			xr=new Xls_Reader("binaries/FCfiles/"+testData);
+			xr=new Xls_Reader(testData);
 			ArrayList<String> expectedGridHeader = new ArrayList<String> (); 
 			Collections.addAll(expectedGridHeader,"Order ID","Claim ID","Customer PO No.","Claim Status","Claim Response",
 							"Claim Date","Filed Date","Claim Age","Completed Date",
 							"Approved Amount"); 
-			xr=new Xls_Reader("binaries/FCfiles/"+testData);
+			xr=new Xls_Reader(testData);
 			manageClaims.verifyManageClaimsGrid(xr, i, expectedGridHeader);
 	}
 }
