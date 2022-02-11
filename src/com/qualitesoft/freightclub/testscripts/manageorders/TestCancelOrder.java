@@ -15,7 +15,7 @@ import com.qualitesoft.freightclub.pageobjects.ManagerOrderPage;
 public class TestCancelOrder extends InitializeTest{
 
 	CommonOps commonOps = new CommonOps();
-	@Test(priority = 1)
+	@Test
 	public void createCancelOrder(){
 		try{			
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);

@@ -11,24 +11,27 @@ import com.qualitesoft.core.Log;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
+import com.qualitesoft.core.Xls_Reader;
 import com.qualitesoft.freightclub.pageobjects.ManagerOrderPage;
 
 public class TestSearchFunctionality extends InitializeTest{
 
-	public static void searchOnManageOrders(String searchIndex, String index2, String searchData){
+	public static void searchOnManageOrders(String searchIndex, String index2, String colName,int rowNum){
 		try{
+			Xls_Reader xr=new Xls_Reader(testData);
+			String searchData = xr.getCellData("Input",colName, rowNum).trim();
+
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
 			SeleniumFunction.click(manageOrderpage.manageOrdersLink());
 			WaitTool.sleep(7);
-			
+
 			manageOrderpage.ActionButton();
 			if(!manageOrderpage.ExpandMenupage().getAttribute("class").equals("active")) {
 				SeleniumFunction.click(manageOrderpage.ExpandMenupage());
 			}
-			
+
 			SeleniumFunction.sendKeys(manageOrderpage.searchFields(searchIndex), searchData);
-			manageOrderpage.searchFields(searchIndex).sendKeys(Keys.ENTER);;
-			/*SeleniumFunction.KeyBoradEnter(driver);*/
+			manageOrderpage.searchFields(searchIndex).sendKeys(Keys.ENTER);
 			WaitTool.sleep(10);
 
 			int rows = manageOrderpage.getRowsCount("fullOrders");
@@ -42,17 +45,17 @@ public class TestSearchFunctionality extends InitializeTest{
 
 	@Test(priority = 1)
 	public void searchByOrderId(){
-		searchOnManageOrders("1", "2", "51487543");
+		searchOnManageOrders("1", "2", "OrderId", 2);
 	}
 
 	@Test(priority = 2)
 	public void searchByWaybill(){
-		searchOnManageOrders("3", "9", "FCABF1006300");
+		searchOnManageOrders("3", "9", "WayBill", 3);
 	}
 
 	@Test(priority = 3)
 	public void searchByTrackingNumber(){
-		searchOnManageOrders("4", "10", "66488638");
+		searchOnManageOrders("4", "10", "Tracking#", 4);
 	}
 
 	@Test(priority = 4)
