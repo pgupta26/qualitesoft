@@ -477,6 +477,8 @@
 
 	<test name="Test verify searching functionality on manage orders page">
 		<parameter name="loginuser" value="new" />
+		<parameter name="testData" value="testdata\FCfiles\qa\QuickQuote\QuickQuoteTestData.xlsx" /> 
+		
 		<classes>
 			<class
 				name="com.qualitesoft.freightclub.testscripts.manageorders.TestSearchFunctionality" />

@@ -283,7 +283,7 @@ public class ManagerOrderPage {
 	}
 	
 	public String verifyToastMessage(){
-		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='toast toast-success']"), 60));
+		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='toast toast-success']"), 180));
 	}
 	
 	public void setRerouteDeniedReason(String text){
