@@ -15,6 +15,7 @@ import com.qualitesoft.freightclub.pageobjects.ManageOverages;
 import com.qualitesoft.freightclub.pageobjects.ManagerOrderPage;
 import com.qualitesoft.freightclub.pageobjects.OverageDetails;
 import com.qualitesoft.freightclub.pageobjects.QuickQuote;
+import com.qualitesoft.freightclub.pageobjects.QuickQuoteFinal;
 
 public class TestEditOverageDetails extends InitializeTest {
 
@@ -23,12 +24,15 @@ public class TestEditOverageDetails extends InitializeTest {
 
 		ManageOverages manageOverages = new ManageOverages(driver);
 		OverageDetails overageDetails = new OverageDetails(driver);
+		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
 		
 		Xls_Reader xr1=new Xls_Reader("testdata/FCfiles/"+ env +"/Overages/ManageInvoiceTestData.xlsx");
 		int i=Integer.parseInt(Row);
 		
 		//verify overage details fields
 		SeleniumFunction.getCurrentWindow(driver);
+		quickQuote.acceptPopup();
+		WaitTool.sleep(5);
 
 		if(userType.equals("Admin")) {
 
@@ -142,7 +146,6 @@ public class TestEditOverageDetails extends InitializeTest {
 
 			//Verify grid button text
 			ManagerOrderPage manageOrderpage = new ManagerOrderPage(driver);
-			QuickQuote quickQuote = new QuickQuote(driver);
 			
 			Xls_Reader xr=new Xls_Reader(testData);
 			

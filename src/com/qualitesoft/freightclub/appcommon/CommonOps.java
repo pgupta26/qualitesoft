@@ -375,7 +375,6 @@ public class CommonOps extends InitializeTest {
 		}
 		
 		SeleniumFunction.clickJS(driver, quickQuote.Okbutton1());
-		//SeleniumFunction.click(quickQuote.Okbutton1());
 		WaitTool.sleep(10);
 		crorderId=SeleniumFunction.getText(manageOverage.gridData(1, 1));
 		Log.info("Order Id Generated: "+crorderId);

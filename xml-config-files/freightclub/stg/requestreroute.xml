@@ -16,13 +16,29 @@
 	
 	<parameter name="testData" value="testdata\FCfiles\stg\RequestReroute\QuickQuoteTestData.xlsx" /> 
 	
+	<test name="TEST DISABLE ALL CARRIERS">
+		<parameter name="fcusername" value="info@freightclub.com" />
+		<parameter name="fcpassword" value="Welcome@2" />
+		<parameter name="searchUser" value="test20may21@mailinator.com"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestUserIsAbleToSearchProfile" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestDisableAllCarriers" />
+		</classes>
+	</test>
+	
+	<test name="Test Enable Carriers">
+		<parameter name="testData" value="testdata/FCfiles/stg/ManageProfile.xlsx" />
+		<parameter name="Row" value="2" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestEnableCarrier" />
+		</classes>
+	</test>
+	
 	<test name="TEST ENABLE LOOSE CARTON FOR BTX Global Logistics,Ceva,FC Test Carrier">
-		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
-		<parameter name="fcpassword" value="Welcome@1" />
 	 	<parameter name="CarrierName" value="BTX Global Logistics,Ceva,FC Test Carrier" />
 		<parameter name="CarrierDetailsOptions" value="Loose carton accepted" />
 		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
