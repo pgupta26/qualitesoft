@@ -46,14 +46,14 @@
 	
 
 	<!-- *************************** Forgot Password ********************************** -->
-	<test name="Test forgot password">
+	<!-- <test name="Test forgot password">
 		<parameter name="testData" value="testdata/FCfiles/stg/SignUp.xlsx" />
 		<parameter name="Row" value="7" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.forgotpassword.TestForgotPassword" />
 			<class name="com.qualitesoft.freightclub.testscripts.forgotpassword.TestResetPassword" />	
 		</classes>
-	</test>
+	</test> -->
 	
 	<!-- *************************** Quick Quote ********************************** -->
 	<test name="Test manage green list and select onAccount payment method">
