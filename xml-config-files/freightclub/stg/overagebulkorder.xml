@@ -166,6 +166,7 @@
 		<parameter name="fcusername" value="info@freightclub.com" />
 		<parameter name="fcpassword" value="Welcome@2" />
 		<parameter name="searchUser" value="test20may21@mailinator.com"/>
+		<parameter name="testData" value="testdata\FCfiles\stg\BulkOrders\BulkOrdersTestData.xlsx" />
 		<parameter name="userPermissions" value="Bulk Order Upload"/>
 		<parameter name="Row" value="2" />
 		<classes>
