@@ -72,6 +72,8 @@ public class TestEditOverageDetails extends InitializeTest {
 			SeleniumFunction.click(overageDetails.sendEmail("moreInfoModal"));
 
 			//Click on backup documentation button
+			WaitTool.sleep(5);
+			quickQuote.acceptPopup();
 			WaitTool.sleep(2);
 			Actions actions = new Actions(driver);
 			actions.moveToElement(overageDetails.documents()).click().build().perform();
