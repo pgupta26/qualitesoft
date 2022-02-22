@@ -32,7 +32,7 @@ public class TestCancelledOrder extends InitializeTest{
 		SeleniumFunction.sendKeys(bolPage.orderIdTextBox(), orderid);
 		bolPage.orderIdTextBox().sendKeys(Keys.ENTER);
 		/*SeleniumFunction.KeyBoradEnter(driver);*/
-		WaitTool.sleep(5);
+		WaitTool.sleep(15);
 		ScreenShot.takeScreenShot(driver, "BillofLadingPage for cancelled order "+ orderid);
 		String orderStatus = SeleniumFunction.getText(bolPage.gridData(1, 5));
 		UseAssert.assertEquals(orderStatus, "Order Cancelled");

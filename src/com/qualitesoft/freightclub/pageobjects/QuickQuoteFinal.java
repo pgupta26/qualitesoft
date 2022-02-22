@@ -469,4 +469,8 @@ public class QuickQuoteFinal {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//span[text()='Re-rate with the new weight']"), 10);
 	}
 	
+	public String verifyToastMessage(){
+		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='toast toast-success']"), 180));
+	}
+	
 }
