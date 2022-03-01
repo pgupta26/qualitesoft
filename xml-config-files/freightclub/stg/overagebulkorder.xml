@@ -18,7 +18,7 @@
 	
 	<!-- **********************************Manage Invoice And Overage Tests****************************************** -->
 	<test name="Test Quick Quote">
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcusername" value="qashprod16sep21@mailinator.com" />
 		<parameter name="fcpassword" value="@Test123" />
 		<parameter name="testData" value="testdata\FCfiles\stg\ManageClaims\ManageClaims.xlsx" />
 		<parameter name="Row" value="2" />
@@ -60,7 +60,7 @@
 	</test>
 
 	<test name="Test - valid - user is able to view secondary invoice detail">
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcusername" value="qashprod16sep21@mailinator.com" />
 		<parameter name="fcpassword" value="@Test123" />
 		<parameter name="userType" value="User"></parameter>
 		<parameter name="Row" value="2" />
@@ -106,7 +106,7 @@
 	</test>  
 
 	<test name="Test - valid - user is able to view overage detail">
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcusername" value="qashprod16sep21@mailinator.com" />
 		<parameter name="fcpassword" value="@Test123" />
 		<parameter name="userType" value="User"></parameter>
 		<parameter name="Row" value="2" />
@@ -165,7 +165,7 @@
 	<test name="Test set payment method as Credit Card">
 		<parameter name="fcusername" value="info@freightclub.com" />
 		<parameter name="fcpassword" value="Welcome@2" />
-		<parameter name="searchUser" value="test20may21@mailinator.com"/>
+		<parameter name="searchUser" value="qashprod16sep21@mailinator.com"/>
 		<parameter name="testData" value="testdata\FCfiles\stg\BulkOrders\BulkOrdersTestData.xlsx" />
 		<parameter name="userPermissions" value="Bulk Order Upload"/>
 		<parameter name="Row" value="2" />
@@ -182,7 +182,7 @@
 	</test>
 	
 	<test name="Test Upload Bulk Orders File - Credit Card">
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcusername" value="qashprod16sep21@mailinator.com" />
 		<parameter name="fcpassword" value="@Test123" />
 		<parameter name="testData" value="testdata\FCfiles\stg\BulkOrders\BulkOrdersTestData.xlsx" />
 		<parameter name="Row" value="2" />
@@ -196,7 +196,7 @@
 	<test name="Test set payment method as On Account">
 		<parameter name="fcusername" value="info@freightclub.com" />
 		<parameter name="fcpassword" value="Welcome@2" />
-		<parameter name="searchUser" value="test20may21@mailinator.com"/>
+		<parameter name="searchUser" value="qashprod16sep21@mailinator.com"/>
 		<parameter name="testData" value="testdata\FCfiles\stg\BulkOrders\BulkOrdersTestData.xlsx" />
 		<parameter name="Row" value="3" />
 		<classes>
@@ -208,7 +208,7 @@
 	</test>
 	
 	<test name="Test Upload Bulk Orders File - On Account - AutoBook">
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
+		<parameter name="fcusername" value="qashprod16sep21@mailinator.com" />
 		<parameter name="fcpassword" value="@Test123" />
 		<parameter name="testData" value="testdata\FCfiles\stg\BulkOrders\BulkOrdersTestData.xlsx" />
 		<parameter name="Row" value="3" />
