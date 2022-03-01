@@ -32,7 +32,7 @@ public class TestSearchFunctionality extends InitializeTest{
 
 			SeleniumFunction.sendKeys(manageOrderpage.searchFields(searchIndex), searchData);
 			manageOrderpage.searchFields(searchIndex).sendKeys(Keys.ENTER);
-			WaitTool.sleep(10);
+			WaitTool.sleep(15);
 
 			int rows = manageOrderpage.getRowsCount("fullOrders");
 			UseAssert.assertEquals(rows, 1);

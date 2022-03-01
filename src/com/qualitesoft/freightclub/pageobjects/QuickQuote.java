@@ -556,6 +556,9 @@ public class QuickQuote {
 	public WebElement getCustomQuoteButton() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='vue-dialog-confirm modal fade in']/descendant::div[@class='modal-footer']/descendant::button[2]"), 30);
 	}
+	public WebElement clickPopupFooterButton(int index) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='vue-dialog-confirm modal fade in']/descendant::div[@class='modal-footer']/descendant::button["+index+"]"), 30);
+	}
 
 	public WebElement NextButton() {		
 		return WaitTool.waitForElementPresentAndDisplay(driver,By.xpath("//table[@id='table-quotes']//tbody//tr[1]//td[7]//button"), 60);
