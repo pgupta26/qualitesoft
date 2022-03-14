@@ -461,7 +461,7 @@
 		</classes>
 	</test>
 
-	<test name="Verify warning message is not displaying after reject the reroute request">
+	<test name="Verify Commercial Location Type Reroute request on detail page">
 		<parameter name="Row" value="2" />
 		
 		<classes>
