@@ -26,6 +26,11 @@ public class ManageCarrierPage {
 	
 	public void manageCarriersLink() {
 		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//a[@href='/Admin/ManageCarriers']"), 30));
+		SeleniumFunction.click(this.classicView());
+	}
+	
+	public WebElement classicView() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//h4[text()='Classic View']"), 50);
 	}
 	
 	public void filterCarrier(String carrierName) {

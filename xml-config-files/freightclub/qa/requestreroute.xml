@@ -36,7 +36,7 @@
 	</test>
 	
 	<test name="TEST ENABLE LOOSE CARTON FOR BTX Global Logistics,Ceva,FC Test Carrier">
-	 	<parameter name="CarrierName" value="BTX Global Logistics,Ceva,FC Test Carrier" />
+	 	<parameter name="CarrierName" value="BTX Global Logistics,Ceva,FC Test Carrier,FragilePAK" />
 		<parameter name="CarrierDetailsOptions" value="Loose carton accepted" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions" />
@@ -154,7 +154,6 @@
 
 
 	<!-- ***************************Reroute Request for Commercial Location Type******************* -->
-	
 	<test
 		name="Verify user is able to create reroute request with commercial location type">
 		<parameter name="Row" value="9" />

@@ -1,5 +1,6 @@
 package com.qualitesoft.freightclub.testscripts.quickquote;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -16,7 +17,7 @@ import com.qualitesoft.freightclub.pageobjects.ManageProducts;
 import com.qualitesoft.freightclub.pageobjects.QuickQuote;
 import com.qualitesoft.freightclub.pageobjects.QuickQuoteFinal;
 
-public class TestRerateForNewWeight extends InitializeTest{
+public class TestRerateForNewWeight extends InitializeTest {
 
 	@Test(priority = 0)
 	public void verifyWithSameQuantity() {
@@ -26,6 +27,7 @@ public class TestRerateForNewWeight extends InitializeTest{
 		Xls_Reader xr=new Xls_Reader(testData);
 		int i=Integer.parseInt(Row);
 		String carrier = xr.getCellData("Input","Carrier", i).trim();
+		System.out.println(carrier);
 		String packageType = xr.getCellData("Input","packageType", i).trim();
 		String packageType2 = xr.getCellData("Input", "packageType2", i).trim();	
 
@@ -79,7 +81,7 @@ public class TestRerateForNewWeight extends InitializeTest{
 		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
 
 		quickQuote.deleteItemInformation();
-		SeleniumFunction.click(quickQuote.addadditionalItem());
+		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//button[@class='btn btn-info btn-xs'])[3]"), 30));
 		fillAddProductDetails();
 		ScreenShot.takeFullScreenShot("Item and Product with same weight");
 		reviewOrder(true, 1);
