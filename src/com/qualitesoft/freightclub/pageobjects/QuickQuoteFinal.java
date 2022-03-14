@@ -243,6 +243,8 @@ public class QuickQuoteFinal {
 				SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/22.png']/ancestor::tr/td[7]/button"), 10));
 			}else if(carrierName.equals("BTX Global Logistics")) {
 				SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/291.png']/ancestor::tr/td[7]/button"), 10));
+			}else if(carrierName.equals("FragilePAK")) {
+				SeleniumFunction.clickJS(driver, WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//img[@src='/Content/Images/Logos/280.png']/ancestor::tr/td[7]/button"), 10));
 			}
 			
 		}catch(Exception ex) {
