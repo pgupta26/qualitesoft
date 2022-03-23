@@ -75,13 +75,13 @@ public class TestRerateForNewWeight extends InitializeTest {
 		ScreenShot.takeFullScreenShot("Multiple item with same weight");
 		reviewOrder(true, 1);
 	}
-
+	
 	@Test(priority = 3)
 	public void verifyWithItemAndProduct() {
 		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
-
+		SeleniumFunction.scrollUpByPixel(driver, "2000");
 		quickQuote.deleteItemInformation();
-		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//button[@class='btn btn-info btn-xs'])[3]"), 30));
+		SeleniumFunction.click(quickQuote.addadditionalItem());
 		fillAddProductDetails();
 		ScreenShot.takeFullScreenShot("Item and Product with same weight");
 		reviewOrder(true, 1);
