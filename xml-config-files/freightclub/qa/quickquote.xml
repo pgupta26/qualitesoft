@@ -259,15 +259,13 @@
 	
 	<!-- ************************************** QA - 517 Tests ****************************************************** -->
 	
-	<test name="Test Enable Carrier and residential pickup and loose cartoon">
+	<test name="Test Enable Residential pickup and loose cartoon">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
 		<parameter name="searchUser" value="test.automation2@mailinator.com"/>
 		<parameter name="testData" value="testdata/FCfiles/qa/QuickQuote/QA_517.xlsx" />
 		<parameter name="Row" value="2" />
 		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestUserIsAbleToSearchProfile" />
-			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestEnableCarrier" />
 			<class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableResidentialPickup" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
