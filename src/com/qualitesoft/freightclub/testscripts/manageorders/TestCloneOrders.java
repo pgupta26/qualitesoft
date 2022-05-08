@@ -63,18 +63,20 @@ public class TestCloneOrders extends InitializeTest{
 		//verify pallet details
 		if (!packageType.isEmpty()) {
 			if(packageType.equals("Non-Palletized")) {
-				commonOps.verifyPalletizedDetailCloneOrder(xr, i, "4", packageType);
+				commonOps.verifyPalletizedDetail(xr, i, "4", packageType);
+			} else if(packageType.equals("Cardboard Box") || packageType.equals("Bagged or Unboxed Product")) {
+				commonOps.verifyPalletizedDetail(xr, i, "4", packageType);
 			} else if(shipmentType.equals("Parcel")) {
-				commonOps.verifyPalletizedDetailCloneOrder(xr, i, "5", packageType);
+				commonOps.verifyPalletizedDetail(xr, i, "5", packageType);
 			} else {
-				commonOps.verifyPalletizedDetailCloneOrder(xr, i, "3", packageType);
+				commonOps.verifyPalletizedDetail(xr, i, "3", packageType);
 			}
 		}
 		if (!packageType2.isEmpty()) {
 			if(shipmentType.equals("Parcel") || packageType2.equals("Non-Palletized")) {
-				commonOps.verifyPalletizedDetailCloneOrder(xr, i, "5", packageType2);
+				commonOps.verifyPalletizedDetail(xr, i, "5", packageType2);
 			} else {
-				commonOps.verifyPalletizedDetailCloneOrder(xr, i, "3", packageType2);
+				commonOps.verifyPalletizedDetail(xr, i, "3", packageType2);
 			}
 		}
 		ScreenShot.takeScreenShot(driver, "Clone order palletized detail");
