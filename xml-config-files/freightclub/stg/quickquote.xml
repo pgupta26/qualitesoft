@@ -46,14 +46,14 @@
 	
 
 	<!-- *************************** Forgot Password ********************************** -->
-	<test name="Test forgot password">
+	<!-- <test name="Test forgot password">
 		<parameter name="testData" value="testdata/FCfiles/stg/SignUp.xlsx" />
 		<parameter name="Row" value="7" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.forgotpassword.TestForgotPassword" />
 			<class name="com.qualitesoft.freightclub.testscripts.forgotpassword.TestResetPassword" />	
 		</classes>
-	</test>
+	</test> -->
 	
 	<!-- *************************** Quick Quote ********************************** -->
 	<test name="Test manage green list and select onAccount payment method">
@@ -260,15 +260,13 @@
 	
 	<!-- ************************************** QA - 517 Tests ****************************************************** -->
 	
-	<test name="Test Enable Carrier and residential pickup and loose cartoon">
+	<test name="Test Enable Residential pickup and loose cartoon">
 		<parameter name="fcusername" value="info@freightclub.com" />
 		<parameter name="fcpassword" value="Welcome@2" />
 		<parameter name="searchUser" value="prodsh22dec@mailinator.com"/>
 		<parameter name="testData" value="testdata/FCfiles/stg/QuickQuote/QA_517.xlsx" />
 		<parameter name="Row" value="2" />
 		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestUserIsAbleToSearchProfile" />
-			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestEnableCarrier" />
 			<class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableResidentialPickup" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>

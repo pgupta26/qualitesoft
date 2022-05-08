@@ -317,7 +317,7 @@ public class CommonOps extends InitializeTest {
 			expectedPackageType = "1 x "+packageType+ " 1";
 			actualCategory = notQuotedTab.getCellValueFromPackage(panelIndex, "4").getText();
 		} else if(packageType.equals("Cardboard Box") || packageType.equals("Bagged or Unboxed Product")) {
-			expectedPackageType = "1 x "+description;
+			expectedPackageType="1 x Box 1";
 			actualCategory = notQuotedTab.getCellValueFromPackage(panelIndex, "4").getText();
 		} else if(shipmentType.equals("Parcel") &&  packageType.contains("SearchaddedProduct")) {
 			expectedPackageType = "1 x "+Productname;
@@ -571,7 +571,14 @@ public class CommonOps extends InitializeTest {
 			int count = doc.getNumberOfPages();
 			UseAssert.assertEquals(count, expectedPageCount);
 		}else {
-			Assert.fail("File doesn't exists");
+			WaitTool.sleep(10);
+			if(file.exists()) {
+				PDDocument doc = Loader.loadPDF(file);
+				int count = doc.getNumberOfPages();
+				UseAssert.assertEquals(count, expectedPageCount);
+			} else {
+				Assert.fail("File doesn't exists");
+			}
 		}
 	}
 }
