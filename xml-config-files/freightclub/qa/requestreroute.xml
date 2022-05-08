@@ -460,7 +460,7 @@
 		</classes>
 	</test>
 
-	<test name="Verify Commercial Location Type Reroute request on detail page">
+	<test name="Verify Residential Location Type Reroute request on detail page">
 		<parameter name="Row" value="2" />
 		
 		<classes>
