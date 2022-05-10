@@ -17,9 +17,8 @@ import com.qualitesoft.freightclub.pageobjects.Mailinator;
 public class EmailVerification extends InitializeTest {
 	
 	public void verifyEmailBody(String expectedEmailBody) {
-		expectedEmailBody = expectedEmailBody.replaceAll("[^a-zA-Z0-9]", " ");
 		WaitTool.sleep(3);
-		String actualMessage = driver.findElement(By.tagName("body")).getText().replaceAll("[\\t\\n\\r]+"," ").replaceAll("[^a-zA-Z0-9]", " ");
+		String actualMessage = driver.findElement(By.tagName("body")).getText().replaceAll("[\\t\\n\\r]+"," ");
 		UseAssert.assertEquals(actualMessage, expectedEmailBody);
 	}
 	
@@ -62,6 +61,10 @@ public class EmailVerification extends InitializeTest {
 				switch(notificationType) {
 					case "Custom Quote Requested - User":
 						expectedMsg = Messages.custom_quote_requested_user.replace("{orderID}", orderid);
+						break;
+						
+					case "Custom Quote Requested - Admin":
+						expectedMsg = Messages.custom_quote_requested_admin.replace("{orderID}", orderid);
 						break;
 						
 					case "Custom Quote Requested - Carrier":
