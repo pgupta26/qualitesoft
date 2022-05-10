@@ -207,7 +207,7 @@ public class TestQuickQuoteStg extends InitializeTest {
 		secondaryInvoice.setCellData("Sec invoice Master", "Tracking #", 2, tracking);
 		secondaryInvoice.setCellData("Sec invoice Master", "SECONDARY INV #", 2, orderID+"+1");
 		String newInvoiceAmount = String.valueOf(JavaFunction.getRandomNumber(1, 999))+"."+String.valueOf(JavaFunction.getRandomNumber(1, 99));
-		Log.info("New Invoice Amount Generated: "+newInvoiceAmount);
+		Log.info("New Invoice Amount Generated:  "+newInvoiceAmount);
 		secondaryInvoice.setCellData("Sec invoice Master", "New Invoice Amount", 2, newInvoiceAmount);
 
 		WaitTool.sleep(5);
