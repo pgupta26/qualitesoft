@@ -571,7 +571,7 @@ public class CommonOps extends InitializeTest {
 			int count = doc.getNumberOfPages();
 			UseAssert.assertEquals(count, expectedPageCount);
 		}else {
-			WaitTool.sleep(10);
+			WaitTool.sleep(30);
 			if(file.exists()) {
 				PDDocument doc = Loader.loadPDF(file);
 				int count = doc.getNumberOfPages();
