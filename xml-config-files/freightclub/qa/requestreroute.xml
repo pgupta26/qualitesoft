@@ -16,7 +16,7 @@
 	
 	<parameter name="testData" value="testdata\FCfiles\qa\RequestReroute\QuickQuoteTestData.xlsx" /> 
 	
-	<!-- <test name="TEST DISABLE ALL CARRIERS">
+	<test name="TEST DISABLE ALL CARRIERS">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
 		<parameter name="searchUser" value="test.automation@mailinator.com"/>
@@ -42,7 +42,7 @@
 			<class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test> -->
+	</test>
 	
 	<!-- ************************************** Request Reroute ****************************************************** -->
 	<!-- ***************************Reroute Request for Residential Location Type******************* -->
@@ -460,7 +460,8 @@
 		</classes>
 	</test>
 
-	<test name="Verify Residential Location Type Reroute request on detail page">
+
+	<test name="Verify Residencial Location Type Reroute request on detail page">
 		<parameter name="Row" value="2" />
 		
 		<classes>
