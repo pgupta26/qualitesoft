@@ -2,6 +2,8 @@ package com.qualitesoft.core;
 
 import java.util.Set;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +20,18 @@ public class SeleniumFunction {
 		try {
 			element.click();
 			Log.info("WebElement clicked.");
-		} catch (Exception e) {
+		} catch(ElementClickInterceptedException e) {
+			Log.info("Element click intercepted expception found.............");
+			if(WaitTool.isElementPresentAndDisplay(InitializeTest.driver, By.xpath("//button[@data-role='end']"))) {
+				ScreenShot.takeScreenShot(InitializeTest.driver, "Popup"+JavaFunction.getRandomNumber(10, 10000));
+				SeleniumFunction.clickJS(InitializeTest.driver,WaitTool.waitForElementPresentAndDisplay(InitializeTest.driver, By.xpath("//button[@data-role='end']"), 10));
+			}
+			
+			WaitTool.sleep(3);
+			element.click();
+			Log.info("WebElement clicked on retry.");
+		}
+		catch (Exception e) {
 			try {
 				Log.info("Retrying click...............");
 				WaitTool.sleep(3);

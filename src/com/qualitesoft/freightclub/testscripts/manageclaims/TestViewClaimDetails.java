@@ -144,7 +144,7 @@ public class TestViewClaimDetails extends InitializeTest {
 				SoftAssertion.assertEquals(manageClaims.getSelect("Carrier:").getText(), xr.getCellData("Input","Carrier", i).trim());
 
 				SoftAssertion.assertEquals(manageClaims.getField("Product Amount:").getAttribute("value"), declaredValue);
-				int deductibleAmount = (Integer.parseInt(declaredValue) * 20) / 100 ;
+				int deductibleAmount = (Integer.parseInt(declaredValue) * 30) / 100 ;
 				
 				
 				
@@ -153,7 +153,7 @@ public class TestViewClaimDetails extends InitializeTest {
 					SoftAssertion.assertEquals(manageClaims.getField("Deductible Amount:").getAttribute("value"), "0");
 					SoftAssertion.assertEquals(manageClaims.getField("Premium Amount:").getAttribute("value"), "0");
 				} else {
-					double companyFreightAmount1 = Math.round((Double.parseDouble(amount.replace("$", "")) -  Double.parseDouble(insurance.replace("$", ""))) * 100.0) / 100.0;
+					double companyFreightAmount1 = Math.round((Double.parseDouble(amount.replace("$", "").replace(",", "")) -  Double.parseDouble(insurance.replace("$", ""))) * 100.0) / 100.0;
 					SoftAssertion.assertEquals(manageClaims.getField("Company Freight Amount:").getAttribute("value"), String.valueOf(companyFreightAmount1));
 					SoftAssertion.assertEquals(manageClaims.getField("Deductible Amount:").getAttribute("value"), String.valueOf(deductibleAmount));
 					SoftAssertion.assertEquals(manageClaims.getField("Premium Amount:").getAttribute("value"), insurance.replace("$", ""));
@@ -176,10 +176,11 @@ public class TestViewClaimDetails extends InitializeTest {
 			SeleniumFunction.getCurrentWindow(driver);
 			
 		}catch(Exception ex) {
+			Log.info("Test Failure Reason: "+ex.getCause());
 			//close current window and switch to parent window
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
-			Assert.fail(ex.getMessage());
+			throw ex;
 		}
 	}
 }
