@@ -12,7 +12,7 @@
 	<parameter name="browser" value="chrome" />
 	<parameter name="env" value="stg" />
 	<parameter name="URL" value="https://stg.freightclub.com/" />
-	<parameter name="retryCount" value="1" />
+	<parameter name="retryCount" value="0" />
 	
 	<parameter name="testData" value="testdata\FCfiles\stg\ManageClaims\ManageClaims.xlsx" />
 	

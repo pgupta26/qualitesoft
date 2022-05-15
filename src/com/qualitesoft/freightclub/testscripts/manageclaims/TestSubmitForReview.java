@@ -68,7 +68,7 @@ public class TestSubmitForReview extends InitializeTest {
 		
 		//Upload document
 		SeleniumFunction.moveToElement(driver, manageClaims.documentUploadField(fieldName));
-		SeleniumFunction.scrollUpByPixel(driver, "200");
+		SeleniumFunction.scrollDownByPixel(driver, "2000");
 		ac.moveToElement(manageClaims.documentUploadField(fieldName)).moveByOffset(7, -15).click().build().perform();		
 		SeleniumFunction.uploadFile("ManageClaims\\"+xr.getCellData("ClaimDetail", fieldName, i));
 		WaitTool.sleep(10);

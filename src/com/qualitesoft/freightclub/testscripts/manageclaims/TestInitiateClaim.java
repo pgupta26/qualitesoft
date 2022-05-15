@@ -96,6 +96,7 @@ public class TestInitiateClaim extends InitializeTest {
 				SeleniumFunction.getCurrentWindow(driver);
 				
 			}catch(Exception | AssertionError ex) {
+				Log.info("Test failed with reason: "+ex.getMessage());
 				SeleniumFunction.closeWindow(driver);
 				SeleniumFunction.getCurrentWindow(driver);
 				throw ex;
