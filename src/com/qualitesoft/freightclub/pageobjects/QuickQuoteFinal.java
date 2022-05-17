@@ -1,5 +1,7 @@
 package com.qualitesoft.freightclub.pageobjects;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -195,13 +197,16 @@ public class QuickQuoteFinal {
 	}
 
 	public void waitForQuotesToAppear() {
-
-		String displayValue ;		
-		for(int i = 2; i < 40; i=i+2) {
-			displayValue =  driver.findElement(By.xpath("//span[text()='Searching for quotes...']")).getCssValue("display");
-			if(!displayValue.equals("none")){
-				Log.info("------i-------------"+i);
-				WaitTool.sleep(i);
+		List<WebElement> searchForQuotes = driver.findElements(By.xpath("//span[text()='Searching for quotes...']"));
+		
+		if(searchForQuotes.size() > 0) {
+			String displayValue ;		
+			for(int i = 2; i < 40; i=i+2) {
+				displayValue =  driver.findElement(By.xpath("//span[text()='Searching for quotes...']")).getCssValue("display");
+				if(!displayValue.equals("none")){
+					Log.info("------i-------------"+i);
+					WaitTool.sleep(i);
+				}
 			}
 		}
 	}
