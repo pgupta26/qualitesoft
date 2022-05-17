@@ -35,11 +35,12 @@
 		</classes>
 	</test>
 	
-	<test name="TEST ENABLE LOOSE CARTON FOR BTX Global Logistics,Ceva,FC Test Carrier">
-	 	<parameter name="CarrierName" value="BTX Global Logistics,Ceva,FC Test Carrier" />
-		<parameter name="CarrierDetailsOptions" value="Loose carton accepted" />
+	<test name="Test Enable Residential pickup and loose cartoon">
+		<parameter name="searchUser" value="test.automation2@mailinator.com"/>
+		<parameter name="testData" value="testdata/FCfiles/stg/QuickQuote/QA_517.xlsx" />
+		<parameter name="Row" value="2" />
 		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions" />
+			<class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableResidentialPickup" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
 	</test>
@@ -255,22 +256,11 @@
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestTrackingStatus" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
 	</test>
 	
 	<!-- ************************************** QA - 517 Tests ****************************************************** -->
-	
-	<test name="Test Enable Residential pickup and loose cartoon">
-		<parameter name="fcusername" value="info@freightclub.com" />
-		<parameter name="fcpassword" value="Welcome@2" />
-		<parameter name="searchUser" value="prodsh22dec@mailinator.com"/>
-		<parameter name="testData" value="testdata/FCfiles/stg/QuickQuote/QA_517.xlsx" />
-		<parameter name="Row" value="2" />
-		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableResidentialPickup" />
-			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
-		</classes>
-	</test>
 
 	 <test name="Test Basic Threshold Not Visible When Residential to Commercial - ABF Freight">
 		<parameter name="fcusername" value="prodsh22dec@mailinator.com" />
