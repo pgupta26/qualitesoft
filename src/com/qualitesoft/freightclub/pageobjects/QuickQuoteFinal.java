@@ -197,9 +197,9 @@ public class QuickQuoteFinal {
 	}
 
 	public void waitForQuotesToAppear() {
-		List<WebElement> element= driver.findElements(By.xpath("//span[text()='Searching for quotes...']"));
+		List<WebElement> searchForQuotes = driver.findElements(By.xpath("//span[text()='Searching for quotes...']"));
 		
-		if(element.size() > 0) {
+		if(searchForQuotes.size() > 0) {
 			String displayValue ;		
 			for(int i = 2; i < 40; i=i+2) {
 				displayValue =  driver.findElement(By.xpath("//span[text()='Searching for quotes...']")).getCssValue("display");

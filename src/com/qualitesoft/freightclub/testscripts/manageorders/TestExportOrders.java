@@ -1,5 +1,6 @@
 package com.qualitesoft.freightclub.testscripts.manageorders;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -30,17 +31,29 @@ public class TestExportOrders extends InitializeTest
 				Log.info("Already in booked table");
 			}
 			
-			SeleniumFunction.click(manageOrderpage.clickExportOrdersBtn(keyword));
-			WaitTool.sleep(10);
-
-			String sheetName = JavaFunction.currentPSTDate("yyyy-M-d");
-			int numOfRows = JavaFunction.countLineBufferedReader("download\\" + testData +  sheetName + ".csv");
-
 			String rowsCount = manageOrderpage.getPagiationTotalRows(keyword);
 			String[] num = rowsCount.split(" ");
 			String totalRecords = num[4];
-			Log.info("Pagination count " + totalRecords + " \n Excel rows " + numOfRows);
-			Assert.assertTrue(numOfRows >= Integer.parseInt(totalRecords));
+			
+			if(Integer.parseInt(totalRecords) > 100 ) {
+				String expectedMsg = "Creating Report As soon as your export is ready we will send it to your login email address: {userName}";
+				expectedMsg = expectedMsg.replace("{userName}", fcusername);
+				
+				SeleniumFunction.click(manageOrderpage.clickExportOrdersBtn(keyword));
+				String toastMessage = WaitTool.waitForElementPresentAndDisplay(driver, By.id("toast-container"), 50).getText();
+				toastMessage = toastMessage.replaceAll("[\\t\\n\\r]+"," ");
+				System.out.println(toastMessage);
+				Assert.assertEquals(toastMessage, expectedMsg);
+			} else {
+				SeleniumFunction.click(manageOrderpage.clickExportOrdersBtn(keyword));
+				WaitTool.sleep(10);
+				
+				String sheetName = JavaFunction.currentPSTDate("yyyy-M-d");
+				int numOfRows = JavaFunction.countLineBufferedReader("download\\" + testData +  sheetName + ".csv");
+				
+				Log.info("Pagination count " + totalRecords + " \n Excel rows " + numOfRows);
+				Assert.assertTrue(numOfRows >= Integer.parseInt(totalRecords));
+			}
 			
 		}catch(Exception e){
 			Assert.fail(e.getMessage());
