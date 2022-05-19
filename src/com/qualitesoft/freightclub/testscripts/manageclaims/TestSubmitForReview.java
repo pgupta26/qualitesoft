@@ -239,6 +239,7 @@ public class TestSubmitForReview extends InitializeTest {
 			SeleniumFunction.getCurrentWindow(driver);
 			
 		}catch(Exception | AssertionError ex) {
+			ex.printStackTrace();
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
 			Assert.fail(ex.getMessage());

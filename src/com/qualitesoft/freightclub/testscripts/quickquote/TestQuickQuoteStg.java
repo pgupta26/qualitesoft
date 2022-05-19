@@ -101,11 +101,11 @@ public class TestQuickQuoteStg extends InitializeTest {
 				
 		String insuranceValue = null;
 		if(insurance.equals("Yes")) {
-			insuranceValue = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/222.png']/ancestor::tr/td[5]/ul/li"), 10).getText();
+			insuranceValue = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/280.png']/ancestor::tr/td[5]/ul/li"), 10).getText();
 			Log.info("Insurance Value: "+insuranceValue);
 			insuranceValue = insuranceValue.split("\\(")[1].split("\\)")[0];
 		}
-		String amount = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/222.png']/ancestor::tr/td[6]/span"), 10).getText().trim();
+		String amount = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/280.png']/ancestor::tr/td[6]/span"), 10).getText().trim();
 		quickQuote.selectCarrier(carrier);
 		
 		//shipment completion information
@@ -206,7 +206,19 @@ public class TestQuickQuoteStg extends InitializeTest {
 		secondaryInvoice.setCellData("Sec invoice Master", "FC Order ID", 2, orderID);
 		secondaryInvoice.setCellData("Sec invoice Master", "Tracking #", 2, tracking);
 		secondaryInvoice.setCellData("Sec invoice Master", "SECONDARY INV #", 2, orderID+"+1");
-		String newInvoiceAmount = String.valueOf(JavaFunction.getRandomNumber(1, 999))+"."+String.valueOf(JavaFunction.getRandomNumber(1, 99));
+		
+		//random new invoice amount generation
+		boolean flag=true;
+		String newInvoiceAmount = null;
+		int lastDigit;
+		
+		while(flag) {
+			 newInvoiceAmount = String.valueOf(JavaFunction.getRandomNumber(1, 999))+"."+String.valueOf(JavaFunction.getRandomNumber(1, 99));
+			 lastDigit = Integer.parseInt(String.valueOf(newInvoiceAmount.charAt(newInvoiceAmount.length()-1)));
+			 if(lastDigit > 0) {
+				flag = false; 
+			 }
+		}
 		Log.info("New Invoice Amount Generated:  "+newInvoiceAmount);
 		secondaryInvoice.setCellData("Sec invoice Master", "New Invoice Amount", 2, newInvoiceAmount);
 

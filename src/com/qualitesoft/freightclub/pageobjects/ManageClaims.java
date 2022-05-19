@@ -211,15 +211,14 @@ public class ManageClaims {
 	}
 	
 	public void verifyEmailCommunicationSent(String message, int rowIndex) {
-		/*
-		 * WebElement element = WaitTool.waitForElementPresentAndDisplay(driver, By.
-		 * xpath("//label[text()='Email Communication']/parent::div/following-sibling::table/tr["
-		 * +rowIndex+"]/td[1] | //label[text()='Email Communication']/following-sibling::table/tr["
-		 * +rowIndex+"]/td[1]"), 60); Log.info("Actual Email: "+element.getText());
-		 * Assert.assertTrue(element.getText().contains(message));
-		 * Assert.assertTrue(this.gridData("Email Communication",2).getText().contains(
-		 * InitializeTest.fcusername));
-		 */
+		
+		  WebElement element = WaitTool.waitForElementPresentAndDisplay(driver, By.
+		  xpath("//label[text()='Email Communication']/parent::div/following-sibling::table/tr["
+		  +rowIndex+"]/td[1] | //label[text()='Email Communication']/following-sibling::table/tr["
+		  +rowIndex+"]/td[1]"), 60); Log.info("Actual Email: "+element.getText());
+		  Assert.assertTrue(element.getText().contains(message));
+		  Assert.assertTrue(this.gridData("Email Communication",2).getText().contains(InitializeTest.fcusername));
+		 
 	}
 	
 	public void verifyManageClaimsGrid(Xls_Reader xr, int rowIndex, ArrayList<String> expectedGridHeader) {
