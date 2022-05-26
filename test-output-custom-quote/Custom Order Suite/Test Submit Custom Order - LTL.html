@@ -1,0 +1,240 @@
+<html>
+<head>
+<title>TestNG:  Test Submit Custom Order - LTL</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Test Submit Custom Order - LTL</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>3/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Mon May 23 12:05:39 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>178 seconds (178984 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomOrderAsUser.testSubmitCustomOrderAsUser()'><b>testSubmitCustomOrderAsUser</b><br>Test class: com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomOrderAsUser<br/>
+<a href="#Output-2089636626" onClick='toggleBox("Output-2089636626", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2089636626" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2089636626">
+Element by By.xpath: //a[contains(@href,'/QuickQuote/QuickQuote')] found.<br/>
+WebElement clicked.<br/>
+Element (By.xpath: //button[@data-role='end']) not found.<br/>
+Element by By.xpath: //strong[text()='Less-Than-Truckload (LTL)']/preceding::div[1]/parent::label found.<br/>
+Element (By.xpath: //button[@data-role='end']) not found.<br/>
+Element by By.xpath: //input[@id='OrderDate'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: (//div[@class='datepicker-days']//td[@class='day'])[2] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //input[@id='OrderReferenceID'] found.<br/>
+Text send.<br/>
+Element by By.xpath: //div[@class='selectize-control form-input single'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //div[@class='selectize-dropdown-content']/descendant::strong[contains(text(),'Curbside (Liftgate)')] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: (//input[@placeholder='Select location or enter ZIP/Postal code'])[1] found.<br/>
+Element by By.xpath: //strong[text()='m90001'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: (//input[@placeholder='Select location or enter ZIP/Postal code'])[1] found.<br/>
+Element by By.xpath: //strong[text()='m10011'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //h5[text()='Pick Up Location ']/ancestor::div[@class='col-xs-12 col-sm-6']/descendant::select[@class='form-input form-control input-sm'] found.<br/>
+value from the dropdown selected: Commercial<br/>
+Element by By.xpath: //h5[text()='Drop Off Location ']/ancestor::div[@class='col-xs-12 col-sm-6']/descendant::select[@class='form-input form-control input-sm'] found.<br/>
+value from the dropdown selected: Commercial<br/>
+Screenshot Shipment Info successfully taken.<br/>
+Element by By.xpath: (//span[@title='Category']/parent::label/following-sibling::select)[1] found.<br/>
+value from the dropdown selected: Safe/Vault<br/>
+Element by By.xpath: (//span[contains(text(),'Quantity')]/following::input[1])[1] found.<br/>
+Text send.<br/>
+Element by By.xpath: (//input[@placeholder='Select or Search...'])['1'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: (//div[@data-group='packaging']/div[contains(text(),'Non-Palletized')])[1] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: (//div[contains(@class,'weight')])[1]/descendant::input[1] found.<br/>
+Text send.<br/>
+Element by By.xpath: (//input[@type='number' and @placeholder='Length'])[1] found.<br/>
+Text send.<br/>
+Element by By.xpath: (//input[@type='number' and @placeholder='Width'])[1] found.<br/>
+Text send.<br/>
+Element by By.xpath: (//input[@type='number' and @placeholder='Height'])[1] found.<br/>
+Text send.<br/>
+Element by By.xpath: (//input[@type='number' and @min='0.01' and @step='0.01'])[1] found.<br/>
+Text send.<br/>
+Screenshot Item Info successfully taken.<br/>
+Element by By.xpath: (//button[@class='btn btn-info btn-xs'])[1] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: (//span[@title='Category']/parent::label/following-sibling::select)[2] found.<br/>
+value from the dropdown selected: Safe/Vault<br/>
+Element by By.xpath: (//span[contains(text(),'Quantity')]/following::input[1])[2] found.<br/>
+Text send.<br/>
+Element by By.xpath: (//input[@placeholder='Select or Search...'])['2'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: (//div[@data-group='packaging']/div[contains(text(),'Standard Pallet 1')])[2] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: (//div[contains(@class,'weight')])[2]/descendant::input[1] found.<br/>
+Text send.<br/>
+Element by By.xpath: (//input[@type='number' and @placeholder='Length'])[2] found.<br/>
+Text send.<br/>
+Element by By.xpath: (//input[@type='number' and @placeholder='Width'])[2] found.<br/>
+Text send.<br/>
+Element by By.xpath: (//input[@type='number' and @placeholder='Height'])[2] found.<br/>
+Text send.<br/>
+Element by By.xpath: (//input[@type='number' and @min='0.01' and @step='0.01'])[2] found.<br/>
+Text send.<br/>
+Element by By.xpath: (//div[@id='CartonHeaviest']/input)[2] found.<br/>
+Text send.<br/>
+Screenshot Item Info successfully taken.<br/>
+Element by By.xpath: (//button[@class='btn btn-info btn-xs'])[1] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: (//input[@placeholder='Select or Search...'])[1] found.<br/>
+Text send.<br/>
+Element by By.xpath: (//input[@placeholder='Select or Search...'])[1] found.<br/>
+Screenshot Item Info successfully taken.<br/>
+Element by By.xpath: //button[contains(text(),'Get Rate')] | //button[text()='Submit for Quote'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //div[@class='vue-dialog-confirm modal fade in']/descendant::div[@class='modal-header']/descendant::h5 found.<br/>
+Element by By.xpath: //div[@class='vue-dialog-confirm modal fade in']/descendant::div[@class='modal-body'] found.<br/>
+Screenshot Custom Order Popup successfully taken.<br/>
+Element by By.xpath: //div[@class='vue-dialog-confirm modal fade in']/descendant::div[@class='modal-footer']/descendant::button[2] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //span[contains(text(),'Driver required for loading & unloading')]/input found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //span[contains(text(),'Regulatory Details')]/following::textarea[1] found.<br/>
+Text send.<br/>
+Element by By.xpath: //span[@title='Delivery Frequency']/following::textarea[1] found.<br/>
+Text send.<br/>
+Screenshot Shipment Details successfully taken.<br/>
+Element by By.xpath: //button[text()='Submit for Quote'] found.<br/>
+WebElement clicked.<br/>
+Screenshot Popup3797 successfully taken.<br/>
+Element by By.xpath: //button[@data-role='end'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //div[@id='incompleteGrid']/descendant::div[@class='ag-body-container']/descendant::div[@colid='ID'] found.<br/>
+crorderId:51540114<br/>
+</div>
+</td>
+<td></td>
+<td>129</td>
+<td>com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomOrderAsUser@13c27452</td></tr>
+<tr>
+<td title='com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku.testUserIsAbleToCreateNonPalletizedSku()'><b>testUserIsAbleToCreateNonPalletizedSku</b><br>Test class: com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku<br/>
+<a href="#Output-2015521846" onClick='toggleBox("Output-2015521846", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2015521846" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2015521846">
+Element by By.xpath: //a[contains(@href,'/Product/UploadProducts')] found.<br/>
+WebElement clicked.<br/>
+Element (By.xpath: //button[@data-role='end']) not found.<br/>
+Product Name: prodxGMo<br/>
+Element by By.xpath: //button[contains(text(),'Create New Product')] found.<br/>
+WebElement clicked.<br/>
+Screenshot Create Product Popup successfully taken.<br/>
+Element by By.xpath: //div[@class='selectize-input items has-options full has-items'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //div[contains(text(),'No Pallet Required')] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //input[@id='SKU'] found.<br/>
+Text send.<br/>
+Element by By.xpath: //input[@id='Name'] found.<br/>
+Text send.<br/>
+Element by By.xpath: //input[@id='DeclaredValue'] found.<br/>
+Text send.<br/>
+Element by By.xpath: (//*[@id="product-cartons-table"]/tbody/tr/td[4]/select)[1] found.<br/>
+value from the dropdown selected: 1183<br/>
+Element by By.xpath: (//*[@id="product-cartons-table"]/tbody/tr/td[2]/div[1]/input)[1] found.<br/>
+Text send.<br/>
+Element by By.xpath: (//*[@id="product-cartons-table"]/tbody/tr/td[3]/div[1]/input)[1] found.<br/>
+Text send.<br/>
+Element by By.xpath: (//*[@id="product-cartons-table"]/tbody/tr/td[3]/div[2]/input)[1] found.<br/>
+Text send.<br/>
+Element by By.xpath: (//*[@id="product-cartons-table"]/tbody/tr/td[3]/div[3]/input)[1] found.<br/>
+Text send.<br/>
+Screenshot Product Details successfully taken.<br/>
+Element by By.xpath: //*[@id='createProductModal']/div/div/div[3]/div/div[2]/button found.<br/>
+WebElement clicked.<br/>
+</div>
+</td>
+<td></td>
+<td>30</td>
+<td>com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku@12f41634</td></tr>
+<tr>
+<td title='com.qualitesoft.freightclub.testscripts.TestLogOff.testlogoff()'><b>testlogoff</b><br>Test class: com.qualitesoft.freightclub.testscripts.TestLogOff<br/>
+<a href="#Output-351965871" onClick='toggleBox("Output-351965871", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-351965871" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-351965871">
+Element by By.xpath: //*[@id="top-bar"]/ul[2]/li[4]/a found.<br/>
+WebElement clicked.<br/>
+Screenshot Logout successfully taken.<br/>
+</div>
+</td>
+<td></td>
+<td>17</td>
+<td>com.qualitesoft.freightclub.testscripts.TestLogOff@262b2c86</td></tr>
+</table><p>
+</body>
+</html>

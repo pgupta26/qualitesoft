@@ -1,0 +1,128 @@
+<html>
+<head>
+<title>TestNG:  Test - valid - user is able to view claim details - LTL - Without Insurance - Claim Type - Loss</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Test - valid - user is able to view claim details - LTL - Without Insurance - Claim Type - Loss</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu May 19 19:19:13 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>86 seconds (86886 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.qualitesoft.freightclub.testscripts.manageclaims.TestViewClaimDetails.testViewClaimDetails()'><b>testViewClaimDetails</b><br>Test class: com.qualitesoft.freightclub.testscripts.manageclaims.TestViewClaimDetails<br/>
+<a href="#Output-1741684397" onClick='toggleBox("Output-1741684397", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1741684397" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1741684397">
+Element by By.xpath: //a[@title='Click to retract or expand the page menu'] found.<br/>
+Element by By.xpath: //a[contains(@href,'/Claim/Index')] found.<br/>
+WebElement clicked.<br/>
+Screenshot Manage Claims Page successfully taken.<br/>
+Element by By.xpath: //a[@title='Click to retract or expand the page menu'] found.<br/>
+Element by By.xpath: //a[@title='Click to retract or expand the page menu'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: (//input[@ref='eColumnFloatingFilter'])[1] found.<br/>
+Text send.<br/>
+Element by By.xpath: (//input[@ref='eColumnFloatingFilter'])[1] found.<br/>
+Element by By.xpath: //div[@class='ag-body']/descendant::div[@class='ag-body-container']/div[1]/descendant::button found.<br/>
+WebElement clicked.<br/>
+Element (By.xpath: //button[@data-role='end']) not found.<br/>
+Element by By.xpath: //label[contains(text(),'Shipper:')]/following-sibling::span | //label[text()='Shipper:']/following-sibling::div found.<br/>
+Actual Shipper Name: PickUp522 Test PickUpAddressLine1 LOS ANGELES, CA 90001 1234567890<br/>
+Element by By.xpath: //label[contains(text(),'Consignee:')]/following-sibling::span | //label[text()='Consignee:']/following-sibling::div found.<br/>
+Actual Consignee Name: DropOff535 Test DropOffAddressLine1 NEW YORK, NY 10011 1234567890<br/>
+Element by By.xpath: //label[contains(text(),'Company:')]/following-sibling::span | //label[text()='Company:']/following-sibling::div found.<br/>
+[Test Automation] matched with [Test Automation]<br/>
+Element by By.xpath: //label[contains(text(),'Claim Date:')]/following-sibling::span | //label[text()='Claim Date:']/following-sibling::div found.<br/>
+[05-19-2022] matched with [05-19-2022]<br/>
+Element by By.xpath: //label[contains(text(),'Order ID:')]/following-sibling::span | //label[text()='Order ID:']/following-sibling::div found.<br/>
+[59070344] matched with [59070344]<br/>
+Element by By.xpath: //label[contains(text(),'Customer PO:')]/following-sibling::span | //label[text()='Customer PO:']/following-sibling::div found.<br/>
+[LTLInsurance] matched with [LTLInsurance]<br/>
+Element by By.xpath: //label[contains(text(),'Declared Value:')]/following-sibling::span | //label[text()='Declared Value:']/following-sibling::div found.<br/>
+[$600.00] matched with [$600.00]<br/>
+Element by By.xpath: //label[contains(text(),'UPSC Insurance Coverage:')]/following-sibling::span | //label[text()='UPSC Insurance Coverage:']/following-sibling::div found.<br/>
+[No] matched with [No]<br/>
+[PickUp522 Test PickUpAddressLine1 LOS ANGELES, CA 90001 1234567890] matched with [PickUp522 Test PickUpAddressLine1 LOS ANGELES, CA 90001 1234567890]<br/>
+[DropOff535 Test DropOffAddressLine1 NEW YORK, NY 10011 1234567890] matched with [DropOff535 Test DropOffAddressLine1 NEW YORK, NY 10011 1234567890]<br/>
+Element by By.xpath: //label[text()='Claim Type:']/following-sibling::div/descendant::div[contains(@class,'has-item')] found.<br/>
+[Loss] matched with [Loss]<br/>
+Element by By.xpath: //label[text()='Original Tracking #:']/following-sibling::input | //label[text()='Original Tracking #:']/following::input[1] found.<br/>
+[999U670530] matched with [999U670530]<br/>
+Element by By.xpath: //label[text()='Claim Status:']/following-sibling::input | //label[text()='Claim Status:']/following::input[1] found.<br/>
+[Initiated] matched with [Initiated]<br/>
+Element by By.xpath: //label[text()='Claim Status:']/following-sibling::input | //label[text()='Claim Status:']/following::input[1] found.<br/>
+</div>
+</td>
+<td></td>
+<td>85</td>
+<td>com.qualitesoft.freightclub.testscripts.manageclaims.TestViewClaimDetails@5bda8e08</td></tr>
+</table><p>
+</body>
+</html>

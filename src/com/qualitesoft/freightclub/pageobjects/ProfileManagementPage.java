@@ -154,6 +154,7 @@ public class ProfileManagementPage {
 				String carrierStatus = SeleniumFunction.getText(driver.findElement(By.xpath("//td[contains(text(),'"+carrierName+"')]/following-sibling::td[2]/descendant::span")));
 				if(!carrierStatus.equals("Active")) {
 					SeleniumFunction.clickJS(driver,driver.findElement(By.xpath("//td[contains(text(),'"+carrierName+"')]/following-sibling::td[2]/label")));
+					ScreenShot.takeFullScreenShot("Carrier "+carrierName+ " enabled");
 				}
 			}
 		}
@@ -181,7 +182,6 @@ public class ProfileManagementPage {
 		for(int i=0; i< elements.size(); i++) {
 			SeleniumFunction.scrollIntoView(driver, elements.get(i));
 			String carrierStatus = elements.get(i).getText();
-			Log.info("Carrier Status: "+carrierStatus);
 			if(carrierStatus.equals("Active")) {
 				SeleniumFunction.scrollUpByPixel(driver, "400");
 				WaitTool.sleep(2);

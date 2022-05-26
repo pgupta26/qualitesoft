@@ -1,0 +1,181 @@
+<html>
+<head>
+<title>TestNG:  Test Submit Custom Order Quote as Admin - Weekly - QA-538 -  CO02</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Test Submit Custom Order Quote as Admin - Weekly - QA-538 -  CO02</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>3/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Mon May 23 12:37:22 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>145 seconds (145018 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.qualitesoft.freightclub.testscripts.TestSignIn.testSignIn()'><b>testSignIn</b><br>Test class: com.qualitesoft.freightclub.testscripts.TestSignIn<br/>
+<a href="#Output-205023576" onClick='toggleBox("Output-205023576", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-205023576" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-205023576">
+Element by By.xpath: //input[contains(@id,'Email')] found.<br/>
+Text send.<br/>
+Element by By.xpath: //input[contains(@id,'Password')] found.<br/>
+Text send.<br/>
+Element by By.xpath: //input[contains(@id,'Email')] found.<br/>
+Screenshot Login detail inserted successfully taken.<br/>
+Element by By.xpath: //input[contains(@type,'submit')] found.<br/>
+WebElement clicked.<br/>
+Screenshot Login Successfully successfully taken.<br/>
+</div>
+</td>
+<td></td>
+<td>20</td>
+<td>com.qualitesoft.freightclub.testscripts.TestSignIn@6483f5ae</td></tr>
+<tr>
+<td title='com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomQuoteAsAdmin.testSubmitCustomQuoteAsAdmin()'><b>testSubmitCustomQuoteAsAdmin</b><br>Test class: com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomQuoteAsAdmin<br/>
+<a href="#Output-559065904" onClick='toggleBox("Output-559065904", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-559065904" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-559065904">
+Element by By.xpath: //a[contains(@href,'/Order/Index')] found.<br/>
+WebElement clicked.<br/>
+Element (By.xpath: //button[@data-role='end']) not found.<br/>
+Element by By.id: incompleteOrders found.<br/>
+WebElement clicked.<br/>
+Data Row: 3<br/>
+Order Id: 51540116<br/>
+Element by By.xpath: (//div[@id='incompleteGrid']//input[@ref='eColumnFloatingFilter'])[1] found.<br/>
+Text send.<br/>
+Element by By.xpath: (//div[@id='incompleteGrid']//input[@ref='eColumnFloatingFilter'])[1] found.<br/>
+Screenshot Order Id filter successfully taken.<br/>
+Element by By.xpath: //*[@id="center"]/div/div[4]/div[3]/div/div/div[1]/div[7]/div/button[1] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //*[@id="shipment-review"]/div[1]/div[3]/div/div[1]/div[1]/div/div[1]/div/strong found.<br/>
+Element by By.xpath: //*[@id="shipment-review"]/div[1]/div[3]/div/div[1]/div[1]/div/div[1]/div/strong found.<br/>
+Element by By.xpath: //strong[text()='Shipment Information']/following::textarea[1] found.<br/>
+Element by By.xpath: //span[contains(text(),'Regulatory Details')]/following::textarea found.<br/>
+Element by By.xpath: //span[contains(text(),'Regulated items that require further inspection')]/input found.<br/>
+Element by By.xpath: //button[text()='Submit Quote'] found.<br/>
+WebElement clicked.<br/>
+Screenshot Custom Quote Required Fields Admin successfully taken.<br/>
+Element by By.xpath: //*[@id="shipment-review"]/div[1]/div[7]/div/div/div/div/table/tbody/tr/td[3] found.<br/>
+Element by By.xpath: //*[@id="shipment-review"]/div[1]/div[7]/div/div/div/div/table/tbody/tr/td[1] found.<br/>
+Element by By.xpath: //*[@id="shipment-review"]/div[1]/div[7]/div/div/div/div/table/tbody/tr/td[2] found.<br/>
+Screenshot Custom quote page admin details successfully taken.<br/>
+Element by By.id: addCustomQuote found.<br/>
+WebElement clicked.<br/>
+Element (By.xpath: //button[@data-role='end']) not found.<br/>
+Element by By.xpath: //input[@placeholder='Select Carrier'] found.<br/>
+Text send.<br/>
+Element by By.xpath: //div[@data-value='222'] found.<br/>
+WebElement clicked.<br/>
+Element by By.id: CarrierQuote found.<br/>
+Text send.<br/>
+Element by By.xpath: //*[@id="shipment-review"]/div[1]/div[3]/div/div[2]/div/table/tbody/tr/td[4]/div/div/input found.<br/>
+Text send.<br/>
+Element by By.xpath: //i[@class='fa fa-check-circle fa-lg'] found.<br/>
+WebElement clicked.<br/>
+Screenshot Fulfilment carrier details successfully taken.<br/>
+Recurring expiry data: 05-24-2022<br/>
+Element by By.id: FrequencyExpiry found.<br/>
+Element by By.id: FrequencyExpiry found.<br/>
+Element by By.id: FrequencyExpiry found.<br/>
+Text send.<br/>
+Element by By.id: FrequencyExpiry found.<br/>
+Screenshot Recurring expiry forWeekly successfully taken.<br/>
+Element by By.xpath: //strong[text()='Shipment Information']/following::textarea[1] found.<br/>
+Text send.<br/>
+Element by By.xpath: //span[contains(text(),'Regulatory Details')]/following::textarea found.<br/>
+Text send.<br/>
+Screenshot Updated regulatory and shipment information successfully taken.<br/>
+Element by By.xpath: //*[@id="shipment-review"]/div[1]/div[3]/div/div[1]/div[2]/div/div/input found.<br/>
+Text send.<br/>
+Screenshot Markup percentage successfully taken.<br/>
+Element by By.xpath: //button[text()='Submit Quote'] found.<br/>
+WebElement clicked.<br/>
+Screenshot Submit quote successfully taken.<br/>
+</div>
+</td>
+<td></td>
+<td>106</td>
+<td>com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomQuoteAsAdmin@b9afc07</td></tr>
+<tr>
+<td title='com.qualitesoft.freightclub.testscripts.TestLogOff.testlogoff()'><b>testlogoff</b><br>Test class: com.qualitesoft.freightclub.testscripts.TestLogOff<br/>
+<a href="#Output-1465146431" onClick='toggleBox("Output-1465146431", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1465146431" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1465146431">
+Element by By.xpath: //*[@id="top-bar"]/ul[2]/li[4]/a found.<br/>
+WebElement clicked.<br/>
+Screenshot Logout successfully taken.<br/>
+</div>
+</td>
+<td></td>
+<td>17</td>
+<td>com.qualitesoft.freightclub.testscripts.TestLogOff@382db087</td></tr>
+</table><p>
+</body>
+</html>

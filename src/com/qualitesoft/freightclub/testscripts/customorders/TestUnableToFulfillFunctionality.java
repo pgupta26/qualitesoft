@@ -44,7 +44,7 @@ public class TestUnableToFulfillFunctionality extends InitializeTest {
 		WaitTool.sleep(5);
 
 		SeleniumFunction.click(notQuotedTab.unableToFulfil());
-		WaitTool.sleep(10);
+		WaitTool.sleep(30);
 		
 		Assert.assertEquals(notQuotedTab.gridStatus().getText().trim(), "Unable To Fulfill");
 		ScreenShot.takeScreenShot(driver, "Unable to fulfil");

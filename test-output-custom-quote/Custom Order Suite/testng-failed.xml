@@ -1,0 +1,1605 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Custom Order Suite]">
+  <parameter name="loginuser" value="old"/>
+  <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+  <parameter name="CarrierName" value="Custom Orders"/>
+  <parameter name="retryCount" value="1"/>
+  <parameter name="project" value="FreightClub"/>
+  <parameter name="notificationType" value="Custom Order Cannot Be Fulfilled"/>
+  <parameter name="env" value="qa"/>
+  <parameter name="URL" value="https://qa.freightclub.com/"/>
+  <parameter name="fcusername" value="custom.order@mailinator.com"/>
+  <parameter name="CarrierDetailsOptions" value="Full Truck Load Supported,Custom Quotes Supported"/>
+  <parameter name="searchUser" value="custom.order@mailinator.com"/>
+  <parameter name="browser" value="chrome"/>
+  <parameter name="fcpassword" value="Welcome@1"/>
+  <parameter name="Row" value="4"/>
+  <parameter name="keyword" value="incompleteGrid"/>
+  <parameter name="enableOption" value="Custom Orders"/>
+  <listeners>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    <listener class-name="com.qualitesoft.core.CustomTestListener"/>
+  </listeners>
+  <test name="Test Verify Functionality of Re-Quote Button - Custom Order">
+    <parameter name="fcusername" value="custom.order@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="CarrierName" value="Custom Orders"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="3"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn"/>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyReQuoteFunctionality"/>
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff"/>
+    </classes>
+  </test> <!-- Test Verify Functionality of Re-Quote Button - Custom Order -->
+  <test name="Test Enable Custom Order Option from Admin">
+    <parameter name="fcusername" value="freightclubinfo@gmail.com"/>
+    <parameter name="searchUser" value="custom.order@mailinator.com"/>
+    <parameter name="fcpassword" value="Welcome@1"/>
+    <parameter name="enableOption" value="Custom Orders"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn"/>
+      <class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestUserIsAbleToSearchProfile"/>
+      <class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestEnableCustomOrder"/>
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff"/>
+    </classes>
+  </test> <!-- Test Enable Custom Order Option from Admin -->
+  <test name="Custom Order not visible Weight less than 250 - LTL Non-Palletized">
+    <parameter name="fcusername" value="custom.order@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_537.xlsx"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn"/>
+      <class name="com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentInformation"/>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestCustomPopupNotPresent"/>
+    </classes>
+  </test> <!-- Custom Order not visible Weight less than 250 - LTL Non-Palletized -->
+  <test name="Custom Order visible Weight greater than 250 - LTL Non-Palletized">
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithWeight251"/>
+    </classes>
+  </test> <!-- Custom Order visible Weight greater than 250 - LTL Non-Palletized -->
+  <test name="Custom Order visible Package Count greater than 4 - LTL Non-Palletized">
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithMultilePackageType"/>
+    </classes>
+  </test> <!-- Custom Order visible Package Count greater than 4 - LTL Non-Palletized -->
+  <test name="Custom Order not visible Weight less than 250 - LTL Standard">
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_537.xlsx"/>
+    <parameter name="Row" value="3"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentInformation"/>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestCustomPopupNotPresent"/>
+    </classes>
+  </test> <!-- Custom Order not visible Weight less than 250 - LTL Standard -->
+  <test name="Custom Order visible Weight greater than 250 - LTL Standard">
+    <parameter name="Row" value="3"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithWeight251"/>
+    </classes>
+  </test> <!-- Custom Order visible Weight greater than 250 - LTL Standard -->
+  <test name="Custom Order visible Package Count greater than 4 - LTL Standard">
+    <parameter name="Row" value="3"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithMultilePackageType"/>
+    </classes>
+  </test> <!-- Custom Order visible Package Count greater than 4 - LTL Standard -->
+  <test name="Custom Order not visible Weight less than 250 - LTL Added-Product">
+    <parameter name="loginuser" value="old"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_537.xlsx"/>
+    <parameter name="Row" value="4"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku"/>
+      <class name="com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentInformation"/>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestCustomPopupNotPresent"/>
+    </classes>
+  </test> <!-- Custom Order not visible Weight less than 250 - LTL Added-Product -->
+  <test name="Custom Order visible Weight greater than 250 - LTL  Added-Product">
+    <parameter name="loginuser" value="old"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_537.xlsx"/>
+    <parameter name="Row" value="4"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku"/>
+      <class name="com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentInformation"/>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithWeight251"/>
+    </classes>
+  </test> <!-- Custom Order visible Weight greater than 250 - LTL  Added-Product -->
+  <test name="Custom Order visible Package Count greater than 4 - LTL  Added-Product">
+    <parameter name="Row" value="4"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithMultilePackageType"/>
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff"/>
+    </classes>
+  </test> <!-- Custom Order visible Package Count greater than 4 - LTL  Added-Product -->
+  <test name="Test disable Custom Order Option from Admin">
+    <parameter name="fcusername" value="freightclubinfo@gmail.com"/>
+    <parameter name="searchUser" value="custom.order@mailinator.com"/>
+    <parameter name="fcpassword" value="Welcome@1"/>
+    <parameter name="enableOption" value="Custom Orders"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn"/>
+      <class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestDisableCustomOrder"/>
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff"/>
+    </classes>
+  </test> <!-- Test disable Custom Order Option from Admin -->
+  <test name="Custom Order not visible Weight less than 250 - LTL Non-Palletized - 02">
+    <parameter name="fcusername" value="custom.order@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_537.xlsx"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn"/>
+      <class name="com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentInformation"/>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestCustomPopupNotPresent"/>
+    </classes>
+  </test> <!-- Custom Order not visible Weight less than 250 - LTL Non-Palletized - 02 -->
+  <test name="Custom Order visible Weight greater than 250 - LTL Non-Palletized - 02">
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithWeight251"/>
+    </classes>
+  </test> <!-- Custom Order visible Weight greater than 250 - LTL Non-Palletized - 02 -->
+  <test name="Custom Order visible Package Count greater than 4 - LTL Non-Palletized - 02">
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithMultilePackageType"/>
+    </classes>
+  </test> <!-- Custom Order visible Package Count greater than 4 - LTL Non-Palletized - 02 -->
+  <test name="Custom Order not visible Weight less than 250 - LTL Standard - 02">
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_537.xlsx"/>
+    <parameter name="Row" value="3"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentInformation"/>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestCustomPopupNotPresent"/>
+    </classes>
+  </test> <!-- Custom Order not visible Weight less than 250 - LTL Standard - 02 -->
+  <test name="Custom Order visible Weight greater than 250 - LTL Standard - 02">
+    <parameter name="Row" value="3"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithWeight251"/>
+    </classes>
+  </test> <!-- Custom Order visible Weight greater than 250 - LTL Standard - 02 -->
+  <test name="Custom Order visible Package Count greater than 4 - LTL Standard - 02">
+    <parameter name="Row" value="3"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithMultilePackageType"/>
+    </classes>
+  </test> <!-- Custom Order visible Package Count greater than 4 - LTL Standard - 02 -->
+  <test name="Custom Order not visible Weight less than 250 - LTL Added-Product - 02">
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_537.xlsx"/>
+    <parameter name="Row" value="4"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku"/>
+      <class name="com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentInformation"/>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestCustomPopupNotPresent"/>
+    </classes>
+  </test> <!-- Custom Order not visible Weight less than 250 - LTL Added-Product - 02 -->
+  <test name="Custom Order visible Weight greater than 250 - LTL  Added-Product - 02">
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_537.xlsx"/>
+    <parameter name="Row" value="4"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku"/>
+      <class name="com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentInformation"/>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithWeight251"/>
+    </classes>
+  </test> <!-- Custom Order visible Weight greater than 250 - LTL  Added-Product - 02 -->
+  <test name="Custom Order visible Package Count greater than 4 - LTL  Added-Product - 02">
+    <parameter name="Row" value="4"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithMultilePackageType"/>
+    </classes>
+  </test> <!-- Custom Order visible Package Count greater than 4 - LTL  Added-Product - 02 -->
+  <test name="Test Submit Custom Order - LTL">
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_537.xlsx"/>
+    <parameter name="Row" value="5"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku"/>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomOrderAsUser"/>
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff"/>
+    </classes>
+  </test> <!-- Test Submit Custom Order - LTL -->
+  <test name="Test Submit Custom Order Quote as Admin">
+    <parameter name="fcusername" value="freightclubinfo@gmail.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_537.xlsx"/>
+    <parameter name="CarrierName" value="Custom Orders"/>
+    <parameter name="fcpassword" value="Welcome@1"/>
+    <parameter name="Row" value="5"/>
+    <parameter name="keyword" value="incompleteGrid"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn"/>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomQuoteAsAdmin"/>
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff"/>
+    </classes>
+  </test> <!-- Test Submit Custom Order Quote as Admin -->
+  <test name="Test Order Ready For Booking Mail">
+    <parameter name="fcusername" value="custom.order@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_537.xlsx"/>
+    <parameter name="Row" value="5"/>
+    <parameter name="notificationType" value="Order Ready For Booking"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification"/>
+    </classes>
+  </test> <!-- Test Order Ready For Booking Mail -->
+  <test name="Test book custom order as user - LTL">
+    <parameter name="fcusername" value="custom.order@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_537.xlsx"/>
+    <parameter name="CarrierName" value="Custom Orders"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="5"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn"/>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestBookCustomOrder"/>
+    </classes>
+  </test> <!-- Test book custom order as user - LTL -->
+  <test name="Test Verify Request Cancellation Button - LTL">
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_537.xlsx"/>
+    <parameter name="CarrierName" value="Custom Orders"/>
+    <parameter name="Row" value="5"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestRequestCancellationAndCloneOrReQuoteButton"/>
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff"/>
+    </classes>
+  </test> <!-- Test Verify Request Cancellation Button - LTL -->
+  <test name="Test Order Confirmation Mail">
+    <parameter name="fcusername" value="custom.order@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_537.xlsx"/>
+    <parameter name="Row" value="5"/>
+    <parameter name="notificationType" value="Order Confirmation Mail - User - LTL"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification"/>
+    </classes>
+  </test> <!-- Test Order Confirmation Mail -->
+  <test name="Test Enable Custom Order Option and Estes Express Lines from Admin - QA-538">
+    <parameter name="fcusername" value="freightclubinfo@gmail.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="searchUser" value="custom.order@mailinator.com"/>
+    <parameter name="fcpassword" value="Welcome@1"/>
+    <parameter name="Row" value="2"/>
+    <parameter name="enableOption" value="Custom Orders"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn"/>
+      <class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestUserIsAbleToSearchProfile"/>
+      <class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestEnableCustomOrder"/>
+      <class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestEnableCarrier"/>
+    </classes>
+  </test> <!-- Test Enable Custom Order Option and Estes Express Lines from Admin - QA-538 -->
+  <test name="Test Enable Carrier Details Options">
+    <parameter name="CarrierDetailsOptions" value="Full Truck Load Supported,Custom Quotes Supported"/>
+    <parameter name="CarrierName" value="FC Test Carrier"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions"/>
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff"/>
+    </classes>
+  </test> <!-- Test Enable Carrier Details Options -->
+  <test name="Test validate custom order fields">
+    <parameter name="fcusername" value="custom.order@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn"/>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestValidateCustomerOrderRequiredFields"/>
+    </classes>
+  </test> <!-- Test validate custom order fields -->
+  <test name="Test Custom Quote Request - One-Time Delivery - QA-538 - CO01">
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="CarrierName" value="Custom Orders"/>
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomOrderAsUser"/>
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff"/>
+    </classes>
+  </test> <!-- Test Custom Quote Request - One-Time Delivery - QA-538 - CO01 -->
+  <test name="Test Custom Quote Requested Mail to User - QA-538 - CO01">
+    <parameter name="fcusername" value="custom.order@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="notificationType" value="Custom Quote Requested - User"/>
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification"/>
+    </classes>
+  </test> <!-- Test Custom Quote Requested Mail to User - QA-538 - CO01 -->
+  <test name="Test Custom Quote Requested Mail to Admin - QA-538 - CO01">
+    <parameter name="fcusername" value="8march1@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="notificationType" value="Custom Quote Requested - Admin"/>
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification"/>
+    </classes>
+  </test> <!-- Test Custom Quote Requested Mail to Admin - QA-538 - CO01 -->
+  <test name="Test Custom Quote Requested Mail to Carrier - QA-538 - CO01">
+    <parameter name="fcusername" value="banita.verma@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="notificationType" value="Custom Quote Requested - Carrier"/>
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification"/>
+    </classes>
+  </test> <!-- Test Custom Quote Requested Mail to Carrier - QA-538 - CO01 -->
+  <test name="Test Submit Custom Order Quote as Admin - - One-Time Delivery - QA-538 - CO01">
+    <parameter name="fcusername" value="freightclubinfo@gmail.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="CarrierName" value="Custom Orders"/>
+    <parameter name="fcpassword" value="Welcome@1"/>
+    <parameter name="Row" value="2"/>
+    <parameter name="keyword" value="incompleteGrid"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn"/>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomQuoteAsAdmin"/>
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff"/>
+    </classes>
+  </test> <!-- Test Submit Custom Order Quote as Admin - - One-Time Delivery - QA-538 - CO01 -->
+  <test name="Test Order Ready For Booking Mail to User - QA-538 - CO01">
+    <parameter name="fcusername" value="custom.order@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="notificationType" value="Order Ready For Booking"/>
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification">
+        <methods>
+          <include name="testEmailNotifications"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.EmailVerification -->
+    </classes>
+  </test> <!-- Test Order Ready For Booking Mail to User - QA-538 - CO01 -->
+  <test name="Test Verify YRC and ESTES carrier will appear even if it is disabled - One-Time Delivery - QA-538 - CO01">
+    <parameter name="loginuser" value="new"/>
+    <parameter name="fcusername" value="custom.order@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn"/>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestBookCustomOrder"/>
+    </classes>
+  </test> <!-- Test Verify YRC and ESTES carrier will appear even if it is disabled - One-Time Delivery - QA-538 - CO01 -->
+  <test name="Test Verify Request Cancellation Button - One-Time Delivery - QA-538 - CO01">
+    <parameter name="loginuser" value="new"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestRequestCancellationAndCloneOrReQuoteButton"/>
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff"/>
+    </classes>
+  </test> <!-- Test Verify Request Cancellation Button - One-Time Delivery - QA-538 - CO01 -->
+  <test name="Test Order Confirmation Mail to Admin - QA-538 - CO01">
+    <parameter name="fcusername" value="8march1@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="Row" value="2"/>
+    <parameter name="notificationType" value="Order Confirmation Mail - Admin"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification">
+        <methods>
+          <include name="testEmailNotifications"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.EmailVerification -->
+    </classes>
+  </test> <!-- Test Order Confirmation Mail to Admin - QA-538 - CO01 -->
+  <test name="Test Order Confirmation Mail to User - QA-538 - CO01">
+    <parameter name="fcusername" value="custom.order@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="Row" value="2"/>
+    <parameter name="notificationType" value="Order Confirmation Mail - User"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification"/>
+    </classes>
+  </test> <!-- Test Order Confirmation Mail to User - QA-538 - CO01 -->
+  <test name="Test Quick Quote Custom Order - Weekly - QA-538 -  CO02">
+    <parameter name="loginuser" value="old"/>
+    <parameter name="fcusername" value="custom.order@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="CarrierName" value="Custom Orders"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="3"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn"/>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomOrderAsUser"/>
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff"/>
+    </classes>
+  </test> <!-- Test Quick Quote Custom Order - Weekly - QA-538 -  CO02 -->
+  <test name="Test Custom Quote Requested Mail to User - QA-538 - CO02">
+    <parameter name="fcusername" value="custom.order@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="notificationType" value="Custom Quote Requested - User"/>
+    <parameter name="Row" value="3"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification"/>
+    </classes>
+  </test> <!-- Test Custom Quote Requested Mail to User - QA-538 - CO02 -->
+  <test name="Test Custom Quote Requested Mail to Admin - QA-538 - CO02">
+    <parameter name="fcusername" value="8march1@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="notificationType" value="Custom Quote Requested - Admin"/>
+    <parameter name="Row" value="3"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification"/>
+    </classes>
+  </test> <!-- Test Custom Quote Requested Mail to Admin - QA-538 - CO02 -->
+  <test name="Test Submit Custom Order Quote as Admin - Weekly - QA-538 -  CO02">
+    <parameter name="fcusername" value="freightclubinfo@gmail.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="CarrierName" value="Custom Orders"/>
+    <parameter name="fcpassword" value="Welcome@1"/>
+    <parameter name="Row" value="3"/>
+    <parameter name="keyword" value="incompleteGrid"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn"/>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomQuoteAsAdmin"/>
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff"/>
+    </classes>
+  </test> <!-- Test Submit Custom Order Quote as Admin - Weekly - QA-538 -  CO02 -->
+  <test name="Test Order Ready For Booking Mail to User - QA-538 - CO02">
+    <parameter name="fcusername" value="custom.order@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="notificationType" value="Order Ready For Booking"/>
+    <parameter name="Row" value="3"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification">
+        <methods>
+          <include name="testEmailNotifications"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.EmailVerification -->
+    </classes>
+  </test> <!-- Test Order Ready For Booking Mail to User - QA-538 - CO02 -->
+  <test name="Test book custom order as user - Weekly - QA-538 - CO02">
+    <parameter name="fcusername" value="custom.order@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="CarrierName" value="YRC,ESTES"/>
+    <parameter name="fcpassword" value="Automation123!"/>
+    <parameter name="Row" value="3"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn"/>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestBookCustomOrder"/>
+    </classes>
+  </test> <!-- Test book custom order as user - Weekly - QA-538 - CO02 -->
+  <test name="Test Order Confirmation Mail to Admin - QA-538 - CO02">
+    <parameter name="fcusername" value="8march1@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="Row" value="3"/>
+    <parameter name="notificationType" value="Order Confirmation Mail - Admin"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification"/>
+    </classes>
+  </test> <!-- Test Order Confirmation Mail to Admin - QA-538 - CO02 -->
+  <test name="Test Order Confirmation Mail to User - QA-538 - CO02">
+    <parameter name="fcusername" value="custom.order@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="Row" value="3"/>
+    <parameter name="notificationType" value="Order Confirmation Mail - User"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification">
+        <methods>
+          <include name="testEmailNotifications"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.EmailVerification -->
+    </classes>
+  </test> <!-- Test Order Confirmation Mail to User - QA-538 - CO02 -->
+  <test name="Test Verify Functionality of Clone Button - QA-538 - CO02">
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="Row" value="3"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId"/>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCloneButtonFunctionalityCustomOrder"/>
+    </classes>
+  </test> <!-- Test Verify Functionality of Clone Button - QA-538 - CO02 -->
+  <test name="Test Quick Quote Custom Order - Weekly - QA-538 -  CO03">
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="CarrierName" value="Custom Orders"/>
+    <parameter name="Row" value="4"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomOrderAsUser"/>
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff"/>
+    </classes>
+  </test> <!-- Test Quick Quote Custom Order - Weekly - QA-538 -  CO03 -->
+  <test name="Test Verify Functionality of Unable to fulfill button">
+    <parameter name="fcusername" value="freightclubinfo@gmail.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="CarrierName" value="Custom Orders"/>
+    <parameter name="fcpassword" value="Welcome@1"/>
+    <parameter name="Row" value="4"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn"/>
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestUnableToFulfillFunctionality"/>
+      <class name="com.qualitesoft.freightclub.testscripts.TestLogOff"/>
+    </classes>
+  </test> <!-- Test Verify Functionality of Unable to fulfill button -->
+  <test name="Test verify that user will get email notification for unable to fulfill ordrs - QA-538 - CO03">
+    <parameter name="fcusername" value="custom.order@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="Row" value="4"/>
+    <parameter name="notificationType" value="Custom Order Cannot Be Fulfilled"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification"/>
+    </classes>
+  </test> <!-- Test verify that user will get email notification for unable to fulfill ordrs - QA-538 - CO03 -->
+  <test name="Test Order Confirmation Mail(failed)">
+    <parameter name="fcusername" value="custom.order@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_537.xlsx"/>
+    <parameter name="Row" value="5"/>
+    <parameter name="notificationType" value="Order Confirmation Mail - User - LTL"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId -->
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification">
+        <methods>
+          <include name="setUp"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="testEmailNotifications" invocation-numbers="0 0"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.EmailVerification -->
+      <class name="com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentInformation">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentInformation -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithMultilePackageType">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithMultilePackageType -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithWeight251">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithWeight251 -->
+      <class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestRequestCancellationAndCloneOrReQuoteButton">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestRequestCancellationAndCloneOrReQuoteButton -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomOrderAsUser">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomOrderAsUser -->
+      <class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+    </classes>
+  </test> <!-- Test Order Confirmation Mail(failed) -->
+  <test name="Test Custom Quote Requested Mail to User - QA-538 - CO01(failed)">
+    <parameter name="fcusername" value="custom.order@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="notificationType" value="Custom Quote Requested - User"/>
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId -->
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification">
+        <methods>
+          <include name="setUp"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="testEmailNotifications" invocation-numbers="0"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.EmailVerification -->
+      <class name="com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentInformation">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentInformation -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithMultilePackageType">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithMultilePackageType -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithWeight251">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithWeight251 -->
+      <class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestRequestCancellationAndCloneOrReQuoteButton">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestRequestCancellationAndCloneOrReQuoteButton -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomOrderAsUser">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomOrderAsUser -->
+      <class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+    </classes>
+  </test> <!-- Test Custom Quote Requested Mail to User - QA-538 - CO01(failed) -->
+  <test name="Test Custom Quote Requested Mail to Carrier - QA-538 - CO01(failed)">
+    <parameter name="fcusername" value="banita.verma@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="notificationType" value="Custom Quote Requested - Carrier"/>
+    <parameter name="Row" value="2"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId -->
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification">
+        <methods>
+          <include name="setUp"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="testEmailNotifications" invocation-numbers="0"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.EmailVerification -->
+      <class name="com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentInformation">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentInformation -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithMultilePackageType">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithMultilePackageType -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithWeight251">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithWeight251 -->
+      <class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestRequestCancellationAndCloneOrReQuoteButton">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestRequestCancellationAndCloneOrReQuoteButton -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomOrderAsUser">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomOrderAsUser -->
+      <class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+    </classes>
+  </test> <!-- Test Custom Quote Requested Mail to Carrier - QA-538 - CO01(failed) -->
+  <test name="Test Order Confirmation Mail to Admin - QA-538 - CO01(failed)">
+    <parameter name="fcusername" value="8march1@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="Row" value="2"/>
+    <parameter name="notificationType" value="Order Confirmation Mail - Admin"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId -->
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification">
+        <methods>
+          <include name="setUp"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="testEmailNotifications" invocation-numbers="0"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.EmailVerification -->
+      <class name="com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentInformation">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentInformation -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithMultilePackageType">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithMultilePackageType -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithWeight251">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithWeight251 -->
+      <class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestRequestCancellationAndCloneOrReQuoteButton">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestRequestCancellationAndCloneOrReQuoteButton -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomOrderAsUser">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomOrderAsUser -->
+      <class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+    </classes>
+  </test> <!-- Test Order Confirmation Mail to Admin - QA-538 - CO01(failed) -->
+  <test name="Test Order Confirmation Mail to User - QA-538 - CO01(failed)">
+    <parameter name="fcusername" value="custom.order@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="Row" value="2"/>
+    <parameter name="notificationType" value="Order Confirmation Mail - User"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId -->
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification">
+        <methods>
+          <include name="setUp"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="testEmailNotifications" invocation-numbers="0"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.EmailVerification -->
+      <class name="com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentInformation">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentInformation -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithMultilePackageType">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithMultilePackageType -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithWeight251">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithWeight251 -->
+      <class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestRequestCancellationAndCloneOrReQuoteButton">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestRequestCancellationAndCloneOrReQuoteButton -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomOrderAsUser">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomOrderAsUser -->
+      <class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+    </classes>
+  </test> <!-- Test Order Confirmation Mail to User - QA-538 - CO01(failed) -->
+  <test name="Test Order Confirmation Mail to Admin - QA-538 - CO02(failed)">
+    <parameter name="fcusername" value="8march1@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="Row" value="3"/>
+    <parameter name="notificationType" value="Order Confirmation Mail - Admin"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId -->
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification">
+        <methods>
+          <include name="setUp"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="testEmailNotifications" invocation-numbers="0"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.EmailVerification -->
+      <class name="com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentInformation">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentInformation -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithMultilePackageType">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithMultilePackageType -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithWeight251">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithWeight251 -->
+      <class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestRequestCancellationAndCloneOrReQuoteButton">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestRequestCancellationAndCloneOrReQuoteButton -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomOrderAsUser">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomOrderAsUser -->
+      <class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+    </classes>
+  </test> <!-- Test Order Confirmation Mail to Admin - QA-538 - CO02(failed) -->
+  <test name="Test Order Confirmation Mail to User - QA-538 - CO02(failed)">
+    <parameter name="fcusername" value="custom.order@mailinator.com"/>
+    <parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx"/>
+    <parameter name="Row" value="3"/>
+    <parameter name="notificationType" value="Order Confirmation Mail - User"/>
+    <classes>
+      <class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId -->
+      <class name="com.qualitesoft.freightclub.testscripts.EmailVerification">
+        <methods>
+          <include name="setUp"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="testEmailNotifications" invocation-numbers="0"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.EmailVerification -->
+      <class name="com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentInformation">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.quickquote.TestEnterShipmentInformation -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithMultilePackageType">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithMultilePackageType -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithWeight251">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestVerifyCustomOrderPopupWithWeight251 -->
+      <class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.manageproducts.TestUserIsAbleToCreateNonPalletizedSku -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestRequestCancellationAndCloneOrReQuoteButton">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestRequestCancellationAndCloneOrReQuoteButton -->
+      <class name="com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomOrderAsUser">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomOrderAsUser -->
+      <class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions -->
+      <class name="com.qualitesoft.freightclub.testscripts.TestSignIn">
+        <methods>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="stopVideoRecording"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- com.qualitesoft.freightclub.testscripts.TestSignIn -->
+    </classes>
+  </test> <!-- Test Order Confirmation Mail to User - QA-538 - CO02(failed) -->
+</suite> <!-- Failed suite [Custom Order Suite] -->

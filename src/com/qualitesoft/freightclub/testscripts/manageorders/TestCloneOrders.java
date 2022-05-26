@@ -28,10 +28,14 @@ public class TestCloneOrders extends InitializeTest{
 		int i=Integer.parseInt(Row);
 		Log.info("Data row number: "+i);
 
+		String orderId=xr.getCellData("Input","OrderId", i).trim();
 		String shipmentType=xr.getCellData("Input","shipmentType", i).trim();
 		String packageType = xr.getCellData("Input", "packageType", i).trim();
 		String packageType2 = xr.getCellData("Input", "packageType2", i).trim();
 		String carrier = xr.getCellData("Input","Carrier", i).trim();
+		
+		//Navigate to manage orders page and search order id
+		commonOps.openManageOrdersPageAndSearchOrder(orderId);
 		
 		//click on clone button under actions dropdown
 		SeleniumFunction.click(manageOrderPage.ActionButton());

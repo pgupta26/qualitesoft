@@ -14,7 +14,7 @@
 	<parameter name="URL" value="https://stg.freightclub.com/" />  
 	<parameter name="retryCount" value="1" />
 	
-	<test name="TEST ADD LOCATION - AutoCom10011">
+	<!-- <test name="TEST ADD LOCATION - AutoCom10011">
 		<parameter name="fcusername" value="prodsh16dec@mailinator.com" />
 		<parameter name="fcpassword" value="@Test123" />
 		<parameter name="testData" value="testdata/FCfiles/stg/ManageLocations/ManageLocations.xlsx" />
@@ -46,7 +46,7 @@
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.managelocations.TestAddLocation" /> 
 		</classes>
-	</test>
+	</test> -->
 	
 	<test name="Test Verify Functionality of Re-Quote Button - Custom Order">
 		<parameter name="fcusername" value="prodsh16dec@mailinator.com" />

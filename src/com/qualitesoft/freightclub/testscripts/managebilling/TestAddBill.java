@@ -85,7 +85,7 @@ public class TestAddBill extends InitializeTest{
 			WebElement document = billingPage.documentNumTextBox();
 			SeleniumFunction.sendKeys(document, mapData.get("DocumentNumber").toString());
 			document.sendKeys(Keys.ENTER);
-			WaitTool.sleep(5);
+			WaitTool.sleep(20);
 
 			CommonOps commonops = new CommonOps();
 			commonops.searchDocumentIdAndVerifyListing(
@@ -105,7 +105,7 @@ public class TestAddBill extends InitializeTest{
 		//update order id in manage billing test data sheet
 		xr=new Xls_Reader(".\\testdata\\FCfiles\\"+env+"\\ManageBilling\\ManageBilling.xlsx");
 		int rowCount = xr.getRowCount("Sheet1");
-		for(int i=2; i <=rowCount; i++) {
+		for(int i=6; i <=rowCount; i++) {
 			xr.setCellData("Sheet1","PONumber", i ,orderId);
 			xr.setCellData("Sheet1","DocumentNumber", i ,(orderId+"+"+i));
 		}

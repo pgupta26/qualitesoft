@@ -1,0 +1,172 @@
+<html>
+<head>
+<title>TestNG:  Test Verify YRC and ESTES carrier will appear even if it is disabled - One-Time Delivery - QA-538 - CO01</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Test Verify YRC and ESTES carrier will appear even if it is disabled - One-Time Delivery - QA-538 - CO01</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>2/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Mon May 23 12:28:40 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>171 seconds (171409 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.qualitesoft.freightclub.testscripts.customorders.TestBookCustomOrder.testBookCustomOrder()'><b>testBookCustomOrder</b><br>Test class: com.qualitesoft.freightclub.testscripts.customorders.TestBookCustomOrder<br/>
+<a href="#Output-789315095" onClick='toggleBox("Output-789315095", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-789315095" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-789315095">
+Data Row: 2<br/>
+Element by By.xpath: //a[contains(@href,'/Order/Index')] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //a[@href='#quickOrders'] found.<br/>
+WebElement clicked.<br/>
+Element (By.xpath: //button[@data-role='end']) not found.<br/>
+Element (By.xpath: //button[@data-role='end']) not found.<br/>
+Element by By.xpath: //*[@id="center"]/div/div[1]/div[3]/div/div[2]/div[2]/div[1]/div/input found.<br/>
+Text send.<br/>
+Element by By.xpath: //*[@id="center"]/div/div[1]/div[3]/div/div[2]/div[2]/div[1]/div/input found.<br/>
+Element by By.xpath: //div[@id='quickOrders']/descendant::div[@class='ag-body-container']/div/div[8] found.<br/>
+Screenshot Quoted Price at Open Quotes page successfully taken.<br/>
+Element by By.xpath: //div[@id='quickOrders']/descendant::div[@class='ag-body-container']/div/div[9]/div/button found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //div[@id='quickOrders']/descendant::div[@class='ag-body-container']/div/div[9]/div/ul/li[1] found.<br/>
+WebElement clicked.<br/>
+Element (By.xpath: //span[contains(text(),'Show')]) not found.<br/>
+Element (By.xpath: //button[@data-role='end']) not found.<br/>
+Is Carrier Present: true<br/>
+Is Carrier Present: true<br/>
+Element by By.xpath: //img[@src='/Content/Images/Logos/22.png']/ancestor::tr/td[7]/button found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //textarea[@placeholder='Advise about any restrictions on Pick Up or Drop Off locations, special package handling, etc.'] found.<br/>
+Text send.<br/>
+Screenshot Shipment Completion successfully taken.<br/>
+Element by By.xpath: //button[@class='btn btn-lg btn-primary pull-right'] found.<br/>
+WebElement clicked.<br/>
+Data Row: 2<br/>
+Element by By.xpath: //*[@id="shipment-review"]/div[1]/div[2]/div[1]/div/div[1]/div/div[2] found.<br/>
+Element by By.xpath: //*[@id="shipment-review"]/div[1]/div[2]/div[2]/div/h1 found.<br/>
+Element by By.xpath: //*[@id="shipment-review"]/div[1]/div[6]/div/div/div/div/table/tbody/tr/td[1] found.<br/>
+Element by By.xpath: //*[@id="shipment-review"]/div[1]/div[6]/div/div/div/div/table/tbody/tr/td[2] found.<br/>
+Element by By.xpath: //*[@id="shipment-review"]/div[1]/div[6]/div/div/div/div/table/tbody/tr/td[3] found.<br/>
+Element by By.xpath: //strong[text()='Shipment Information']/following::textarea[1] found.<br/>
+Element by By.xpath: //strong[text()='Shipment Information']/following::textarea[1] found.<br/>
+Element by By.xpath: //span[contains(text(),'Regulatory Details')]/following::textarea found.<br/>
+Element by By.xpath: //span[contains(text(),'Regulatory Details')]/following::textarea found.<br/>
+Element by By.xpath: //span[contains(text(),'Driver required for loading & unloading')]/input found.<br/>
+Screenshot Review page successfully taken.<br/>
+Element by By.xpath: //button[@type='submit' and @class='btn btn-lg btn-primary pull-right'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //div[@class='vue-dialog-confirm modal fade in']//h5 found.<br/>
+Element by By.xpath: //div[@class='vue-dialog-confirm modal fade in']//div[@class='modal-body'] found.<br/>
+[A matching order has already been placed.] matched with [A matching order has already been placed.]<br/>
+[We have identified that the order that you are about to place is similar to an order that has already been booked. Would you like to continue with placing a duplicate order?] matched with [We have identified that the order that you are about to place is similar to an order that has already been booked. Would you like to continue with placing a duplicate order?]<br/>
+Element by By.xpath: //span[text()='Acknowledge']//parent::button found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //button[@type='submit' and @class='btn btn-lg btn-primary pull-right'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //button[@id='btn-continue-to-orders'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //div[@class='ag-body']/descendant::div[@class='ag-body-container']/div[1]/div[3] found.<br/>
+Order Id Generated: 51540115<br/>
+Element by By.xpath: //div[@class='ag-body']/descendant::div[@class='ag-body-container']/div[1]/div[5] found.<br/>
+Pick up date: 05-23-2022<br/>
+Element by By.xpath: //div[@class='ag-body']/descendant::div[@class='ag-body-container']/div[1]/div[12] found.<br/>
+Amount: $1,208.79<br/>
+Element by By.xpath: //div[@class='ag-body']/descendant::div[@class='ag-body-container']/div[1]/div[10] found.<br/>
+WayBill: <br/>
+Element by By.xpath: //div[@class='ag-body']/descendant::div[@class='ag-body-container']/div[1]/div[11] found.<br/>
+Tracking: Pending Tracking...<br/>
+Screenshot Order Booked successfully taken.<br/>
+</div>
+</td>
+<td></td>
+<td>152</td>
+<td>com.qualitesoft.freightclub.testscripts.customorders.TestBookCustomOrder@319b92f3</td></tr>
+<tr>
+<td title='com.qualitesoft.freightclub.testscripts.TestSignIn.testSignIn()'><b>testSignIn</b><br>Test class: com.qualitesoft.freightclub.testscripts.TestSignIn<br/>
+<a href="#Output-187990827" onClick='toggleBox("Output-187990827", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-187990827" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-187990827">
+Element by By.xpath: //input[contains(@id,'Email')] found.<br/>
+Text send.<br/>
+Element by By.xpath: //input[contains(@id,'Password')] found.<br/>
+Text send.<br/>
+Element by By.xpath: //input[contains(@id,'Email')] found.<br/>
+Screenshot Login detail inserted successfully taken.<br/>
+Element by By.xpath: //input[contains(@type,'submit')] found.<br/>
+WebElement clicked.<br/>
+Screenshot Login Successfully successfully taken.<br/>
+</div>
+</td>
+<td></td>
+<td>17</td>
+<td>com.qualitesoft.freightclub.testscripts.TestSignIn@2f0a87b3</td></tr>
+</table><p>
+</body>
+</html>
