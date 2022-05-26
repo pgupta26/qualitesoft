@@ -35,8 +35,6 @@
 	</test>
 	
 	<test name="Test Add Contact Information For Carrier From Admin">
-		<parameter name="fcusername" value="info@freightclub.com" />
-		<parameter name="fcpassword" value="Welcome@2" />
 		<parameter name="Row" value="3" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestAddContactInformationForCarrier" />
@@ -55,6 +53,7 @@
 	</test>
 		
 	<test name="Test - valid - user is able to initiate claim  - LTL - With Insurance - Claim Type - Damage">
+		<parameter name="fcusername" value="test20may21@mailinator.com" />
 		<parameter name="userType" value="User"></parameter>
 		<parameter name="Row" value="2" />
 		<classes>
@@ -91,7 +90,7 @@
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.manageclaims.TestViewClaimDetails" />
 		</classes>
-	</test> 
+	</test>
 	
 	<test name="Test - valid - user is able to submit claim for review when claim status initiated - LTL - With Insurance - Claim Type - Damage">
 		<parameter name="fcusername" value="test20may21@mailinator.com" />

@@ -56,7 +56,7 @@ public class TestBillsDetails extends InitializeTest{
 		}catch(Exception | AssertionError e){
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
-			Assert.fail(e.getMessage());
+			throw e;
 		}
 	}
 }

@@ -27,6 +27,5 @@ public class TestEnableCarrier extends InitializeTest {
 		SeleniumFunction.click(profileManagement.manageCarrierTab());
 		WaitTool.sleep(5);
 		profileManagement.enableCarrier(carrierNames);
-		ScreenShot.takeScreenShot(driver, "Carrier: "+carrierName+" enabled");
 	}
 }

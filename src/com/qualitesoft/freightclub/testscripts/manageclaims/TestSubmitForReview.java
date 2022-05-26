@@ -111,6 +111,7 @@ public class TestSubmitForReview extends InitializeTest {
 			quickQuote.acceptPopup();
 
 			if(claimStatus.equalsIgnoreCase("Initiated")) {
+				
 				//verify commercial and sales invoice
 				manageClaims.clickSubmitForReview();
 				String commercialColor = manageClaims.getLabel("Commercial and Sales Invoice:").getCssValue("color");
@@ -194,7 +195,8 @@ public class TestSubmitForReview extends InitializeTest {
 
 				//Submit for review
 				manageClaims.clickSubmitForReview();
-				WaitTool.sleep(30);	
+				WaitTool.sleep(30);
+				
 			} else if(claimStatus.equalsIgnoreCase("Filed - Additional Docs Needed")) {
 				//verify claim status field
 				UseAssert.assertEquals(manageClaims.getField("Claim Status:").getAttribute("value"), claimStatus);
@@ -217,7 +219,7 @@ public class TestSubmitForReview extends InitializeTest {
 				UseAssert.assertEquals(manageClaims.pendingDocumentation().getText(), "Original Invoice, Other");
 				
 				//verify claim response document  uploaded by admin
-				manageClaims.verifyUploadedDocument("Claim Response Documents:", xr.getCellData("ClaimDetail", "ClaimResponseDocument", i));
+				//manageClaims.verifyUploadedDocument("Claim Response Documents:", xr.getCellData("ClaimDetail", "ClaimResponseDocument", i));
 				
 				//verify comment made by admin not visible to user as it is internal
 				String comment = "Pending Documentation Email Sent, the documentation needed {emailBody}.".replace("{emailBody}", xr.getCellData("ClaimDetail","PendingDocumentsEmailBody", i).trim());
@@ -239,6 +241,7 @@ public class TestSubmitForReview extends InitializeTest {
 			SeleniumFunction.getCurrentWindow(driver);
 			
 		}catch(Exception | AssertionError ex) {
+			ex.printStackTrace();
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
 			Assert.fail(ex.getMessage());
