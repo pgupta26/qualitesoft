@@ -377,7 +377,7 @@
 	
 	<test name="Test Custom Quote Requested Mail to Carrier - QA-538 - CO01">
 		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
-		<parameter name="fcusername" value="banita.verma@mailinator.com" />
+		<parameter name="fcusername" value="testautomation2@mailinator.com" />
 		<parameter name="notificationType" value="Custom Quote Requested - Carrier" />		
 		<parameter name="Row" value="2" />
 		<classes>
@@ -490,6 +490,16 @@
 		<parameter name="Row" value="3" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" /> 
+		</classes>
+	</test>
+	
+	<test name="Test Custom Quote Requested Mail to Carrier - QA-538 - CO02">
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
+		<parameter name="fcusername" value="testautomation1@mailinator.com" />
+		<parameter name="notificationType" value="Custom Quote Requested - Carrier" />		
+		<parameter name="Row" value="2" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" />
 		</classes>
 	</test>
 	

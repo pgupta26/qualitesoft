@@ -26,7 +26,6 @@ public class ManageCarrierPage {
 	
 	public void manageCarriersLink() {
 		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//a[@href='/Admin/ManageCarriers']"), 30));
-		SeleniumFunction.click(this.classicView());
 	}
 	
 	public WebElement classicView() {

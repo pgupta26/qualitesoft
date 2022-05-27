@@ -19,7 +19,7 @@ public class EmailVerification extends InitializeTest {
 	public void verifyEmailBody(String expectedEmailBody) {
 		WaitTool.sleep(3);
 		String actualMessage = driver.findElement(By.tagName("body")).getText().replaceAll("[\\t\\n\\r]+"," ");
-		actualMessage = actualMessage.replace("“", "").replace("”", "");
+		actualMessage = actualMessage.replace("â€œ", "").replace("â€�", "");
 		UseAssert.assertEquals(actualMessage, expectedEmailBody);
 	}
 	
@@ -69,9 +69,13 @@ public class EmailVerification extends InitializeTest {
 						break;
 						
 					case "Custom Quote Requested - Carrier":
-						expectedMsg = Messages.custom_quote_requested_carrier.replace("{orderID}", orderid);
-						break;
-						
+						if(InitializeTest.env.equals("qa")) {
+							expectedMsg = Messages.custom_quote_requested_carrier.replace("{orderID}", orderid);
+							break;
+						} else {
+							expectedMsg = Messages.custom_quote_requested_carrier_stg.replace("{orderID}", orderid);
+							break;
+						}
 					case "Custom Quote Requested - Full-Truckload - Carrier":
 						expectedMsg = Messages.custom_quote_requested_full_truckload_carrier.replace("{orderID}", orderid);
 						break;
