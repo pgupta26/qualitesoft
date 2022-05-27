@@ -322,6 +322,16 @@
 		</classes>
 	</test> 
 	
+	<test name="Test Custom Quote Requested Mail to User - QA-538 - CO01">
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
+		<parameter name="fcusername" value="custom.order@mailinator.com" />
+		<parameter name="notificationType" value="Custom Quote Requested - User" />		
+		<parameter name="Row" value="2" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" /> 
+		</classes>
+	</test>
+	
 	<test name="Test Custom Quote Requested Mail to Admin - QA-538 - CO01">
 		<parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx" />
 		<parameter name="fcusername" value="8march1@mailinator.com" />
@@ -334,7 +344,7 @@
 	
 	<test name="Test Custom Quote Requested Mail to Carrier - QA-538 - CO01">
 		<parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx" />
-		<parameter name="fcusername" value="test5@mailinator.com" />
+		<parameter name="fcusername" value="testautomation2@mailinator.com" />
 		<parameter name="notificationType" value="Custom Quote Requested - Full-Truckload - Carrier" />		
 		<parameter name="Row" value="2" />
 		<classes>
@@ -449,6 +459,16 @@
 			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" /> 
 		</classes>
 	</test> 
+	
+	<test name="Test Custom Quote Requested Mail to Carrier - QA-538 - CO02">
+		<parameter name="testData" value="testdata/FCfiles/stg/CustomOrder/QA_538.xlsx" />
+		<parameter name="fcusername" value="testautomation1@mailinator.com" />
+		<parameter name="notificationType" value="Custom Quote Requested - Carrier" />		
+		<parameter name="Row" value="2" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.EmailVerification" />
+		</classes>
+	</test>
 	
 	<test name="Test Submit Custom Order Quote as Admin - Weekly - QA-538 -  CO02">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />

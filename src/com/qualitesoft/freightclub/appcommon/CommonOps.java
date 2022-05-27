@@ -73,6 +73,13 @@ public class CommonOps extends InitializeTest {
 		SeleniumFunction.scrollUpByPixel(driver, "250");
 		SeleniumFunction.selectByVisibleText(quickQuote.PickUpLocationType(), pickUpType);
 		SeleniumFunction.selectByVisibleText(quickQuote.DropOffLocationType(), dropOffType);
+		
+		boolean pickUpDateValidationMessage = WaitTool.isElementPresentAndDisplay(driver, By.xpath("//span[text()='Pickup date is required']"));
+		if(pickUpDateValidationMessage) {
+			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//th[@class='next'])[1]"), 10));
+			WaitTool.sleep(2);
+			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='datepicker-days']//td[@class='day']"), 10));
+		}
 		ScreenShot.takeScreenShot(driver, "Shipment Info");
 	}
 
