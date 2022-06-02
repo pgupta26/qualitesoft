@@ -124,6 +124,7 @@ public class ManageLocations {
 			SeleniumFunction.selectByVisibleText(this.latestDropOffField(), latestDropOff);
 		}
 		SeleniumFunction.selectByVisibleText(this.contactType(), contactType);
+		this.firstNameTextfield().clear();
 		SeleniumFunction.sendKeys(this.firstNameTextfield(), firstName);
 		SeleniumFunction.sendKeys(this.lastNameTextfield(), lastName);
 		SeleniumFunction.sendKeys(this.phonenoTextfield(), phone);
@@ -133,7 +134,7 @@ public class ManageLocations {
 		}
 		ScreenShot.takeScreenShot(driver, "ManageLocationsDetails");
 		SeleniumFunction.clickJS(driver, this.saveButton());
-		WaitTool.sleep(1);
+		WaitTool.sleep(5);
 	}
 
 	public void verifyAddedLocation(String companyName, String addressLine1, String addressLine2, String zipCode,
