@@ -130,7 +130,7 @@ public class TestQuickQuoteStg extends InitializeTest {
 		}
 
 		//pick up location detail
-		String pickLocName = "PickUp"+JavaFunction.getRandomNumber(1, 1000);
+		String pickLocName = "PickUp"+JavaFunction.getRandomNumber(1, 10000);
 		SeleniumFunction.sendKeys(quickQuote.LocationName(), pickLocName);
 		SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[contains(text(),'Add location with name')]"), 10));	
 		SeleniumFunction.sendKeys(quickQuote.pickUpAddress1(), pickUpAddressLine1);
@@ -139,7 +139,7 @@ public class TestQuickQuoteStg extends InitializeTest {
 		SeleniumFunction.sendKeys(quickQuote.pickUpPhone1(), pickUpPhone1);
 
 		//drop off location detail
-		String dropLocName = "DropOff"+JavaFunction.getRandomNumber(1, 1000);
+		String dropLocName = "DropOff"+JavaFunction.getRandomNumber(1, 10000);
 		SeleniumFunction.scrollUpByPixel(driver, "250");
 		SeleniumFunction.sendKeys(quickQuote.LocationName(), dropLocName);
 		try {

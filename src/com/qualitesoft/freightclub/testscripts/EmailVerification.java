@@ -19,7 +19,7 @@ public class EmailVerification extends InitializeTest {
 	public void verifyEmailBody(String expectedEmailBody) {
 		WaitTool.sleep(3);
 		String actualMessage = driver.findElement(By.tagName("body")).getText().replaceAll("[\\t\\n\\r]+"," ");
-		actualMessage = actualMessage.replace("â€œ", "").replace("â€�", "");
+		actualMessage = actualMessage.replace("“", "").replace("”", "");
 		UseAssert.assertEquals(actualMessage, expectedEmailBody);
 	}
 	

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Custom Order Suite">
+<suite name="Manage Location Suite">
 
 	<listeners>
 		<listener class-name="org.uncommons.reportng.HTMLReporter" />
@@ -15,7 +15,7 @@
 	<parameter name="retryCount" value="1" />
 	<parameter name="testData" value="testdata/FCfiles/stg/ManageLocations/ManageLocations.xlsx" />
 
-	<test name="Admin: TEST ADD LOCATION - AutoCom10011">
+	<test name="ADMIN TEST ADD LOCATION - AutoCom10011">
 		<parameter name="fcusername" value="info@freightclub.com" />
 		<parameter name="fcpassword" value="Welcome@2" />
 		<parameter name="Row" value="5" />
@@ -27,7 +27,7 @@
 		</classes>
 	</test>
 
-	<test name="Admin: TEST Edit LOCATION - AutoCom10011">
+	<test name="ADMIN TEST Edit LOCATION - AutoCom10011">
 		<parameter name="Row" value="6" />
 		<classes>
 			<class
@@ -35,7 +35,7 @@
 		</classes>
 	</test>
 
-	<test name="Admin: TEST Delete LOCATION - AutoCom10011">
+	<test name="ADMIN TEST Delete LOCATION - AutoCom10011">
 		<parameter name="Row" value="6" />
 		<classes>
 			<class
@@ -44,7 +44,7 @@
 		</classes>
 	</test>
 
-	<test name="User: TEST ADD LOCATION - AutoCom10011">
+	<test name="USER TEST ADD LOCATION - AutoCom10011">
 		<parameter name="fcusername" value="test20may21@mailinator.com" />
 		<parameter name="fcpassword" value="@Test123" />
 		<parameter name="Row" value="5" />
@@ -56,7 +56,7 @@
 		</classes>
 	</test>
 
-	<test name="User: TEST Edit LOCATION - AutoCom10011">
+	<test name="USER TEST Edit LOCATION - AutoCom10011">
 		<parameter name="Row" value="6" />
 		<classes>
 			<class
@@ -64,7 +64,7 @@
 		</classes>
 	</test>
 
-	<test name="User: TEST Delete LOCATION - AutoCom10011">
+	<test name="USER TEST Delete LOCATION - AutoCom10011">
 		<parameter name="Row" value="6" />
 		<classes>
 			<class
