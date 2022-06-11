@@ -75,6 +75,8 @@ public class CommonOps extends InitializeTest {
 		SeleniumFunction.selectByVisibleText(quickQuote.DropOffLocationType(), dropOffType);
 		
 		boolean pickUpDateValidationMessage = WaitTool.isElementPresentAndDisplay(driver, By.xpath("//span[text()='Pickup date is required']"));
+		Log.info("Pick up date validation message presence: "+pickUpDateValidationMessage);
+		
 		if(pickUpDateValidationMessage) {
 			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//th[@class='next'])[1]"), 10));
 			WaitTool.sleep(2);
@@ -95,7 +97,6 @@ public class CommonOps extends InitializeTest {
 		String category=xr.getCellData("Input","category", rowIndex).trim();			
 		String DeclaredValue=xr.getCellData("Input","DeclaredValue", rowIndex).trim();
 		String Cartons=xr.getCellData("Input","Cartons", rowIndex).trim();
-		String packageType2 = xr.getCellData("Input", "packageType2", rowIndex).trim();	
 
 		SeleniumFunction.scrollDownByPixel(driver, "1000");
 		if(packageType.equals("SearchaddedProduct")) {
@@ -147,7 +148,6 @@ public class CommonOps extends InitializeTest {
 	public void addPalletContents(Xls_Reader xr, int rowIndex, int itemIndex, String palletType) {
 		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
 		
-		String quantity=xr.getCellData("Input","Quantity", rowIndex).trim();
 		String Weight=xr.getCellData("Input","PalletWeight", rowIndex).trim();
 		String DimensionL=xr.getCellData("Input","DimensionL", rowIndex).trim();
 		String DimensionW=xr.getCellData("Input","DimensionW", rowIndex).trim();
@@ -313,8 +313,6 @@ public class CommonOps extends InitializeTest {
 		String expectedCategory=xr.getCellData("Input","category", rowIndex).trim();			
 		String expectedDeclareValue=xr.getCellData("Input","DeclaredValue", rowIndex).trim();
 		String expectedNumberOfCartoons=xr.getCellData("Input","TotalPalletCount", rowIndex);
-
-		String description = xr.getCellData("ShipmentInformation","Description", 2).trim();
 		
 		String actualCategory = null;
 		String actualCartoon = null;

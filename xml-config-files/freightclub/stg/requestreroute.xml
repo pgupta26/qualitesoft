@@ -35,7 +35,7 @@
 		</classes>
 	</test>
 	
-	<test name="TEST ENABLE LOOSE CARTON FOR BTX Global Logistics,Ceva,FC Test Carrier">
+	<test name="TEST ENABLE LOOSE CARTON FOR CARRIERS">
 	 	<parameter name="CarrierName" value="BTX Global Logistics,Ceva,FC Test Carrier,FragilePAK" />
 		<parameter name="CarrierDetailsOptions" value="Loose carton accepted" />
 		<classes>
