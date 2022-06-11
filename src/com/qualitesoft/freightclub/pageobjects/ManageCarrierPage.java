@@ -32,11 +32,11 @@ public class ManageCarrierPage {
 	}
 	
 	public boolean isClassicViewPresent() {
-		return WaitTool.isElementPresentAndDisplay(driver, By.xpath("//h4[text()='Classic View']"));
+		return WaitTool.isElementPresentAndDisplay(driver, By.xpath("//a[@href='/Admin/ManageCarriers#/carriers']"));
 	}
 	
 	public WebElement classicView() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//h4[text()='Classic View']"), 50);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@href='/Admin/ManageCarriers#/carriers']"), 50);
 	}
 	
 	public void filterCarrier(String carrierName) {
