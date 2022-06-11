@@ -141,7 +141,7 @@ public class CommonOps extends InitializeTest {
 		SeleniumFunction.scrollDownByPixel(driver, "3000");
 		quickQuote.expandCarries();
 		WaitTool.sleep(5);
-		ScreenShot.takeScreenShot(driver, "Carriers Page");
+		ScreenShot.takeScreenShot(driver, "Carriers Page1");
 		quickQuote.acceptPopup();
 	}
 
