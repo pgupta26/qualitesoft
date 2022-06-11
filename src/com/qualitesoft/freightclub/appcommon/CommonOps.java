@@ -135,7 +135,8 @@ public class CommonOps extends InitializeTest {
 		WaitTool.sleep(2);
 		quickQuote.acceptPopup();
 		SeleniumFunction.scrollUpByPixel(driver, "250");
-		SeleniumFunction.click(quickQuote.SaveButton());
+		//SeleniumFunction.click(quickQuote.SaveButton());
+		SeleniumFunction.clickJS(driver, quickQuote.SaveButton());
 		WaitTool.sleep(30);
 		quickQuote.waitForQuotesToAppear();
 		SeleniumFunction.scrollDownByPixel(driver, "3000");

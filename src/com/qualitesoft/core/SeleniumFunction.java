@@ -26,13 +26,11 @@ public class SeleniumFunction {
 				ScreenShot.takeScreenShot(InitializeTest.driver, "Popup"+JavaFunction.getRandomNumber(10, 10000));
 				SeleniumFunction.clickJS(InitializeTest.driver,WaitTool.waitForElementPresentAndDisplay(InitializeTest.driver, By.xpath("//button[@data-role='end']"), 10));
 			}
-			Log.error(e.getMessage());
 			WaitTool.sleep(3);
 			element.click();
 			Log.info("WebElement clicked on retry.");
 		}
 		catch (Exception e) {
-			Log.error(e.getMessage());
 			try {
 				Log.info("Retrying click...............");
 				WaitTool.sleep(3);
