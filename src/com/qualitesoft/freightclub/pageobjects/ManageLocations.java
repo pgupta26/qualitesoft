@@ -111,25 +111,50 @@ public class ManageLocations {
 		ManagerOrderPage manageOrderPage = new ManagerOrderPage(driver);
 
 		// enter location details
+		this.companyNameTextfield().clear();
 		SeleniumFunction.sendKeys(this.companyNameTextfield(), companyName);
+		
+		this.address1Textfield().clear();
 		SeleniumFunction.sendKeys(this.address1Textfield(), addressLine1);
+		
+		this.address2Textfield().clear();
 		SeleniumFunction.sendKeys(this.address2Textfield(), addressLine2);
+		
+		this.postalCodeTextfield().clear();
 		SeleniumFunction.sendKeys(this.postalCodeTextfield(), zipCode);
+		
+		this.locationTypeField().clear();
 		SeleniumFunction.selectByVisibleText(this.locationTypeField(), locationType);
 
 		if (locationType.equals("Commercial")) {
+			this.earliestPickUpField().clear();
 			SeleniumFunction.selectByVisibleText(this.earliestPickUpField(), earliestPickUp);
+			
+			this.latestPickUpField().clear();
 			SeleniumFunction.selectByVisibleText(this.latestPickUpField(), latestPickUp);
+			
+			this.earliestDropOffField().clear();
 			SeleniumFunction.selectByVisibleText(this.earliestDropOffField(), earliestDropOff);
+			
+			this.latestDropOffField().clear();
 			SeleniumFunction.selectByVisibleText(this.latestDropOffField(), latestDropOff);
 		}
+		
+		this.contactType().clear();
 		SeleniumFunction.selectByVisibleText(this.contactType(), contactType);
+		
 		this.firstNameTextfield().clear();
 		SeleniumFunction.sendKeys(this.firstNameTextfield(), firstName);
+		
+		this.lastNameTextfield().clear();
 		SeleniumFunction.sendKeys(this.lastNameTextfield(), lastName);
+		
+		this.phonenoTextfield().clear();
 		SeleniumFunction.sendKeys(this.phonenoTextfield(), phone);
+		
 		this.emailTextfield().clear();
 		SeleniumFunction.sendKeys(this.emailTextfield(), email);
+		
 		if (manageOrderPage.acceptFeedbackPopupStatus() == true) {
 			manageOrderPage.acceptFeedbackPopup();
 		}
