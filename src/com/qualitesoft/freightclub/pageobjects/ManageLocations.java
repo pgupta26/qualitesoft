@@ -123,24 +123,18 @@ public class ManageLocations {
 		this.postalCodeTextfield().clear();
 		SeleniumFunction.sendKeys(this.postalCodeTextfield(), zipCode);
 		
-		this.locationTypeField().clear();
 		SeleniumFunction.selectByVisibleText(this.locationTypeField(), locationType);
 
 		if (locationType.equals("Commercial")) {
-			this.earliestPickUpField().clear();
 			SeleniumFunction.selectByVisibleText(this.earliestPickUpField(), earliestPickUp);
 			
-			this.latestPickUpField().clear();
 			SeleniumFunction.selectByVisibleText(this.latestPickUpField(), latestPickUp);
 			
-			this.earliestDropOffField().clear();
 			SeleniumFunction.selectByVisibleText(this.earliestDropOffField(), earliestDropOff);
 			
-			this.latestDropOffField().clear();
 			SeleniumFunction.selectByVisibleText(this.latestDropOffField(), latestDropOff);
 		}
 		
-		this.contactType().clear();
 		SeleniumFunction.selectByVisibleText(this.contactType(), contactType);
 		
 		this.firstNameTextfield().clear();
