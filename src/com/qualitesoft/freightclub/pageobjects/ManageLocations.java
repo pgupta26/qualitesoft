@@ -1,6 +1,7 @@
 package com.qualitesoft.freightclub.pageobjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -143,10 +144,10 @@ public class ManageLocations {
 		this.lastNameTextfield().clear();
 		SeleniumFunction.sendKeys(this.lastNameTextfield(), lastName);
 		
-		this.phonenoTextfield().clear();
+		this.phonenoTextfield().sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
 		SeleniumFunction.sendKeys(this.phonenoTextfield(), phone);
 		
-		this.emailTextfield().clear();
+		this.emailTextfield().sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
 		SeleniumFunction.sendKeys(this.emailTextfield(), email);
 		
 		if (manageOrderPage.acceptFeedbackPopupStatus() == true) {
