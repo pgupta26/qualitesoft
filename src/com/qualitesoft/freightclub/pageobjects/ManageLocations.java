@@ -128,6 +128,7 @@ public class ManageLocations {
 		SeleniumFunction.sendKeys(this.firstNameTextfield(), firstName);
 		SeleniumFunction.sendKeys(this.lastNameTextfield(), lastName);
 		SeleniumFunction.sendKeys(this.phonenoTextfield(), phone);
+		this.emailTextfield().clear();
 		SeleniumFunction.sendKeys(this.emailTextfield(), email);
 		if (manageOrderPage.acceptFeedbackPopupStatus() == true) {
 			manageOrderPage.acceptFeedbackPopup();
