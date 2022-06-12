@@ -50,12 +50,12 @@ public class TestSearchFunctionality extends InitializeTest{
 
 	@Test(priority = 2)
 	public void searchByWaybill(){
-		searchOnManageOrders("3", "9", "WayBill", 3);
+		searchOnManageOrders("3", "9", "WayBill", 2);
 	}
 
 	@Test(priority = 3)
 	public void searchByTrackingNumber(){
-		searchOnManageOrders("4", "10", "Tracking#", 4);
+		searchOnManageOrders("4", "10", "Tracking#", 2);
 	}
 
 	@Test(priority = 4)

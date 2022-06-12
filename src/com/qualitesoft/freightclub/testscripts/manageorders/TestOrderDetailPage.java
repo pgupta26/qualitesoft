@@ -29,7 +29,12 @@ public class TestOrderDetailPage extends InitializeTest{
 			SeleniumFunction.click(manageOrderpage.customOrdersTab());
 		}
 
-		String orderId = SeleniumFunction.getText(manageOrderpage.getOrderId(keyword));
+		String orderId;
+		if(keyword.equals("incompleteGrid") == true){
+			orderId = SeleniumFunction.getText(manageOrderpage.getOrderIdIncompleteOrderPage(keyword));
+		} else {
+			orderId = SeleniumFunction.getText(manageOrderpage.getOrderId(keyword));
+		}
 		SeleniumFunction.sendKeys(manageOrderpage.searchFieldsOnTable(keyword, "1"), orderId.trim());
 		manageOrderpage.searchFieldsOnTable(keyword, "1").sendKeys(Keys.ENTER);
 		WaitTool.sleep(5);

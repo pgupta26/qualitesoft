@@ -366,6 +366,10 @@ public class ManagerOrderPage {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@id='"+tableName+"']//div[@row='9'])//div[@colid='ID']"), 60);
 	}
 	
+	public WebElement getOrderIdIncompleteOrderPage(String tableName){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@id='"+tableName+"']//div[@row='0'])//div[@colid='ID']"), 60);
+	}
+	
 	public WebElement actionButton(String tableName) {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@id='"+tableName+"']//button[@class='btn btn-primary btn-xs dropdown-toggle'])[1]"), 30);
 	}

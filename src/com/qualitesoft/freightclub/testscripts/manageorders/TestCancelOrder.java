@@ -25,8 +25,7 @@ public class TestCancelOrder extends InitializeTest{
 
 			SeleniumFunction.click(manageOrderpage.manageOrdersLink());
 			WaitTool.sleep(7);
-			
-			manageOrderpage.ActionButton();
+
 			if(!manageOrderpage.ExpandMenupage().getAttribute("class").equals("active")) {
 				SeleniumFunction.click(manageOrderpage.ExpandMenupage());
 			}
@@ -39,10 +38,9 @@ public class TestCancelOrder extends InitializeTest{
 			
 			SeleniumFunction.sendKeys(manageOrderpage.searchFields("4"), trackingNum);
 			manageOrderpage.searchFields("4").sendKeys(Keys.ENTER);;
-			/*SeleniumFunction.KeyBoradEnter(driver);*/
 			WaitTool.sleep(10);
 			manageOrderpage.selectStatus(testData);
-			WaitTool.sleep(5);
+			WaitTool.sleep(10);
 			
 			crorderId = SeleniumFunction.getText(manageOverages.gridData(1, 1));
 			xr.setCellData("BOL", "OrderId", i, crorderId.trim());
