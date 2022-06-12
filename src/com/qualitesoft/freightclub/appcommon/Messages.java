@@ -46,13 +46,13 @@ public class Messages {
 	
 	public static String commercial_reroute_approved_customer = "Test 3 Freight Club first name last name first name last name {orderID} {wayBill} {poNumber} {carrierName} Test Location 2 35004 US AL MOODY Commercial #123, Moody 12:00 PM 4:00 PM Yes Yes";
 
-	public static String amazon_reroute_approved_customer = "Test 3 Freight Club first name last name {orderID} {wayBill} {poNumber} {carrierName} Test Location 3 90001 US CA LOS ANGELES Amazon FBA Warehouse #321, Los Angeles Yes Yes";
+	public static String amazon_reroute_approved_customer = "Test 3 Freight Club first name last name first name last name {orderID} {wayBill} {poNumber} {carrierName} Test Location 3 90001 US CA LOS ANGELES Amazon FBA Warehouse #321, Los Angeles Yes Yes";
 
 	public static String residential_reroute_approved_carrier = "Test4 Freight Club first name last name first name last name {orderID} {wayBill} {poNumber} {carrierName} Test Location 90001 US CA LOS ANGELES Residential #123, Los Angeles Yes Yes";
 	
 	public static String commercial_reroute_approved_carrier = "Test4 Freight Club first name last name first name last name {orderID} {wayBill} {poNumber} {carrierName} Test Location 2 35004 US AL MOODY Commercial #123, Moody 12:00 PM 4:00 PM Yes Yes";
 
-	public static String amazon_reroute_approved_carrier = "Test4 Freight Club first name last name {orderID} {wayBill} {poNumber} {carrierName} Test Location 3 90001 US CA LOS ANGELES Amazon FBA Warehouse #321, Los Angeles Yes Yes";
+	public static String amazon_reroute_approved_carrier = "Test4 Freight Club first name last name first name last name {orderID} {wayBill} {poNumber} {carrierName} Test Location 3 90001 US CA LOS ANGELES Amazon FBA Warehouse #321, Los Angeles Yes Yes";
 
 	public static String reroute_request_decline_customer = "Hello Freight Club, *The* reroute you requested has been denied and is unable to be processed. *This is because of the following reason: Incorrect address reroute denied reason If you have any concerns, please contact us immediately by phone at 1-844-819-2187 = Denied Reroute Request = *Company: *Freight Club *Consignee Name*:* first name last name *OrderID: *{orderID} *Waybill:* {wayBill} *Customer PO Number:* {poNumber} *Carrier:* {carrierName} * Requested Reroute Information: *Consignee Name: first name last name Location Name: Test Location Address: #123, Los Angeles LOS ANGELES, CA, US, 90001 Residential Delivery Appointment: Yes Limited Access: Yes Sincerely, The Freight Club Team Freight Club - Copyright 2019 © Freight Club 12020 Sunrise Valley Dr. # 100 Reston, Virginia, 20191 You are receiving this email because you are a customer of Freight Club Terms & Conditions <https://www.freightclub.com/terms-and-conditions>; | Privacy Policy <https://app.freightclub.com/Home/PrivacyPolicy>;";
 	
