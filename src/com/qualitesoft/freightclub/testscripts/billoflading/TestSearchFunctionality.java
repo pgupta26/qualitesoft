@@ -15,14 +15,14 @@ public class TestSearchFunctionality extends InitializeTest{
 	@Test(priority = 1)
 	public void searchByWayBill(){
 		BillOfLadingPage bolPage = new BillOfLadingPage(driver);
-		searchingOnBolPage(1, "WayBill", 3);
+		searchingOnBolPage(1, "WayBill", 2);
 		UseAssert.assertEquals(bolPage.getNumberOfRows().size(), 1);
 	}
 	
 	@Test(priority = 2)
 	public void searchByCustomerPo(){
 		BillOfLadingPage bolPage = new BillOfLadingPage(driver);
-		searchingOnBolPage(2, "orderReferenceID", 5);
+		searchingOnBolPage(2, "orderReferenceID", 2);
 		String pagerInfo = SeleniumFunction.getText(bolPage.getPageInfo());
 		String[] num = pagerInfo.split(" ");
 		int totalRows = Integer.parseInt(num[4]);
@@ -37,7 +37,7 @@ public class TestSearchFunctionality extends InitializeTest{
 	@Test(priority = 3)
 	public void searchByOrderId(){
 		BillOfLadingPage bolPage = new BillOfLadingPage(driver);
-		searchingOnBolPage(3, "OrderId", 4);
+		searchingOnBolPage(3, "OrderId", 2);
 		UseAssert.assertEquals(bolPage.getNumberOfRows().size(), 1);
 	}
 	

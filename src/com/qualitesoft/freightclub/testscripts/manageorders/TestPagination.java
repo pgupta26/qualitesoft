@@ -160,8 +160,13 @@ public class TestPagination extends InitializeTest{
 			String inputPage2 = manageOrderpage.getPageNumber(keyword);
 			String nextPageRows = manageOrderpage.getPagiationTotalRows(keyword);
 			
-			UseAssert.assertEquals(nextPageRows.substring(0, 8), "11 to 20");
-			UseAssert.assertEquals(inputPage2, "2");
+			if(keyword.equals("incompleteGrid") == true){
+				UseAssert.assertEquals(nextPageRows.substring(0, 8).trim(), "1 to 10");
+				UseAssert.assertEquals(inputPage2, "1");
+			} else {
+				UseAssert.assertEquals(nextPageRows.substring(0, 8), "11 to 20");
+				UseAssert.assertEquals(inputPage2, "2");
+			}
 			
 		}catch(Exception ex) {
 			ex.printStackTrace();

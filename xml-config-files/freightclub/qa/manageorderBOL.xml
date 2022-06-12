@@ -43,32 +43,32 @@
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOrderDetailPage" /> 
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestPagination" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestDeleteOrder" /> 
-			
 		</classes>
-	</test> 
+	</test>
 	
 	<test name="Test pagination, export, delete, and view on incomplete order listing">
-		<parameter name="loginuser" value="new" />
-		<parameter name="fcusername" value="test.automation@mailinator.com" />
-		<parameter name="fcpassword" value="Automation123!" />
 		<parameter name="keyword" value="incompleteGrid" />
-		
+		<parameter name="testData" value="testdata/FCfiles/qa/CustomOrder/QA_538.xlsx" />
+		<parameter name="Row" value="3" />
+		<parameter name="CarrierName" value="Custom Orders"/>
 		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.customorders.TestSubmitCustomOrderAsUser" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOrderDetailPage" /> 
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestPagination" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestDeleteOrder" /> 
 		</classes>
-	</test>
-
-	<test name="Test verify searching functionality on manage orders page">
-		<parameter name="loginuser" value="new" />
-		<parameter name="testData" value="testdata\FCfiles\qa\QuickQuote\QuickQuoteTestData.xlsx" /> 
+	</test> 
 	
+	<test name="Test verify searching functionality on manage orders page">
+		<parameter name="testData" value="testdata\FCfiles\qa\QuickQuote\QuickQuoteTestData.xlsx" /> 
+		<parameter name="Row" value="2" />
 		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
 			<class
 				name="com.qualitesoft.freightclub.testscripts.manageorders.TestSearchFunctionality" />
 		</classes>
-	</test> 
+	</test>  
+	
 	
 	<!--  ****************Searching and Pagination on BOL*****************-->
 		
