@@ -28,6 +28,10 @@ public class TestLogOff extends InitializeTest{
 			}
 		}
 		WaitTool.sleep(10);
+		String title = driver.getTitle();
+		
+		if(!title.equals("Log in - Freight Club"))
+			SeleniumFunction.clickJS(driver, homePage.logoff());
 		ScreenShot.takeScreenShot(driver, "Logout");		
 	}
 }

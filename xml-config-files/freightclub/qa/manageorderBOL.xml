@@ -13,6 +13,34 @@
 	<parameter name="env" value="qa" />
 	<parameter name="URL" value="https://qa.freightclub.com/" />  
 	<parameter name="retryCount" value="1" />
+	
+	<test name="TEST DISABLE ALL CARRIERS">
+		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
+		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="searchUser" value="test.automation@mailinator.com"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestUserIsAbleToSearchProfile" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestDisableAllCarriers" />
+		</classes>
+	</test>
+	
+	<test name="Test Enable Carriers">
+		<parameter name="testData" value="testdata/FCfiles/qa/ManageProfile.xlsx" />
+		<parameter name="Row" value="2" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestEnableCarrier" />
+		</classes>
+	</test>
+	
+	<test name="TEST ENABLE LOOSE CARTON FOR CARRIERS">
+	 	<parameter name="CarrierName" value="BTX Global Logistics,Ceva,FC Test Carrier,FragilePAK" />
+		<parameter name="CarrierDetailsOptions" value="Loose carton accepted" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
 		
 	<!-- *********************Manage Orders Filteration And Pagination***************************** -->
 	
