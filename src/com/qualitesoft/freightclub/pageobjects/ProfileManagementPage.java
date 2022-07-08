@@ -149,7 +149,7 @@ public class ProfileManagementPage {
 				if(!carrierStatus.equals("Active")) {
 					SeleniumFunction.clickJS(driver,driver.findElement(By.xpath("//span[contains(text(),'[Televisions]')]/parent::td/following-sibling::td[2]/label")));
 				}
-			} else if(carrierName.equals("FragilePAK")) {
+			} else if(carrierName.trim().equals("FragilePAK")) {
 				SeleniumFunction.scrollIntoView(driver, driver.findElement(By.xpath("(//td[contains(text(),'"+carrierName+"')]/following-sibling::td[2]/descendant::span)[2]")));
 				String carrierStatus = SeleniumFunction.getText(driver.findElement(By.xpath("(//td[contains(text(),'"+carrierName+"')]/following-sibling::td[2]/descendant::span)[2]")));
 				if(!carrierStatus.equals("Active")) {
