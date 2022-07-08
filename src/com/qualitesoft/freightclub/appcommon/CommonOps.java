@@ -68,21 +68,16 @@ public class CommonOps extends InitializeTest {
 			SeleniumFunction.click(quickQuote.selectLocationName(dropOffLocationName));
 		} else {
 			SeleniumFunction.sendKeys(quickQuote.DropOffZip(),dropOffZip.trim());
+			quickQuote.DropOffZip().sendKeys(Keys.TAB);
 		}
-
+		
+		WaitTool.sleep(5);
 		SeleniumFunction.scrollUpByPixel(driver, "250");
 		SeleniumFunction.selectByVisibleText(quickQuote.PickUpLocationType(), pickUpType);
 		SeleniumFunction.selectByVisibleText(quickQuote.DropOffLocationType(), dropOffType);
-		
-		boolean pickUpDateValidationMessage = WaitTool.isElementPresentAndDisplay(driver, By.xpath("//span[text()='Pickup date is required']"));
-		Log.info("Pick up date validation message presence: "+pickUpDateValidationMessage);
-		
-		if(pickUpDateValidationMessage) {
-			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//th[@class='next'])[1]"), 10));
-			WaitTool.sleep(2);
-			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='datepicker-days']//td[@class='day']"), 10));
-		}
+		WaitTool.sleep(5);
 		ScreenShot.takeScreenShot(driver, "Shipment Info");
+		
 	}
 
 	public void itemInformation(Xls_Reader xr, int rowIndex, int itemIndex, String packageType) {
@@ -127,6 +122,16 @@ public class CommonOps extends InitializeTest {
 				SeleniumFunction.sendKeys(quickQuote.Cartons(itemIndex), Cartons);
 			}
 		}
+		
+		boolean pickUpDateValidationMessage = WaitTool.isElementPresentAndDisplay(driver, By.xpath("//span[text()='Pickup date is required']"));
+		Log.info("Is pickup date validation message present: "+pickUpDateValidationMessage);
+		
+		if(pickUpDateValidationMessage) {
+			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='OrderDate']"), 30));
+			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='datepicker-days']//td[@class='day'])[2]"), 10));
+			SeleniumFunction.clickJS(driver, quickQuote.SaveButton());
+		}
+		
 		ScreenShot.takeScreenShot(driver, "Item Info");
 	}
 
@@ -142,7 +147,7 @@ public class CommonOps extends InitializeTest {
 		SeleniumFunction.scrollDownByPixel(driver, "3000");
 		quickQuote.expandCarries();
 		WaitTool.sleep(5);
-		ScreenShot.takeScreenShot(driver, "Carriers Page1");
+		ScreenShot.takeScreenShot(driver, "Carriers Page");
 		quickQuote.acceptPopup();
 	}
 
