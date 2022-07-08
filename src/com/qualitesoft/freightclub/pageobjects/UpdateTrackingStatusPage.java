@@ -4,18 +4,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import com.qualitesoft.core.Log;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 
 public class UpdateTrackingStatusPage {
-	
+
 	WebDriver driver;
 
 	public UpdateTrackingStatusPage(WebDriver driver) {
 		this.driver = driver;
 	}
-	
+
 	public WebElement dateOfUpdateTextfield() {
 
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='statusAccordionPanel']/div[@class='panel-body']/div[@class='row']/div[@class='col-xs-12']/div[1]/div[1]/div[1]/input[@id='UpdateDate']"), 30);
@@ -24,9 +23,7 @@ public class UpdateTrackingStatusPage {
 
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='statusAccordionPanel']/div[@class='panel-body']/div[@class='row']/div[@class='col-xs-12']/div[1]/div[2]/div[1]/select[@id='OrderStatusType']"), 30);
 	}
-    public void trackingIdDropdown(String status) {
-
-		try {
+	public void trackingIdDropdown(String status) {
 		if(status.equalsIgnoreCase("PickedUp")){
 			SeleniumFunction.click(driver.findElement
 					(By.xpath("//div[@id='statusAccordionPanel']/div[@class='panel-body']/div[@class='row']/div[@class='col-xs-12']/div[1]/div[2]/div[1]/select[@id='OrderStatusType']/option[@value='PickedUp']")));
@@ -43,40 +40,20 @@ public class UpdateTrackingStatusPage {
 			SeleniumFunction.click(driver.findElement
 					(By.xpath("//div[@id='statusAccordionPanel']/div[@class='panel-body']/div[@class='row']/div[@class='col-xs-12']/div[1]/div[2]/div[1]/select[@id='OrderStatusType']/option[@value='Refused']")));
 		}		
-		}
-		
-		catch (Exception e) {
-			Log.error("Not able to select package: " + e.getMessage());
-			try {
-				throw e;
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		}
 	}
 	public WebElement cityTextfield() {
-
-		//return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='statusAccordionPanel']/div[@class='panel-body']/div[@class='row']/div[@class='col-xs-12']/div[2]/div[1]/div[1]/input[@id='City']"), 30);
-		
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='City']"), 30);
 	}
-	
-	public WebElement zipTextfield() {
 
-		//return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='statusAccordionPanel']/div[@class='panel-body']/div[@class='row']/div[@class='col-xs-12']/div[3]/div[1]/div[1]/input[@id='ZipCode']"), 30);
+	public WebElement zipTextfield() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='ZipCode']"), 30);
 	}
-	
-	public WebElement stateTextfield() {
 
-		//return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='statusAccordionPanel']/div[@class='panel-body']/div[@class='row']/div[@class='col-xs-12']/div[2]/div[2]/div[1]/input[@id='ProvinceState']"), 30);
+	public WebElement stateTextfield() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='ProvinceState']"), 30);
 	}
-	
-	public WebElement submitButton() {
 
+	public WebElement submitButton() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[contains(text(),'Update Tracking')]"), 30);
 	}
-
 }

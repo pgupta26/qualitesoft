@@ -14,40 +14,6 @@
 	<parameter name="URL" value="https://stg.freightclub.com/" />  
 	<parameter name="retryCount" value="1" />
 	
-	<!-- <test name="TEST ADD LOCATION - AutoCom10011">
-		<parameter name="fcusername" value="prodsh16dec@mailinator.com" />
-		<parameter name="fcpassword" value="@Test123" />
-		<parameter name="testData" value="testdata/FCfiles/stg/ManageLocations/ManageLocations.xlsx" />
-		<parameter name="Row" value="2" />
-		<parameter name="CarrierName" value="Custom Orders"/>
-		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
-			<class name="com.qualitesoft.freightclub.testscripts.managelocations.TestAddLocation" /> 
-		</classes>
-	</test>
-	
-	<test name="TEST ADD LOCATION3 - AutoCom90001">
-		<parameter name="fcusername" value="prodsh16dec@mailinator.com" />
-		<parameter name="fcpassword" value="@Test123" />
-		<parameter name="testData" value="testdata/FCfiles/stg/ManageLocations/ManageLocations.xlsx" />
-		<parameter name="Row" value="3" />
-		<parameter name="CarrierName" value="Custom Orders"/>
-		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.managelocations.TestAddLocation" /> 
-		</classes>
-	</test>
-	
-	<test name="TEST ADD LOCATIO4 - AutoRes10011">
-		<parameter name="fcusername" value="prodsh16dec@mailinator.com" />
-		<parameter name="fcpassword" value="@Test123" />
-		<parameter name="testData" value="testdata/FCfiles/stg/ManageLocations/ManageLocations.xlsx" />
-		<parameter name="Row" value="4" />
-		<parameter name="CarrierName" value="Custom Orders"/>
-		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.managelocations.TestAddLocation" /> 
-		</classes>
-	</test> -->
-	
 	<test name="Test Verify Functionality of Re-Quote Button - Custom Order">
 		<parameter name="fcusername" value="prodsh16dec@mailinator.com" />
 		<parameter name="fcpassword" value="@Test123" />

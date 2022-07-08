@@ -149,7 +149,14 @@ public class ProfileManagementPage {
 				if(!carrierStatus.equals("Active")) {
 					SeleniumFunction.clickJS(driver,driver.findElement(By.xpath("//span[contains(text(),'[Televisions]')]/parent::td/following-sibling::td[2]/label")));
 				}
-			}else {
+			} else if(carrierName.equals("FragilePAK")) {
+				SeleniumFunction.scrollIntoView(driver, driver.findElement(By.xpath("(//td[contains(text(),'"+carrierName+"')]/following-sibling::td[2]/descendant::span)[2]")));
+				String carrierStatus = SeleniumFunction.getText(driver.findElement(By.xpath("(//td[contains(text(),'"+carrierName+"')]/following-sibling::td[2]/descendant::span)[2]")));
+				if(!carrierStatus.equals("Active")) {
+					SeleniumFunction.clickJS(driver,driver.findElement(By.xpath("(//td[contains(text(),'"+carrierName+"')]/following-sibling::td[2]/label)[2]")));
+					ScreenShot.takeFullScreenShot("Carrier "+carrierName+ " enabled");
+				}
+			} else {
 				SeleniumFunction.scrollIntoView(driver, driver.findElement(By.xpath("//td[contains(text(),'"+carrierName+"')]/following-sibling::td[2]/descendant::span")));
 				String carrierStatus = SeleniumFunction.getText(driver.findElement(By.xpath("//td[contains(text(),'"+carrierName+"')]/following-sibling::td[2]/descendant::span")));
 				if(!carrierStatus.equals("Active")) {

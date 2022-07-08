@@ -69,7 +69,7 @@
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestSelectPaymentMethod" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test>   
+	</test> 
 	
 	<test name="Test verify book and clone order - LTL Non-Palletized">
 		<parameter name="fcusername" value="test.automation2@mailinator.com" />
@@ -246,7 +246,7 @@
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test>  
+	</test>    
 	
 	<test name="Test verify tracking status of order id's">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />

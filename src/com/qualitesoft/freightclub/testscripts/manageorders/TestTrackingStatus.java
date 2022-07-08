@@ -2,10 +2,11 @@ package com.qualitesoft.freightclub.testscripts.manageorders;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.gargoylesoftware.htmlunit.ElementNotFoundException;
 import com.qualitesoft.core.InitializeTest;
+import com.qualitesoft.core.Log;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
@@ -63,24 +64,28 @@ public class TestTrackingStatus extends InitializeTest{
 					SeleniumFunction.sendKeys(updateTrackingStatusPage.zipTextfield(), "92010");
 					SeleniumFunction.sendKeys(updateTrackingStatusPage.stateTextfield(), "CA");
 					SeleniumFunction.clickAction(driver, updateTrackingStatusPage.dateOfUpdateTextfield());
-					SeleniumFunction.sendKeysAction(driver, updateTrackingStatusPage.dateOfUpdateTextfield(), "01-01-2022");
+					SeleniumFunction.sendKeysAction(driver, updateTrackingStatusPage.dateOfUpdateTextfield(), "01-01-2023");
 					ScreenShot.takeScreenShot(driver, "UpdateTrackingStatusPageFilled");
 					WaitTool.sleep(4);
-					SeleniumFunction.click(updateTrackingStatusPage.submitButton());
+					try {
+						getDriver().findElement(By.xpath("//button[contains(text(),'Update Tracking')]")).click();
+					}catch(Exception ex) {
+						Log.info("ignore failure as the element is clicked.");
+					}
 					WaitTool.sleep(5);
 					SeleniumFunction.closeWindow(driver);
 					SeleniumFunction.getCurrentWindow(driver);
 				}catch(Exception ex) {
 					SeleniumFunction.closeWindow(driver);
 					SeleniumFunction.getCurrentWindow(driver);
-					Assert.fail(ex.getMessage());
+					throw ex;
 				}
 				SeleniumFunction.closeWindow(driver);
 				SeleniumFunction.getCurrentWindow(driver);
 			}catch(Exception ex) {
 				SeleniumFunction.closeWindow(driver);
 				SeleniumFunction.getCurrentWindow(driver);
-				Assert.fail(ex.getMessage());
+				throw ex;
 			}
 		}
 

@@ -46,7 +46,7 @@
 	
 	<test name="Test pagination, export, delete, and view on booked order listing">
 		<parameter name="loginuser" value="new" />
-		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcusername" value="test.automation2@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />
 		<parameter name="keyword" value="fullOrders" />
 		<parameter name="testData" value="Orders-"></parameter>
