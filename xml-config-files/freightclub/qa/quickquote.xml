@@ -35,12 +35,11 @@
 		</classes>
 	</test>
 	
-	<test name="Test Enable Residential pickup and loose cartoon">
-		<parameter name="searchUser" value="test.automation2@mailinator.com"/>
-		<parameter name="testData" value="testdata/FCfiles/qa/QuickQuote/QA_517.xlsx" />
-		<parameter name="Row" value="2" />
+	<test name="TEST ENABLE CARRIER DETAILS OPTION">
+	 	<parameter name="CarrierName" value="ABF Freight,Ceva,FC Test Carrier,UPS,FragilePAK" />
+		<parameter name="CarrierDetailsOptions" value="Residential Pickup Supported,Loose carton accepted,Send Inside Delivery,Residential Delivery Supported" />
 		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableResidentialPickup" />
+			<class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
 	</test>

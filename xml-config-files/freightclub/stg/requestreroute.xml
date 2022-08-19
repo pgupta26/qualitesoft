@@ -35,9 +35,9 @@
 		</classes>
 	</test>
 	
-	<test name="TEST ENABLE LOOSE CARTON FOR CARRIERS">
-	 	<parameter name="CarrierName" value="BTX Global Logistics,Ceva,FC Test Carrier,FragilePAK" />
-		<parameter name="CarrierDetailsOptions" value="Loose carton accepted" />
+	<test name="TEST ENABLE CARRIER DETAILS OPTION">
+	 	<parameter name="CarrierName" value="UPS,FragilePAK" />
+		<parameter name="CarrierDetailsOptions" value="Residential Pickup Supported,Loose carton accepted,Send Inside Delivery,Residential Delivery Supported" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />

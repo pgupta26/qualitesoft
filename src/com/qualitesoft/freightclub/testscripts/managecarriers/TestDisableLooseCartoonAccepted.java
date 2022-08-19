@@ -18,6 +18,7 @@ public class TestDisableLooseCartoonAccepted extends InitializeTest {
 		ManageCarrierPage manageCarrierPage = new ManageCarrierPage(driver);
 		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
 		manageCarrierPage.manageCarriersLink();
+		SeleniumFunction.click(manageCarrierPage.classicView());
 		quickQuote.acceptPopup();
 		for(int carriersCount=0; carriersCount<carrierNames.length; carriersCount++) {
 			WaitTool.sleep(5);

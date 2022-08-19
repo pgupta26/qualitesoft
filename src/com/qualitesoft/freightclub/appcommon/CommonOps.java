@@ -554,9 +554,9 @@ public class CommonOps extends InitializeTest {
 		WebElement fileStatus = overagesPage.gridData(1, 3);
 		WebElement ediStatus = overagesPage.gridData(1, 4);
 		WebElement status = overagesPage.gridData(1, 5);
-		WebElement documentNum = overagesPage.gridData(1, 7);
-		WebElement noMarkupQuote = overagesPage.gridData(1, 8);
-		WebElement getvariance = overagesPage.gridData(1, 10);		
+		WebElement documentNum = overagesPage.gridData(1, 8);
+		WebElement noMarkupQuote = overagesPage.gridData(1, 9);
+		WebElement getvariance = overagesPage.gridData(1, 11);		
 		
 		String markupQuote = SeleniumFunction.getText(noMarkupQuote).trim().replaceAll(",", "");
 		double markupQuoteAmount = Double.parseDouble(markupQuote.substring(1, markupQuote.length()));

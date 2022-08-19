@@ -33,11 +33,15 @@ public class TestViewBill extends InitializeTest{
 			WebElement document = billingPage.documentNumTextBox();
 			SeleniumFunction.sendKeys(document, documentId);
 			document.sendKeys(Keys.ENTER);
-			WaitTool.sleep(5);
+			WaitTool.sleep(20);
 
-			WebElement getMarkupQuote = overagesPage.gridData(1, 8);
-			WebElement getCarrierBill = overagesPage.gridData(1, 9);
-			WebElement getvariance = overagesPage.gridData(1, 10);
+			WebElement getMarkupQuote = overagesPage.gridData(1, 9);
+			WebElement getCarrierBill = overagesPage.gridData(1, 10);
+			WebElement getvariance = overagesPage.gridData(1, 11);
+
+			String ex_carrierbill = SeleniumFunction.getText(getCarrierBill);
+			String ex_markupQuote = SeleniumFunction.getText(getMarkupQuote);
+			String ex_variance = SeleniumFunction.getText(getvariance);
 
 			SeleniumFunction.click(billingPage.viewBillButton());
 			
@@ -58,9 +62,9 @@ public class TestViewBill extends InitializeTest{
 				UseAssert.assertEquals(documentID, "Order " + documentId);
 				UseAssert.assertEquals(carrierName, carrierCode);
 				UseAssert.assertEquals(orderId, poNum);
-				UseAssert.assertEquals(carrierbill, SeleniumFunction.getText(getCarrierBill));
-				UseAssert.assertEquals(markupQuote, SeleniumFunction.getText(getMarkupQuote));
-				UseAssert.assertEquals(variance, SeleniumFunction.getText(getvariance));
+				UseAssert.assertEquals(carrierbill, ex_carrierbill);
+				UseAssert.assertEquals(markupQuote, ex_markupQuote);
+				UseAssert.assertEquals(variance, ex_variance);
 				UseAssert.assertEquals(billSource, "Manual Entry");
 				UseAssert.assertEquals(billType, type);
 				UseAssert.assertEquals(gpBillId, "");
