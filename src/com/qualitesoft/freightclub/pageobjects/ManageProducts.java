@@ -141,7 +141,7 @@ public class ManageProducts {
 	} 
 	
 	public WebElement downloadProductTemplate() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@href='/Content/Template/Import_PIDs_Template_V7.xlsm']"), 30);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@href='/Content/Template/Import_PIDs_Template_V7-R18.xlsm']"), 30);
 	} 
 	
 	public WebElement paginatioTotalRows() {

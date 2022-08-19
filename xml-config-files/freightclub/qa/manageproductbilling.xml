@@ -16,6 +16,27 @@
 	
 	<parameter name="testData" value="testdata/FCfiles/qa/ManageBilling/QuickQuoteTestData.xlsx" />
 	
+	<test name="TEST DISABLE ALL CARRIERS">
+		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
+		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="searchUser" value="test.automation1@gmail.com"/>
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestUserIsAbleToSearchProfile" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestDisableAllCarriers" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestEnableCarrier" />
+		</classes>
+	</test>
+	
+	<test name="TEST ENABLE CARRIER DETAILS OPTION">
+	 	<parameter name="CarrierName" value="Ceva" />
+		<parameter name="CarrierDetailsOptions" value="Residential Pickup Supported,Loose carton accepted,Send Inside Delivery,Residential Delivery Supported" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
+	
 	<!-- *************************** Manage Products ********************************** -->
 	
 	<test name="TEST CREATE PRODUCT - NO-PALLETIZED - SINGLE CARTON">
@@ -92,7 +113,7 @@
 	
 	<!-- ******************************** Manage Billing Tests ***************************************** -->
 	
-	 <test name="Test verify book and clone order - LTL with pallet and Non-Palletized">
+	<test name="Test verify book and clone order - LTL with pallet and Non-Palletized">
 		<parameter name="Row" value="2" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />	

@@ -3,6 +3,7 @@ package com.qualitesoft.freightclub.testscripts.managebilling;
 import java.io.File;
 import java.io.IOException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -10,6 +11,7 @@ import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.JavaFunction;
+import com.qualitesoft.core.Log;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.UseAssert;
 import com.qualitesoft.core.WaitTool;
@@ -29,15 +31,26 @@ public class TestExportBills extends InitializeTest {
 			manageOrderpage.acceptFeedbackPopup();
 		}
 
-		SeleniumFunction.click(billingPage.exportCsvBtn());
-		WaitTool.sleep(10);
+		
+		String totalRecords =  SeleniumFunction.getText(billingPage.totalPages()).trim().replaceAll(",", "");  
+		
+		if(Integer.parseInt(totalRecords) > 300 ) {
+			String expectedMsg = "Report in Progress We’re busy putting together your export. As soon as it is ready it will be sent to: info@freightclub.com";
 
-		String sheetName = JavaFunction.currentDateFormat("yyyy-M-d");
-		int numOfRows = JavaFunction.countLineBufferedReader(System.getProperty("user.dir") +File.separator+"download\\" + "Bill" +  sheetName + ".csv");
+			SeleniumFunction.click(billingPage.exportCsvBtn());
+			String toastMessage = WaitTool.waitForElementPresentAndDisplay(driver, By.id("toast-container"), 50).getText();
+			toastMessage = toastMessage.replaceAll("[\\t\\n\\r]+"," ");
+			System.out.println(toastMessage);
+			Assert.assertEquals(toastMessage, expectedMsg);
+		} else {
+			SeleniumFunction.click(billingPage.exportCsvBtn());
+			WaitTool.sleep(10);
 
-		String totalRecords = SeleniumFunction.getText(billingPage.getTotalRecords()).replace(",", "");
+			String sheetName = JavaFunction.currentDateFormat("yyyy-M-d");
+			int numOfRows = JavaFunction.countLineBufferedReader(System.getProperty("user.dir") +File.separator+"download\\" + "Bill" +  sheetName + ".csv");
 
-		UseAssert.assertEquals(Integer.parseInt(totalRecords)+1, numOfRows);
+			UseAssert.assertEquals(Integer.parseInt(totalRecords)+1, numOfRows);
+		}
 	}
 
 	@Test
@@ -50,7 +63,7 @@ public class TestExportBills extends InitializeTest {
 		WebElement orderId = billingPage.orderNumTextBox();
 		SeleniumFunction.sendKeys(orderId, poNum);
 		orderId.sendKeys(Keys.ENTER);
-		WaitTool.sleep(5);
+		WaitTool.sleep(15);
 
 		SeleniumFunction.click(billingPage.exportCsvBtn());
 		WaitTool.sleep(10);

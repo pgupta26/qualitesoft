@@ -31,6 +31,7 @@ public class TestAddContactInformationForCarrier extends InitializeTest {
 			String carrierName = xr.getCellData("Input", "Carrier", rowIndex);
 			//click on manager carrier link
 			manageCarrierPage.manageCarriersLink();
+			SeleniumFunction.click(manageCarrierPage.classicView());
 			WaitTool.sleep(2);
 			quickQuote.acceptPopup();
 			WaitTool.sleep(2);

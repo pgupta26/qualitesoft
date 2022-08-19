@@ -36,7 +36,10 @@
 	
 	<test name="Test Add Contact Information For Carrier From Admin">
 		<parameter name="Row" value="3" />
+		<parameter name="CarrierName" value="FragilePAK" />
+		<parameter name="CarrierDetailsOptions" value="Loose carton accepted,Send Inside Delivery,Residential Delivery Supported" />
 		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions" />
 			<class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestAddContactInformationForCarrier" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
