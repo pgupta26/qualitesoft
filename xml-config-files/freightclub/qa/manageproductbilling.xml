@@ -20,6 +20,7 @@
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
 		<parameter name="searchUser" value="test.automation1@gmail.com"/>
+		<parameter name="Row" value="2" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestUserIsAbleToSearchProfile" />
