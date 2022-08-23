@@ -226,6 +226,8 @@ public class CommonOps extends InitializeTest {
 		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
 		String pickUPLocationName = xr.getCellData("Input","pickUpLocationName", rowIndex).trim();
 		String specialHandlingIns = xr.getCellData("ShipmentInformation","SpecialHandlingInstructions", 2).trim();
+		String pickUpType = xr.getCellData("Input","pickUpType", rowIndex).trim();
+		String dropOffType = xr.getCellData("Input","dropOffType", rowIndex).trim();
 
 		SeleniumFunction.scrollDownByPixel(driver, "300");
 		SeleniumFunction.sendKeys(quickQuote.SpecialHandling(), specialHandlingIns);
@@ -233,9 +235,18 @@ public class CommonOps extends InitializeTest {
 		if(pickUPLocationName.isEmpty()) {
 			SeleniumFunction.scrollDownByPixel(driver, "300");
 			quickQuote.LocationName().sendKeys(Keys.chord("Auto"));
-			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Com90001']"), 10));	
+			if(pickUpType.equals("Residential")) {
+				SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Res90001']"), 10));
+			} else {
+				SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Com90001']"), 10));	
+			}
+			
 			quickQuote.LocationName().sendKeys(Keys.chord("Auto"));
-			SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Com10011']"), 10));	
+			if(dropOffType.equals("Residential")) {
+				SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Res10011']"), 10));
+			} else {
+				SeleniumFunction.click(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Com10011']"), 10));	
+			}
 			SeleniumFunction.scrollUpByPixel(driver, "400");
 		}
 		

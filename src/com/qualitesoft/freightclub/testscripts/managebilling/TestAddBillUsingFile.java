@@ -65,7 +65,7 @@ public class TestAddBillUsingFile extends InitializeTest{
 		WaitTool.sleep(5);
 
 		CommonOps common =  new CommonOps();
-		common.searchDocumentIdAndVerifyListing(carrierCode, type, "Valid", "", "Ready", carrierBill, documentId);
+		common.searchDocumentIdAndVerifyListing(carrierCode, type, "Valid", "-", "Ready", carrierBill, documentId);
 
 	}
 }
