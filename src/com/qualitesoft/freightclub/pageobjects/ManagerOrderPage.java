@@ -383,7 +383,7 @@ public class ManagerOrderPage {
 	}
 	
 	public WebElement noRowsText(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@id='overlay']//span"), 10);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@id='overlay']//span)[2]"), 10);
 	}
 	
 	public WebElement detailBtn(String tableName) {

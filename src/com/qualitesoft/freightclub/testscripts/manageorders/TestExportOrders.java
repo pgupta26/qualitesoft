@@ -37,13 +37,11 @@ public class TestExportOrders extends InitializeTest
 		String totalRecords = num[4];
 
 		if(Integer.parseInt(totalRecords) > 300 ) {
-			String expectedMsg = "Creating Report As soon as your export is ready we will send it to your login email address: {userName}";
-			expectedMsg = expectedMsg.replace("{userName}", fcusername);
-
+			String expectedMsg = "Export in progress Your requested export is in progress. We will send you an email when the export is available for download.";
+			
 			SeleniumFunction.click(manageOrderpage.clickExportOrdersBtn(keyword));
 			String toastMessage = WaitTool.waitForElementPresentAndDisplay(driver, By.id("toast-container"), 50).getText();
 			toastMessage = toastMessage.replaceAll("[\\t\\n\\r]+"," ");
-			System.out.println(toastMessage);
 			Assert.assertEquals(toastMessage, expectedMsg);
 		} else {
 			SeleniumFunction.click(manageOrderpage.clickExportOrdersBtn(keyword));

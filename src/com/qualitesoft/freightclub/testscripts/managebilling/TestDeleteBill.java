@@ -62,6 +62,6 @@ public class TestDeleteBill extends InitializeTest{
 		WebElement document = billingPage.documentNumTextBox();
 		SeleniumFunction.sendKeys(document, documentId);
 		document.sendKeys(Keys.ENTER);
-		WaitTool.sleep(5);
+		WaitTool.sleep(15);
 	}
 }

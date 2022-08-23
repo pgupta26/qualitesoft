@@ -13,16 +13,38 @@
 	<parameter name="env" value="stg" />
 	<parameter name="URL" value="https://stg.freightclub.com/" />  
 	<parameter name="retryCount" value="1" />
+	
+	<test name="TEST DISABLE-ENABLE CARRIER">
+		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
+		<parameter name="fcpassword" value="Welcome@1" />
+		<parameter name="searchUser" value="test.automation@mailinator.com"/>
+		<parameter name="testData" value="testdata/FCfiles/stg/ManageProfile.xlsx" />
+		<parameter name="Row" value="2" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestUserIsAbleToSearchProfile" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestEnableCustomOrder" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestDisableAllCarriers" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestEnableCarrier" />
+		</classes>
+	</test>
+	
+	<test name="TEST ENABLE CARRIER DETAILS OPTION">
+	 	<parameter name="CarrierName" value="ABF Freight,Ceva,FC Test Carrier,UPS,FragilePAK" />
+		<parameter name="CarrierDetailsOptions" value="Residential Pickup Supported,Loose carton accepted,Send Inside Delivery,Residential Delivery Supported" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
 		
 	<!-- *********************Manage Orders Filteration And Pagination***************************** -->
 	
 	<test name="Test pagination, export, delete, and view on booked order listing">
-		<parameter name="loginuser" value="new" />
 		<parameter name="fcusername" value="test20may21@mailinator.com" />
 		<parameter name="fcpassword" value="@Test123" />
 		<parameter name="keyword" value="fullOrders" />
 		<parameter name="testData" value="Orders-"></parameter>
-		
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOrderDetailPage" /> 
@@ -32,9 +54,6 @@
 	</test>
 	
 	<test name="Test pagination, export, delete, and view on open quote order listing">
-		<parameter name="loginuser" value="new" />
-		<parameter name="fcusername" value="test20may21@mailinator.com" />
-		<parameter name="fcpassword" value="@Test123" />
 		<parameter name="keyword" value="quickOrders" />
 		<parameter name="testData" value="QuickOrders-"></parameter>
 		
@@ -42,8 +61,7 @@
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestExportOrders" /> 
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOrderDetailPage" /> 
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestPagination" />
-			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestDeleteOrder" /> 
-			
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestDeleteOrder" /> 	
 		</classes>
 	</test> 
 	
