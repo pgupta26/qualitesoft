@@ -51,6 +51,7 @@ public class TestCloneOrders extends InitializeTest{
 		ScreenShot.takeScreenShot(driver, "Order cloned");
 
 		//enter order date and select carriers
+		WaitTool.sleep(5);
 		SeleniumFunction.scrollUpByPixel(driver, "2000");
 		SeleniumFunction.click(quickQuote.OrderDate());
 		quickQuote.acceptPopup();
