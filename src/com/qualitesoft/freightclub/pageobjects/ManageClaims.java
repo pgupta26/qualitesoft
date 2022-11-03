@@ -47,10 +47,13 @@ public class ManageClaims {
 	}
 	
 	public void selectByVisibleText(String fieldName, String value) {
+
 		WebElement dropDown = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[text()='"+fieldName+"']/following-sibling::div/div"), 30);
-		SeleniumFunction.clickJS(driver, dropDown);
-		WaitTool.sleep(2);
-		List<WebElement> elementList = WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//label[text()='"+fieldName+"']/following::div[@class='selectize-dropdown-content']/div"), 30);
+		SeleniumFunction.moveToElement(driver, dropDown);
+		SeleniumFunction.click(dropDown);
+		//SeleniumFunction.clickJS(driver, dropDown);
+		List<WebElement> elementList = WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//label[text()='"+fieldName+"']/following::div[@class='selectize-dropdown-content']/div"), 20);
+		
 		for(WebElement element: elementList) {
 			Log.info(element.getText());
 			if(element.getText().equals(value)) {
@@ -60,6 +63,7 @@ public class ManageClaims {
 		}
 		
 		driver.findElement(By.tagName("body")).sendKeys(Keys.ENTER);
+		WaitTool.sleep(2);
 	}
 	
 	public WebElement setSelect(String label, String value) {
@@ -291,5 +295,67 @@ public class ManageClaims {
 			}
 			Assert.assertFalse(flag);
 		}
+	}
+	
+	public WebElement paymentTab() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.id("payment-tab"), 30);
+	}
+	
+	public WebElement save() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//button[contains(text(),'Save')])[3]"), 5);
+	}
+	
+	public List<WebElement> paymentHistoryFields() {
+		return WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//label[text()='Payment History']/following-sibling::table/tr[1]/th"), 5);
+	}
+	
+	public WebElement paymentHistoryGridData(int columnNumber) {
+		List<WebElement> paymentHstoryRows = WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//label[text()='Payment History']/following-sibling::table/tr"), 5);
+		int totalRows = paymentHstoryRows.size();
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[text()='Payment History']/following-sibling::table/tr["+totalRows+"]/td["+columnNumber+"]"), 5);
+	}
+	
+	public WebElement importClaimPayments() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='k-button k-upload-button']"), 30);
+	}
+	
+	public WebElement reverseButton(int rowIndex, int columnIndex) {
+		return WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//label[text()='Payment History']/following-sibling::table/tr["+rowIndex+"]/td["+columnIndex+"]/button"), 20);
+	}
+	
+	public boolean isReverseButtonPresent(int rowIndex, int columnIndex) {
+		return WaitTool.isElementPresentAndDisplay(driver, By.xpath("//label[text()='Payment History']/following-sibling::table/tr["+rowIndex+"]/td["+columnIndex+"]/button"));
+	}
+	
+	public WebElement adminTab() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.id("admin-tab"), 30);
+	}
+	
+	public WebElement getOrderInvoicesField(int rowIndex, int columnIndex) {
+		return WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//h3[text()='Order Invoices']/following-sibling::div/table/tbody/tr["+rowIndex+"]/td["+columnIndex+"]"), 5);
+	}
+	
+	public WebElement getClientInformationField(int rowIndex, int columnIndex) {
+		return WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//table[@id='profileInfo']/tbody/tr["+rowIndex+"]/td["+columnIndex+"]"), 5);
+	}
+	
+	public WebElement LTLMarkupType() {
+		return WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//label[contains(text(),'LTL Markup Type')]/following-sibling::input"), 5);
+	}
+	
+	public WebElement LTLMarkup() {
+		return WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("(//label[contains(text(),'LTL Markup')]/following-sibling::input)[2]"), 5);
+	}
+	
+	public WebElement groundMarkupType() {
+		return WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//label[contains(text(),'Ground Markup Type')]/following-sibling::input"), 5);
+	}
+	
+	public WebElement groundMarkup() {
+		return WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("(//label[contains(text(),'Ground Markup')]/following-sibling::input)[2]"), 5);
+	}
+	
+	public WebElement adminNotes() {
+		return WaitTool.waitForElementPresentAndDisplaySoft(driver, By.xpath("//label[contains(text(),'Admin Notes')]/following-sibling::textarea"), 5);
 	}
 }

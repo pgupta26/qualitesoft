@@ -101,11 +101,11 @@ public class TestQuickQuoteStg extends InitializeTest {
 				
 		String insuranceValue = null;
 		if(insurance.equals("Yes")) {
-			insuranceValue = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/280.png']/ancestor::tr/td[5]/ul/li"), 10).getText();
+			insuranceValue = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/44.png']/ancestor::tr/td[5]/ul/li"), 10).getText();
 			Log.info("Insurance Value: "+insuranceValue);
 			insuranceValue = insuranceValue.split("\\(")[1].split("\\)")[0];
 		}
-		String amount = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/280.png']/ancestor::tr/td[6]/span"), 10).getText().trim();
+		String amount = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//img[@src='/Content/Images/Logos/44.png']/ancestor::tr/td[6]/span"), 10).getText().trim();
 		quickQuote.selectCarrier(carrier);
 		
 		//shipment completion information
@@ -221,7 +221,23 @@ public class TestQuickQuoteStg extends InitializeTest {
 		}
 		Log.info("New Invoice Amount Generated:  "+newInvoiceAmount);
 		secondaryInvoice.setCellData("Sec invoice Master", "New Invoice Amount", 2, newInvoiceAmount);
-
+		
+		//update test data for manage claims carrier payment
+		Xls_Reader manageClaimsTestData;
+		if(i == 2) {
+			
+			manageClaimsTestData = new Xls_Reader("testdata/FCfiles/"+ env +"/ManageClaims/Carrier_Payment_Template.xlsx");
+			manageClaimsTestData.setCellData("Bulk Payment Update", "Claim ID", 2, orderID);
+			manageClaimsTestData.setCellData("Bulk Payment Update", "Payment Date", 2, JavaFunction.currentDateUSFormat().replaceAll("-", "/"));
+		
+		} else {
+			
+			//update test data for manage claims carrier payment
+			manageClaimsTestData = new Xls_Reader("testdata/FCfiles/"+ env +"/ManageClaims/Company_Payment_Template.xlsx");
+			manageClaimsTestData.setCellData("Bulk Payment Update", "Claim ID", 2, orderID);
+		
+		}
+		
 		WaitTool.sleep(5);
 	}
 }
