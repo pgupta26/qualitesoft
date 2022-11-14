@@ -7,12 +7,25 @@ import org.openqa.selenium.WebElement;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 
+
 public class UpdateTrackingStatusPage {
 
 	WebDriver driver;
 
 	public UpdateTrackingStatusPage(WebDriver driver) {
 		this.driver = driver;
+	}
+	
+	public WebElement getField(String fieldName) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[text()='"+fieldName+"']/following-sibling::input"), 30);
+	}
+	
+	public WebElement getDropOffFields(String fieldName) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//label[text()='"+fieldName+"']/following-sibling::input)[2]"), 30);
+	}
+	
+	public WebElement saveOrder() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[text()='Save Order']"), 20);
 	}
 
 	public WebElement dateOfUpdateTextfield() {

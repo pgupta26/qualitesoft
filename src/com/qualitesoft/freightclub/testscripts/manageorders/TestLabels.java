@@ -14,7 +14,7 @@ import com.qualitesoft.freightclub.pageobjects.ManagerOrderPage;
 
 public class TestLabels extends InitializeTest {
 	
-	@Test
+	@Test(priority=0)
 	public void testLabels() throws IOException {
 
 		ManagerOrderPage manageOrderPage =new ManagerOrderPage(driver);
