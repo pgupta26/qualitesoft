@@ -5,7 +5,11 @@
 
 	<listeners>
 		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+<<<<<<< HEAD
 		<listener class-name="com.qualitesoft.core.CustomTestListener" />
+=======
+		
+>>>>>>> 88961838254714778dfe7fae9f91a35423d245c5
 	</listeners>
 
 	<parameter name="project" value="FreightClub" />
@@ -13,9 +17,13 @@
 	<parameter name="env" value="qa" />
 	<parameter name="URL" value="https://app.freightclub.com/Account/Login" />  
 	<parameter name="retryCount" value="1" />
+<<<<<<< HEAD
 	
 	<parameter name="testData" value="testdata/FCfiles/qa/QuickQuote/QuickQuoteTestData.xlsx" />
 	
+=======
+		
+>>>>>>> 88961838254714778dfe7fae9f91a35423d245c5
 	<test name="Temp Run">
 		<parameter name="fcusername" value="prodsh11oct@mailinator.com" />
 		<parameter name="fcpassword" value="@Test123" />

@@ -1,6 +1,5 @@
 package com.qualitesoft.freightclub.testscripts.quickquote;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -48,9 +47,9 @@ public class TestRerateForNewWeight extends InitializeTest {
 		quickQuote.selectCarrier(carrier);
 
 		// fill pallet details
-		fillPalletDetails(1, 1, "40");
+		fillPalletDetails(1, 1, "40.1");
 		SeleniumFunction.scrollIntoView(driver, quickQuote.Weight(1));
-		fillPalletDetails(3, 2, "39.99");
+		fillPalletDetails(3, 2, "40");
 		ScreenShot.takeFullScreenShot("Same quantity with same weight");
 		reviewOrder(true, 1);
 	}
@@ -60,7 +59,7 @@ public class TestRerateForNewWeight extends InitializeTest {
 		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
 
 		quickQuote.quantity2("2");
-		SeleniumFunction.sendKeys(quickQuote.Weight(1), "20");
+		SeleniumFunction.sendKeys(quickQuote.Weight(1), "20.05");
 		ScreenShot.takeFullScreenShot("Multiple quantity with same weight");
 		reviewOrder(true, 1);
 	}
@@ -71,7 +70,7 @@ public class TestRerateForNewWeight extends InitializeTest {
 
 		quickQuote.quantity2("1");
 		SeleniumFunction.click(quickQuote.addadditionalItem());
-		fillPalletDetails(2, 2, "20");
+		fillPalletDetails(2, 2, "20.05");
 		ScreenShot.takeFullScreenShot("Multiple item with same weight");
 		reviewOrder(true, 1);
 	}
@@ -91,7 +90,7 @@ public class TestRerateForNewWeight extends InitializeTest {
 	public void verifyBookingWithLessWeight() {
 		QuickQuoteFinal quickQuote = new QuickQuoteFinal(driver);
 		
-		SeleniumFunction.sendKeys(quickQuote.Weight(1), "19.99");
+		SeleniumFunction.sendKeys(quickQuote.Weight(1), "20");
 		ScreenShot.takeFullScreenShot("Item and Product with less weight");
 		reviewOrder(false, 1);
 		WaitTool.sleep(15);

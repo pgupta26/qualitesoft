@@ -239,12 +239,11 @@ public class TestSubmitForReview extends InitializeTest {
 			
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
-			
+
 		}catch(Exception | AssertionError ex) {
-			ex.printStackTrace();
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);
-			Assert.fail(ex.getMessage());
+			throw ex;
 		}
 		
 		//verify claim status in manage claims grid

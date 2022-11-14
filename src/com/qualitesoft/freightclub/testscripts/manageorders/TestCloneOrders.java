@@ -1,6 +1,7 @@
 package com.qualitesoft.freightclub.testscripts.manageorders;
 
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.Log;
@@ -28,6 +29,7 @@ public class TestCloneOrders extends InitializeTest{
 		int i=Integer.parseInt(Row);
 		Log.info("Data row number: "+i);
 
+		String orderReferenceID=xr.getCellData("Input","orderReferenceID", i).trim();
 		String orderId=xr.getCellData("Input","OrderId", i).trim();
 		String shipmentType=xr.getCellData("Input","shipmentType", i).trim();
 		String packageType = xr.getCellData("Input", "packageType", i).trim();
@@ -45,7 +47,7 @@ public class TestCloneOrders extends InitializeTest{
 		WaitTool.sleep(5);
 		String CloneOrder="CloneOrder"+Row;
 		Log.info("Clone order customer PO: "+CloneOrder);
-		SeleniumFunction.sendKeys(manageOrderPage.customerPONumber(), CloneOrder);
+		SeleniumFunction.sendKeys(manageOrderPage.customerPONumber(), orderReferenceID);
 		WaitTool.sleep(2);
 		SeleniumFunction.click(manageOrderPage.cloneNow());
 		ScreenShot.takeScreenShot(driver, "Order cloned");
@@ -63,7 +65,23 @@ public class TestCloneOrders extends InitializeTest{
 		WaitTool.sleep(5);
 		SeleniumFunction.clickJS(driver, quickQuote.ReviewOrder());
 		quickQuote.acceptPopup();
-		WaitTool.sleep(10);
+		WaitTool.sleep(10);	
+		if(orderReferenceID.length() <=25) {
+			Assert.assertFalse(quickQuote.getCustomerPOValidationMsg().isDisplayed());
+			UseAssert.assertEquals(quickQuote.customerPONumber().getText(), orderReferenceID);
+		} else {
+			if(carrier.equals("FragilePAK")) {
+				String expectedCustomerPOValidationMsg = "The carrier has identified that the length of this information is too long for them to input into their system. While we can shorten it to fit, we’d like your input as this information will end up on the carrier label and Bill of Lading.";
+				String actualCustomerPOValidationMsg = quickQuote.getCustomerPOValidationMsg().getText().trim();
+				Log.info("Customer PO Validation Message: "+actualCustomerPOValidationMsg);
+				UseAssert.assertEquals(expectedCustomerPOValidationMsg, expectedCustomerPOValidationMsg);
+				SeleniumFunction.click(quickQuote.acceptCustomerPOValidationPopup());
+				UseAssert.assertEquals(quickQuote.customerPONumber().getText(), orderReferenceID.substring(0, 25));
+			} else {
+				Assert.assertFalse(quickQuote.getCustomerPOValidationMsg().isDisplayed());
+				UseAssert.assertEquals(quickQuote.customerPONumber().getText(), orderReferenceID.substring(0, 50));
+			}
+		}
 		
 		//verify pallet details
 		if (!packageType.isEmpty()) {

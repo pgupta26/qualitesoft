@@ -1,6 +1,13 @@
 package com.qualitesoft.freightclub.testscripts.manageorders;
 
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
@@ -81,19 +88,33 @@ public class TestViewOrderDetails extends InitializeTest {
 			SeleniumFunction.getCurrentWindow(driver);
 			WaitTool.sleep(3);
 			quickQuote.acceptPopup();
+			quickQuote.acceptPopup();
 
 			int panelIndex = 1;
 			UseAssert.assertEquals(orderDetailsPage.getLabel("Order ID:", panelIndex).getText(), orderId);
 			//UseAssert.assertEquals(orderDetailsPage.getLabel("Created Date:").getText(), pickUpDate);
 
 			UseAssert.assertEquals(orderDetailsPage.getLabel("Shipment Type:", panelIndex).getText(), shipmentType);
-			UseAssert.assertEquals(orderDetailsPage.getLabel("Customer PO #:", panelIndex).getText(), orderReferenceID);
-			UseAssert.assertEquals(orderDetailsPage.getLabel("Quoted Amount:", panelIndex).getText(), amount);
+			
 			if(carrier.equals("Ups SurePost")) {
 				UseAssert.assertEquals(orderDetailsPage.getLabel("Service Level:", panelIndex).getText(), "SurePost");
 			}else {
 				UseAssert.assertEquals(orderDetailsPage.getLabel("Service Level:", panelIndex).getText(), serviceLevel);
 			}
+			
+			//customer PO validation
+			if(orderReferenceID.length() <=25) {
+				UseAssert.assertEquals(orderDetailsPage.getLabel("Customer PO #:", panelIndex).getText(), orderReferenceID);
+			} else {
+				if(carrier.equals("FragilePAK")) {
+					UseAssert.assertEquals(orderDetailsPage.getLabel("Customer PO #:", panelIndex).getText(), orderReferenceID.substring(0, 25));	
+				} else {
+					UseAssert.assertEquals(orderDetailsPage.getLabel("Customer PO #:", panelIndex).getText(), orderReferenceID.substring(0, 50));	
+				}
+			}
+			
+			UseAssert.assertEquals(orderDetailsPage.getLabel("Quoted Amount:", panelIndex).getText(), amount);
+			
 
 			//UseAssert.assertEquals(orderDetailsPage.getLabel("Status:").getText(), "Booked");
 			try {
@@ -104,6 +125,17 @@ public class TestViewOrderDetails extends InitializeTest {
 			UseAssert.assertEquals(orderDetailsPage.getLabel("Payment Type:", panelIndex).getText(), "OnAccount");
 
 			//UseAssert.assertEquals(orderDetailsPage.getLabel("Booking Date:").getText(), pickUpDate);
+
+			try {
+				UseAssert.assertEquals(orderDetailsPage.getLabel("Contact Name:", panelIndex).getText(), customer);
+			}catch(AssertionError ae) {
+				UseAssert.assertEquals(orderDetailsPage.getLabel("Customer:", panelIndex).getText(), "Test Automation");
+			}
+			UseAssert.assertEquals(orderDetailsPage.getLabel("Company Email:", panelIndex).getText(), email);
+			UseAssert.assertEquals(orderDetailsPage.getLabel("Phone Number:", panelIndex).getText(), phoneNumber+" ext. "+extn);
+			
+			//verify carrier 
+			Assert.assertTrue(orderDetailsPage.verifyCarrier(carrier));
 	
 			UseAssert.assertEquals(orderDetailsPage.getLabel("Special Handling Instructions", panelIndex).getText(), description);
 			ScreenShot.takeScreenShot(driver, "Order Details");
@@ -118,6 +150,50 @@ public class TestViewOrderDetails extends InitializeTest {
 				SeleniumFunction.scrollDownByPixel(driver, "300");
 				this.verifyItemsInThisOrderPanel(xr, i, 2, "Non-Palletized");
 			} 
+			
+			//verify order details tab
+			ArrayList<String> userOrderDetailsTab = new ArrayList<String>();
+			Collections.addAll(userOrderDetailsTab, "Information","Admin");
+			
+			ArrayList<String> adminOrderDetailsTab = new ArrayList<String>();
+			Collections.addAll(adminOrderDetailsTab, "Information","Update History", "Admin", "Contacts");
+			
+			ArrayList<String> actualOrderDetailsTab = new ArrayList<String>();
+			List<WebElement> orderDetailsTab = orderDetailsPage.orderDetailsTab();
+			
+			for(WebElement orderDetail : orderDetailsTab) {
+				if(orderDetail.findElement(By.xpath("./a")).getCssValue("display").equals("block")) {
+					actualOrderDetailsTab.add(orderDetail.getText());
+				}
+			}
+
+			if(fcusername.equals("freightclubinfo@gmail.com")) {
+				Assert.assertEquals(actualOrderDetailsTab, adminOrderDetailsTab);
+			} else {
+				Assert.assertEquals(actualOrderDetailsTab, userOrderDetailsTab);
+			}
+			
+			//verify admin tab - sub menu
+			SeleniumFunction.scrollUpByPixel(driver, "500");
+			SeleniumFunction.click(orderDetailsPage.adminTab());
+			ArrayList<String> user_AdminTabSubMenu = new ArrayList<String>();
+			Collections.addAll(user_AdminTabSubMenu, "Comments","Invoices");
+			
+			ArrayList<String> admin_adminTabSubMenu = new ArrayList<String>();
+			Collections.addAll(admin_adminTabSubMenu, "Comments","Invoices", "Bills", "Custom Order");
+			
+			ArrayList<String> actualAdminTabSubMenu = new ArrayList<String>();
+			List<WebElement> adminTabSubMenus = orderDetailsPage.adminTabSubMenu();
+			
+			for(WebElement adminTabSubMenu : adminTabSubMenus) {
+				actualAdminTabSubMenu.add(adminTabSubMenu.getText());
+			}
+
+			if(fcusername.equals("freightclubinfo@gmail.com")) {
+				Assert.assertEquals(actualAdminTabSubMenu, admin_adminTabSubMenu);
+			} else {
+				Assert.assertEquals(actualAdminTabSubMenu, user_AdminTabSubMenu);
+			}
 
 			SeleniumFunction.closeWindow(driver);
 			SeleniumFunction.getCurrentWindow(driver);

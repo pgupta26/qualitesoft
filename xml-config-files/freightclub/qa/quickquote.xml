@@ -5,7 +5,7 @@
 
 	<listeners>
 		<listener class-name="org.uncommons.reportng.HTMLReporter" />
-		<listener class-name="com.qualitesoft.core.CustomTestListener" />
+		<!-- <listener class-name="com.qualitesoft.core.CustomTestListener" /> -->
 	</listeners>
 
 	<parameter name="project" value="FreightClub" />
@@ -65,13 +65,20 @@
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
 			<class name="com.qualitesoft.freightclub.testscripts.greenlist.TestManageGreenlist" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestUserIsAbleToSearchProfile" />
-			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestSelectPaymentMethod" />
+			<class name="com.qualitesoft.freightcluxb.testscripts.manageprofiles.TestSelectPaymentMethod" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
+<<<<<<< HEAD
 	</test>  -->
 	
 	<test name="Test verify book and clone order - LTL Non-Palletized">
 		<parameter name="fcusername" value="prodapitoken@mailinator.com" />
+=======
+	</test> --> 
+	
+	<test name="Test verify book and clone order - LTL Non-Palletized">
+		<parameter name="fcusername" value="prodsh11oct@mailinator.com" />
+>>>>>>> 88961838254714778dfe7fae9f91a35423d245c5
 		<parameter name="fcpassword" value="@Test123" />
 		<parameter name="Row" value="2" />
 		<classes>
@@ -86,7 +93,7 @@
 		</classes>
 	</test>
 	
-	 <test name="Test verify book and clone order - LTL with pallet and Non-Palletized">
+	 <!-- <test name="Test verify book and clone order - LTL with pallet and Non-Palletized">
 		<parameter name="Row" value="3" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
@@ -107,12 +114,13 @@
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />	
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestPDFLabelText" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" />
 		</classes>
-	</test>
+	</test> -->
 	
-	<test name="Test create generic pallet adding cartons without sku">
+	<!-- <test name="Test create generic pallet adding cartons without sku">
 		<parameter name="Row" value="5" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
@@ -123,7 +131,7 @@
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" />
 		</classes>
-	</test>
+	</test> -->
 	
 	<test name="TEST CREATE PRODUCT - NO-PALLETIZED - MULTIPLE CARTON">
 		<parameter name="testData" value="testdata/FCfiles/qa/ManageProducts/ManageProducts.xlsx" />
@@ -243,16 +251,41 @@
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" />
+		</classes>
+	</test> 
+	
+	<test name="Test validate generic pallet calculation when weight less than 40 and dimensions less than total carton count">
+		<parameter name="Row" value="15" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestPDFLabelText" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
 	</test>    
 	
-	<test name="Test verify tracking status of order id's">
+	<test name="Test verify order details as Admin">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
-		<parameter name="Row" value="4" />
+		<parameter name="Row" value="2" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />
+		</classes>
+	</test>
+	
+	<test name="Test user is able to update order information">
+		<parameter name="Row" value="2" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestVerifyUserIsAbleToUpdateOrderInformation" />
+		</classes>
+	</test>  
+	
+	<test name="Test verify tracking status of order id's">
+		<parameter name="Row" value="4" />
+		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestTrackingStatus" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>

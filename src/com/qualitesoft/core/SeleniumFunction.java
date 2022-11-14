@@ -348,6 +348,15 @@ public class SeleniumFunction {
 			throw ex;
 		}
 	}
+	
+	public static void refreshCurrentWindow(WebDriver driver) {
+		try {
+			driver.navigate().refresh();
+		}catch(Exception ex) {
+			Log.error("Unable to refresh page");
+			throw ex;
+		}
+	}
 
 	//*******************************************************Scroll Up/Down Shubham***********************************************
 
