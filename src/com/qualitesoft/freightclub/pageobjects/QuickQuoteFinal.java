@@ -3,9 +3,11 @@ package com.qualitesoft.freightclub.pageobjects;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.JavaFunction;
@@ -24,7 +26,7 @@ public class QuickQuoteFinal {
 	}
 
 	public WebElement quickQuoteLink() {
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[contains(@href,'/QuickQuote/QuickQuote')]"), 30);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[contains(@href,'/QuickQuote/QuickQuote')]/span[@class='link-title']"), 30);
 	}
 
 	public void acceptPopup() {
@@ -66,21 +68,66 @@ public class QuickQuoteFinal {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='pickupzipEntry']"), 30);
 	}
 	
+	public String getPickUpZip() {
+		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='pickupzipEntry']"), 30));
+	}
+	
 	public WebElement selectLocationName(String locationName) {
 		WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@placeholder='Select location or enter ZIP/Postal code'])[1]"), 30).sendKeys(Keys.chord(locationName.substring(0, 6)));
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='"+locationName.substring(6, locationName.length())+"']"), 10);
 	}
+	
+	public String getPickUpLocation() {
+		
+		WaitTool.sleep(1);
+		WebElement element = driver.findElement(By.xpath("(//select[@class='form-control input-sm form-input selectized'])[1]"));
+
+		JavascriptExecutor j = (JavascriptExecutor)driver;
+		j.executeScript("arguments[0].style.display='block';", element);
+
+		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//select[@class='form-control input-sm form-input selectized']/option)[1]"), 10)); 
+
+	}
+	
+	public String getDropOffLocation() {
+		
+		WaitTool.sleep(1);
+		WebElement element = driver.findElement(By.xpath("(//select[@class='form-control input-sm form-input selectized'])[2]"));
+
+		JavascriptExecutor j = (JavascriptExecutor)driver;
+		j.executeScript("arguments[0].style.display='block';", element);
+
+		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//select[@class='form-control input-sm form-input selectized']/option)[2]"), 10)); 
+
+	}
 
 	public WebElement DropOffZip() {
+		
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='dropoffzipEntry']"), 30);
 	}
+	
+	public String getDropOffZip() {
+		
+		return SeleniumFunction.getText(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='dropoffzipEntry']"), 30));
+	}
+	
 
 	public WebElement PickUpLocationType() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//h5[text()='Pick Up Location ']/ancestor::div[@class='col-xs-12 col-sm-6']/descendant::select[@class='form-input form-control input-sm']"),60);
 	}
+	
+	public String getPickUpLocationType() {
+		Select sc = new Select(this.PickUpLocationType());
+		return sc.getFirstSelectedOption().getText();
+	}
 
 	public WebElement DropOffLocationType() {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//h5[text()='Drop Off Location ']/ancestor::div[@class='col-xs-12 col-sm-6']/descendant::select[@class='form-input form-control input-sm']"),60);
+	}
+	
+	public String getDropOffLocationType() {
+		Select sc = new Select(this.PickUpLocationType());
+		return sc.getFirstSelectedOption().getText();
 	}
 	
 	public void deselectInsurance() {
@@ -325,6 +372,19 @@ public class QuickQuoteFinal {
 	public WebElement ReviewOrder() {		
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@class='btn btn-lg btn-primary pull-right']"), 30);	
 	}
+	
+	public WebElement getCustomerPOValidationMsg() { 
+		return WaitTool.returnWebElement(driver, By.xpath("//div[@id='fragilePakOrderReferenceModal']/descendant::div[@class='modal-body']/div"));
+	}
+	
+	public WebElement acceptCustomerPOValidationPopup() {
+		return WaitTool.returnWebElement(driver, By.xpath("//button[text()='Submit']"));
+	}
+	
+	public WebElement customerPONumber() {
+			return WaitTool.returnWebElement(driver, By.xpath("//strong[text()='Customer PO Number']/following::div[1]"));
+	}
+	
 	public WebElement Book() {		
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@type='submit' and @class='btn btn-lg btn-primary pull-right']"), 30);		
 	}

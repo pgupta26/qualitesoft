@@ -74,6 +74,7 @@ public class InitializeTest {
 	public static String Productname;
 	public static String userPermissions = null;
 	public static boolean isRecording = false;
+	public static String dataFile = null;
 	
 	@BeforeTest
 	public void initialize(ITestContext context) throws Exception {
@@ -120,6 +121,7 @@ public class InitializeTest {
 		password = context.getCurrentXmlTest().getParameter("password");
 		userPermissions = context.getCurrentXmlTest().getParameter("userPermissions");
 		isRecording = Boolean.parseBoolean(System.getProperty("isRecording"));
+		dataFile = context.getCurrentXmlTest().getParameter("dataFile");
 		Log.info("*****************************"+ testname + " started.");
 		
 		if(isRecording)

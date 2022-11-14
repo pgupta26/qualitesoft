@@ -5,8 +5,10 @@ import java.io.IOException;
 import java.text.NumberFormat;
 import java.text.ParseException;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -602,6 +604,23 @@ public class CommonOps extends InitializeTest {
 				Assert.fail("File doesn't exists");
 			}
 		}
+	}
+	
+	public void validatePDFText(String fileName, String expectedText, int expectedTextCount) throws IOException {
+		
+		String downloadDir = System.getProperty("user.dir") +File.separator+"download"+File.separator;
+		File file = new File(downloadDir+fileName);
+		PDDocument doc = Loader.loadPDF(file);
+		PDFTextStripper pdfStripper = new PDFTextStripper();  
+		String actualText = pdfStripper.getText(doc); 
+		System.out.println("actualText: "+actualText
+				);
+		
+		System.out.println("Expected Text: "+expectedText);
+		Assert.assertTrue(actualText.contains(expectedText));
+		
+		int actualCount = StringUtils.countMatches(actualText, expectedText);
+		Assert.assertEquals(actualCount, expectedTextCount);
 	}
 }
 
