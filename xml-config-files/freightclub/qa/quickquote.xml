@@ -11,12 +11,12 @@
 	<parameter name="project" value="FreightClub" />
 	<parameter name="browser" value="chrome" />
 	<parameter name="env" value="qa" />
-	<parameter name="URL" value="https://qa.freightclub.com/" />  
+	<parameter name="URL" value="https://app.freightclub.com/" />  
 	<parameter name="retryCount" value="1" />
 	
 	<parameter name="testData" value="testdata/FCfiles/qa/QuickQuote/QuickQuoteTestData.xlsx" />
 	
-	<test name="TEST DISABLE ALL CARRIERS">
+	<!-- <test name="TEST DISABLE ALL CARRIERS">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
 		<parameter name="searchUser" value="test.automation2@mailinator.com"/>
@@ -42,20 +42,20 @@
 			<class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test>
+	</test> -->
 	
 	<!-- *************************** Forgot Password ********************************** -->
-	<test name="Test forgot password">
+	<!-- <test name="Test forgot password">
 		<parameter name="testData" value="testdata/FCfiles/qa/SignUp.xlsx" />
 		<parameter name="Row" value="7" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.forgotpassword.TestForgotPassword" />
 			<class name="com.qualitesoft.freightclub.testscripts.forgotpassword.TestResetPassword" />	
 		</classes>
-	</test>
+	</test> -->
 	
 	<!-- *************************** Quick Quote ********************************** -->
-	<test name="Test manage green list and select onAccount payment method">
+	<!-- <test name="Test manage green list and select onAccount payment method">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
 		<parameter name="searchUser" value="test.automation2@mailinator.com"/>
@@ -68,21 +68,21 @@
 			<class name="com.qualitesoft.freightclub.testscripts.manageprofiles.TestSelectPaymentMethod" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test> 
+	</test>  -->
 	
 	<test name="Test verify book and clone order - LTL Non-Palletized">
-		<parameter name="fcusername" value="test.automation2@mailinator.com" />
-		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="fcusername" value="prodapitoken@mailinator.com" />
+		<parameter name="fcpassword" value="@Test123" />
 		<parameter name="Row" value="2" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
-			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
+			<!-- <class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />	
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" /> 
-			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" />
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" /> -->
 		</classes>
 	</test>
 	

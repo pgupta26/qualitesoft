@@ -23,22 +23,24 @@ public class LoginPage {
 	}
 
 	public WebElement emailField(){
-		WebElement webElement = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='email']"), 120);
+		WebElement webElement = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@formcontrolname='email']"), 120);
 		return webElement;
 	}
 
 	public WebElement passwordfield(){
 
-		WebElement webElement = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='password']"), 10);
+		WebElement webElement = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@formcontrolname='password']"), 10);
 		return webElement;
 	}
-
 
 	public WebElement signInbutton(){
 
-		WebElement webElement = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//button[@type='submit'])[1]"), 10);
+		WebElement webElement = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//span[contains(text(),'Login')]//parent::button"), 10);
 		return webElement;
 	}
+	
+	
+	
 	public WebElement siplink() {
 
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//ul[contains(@class,'pills')]//li[3]//a"), 50);
@@ -210,27 +212,29 @@ public class LoginPage {
 		return webElement;
 	}
 
-	//***************************************Added by shubham
+	//***************************************Added by shubham**************************************
 
 	public WebElement forgotPasswordLink(){
-		WebElement fpLink = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[contains(@href,'forgotpassword')]"), 30);
-		return fpLink;
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[contains(@href,'forgot-password')]"), 30);
 	}
 	
 	public WebElement successMessage(){
-		WebElement message = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//small[@class='text-success']"), 30);
-		return message;
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//small[@class='text-success']"), 30);
 	}
 
 	public WebElement validationMessage(int index){
-		WebElement validation = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//span[@class='help-block'])["+index+"]"), 30);
-		return validation;
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[contains(@class,'error')])["+index+"]"), 30);
 	}
 
-	public WebElement incorrectValdiatonMessage(int index){
-		WebElement validation = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//li[@class='text-danger'])["+index+"]"), 30);
-		return validation;
+	public WebElement closeToastMessage(int index){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//span[contains(@class,'p-toast-icon-close-icon')])["+index+"]"), 30);
 	}
 	
-
+	public WebElement loginLinkOnForgotPasswordPage(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[contains(text(),'Login')]"), 30);
+	}
+	public WebElement clickRecoverButton(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//span[contains(text(),'Recover')]//parent::button"), 30);
+	}
+	
 }

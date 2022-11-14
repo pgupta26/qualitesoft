@@ -1,7 +1,10 @@
 package com.qualitesoft.channelgatesip.testscripts;
 
+import org.openqa.selenium.Keys;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import com.qualitesoft.channelgatesip.pageobjects.CommonPage;
 import com.qualitesoft.channelgatesip.pageobjects.LoginPage;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
@@ -20,7 +23,8 @@ public class TestForgotPassword extends InitializeTest{
 		
 		SeleniumFunction.click(login.forgotPasswordLink());
 		WaitTool.sleep(5);
-		SeleniumFunction.click(login.signInbutton());
+		SeleniumFunction.sendKeys(login.emailField(), Keys.TAB.toString());
+		
 		String emailValidation = SeleniumFunction.getText(login.validationMessage(1));
 		UseAssert.assertEquals(emailValidation, rpf.getEmailValidation());
 	}
@@ -30,21 +34,28 @@ public class TestForgotPassword extends InitializeTest{
 		
 		LoginPage login = new LoginPage(driver);
 		ReadPropertyFile rpf = new ReadPropertyFile();
+		CommonPage commonPage = new CommonPage(driver);
 		
 		SeleniumFunction.sendKeys(login.emailField(), value);
-		SeleniumFunction.click(login.signInbutton());
-		String emailValidation = SeleniumFunction.getText(login.validationMessage(1));
-		UseAssert.assertEquals(emailValidation, rpf.getInvalidEmailValidation());
+		SeleniumFunction.click(login.clickRecoverButton());
+		
+		String emailValidation = SeleniumFunction.getText(commonPage.getToastMessageText(1));
+		String emailValidation2 = SeleniumFunction.getText(commonPage.getToastMessageText(2));
+	
+		UseAssert.assertEquals(emailValidation, rpf.getForgotPasswordValidation1());
+		UseAssert.assertEquals(emailValidation2, rpf.getForgotPasswordValidation2());
+		WaitTool.sleep(7);
 	}
 	
 	@Test(priority = 3)
 	public void verifyUnregisteredEmailValidation(){
 		LoginPage login = new LoginPage(driver);
 		ReadPropertyFile rpf = new ReadPropertyFile();
+		CommonPage commonPage = new CommonPage(driver);
 		
 		SeleniumFunction.sendKeys(login.emailField(), "qatest852741@mailinator.com");
-		SeleniumFunction.click(login.signInbutton());
-		String emailValidation = SeleniumFunction.getText(login.incorrectValdiatonMessage(1));
+		SeleniumFunction.click(login.clickRecoverButton());
+		String emailValidation = SeleniumFunction.getText(commonPage.getToastMessageText(1));
 		UseAssert.assertEquals(emailValidation, rpf.getForgotPasswordValidation2());
 	}
 	
@@ -52,11 +63,13 @@ public class TestForgotPassword extends InitializeTest{
 	public void testForgotPassword(){
 		LoginPage login = new LoginPage(driver);
 		ReadPropertyFile rpf = new ReadPropertyFile();
+		CommonPage commonPage = new CommonPage(driver);
 		
 		ScreenShot.takeScreenShot(driver, "Forgot Password Page");
-		SeleniumFunction.sendKeys(login.emailField(), crusername);
-		SeleniumFunction.click(login.signInbutton());
-		String fpSuccessMessage = SeleniumFunction.getText(login.successMessage());
+		SeleniumFunction.sendKeys(login.emailField(), emailAddress);
+		
+		SeleniumFunction.click(login.clickRecoverButton());
+		String fpSuccessMessage = SeleniumFunction.getText(commonPage.getToastMessageText(1));
 		UseAssert.assertEquals(fpSuccessMessage, rpf.getForgotPasswordSuccess());
 	}
 
@@ -69,16 +82,16 @@ public class TestForgotPassword extends InitializeTest{
 
 		Mailinator mailinator = new Mailinator(driver);
 
-		SeleniumFunction.sendKeys(mailinator.searchBox(), crusername);
+		SeleniumFunction.sendKeys(mailinator.searchBox(), emailAddress);
 		WaitTool.sleep(2);
-		SeleniumFunction.click(mailinator.goButton());
+		SeleniumFunction.click(mailinator.go());
 		WaitTool.sleep(5);
 		SeleniumFunction.click(mailinator.firstMail());
 		SeleniumFunction.selectFrame(driver, "html_msg_body");
 		
 		UseAssert.assertEquals(SeleniumFunction.getAttribute(mailinator.cgLogoImage(1), "src"), "https://media.cymaxstores.com/Images/CG/Resources/teamcg.png?h=100");
 		UseAssert.assertEquals(SeleniumFunction.getText(mailinator.mailText(1)), "Channel Gate");
-		UseAssert.assertEquals(SeleniumFunction.getText(mailinator.mailText(2)), "Hello Selenium_FirstName Selenium_LastName,");
+		UseAssert.assertEquals(SeleniumFunction.getText(mailinator.mailText(2)), "Hello Demo Vendor Portal,");
 		UseAssert.assertEquals(SeleniumFunction.getText(mailinator.mailText(3)), "Can't remember your password?");
 		UseAssert.assertEquals(SeleniumFunction.getText(mailinator.mailText(4)), "If you didn't request this, please disregard this email.");
 		UseAssert.assertEquals(SeleniumFunction.getText(mailinator.mailText(5)), "Your password won't change until you access the link above and create a new one.");
