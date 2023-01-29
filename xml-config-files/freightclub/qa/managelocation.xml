@@ -14,6 +14,91 @@
 	<parameter name="URL" value="https://qa.freightclub.com/" />
 	<parameter name="retryCount" value="1" />
 	<parameter name="testData" value="testdata/FCfiles/qa/ManageLocations/ManageLocations.xlsx" />
+	
+	<test name="TEST USER IS ABLE TO ADD COMMERCIAL LOCATION TYPE">
+		<parameter name="fcusername" value="test.automation@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
+		<parameter name="Row" value="5" />
+		<classes>
+			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
+			<class
+				name="com.qualitesoft.freightclub.testscripts.managelocations.TestAddLocation" />
+		</classes>
+	</test>
+	
+	<test name="TEST USER IS ABLE TO ADD RESIDENTAIL LOCATION TYPE">
+		<parameter name="Row" value="6" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.managelocations.TestAddLocation" />
+		</classes>
+	</test>
+	
+	<test name="TEST USER IS ABLE TO ADD AMAZON FBA WAREHOUSE LOCATION TYPE">
+		<parameter name="Row" value="7" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.managelocations.TestAddLocation" />
+		</classes>
+	</test>
+	
+	<test name="TEST USER IS ABLE TO BOOK ORDER BY SELECTING ADDED LOCATION AT QQ STEP 1">
+		<parameter name="Row" value="1" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
+		</classes>
+	</test>
+	
+	<test name="TEST USER IS ABLE TO BOOK ORDER BY SELECTING ADDED LOCATION AT QQ STEP 3">
+		<parameter name="Row" value="2" />
+		<parameter name="CarrierName" value="Custom Orders" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
+		</classes>
+	</test>
+	
+	<test name="TEST USER IS ABLE TO EDIT COMMERCIAL LOCATION TYPE">
+		<parameter name="Row" value="5" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.managelocations.TestEditLocation" />
+		</classes>
+	</test>
+	
+	<test name="TEST VERIFY THAT UPDATED LOCATION INFORMATION SHOULD APPEAR WHEN CLONE ORDER">
+		<parameter name="Row" value="6" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" />
+		</classes>
+	</test>
+	
+	<test name="TEST VERIFY THAT USER IS ABLE TO ADD LOCATION FROM QQ STEP 1">
+		<parameter name="Row" value="6" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.managelocations.TestUserIsAbleToAddLocationFromQQStep1" />
+		</classes>
+	</test>
+	
+	<test name="TEST VERIFY THAT USER IS ABLE TO ADD LOCATION FROM QQ STEP 3">
+		<parameter name="Row" value="6" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.managelocations.TestUserIsAbleToAddLocationFromQQStep3" />
+		</classes>
+	</test>
+	
+	<test name="USER TEST Delete LOCATION - AutoCom10011">
+		<parameter name="Row" value="6" />
+		<classes>
+			<class
+				name="com.qualitesoft.freightclub.testscripts.managelocations.TestDeleteLocation" />
+			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
+		</classes>
+	</test>
 
 	<test name="ADMIN TEST ADD LOCATION - AutoCom10011">
 		<parameter name="fcusername" value="info@freightclub.com" />
@@ -44,31 +129,4 @@
 		</classes>
 	</test>
 
-	<test name="USER TEST ADD LOCATION - AutoCom10011">
-		<parameter name="fcusername" value="test.automation@mailinator.com" />
-		<parameter name="fcpassword" value="Automation123!" />
-		<parameter name="Row" value="5" />
-		<parameter name="CarrierName" value="Custom Orders" />
-		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
-			<class
-				name="com.qualitesoft.freightclub.testscripts.managelocations.TestAddLocation" />
-		</classes>
-	</test>
-
-	<test name="USER TEST Edit LOCATION - AutoCom10011">
-		<parameter name="Row" value="6" />
-		<classes>
-			<class
-				name="com.qualitesoft.freightclub.testscripts.managelocations.TestEditLocation" />
-		</classes>
-	</test>
-
-	<test name="USER TEST Delete LOCATION - AutoCom10011">
-		<parameter name="Row" value="6" />
-		<classes>
-			<class
-				name="com.qualitesoft.freightclub.testscripts.managelocations.TestDeleteLocation" />
-		</classes>
-	</test>
 </suite>	

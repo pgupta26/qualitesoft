@@ -1,26 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="67606584-069f-41d4-a80d-1fcf3d55be44" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/qualitesoft/core/InitializeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/qualitesoft/core/InitializeTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/qualitesoft/freightclub/pageobjects/ManageClaims.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/qualitesoft/freightclub/pageobjects/ManageClaims.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/qualitesoft/freightclub/testscripts/quickquote/TestQuickQuoteStg.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/qualitesoft/freightclub/testscripts/quickquote/TestQuickQuoteStg.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qualitesoft/core/InitializeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qualitesoft/core/InitializeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qualitesoft/freightclub/pageobjects/ManageClaims.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qualitesoft/freightclub/pageobjects/ManageClaims.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/qualitesoft/freightclub/testscripts/quickquote/TestQuickQuoteStg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qualitesoft/freightclub/testscripts/quickquote/TestQuickQuoteStg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testdata/FCfiles/qa/ManageProducts/ManageProducts.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/testdata/FCfiles/qa/ManageProducts/ManageProducts.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testdata/FCfiles/qa/QuickQuote/QuickQuoteTestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/testdata/FCfiles/qa/QuickQuote/QuickQuoteTestData.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testdata/FCfiles/qa/SignUp.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/testdata/FCfiles/qa/SignUp.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testdata/FCfiles/stg/ManageClaims/ManageClaims.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/testdata/FCfiles/stg/ManageClaims/ManageClaims.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testdata/FCfiles/stg/ManageProducts/ManageProducts.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/testdata/FCfiles/stg/ManageProducts/ManageProducts.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testdata/FCfiles/stg/Overages/ManageInvoiceTestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/testdata/FCfiles/stg/Overages/ManageInvoiceTestData.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testdata/FCfiles/stg/Overages/SecondaryInvoiceTemplate.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/testdata/FCfiles/stg/Overages/SecondaryInvoiceTemplate.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testdata/FCfiles/stg/QuickQuote/QuickQuoteTestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/testdata/FCfiles/stg/QuickQuote/QuickQuoteTestData.xlsx" afterDir="false" />
+    <list default="true" id="472b197c-67d6-4b84-9e18-953faeafdd8e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/qualitesoft/freightclub/testscripts/TempTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/qualitesoft/freightclub/testscripts/TempTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/qualitesoft/freightclub/testscripts/quickquote/TestSelectAddProductPackageType.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/qualitesoft/freightclub/testscripts/quickquote/TestSelectAddProductPackageType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/qualitesoft/freightclub/testscripts/managelocations/TestAddLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qualitesoft/freightclub/testscripts/managelocations/TestAddLocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/qualitesoft/freightclub/testscripts/quickquote/TestSelectAddProductPackageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/qualitesoft/freightclub/testscripts/quickquote/TestSelectAddProductPackageType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xml-config-files/channelgate/channelgatesipsuite.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xml-config-files/channelgate/channelgatesipsuite.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xml-config-files/freightclub/qa/customorder.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xml-config-files/freightclub/qa/customorder.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xml-config-files/freightclub/qa/quickquote.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xml-config-files/freightclub/qa/quickquote.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,53 +19,25 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectId" id="2FGiLuKRPFYgoJS2F1XKdvWXFvh" />
+  <component name="ProjectId" id="2HaLNRQCRvUAIm4rVod6MDhJc2W" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "C:/Users/SONY/git/qualitesoft/lib/xmlbeans-2.6.0.jar",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager">
-    <configuration name="C:/Users/SONY/git/qualitesoft/xml-config-files/freightclub/stg/manageclaims2.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="qualitesoft" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/xml-config-files/freightclub/stg/manageclaims2.xml" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="TestNG.C:/Users/SONY/git/qualitesoft/xml-config-files/freightclub/stg/manageclaims2.xml" />
-      </list>
-    </recent_temporary>
-  </component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="67606584-069f-41d4-a80d-1fcf3d55be44" name="Changes" comment="" />
-      <created>1664124773753</created>
+      <changelist id="472b197c-67d6-4b84-9e18-953faeafdd8e" name="Changes" comment="" />
+      <created>1668518212996</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1664124773753</updated>
+      <updated>1668518212996</updated>
     </task>
     <servers />
   </component>

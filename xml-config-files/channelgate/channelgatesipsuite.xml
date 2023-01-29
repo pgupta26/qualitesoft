@@ -5,7 +5,10 @@
 
 	<listeners>
 		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+<<<<<<< Updated upstream
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+=======
+>>>>>>> Stashed changes
 		<listener class-name="com.qualitesoft.core.CustomTestListener" />
 	</listeners>
 
@@ -13,8 +16,9 @@
 	<parameter name="browser" value="chrome" />
 	<parameter name="URL" value="https://stagingapp.channelgate.io" />
 	<parameter name="retryCount" value="0" />
-	<parameter name="crusername" value="channelgate09072021@mailinator.com"></parameter>
+	<parameter name="crusername" value="channelgate09072021@mailinator.com" />
 
+<<<<<<< Updated upstream
 
 
 	<test name="Test Forgot Password">
@@ -25,11 +29,23 @@
 		</classes>
 	</test>
 
+=======
+	<test name="Test Forgot Password">
+		<parameter name="password" value="Test123!" />
+		<classes>
+			<class
+				name="com.qualitesoft.channelgatesip.testscripts.TestForgotPassword" />
+		</classes>
+	</test>
+
+>>>>>>> Stashed changes
 	<test name="Test Login for demovendor">
-		<parameter name="emailAddress" value="demovendor@mailinator.com" />
+		<parameter name="emailAddress"
+			value="demovendor@mailinator.com" />
 		<parameter name="password" value="demovendor" />
 		<classes>
-			<class name="com.qualitesoft.channelgatesip.testscripts.TestLogin" />
+			<class
+				name="com.qualitesoft.channelgatesip.testscripts.TestLogin" />
 		</classes>
 	</test>
 
@@ -40,8 +56,14 @@
 			<class name="com.qualitesoft.channelgatesip.testscripts.products.TestAddProduct" />
 		</classes>
 	</test>
+<<<<<<< Updated upstream
 	
 	<test name="Verify details of added prouct on listing page for demo vendor">
+=======
+
+	<test
+		name="Verify details of added prouct on listing page for demo vendor">
+>>>>>>> Stashed changes
 		<parameter name="Row" value="2"></parameter>
 		<parameter name="baseRateRow" value="$719.74" />
 		<classes>
@@ -49,22 +71,35 @@
 				name="com.qualitesoft.channelgatesip.testscripts.products.TestProductOnListingPage" />
 		</classes>
 	</test>
+<<<<<<< Updated upstream
 	
 	<test name="Verify edit product functionality on product listing page for demo vendor">
+=======
+
+	<test
+		name="Verify edit product functionality on product listing page for demo vendor">
+>>>>>>> Stashed changes
 		<parameter name="Row" value="2"></parameter>
 		<parameter name="baseRateRow" value="$719.74" />
 		<classes>
 			<class name="com.qualitesoft.channelgatesip.testscripts.products.TestEditProduct" />
 		</classes>
 	</test>
+<<<<<<< Updated upstream
 	
 	<test name="Verify details of updated prouct on listing page for demo vendor">
+=======
+
+	<test
+		name="Verify details of updated prouct on listing page for demo vendor">
+>>>>>>> Stashed changes
 		<parameter name="Row" value="2"></parameter>
 		<parameter name="baseRateRow" value="$729.33" />
 		<classes>
 			<class name="com.qualitesoft.channelgatesip.testscripts.products.TestProductOnListingPage" />
 		</classes>
 	</test>
+<<<<<<< Updated upstream
 	
 	<test name="Verify bulk actions functionality on product listing page for demo vendor">
 		<parameter name="Row" value="2"></parameter>
@@ -83,28 +118,55 @@
 	<test name="Verify searching functionality on product listing page for demo vendor">
 		<parameter name="Row" value="2"></parameter>
 		<parameter name="keyword" value="1839295-PKG, 1839063-PKG, 1839062-PKG"></parameter>
+=======
+
+
+	<test
+		name="Verify searching functionality on product listing page for demo vendor">
+		<parameter name="Row" value="2"></parameter>
+		<parameter name="keyword"
+			value="Net5-Check9, Net5-Check10, Net5-Check8"></parameter>
+>>>>>>> Stashed changes
 		<classes>
 			<class name="com.qualitesoft.channelgatesip.testscripts.products.TestSearchFunctionality" />
 		</classes>
 	</test>
+<<<<<<< Updated upstream
 	
 	<test name="Verify filter functionality on product listing page for demo vendor">
+=======
+
+	<test
+		name="Verify filter functionality on product listing page for demo vendor">
+>>>>>>> Stashed changes
 		<parameter name="Row" value="2"></parameter>
 		<classes>
 			<class name="com.qualitesoft.channelgatesip.testscripts.products.TestFilterFunctionality" />
 		</classes>
 	</test>
+<<<<<<< Updated upstream
 	
 	<test name="Verify white label product functionality">
+=======
+
+	<test
+		name="Verify pagination functionality on product listing page for demo vendor">
+>>>>>>> Stashed changes
 		<parameter name="Row" value="2"></parameter>
 		<classes>
 			<class name="com.qualitesoft.channelgatesip.testscripts.products.TestWhiteLabelProduct" />
 		</classes>
 	</test>
+<<<<<<< Updated upstream
 	
 	<!-- <test name="Verify white label product functionality">
 		<parameter name="emailAddress" value="shikha.parmar@qualitesoft.com" />
 		<parameter name="password" value="Test@12" />
+=======
+
+	<test
+		name="Verify bulk actions functionality on product listing page for demo vendor">
+>>>>>>> Stashed changes
 		<parameter name="Row" value="2"></parameter>
 		<parameter name="keyword" value="Unprocessed"></parameter>
 		<classes>
@@ -250,6 +312,7 @@
 
 
 
+<<<<<<< Updated upstream
 	<!-- <test name="TestInstance">
 		<classes>
 			<class
@@ -300,6 +363,18 @@
 				name="com.qualitesoft.channelgatesip.testscripts.TestForgotPassword" />
 		</classes>
 	</test>
+=======
+	<!-- <test name="TestInstance"> <classes> <class name="com.qualitesoft.channelgatesip.testscripts.TestInstance" 
+		/> </classes> </test> <test name="TestAdminPortal"> <classes> <class name="com.qualitesoft.channelgatesip.testscripts.TestAdminPortal" 
+		/> </classes> </test> <test name="TestSelectBrand"> <classes> <class name="com.qualitesoft.channelgatesip.testscripts.TestSelectBrand" 
+		/> </classes> </test> <test name="TestNavigation"> <classes> <class name="com.qualitesoft.channelgatesip.testscripts.TestNavigation" 
+		/> </classes> </test> <test name="TestInviteUser"> <classes> <class name="com.qualitesoft.channelgatesip.testscripts.TestInviteUser" 
+		/> </classes> </test> <test name="Test Logout"> <classes> <class name="com.qualitesoft.channelgatesip.testscripts.LogOff" 
+		/> </classes> </test> <test name="Test SignUpNew"> <classes> <class name="com.qualitesoft.channelgatesip.testscripts.TestSignUpNew" 
+		/> </classes> </test> <test name="Test Forgot Password"> <classes> <class 
+		name="com.qualitesoft.channelgatesip.testscripts.TestForgotPassword" /> </classes> 
+		</test> -->
+>>>>>>> Stashed changes
 	<test name="Test Logout User">
 		<classes>
 			<class name="com.qualitesoft.channelgatesip.testscripts.LogOff" />

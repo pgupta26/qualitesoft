@@ -5,7 +5,7 @@
 
 	<listeners>
 		<listener class-name="org.uncommons.reportng.HTMLReporter" />
-		<!-- <listener class-name="com.qualitesoft.core.CustomTestListener" /> -->
+		<listener class-name="com.qualitesoft.core.CustomTestListener" />
 	</listeners>
 
 	<parameter name="project" value="FreightClub" />
@@ -16,7 +16,7 @@
 	
 	<parameter name="testData" value="testdata/FCfiles/qa/QuickQuote/QuickQuoteTestData.xlsx" />
 	
-	<!-- <test name="TEST DISABLE ALL CARRIERS">
+	<test name="TEST DISABLE ALL CARRIERS">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
 		<parameter name="searchUser" value="test.automation2@mailinator.com"/>
@@ -42,20 +42,20 @@
 			<class name="com.qualitesoft.freightclub.testscripts.managecarriers.TestEnableCarrierDetailsOptions" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-	</test> -->
+	</test>
 	
 	<!-- *************************** Forgot Password ********************************** -->
-	<!-- <test name="Test forgot password">
+	<test name="Test forgot password">
 		<parameter name="testData" value="testdata/FCfiles/qa/SignUp.xlsx" />
 		<parameter name="Row" value="7" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.forgotpassword.TestForgotPassword" />
 			<class name="com.qualitesoft.freightclub.testscripts.forgotpassword.TestResetPassword" />	
 		</classes>
-	</test> -->
+	</test>
 	
 	<!-- *************************** Quick Quote ********************************** -->
-	<!-- <test name="Test manage green list and select onAccount payment method">
+	<test name="Test manage green list and select onAccount payment method">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
 		<parameter name="searchUser" value="test.automation2@mailinator.com"/>
@@ -68,32 +68,25 @@
 			<class name="com.qualitesoft.freightcluxb.testscripts.manageprofiles.TestSelectPaymentMethod" />
 			<class name="com.qualitesoft.freightclub.testscripts.TestLogOff" />
 		</classes>
-<<<<<<< HEAD
-	</test>  -->
+	</test>
 	
 	<test name="Test verify book and clone order - LTL Non-Palletized">
-		<parameter name="fcusername" value="prodapitoken@mailinator.com" />
-=======
-	</test> --> 
-	
-	<test name="Test verify book and clone order - LTL Non-Palletized">
-		<parameter name="fcusername" value="prodsh11oct@mailinator.com" />
->>>>>>> 88961838254714778dfe7fae9f91a35423d245c5
-		<parameter name="fcpassword" value="@Test123" />
+		<parameter name="fcusername" value="test.automation2@mailinator.com" />
+		<parameter name="fcpassword" value="Automation123!" />
 		<parameter name="Row" value="2" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.TestSignIn" />
-			<!-- <class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
+			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestOpenManageOrdersAndSearchOrderId" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestViewOrderDetails" />	
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestBOL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestLabels" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" /> 
-			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" /> -->
+			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" />
 		</classes>
 	</test>
 	
-	 <!-- <test name="Test verify book and clone order - LTL with pallet and Non-Palletized">
+	 <test name="Test verify book and clone order - LTL with pallet and Non-Palletized">
 		<parameter name="Row" value="3" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
@@ -118,9 +111,9 @@
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" />
 		</classes>
-	</test> -->
+	</test>
 	
-	<!-- <test name="Test create generic pallet adding cartons without sku">
+	<test name="Test create generic pallet adding cartons without sku">
 		<parameter name="Row" value="5" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestQuickQuote" />
@@ -131,13 +124,13 @@
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestZPL" />
 			<class name="com.qualitesoft.freightclub.testscripts.manageorders.TestCloneOrders" />
 		</classes>
-	</test> -->
+	</test>
 	
 	<test name="TEST CREATE PRODUCT - NO-PALLETIZED - MULTIPLE CARTON">
 		<parameter name="testData" value="testdata/FCfiles/qa/ManageProducts/ManageProducts.xlsx" />
 		<parameter name="Row" value="3" />
 		<classes>
-			<class name="com.qualitesoft.freightclub.testscripts.manageproducts.TestCreateProduct" />
+			<class name="com.qualitesoft.freightclub.testvscripts.manageproducts.TestCreateProduct" />
 		</classes>
 	</test>
 	
@@ -293,7 +286,7 @@
 	
 	<!-- ************************************** QA - 517 Tests ****************************************************** -->
 	
-	 <test name="Test Basic Threshold Not Visible When Residential to Commercial - ABF Freight">
+	 <test name="QA-517 : Test Basic Threshold Not Visible When Residential to Commercial - ABF Freight">
 		<parameter name="fcusername" value="test.automation2@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />
 		<parameter name="testData" value="testdata/FCfiles/qa/QuickQuote/QA_517.xlsx" />
@@ -311,7 +304,7 @@
 		</classes>
 	</test>
 
-	<test name="Test Basic Threshold Not Visible When Residential to Commercial - Ceva">
+	<test name="QA-517 : Test Basic Threshold Not Visible When Residential to Commercial - Ceva">
 		<parameter name="testData" value="testdata/FCfiles/qa/QuickQuote/QA_517.xlsx" />
 		<parameter name="Row" value="3" />
 		<parameter name="CarrierName" value="Ceva" />
@@ -326,7 +319,7 @@
 		</classes>
 	</test>
 
-	<test name="Test Basic Threshold Visible When Commercial to Residential - ABF Freight">
+	<test name="QA-517 : Test Basic Threshold Visible When Commercial to Residential - ABF Freight">
 		<parameter name="CarrierName" value="ABF Freight" />
 		<parameter name="Row" value="4" />
 		<parameter name="testData" value="testdata/FCfiles/qa/QuickQuote/QA_517.xlsx" />
@@ -341,7 +334,7 @@
 		</classes>
 	</test>
 
-	<test name="Test Basic Threshold Visible When Commercial to Residential - Ceva">
+	<test name="QA-517 : Test Basic Threshold Visible When Commercial to Residential - Ceva">
 		<parameter name="testData" value="testdata/FCfiles/qa/QuickQuote/QA_517.xlsx" />
 		<parameter name="Row" value="5" />
 		<parameter name="CarrierName" value="Ceva" />
@@ -356,7 +349,7 @@
 		</classes>
 	</test>
 
-	<test name="Test FC Test Carrier visible When Loose Cartoon Accepted - Non-Palletized with quantity = 1">
+	<test name="QA-517 : Test FC Test Carrier visible When Loose Cartoon Accepted - Non-Palletized with quantity = 1">
 		<parameter name="testData" value="testdata/FCfiles/qa/QuickQuote/QA_517.xlsx" />
 		<parameter name="Row" value="6" />
 		<parameter name="CarrierName" value="FC Test Carrier" />
@@ -367,7 +360,7 @@
 		</classes>
 	</test>
 
-	<test name="Test FC Test Carrier visible When Loose Cartoon Accepted - Palletized with quantity = 1">
+	<test name="QA-517 : Test FC Test Carrier visible When Loose Cartoon Accepted - Palletized with quantity = 1">
 		<parameter name="testData" value="testdata/FCfiles/qa/QuickQuote/QA_517.xlsx" />
 		<parameter name="Row" value="7" />
 		<parameter name="CarrierName" value="FC Test Carrier" />
@@ -377,7 +370,7 @@
 		</classes>
 	</test>
 
-	<test name="Test FC Test Carrier visible When Loose Cartoon Accepted - Added Product with quantity = 1">
+	<test name="QA-517 : Test FC Test Carrier visible When Loose Cartoon Accepted - Added Product with quantity = 1">
 		<parameter name="testData" value="testdata/FCfiles/qa/QuickQuote/QA_517.xlsx" />
 		<parameter name="Row" value="7" />
 		<parameter name="CarrierName" value="FC Test Carrier" />
@@ -388,7 +381,7 @@
 		</classes>
 	</test> 
 
-	<test name="Test Uncheck Loose Cartoon Accepted">
+	<test name="QA-517 : Test Uncheck Loose Cartoon Accepted">
 		<parameter name="fcusername" value="freightclubinfo@gmail.com" />
 		<parameter name="fcpassword" value="Welcome@1" />
 		<parameter name="CarrierName" value="FC Test Carrier" />
@@ -401,7 +394,7 @@
 	</test>
 
 	<test
-		name="Test loose carton popup visible - Non-Palletized with quantity = 11">
+		name="QA-517 : Test loose carton popup visible - Non-Palletized with quantity = 11">
 		<parameter name="fcusername" value="test.automation2@mailinator.com" />
 		<parameter name="fcpassword" value="Automation123!" />
 		<parameter name="Row" value="8" />
@@ -415,14 +408,14 @@
 		</classes>
 	</test>
 
-	<test name="Test FC Test Carrier not visible - Non-Palletized with quantity = 1">
+	<test name="QA-517 : Test FC Test Carrier not visible - Non-Palletized with quantity = 1">
 		<parameter name="CarrierName" value="FC Test Carrier" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestFCTestCarriersNotVisible" />
 		</classes>
 	</test>
 
-	<test name="Test loose carton popup visible - Added Product with quantity = 11">
+	<test name="QA-517 : Test loose carton popup visible - Added Product with quantity = 11">
 		<parameter name="testData" value="testdata/FCfiles/qa/QuickQuote/QA_517.xlsx" />
 		<parameter name="Row" value="8" />
 		<parameter name="CarrierName" value="FC Test Carrier" />
@@ -432,14 +425,14 @@
 		</classes>
 	</test>
 
-	<test name="Test FC Test Carrier not visible - Added Product with quantity = 1">
+	<test name="QA-517 : Test FC Test Carrier not visible - Added Product with quantity = 1">
 		<parameter name="CarrierName" value="FC Test Carrier" />
 		<classes>
 			<class name="com.qualitesoft.freightclub.testscripts.quickquote.TestFCTestCarriersNotVisible" />
 		</classes>
 	</test>
 
-	<test name="Test FC Test Carrier visible When Loose Cartoon not accepted - Palletized with quantity = 1">
+	<test name="QA-517 : Test FC Test Carrier visible When Loose Cartoon not accepted - Palletized with quantity = 1">
 		<parameter name="testData" value="testdata/FCfiles/qa/QuickQuote/QA_517.xlsx" />
 		<parameter name="Row" value="7" />
 		<parameter name="CarrierName" value="FC Test Carrier" />
