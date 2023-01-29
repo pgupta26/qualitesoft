@@ -5,6 +5,8 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 
 public class ProductListing {
@@ -45,19 +47,19 @@ public class ProductListing {
 	}
 	
 	public WebElement exportContentScoreBtn(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[text()='Export Content Score ']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@label='Export Content Score']"), 60);	
 	}
 	
 	public WebElement exportProductsBtn(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[contains(text(),'Export Products')]"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[contains(@label,'Export Products')]"), 60);	
 	}
 	
 	public WebElement bulkActionsBtn(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[contains(text(),'Bulk Actions')]"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[contains(@label,'Bulk Actions')]"), 60);	
 	}
 	
-	public WebElement downloadTemplateLink(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@class='text-underline']"), 60);	
+	public WebElement downloadTemplateLink(int index){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//a[contains(text(),'Download Template')])["+index+"]"), 60);	
 	}
 	
 	public WebElement searchByBrandField(){
@@ -73,15 +75,15 @@ public class ProductListing {
 	}	
 	
 	public WebElement searchBySkuAndProductIdField(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@type='search' and @onfocusclass='form-group']"), 120);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@placeholder='Search product by SKU or Product ID']"), 120);	
 	}
 	
 	public WebElement goBtn(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='input-group-append']//button"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@icon='pi pi-search']"), 60);	
 	}
 	
 	public WebElement filterBtn(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='input-group-prepend']//button"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@label='Filter']"), 60);	
 	}
 	
 	public WebElement filterOptions(){
@@ -93,7 +95,7 @@ public class ProductListing {
 	}
 	
 	public WebElement applyFilterBtn(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[contains(text(),'Apply Filter')]"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//span[contains(text(),'Apply Filter')]//parent::button"), 60);	
 	}
 	
 	public WebElement applyFilterLabel(int index){
@@ -101,11 +103,11 @@ public class ProductListing {
 	}
 	
 	public WebElement newProductBtn(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@routerlink='/app/vendor/product/']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@label='Add New Product']"), 60);	
 	}
 	
 	public WebElement getTableData(int rowNum, int colNum){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("((//datatable-body[@class='datatable-body']//div[contains(@class,'center datatable-row-group')])["+rowNum+"]//div)["+colNum+"]"), 180);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//table//tbody//tr["+rowNum+"]//td["+colNum+"]"), 180);	
 	}
 	
 	public WebElement productTitle(int rowNum, int colNum){
@@ -113,56 +115,53 @@ public class ProductListing {
 	}
 	
 	public List<WebElement> getCountOfRows(){
-		return driver.findElements(By.xpath("//div[@class='visible']//datatable-body//datatable-body-row"));
-		//return WaitTool.waitForElementsPresentAndDisplay(driver, By.tagName("datatable-body-row"), 60);
-		//return WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//datatable-body-row[contains(@class,'datatable-body-row')]"), 60);
-		//return WaitTool.waitForElementsPresentAndDisplay(driver, By.xpath("//div[contains(@class,'center datatable-row-group')]"), 60);	
+		return driver.findElements(By.xpath("//table//tbody//tr"));	
 	}
 	
 	public WebElement getTotalProductCount(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[@class='product-counter']"), 60);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[contains(@class,'text-center text-xs text-gray-500')]"), 60);
 	}
 	
-	public WebElement pageBtn(int index){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//li[@role='button']//a)["+index+"]"), 60);
+	public WebElement pageBtn(String text){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[contains(text(),'"+text+"')]"), 60);
 	}
 	
-	public WebElement firstPageBtn(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@aria-label='go to first page']"), 10);
+	public WebElement firstPageBtn(int index){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//button[contains(@class,'p-paginator-first')])["+index+"]"), 10);
 	}
 	
-	public WebElement lastPageBtn(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@aria-label='go to last page']"), 10);
+	public WebElement lastPageBtn(int index){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//button[contains(@class,'p-paginator-last')])["+index+"]"), 10);
 	}
 	
-	public WebElement nextPageBtn(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@aria-label='go to next page']"), 10);
+	public WebElement nextPageBtn(int index){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//button[contains(@class,'p-paginator-next')])["+index+"]"), 10);
 	}
 	
-	public WebElement previousPageBtn(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@aria-label='go to previous page']"), 10);
+	public WebElement previousPageBtn(int index){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//button[contains(@class,'p-paginator-prev')])["+index+"]"), 10);
 	}
 	
 	public WebElement firstPageBtnStatus(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@aria-label='go to first page']//parent::li"), 60);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[contains(@class,'p-paginator-first')]"), 60);
 	}
 	
 	public WebElement lastPageBtnStatus(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@aria-label='go to last page']//parent::li"), 60);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[contains(@class,'p-paginator-last')]"), 60);
 	}
 	
 	public WebElement nextPageBtnStatus(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@aria-label='go to next page']//parent::li"), 60);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[contains(@class,'p-paginator-next')]"), 60);
 	}
 	
 	public WebElement previousPageBtnStatus(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@aria-label='go to previous page']//parent::li"), 60);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[contains(@class,'p-paginator-prev')]"), 60);
 	}
 	
 	//********************Bulk Actions***************************
 	
 	public WebElement bulkActionPopupHeader(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//h4[@id='importProductsTitle']"), 60);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//span[contains(@class,'p-dialog-title')]"), 60);
 	}
 	
 	public WebElement bulkActionButtons(String btnName){
@@ -170,7 +169,11 @@ public class ProductListing {
 	}
 	
 	public WebElement uploadBtn(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[contains(text(),'Upload')]"), 60);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[contains(@label,'Upload')]"), 60);
+	}
+	
+	public WebElement cancelBtn(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[contains(@label,'Cancel')]"), 60);
 	}
 	
 	public WebElement warningMessage(){
@@ -193,7 +196,11 @@ public class ProductListing {
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[contains(@class,'toast-success')]"), 120);
 	}
 	
-	//********************Add Product Details Tab*******************************
+	//**************************************Add Product Details Tab*******************************
+	
+	public WebElement getProductDetails(String label) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//span[contains(text(),'"+label+"')]//parent::div//span)[2]"), 60);
+	}
 	
 	public WebElement getAlertMessage(){
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[contains(@class,'alert alert-danger')]"), 60);	
@@ -236,19 +243,19 @@ public class ProductListing {
 	}
 	
 	public WebElement discontinuedToggle(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//span[text()='Discontinued']//parent::div//label"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//p-inputswitch[@formcontrolname='IsDiscontinued']"), 60);	
 	}
 	
 	public WebElement activeToggle(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//span[text()='Active']//parent::div//label"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//p-inputswitch[@formcontrolname='IsActive']//div"), 60);	
 	}
 	
 	public WebElement newProductButton(){
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@routerlink='/app/vendor/product/']"), 60);	
 	}
 	
-	public WebElement cancelBtn(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@routerlink='/app/vendor/']"), 180);	
+	public WebElement backBtn(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@icon='pi pi-arrow-left']"), 180);	
 	}
 	
 	public WebElement saveBtn(){
@@ -256,242 +263,224 @@ public class ProductListing {
 	}
 	
 	public WebElement setProductTitle(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='productTitle']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='prod-title']"), 60);	
 	}
 	
 	public WebElement SelectBrand(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//select[@id='brandSelect']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[contains(text(),'Product Brand')]//parent::div//p-dropdown"), 60);	
 	}
 	
 	public WebElement SelectCollections(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//select[@id='collectionsSelect']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[contains(text(),'Collection')]//parent::div//p-dropdown"), 60);	
 	}
 	
 	public WebElement clicktCategoryDropdown(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//span[@id='select2-categorySelect-container']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[contains(text(),'Category')]//parent::div//p-dropdown"), 60);	
 	}
 	
-	public WebElement selectCategoryName(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//ul[@id='select2-categorySelect-results']//li"), 60);		
+	public WebElement selectDropdownValueByText(String optionText){
+		WaitTool.sleep(1);
+		SeleniumFunction.sendKeys(WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[contains(@class,'p-dropdown-filter')]"), 60), optionText);
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//p-dropdownitem//span[contains(text(),'"+optionText+"')]"), 60);		
 	}
 	
 	public WebElement setSku(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='sku']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='prod-sku']"), 60);	
 	}
 	
 	public WebElement setUpc(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='upc']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='prod-upc']"), 60);	
 	}
 	
 	public WebElement selectManufactureCountry(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//select[@name='countryManufacture']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[contains(text(),'Country')]//parent::div//p-dropdown"), 60);	
 	}
 	
 	public WebElement setWholesalePrice(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='price-wholesale']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[contains(text(),'Wholesale')]//parent::div//input"), 60);	
 	}
 	
 	public WebElement setFreightPrice(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='price-freight']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[contains(text(),'Freight')]//parent::div//input"), 60);	
 	}
 	
 	public WebElement setMsrpPrice(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='price-msrp']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[contains(text(),'MSRP')]//parent::div//input"), 60);	
 	}
 	
 	public WebElement setMapPrice(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='price-map']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[contains(text(),'MAPS')]//parent::div//input"), 60);	
+	}
+	public WebElement getSellingPrice(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[contains(text(),'Selling Price')]//parent::div//input"), 60);	
 	}
 	
 	public WebElement selectColor(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//select[@name='Color']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[contains(text(),'Color')]//parent::div//p-dropdown"), 60);	
 	}
 	
 	public WebElement selectMaterial(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//select[@name='Material']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[contains(text(),'Material')]//parent::div//p-dropdown"), 60);	
 	}
 	
 	public WebElement selectStyle(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//select[@name='Style']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[contains(text(),'Style')]//parent::div//p-dropdown"), 60);	
 	}
 	
 	//********************Add Product Description Tab*******************************
 
 	public WebElement setShortDescription(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//textarea[@name='productDescription']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//textarea[@formcontrolname='Value']"), 60);	
+	}
+	public WebElement setPreposition65Radio(String label){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//p-radiobutton[@label='"+label+"' and @name='Prop65']//div[contains(@class,'p-radiobutton-box')]"), 60);	
+	}
+	public WebElement setCommercialUseRadio(String label){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//p-radiobutton[@label='"+label+"' and @name='IsCommercial']//div[contains(@class,'p-radiobutton-box')]"), 60);	
 	}
 	
-	public WebElement setCommercialUseRadio(int index){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@name='commercialUse']//parent::label)["+index+"]"), 60);	
-	}
-	
-	public WebElement clickExternalLink(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[contains(text(),'CLICK HERE TO KNOW MORE')]"), 60);	
-	}
 	
 	public WebElement setFeature_1(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='feature-0']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='prod-feature1']"), 60);	
 	}
 	
 	public WebElement setFeature_2(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='feature-1']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='prod-feature2']"), 60);	
 	}
 	
 	public WebElement setFeature_3(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='feature-2']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='prod-feature3']"), 60);	
 	}
 	
 	public WebElement setFeature_4(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='feature-3']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='prod-feature4']"), 60);	
 	}
 	
 	public WebElement addFeatureRow(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@name='feature-2']//following::button[contains(text(),'New')])[1]"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@id='prod-feature3']//following::button[@icon='pi pi-plus'])[1]"), 60);	
 	}
 	
 	public WebElement deleteFeatureRow(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@name='feature-3']//following::button[contains(@class,'danger')])[1]"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@id='prod-feature4']//following::button[@icon='pi pi-trash'])[1]"), 60);	
 	}
 	
-	public WebElement setKey_1(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//select[@id='specsKey0']"), 60);	
+	public WebElement selectKey(int index){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//label[contains(text(),'Key')]//parent::div//p-dropdown)["+index+"]"), 60);	
 	}
 	
-	public WebElement setKey_2(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//select[@id='specsKey1']"), 60);	
+	public WebElement setKeysValue(int index){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//label[contains(text(),'Value')]//parent::div//input)["+index+"]"), 60);	
 	}
 	
-	public WebElement setKey_3(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//select[@id='specsKey2']"), 60);	
-	}
-	
-	public WebElement setKey_4(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//select[@id='specsKey3']"), 60);	
-	}
-	
-	public WebElement setValue_1(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='specs-value-1']"), 60);	
-	}
-	
-	public WebElement setValue_2(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='specs-value-2']"), 60);	
-	}
-	
-	public WebElement setValue_3(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='specs-value-3']"), 60);	
-	}
-	
-	public WebElement setValue_4(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='specs-value-4']"), 60);	
-	}
-	
-	public WebElement removeProductSpecificationRow(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='specs-value-3']//following::button[contains(@class,'danger')]"), 60);	
+	public WebElement removeProductSpecificationRow(int index){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//label[contains(text(),'Value')]//parent::div//input//following::button[@icon='pi pi-trash'])["+index+"]"), 60);	
 	}
 	
 	public WebElement addProductSpecificationRow(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='specs-value-3']//following::button[contains(@class,'btn-sm')]"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//label[contains(text(),'Value')]//parent::div//input//following::button)[1]"), 60);	
 	}
 	
 	//********************Add Product Shipping Tab*******************************
 	
 	public WebElement setAvailableQuantity(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='available-qty']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//p-inputnumber[@formcontrolname='Stock']//input"), 60);	
 	}
 	public WebElement selectShippingService(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//select[@id='shippingService']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//label[contains(text(),'Shipping Service')]//parent::div//p-dropdown"), 60);	
 	}
 	
 	public WebElement setLeadMinTime(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='ships-from']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//span[contains(text(),'min')]//parent::div//p-inputnumber//input"), 60);	
 	}
 	
 	public WebElement setLeadMaxTime(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='ships-to']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//span[contains(text(),'max')]//parent::div//p-inputnumber//input"), 60);	
 	}
 	
 	public WebElement setHsCode(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='hs-code']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@id='prod-harmonized-code']"), 60);	
 	}
 	
-	public WebElement setSoldInCanadaRadio(int index){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@name='toCanadaCheck']//parent::label)["+index+"]"), 60);	
+	public WebElement setSoldInCanadaRadio(String label){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//p-radiobutton[@label='"+label+"' and @name='ToCanada']//div[contains(@class,'p-radiobutton-box')]"), 60);	
 	}
 	
-	public WebElement setShipPalletCheckRadio(int index){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@name='shipPalletCheck']//parent::label)["+index+"]"), 60);	
+	public WebElement setShipPalletCheckRadio(String label){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//p-radiobutton[@label='"+label+"' and @name='ShipsOnPallet']//div[contains(@class,'p-radiobutton-box')]"), 60);	
 	}
 	
-	public WebElement setPreAssembledCheck(int index){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@name='isPreassembledCheck']//parent::label)["+index+"]"), 60);	
+	public WebElement setPreAssembledCheck(String label){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//p-radiobutton[@label='"+label+"' and @name='IsPreAssembled']//div[contains(@class,'p-radiobutton-box')]"), 60);	
 	}
 	
-	public WebElement setUsaCheck(int index){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@name='toUsaCheck']//parent::label)["+index+"]"), 60);	
+	public WebElement setUsaCheck(String label){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//p-radiobutton[@label='"+label+"' and @name='ToUSA']//div[contains(@class,'p-radiobutton-box')]"), 60);	
 	}
 	
-	public WebElement setBackOrderedCheck(int index){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//input[@name='isBackOrderedCheck']//parent::label)["+index+"]"), 60);	
+	public WebElement setBackOrderedCheck(String label){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//p-radiobutton[@label='"+label+"' and @name='IsBackOrdered']//div[contains(@class,'p-radiobutton-box')]"), 60);	
 	}
 	
 	public WebElement setProductHeight(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='dimension-height']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//p-inputnumber[@formcontrolname='Height']//input)[1]"), 60);	
 	}
 	
 	public WebElement setProductWidth(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='dimension-width']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//p-inputnumber[@formcontrolname='Width']//input)[1]"), 60);	
 	}
 	
 	public WebElement setProductDepth(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='dimension-depth']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//p-inputnumber[@formcontrolname='Depth']//input)[1]"), 60);	
 	}
 	
 	public WebElement setProductWeight(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='dimension-weight']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//p-inputnumber[@formcontrolname='Weight']//input)[1]"), 60);	
 	}
 	
 	public WebElement setPackageHeight(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='package-height-0']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//p-inputnumber[@formcontrolname='Height']//input)[2]"), 60);	
 	}
 	
 	public WebElement setPackageWidth(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='package-width-0']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//p-inputnumber[@formcontrolname='Width']//input)[2]"), 60);	
 	}
 	
 	public WebElement setPackageDepth(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='package-depth-0']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//p-inputnumber[@formcontrolname='Depth']//input)[2]"), 60);	
 	}
 	
 	public WebElement setPackageWeight(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='package-weight-0']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//p-inputnumber[@formcontrolname='Weight']//input)[2]"), 60);	
 	}
 	
 	public WebElement setPackageQuantity(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='package-qty-0']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//p-inputnumber[@formcontrolname='Quantity']//input"), 60);	
 	}
 	
 	public WebElement setPackageType(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//select[@name='package-type-0']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//p-dropdown[@formcontrolname='IsWrap']	"), 60);	
 	}
 	
 	public WebElement setPackageSku(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='package-sku-0']"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@formcontrolname='sku']"), 60);	
 	}
 	
+	
+	
 	public WebElement addNewPackage(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='package-sku-0']//following::button[contains(@class,'btn-sm')]"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@formarrayname='PackageDimensions']//button[@icon='pi pi-plus']"), 60);	
 	}
 	
 	public WebElement removeNewPackage(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@name='package-sku-1']//following::button[contains(@class,'btn-danger')]"), 60);	
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@formarrayname='PackageDimensions']//button[@icon='pi pi-trash'])[2]"), 60);	
 	}
 	
-	public WebElement scrollToTop(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[@class='scroll-to-top show-scrollTop']//button"), 20);
+	public WebElement scrollUptoSaveBtn(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//span[contains(text(),'Save')])"), 20);
 	}
 	
-	public WebElement setPrimaryImage(){
-		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//label[contains(text(),'Set as Primary White Background Image')]//span)[1]"), 60);	
+	public WebElement clickImportResources(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@label='IMPORT RESOURCES']"), 60);	
 	}
 	
 	public WebElement uploadImage(int index){
@@ -501,10 +490,85 @@ public class ProductListing {
 	public WebElement uploadResourceFile(){
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//input[@type='file' and @id='multipleFile2']"), 60);	
 	}
+	public WebElement clickCloseButton(){
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@label='Close']"), 60);	
+	}
 	
 	
+	//*****************************Listing table data************************
+	private By productImage = By.xpath("(//table//tbody//tr[1]//td//img)[1]");
+	private By productTitle = By.xpath("(//table//tbody//tr[1]//td//a)[2]");
+	private By productSku = By.xpath("(//table//tbody//tr[1]//td//div)[2]");
+	private By activeIcon = By.xpath("(//table//tbody//tr[1]//td//i)[1]");
 	
+	public WebElement getProductImage() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, productImage, 60);
+	}
+	public WebElement getProductTitle() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, productTitle, 60);
+	}
+	public WebElement getProductIdAndChannel(int index) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//table//tbody//tr[1]//td//span)["+ index +"]"), 60);
+	}
+	public WebElement getProductSku() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, productSku, 60);
+	}
+	public WebElement getProductSkus(int rowNum) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//table//tbody//tr["+rowNum+"]//td//div)[2]"), 60);
+	}
+	public WebElement getProductQtyPriceAndDates(int index) { //6 and 7 10 and 11
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//table//tbody//tr[1]//td)["+ index +"]"), 60);
+	}
+	public WebElement getProductActiveIcon() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, activeIcon, 60);
+	}
 	
+	//***************************************Filter Data************************
 	
+	private By brandField = By.xpath("//p-multiselect[@optionvalue='ID']");
+	private By categoryField = By.xpath("//p-multiselect[@optionvalue='Id']");
+	private By closeIcon = By.xpath("//span[contains(@class,'p-multiselect-close-icon')]");
+	private By searchOnFilter = By.xpath("//input[contains(@class,'p-multiselect-filter')]");
+	private By applyFilterBtn = By.xpath("//span[contains(text(),'Apply Filters')]//parent::button");
+	private By closeFilter = By.xpath("//button[contains(@class,'p-ripple p-element p-sidebar-close')]");
+	private By clearBtn = By.xpath("//button[@label='Clear']");
 	
+	public WebElement clickBrandField() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, brandField, 60);
+	}
+	
+	public WebElement clickCategoryField() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, categoryField, 60);
+	}
+	
+	public WebElement clickCloseMultiselectPopup() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, closeIcon, 60);
+	}
+	public WebElement searchFilterOptionText() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, searchOnFilter, 30);
+	}
+	public WebElement selectCheckbox(String optionText) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//p-multiselectitem//li[contains(@aria-label,'"+optionText+"')]//div[contains(@class,'p-checkbox-box')]"), 60);
+	}
+	public WebElement clickApplyFilterBtn() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, applyFilterBtn, 60);
+	}
+	
+	public WebElement clickDropdownField(String fieldName) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//label[contains(text(),'"+fieldName+"')]//following::p-dropdown[@optionvalue='FilterBy'])[1]"), 60);
+	}
+	public WebElement selectDropdownValue(String optionText) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//p-dropdownitem//li//span[contains(text(),'"+optionText+"')]"), 60);
+	}
+	
+	public WebElement clickCloseFilter() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, closeFilter, 60);
+	}
+	public WebElement clickClearFilter() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, clearBtn, 60);
+	}
+	
+	public WebElement getSelectedFilterText(int index) {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//p-chip//div[contains(@class,'p-chip-text')])["+index+"]"), 60);
+	}
 }

@@ -64,19 +64,16 @@ public class CommonOps extends InitializeTest {
 			SeleniumFunction.click(quickQuote.selectLocationName(pickUPLocationName));
 		} else { 
 			SeleniumFunction.sendKeys(quickQuote.PickUpZip(), pickUpZip.trim());
+			SeleniumFunction.selectByVisibleText(quickQuote.PickUpLocationType(), pickUpType);
 		}
 
-		if(dropOffZip.isEmpty()) {
+		if(!dropOffLocationName.isEmpty()) {
 			SeleniumFunction.click(quickQuote.selectLocationName(dropOffLocationName));
 		} else {
 			SeleniumFunction.sendKeys(quickQuote.DropOffZip(),dropOffZip.trim());
-			quickQuote.DropOffZip().sendKeys(Keys.TAB);
+			SeleniumFunction.selectByVisibleText(quickQuote.DropOffLocationType(), dropOffType);
 		}
 		
-		WaitTool.sleep(5);
-		SeleniumFunction.scrollUpByPixel(driver, "250");
-		SeleniumFunction.selectByVisibleText(quickQuote.PickUpLocationType(), pickUpType);
-		SeleniumFunction.selectByVisibleText(quickQuote.DropOffLocationType(), dropOffType);
 		WaitTool.sleep(5);
 		ScreenShot.takeScreenShot(driver, "Shipment Info");
 		

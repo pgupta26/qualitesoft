@@ -3,25 +3,49 @@
 
 <suite name="ChannelGate SIP">
 
-	<!-- <listeners> <listener class-name="org.uncommons.reportng.HTMLReporter" 
-		/> <listener class-name="org.uncommons.reportng.JUnitXMLReporter" /> <listener 
-		class-name="com.qualitesoft.core.CustomTestListener" /> </listeners> -->
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+<<<<<<< Updated upstream
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+=======
+>>>>>>> Stashed changes
+		<listener class-name="com.qualitesoft.core.CustomTestListener" />
+	</listeners>
+
 	<parameter name="project" value="ChannelGate SIP" />
 	<parameter name="browser" value="chrome" />
-	<parameter name="URL" value="https://stagingapps.channelgate.io" />
+	<parameter name="URL" value="https://stagingapp.channelgate.io" />
 	<parameter name="retryCount" value="0" />
-	<parameter name="crusername" value="channelgate09072021@mailinator.com"></parameter>
+	<parameter name="crusername" value="channelgate09072021@mailinator.com" />
 
-	<!-- -->
+<<<<<<< Updated upstream
 
-	<!-- <test name="Test Forgot Password"> <parameter name="password" value="Test123!" 
-		/> <classes> <class name="com.qualitesoft.channelgatesip.testscripts.TestForgotPassword" 
-		/> </classes> </test> -->
-	<test name="Test Login for demovendor">
+
+	<test name="Test Forgot Password">
 		<parameter name="emailAddress" value="demovendor@mailinator.com" />
 		<parameter name="password" value="demovendor" />
 		<classes>
-			<class name="com.qualitesoft.channelgatesip.testscripts.TestLogin" />
+			<class name="com.qualitesoft.channelgatesip.testscripts.TestForgotPassword" />
+		</classes>
+	</test>
+
+=======
+	<test name="Test Forgot Password">
+		<parameter name="password" value="Test123!" />
+		<classes>
+			<class
+				name="com.qualitesoft.channelgatesip.testscripts.TestForgotPassword" />
+		</classes>
+	</test>
+
+>>>>>>> Stashed changes
+	<test name="Test Login for demovendor">
+		<parameter name="emailAddress"
+			value="demovendor@mailinator.com" />
+		<parameter name="password" value="demovendor" />
+		<classes>
+			<class
+				name="com.qualitesoft.channelgatesip.testscripts.TestLogin" />
 		</classes>
 	</test>
 
@@ -29,97 +53,297 @@
 		<parameter name="Row" value="2"></parameter>
 		<parameter name="existingbrand" value="No" />
 		<classes>
-			<class
-				name="com.qualitesoft.channelgatesip.testscripts.products.TestAddProduct" />
+			<class name="com.qualitesoft.channelgatesip.testscripts.products.TestAddProduct" />
 		</classes>
 	</test>
-
+<<<<<<< Updated upstream
+	
 	<test name="Verify details of added prouct on listing page for demo vendor">
+=======
+
+	<test
+		name="Verify details of added prouct on listing page for demo vendor">
+>>>>>>> Stashed changes
 		<parameter name="Row" value="2"></parameter>
-		<parameter name="baseRateRow" value="$729.33" />
+		<parameter name="baseRateRow" value="$719.74" />
 		<classes>
 			<class
 				name="com.qualitesoft.channelgatesip.testscripts.products.TestProductOnListingPage" />
 		</classes>
 	</test>
-
+<<<<<<< Updated upstream
+	
 	<test name="Verify edit product functionality on product listing page for demo vendor">
+=======
+
+	<test
+		name="Verify edit product functionality on product listing page for demo vendor">
+>>>>>>> Stashed changes
 		<parameter name="Row" value="2"></parameter>
+		<parameter name="baseRateRow" value="$719.74" />
 		<classes>
-			<class
-				name="com.qualitesoft.channelgatesip.testscripts.products.TestEditProduct" />
+			<class name="com.qualitesoft.channelgatesip.testscripts.products.TestEditProduct" />
 		</classes>
 	</test>
-
+<<<<<<< Updated upstream
+	
 	<test name="Verify details of updated prouct on listing page for demo vendor">
+=======
+
+	<test
+		name="Verify details of updated prouct on listing page for demo vendor">
+>>>>>>> Stashed changes
 		<parameter name="Row" value="2"></parameter>
 		<parameter name="baseRateRow" value="$729.33" />
 		<classes>
-			<class
-				name="com.qualitesoft.channelgatesip.testscripts.products.TestProductOnListingPage" />
+			<class name="com.qualitesoft.channelgatesip.testscripts.products.TestProductOnListingPage" />
 		</classes>
 	</test>
-
-
-	<test name="Verify searching functionality on product listing page for demo vendor">
-		<parameter name="Row" value="2"></parameter>
-		<parameter name="keyword" value="Net5-Check9, Net5-Check10, Net5-Check8"></parameter>
-		<classes>
-			<class
-				name="com.qualitesoft.channelgatesip.testscripts.products.TestSearchFunctionality" />
-		</classes>
-	</test>
-
-	<test name="Verify filter functionality on product listing page for demo vendor">
-		<parameter name="Row" value="2"></parameter>
-		<classes>
-			<class
-				name="com.qualitesoft.channelgatesip.testscripts.products.TestFilterFunctionality" />
-		</classes>
-	</test>
-
-	<test name="Verify pagination functionality on product listing page for demo vendor">
-		<parameter name="Row" value="2"></parameter>
-		<classes>
-			<class
-				name="com.qualitesoft.channelgatesip.testscripts.products.TestPagination" />
-		</classes>
-	</test>
-
+<<<<<<< Updated upstream
+	
 	<test name="Verify bulk actions functionality on product listing page for demo vendor">
 		<parameter name="Row" value="2"></parameter>
 		<classes>
-			<class
-				name="com.qualitesoft.channelgatesip.testscripts.products.TestBulkActionFunctionality" />
+			<class name="com.qualitesoft.channelgatesip.testscripts.products.TestBulkActionFunctionality" />
 		</classes>
 	</test>
+	
+	<test name="Verify pagination functionality on product listing page for demo vendor">
+		<parameter name="Row" value="2"></parameter>
+		<classes>
+			<class name="com.qualitesoft.channelgatesip.testscripts.products.TestPagination" />
+		</classes>
+	</test>
+	
+	<test name="Verify searching functionality on product listing page for demo vendor">
+		<parameter name="Row" value="2"></parameter>
+		<parameter name="keyword" value="1839295-PKG, 1839063-PKG, 1839062-PKG"></parameter>
+=======
 
+
+	<test
+		name="Verify searching functionality on product listing page for demo vendor">
+		<parameter name="Row" value="2"></parameter>
+		<parameter name="keyword"
+			value="Net5-Check9, Net5-Check10, Net5-Check8"></parameter>
+>>>>>>> Stashed changes
+		<classes>
+			<class name="com.qualitesoft.channelgatesip.testscripts.products.TestSearchFunctionality" />
+		</classes>
+	</test>
+<<<<<<< Updated upstream
+	
+	<test name="Verify filter functionality on product listing page for demo vendor">
+=======
+
+	<test
+		name="Verify filter functionality on product listing page for demo vendor">
+>>>>>>> Stashed changes
+		<parameter name="Row" value="2"></parameter>
+		<classes>
+			<class name="com.qualitesoft.channelgatesip.testscripts.products.TestFilterFunctionality" />
+		</classes>
+	</test>
+<<<<<<< Updated upstream
+	
+	<test name="Verify white label product functionality">
+=======
+
+	<test
+		name="Verify pagination functionality on product listing page for demo vendor">
+>>>>>>> Stashed changes
+		<parameter name="Row" value="2"></parameter>
+		<classes>
+			<class name="com.qualitesoft.channelgatesip.testscripts.products.TestWhiteLabelProduct" />
+		</classes>
+	</test>
+<<<<<<< Updated upstream
+	
+	<!-- <test name="Verify white label product functionality">
+		<parameter name="emailAddress" value="shikha.parmar@qualitesoft.com" />
+		<parameter name="password" value="Test@12" />
+=======
+
+	<test
+		name="Verify bulk actions functionality on product listing page for demo vendor">
+>>>>>>> Stashed changes
+		<parameter name="Row" value="2"></parameter>
+		<parameter name="keyword" value="Unprocessed"></parameter>
+		<classes>
+			<class name="com.qualitesoft.channelgatesip.testscripts.TestLogin" />
+			<class name="com.qualitesoft.channelgatesip.testscripts.orders.TestUnprocessedOrder" />
+			<class name="com.qualitesoft.channelgatesip.testscripts.products.TestPagination" />
+		</classes>
+	</test> -->
+	<!-- <test name="Verify Unprocessed order functonality">
+		<parameter name="emailAddress" value="shikha.parmar@qualitesoft.com" />
+		<parameter name="password" value="Test@12" />
+		<parameter name="keyword" value="Unprocessed"></parameter>
+		<classes>
+			<class name="com.qualitesoft.channelgatesip.testscripts.TestLogin" />
+			<class name="com.qualitesoft.channelgatesip.testscripts.orders.TestUnprocessedOrder" />
+			<class name="com.qualitesoft.channelgatesip.testscripts.products.TestPagination" />
+			<class name="com.qualitesoft.channelgatesip.testscripts.orders.TestFilterFunctionality" />
+		</classes>
+	</test> -->
+	
+	
+	
+	
+	
+	<test name="Verify Unshipped order functonality">
+		<parameter name="emailAddress" value="shikha.parmar@qualitesoft.com" />
+		<parameter name="password" value="Test@12" />
+		<parameter name="keyword" value="Unshipped"></parameter>
+		<classes>
+			<class name="com.qualitesoft.channelgatesip.testscripts.TestLogin" />
+			<!-- <class name="com.qualitesoft.channelgatesip.testscripts.orders.TestUnprocessedOrder" />
+			<class name="com.qualitesoft.channelgatesip.testscripts.products.TestPagination" /> 
+			<class name="com.qualitesoft.channelgatesip.testscripts.orders.TestFilterFunctionality" />-->
+		</classes>
+	</test>
+	
+	
+	<test name="Verify Due Today Filter on order listing">
+		<parameter name="keyword" value="Due Today"></parameter>
+		<classes>
+			<!-- <class name="com.qualitesoft.channelgatesip.testscripts.orders.TestUnshippedMultiFilter" /> -->
+			<class name="com.qualitesoft.channelgatesip.testscripts.orders.TestActionsOnOrderListing" />
+		</classes>
+	</test>
+	
+	
+	<!-- <test name="Verify Due Today Filter on order listing">
+		<parameter name="keyword" value="Due Today"></parameter>
+		<classes>
+			<class name="com.qualitesoft.channelgatesip.testscripts.orders.TestBadgeCountWithTotalOrderCount" />
+		</classes>
+	</test>
+	<test name="Verify Late Filter on order listing">
+		<parameter name="keyword" value="Late"></parameter>
+		<classes>
+			<class name="com.qualitesoft.channelgatesip.testscripts.orders.TestBadgeCountWithTotalOrderCount" />
+		</classes>
+	</test>
+	
+	<test name="Verify Pre-ship Time Filter on order listing">
+		<parameter name="keyword" value="Pre-ship Time"></parameter>
+		<classes>
+			<class name="com.qualitesoft.channelgatesip.testscripts.orders.TestBadgeCountWithTotalOrderCount" />
+		</classes>
+	</test>
+	<test name="Verify Ground Filter on order listing">
+		<parameter name="keyword" value="Ground"></parameter>
+		<classes>
+			<class name="com.qualitesoft.channelgatesip.testscripts.orders.TestBadgeCountWithTotalOrderCount" />
+		</classes>
+	</test>
+	<test name="Verify LTL Filter on order listing">
+		<parameter name="keyword" value="LTL"></parameter>
+		<classes>
+			<class name="com.qualitesoft.channelgatesip.testscripts.orders.TestBadgeCountWithTotalOrderCount" />
+		</classes>
+	</test>
+	
+	<test name="Verify Cancellation Requested as Yes Filter on order listing">
+		<parameter name="keyword" value="Yes"></parameter>
+		<classes>
+			<class name="com.qualitesoft.channelgatesip.testscripts.orders.TestBadgeCountWithTotalOrderCount" />
+		</classes>
+	</test>
+	<test name="Verify Cancellation Requested as No Filter on order listing">
+		<parameter name="keyword" value="No"></parameter>
+		<classes>
+			<class name="com.qualitesoft.channelgatesip.testscripts.orders.TestBadgeCountWithTotalOrderCount" />
+		</classes>
+	</test> -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- <test name="Verify Shipped order functonality">
+		<parameter name="emailAddress" value="shikha.parmar@qualitesoft.com" />
+		<parameter name="password" value="Test@12" />
+		<parameter name="keyword" value="Shipped"></parameter>
+		<classes>
+			<class name="com.qualitesoft.channelgatesip.testscripts.TestLogin" />
+			<class name="com.qualitesoft.channelgatesip.testscripts.orders.TestUnprocessedOrder" />
+			<class name="com.qualitesoft.channelgatesip.testscripts.products.TestPagination" />
+			<class name="com.qualitesoft.channelgatesip.testscripts.orders.TestFilterFunctionality" />
+		</classes>
+	</test> -->
+	
+
+
+	<!-- <test name="Verify pagination functionality on product listing page for demo vendor">
+	<parameter name="emailAddress" value="demovendor@mailinator.com" />
+		<parameter name="password" value="demovendor" />
+		<parameter name="Row" value="2"></parameter>
+		<classes>
+			<class name="com.qualitesoft.channelgatesip.testscripts.TestLogin" />
+			<class name="com.qualitesoft.channelgatesip.testscripts.products.TestPagination" />
+		</classes>
+	</test> -->
+
+	
+
+	
+
+	
+
+	
+
+
+
+
+	
+
+
+
+
+	
+
+
+
+
+
+<<<<<<< Updated upstream
 	<!-- <test name="TestInstance">
 		<classes>
-			<class name="com.qualitesoft.channelgatesip.testscripts.TestInstance" />
+			<class
+				name="com.qualitesoft.channelgatesip.testscripts.TestInstance" />
 		</classes>
 	</test>
 
 	<test name="TestAdminPortal">
 		<classes>
-			<class name="com.qualitesoft.channelgatesip.testscripts.TestAdminPortal" />
+			<class
+				name="com.qualitesoft.channelgatesip.testscripts.TestAdminPortal" />
 		</classes>
 	</test>
 
 	<test name="TestSelectBrand">
 		<classes>
-			<class name="com.qualitesoft.channelgatesip.testscripts.TestSelectBrand" />
+			<class
+				name="com.qualitesoft.channelgatesip.testscripts.TestSelectBrand" />
 		</classes>
 	</test>
 
 	<test name="TestNavigation">
 		<classes>
-			<class name="com.qualitesoft.channelgatesip.testscripts.TestNavigation" />
+			<class
+				name="com.qualitesoft.channelgatesip.testscripts.TestNavigation" />
 		</classes>
 	</test>
 	<test name="TestInviteUser">
 		<classes>
-			<class name="com.qualitesoft.channelgatesip.testscripts.TestInviteUser" />
+			<class
+				name="com.qualitesoft.channelgatesip.testscripts.TestInviteUser" />
 		</classes>
 	</test>
 	<test name="Test Logout">
@@ -129,7 +353,8 @@
 	</test>
 	<test name="Test SignUpNew">
 		<classes>
-			<class name="com.qualitesoft.channelgatesip.testscripts.TestSignUpNew" />
+			<class
+				name="com.qualitesoft.channelgatesip.testscripts.TestSignUpNew" />
 		</classes>
 	</test>
 	<test name="Test Forgot Password">
@@ -137,30 +362,46 @@
 			<class
 				name="com.qualitesoft.channelgatesip.testscripts.TestForgotPassword" />
 		</classes>
-	</test> -->
+	</test>
+=======
+	<!-- <test name="TestInstance"> <classes> <class name="com.qualitesoft.channelgatesip.testscripts.TestInstance" 
+		/> </classes> </test> <test name="TestAdminPortal"> <classes> <class name="com.qualitesoft.channelgatesip.testscripts.TestAdminPortal" 
+		/> </classes> </test> <test name="TestSelectBrand"> <classes> <class name="com.qualitesoft.channelgatesip.testscripts.TestSelectBrand" 
+		/> </classes> </test> <test name="TestNavigation"> <classes> <class name="com.qualitesoft.channelgatesip.testscripts.TestNavigation" 
+		/> </classes> </test> <test name="TestInviteUser"> <classes> <class name="com.qualitesoft.channelgatesip.testscripts.TestInviteUser" 
+		/> </classes> </test> <test name="Test Logout"> <classes> <class name="com.qualitesoft.channelgatesip.testscripts.LogOff" 
+		/> </classes> </test> <test name="Test SignUpNew"> <classes> <class name="com.qualitesoft.channelgatesip.testscripts.TestSignUpNew" 
+		/> </classes> </test> <test name="Test Forgot Password"> <classes> <class 
+		name="com.qualitesoft.channelgatesip.testscripts.TestForgotPassword" /> </classes> 
+		</test> -->
+>>>>>>> Stashed changes
 	<test name="Test Logout User">
 		<classes>
 			<class name="com.qualitesoft.channelgatesip.testscripts.LogOff" />
 		</classes>
 	</test>
 
-	
+
 	<test name="Test Login as admin">
-		<parameter name="emailAddress" value="kamalpreet.kaur@qualitesoft.com" />
+		<parameter name="emailAddress"
+			value="kamalpreet.kaur@qualitesoft.com" />
 		<parameter name="password" value="cymaxcom" />
 		<classes>
-			<class name="com.qualitesoft.channelgatesip.testscripts.TestLogin" />
+			<class
+				name="com.qualitesoft.channelgatesip.testscripts.TestLogin" />
 		</classes>
 	</test>
 
 	<test name="Test select vendor">
 		<parameter name="keyword" value="Bush" />
 		<classes>
-			<class name="com.qualitesoft.channelgatesip.testscripts.TestSelectVendor" />
+			<class
+				name="com.qualitesoft.channelgatesip.testscripts.TestSelectVendor" />
 		</classes>
 	</test>
 
-	<test name="Verify user is able to add the product for bush vendor">
+	<test
+		name="Verify user is able to add the product for bush vendor">
 		<parameter name="Row" value="3"></parameter>
 		<parameter name="existingbrand" value="Yes" />
 		<classes>
@@ -169,7 +410,8 @@
 		</classes>
 	</test>
 
-	<test name="Verify details of added prouct on listing page for bush vendor">
+	<test
+		name="Verify details of added prouct on listing page for bush vendor">
 		<parameter name="Row" value="3"></parameter>
 		<parameter name="baseRateRow" value="$534.00" />
 		<classes>
@@ -185,23 +427,27 @@
 	</test>
 
 	<test name="Test Login 2">
-		<parameter name="emailAddress" value="kamalpreet.kaur@qualitesoft.com" />
+		<parameter name="emailAddress"
+			value="kamalpreet.kaur@qualitesoft.com" />
 		<parameter name="password" value="cymaxcom" />
 		<classes>
-			<class name="com.qualitesoft.channelgatesip.testscripts.TestLogin" />
+			<class
+				name="com.qualitesoft.channelgatesip.testscripts.TestLogin" />
 		</classes>
 	</test>
 
 	<test name="Test select vendor 2">
 		<parameter name="keyword" value="Bush" />
 		<classes>
-			<class name="com.qualitesoft.channelgatesip.testscripts.TestSelectVendor" />
+			<class
+				name="com.qualitesoft.channelgatesip.testscripts.TestSelectVendor" />
 		</classes>
 	</test>
 
 
 
-	<test name="Verify edit product functionality on product listing page for bush vendor">
+	<test
+		name="Verify edit product functionality on product listing page for bush vendor">
 		<parameter name="Row" value="3"></parameter>
 		<classes>
 			<class
@@ -209,7 +455,8 @@
 		</classes>
 	</test>
 
-	<test name="Verify details of updated prouct on listing page for bush vendor">
+	<test
+		name="Verify details of updated prouct on listing page for bush vendor">
 		<parameter name="Row" value="3"></parameter>
 		<parameter name="baseRateRow" value="$534.00" />
 		<classes>
@@ -225,23 +472,27 @@
 	</test>
 
 	<test name="Test Login 3">
-		<parameter name="emailAddress" value="kamalpreet.kaur@qualitesoft.com" />
+		<parameter name="emailAddress"
+			value="kamalpreet.kaur@qualitesoft.com" />
 		<parameter name="password" value="cymaxcom" />
 		<classes>
-			<class name="com.qualitesoft.channelgatesip.testscripts.TestLogin" />
+			<class
+				name="com.qualitesoft.channelgatesip.testscripts.TestLogin" />
 		</classes>
 	</test>
 
 	<test name="Test select vendor 3">
 		<parameter name="keyword" value="Bush" />
 		<classes>
-			<class name="com.qualitesoft.channelgatesip.testscripts.TestSelectVendor" />
+			<class
+				name="com.qualitesoft.channelgatesip.testscripts.TestSelectVendor" />
 		</classes>
 	</test>
 
 
 
-	<test name="Verify searching functionality on product listing page for bush vendor">
+	<test
+		name="Verify searching functionality on product listing page for bush vendor">
 		<parameter name="Row" value="3"></parameter>
 		<parameter name="keyword"
 			value="automation_sku_968, automation_sku_246, automation_sku_905"></parameter>
@@ -251,7 +502,8 @@
 		</classes>
 	</test>
 
-	<test name="Verify filter functionality on product listing page for bush vendor">
+	<test
+		name="Verify filter functionality on product listing page for bush vendor">
 		<parameter name="Row" value="3"></parameter>
 		<classes>
 			<class
@@ -259,7 +511,8 @@
 		</classes>
 	</test>
 
-	<test name="Verify pagination functionality on product listing page for bush vendor">
+	<test
+		name="Verify pagination functionality on product listing page for bush vendor">
 		<parameter name="Row" value="3"></parameter>
 		<classes>
 			<class
@@ -274,27 +527,31 @@
 	</test>
 
 	<test name="Test Login 4">
-		<parameter name="emailAddress" value="kamalpreet.kaur@qualitesoft.com" />
+		<parameter name="emailAddress"
+			value="kamalpreet.kaur@qualitesoft.com" />
 		<parameter name="password" value="cymaxcom" />
 		<classes>
-			<class name="com.qualitesoft.channelgatesip.testscripts.TestLogin" />
+			<class
+				name="com.qualitesoft.channelgatesip.testscripts.TestLogin" />
 		</classes>
 	</test>
 
 	<test name="Test select vendor 4">
 		<parameter name="keyword" value="Bush" />
 		<classes>
-			<class name="com.qualitesoft.channelgatesip.testscripts.TestSelectVendor" />
+			<class
+				name="com.qualitesoft.channelgatesip.testscripts.TestSelectVendor" />
 		</classes>
 	</test>
 
-	<test name="Verify bulk actions functionality on product listing page">
+	<test
+		name="Verify bulk actions functionality on product listing page">
 		<parameter name="Row" value="3"></parameter>
 		<classes>
 			<class
 				name="com.qualitesoft.channelgatesip.testscripts.products.TestBulkActionFunctionality" />
 		</classes>
 	</test>
-
+ -->
 
 </suite>

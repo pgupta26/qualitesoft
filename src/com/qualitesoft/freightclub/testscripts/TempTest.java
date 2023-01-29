@@ -17,9 +17,6 @@ import com.qualitesoft.freightclub.pageobjects.QuickQuoteFinal;
 
 public class TempTest extends InitializeTest {
 	
-	
-	
-	
 	@Test
 	public void tempTest() {
 		
@@ -40,16 +37,16 @@ public class TempTest extends InitializeTest {
 		while(flag) {
 			
 			SeleniumFunction.click(qq.quickQuoteLink());
-			WaitTool.sleep(90);
+			WaitTool.sleep(150);
 			
 			SeleniumFunction.click(manageOrderPage.manageOrdersLink());
-			WaitTool.sleep(120);
+			WaitTool.sleep(180);
 			
 			SeleniumFunction.click(billOfLadingPage.billOfLading());
-			WaitTool.sleep(90);
+			WaitTool.sleep(120);
 			
 			SeleniumFunction.click(mangeInvoices.manageInvoices());
-			WaitTool.sleep(120);
+			WaitTool.sleep(90);
 			
 			SeleniumFunction.click(manageOverages.manageOverages());
 			WaitTool.sleep(150);
@@ -61,7 +58,7 @@ public class TempTest extends InitializeTest {
 			WaitTool.sleep(250);
 			
 			SeleniumFunction.click(manageProducts.manageProductLink());
-			WaitTool.sleep(300);
+			WaitTool.sleep(250);
 			
 		}
 		

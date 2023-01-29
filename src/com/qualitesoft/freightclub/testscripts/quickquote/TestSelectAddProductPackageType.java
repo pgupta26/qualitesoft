@@ -28,7 +28,7 @@ public class TestSelectAddProductPackageType extends InitializeTest {
 		quickQuote.productvalue(1).sendKeys(Keys.ENTER);
 		WaitTool.sleep(2);
 		
-		if(testname.equals("Test loose carton popup visible - Added Product with quantity = 11")) {
+		if(testname.equals("QA-517 : Test loose carton popup visible - Added Product with quantity = 11")) {
 			quickQuote.quantity2("10");	
 		}
 		

@@ -9,7 +9,7 @@ public class ReadPropertyFile {
 
 	Properties pro;
 	public ReadPropertyFile() {
-		File src=new File("./binaries/CGFiles/cgdata.properties");
+		File src=new File("./testdata/CGFiles/cgdata.properties");
 		try {
 			FileInputStream fis=new FileInputStream(src);
 			pro=new Properties();
